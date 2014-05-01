@@ -3,7 +3,7 @@ markdown:         redcarpet
 pygments:         true
 
 # Permalinks
-permalink:        pretty
+permalink:       /posts/:month-:day-:year/:title.html 
 
 # Setup
 title:           Nathan's Notes 
