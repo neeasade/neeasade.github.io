@@ -1,0 +1,21 @@
+.menuStuff{
+  background:#444444;
+
+}
+
+.container{
+  top:50px;
+  border-radius:25px;
+border:1px solid #000000;
+background-color:#222222;
+opacity:0.6;
+}
+
+body {
+  background-image:url('/public/background/tweed.png');
+  background-repeat:repeat;
+}
+
+.content{
+  font-size:12px;
+}
