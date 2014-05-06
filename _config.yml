@@ -21,4 +21,9 @@ paginate:         5
 version:          2.0.0
 
 github:           https://github.com/nathanisom27
-#  repo:           
+
+prose:
+  siteurl:"http://neeasade.net"
+  media:"media"
+  
+  
