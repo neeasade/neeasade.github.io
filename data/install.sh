@@ -13,7 +13,7 @@ wget http://aur.archlinux.org/packages/pa/pacaur/pacaur.tar.gz
 cd pacaur
 makepkg -i
 cd ..
-git clone http://bitbucket.com/nathanisom27/packages_arch
+git clone http://bitbucket.org/nathanisom27/packages_arch
 cd packages arch
 ./stuff.sh
 
