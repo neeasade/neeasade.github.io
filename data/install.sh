@@ -1,6 +1,6 @@
 #Meant to be used to configure blank system with current packages and dotfiles.
 sudo pacman -Syu --noconfirm
-sudo pacman -S wget sudo git base-devel abs file expac --needed --noconfirm
+sudo pacman -S wget sudo git base-devel abs file expac yajl  --needed --noconfirm
 
 #install pacaur:
 #build cower and install:
@@ -14,6 +14,6 @@ cd pacaur
 makepkg -i
 cd ..
 git clone http://bitbucket.org/nathanisom27/packages_arch
-cd packages arch
+cd packages_arch
 ./stuff.sh
 
