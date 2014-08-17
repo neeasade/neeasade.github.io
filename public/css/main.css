@@ -4,15 +4,13 @@
 }
 
 .container{
-  top:50px;
-  border-radius:25px;
-border:1px solid #000000;
-background-color:#222222;
-opacity:0.6;
+top:30%;
+border:3px solid #323232;
+background-color:#1f1f1f;
 }
 
 body {
-  background-image:url('/public/background/tweed.png');
+  background-image:url('/public/background/background.png');
   background-repeat:repeat;
 }
 
