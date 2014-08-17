@@ -50,13 +50,6 @@ body {
 html {
   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  */
   font-family:"Anonymous Pro";
-  font-size: 16px;
-  line-height: 1.5;
-}
-@media (min-width: 38rem) {
-  html {
-    font-size: 20px;
-  }
 }
 
 body {
@@ -258,11 +251,18 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
   padding-left:  1rem;
+  max-width: 38rem;
   padding-right: 1rem;
   margin-left:  auto;
   margin-right: auto;
+  border:3px solid #323232;
+  background-color:#1f1f1f;
+  margin-top: 5px;
+}
+
+.container-header {
+  max-width: 34rem;
 }
 
 

@@ -3,17 +3,28 @@
 
 }
 
-.container{
-top:30%;
-border:3px solid #323232;
-background-color:#1f1f1f;
-}
 
+top:30%;
+
+.header-link
+{
+  font-size: 12px;
+}
 body {
   background-image:url('/public/background/background.png');
   background-repeat:repeat;
 }
 
-.content{
-  font-size:12px;
+.post-content
+{
+    margin-top:6px;
+}
+.title
+{
+    font-size:16px;
+}
+
+.date
+{
+    font-size:12px;
 }

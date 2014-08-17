@@ -1,29 +1,26 @@
 # Dependencies
 markdown:         redcarpet
-pygments:         true
+highlighter:      pygments
 
 # Permalinks
 permalink:       /posts/:month-:day-:year/:title.html 
 
 # Setup
 title:           Nathan's Notes 
-tagline:          'Developer interested in the open source community'
-description:      'Blog full of quick tech notes and rambles/thoughts on unrelated topics.'
-url:               nathanisom27.github.io
 
 author:
   name:           'Nathan Isom'
-  url:            nathanisom27.github.io
+  url:            https://neeasa.de
 
-paginate:         5
+paginate:         10
 
+collections:
+- blog
 # Custom vars
 version:          2.0.0
 
-github:           https://github.com/nathanisom27
-
 prose:
-  siteurl:"http://neeasade.net"
+  siteurl:"http://neeasa.de"
   media:"media"
   
   

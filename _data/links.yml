@@ -1,9 +1,12 @@
 - name: Code
-  link: http://github.com/nathanisom27
+  link: http://github.com/neeasade
 
 - name: Thoughts
-  link: http://twitter.com/nathanisom27
+  link: http://twitter.com/neeasade
 
-- name: LinkedIn
-  link: https://www.linkedin.com/pub/nathan-isom/93/aab/b72
+- name: Blog
+  link: /blog
+
+- name: Notes
+  link: /notes
 
