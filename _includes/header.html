@@ -1,10 +1,12 @@
 <center>
-    <a href="/"> <img src="/public/background/profile.png" style="width:170px;"></a>
+    <span class="header-title" >
+        <a href="/">Neeasade</a><br>
+                </span>
 
 <span class="header-link">
-|
+
 {% for link in site.data.links %}
-    <a href="{{ link.link }}">{{ link.name }}</a> |
+    <a href="{{ link.link }}">{{ link.name }}</a> 
 
 {% endfor %}
 </span>
