@@ -2,6 +2,25 @@
 sudo pacman -Syu --noconfirm
 sudo pacman -S wget sudo git base-devel abs file expac yajl  --needed --noconfirm
 
+root pass:
+passwd
+
+echo hostname:
+read hostname
+echo $hostname > /etc/hostname
+
+echo user:
+read user
+useradd $user
+echo password:
+passwd $user
+ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtim
+echo en_US.UTF-8 UTF-8 > /etc/locale.gen
+locale-gen
+locale > /etc/locale.conf
+
+mkdir /home/$user/temp
+cd /home/$user/temp
 #install pacaur:
 #build cower and install:
 wget http://aur.archlinux.org/packages/co/cower/cower.tar.gz
@@ -14,6 +33,5 @@ cd pacaur
 makepkg -i
 cd ..
 git clone http://bitbucket.org/nathanisom27/packages_arch
-cd packages_arch
-./stuff.sh
 
+echo login as $user and run stuff.

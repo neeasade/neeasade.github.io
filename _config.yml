@@ -11,7 +11,7 @@ title:           Nathan's Notes
 author:
   name:           'Nathan Isom'
   url:            https://neeasa.de
-
+Pager:            paginate
 paginate:         10
 
 collections:

@@ -25,7 +25,6 @@ which template to use for sub-pages.
 I have created a custom filter for displaying previous and next links on category pages.
 
 =end
-
 module Jekyll
 
   class Site
@@ -108,7 +107,7 @@ module Jekyll
 
   end
   
-  class CategoryPager < Pager
+  class CategoryPager < Page
 
     attr_reader :category
 
