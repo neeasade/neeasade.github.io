@@ -20,7 +20,7 @@ locale > /etc/locale.conf
 
 mkdir -p /home/$user/temp
 cd /home/$user/temp
-git clone http://bitbucket.org/nathanisom27/packages_arch
+git clone http://bitbucket.org/neeasade/packages_arch
 
 cd /home/
 chown -R $user $user
