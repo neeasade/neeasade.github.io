@@ -1,28 +1,8 @@
 #Meant to be used to configure blank system with current packages and dotfiles.
-sudo pacman -Syu --noconfirm
+pacman -S git
+git clone https://github.com/neeasade/AutoArch install
+cd install
+./config.sh
+cd ..
+rm -r install
 
-echo root pass:
-passwd
-
-echo hostname:
-read hostname
-echo $hostname > /etc/hostname
-
-echo user:
-read user
-useradd $user
-echo password:
-passwd $user
-ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
-echo en_US.UTF-8 UTF-8 > /etc/locale.gen
-locale-gen
-locale > /etc/locale.conf
-
-mkdir -p /home/$user/temp
-cd /home/$user/temp
-git clone http://bitbucket.org/neeasade/packages_arch
-
-cd /home/
-chown -R $user $user
-
-echo login as $user and run stuff.
