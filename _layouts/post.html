@@ -8,3 +8,17 @@ layout: default
   {{ content }}
 </div>
 
+<div class="pagination">
+    {% for post in site.posts %}
+        {% if post.url == page.url %}
+            {% assign prev_post = forloop.index | minus: 2 %}
+            {% assign next_post = forloop.index %}
+        {% endif %}
+    {% endfor %}
+    {% if prev_post > -1 %}
+        <a href=" {{ site.posts[prev_post].url }}"><-</a>
+    {% endif %}
+    -
+    <a href=" {{ site.posts[next_post].url }}">-></a>
+</div>
+
