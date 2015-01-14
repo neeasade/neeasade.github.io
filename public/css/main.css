@@ -1,3 +1,10 @@
+.post-title, .post-date
+{
+    margin-top:0px;
+    text-align:center;
+    margin-bottom:2px;
+}
+
 .header
 {
     text-align: center;
