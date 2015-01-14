@@ -1,6 +1,6 @@
 # Setup
 title:           Nathan's Notes
-baseurl:            https://neeasade.net
+baseurl:   https://neeasade.net
 
 # Where things are
 source:      .
@@ -49,6 +49,7 @@ relative_permalinks: false
 # Outputting
 permalink:     date
 paginate_path: /page:num
+paginate: 10
 timezone:      null
 
 quiet:    false

@@ -1,12 +1,21 @@
 <div class="header">
 
-    <span class="header-title" >
-        <a href="/">Neeasade</a><br>
-    </span>
+<a href="/">
+<!-- weird spacing is due to center text align being applied -->
+<pre class="header-title" >
+ _   _                               _
+     | \ | | ___  ___  __ _ ___  __ _  __| | ___
+      |  \| |/ _ \/ _ \/ _` / __|/ _` |/ _` |/ _ \
+      | |\  |  __/  __/ (_| \__ \ (_| | (_| |  __/
+      |_| \_|\___|\___|\__,_|___/\__,_|\__,_|\___|
+</pre>
+</a>
 
+<div class="header_links">
     <span class="header-link">
     {% for link in site.data.links %}
         <a href="{{ link.link }}">{{ link.name }}</a>
     {% endfor %}
     </span>
+</div>
 </div>
