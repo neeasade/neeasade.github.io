@@ -1,14 +1,12 @@
-<center>
+<div class="header">
+
     <span class="header-title" >
         <a href="/">Neeasade</a><br>
-                </span>
+    </span>
 
-<span class="header-link">
-
-{% for link in site.data.links %}
-    <a href="{{ link.link }}">{{ link.name }}</a> 
-
-{% endfor %}
-</span>
-
-      </center>
+    <span class="header-link">
+    {% for link in site.data.links %}
+        <a href="{{ link.link }}">{{ link.name }}</a>
+    {% endfor %}
+    </span>
+</div>

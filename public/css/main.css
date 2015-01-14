@@ -1,12 +1,14 @@
-.menuStuff{
-  background:#444444;
 
+*
+{
+    font-family:Inconsolata
 }
 
 .header-link
 {
   font-size: 11pt;
 }
+
 body {
   background-image:url('/public/background/background.png');
   background-repeat:repeat;
@@ -19,10 +21,12 @@ body {
     margin: 0px;
     padding:0;
 }
+
 .post-content
 {
     margin-top:6px;
 }
+
 .title
 {
     font-size:14pt;
