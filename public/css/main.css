@@ -58,21 +58,25 @@ p img
 .terminal
 {
     width: 800px;
-    box-shadow: 10px 10px 20px #888888;
+    box-shadow: 3px 3px 4px #000000;
     align: center;
     margin-left:auto;
     margin-right:auto;
-    background-color:#292929;
-    color: #a2a2a2;
-    border: 3px solid #ffffff;
+    background-color:#1e1e1e;
+    color: #a7a7a7;
+    border: 3px solid #2f2f2f;
 
     padding:3px;
 
     /*gaps ;) */
-    margin-top: 6px;
-    margin-bottom:6px;
+    margin-top: 8px;
+    margin-bottom:8px;
 }
 
+.terminal:hover
+{
+    border: 3px solid #a7a7a7;
+}
 .border_focused
 {
     border: 3px solid #ffffff;
