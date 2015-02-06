@@ -58,7 +58,7 @@ p img
 .terminal
 {
     width: 800px;
-    box-shadow: 3px 3px 4px #000000;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.8);
     align: center;
     margin-left:auto;
     margin-right:auto;
@@ -120,7 +120,7 @@ body
 
 
 /* From here down is the fade in */
-.site_container
+.terminal
 {
     -webkit-animation: fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 0.3s; /* Firefox < 16 */
