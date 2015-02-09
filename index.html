@@ -10,26 +10,4 @@ category: asdf
         <div class="post_link">  <a href="{{ post.url }}">{{ post.title }}</a> </div>
         <div class="date">{{ post.date | date: "%-d %B %Y"}}</div>
     {% endfor %}
-
-
-   <!-- Pagination links -->
-    <div class="pagination">
-
-    {% for lPage in (1..paginator.total_pages) %}
-        {% if lPage == 1 %}
-            {% if lPage == paginator.page %}
-                <a href="/">■</a>
-            {% else %}
-                <a href="/">□</a>
-            {% endif %}
-        {% else %}
-            {% if lPage == paginator.page %}
-                <a href="/page{{lPage}}">■</a>
-            {% else %}
-                <a href="/page{{lPage}}">□</a>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-
-    </div>
 </div>

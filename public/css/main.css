@@ -77,6 +77,20 @@ p img
     background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
+.panel
+{
+    width: 814px;
+    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
+    align: center;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#1e1e1e;
+    color: #a7a7a7;
+    padding:3px;
+    margin-top: 8px;
+    margin-bottom:8px;
+}
+
 .terminal:hover
 {
     border: 3px solid rgba(167,167,167,0.7);
@@ -124,12 +138,27 @@ body
     font-size:8pt;
 }
 
-.pagination
+/* for panel */
+.left
 {
+    display: block;
     font-size: 70%;
-    text-align:center;
+    float:left;
 }
 
+.center
+{
+    font-size: 70%;
+    width: 100%;
+    text-align: center;
+}
+
+.right
+{
+    font-size: 70%;
+    display: block;
+    float: right;
+}
 /* From here down is the fade in */
 .terminal
 {

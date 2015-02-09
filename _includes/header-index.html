@@ -1,0 +1,28 @@
+
+<div class="left" >
+    {% for lPage in (1..paginator.total_pages) %}
+        {% if lPage == 1 %}
+            {% if lPage == paginator.page %}
+                <a href="/">■</a>
+            {% else %}
+                <a href="/">□</a>
+            {% endif %}
+        {% else %}
+            {% if lPage == paginator.page %}
+                <a href="/page{{lPage}}">■</a>
+            {% else %}
+                <a href="/page{{lPage}}">□</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="right">
+    {% for link in site.data.links %}
+        <a href="{{ link.link }}">{{link.name}}</a>
+    {% endfor %}
+</div>
+
+<div class="center">
+    <a href="/">neeasade@blog.neeasade.net</a>
+</div>

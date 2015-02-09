@@ -1,24 +1,10 @@
 ---
-layout: default
+layout: default-post
 ---
 
 <div class="post">
   <h2 class="post-title">{{ page.title }}</h2>
   <div class="post-date">{{ page.date | date_to_string }}</div>
   {{ content }}
-</div>
-
-<div class="pagination">
-    {% for post in site.posts %}
-        {% if post.url == page.url %}
-            {% assign prev_post = forloop.index | minus: 2 %}
-            {% assign next_post = forloop.index %}
-        {% endif %}
-    {% endfor %}
-    {% if prev_post > -1 %}
-        <a href=" {{ site.posts[prev_post].url }}"><-</a>
-    {% endif %}
-    -
-    <a href=" {{ site.posts[next_post].url }}">-></a>
 </div>
 

@@ -1,0 +1,24 @@
+
+<div class="left" >
+    {% for post in site.posts %}
+        {% if post.url == page.url %}
+            {% assign prev_post = forloop.index | minus: 2 %}
+            {% assign next_post = forloop.index %}
+        {% endif %}
+    {% endfor %}
+    {% if prev_post > -1 %}
+        <a href=" {{ site.posts[prev_post].url }}"><-</a>
+    {% endif %}
+    <a href=" {{ site.posts[next_post].url }}">-></a>
+
+</div>
+
+<div class="right">
+    {% for link in site.data.links %}
+        <a href="{{ link.link }}">{{link.name}}</a>
+    {% endfor %}
+</div>
+
+<div class="center">
+    <a href="/">neeasade@blog.neeasade.net</a>
+</div>
