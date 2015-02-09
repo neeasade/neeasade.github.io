@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<body>
 
-<div class="site_container">
-  {% include head.html %}
-  <div class="terminal">
-      {% include header.html %}
-  </div>
+<div class="bg-overlay">
+    <div class="site_container">
+          {% include head.html %}
 
-  <body>
-  <div class="terminal">
-    {{ content }}
-  </div>
-</body>
+          <div class="terminal">
+              {% include header.html %}
+          </div>
+
+          <div class="terminal">
+            {{ content }}
+          </div>
+      </div>
 </div>
+
+</body>
 </html>

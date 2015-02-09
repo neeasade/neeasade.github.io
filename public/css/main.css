@@ -58,28 +58,28 @@ p img
 .terminal
 {
     width: 800px;
-    box-shadow: 3px 3px 4px rgba(0,0,0,0.8);
+    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
     align: center;
     margin-left:auto;
     margin-right:auto;
     background-color:#1e1e1e;
     color: #a7a7a7;
-    border: 3px solid #2f2f2f;
-
     padding:3px;
 
-    /*gaps ;) */
+    /* gaps ;) */
     margin-top: 8px;
     margin-bottom:8px;
+
+    /* Transparent border */
+    border: 3px solid rgba(47,47,47,0.7);
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 .terminal:hover
 {
-    border: 3px solid #a7a7a7;
-}
-.border_focused
-{
-    border: 3px solid #ffffff;
+    border: 3px solid rgba(167,167,167,0.7);
 }
 
 .header-link
@@ -92,6 +92,19 @@ body
     background-image:url('/public/background/background.png');
     background-repeat:repeat;
 }
+
+.bg-overlay
+{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 150, 100, 0.4);
+}
+
 
 .header-title
 {
@@ -115,9 +128,6 @@ body
 {
     text-align:center;
 }
-
-
-
 
 /* From here down is the fade in */
 .terminal
