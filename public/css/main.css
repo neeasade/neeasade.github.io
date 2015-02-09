@@ -107,19 +107,6 @@ body
     background-repeat:repeat;
 }
 
-.bg-overlay
-{
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    overflow: auto;
-    top: 0px;
-    left: 0px;
-    background-color: rgba(0, 180, 00, 0.55);
-}
-
-
 .header-title
 {
     font:bold;
