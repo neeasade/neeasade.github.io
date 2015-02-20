@@ -1,3 +1,8 @@
+---
+layout: post
+title: GDB Registers
+---
+
 ##Using GDB to Step Through Assembly
 
 This will serve as a breif guide on setting up GDB to step through assembly code and witness register changes on the fly.
