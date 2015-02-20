@@ -52,4 +52,6 @@ The command we can use from here to step through the program by assembly line is
 
 ![GDB](http://i.imgur.com/SZkGALi.png "GDB")
 
+And now you can step through each instruction using 'si'. As registers change value, they will be highlighted in the top window. Have fun!
+
 
