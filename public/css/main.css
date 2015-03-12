@@ -136,6 +136,7 @@ body
 
 .center
 {
+    top: 50%
     font-size: 70%;
     width: 100%;
     text-align: center;
@@ -143,6 +144,7 @@ body
 
 .right
 {
+    top: 50%
     font-size: 70%;
     display: block;
     float: right;
