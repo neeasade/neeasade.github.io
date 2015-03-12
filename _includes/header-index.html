@@ -3,9 +3,9 @@
     {% for lPage in (1..paginator.total_pages) %}
         {% if lPage == 1 %}
             {% if lPage == paginator.page %}
-                <a href="/">■</a>
+                <a href="/">▪</a>
             {% else %}
-                <a href="/">□</a>
+                <a href="/">▫</a>
             {% endif %}
         {% else %}
             {% if lPage == paginator.page %}

@@ -62,8 +62,8 @@ p img
     align: center;
     margin-left:auto;
     margin-right:auto;
-    background-color:#1e1e1e;
-    color: #a7a7a7;
+    background-color:#181818;
+    color: #d8d8d8;
     padding:3px;
 
     /* gaps ;) */
@@ -71,7 +71,7 @@ p img
     margin-bottom:8px;
 
     /* Transparent border */
-    border: 3px solid rgba(47,47,47,0.7);
+    border: 3px solid rgba(24,24,24,0.7);
     -moz-background-clip: padding;     /* Firefox 3.6 */
     -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
     background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -84,16 +84,17 @@ p img
     align: center;
     margin-left:auto;
     margin-right:auto;
-    background-color:#1e1e1e;
-    color: #a7a7a7;
+    background-color:#181818;
+    color: #d8d8d8;
     padding:3px;
     margin-top: 8px;
     margin-bottom:8px;
+    height: 18px;
 }
 
 .terminal:hover
 {
-    border: 3px solid rgba(167,167,167,0.7);
+    border: 3px solid rgba(216,216,216,0.7);
 }
 
 .header-link
