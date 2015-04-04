@@ -3,13 +3,12 @@ layout: post
 title: GDB Registers
 ---
 
-##Using GDB to Step Through Assembly
 
-This will serve as a breif guide on setting up GDB to step through assembly code and witness register changes on the fly.
+This will serve as a brief guide on setting up GDB to step through assembly code and witness register changes on the fly.
 
 #Compile the program to debug
 
-I'm assuming here that you have the source of the C file that you wish to step through(this post assumes you are trying to learn about registers for educational purposes). 
+I'm assuming here that you have the source of the C file that you wish to step through(this post assumes you are trying to learn about registers for educational purposes).
 
 Create a Makefile for your architecture(s) of choice. Here is an example of a Makefile for 3 of them:
 
