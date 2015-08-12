@@ -7,7 +7,7 @@
 
 .header
 {
-    text-align: center;
+    vertical-align:50%;
     margin-left:auto;
     margin-right:auto;
 }
@@ -36,11 +36,6 @@ a:hover
     font-family:'Droid Sans'
 }
 
-.h1, .h2, .h3, .h4, .h5
-{
-    font-weight:normal;
-}
-
 p img
 {
     display:block;
@@ -62,21 +57,21 @@ p img
 
 .terminal
 {
-    width: 800px;
-    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
-    align: center;
-    margin-left:auto;
-    margin-right:auto;
+    width: auto;
+    height: 100%;
+    max-width: 784px;
     background-color:#181818;
     color: #d8d8d8;
-    padding:3px;
+    padding:10px;
 
-    /* gaps ;) */
-    margin-top: 8px;
-    margin-bottom:8px;
+    align: center;
+    margin: 10px auto 10px auto;
+
+    /* 'compositing' */
+    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
 
     /* Transparent border */
-    border: 5px solid rgba(24,24,24,0.5);
+    border: 3px solid rgba(24,24,24,0.5);
     -moz-background-clip: padding;     /* Firefox 3.6 */
     -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
     background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -84,27 +79,24 @@ p img
 
 .panel
 {
-    width: 814px;
-    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
+    position: relative;
+    font-weight:bold;
+    font-size: 10pt;
+    width; auto;
+    max-width: 814px;
     align: center;
-    margin-left:auto;
-    margin-right:auto;
+    vertical-align: middle;
+    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
+    margin: 8px auto 8px auto;
     background-color:#181818;
     color: #d8d8d8;
-    padding:3px;
-    margin-top: 8px;
-    margin-bottom:8px;
-    height: 18px;
+    height: 28px;
+    padding: 4px 2px 0px 2px;
 }
 
 .terminal:hover
 {
-    border: 5px solid rgba(216,216,216,0.5);
-}
-
-.header-link
-{
-  font-size: 11pt;
+    border: 3px solid rgba(216,216,216,0.5);
 }
 
 body
@@ -112,13 +104,6 @@ body
     background-image:url('/public/background/background.png');
     background-repeat:repeat;
     background-attachment:fixed;
-}
-
-.header-title
-{
-    font-size:8pt;
-    margin: 0px;
-    padding:0;
 }
 
 .title
@@ -133,30 +118,32 @@ body
 
 /* for panel */
 
-.left, .right, .center
+.header-item
 {
-    font-size: 10pt;
+    padding:4px;
+    margin-left:2px;
+    margin-right:2px;
+    display: inline-block;
+    background-color: #666666;
 }
 
 .left
 {
-    display: block;
     float:left;
 }
 
 .center
 {
-    top: 50%
-    width: 100%;
-    text-align: center;
+    width: 200px;
+    margin: auto;
+    text-align:center;
 }
 
 .right
 {
-    top: 50%
-    display: block;
     float: right;
 }
+
 /* From here down is the fade in */
 .terminal
 {

@@ -1,28 +1,28 @@
 
-<div class="left" >
+<div class="left header-item" >
     {% for lPage in (1..paginator.total_pages) %}
         {% if lPage == 1 %}
             {% if lPage == paginator.page %}
-                <a href="/">▪</a>
+                <a href="/"><i class="fa fa-dot-circle-o"></i></a>
             {% else %}
-                <a href="/">▫</a>
+                <a href="/"><i class="fa fa-circle-o"></i></a>
             {% endif %}
         {% else %}
             {% if lPage == paginator.page %}
-                <a href="/page{{lPage}}">▪</a>
+                <a href="/page{{lPage}}"><i class="fa fa-dot-circle-o"></i></a>
             {% else %}
-                <a href="/page{{lPage}}">▫</a>
+                <a href="/page{{lPage}}"><i class="fa fa-circle-o"></i></a>
             {% endif %}
         {% endif %}
     {% endfor %}
 </div>
 
-<div class="right">
-    {% for link in site.data.links %}
-        <a href="{{ link.link }}">{{link.name}}</a>
-    {% endfor %}
-</div>
+{% for link in site.data.links %}
+    <div class="right header-item">
+            <a href="{{ link.link }}">{{link.name}}</a>
+    </div>
+{% endfor %}
 
-<div class="center">
+<div class="left header-item">
     <a href="/">neeasade@blog.neeasade.net</a>
 </div>

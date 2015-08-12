@@ -1,5 +1,5 @@
 
-<div class="left" >
+<div class="left header-item" >
     {% for post in site.posts %}
         {% if post.url == page.url %}
             {% assign prev_post = forloop.index | minus: 2 %}
@@ -7,18 +7,18 @@
         {% endif %}
     {% endfor %}
     {% if prev_post > -1 %}
-        <a href=" {{ site.posts[prev_post].url }}"><-</a>
+        <a href=" {{ site.posts[prev_post].url }}"><i class="fa fa-arrow-circle-left"></i></a>
     {% endif %}
-    <a href=" {{ site.posts[next_post].url }}">-></a>
+    <a href=" {{ site.posts[next_post].url }}"><i class="fa fa-arrow-circle-right"></i></a>
 
 </div>
 
-<div class="right">
-    {% for link in site.data.links %}
-        <a href="{{ link.link }}">{{link.name}}</a>
-    {% endfor %}
-</div>
+{% for link in site.data.links %}
+    <div class="right header-item">
+            <a href="{{ link.link }}">{{link.name}}</a>
+    </div>
+{% endfor %}
 
-<div class="center">
+<div class="left header-item">
     <a href="/">neeasade@blog.neeasade.net</a>
 </div>
