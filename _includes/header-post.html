@@ -1,18 +1,4 @@
 
-<div class="left header-item" >
-    {% for post in site.posts %}
-        {% if post.url == page.url %}
-            {% assign prev_post = forloop.index | minus: 2 %}
-            {% assign next_post = forloop.index %}
-        {% endif %}
-    {% endfor %}
-    {% if prev_post > -1 %}
-        <a href=" {{ site.posts[prev_post].url }}"><i class="fa fa-arrow-circle-left"></i></a>
-    {% endif %}
-    <a href=" {{ site.posts[next_post].url }}"><i class="fa fa-arrow-circle-right"></i></a>
-
-</div>
-
 {% for link in site.data.links %}
     <div class="right header-item">
             <a href="{{ link.link }}">{{link.name}}</a>
