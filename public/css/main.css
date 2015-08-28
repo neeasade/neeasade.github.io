@@ -121,7 +121,7 @@ body
 
 /* for panel */
 
-.header-item
+.left a,.right a
 {
     padding:4px;
     margin-left:2px;
@@ -130,16 +130,14 @@ body
     background-color: #303030;
 }
 
+.left a:hover, .right a:hover
+{
+    background-color:#a7a7a7;
+}
+
 .left
 {
     float:left;
-}
-
-.center
-{
-    width: 200px;
-    margin: auto;
-    text-align:center;
 }
 
 .right

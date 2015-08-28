@@ -7,7 +7,7 @@ category: asdf
 <div post_listing>
     <!-- This loops through the paginated posts -->
     {% for post in paginator.posts %}
-        <a href="{{ post.url }}"><span class="post_link"> {{ post.title }} </span> <span class="date">{{ post.date | date: "%-d %B %Y"}}</span> </a>
+        <a href="{{ post.url }}"><span class="post_link"> {{ post.title }} </span> <span class="date">{{ post.date | date: "%b %-d %Y"}}</span></a>
         <br/>
     {% endfor %}
 </div>
