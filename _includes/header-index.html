@@ -1,21 +1,4 @@
 
-<div class="left header-item" >
-    {% for lPage in (1..paginator.total_pages) %}
-        {% if lPage == 1 %}
-            {% if lPage == paginator.page %}
-                <a href="/"><i class="fa fa-dot-circle-o"></i></a>
-            {% else %}
-                <a href="/"><i class="fa fa-circle-o"></i></a>
-            {% endif %}
-        {% else %}
-            {% if lPage == paginator.page %}
-                <a href="/page{{lPage}}"><i class="fa fa-dot-circle-o"></i></a>
-            {% else %}
-                <a href="/page{{lPage}}"><i class="fa fa-circle-o"></i></a>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-</div>
 
 {% for link in site.data.links %}
     <div class="right header-item">
