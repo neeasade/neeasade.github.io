@@ -43,11 +43,10 @@
 
 <div class="terminal">
     <div data-ng-controller="ctrl">
-    <ul>
-        <li data-ng-repeat="post in posts">
-             {[{ post.title  }]}
-        </li>
-    </ul>
+        <a data-ng-repeat="post in posts" href="{[{ post.url }]}" style="display:block" >
+             <span class="post_link" >{[{ post.title  }]} </span>
+             <span class="date"> {[{ post.date }]} </span>
+        </a>
     </div>
 </div>
 </html>
