@@ -1,7 +1,6 @@
 ---
 layout: nil
 ---
-
 [
 {% for post in site.posts %}
 	{
@@ -12,3 +11,4 @@ layout: nil
 	} {% if forloop.last %}{% else %},{% endif %}
 {% endfor %}
 ]
+

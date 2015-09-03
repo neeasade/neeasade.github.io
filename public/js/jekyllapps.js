@@ -1,46 +1,30 @@
 /**
  * Setup Module with `highlight` filter
  */
-
-var JekyllApp = angular.module('JekyllApp', [], function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(false);
-});
-
-JekyllApp.filter('highlight', function () {
-    return function (text, filter) {
-        if (filter === '') {
-            return text;
-        }
-        else {
-            return text.replace(new RegExp(filter, 'gi'), '<span class="match">$&</span>');
-        }
-    };
-});
+/*
 
 /**
  * Inject required $objects into our Controller
  */
 
-JekyllSearchController.$inject = ['$scope', '$location', '$window'];
+// not conflict with jekyll bindings.
+angular
+  .module('jekyllApp', [])
+  .controller('ctrl', ctrl)
+  .config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+    })
+;
 
-function JekyllSearchController($scope, $location, $window) {
-    // Optionally passing in a search term via q=XXX
-    // $location.search won't work without html5Mode false using window.location.search instead
-    // $scope.searchText =  $location.search().q || "";
-    // Todo: Consider switching back to $location.search once it supports html5Mode false
-    $scope.searchText = '';
-    var search = window.location.search;
-    if (search.indexOf('?q=') > -1 || search.indexOf('&q=') > -1) {
-        var params = {};
-        angular.forEach(search.split('?')[1].split('&'), function (param) {
-            params[param.split('=')[0]] = param.split('=')[1];
-        });
-        $scope.searchText = params.q || '';
-    }
+function ctrl($scope, $http) {
+  $scope.posts = [];
 
-    $scope.externalLink = function () {
-        // Todo: Figure out the correct AngularJS way for a page reload on href click
-        $window.location.href = this.post.url;
-    };
-    $scope.posts = JekyllApp.posts;
+  $http
+    .get('/site.json')
+    .then(onSuccess)
+  ;
+
+  function onSuccess(result) {
+    $scope.posts = result.data;
+  }
 }
