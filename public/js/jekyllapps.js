@@ -8,7 +8,7 @@
  */
 
 angular
-    .module('jekyllApp', ['ngRoute'])
+    .module('jekyllApp', ['ngRoute', 'ngSanitize'])
     .controller('PostListingCtrl', PostListingCtrl)
     .controller('PostContentCtrl', PostContentCtrl)
 
@@ -26,7 +26,7 @@ angular
             }).
             when('/p:postId', {
                 controller: 'PostContentCtrl',
-                template: ' content '
+                template: ' <span ng-bind-html="content"></span> '
             }).
             otherwise({
                 redirectTo: '/'
@@ -47,14 +47,23 @@ function PostListingCtrl($scope, $http) {
 }
 
 function PostContentCtrl($scope, $http, $routeParams) {
-    $scope.ContentUrl = $routeParams.ContentUrl;
+    $scope.postId= $routeParams.postId;
 
     $http
-        .get($scope.ContentUrl)
-        .then(setContent);
+        .get('/site.json')
+        .then(parsePosts);
 
-    function setContent(result) {
-        $scope.content=result;
+    function parsePosts(result) {
+        $scope.posts = result.data;
+        //get the url associated with postId.
+        $http
+            .get($scope.posts[$scope.postId].url)
+            .then(getContent);
+    }
+
+    function getContent(result)
+    {
+        $scope.content=result.data;
     }
 }
 
