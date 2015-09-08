@@ -1,14 +1,7 @@
-/**
- * Setup Module with `highlight` filter
- */
-/*
 
-/**
- * Inject required $objects into our Controller
- */
-
+// Make a jekyll app to interact with posts n such.
 angular
-    .module('jekyllApp', ['ngRoute', 'ngSanitize'])
+    .module('jekyllApp', ['ngRoute'])
     .controller('PostListingCtrl', PostListingCtrl)
     .controller('PostContentCtrl', PostContentCtrl)
 
@@ -46,7 +39,7 @@ function PostListingCtrl($scope, $http) {
     }
 }
 
-function PostContentCtrl($scope, $http, $routeParams) {
+function PostContentCtrl($scope, $http, $routeParams, $sce) {
     $scope.postId= $routeParams.postId;
 
     $http
@@ -63,11 +56,7 @@ function PostContentCtrl($scope, $http, $routeParams) {
 
     function getContent(result)
     {
-        $scope.content=result.data;
+        $scope.content=$sce.trustAsHtml(result.data);
     }
 }
-
-// two controllers, one for index, one for content,
-// the second will make http request for cnotent based on routeParam array from link.
-
 
