@@ -9,7 +9,8 @@
 
 angular
     .module('jekyllApp', ['ngRoute'])
-    .controller('ctrl', ctrl)
+    .controller('PostListingCtrl', PostListingCtrl)
+    .controller('PostContentCtrl', PostContentCtrl)
 
     // not conflict with jekyll bindings.
     .config(function($interpolateProvider){
@@ -19,9 +20,13 @@ angular
     .config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.
+            when('/', {
+                controller: 'PostListingCtrl',
+                templateUrl: ' /template/index.html '
+            }).
             when('/p:postId', {
-                controller: 'ctrl',
-                template: ' {[{  content }]} '
+                controller: 'PostContentCtrl',
+                template: ' content '
             }).
             otherwise({
                 redirectTo: '/'
@@ -29,26 +34,28 @@ angular
         }])
 ;
 
-function ctrl($scope, $http, $routeParams) {
-  $scope.postId = $routeParams.postId;
-  $scope.posts = [];
-  $scope.content = [];
+function PostListingCtrl($scope, $http) {
+    $scope.posts=[];
 
-  $http
-    .get($scope.posts[postId].url)
-    .then(setContent);
+    $http
+        .get('/site.json')
+        .then(fillPosts);
 
-  function setContent(result) {
-    $scope.content=result;
-  }
+    function fillPosts(result) {
+        $scope.posts = result.data;
+    }
+}
 
-  $http
-    .get('/site.json')
-    .then(onSuccess);
+function PostContentCtrl($scope, $http, $routeParams) {
+    $scope.ContentUrl = $routeParams.ContentUrl;
 
-  function onSuccess(result) {
-    $scope.posts = result.data;
-  }
+    $http
+        .get($scope.ContentUrl)
+        .then(setContent);
+
+    function setContent(result) {
+        $scope.content=result;
+    }
 }
 
 // two controllers, one for index, one for content,
