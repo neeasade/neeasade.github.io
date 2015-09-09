@@ -93,13 +93,14 @@ function PostSearchCtrl($scope, $http) {
         $scope.matches=[];
         if ($scope.search.length > 0) {
             //search post content
-            for (i = 0; i < $scope.posts.length; i++) {
+            for (i = $scope.posts.length -1; i > -1; i--) {
                 if ($scope.posts[i].content.indexOf(newValue) > -1 ) {
                     $scope.newMatch=[];
                     $scope.newMatch.title=$scope.posts[i].title;
                     $scope.newMatch.postId=i;
-                    $scope.matchIndex=$scope.posts[i].content.indexOf(newValue) > -1
-                    $scope.newMatch.content=$scope.posts[i].content.substring(($scope.matchIndex - 50 < 0 ? 0 : $scope.matchIndex - 50),100);
+                    $scope.matchIndex=$scope.posts[i].content.indexOf(newValue);
+                    $scope.matchIndex=($scope.matchIndex - 50 < 0 ? 0 : $scope.matchIndex - 50);
+                    $scope.newMatch.content=$scope.posts[i].content.substr($scope.matchIndex,100).replace(newValue,"___"+newValue+"___");
                     $scope.matches.push($scope.newMatch);
                 }
             }
