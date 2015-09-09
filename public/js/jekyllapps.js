@@ -100,7 +100,7 @@ function PostSearchCtrl($scope, $http) {
                     $scope.newMatch.postId=i;
                     $scope.matchIndex=$scope.posts[i].content.indexOf(newValue);
                     $scope.matchIndex=($scope.matchIndex - 50 < 0 ? 0 : $scope.matchIndex - 50);
-                    $scope.newMatch.content=$scope.posts[i].content.substr($scope.matchIndex,100).replace(newValue,"___"+newValue+"___");
+                    $scope.newMatch.content=$scope.posts[i].content.substr($scope.matchIndex,100).replace(newValue,"__"+newValue+"__");
                     $scope.matches.push($scope.newMatch);
                 }
             }

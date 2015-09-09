@@ -1,7 +1,8 @@
-Search:
-<input ng-model="search" name="postSearch" />
+<div class="search">
+<input ng-model="search" placeholder="search.." name="postSearch" autofocus />
+</div>
 
-<div ng-repeat="match in matches" >
+<span ng-repeat="match in matches" >
      <h3> <a href="/#/p{[{ match.postId }]}"> {[{ match.title }]} </a> </h3>
      "...{[{ match.content }]}..."
-</div>
+</span>
