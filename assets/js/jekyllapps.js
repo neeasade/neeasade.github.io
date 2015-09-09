@@ -16,15 +16,15 @@ angular
             $routeProvider.
             when('/', {
                 controller: 'PostListingCtrl',
-                templateUrl: ' /template/index.html '
+                templateUrl: ' /assets/templates/index.html '
             }).
             when('/p:postId', {
                 controller: 'PostContentCtrl',
-                templateUrl: '/template/post.html'
+                templateUrl: '/assets/templates/post.html'
             }).
             when('/search', {
                 controller: 'PostSearchCtrl',
-                templateUrl: '/template/search.html'
+                templateUrl: '/assets/templates/search.html'
             }).
             otherwise({
                 redirectTo: '/'
@@ -36,7 +36,7 @@ function PostListingCtrl($scope, $http) {
     $scope.posts=[];
 
     $http
-        .get('/site.json')
+        .get('/assets/site.json')
         .then(fillPosts);
 
     function fillPosts(result) {
@@ -48,7 +48,7 @@ function PostContentCtrl($scope, $http, $routeParams, $sce) {
     $scope.postId= $routeParams.postId;
 
     $http
-        .get('/site.json')
+        .get('/assets/site.json')
         .then(parsePosts);
 
     function parsePosts(result) {
@@ -81,7 +81,7 @@ function PostSearchCtrl($scope, $http) {
     $scope.search="";
 
     $http
-        .get('/site_full.json')
+        .get('/assets/site-content.json')
         .then(parsePosts);
 
     function parsePosts(result) {
