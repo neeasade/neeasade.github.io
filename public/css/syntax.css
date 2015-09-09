@@ -14,7 +14,7 @@
     width: 90%;
 }
 
-.highlight .lineno { color: #606060; display:inline-block; padding: 0 5px; border-right:2px solid #1e1e1e; text-align:center;}
+.highlight .lineno { min-width: 20px; color: #606060; display:inline-block; padding: 0 5px; border-right:2px solid #1e1e1e; text-align:center;}
 .highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
 
 .highlight .hll { background-color: #464b50 }
