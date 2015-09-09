@@ -1,0 +1,12 @@
+---
+layout: null
+---
+[
+{% for post in site.posts %}
+	{
+	  "title"    : "{{ post.title }}",
+	  "content"  : {{ post.content | jsonify | downcase | strip_html }}
+	} {% if forloop.last %}{% else %},{% endif %}
+{% endfor %}
+]
+

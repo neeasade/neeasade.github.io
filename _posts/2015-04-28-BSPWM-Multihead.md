@@ -8,7 +8,7 @@ i3 has fantastic focus and window handling for multiple monitors out of the box 
 ##Initial
 In the example sxhkd in the bspwm repo, the main window focus keybind is set up as such:
 
-{% highlight bash %}
+{% highlight bash linenos %}
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 {% endhighlight %}
@@ -18,7 +18,7 @@ I'm going to separate this into 2 parts, a focus part and a movement part.
 ##Focus
 
 So taking the focus part out of the above we get:
-{% highlight bash %}
+{% highlight bash linenos %}
 super + {h,j,k,l}
     bspc window -f {left,down,up,right}
 {% endhighlight %}
@@ -34,7 +34,7 @@ the command `bspc window -f right` will fail, as there is no window to the right
 
 In the above, on a focus right, I want the cursor to appear in the middle of the right monitor as well as focus on that monitor.
 
-{% highlight bash %}
+{% highlight bash linenos %}
 super +  {h,j,k,l}
     bspc config pointer_follows_monitor true; \
     bspc config pointer_follows_focus true; \
@@ -56,7 +56,7 @@ So let's say you are moving a floating window with your mouse across the 2 scree
 
 Movement part of the example sxhkd:
 
-{% highlight bash %}
+{% highlight bash linenos %}
 super + shift + {h,j,k,l}
     bspc window -s {left,down,up,right}
 {% endhighlight %}
@@ -73,7 +73,7 @@ Under this behavior, the keypress `super + shift + l` would yield the following 
 ![img](http://i.imgur.com/HyahZTU.png)
 
 Here is an implementation:
-{% highlight bash %}
+{% highlight bash linenos %}
 super + shift + {h,j,k,l}
     bspc config pointer_follows_focus true; \
     cur_win=$(bspc query -W -w) \

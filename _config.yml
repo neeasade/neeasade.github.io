@@ -6,8 +6,6 @@ baseurl:   https://neeasade.net
 source:      .
 destination: ./_site
 plugins:     ./_plugins
-layouts:     ./_layouts
-data_source: ./_data
 collections: null
 
 # Handling Reading
@@ -47,29 +45,15 @@ baseurl: "" # does not include hostname
 relative_permalinks: false
 
 # Outputting
-permalink:     date
+permalink:    /post/:title/
 paginate_path: /page:num
 paginate: 1000
-timezone:      null
+timezone: null
 
 quiet:    false
 defaults: []
 
 # Markdown Processors
-maruku:
-  use_tex:    false
-  use_divs:   false
-  png_engine: blahtex
-  png_dir:    images/latex
-  png_url:    /images/latex
-  fenced_code_blocks: true
-
-rdiscount:
-  extensions: []
-
-redcarpet:
-  extensions: []
-
 kramdown:
   auto_ids:       true
   footnote_nr:    1
@@ -77,18 +61,3 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      inline
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               style
-
-redcloth:
-  hard_breaks: true
-
-prose:
-  siteurl:"http://neeasade.net"
-  media:"media"

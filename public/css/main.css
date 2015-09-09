@@ -5,6 +5,12 @@
     margin-bottom:2px;
 }
 
+.search
+{
+    margin:auto;
+    width: 180px;
+}
+
 .header
 {
     vertical-align:50%;
@@ -42,24 +48,15 @@ p img
     display:block;
     margin-left:auto;
     margin-right:auto;
-    width:90%;
-    height:90%;
-}
-
-.highlight
-{
-    border: 1px white solid;
-    margin-left:auto;
-    margin-right:auto;
-    width: 90%;
-    padding: 3px;
-    background-color:#000000;
+    width:auto;
+    height:auto;
+    max-width:90%;
+    min-width:90%;
 }
 
 .terminal
 {
     width: auto;
-    height: 100%;
     max-width: 764px;
     background-color:#1e1e1e;
     color: #a7a7a7;
@@ -143,45 +140,6 @@ body
 .right
 {
     float: right;
-}
-
-/* From here down is the fade in */
-.terminal
-{
-    -webkit-animation: fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 0.3s; /* Firefox < 16 */
-        -ms-animation: fadein 0.3s; /* Internet Explorer */
-         -o-animation: fadein 0.3s; /* Opera < 12.1 */
-            animation: fadein 0.3s;
-}
-
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
 }
 
 i
