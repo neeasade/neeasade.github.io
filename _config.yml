@@ -45,7 +45,7 @@ baseurl: "" # does not include hostname
 relative_permalinks: false
 
 # Outputting
-permalink:    /post/:title
+permalink:    /post/:title/
 paginate_path: /page:num
 paginate: 1000
 timezone:      null

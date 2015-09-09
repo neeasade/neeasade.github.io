@@ -19,7 +19,7 @@ angular
             }).
             when('/p:postId', {
                 controller: 'PostContentCtrl',
-                template: ' <span ng-bind-html="content"></span> '
+                templateUrl: '/template/post.html'
             }).
             otherwise({
                 redirectTo: '/'
@@ -47,8 +47,9 @@ function PostContentCtrl($scope, $http, $routeParams, $sce) {
         .then(parsePosts);
 
     function parsePosts(result) {
-        $scope.posts = result.data;
-        //get the url associated with postId.
+        // reverse so that posts are in ascending order, oldest to newest.
+        $scope.posts = result.data.reverse();
+        // get the url associated with postId.
         $http
             .get($scope.posts[$scope.postId].url)
             .then(getContent);
@@ -58,5 +59,13 @@ function PostContentCtrl($scope, $http, $routeParams, $sce) {
     {
         $scope.content=$sce.trustAsHtml(result.data);
     }
+
+    $scope.scrollTo = function(id) {
+        var old = $location.hash();
+        $location.hash(id);
+        $anchorScroll();
+        // reset to old to keep any additional routing logic from kicking in
+        $location.hash(old);
+    };
 }
 

@@ -1,0 +1,20 @@
+
+ <span ng-bind-html="content"></span> '
+
+<div style="margin:auto;width:60px;">
+     {[{ postId-1 }]}
+
+<!--
+{% for post in site.posts %}
+    {% if post.url == page.url %}
+        {% assign prev_post = forloop.index | minus: 2 %}
+        {% assign next_post = forloop.index %}
+    {% endif %}
+{% endfor %}
+{% if prev_post > -1 %}
+    <a href=" {{ site.posts[prev_post].url }}"><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></a>
+{% endif %}
+<a href="#comments" onclick="toggleComments();"><i class="fa fa-comment"></i></a>
+<a href=" {{ site.posts[next_post].url }}"><i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+-->
+</div>
