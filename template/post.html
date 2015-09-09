@@ -1,20 +1,16 @@
 
- <span ng-bind-html="content"></span> '
+<h1 class="post-title"> {[{ posts[postId].title }]} </h1>
+<div class="post-date"> {[{ posts[postId].date }]} </div>
 
-<div style="margin:auto;width:60px;">
-     {[{ postId-1 }]}
+ <span ng-bind-html="content"></span>
 
-<!--
-{% for post in site.posts %}
-    {% if post.url == page.url %}
-        {% assign prev_post = forloop.index | minus: 2 %}
-        {% assign next_post = forloop.index %}
-    {% endif %}
-{% endfor %}
-{% if prev_post > -1 %}
-    <a href=" {{ site.posts[prev_post].url }}"><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></a>
-{% endif %}
-<a href="#comments" onclick="toggleComments();"><i class="fa fa-comment"></i></a>
-<a href=" {{ site.posts[next_post].url }}"><i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
--->
+<div style="margin:auto;width:100px;">
+     <a href="/#/p{[{ postId - 1 }]}">
+          <<
+     </a>
+     &#60(^^,)&#62
+     <!-- postID + (1|Number(1)) didn't work. D: -->
+     <a href="/#/p{[{ postId - -1 }]}">
+          >>
+     </a>
 </div>
