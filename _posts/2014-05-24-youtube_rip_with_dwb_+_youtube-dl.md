@@ -5,7 +5,7 @@ title: youtube rip with dwb + youtube-dl
 
 Just finished a snippet that can be used in combination with dwb(or many other browsers, probably) to auto download a youtube video and convert it to audio using [youtube-dl](rg3.github.io/youtube-dl).
 
-{% highlight bash %}
+{% highlight bash linenos %}
 #!/bin/bash
 #dwb: xf
 download_dir=/my/media/dir
