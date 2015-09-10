@@ -5,12 +5,12 @@
  <span ng-bind-html="content"></span>
 
 <div style="margin:auto;width:100px;">
-     <a href="/#/p{[{ postId - 1 }]}">
+     <a href="/#/p{[{ postId - -1 }]}">
           <<
      </a>
      &#60(^^,)&#62
      <!-- postID + (1|Number(1)) didn't work. D: -->
-     <a href="/#/p{[{ postId - -1 }]}">
+     <a href="/#/p{[{ postId - 1 }]}">
           >>
      </a>
 </div>
