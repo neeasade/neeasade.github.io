@@ -1,168 +1,132 @@
-.post-title, .post-date
-{
-    margin-top:0px;
-    text-align:center;
-    margin-bottom:2px;
+.post-title, .post-date {
+    position: relative;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.search
-{
-    margin:auto;
-    width: 220px;
+.header {
+    vertical-align: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.search input
-{
-    width: 100%;
-    background-color: #1e1e1e;
-    color: #a7a7a7;
-    border: 0px solid #000000;
-    border-bottom: 1px solid #a7a7a7;
-    font-size: 16px;
-}
-
-.search input:focus, .search textarea:focus
-{
-    outline: 0;
-}
-
-.header
-{
-    vertical-align:50%;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.post_link
-{
+.post_link {
     font-size: 14px;
-    margin-bottom:0px;
-    margin-top:3px;
+    margin-bottom: 0px;
+    margin-top: 3px;
 }
 
-a
-{
-    color:#d7d7d7;
-    text-decoration:none;
+.terminal a {
+    color: inherit;
+    text-decoration: none;
+
+    background-image: linear-gradient(to top,
+      rgba(0,0,0,0) 11%,
+      rgba(0,0,0,.3) 11%,
+      rgba(0,0,0,.3) 16%,
+      rgba(0,0,0,0) 16%
+    );
+
 }
 
-a:hover
-{
-    color:#1e1e1e;
-    background-color:#a7a7a7;
+.terminal a:hover {
+    color: rgba(0,0,0,0.6);
 }
 
-a:focus
-{
-    text-decoration: underline;
+p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    min-width: 90%;
 }
 
+.terminal {
+    background-color: #f4f5f6;
+    color: rgba(0,0,0,0.8);
+    border: 4px solid #eeeff0;
 
-*
-{
-    font-family:'Droid Sans'
-}
+    font-family: "Droid Sans", "Lucida Console", Monaco, monospace;
+    font-size: 1em;
 
-p img
-{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    width:auto;
-    height:auto;
-    max-width:90%;
-    min-width:90%;
-}
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    display: block;
 
-.terminal
-{
+    /* todo: figure out how to scale things */
     width: auto;
     max-width: 764px;
-    background-color:#1e1e1e;
-    color: #a7a7a7;
-    padding:20px;
-
-    align: center;
-    margin: 10px auto 10px auto;
-
-    /* 'compositing' */
-    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
-
-    /* Transparent border */
-    border: 4px solid rgba(24,24,24,0.5);
-    -moz-background-clip: padding;     /* Firefox 3.6 */
-    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
-.panel
-{
-    letter-spacing: 0.5px;
-    position: relative;
-    font-weight:bold;
+/* assuming code blocks */
+pre {
+    font-family: "Droid Sans Mono", "Lucida Console", Monaco, monospace;
+    font-size: 0.9em;
+    background-color: #eeeff0;
+}
+
+.panel {
+    font-family: 'Droid Sans';
+    font-weight: bold;
     font-size: 10pt;
+    letter-spacing: 0.5px;
+
     width; auto;
-    max-width: 814px;
-    align: center;
-    vertical-align: middle;
-    box-shadow: 3px 3px 1px rgba(0,0,0,0.6);
-    margin: 8px auto 8px auto;
-    background-color:#1e1e1e;
-    color: #a7a7a7;
     height: 28px;
-    padding: 4px 2px 0px 2px;
+    max-width: 800px;
+
+    position: relative;
+    vertical-align: middle;
+    margin: 8px auto 8px auto;
+    padding: 4px 2px 6px 2px;
+
+    background: rgba(0,0,0,0.0);
+    color: rgba(0,0,0,0.8);
 }
 
-.terminal:hover
-{
-    border: 4px solid rgba(216,216,216,0.5);
+body {
+    background-image: url('/assets/img/background.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
-body
-{
-    background-image:url('/assets/img/background.png');
-    background-repeat:repeat;
-    background-attachment:fixed;
+.title {
+    font-size: 1em;
 }
 
-.title
-{
-    font-size:14pt;
-}
-
-.date
-{
-    font-size:10pt;
-    float:right;
+.date {
+    font-size: 10pt;
+    float: right;
 }
 
 /* for panel */
 
-.left a,.right a
-{
-    padding:4px;
-    margin-left:2px;
-    margin-right:2px;
+.panel a {
+    background-color: #f4f5f6;
+    color: rgba(0,0,0,0.8);
+    border: 4px solid #eeeff0;
+    font-size: 1em;
+    text-decoration: none;
+
+    padding: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
     display: inline-block;
-    background-color: #303030;
 }
 
-.left a:hover, .right a:hover
-{
-    background-color:#a7a7a7;
+.panel a:hover {
+    color: rgba(0,0,0,0.6);
 }
 
-.left
-{
-    float:left;
+.left {
+    float: left;
 }
 
-.right
-{
+.right {
     float: right;
-}
-
-i
-{
-    font-style:normal;
 }

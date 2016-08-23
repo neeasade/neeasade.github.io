@@ -5,7 +5,7 @@ title: i3-like multihead in bspwm
 
 i3 has fantastic focus and window handling for multiple monitors out of the box in my opinion. I didn't realize that I missed this until I was on campus and used i3 on a multihead setup there, so I set out to make my bspwm setup act the same.
 
-##Initial
+## Initial
 In the example sxhkd in the bspwm repo, the main window focus keybind is set up as such:
 
 {% highlight bash linenos %}
@@ -15,7 +15,7 @@ super + {_,shift + }{h,j,k,l}
 
 I'm going to separate this into 2 parts, a focus part and a movement part.
 
-##Focus
+## Focus
 
 So taking the focus part out of the above we get:
 {% highlight bash linenos %}
@@ -30,7 +30,7 @@ So, This will focus on a window in a direction determined by keypress, which are
 the command `bspc window -f right` will fail, as there is no window to the right, and no action occurs as a result.
 
 
-###Desired behavior
+### Desired behavior
 
 In the above, on a focus right, I want the cursor to appear in the middle of the right monitor as well as focus on that monitor.
 
@@ -52,7 +52,7 @@ When the window right command fails in the above scenario, the monitor to the ri
 
 So let's say you are moving a floating window with your mouse across the 2 screens - with either of the two pointer options above enabled, when you cross the border the cursor will move, and the window with it. This window snapping out from under you can be quite annoying.
 
-##Movement
+## Movement
 
 Movement part of the example sxhkd:
 
@@ -63,7 +63,7 @@ super + shift + {h,j,k,l}
 
 Alright, so what this does is switch the currently focused window with another window by direction, although the focus remains on the original window spot, which I've found to be quite annoying. It feels more natural to keep focus on the same window and 'carry' it around your workspaces/monitors.
 
-###Desired behavior
+### Desired behavior
 
 When a window is switched, retain focus on the original window that was moved. If switching to an empty monitor, move the window to that monitor. If switching to an occupied monitor, move the window to that monitor instead of switching windows.
 

@@ -1,63 +1,26 @@
 # Setup
-title:           Nathan's Notes
-baseurl:   https://neeasade.net
-
-# Where things are
-source:      .
-destination: ./_site
-plugins:     ./_plugins
-collections: null
+title: Nathan's Notes
 
 # Handling Reading
-safe:         false
 include:      [".htaccess"]
-exclude:      []
+exclude:      [vendor]
 keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-textile_ext:  "textile"
-
-# Filtering Content
-show_drafts: null
-limit_posts: 0
-future:      true
-unpublished: false
+markdown_ext: "markdown,md"
 
 # Plugins
-whitelist: []
-gems: []
-#- jekyll-mentions
-#- jekyll-sitemap
-
-# Conversion
-markdown:    kramdown
-highlighter: pygments
-lsi:         false
-excerpt_separator: "\n\n"
+gems:
+  - jekyll-mentions
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-pagination
 
 # Serving
 detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: "" # does not include hostname
-
-# Backwards-compatibility
-relative_permalinks: false
 
 # Outputting
-permalink:    /post/:title/
-paginate_path: /page:num
-paginate: 1000
-timezone: null
-
-quiet:    false
-defaults: []
-
-# Markdown Processors
-kramdown:
-  auto_ids:       true
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
+permalink:    /p/:title/
+paginate_path: /:num
+paginate: 25
