@@ -51,7 +51,11 @@ p img {
     color: rgba(0,0,0,0.8);
     border: 4px solid #eeeff0;
 
-    font-family: "Droid Sans", "Lucida Console", Monaco, monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", 
+    "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    sans-serif;
+    
     font-size: 1em;
 
     padding: 10px;
@@ -64,14 +68,14 @@ p img {
 }
 
 /* assuming code blocks */
-pre {
-    font-family: "Droid Sans Mono", "Lucida Console", Monaco, monospace;
-    font-size: 0.9em;
-    background-color: #eeeff0;
-}
+
 
 .panel {
-    font-family: 'Droid Sans';
+    font-family: -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", 
+    "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    sans-serif;
+    
     font-weight: bold;
     font-size: 10pt;
     letter-spacing: 0.5px;
@@ -131,10 +135,16 @@ body {
     float: right;
 }
 
+code {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 1em;
+    background-color: #eeeff0;
+    color: #151515;
+}
+
 /* base16 light */
 
 .code .hll { background-color: #e0e0e0 }
-.code  { background: #f4f5f6; color: #151515 }
 .code .c { color: #b0b0b0 } /* Comment */
 .code .err { color: #fb9fb1 } /* Error */
 .code .k { color: #e1a3ee } /* Keyword */
