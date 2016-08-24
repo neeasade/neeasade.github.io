@@ -48,7 +48,7 @@ super +  {h,j,k,l}
 
 When the window right command fails in the above scenario, the monitor to the right will be focused, and the pointer will be there.
 
-\>Why is half of this function setting pointer_follows_* values?
+> Why is half of this function setting pointer_follows_* values?
 
 So let's say you are moving a floating window with your mouse across the 2 screens - with either of the two pointer options above enabled, when you cross the border the cursor will move, and the window with it. This window snapping out from under you can be quite annoying.
 

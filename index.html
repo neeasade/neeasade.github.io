@@ -2,9 +2,11 @@
 layout: default
 ---
 
-{% for post in site.posts %}
-    <a href="{{ post.url }}" style="display:block">
-        <span class="post_link" >{{ post.title }} </span>
-        <span class="date"> {{ post.date | date_to_string }} </span>
-    </a>
-{% endfor %}
+<div class=listing>
+    {% for post in site.posts %}
+         <a href="{{ post.url }}">
+            {{ post.title }}
+            <span class="right"> {{ post.date | date_to_string }} </span>
+        </a>
+    {% endfor %}
+</div>
