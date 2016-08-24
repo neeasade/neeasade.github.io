@@ -4,14 +4,6 @@
  * page specific classes
  * code snippet styling */
 
-body {
-    background-image: url('/assets/img/background.png');
-    background-repeat: repeat;
-    background-attachment: fixed;
-
-    font-size: 100%;
-}
-
 h1 { font-size: 2.3em;   }
 h2 { font-size: 1.675em; }
 p  { font-size: 1em; }
@@ -21,22 +13,6 @@ p { font-family: 'Open Sans'; }
 h1, h2, h3, h4, h5 {
     font-family: 'Roboto';
     font-weight: normal;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-
-    background-image: linear-gradient(to top,
-      rgba(0,0,0,0) 11%,
-      rgba(0,0,0,.3) 11%,
-      rgba(0,0,0,.3) 16%,
-      rgba(0,0,0,0) 16%
-    );
-}
-
-a:hover, .panel a:hover {
-    color: rgba(0,0,0,0.6);
 }
 
 img {
@@ -55,6 +31,7 @@ blockquote p {
     color: rgba(0,0,0, 0.6);
 }
 
+
 .center { text-align: center; }
 .left { float: left; }
 .right { float: right; }
@@ -65,16 +42,6 @@ blockquote p {
 }
 
 .terminal {
-    background-color: #f4f5f6;
-    color: rgba(0,0,0,0.8);
-    border: 4px solid #eeeff0;
-
-    font-family: "Roboto";
-
-    padding: 20px;
-    margin: 10px 0px 10px 0px;
-    display: block;
-
     width: auto;
 }
 
@@ -91,7 +58,6 @@ blockquote p {
 
 .panel a {
     background-color: #f4f5f6;
-    color: rgba(0,0,0,0.8);
     border: 4px solid #eeeff0;
 
     background-image: none !important;
@@ -100,7 +66,13 @@ blockquote p {
     display: inline-block;
 }
 
+.panel a:hover {
+    color: rgba(0,0,0,0.6);
+}
+
+
 /* listing is used for post listing */
+
 .listing a {
     background-image: none !important;
     display: block;
@@ -110,6 +82,9 @@ blockquote p {
     background-color: #eeeff0;
     color: rgba(0,0,0,0.8) !important;
 }
+
+
+/* highlight is the class for code blocks */
 
 .highlight {
     font-family: "Lucida Console", Monaco, monospace;
