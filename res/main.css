@@ -74,6 +74,7 @@ blockquote p {
 /* listing is used for post listing */
 
 .listing a {
+    font-family: 'Open Sans';
     background-image: none !important;
     display: block;
 }
