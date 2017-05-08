@@ -2,7 +2,6 @@ css rice/web pretties.
 
 todo:
 - consider collections
-- searching with lunr.js
 - pagination
 
 to run locally:

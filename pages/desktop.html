@@ -1,0 +1,18 @@
+---
+layout: post
+permalink: /desktop/index.html
+---
+
+<a href="{{ site.data.desktops.first.url }} ">
+    <img src="{{ site.data.desktops.first.url }}" />
+</a>
+
+<br />
+
+<div class=listing>
+    {% for desktop in site.data.desktops %}
+    <a class="center" href="{{ desktop.url }}">
+        {{ desktop.date | date_to_string }}
+    </a>
+    {% endfor %}
+</div>

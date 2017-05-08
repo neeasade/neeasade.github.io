@@ -2,10 +2,11 @@
  * top level elements
  * general classes
  * page specific classes
- * code snippet styling */
+ */
 
 h1 { font-size: 2.3em;   }
 h2 { font-size: 1.675em; }
+h3 { font-size: 1.45em; }
 p  { font-size: 1em; }
 
 p { font-family: 'Open Sans'; }
@@ -26,11 +27,10 @@ img {
 }
 
 blockquote p {
-    border-left: 2px solid #dadbdc;
+    border-left: 4px solid #dadbdc;
     padding: 4px;
     color: rgba(0,0,0, 0.6);
 }
-
 
 .center { text-align: center; }
 .left { float: left; }
@@ -70,6 +70,25 @@ blockquote p {
     color: rgba(0,0,0,0.6);
 }
 
+.search {
+    margin:auto;
+    width: 220px;
+}
+
+.search input {
+    width: 100%;
+    background-color: #f4f5f6;
+    /* color: #a7a7a7; */
+    border: 0px solid #000000;
+    border-bottom: 1px solid #dadbdc;
+    font-size: 16px;
+}
+
+.search input:focus, .search textarea:focus { outline: 0; }
+
+.results h3 {
+  display: inline;
+}
 
 /* listing is used for post listing */
 

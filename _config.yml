@@ -9,11 +9,6 @@ encoding:     "utf-8"
 markdown_ext: "markdown,md"
 
 # Plugins
-gems:
-  - jekyll-mentions
-  - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-pagination
 
 # Serving
 detach:  false
@@ -21,6 +16,6 @@ port:    4000
 host:    127.0.0.1
 
 # Outputting
-permalink:     /n/:year/:month/:day/:slug/
+permalink:     /:slug/
 paginate_path: /:num
 paginate: 25
