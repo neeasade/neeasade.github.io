@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Get query
     var query = document.getElementById('search').value;
     // Search for it
-    var result = index.search(query);
+    var result = index.search("*" + query + "*");
     // Show results
     resultdiv.innerHTML = '';
     // Loop through, match, and add results
