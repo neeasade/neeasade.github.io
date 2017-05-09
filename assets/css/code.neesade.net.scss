@@ -1,0 +1,768 @@
+---
+---
+
+@import "base";
+
+// this was converted from my edits of cgit default css using
+// http://sebastianpontow.de/css2compass/
+// then related theme colors.
+
+// relations
+// terminal-border is used below
+$black_80: $text-color;
+
+$color_wild_sand_approx: $background-color;
+$color_gallery_approx: $listing-hover-background-color;
+
+$color_alto_approx: #dedfe0;
+
+$color_tapa_approx: #777;
+$color_celeste_approx: #ccc;
+$black: #000;
+$color_bright_red_approx: #a00;
+$color_forest_green_approx: #0a0;
+$color_sahara_approx: #aa0;
+$color_dark_blue_approx: #00a;
+$color_violet_eggplant_approx: #a0a;
+$color_persian_green_approx: #0aa;
+$blue: #00f;
+$red: red;
+$gray: gray;
+$color_silver_chalice_approx: #aaa;
+$color_primrose_approx: #ee9;
+$color_scotch_mist_approx: #ffd;
+$color_japanese_laurel_approx: green;
+$color_fern_approx: #5c5;
+$color_fuzzy_wuzzy_brown_approx: #c55;
+$color_suva_gray_approx: #888;
+$color_ultramarine_approx: #009;
+$color_dark_fern_approx: #040;
+$color_tundora_approx: #444;
+$color_pink_swan_approx: #bbb;
+$color_mint_green_approx: #88ff88;
+$color_dolly_approx: #ffff88;
+$color_olive_approx: #777700;
+$periwinkle: #ccccff;
+$color_navy_blue_approx: #000077;
+$color_geraldine_approx: #ff8888;
+$color_maroon_approx: #770000;
+$color_guardsman_red_approx: #c00;
+$white:  white;
+$color_snowy_mint_approx: #cfc;
+$color_spring_rain_approx: #aca;
+$color_pink_approx: #fcc;
+$color_careys_pink_approx: #caa;
+$color_cream_approx: #ffc;
+$color_thistle_green_approx: #cca;
+
+//fonts
+$font_0: Open Sans;
+$font_1: sans-serif;
+$font_2: Roboto;
+$font_3: monospace;
+
+//@extend-elements
+//original selectors
+//div#cgit table.blob td.linenumbers a, div#cgit table.ssdiff td.lineno a
+%extend_1 {
+	color: $gray;
+	text-align: right;
+	text-decoration: none;
+}
+
+
+input[type="submit"] {
+	border: $terminal-border;
+	background-color: $color_wild_sand_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+}
+input[type="text"] {
+}
+select {
+	background-color: $color_wild_sand_approx;
+}
+div#cgit {
+	color: $black_80;
+	font-family: $font_0, $font_1;
+	font-size: 10pt;
+	max-width: 1000px;
+	display: block;
+	width: auto;
+	margin: auto;
+	table {
+		border-collapse: collapse;
+		&#header {
+			width: 100%;
+			margin-bottom: 1em;
+			td {
+				&.main {
+					font-size: 150%;
+					white-space: nowrap;
+					a {
+						&:nth-child(2) {
+							border: 4px solid $color_alto_approx;
+						}
+						&:nth-child(1):after {
+						}
+					}
+				}
+				&.logo {
+					display: none;
+				}
+				&.form {
+					text-align: right;
+					vertical-align: bottom;
+					padding-right: 1em;
+					padding-bottom: 2px;
+					white-space: nowrap;
+					form {
+						font-size: 90%;
+					}
+					input {
+						font-size: 90%;
+					}
+					select {
+						font-size: 90%;
+					}
+				}
+				&.sub {
+					display: none;
+					color: $color_tapa_approx;
+					border-top: solid 1px $color_celeste_approx;
+					padding-left: 10px;
+				}
+			}
+		}
+		&.tabs {
+			border-collapse: collapse;
+			margin-bottom: 0;
+			width: 100%;
+			td {
+				padding: 0;
+				margin-bottom: 0;
+				vertical-align: bottom;
+				a {
+					background-color: $color_wild_sand_approx;
+					border: $terminal-border;
+					background-image: none !important;
+					padding: 4px;
+					display: inline-block;
+					margin: 0 4px 4px 0;
+					&.active {
+						border: 4px solid $color_alto_approx;
+						&:before {
+							content: "";
+						}
+						&:after {
+							content: "";
+						}
+					}
+				}
+				&.form {
+					text-align: right;
+					form {
+						padding-bottom: 2px;
+						font-size: 90%;
+						white-space: nowrap;
+					}
+					input {
+						font-size: 90%;
+					}
+					select {
+						font-size: 90%;
+					}
+				}
+			}
+		}
+		&.list {
+			width: 100%;
+			border: none;
+			border-collapse: collapse;
+			tr {
+				background: $color_wild_sand_approx;
+				&.logheader {
+					background: $color_gallery_approx;
+				}
+				&:hover {
+					background: $color_gallery_approx;
+				}
+				&.nohover:hover {
+					background: $color_wild_sand_approx;
+				}
+			}
+			th {
+				padding: 0.1em 0.5em 0.05em 0.5em;
+				vertical-align: baseline;
+				font-family: $font_2;
+				font-weight: normal;
+				font-size: 1.1em;
+			}
+			td {
+				border: none;
+				padding: 0.1em 0.5em 0.1em 0.5em;
+				&.commitgraph {
+					font-family: $font_3;
+					white-space: pre;
+					.column1 {
+						color: $color_bright_red_approx;
+					}
+					.column2 {
+						color: $color_forest_green_approx;
+					}
+					.column3 {
+						color: $color_sahara_approx;
+					}
+					.column4 {
+						color: $color_dark_blue_approx;
+					}
+					.column5 {
+						color: $color_violet_eggplant_approx;
+					}
+					.column6 {
+						color: $color_persian_green_approx;
+					}
+				}
+				&.logsubject {
+					font-family: $font_3;
+				}
+				&.logmsg {
+					font-family: $font_3;
+					white-space: pre;
+					padding: 0 0.5em;
+				}
+				a {
+					color: $black;
+					&.ls-dir {
+						color: $blue;
+					}
+					&:hover {
+						color: $blue;
+					}
+				}
+				&.reposection {
+					font-style: italic;
+					color: $color_suva_gray_approx;
+				}
+				&.sublevel-repo {
+					padding-left: 1.5em;
+				}
+			}
+		}
+		&#grid {
+			margin: 0;
+		}
+		&#downloads {
+			float: right;
+			border-collapse: collapse;
+			border: solid 1px $color_tapa_approx;
+			margin-left: 0.5em;
+			margin-bottom: 0.5em;
+			th {
+				background-color: $color_celeste_approx;
+			}
+		}
+		&.blob {
+			margin-top: 0.5em;
+			td {
+				&.lines {
+					margin: 0;
+					padding: 0 0 0 0.5em;
+					vertical-align: top;
+					color: $black;
+				}
+				&.linenumbers a {
+					background-image: none !important;
+					text-decoration: none !important;
+					@extend %extend_1;
+					&:hover {
+						color: $black;
+					}
+				}
+			}
+			pre {
+				padding: 0;
+				margin: 0;
+			}
+		}
+		&.ssdiff {
+			width: 100%;
+			td {
+				font-size: 75%;
+				font-family: $font_3;
+				white-space: pre;
+				padding: 1px 4px;
+				border-left: solid 1px $color_silver_chalice_approx;
+				border-right: solid 1px $color_silver_chalice_approx;
+				&.lineno {
+					color: $black;
+					background: $color_gallery_approx;
+					text-align: right;
+					width: 3em;
+					min-width: 3em;
+					a {
+						@extend %extend_1;
+						&:hover {
+							color: $black;
+						}
+					}
+				}
+				&.add {
+					color: $black;
+					background: $color_snowy_mint_approx;
+					min-width: 50%;
+				}
+				&.add_dark {
+					color: $black;
+					background: $color_spring_rain_approx;
+					min-width: 50%;
+				}
+				&.del {
+					color: $black;
+					background: $color_pink_approx;
+					min-width: 50%;
+				}
+				&.del_dark {
+					color: $black;
+					background: $color_careys_pink_approx;
+					min-width: 50%;
+				}
+				&.changed {
+					color: $black;
+					background: $color_cream_approx;
+					min-width: 50%;
+				}
+				&.changed_dark {
+					color: $black;
+					background: $color_thistle_green_approx;
+					min-width: 50%;
+				}
+				&.hunk {
+					color: $black;
+					background: $periwinkle;
+					border-top: solid 1px $color_silver_chalice_approx;
+					border-bottom: solid 1px $color_silver_chalice_approx;
+				}
+				&.head {
+					border-top: solid 1px $color_silver_chalice_approx;
+					border-bottom: solid 1px $color_silver_chalice_approx;
+					div.head {
+						color: $black;
+					}
+				}
+				&.foot {
+					border-top: solid 1px $color_silver_chalice_approx;
+					border-left: none;
+					border-right: none;
+					border-bottom: none;
+				}
+				&.space {
+					border: none;
+					div {
+						min-height: 3em;
+					}
+				}
+			}
+			span {
+				&.add {
+					background: $color_snowy_mint_approx;
+				}
+				&.del {
+					background: $color_pink_approx;
+				}
+			}
+		}
+		&.bin-blob {
+			margin-top: 0.5em;
+			border: solid 1px $black;
+			th {
+				font-family: $font_3;
+				white-space: pre;
+				border: solid 1px $color_tapa_approx;
+				padding: 0.5em 1em;
+			}
+			td {
+				font-family: $font_3;
+				white-space: pre;
+				border-left: solid 1px $color_tapa_approx;
+				padding: 0 1em;
+			}
+		}
+		&.commit-info {
+			border-collapse: collapse;
+			margin-top: 1.5em;
+			th {
+				text-align: left;
+				font-weight: normal;
+				padding: 0.1em 1em 0.1em 0.1em;
+				vertical-align: top;
+			}
+			td {
+				font-weight: normal;
+				padding: 0.1em 1em 0.1em 0.1em;
+			}
+		}
+		&.diffstat {
+			border-collapse: collapse;
+			border: solid 1px $color_silver_chalice_approx;
+			background-color: $color_gallery_approx;
+			th {
+				font-weight: normal;
+				text-align: left;
+				text-decoration: underline;
+				padding: 0.1em 1em 0.1em 0.1em;
+				font-size: 100%;
+			}
+			td {
+				padding: 0.2em 0.2em 0.1em 0.1em;
+				font-size: 100%;
+				border: none;
+				&.mode {
+					white-space: nowrap;
+				}
+				&.graph {
+					width: 500px;
+					vertical-align: middle;
+					table {
+						border: none;
+					}
+					td {
+						padding: 0;
+						border: 0;
+						height: 7pt;
+						&.add {
+							background-color: $color_fern_approx;
+						}
+						&.rem {
+							background-color: $color_fuzzy_wuzzy_brown_approx;
+						}
+					}
+				}
+				span.modechange {
+					padding-left: 1em;
+					color: $red;
+				}
+				&.add a {
+					color: $color_japanese_laurel_approx;
+				}
+				&.del a {
+					color: $red;
+				}
+				&.upd a {
+					color: $blue;
+				}
+			}
+		}
+		&.diff {
+			width: 100%;
+			td {
+				font-family: $font_3;
+				white-space: pre;
+				div {
+					&.head {
+						margin-top: 1em;
+						color: $black;
+					}
+					&.hunk {
+						color: $color_ultramarine_approx;
+					}
+					&.add {
+						color: $color_japanese_laurel_approx;
+					}
+					&.del {
+						color: $red;
+					}
+				}
+			}
+		}
+		&.stats {
+			border: solid 1px $black;
+			border-collapse: collapse;
+			th {
+				text-align: left;
+				padding: 1px 0.5em;
+				background-color: $color_gallery_approx;
+				border: solid 1px $black;
+			}
+			td {
+				text-align: right;
+				padding: 1px 0.5em;
+				border: solid 1px $black;
+				&.total {
+					text-align: left;
+				}
+				&.sum {
+					color: $color_guardsman_red_approx;
+				}
+				&.left {
+					text-align: left;
+				}
+			}
+		}
+		&.vgraph {
+			border-collapse: separate;
+			border: solid 1px $black;
+			height: 200px;
+			th {
+				background-color: $color_gallery_approx;
+				border: solid 1px $white;
+				padding: 1px 0.5em;
+			}
+			td {
+				vertical-align: bottom;
+				padding: 0 10px;
+			}
+			div.bar {
+				background-color: $color_gallery_approx;
+			}
+		}
+		&.hgraph {
+			border: solid 1px $black;
+			width: 800px;
+			th {
+				background-color: $color_gallery_approx;
+				border: solid 1px $black;
+				padding: 1px 0.5em;
+			}
+			td {
+				vertical-align: middle;
+				padding: 2px;
+			}
+			div.bar {
+				background-color: $color_gallery_approx;
+				height: 1em;
+			}
+		}
+		&.nowrap td {
+			white-space: nowrap;
+		}
+	}
+	a {
+		text-decoration: none;
+		&.ls-blob {
+			font-family: $font_3;
+		}
+		&.ls-dir {
+			font-family: $font_3;
+		}
+		&.button {
+			font-size: 80%;
+			padding: 0 0.5em;
+		}
+		&.primary {
+			font-size: 100%;
+		}
+		&.secondary {
+			font-size: 90%;
+		}
+		&.branch-deco {
+			color: $black;
+			margin: 0 0.5em;
+			padding: 0 0.25em;
+			background-color: $color_mint_green_approx;
+			border: solid 1px $color_japanese_laurel_approx;
+		}
+		&.tag-deco {
+			color: $black;
+			margin: 0 0.5em;
+			padding: 0 0.25em;
+			background-color: $color_dolly_approx;
+			border: solid 1px $color_olive_approx;
+		}
+		&.remote-deco {
+			color: $black;
+			margin: 0 0.5em;
+			padding: 0 0.25em;
+			background-color: $periwinkle;
+			border: solid 1px $color_navy_blue_approx;
+		}
+		&.deco {
+			color: $black;
+			margin: 0 0.5em;
+			padding: 0 0.25em;
+			background-color: $color_geraldine_approx;
+			border: solid 1px $color_maroon_approx;
+		}
+	}
+	div {
+		&.path {
+			margin: 0;
+			padding: 5px 2em 2px;
+			color: $black;
+			background-color: $color_gallery_approx;
+		}
+		&.content {
+			background-color: $color_wild_sand_approx;
+			border: $terminal-border;
+			padding: 20px;
+			overflow: auto;
+		}
+		&#summary {
+			vertical-align: top;
+			margin-bottom: 1em;
+		}
+		&#blob {
+			border: solid 1px $black;
+		}
+		&.error {
+			color: $red;
+			margin: 1em 2em;
+		}
+		&.cgit-panel {
+			float: right;
+			margin-top: 1.5em;
+			table {
+				border-collapse: collapse;
+				border: solid 1px $color_silver_chalice_approx;
+				background-color: $color_gallery_approx;
+			}
+			th {
+				text-align: center;
+			}
+			td {
+				padding: 0.25em 0.5em;
+				&.label {
+					padding-right: 0.5em;
+				}
+				&.ctrl {
+					padding-left: 0.5em;
+				}
+			}
+		}
+		&.commit-subject {
+			font-size: 125%;
+			margin: 1.5em 0 0.5em 0;
+			padding: 0;
+			a {
+				&.branch-deco {
+					margin-left: 1em;
+					font-size: 75%;
+				}
+				&.tag-deco {
+					margin-left: 1em;
+					font-size: 75%;
+				}
+				&.remote-deco {
+					margin-left: 1em;
+					font-size: 75%;
+				}
+				&.deco {
+					margin-left: 1em;
+					font-size: 75%;
+				}
+			}
+		}
+		&.commit-msg {
+			white-space: pre;
+			font-family: $font_3;
+		}
+		&.notes-header {
+			padding-top: 1.5em;
+		}
+		&.notes {
+			white-space: pre;
+			font-family: $font_3;
+			border: solid 1px $color_primrose_approx;
+			background-color: $color_scotch_mist_approx;
+			padding: 0.3em 2em 0.3em 1em;
+			float: left;
+		}
+		&.notes-footer {
+			clear: left;
+		}
+		&.diffstat-header {
+			padding-top: 1.5em;
+		}
+		&.diffstat-summary {
+			color: $color_suva_gray_approx;
+			padding-top: 0.5em;
+		}
+		&.footer {
+			margin-top: 0.5em;
+			text-align: center;
+			font-size: 80%;
+			color: $color_celeste_approx;
+		}
+	}
+	img {
+		border: none;
+	}
+	td {
+		&#content {
+			vertical-align: top;
+			padding: 1em 2em 1em 1em;
+			border: none;
+		}
+		&.ls-size {
+			text-align: right;
+			font-family: $font_3;
+			width: 10em;
+		}
+		&.ls-mode {
+			font-family: $font_3;
+			width: 10em;
+		}
+		&.toplevel-repo {
+		}
+		&#sidebar input.txt {
+			width: 100%;
+			margin: 2px 0 0;
+		}
+	}
+	.ls-mod {
+		font-family: $font_3;
+	}
+	.sha1 {
+		font-family: $font_3;
+		font-size: 90%;
+	}
+	.left {
+		text-align: left;
+	}
+	.right {
+		text-align: right;
+	}
+	span {
+		&.age-mins {
+			color: $color_japanese_laurel_approx;
+		}
+		&.age-hours {
+			color: $color_japanese_laurel_approx;
+		}
+		&.age-days {
+			color: $color_dark_fern_approx;
+		}
+		&.age-weeks {
+			color: $color_tundora_approx;
+		}
+		&.age-months {
+			color: $color_suva_gray_approx;
+		}
+		&.age-years {
+			color: $color_pink_swan_approx;
+		}
+	}
+	.main:not(:has(> a)) {
+		display: none;
+	}
+	input#switch-btn {
+		margin: 2px 0 0;
+	}
+	ul.pager {
+		list-style-type: none;
+		text-align: center;
+		margin: 1em 0 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			margin: 0.25em 0.5em;
+		}
+		a {
+			color: $color_tapa_approx;
+		}
+		.current {
+		}
+	}
+}

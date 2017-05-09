@@ -1,18 +1,17 @@
-/* attempted arrangement:
- * top level elements
- * general classes
- * page specific classes
- */
+---
+---
+
+@import "base";
 
 h1 { font-size: 2.3em;   }
 h2 { font-size: 1.675em; }
 h3 { font-size: 1.45em; }
 p  { font-size: 1em; }
 
-p { font-family: 'Open Sans'; }
+p { font-family: $body-font; }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Roboto';
+    font-family: $heading-font;
     font-weight: normal;
 }
 
@@ -27,9 +26,9 @@ img {
 }
 
 blockquote p {
-    border-left: 4px solid #dadbdc;
+    border-left: 4px solid $blockquote-color;
     padding: 4px;
-    color: rgba(0,0,0, 0.6);
+    color: $blockquote-text-color;
 }
 
 .center { text-align: center; }
@@ -46,7 +45,7 @@ blockquote p {
 }
 
 .panel {
-    font-family: "Roboto";
+    font-family: $heading-font;
 
     width: auto;
     max-width: 800;
@@ -57,17 +56,17 @@ blockquote p {
 }
 
 .panel a {
-    background-color: #f4f5f6;
-    border: 4px solid #eeeff0;
+    background-color: $background-color;
+    border: $terminal-border;
 
     background-image: none !important;
 
-    padding: 4px;
+    padding: $panel-link-padding;
     display: inline-block;
 }
 
 .panel a:hover {
-    color: rgba(0,0,0,0.6);
+    color: $link-hover-color;
 }
 
 .search {
@@ -77,10 +76,10 @@ blockquote p {
 
 .search input {
     width: 100%;
-    background-color: #f4f5f6;
+    background-color: $background-color;
     /* color: #a7a7a7; */
     border: 0px solid #000000;
-    border-bottom: 1px solid #dadbdc;
+    border-bottom: 1px solid $blockquote-text-color;
     font-size: 16px;
 }
 
@@ -93,13 +92,12 @@ blockquote p {
 /* listing is used for post listing */
 
 .listing a {
-    font-family: 'Open Sans';
+    font-family: $body-font;
     background-image: none !important;
     display: block;
 }
 
 .listing a:hover {
-    background-color: #eeeff0;
-    color: rgba(0,0,0,0.8) !important;
+    background-color: $listing-hover-background-color;
+    color: $text-color !important;
 }
-

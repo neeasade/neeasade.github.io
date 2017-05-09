@@ -1,0 +1,25 @@
+
+$body-font: 'Open Sans';
+
+$heading-font: 'Roboto';
+$code-font: "Lucida Console", Monaco, monospace;
+
+$background-image: url('http://notes.neeasade.net/assets/img/background.png');
+
+$text-color: rgba(0,0,0,0.8);
+$link-hover-color: rgba(0,0,0,0.6);
+$background-color: #f4f5f6;
+
+// also affects panel links
+$terminal-border: 4px solid #eeeff0;
+$listing-hover-background-color: #eeeff0
+
+$code-background-color: $background-color;
+$code-lineno-color: #rgba(0,0,0,0.4);
+
+// also code delimiter color
+$blockquote-color: #dadbdc;
+$blockquote-text-color: rgba(0,0,0, 0.6);
+
+$panel-link-padding: 4px;
+
