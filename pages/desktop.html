@@ -1,20 +1,27 @@
 ---
 layout: post
 permalink: /desktop/index.html
+desktops:
+    - 2017-3-28
+    - 2017-3-06
+    - 2017-2-19
+    - 2017-2-18
+    - 2017-2-04
+    - 2016-1-28
+    - 2015-12-13
+    - 2015-8-30
+    - 2015-3-25
+    - 2015-2-10
+    - 2014-12-26
+    - 2014-5-24
 ---
 
-<a href="{{ site.data.desktops.first.url }} ">
-    <img src="{{ site.data.desktops.first.url }}" alt="{{ site.data.desktops.first.date | date_to_string }} " />
-</a>
-
-<br />
-
-<div class=listing>
-    {% for desktop in site.data.desktops %}
-    {% unless forloop.first %}
-    <a class="center" href="{{ desktop.url }}">
-        {{ desktop.date | date_to_string }}
-    </a>
-    {% endunless %}
-    {% endfor %}
-</div>
+{% for desktop in page.desktops %}
+    <div class="center"> {{desktop}} </div>
+    <br />
+        <a href="/assets/img/desktops/full/{{desktop}}.png">
+            <img src="/assets/img/desktops/thumb/{{desktop}}.png" alt="{{desktop}}" />
+        </a>
+    <br />
+    <br />
+{% endfor %}
