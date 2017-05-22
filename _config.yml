@@ -1,21 +1,13 @@
 # Setup
 title: Nathan's notes
 
-# Handling Reading
-include:      [".htaccess"]
-exclude:      [vendor]
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,md"
-
 # Plugins
-
-# Serving
-detach:  false
-port:    4000
-host:    127.0.0.1
+gems:
+  - jekyll-mentions
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-pagination
 
 # Outputting
 permalink:     /:slug/
-paginate_path: /:num
 paginate: 25
