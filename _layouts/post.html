@@ -6,11 +6,12 @@ layout: default
 
 {{ content }}
 
-<div>
+<div class="navigation">
 	{% if page.previous.url %}
-	<a class="left" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+    <a class="previous left" href="{{page.previous.url}}">{{page.previous.title}}</a>
 	{% endif %}
+
 	{% if page.next.url %}
-	<a class="right" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+    <a class="next right" href="{{page.next.url}}">{{page.next.title}}</a>
 	{% endif %}
 </div>

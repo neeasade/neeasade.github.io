@@ -9,5 +9,5 @@ gems:
   - jekyll-pagination
 
 # Outputting
-permalink:     /:slug/
-paginate: 25
+permalink: /:slug/
+paginate: 2

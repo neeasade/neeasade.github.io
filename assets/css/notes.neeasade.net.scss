@@ -101,3 +101,11 @@ blockquote p {
     background-color: $listing-hover-background-color;
     color: $text-color !important;
 }
+
+.navigation next::after {
+    content: " >>";
+}
+
+.navigation previous::before {
+    content: "<< ";
+}
