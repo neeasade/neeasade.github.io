@@ -13,7 +13,7 @@ $black_80: $text-color;
 $color_wild_sand_approx: $background-color;
 $color_gallery_approx: $listing-hover-background-color;
 
-$color_alto_approx: #dedfe0;
+$color_alto_approx: $text-color;
 
 $color_tapa_approx: #777;
 $color_celeste_approx: #ccc;
@@ -151,7 +151,7 @@ div#cgit {
 					display: inline-block;
 					margin: 0 4px 4px 0;
 					&.active {
-						border: 4px solid $color_alto_approx;
+						border: $terminal-border-width solid $color_alto_approx;
 						&:before {
 							content: "";
 						}
@@ -233,7 +233,7 @@ div#cgit {
 					padding: 0 0.5em;
 				}
 				a {
-					color: $black;
+					/* color: $black; */
 					&.ls-dir {
 						color: $blue;
 					}
@@ -270,7 +270,7 @@ div#cgit {
 					margin: 0;
 					padding: 0 0 0 0.5em;
 					vertical-align: top;
-					color: $black;
+					/* color: $black; */
 				}
 				&.linenumbers a {
 					background-image: none !important;
@@ -557,7 +557,7 @@ div#cgit {
 			font-size: 90%;
 		}
 		&.branch-deco {
-			color: $black;
+			/* color: $black; */
 			margin: 0 0.5em;
 			padding: 0 0.25em;
 			background-color: $color_mint_green_approx;
@@ -589,7 +589,7 @@ div#cgit {
 		&.path {
 			margin: 0;
 			padding: 5px 2em 2px;
-			color: $black;
+			color: $text-color;
 			background-color: $color_gallery_approx;
 		}
 		&.content {

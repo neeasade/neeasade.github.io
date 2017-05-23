@@ -14,7 +14,8 @@ $link-hover-color: $text-color;
 $listing-hover-background-color: #45464e;
 
 // also affects panel links
-$terminal-border: 2px solid #23242c;
+$terminal-border-width: 2px;
+$terminal-border: $terminal-border-width solid #23242c;
 
 $code-background-color: $background-color;
 
