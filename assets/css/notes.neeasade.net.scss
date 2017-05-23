@@ -102,10 +102,10 @@ blockquote p {
     color: $text-color !important;
 }
 
-.navigation next::after {
+.navigation .next::after {
     content: " >>";
 }
 
-.navigation previous::before {
+.navigation .previous::before {
     content: "<< ";
 }
