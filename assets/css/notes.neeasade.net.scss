@@ -109,3 +109,8 @@ blockquote p {
 .navigation .previous::before {
     content: "<< ";
 }
+
+.navigation a {
+    border-bottom: 4px solid $blockquote-text-color;
+    background-image: none !important;
+}
