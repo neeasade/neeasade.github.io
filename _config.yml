@@ -10,4 +10,4 @@ gems:
 
 # Outputting
 permalink: /:slug/
-paginate: 2
+paginate: 20

@@ -111,6 +111,7 @@ blockquote p {
 }
 
 .navigation a {
-    border-bottom: 4px solid $blockquote-text-color;
-    background-image: none !important;
+    border-bottom: 2px solid $blockquote-text-color;
+    background-image: none;
+    padding-bottom: 5px;
 }
