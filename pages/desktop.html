@@ -1,6 +1,6 @@
 ---
 layout: post
-title: rice
+title: Desktops
 permalink: /desktop/index.html
 desktops:
     - 2017-3-28
@@ -18,11 +18,9 @@ desktops:
 ---
 
 {% for desktop in page.desktops %}
-    <div class="center"> {{desktop}} </div>
-    <br />
-        <a href="/assets/img/desktops/full/{{desktop}}.png">
-            <img src="/assets/img/desktops/thumb/{{desktop}}.png" alt="{{desktop}}" />
-        </a>
-    <br />
+    <h3 class="center"> {{desktop}} </h3>
+    <a href="/assets/img/desktops/full/{{desktop}}.png">
+        <img src="/assets/img/desktops/thumb/{{desktop}}.png" alt="{{desktop}}" />
+    </a>
     <br />
 {% endfor %}
