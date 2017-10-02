@@ -6,13 +6,24 @@
 h1 { font-size: 2.3em;   }
 h2 { font-size: 1.675em; }
 h3 { font-size: 1.45em; }
+h4 { font-size: 1.25em; }
 p  { font-size: 1em; }
 
-p { font-family: $body-font; }
+p {
+    font-family: $body-font;
+    text-indent: 20px;
+}
 
 h1, h2, h3, h4, h5 {
+    margin-top: 1em;
+    margin-bottom: 0.50em;
+
     font-family: $heading-font;
     font-weight: normal;
+}
+
+.title {
+    margin-top: 0px;
 }
 
 img {
@@ -22,7 +33,6 @@ img {
     width: auto;
     height: auto;
     max-width: 90%;
-    min-width: 90%;
 }
 
 blockquote p {
@@ -37,7 +47,7 @@ blockquote p {
 .container {
     margin: auto;
     width: auto;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .terminal {
@@ -48,7 +58,6 @@ blockquote p {
     font-family: $heading-font;
 
     width: auto;
-    max-width: 800;
     height: 30px;
     margin: 0px 0px 12px 0px;
 
@@ -71,7 +80,7 @@ blockquote p {
 
 .search {
     margin:auto;
-    width: 220px;
+    width: 30%;
 }
 
 .search input {
