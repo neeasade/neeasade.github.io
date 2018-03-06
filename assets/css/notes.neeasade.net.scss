@@ -22,10 +22,6 @@ h1, h2, h3, h4, h5 {
     font-weight: normal;
 }
 
-.title {
-    margin-top: 0px;
-}
-
 img {
     display: block;
     margin-left: auto;
@@ -41,17 +37,21 @@ blockquote p {
     color: $blockquote-text-color;
 }
 
-.center { text-align: center; }
+.center { text-align: center; margin-left:auto; margin-right: auto;}
 .left { float: left; }
 .right { float: right; }
+
+.left-text { text-align: left;}
+.right-text { text-align:right;}
+
 .container {
     margin: auto;
     width: auto;
     max-width: 1000px;
 }
 
-.terminal {
-    width: auto;
+.slim {
+    width: max-content;
 }
 
 .panel {

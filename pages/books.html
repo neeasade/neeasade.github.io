@@ -1,0 +1,69 @@
+---
+layout: post
+permalink: /books/index.html
+title: Reading list
+
+books:
+  - year: Current 
+    books:
+    - title: Shogun (audiobook)
+      subtitle: A Novel of Japan
+      year: 1975
+      author: James Clavell
+
+  - year: 2016
+    books: 
+    - title: Code
+      subtitle: The Hidden Language of Computer Hardware and Software
+      year: 2000
+      author: Charles Petzold
+    - title: The Mythical Man-Month
+      subtitle: Essays on Software Engineering 
+      year: 1995 anniversary ed.
+      author: Fred Brooks
+
+  - year: 2017
+    books: 
+    - title: The Power of Habit
+      subtitle: Why We Do What We Do in Life and Business
+      year: 2014
+      author: Charles Duhigg
+    - title: Smarter Faster Better
+      subtitle: The Transformative Power of Real Productivity
+      year: 2016
+      author: Charles Duhigg
+    - title: On the Shortness of Life 
+      subtitle: Life Is Long if You Know How to Use It
+      author: Seneca the Younger
+      year: 49
+    - title: Republic
+      author: Plato
+      year: 380 BC
+    - title: Tarzan the Untamed 
+      year: 1920
+      author: Edgar Rice Burroughs
+    - title: The Design of Everyday Things
+      year: 2013 revised and expanded ed.
+      author: Donald A. Norman
+  #- year: backlog
+  #  books: 
+  # these are all sitting on my shelf right now maybe I'll list them sometime.
+---
+
+<div class="slim center">
+  {% for col in page.books %}
+  <h2 class="center">
+    {{col.year}}
+  </h2>
+
+  <div class="left-text">
+    {% for book in col.books %}
+    <h4 style="margin-bottom: 0px">{{book.title}}</h4>
+    <i>{{book.subtitle}}</i>
+    <div>
+      {{book.author}}, {{book.year}}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
