@@ -37,10 +37,15 @@ blockquote p {
     color: $blockquote-text-color;
 }
 
-.center { text-align: center; margin-left:auto; margin-right: auto;}
+figure {
+    width: 85%;
+}
+
+.center { margin-left:auto; margin-right: auto;}
 .left { float: left; }
 .right { float: right; }
 
+.center-text { text-align: center;}
 .left-text { text-align: left;}
 .right-text { text-align:right;}
 
@@ -62,6 +67,23 @@ blockquote p {
     margin: 0px 0px 12px 0px;
 
     background: rgba(0,0,0,0.0);
+}
+
+.content {
+    max-width: 90%;
+}
+
+.highlight {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+pre {
+    font-size: 1.3em;
+}
+
+.terminal {
+    font-size: 1.2em;
 }
 
 .panel a {

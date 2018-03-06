@@ -1,11 +1,16 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto|Open+Sans);
-
 @import "charter_font";
+
+@font-face {
+  font-family: GoMono;
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/Go-Mono.ttf') format('truetype');
+}
 
 // note: font import must be at the top.
 $body-font: 'Charter';
 $heading-font: 'Charter';
-$code-font: "Lucida Console", Monaco, monospace;
+$code-font: "GoMono", Monaco, monospace;
 
 $background-image: url('/assets/img/backgrounds/22_scaled.png');
 

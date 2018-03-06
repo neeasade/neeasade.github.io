@@ -25,10 +25,14 @@ body {
     background-color: $background-color;
     border: $terminal-border;
 
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     margin: 10px auto 10px auto;
     display: block;
     width: auto;
+}
+
+pre {
+    font-family: $code-font;
 }
 
 .highlight {
