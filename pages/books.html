@@ -6,7 +6,7 @@ title: Reading list
 books:
   - year: Current 
     books:
-    - title: Shogun (audiobook)
+    - title: Shogun (Audiobook)
       subtitle: A Novel of Japan
       year: 1975
       author: James Clavell
@@ -45,6 +45,16 @@ books:
     - title: The Design of Everyday Things
       year: 2013 revised and expanded ed.
       author: Donald A. Norman
+    - title: Getting Things Done
+      subtitle: The Art of Stress-Free Productivity
+      year: 2015 revised ed.
+      author: David Allen
+  - year: 2018
+    books:
+    - title: How to Win Friends and Influence People (Audiobook)
+      year: 1936
+      author: Dale Carnegie
+
   #- year: backlog
   #  books: 
   # these are all sitting on my shelf right now maybe I'll list them sometime.
@@ -57,7 +67,8 @@ books:
   </h2>
 
   <div class="left-text">
-    {% for book in col.books %}
+    {% assign books = col.books | sort: 'title' %}
+    {% for book in books %}
     <h4 style="margin-bottom: 0px">{{book.title}}</h4>
     <i>{{book.subtitle}}</i>
     <div>
