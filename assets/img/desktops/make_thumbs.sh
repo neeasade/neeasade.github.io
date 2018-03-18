@@ -8,8 +8,8 @@ sed -i "/permalink:/a desktops:" "../../../pages/desktop.html"
 # clear thumbs
 rm thumb/*
 
-for file in $(find full -type f); do
-  convert $file -resize 900x -filter Lanczos thumb/$(basename $file) > /dev/null
+for file in $(find full -type f | sort); do
+  convert $file -resize 900x -filter Lanczos thumb/$(basename $file) 
 
   # insert the line at the top of desktops
   filename="$(basename $file | sed 's/.png//')"
