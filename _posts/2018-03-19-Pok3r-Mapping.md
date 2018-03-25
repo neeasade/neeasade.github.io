@@ -18,7 +18,7 @@ You can continue mapping in programming mode by hitting key combinations followe
 
 ## Swaps
 
-{% highlight %}
+{% highlight text %}
 esc -> fn + esc
 fn + esc -> esc
 
@@ -43,16 +43,38 @@ note: this effects only the layer you are on, fn transforms into super after thi
 
 and now we can have nice vim-like arrow keys:
 
-{% highlight %}
-
+{% highlight text %}
 fn + h -> fn + j
 fn + j -> fn + k
 fn + k -> fn + i
 fn + l -> fn + l
+{% endhighlight %}
 
-; swap (the now available) right win alt
+swap (the now available) right win alt:
+
+{% highlight text %}
 r_meta -> r_super 
 r_super -> r_meta
 {% endhighlight %}
 
+When away, here is an autohotkey script to achieve the same (minus the arrow keys):
 
+{% highlight ahk %}
+#SingleInstance force
+
+Capslock::Ctrl
+
+\::Backspace
+Backspace::\
+
++BS::
+ KeyWait, Shift
+  Send, {|}
+Return
+
+LWin::LAlt
+LAlt::LWin
+
+RWin::RAlt
+RAlt::RWin
+{% endhighlight %}
