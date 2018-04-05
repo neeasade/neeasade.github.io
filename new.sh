@@ -2,8 +2,12 @@
 
 cd $(dirname $([ -L $0  ] && readlink -f $0 || echo $0))
 
-echo -n title: 
-read title
+if [ -z "$@" ]; then 
+  echo -n title: 
+  read title
+else
+  title="$*"
+fi
 
 file="_drafts/$(date +'%Y-%m-%d')-$(echo $title | sed 's/ /-/g').md"
 cat <<EOF >> "$file"
