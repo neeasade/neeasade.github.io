@@ -9,7 +9,9 @@ else
   title="$*"
 fi
 
-file="_drafts/$(date +'%Y-%m-%d')-$(echo $title | sed 's/ /-/g').md"
+file="./_drafts/$(date +'%Y-%m-%d')-$(echo $title | sed 's/ /-/g').md"
+echo writing to $file
+
 cat <<EOF >> "$file"
 ---
 layout: post
