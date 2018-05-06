@@ -1,6 +1,7 @@
 ---
 layout: post
 title: restclient.el + elasticsearch
+todo: and a screenshot of it in action
 ---
 
 `restclient.el` is an emacs plugin that transforms a buffer into a
@@ -52,6 +53,5 @@ GET :target/:prefix_log/_search
 
 {% endhighlight %}
 
-and a screenshot of it in action: (todo)
 
 [1]: https://github.com/dakrone/es-mode
