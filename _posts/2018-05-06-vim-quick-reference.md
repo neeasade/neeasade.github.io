@@ -11,7 +11,7 @@ somefunc("here is a |string") --> somefunc("")
 
 The general form is `<action> <operator> <text object>`, or as I like to think, `<action> <verb> <noun>`. Verbs modify nouns.
 
-So, for `di(` above:
+So, for `di"` above:
 
 - `d` is the action (delete)
 - `i` is the verb (inside)
