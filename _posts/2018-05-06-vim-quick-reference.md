@@ -3,7 +3,7 @@ layout: post
 title: vim language quick reference
 ---
 
-Example command `di(` (| is the cursor below):
+Example command `di(` (&#124; is the cursor below):
 
 ``` txt
 somefunc("here is a |string") --> somefunc()
@@ -19,37 +19,41 @@ So, for `di(` above:
 
 Verbs are optional depending on the noun, but with this outline there are many commands you compose.
 
+## Actions
+
 |action | mnemonic   | meaning                     |
 |-------|------------|--------                     |
-|d      | delete     | delete                      |
-|y      | yank       | copy                        |
 |c      | change     | delete and enter insert mode|
-|v      | visual     | enter visual mode           |
-|r      | replace    | replace                     |
-|p      | paste      | paste                       |
+|d      | delete     | delete                      |
 |g      | go         | movement/jump to            |
+|p      | paste      | paste                       |
+|r      | replace    | replace                     |
+|v      | visual     | enter visual mode           |
+|y      | yank       | copy                        |
 
+## Verbs
 |verb   | mnemonic   | meaning                                                |
 |-------|------------|--------                                                |
 |a      | around     | inclusive of noun selector                             |
 |i      | inside     | exclusive of noun selector                             |
-|t      | till       | forward to character, exclusive (character is the verb)|
 |f      | find       | forward to character, inclusive                        |
-|T      |            | backward to character, exclusive                       |
 |F      |            | backward to character, inclusive                       |
+|t      | till       | forward to character, exclusive (character is the verb)|
+|T      |            | backward to character, exclusive                       |
 
-|noun       | mnemonic    | meaning                             |
-|-------    |------------ |--------                             |
+## Nouns
+|noun                   | mnemonic    | meaning                             |
+|-------                |------------ |--------                             |
+|%                      |             | matching [{( under cursor, inclusive|
+|/                      |             | forward to search result            |
+|<,>                    |             | <tags> pairs of </tags>             |
+|?                      | a           | backward to search result           |
+|`'`,`"`,`` ` ``        |             | surrounding "'` pairs               |
 |`(`,`[`,`{`,`}`,`]`,`}`|             | surrounding ([{ pairs               |
-|%          |             | matching [{( under cursor, inclusive|
-|w          | word        | word                                |
-|s          | sentence    | sentence                            |
-|p          | paragraph   | paragraph                           |
-|`'`,`"`,`` ` ``      |             | surrounding "'` pairs               |
-|t          | tag         | <tags> pairs of </tags>             |
-|<,>        | tag         | <tags> pairs of </tags>             |
-|/          |             | forward to search result            |
-|?          | a           | backward to search result           |
+|p                      | paragraph   | paragraph                           |
+|s                      | sentence    | sentence                            |
+|t                      | tag         | <tags> pairs of </tags>             |
+|w                      | word        | word                                |
 
 You can install plugins to get more nouns and nice contextual actions. For example with tpope's [commentary][1] you get a `gc` action for commenting in whatever programming language you are in -- which you can compose with any of the above nouns and verbs!
 
