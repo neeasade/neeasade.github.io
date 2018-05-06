@@ -5,9 +5,9 @@ title: vim language quick reference
 
 Example command `di(` (&#124; is the cursor below):
 
-``` txt
+{% highlight txt %}
 somefunc("here is a |string") --> somefunc()
-```
+{% endhighlight %}
 
 The general form is `<action> <operator> <text object>`, or as I like to think, `<action> <verb> <noun>`. Verbs modify nouns.
 
@@ -40,16 +40,16 @@ Verbs are optional depending on the noun, but with this outline there are many c
 
 |noun                   | mnemonic    | meaning                             |
 |-------                |------------ |--------                             |
-|%                      |             | matching [{( under cursor, inclusive|
-|/                      |             | forward to search result            |
-|<,>                    |             | <tags> pairs of </tags>             |
-|?                      | a           | backward to search result           |
-|`'`,`"`,`` ` ``        |             | surrounding "'` pairs               |
-|`(`,`[`,`{`,`}`,`]`,`}`|             | surrounding ([{ pairs               |
 |p                      | paragraph   | paragraph                           |
 |s                      | sentence    | sentence                            |
 |t                      | tag         | <tags> pairs of </tags>             |
 |w                      | word        | word                                |
+|%                      |             | matching [{( under cursor, inclusive|
+|/                      |             | forward to search result            |
+|<,>                    |             | <tags> pairs of </tags>             |
+|?                      |             | backward to search result           |
+|`'`,`"`,`` ` ``        |             | surrounding "'` pairs               |
+|`(`,`[`,`{`,`}`,`]`,`}`|             | surrounding ([{ pairs               |
 
 You can install plugins to get more nouns and nice contextual actions. For example with tpope's [commentary][1] you get a `gc` action for commenting in whatever programming language you are in -- which you can compose with any of the above nouns and verbs!
 
