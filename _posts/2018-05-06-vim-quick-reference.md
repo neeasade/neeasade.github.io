@@ -40,16 +40,17 @@ Verbs are optional depending on the noun, but with this outline there are many c
 
 |noun                   | mnemonic    | meaning                             |
 |-------                |------------ |--------                             |
+|b                      | block   | blocks of surrounding `([{` (implicit)                           |
 |p                      | paragraph   | paragraph                           |
 |s                      | sentence    | sentence                            |
-|t                      | tag         | <tags> pairs of </tags>             |
+|t                      | tag         | `<tags> pairs of </tags>`             |
 |w                      | word        | word                                |
 |%                      |             | matching [{( under cursor, inclusive|
 |/                      |             | forward to search result            |
-|<,>                    |             | <tags> pairs of </tags>             |
+|<,>                    |             | `<tags> pairs of </tags>`             |
 |?                      |             | backward to search result           |
-|`'`,`"`,`` ` ``        |             | surrounding "'` pairs               |
-|`(`,`[`,`{`,`}`,`]`,`}`|             | surrounding ([{ pairs               |
+|`'`,`"`,`` ` ``        |             | surrounding `` "'` `` pairs               |
+|`(`,`[`,`{`,`}`,`]`,`}`|             | surrounding `([{` pairs               |
 
 You can install plugins to get more nouns and nice contextual actions. For example with tpope's [commentary][1] you get a `gc` action for commenting in whatever programming language you are in -- which you can compose with any of the above nouns and verbs!
 
