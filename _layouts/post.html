@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="center-text">
-<h1 class="post-title">{{ page.title }}</h1>
+<h1 class="post-title">{{ page.title | capitalize }}</h1>
 <div class="smol"> {{page.date | date_to_long_string}} </div>
 </div>
 
