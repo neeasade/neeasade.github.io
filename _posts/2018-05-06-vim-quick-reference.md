@@ -3,10 +3,10 @@ layout: post
 title: vim language quick reference
 ---
 
-Example command `di(` (&#124; is the cursor below):
+Example command `di"` (&#124; is the cursor below):
 
 {% highlight txt %}
-somefunc("here is a |string") --> somefunc()
+somefunc("here is a |string") --> somefunc("")
 {% endhighlight %}
 
 The general form is `<action> <operator> <text object>`, or as I like to think, `<action> <verb> <noun>`. Verbs modify nouns.
@@ -15,7 +15,7 @@ So, for `di(` above:
 
 - `d` is the action (delete)
 - `i` is the verb (inside)
-- `(` is the noun (matching parentheses)
+- `"` is the noun (matching quotes)
 
 Verbs are optional depending on the noun, but with this outline there are many commands you compose.
 
