@@ -10,7 +10,7 @@ In the example sxhkd in the bspwm repo, the main window focus keybind is set up 
 
 {% highlight bash %}
 super + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
+    bspc node -{f,s} {west,south,north,east}
 {% endhighlight %}
 
 I'm going to separate this into 2 parts, a focus part and a movement part.
@@ -20,14 +20,14 @@ I'm going to separate this into 2 parts, a focus part and a movement part.
 So taking the focus part out of the above we get:
 {% highlight bash %}
 super + {h,j,k,l}
-    bspc window -f {left,down,up,right}
+    bspc node -f {west,south,north,east}
 {% endhighlight %}
 
 So, This will focus on a window in a direction determined by keypress, which are vi-like here. However, lets say you have 2 monitors, and one is empty:
 
 ![img](http://i.imgur.com/5VBlIjn.png)
 
-the command `bspc window -f right` will fail, as there is no window to the right, and no action occurs as a result.
+the command `bspc node -f east` will fail, as there is no window to the right, and no action occurs as a result.
 
 
 ### Desired behavior
@@ -38,15 +38,15 @@ In the above, on a focus right, I want the cursor to appear in the middle of the
 super + {h,j,k,l}
     bspc config pointer_follows_monitor true; \
     bspc config pointer_follows_focus true; \
-    dir={left,down,up,right}; \
-        if ! bspc window -f $dir; then \
+    dir={west,south,north,east}; \
+        if ! bspc node -f $dir; then \
     bspc monitor -f $dir; \
     fi; \
     bspc config pointer_follows_monitor false; \
     bspc config pointer_follows_focus false
 {% endhighlight %}
 
-When the window right command fails in the above scenario, the monitor to the right will be focused, and the pointer will be there.
+When the node right command fails in the above scenario, the monitor to the right will be focused, and the pointer will be there.
 
 > Why is half of this function setting pointer_follows_* values?
 
@@ -58,7 +58,7 @@ Movement part of the example sxhkd:
 
 {% highlight bash %}
 super + shift + {h,j,k,l}
-    bspc window -s {left,down,up,right}
+    bspc node -s {west,south,north,east}
 {% endhighlight %}
 
 Alright, so what this does is switch the currently focused window with another window by direction, although the focus remains on the original window spot, which I've found to be quite annoying. It feels more natural to keep focus on the same window and 'carry' it around your workspaces/monitors.
@@ -78,18 +78,18 @@ super + shift + {h,j,k,l}
     bspc config pointer_follows_focus true; \
     cur_win=$(bspc query -W -w) \
     cur_mon=$(bspc query -M -m); \
-    dir={left,down,up,right}; \
-    if ! bspc window -f $dir; then \
-        bspc window -m $dir; \
+    dir={west,south,north,east}; \
+    if ! bspc node -f $dir; then \
+        bspc node -m $dir; \
         bspc monitor -f $dir; \
     else \
         new_mon=$(bspc query -M -m); \
         if [ $new_mon -eq $cur_mon ]; then \
-            bspc window -s $cur_win; \
+            bspc node -s $cur_win; \
         else \
-            bspc window $cur_win -m ^$new_mon; \
+            bspc node $cur_win -m ^$new_mon; \
         fi; \
-    bspc window -f $cur_win; \
+    bspc node -f $cur_win; \
     fi; \
     bspc config pointer_follows_focus false
 {% endhighlight %}
@@ -97,4 +97,3 @@ super + shift + {h,j,k,l}
 You can see from this I used the same strategy as above - check if the window focus command failed and act accordingly - if it does not fail, then check if we are on a new monitor - if so, move the original window to the new monitor.
 
 wooo.
-
