@@ -19,8 +19,6 @@ So, for `di(` above:
 
 Verbs are optional depending on the noun, but with this outline there are many commands you compose.
 
-## Actions
-
 |action | mnemonic   | meaning                     |
 |-------|------------|--------                     |
 |c      | change     | delete and enter insert mode|
@@ -31,7 +29,6 @@ Verbs are optional depending on the noun, but with this outline there are many c
 |v      | visual     | enter visual mode           |
 |y      | yank       | copy                        |
 
-## Verbs
 |verb   | mnemonic   | meaning                                                |
 |-------|------------|--------                                                |
 |a      | around     | inclusive of noun selector                             |
@@ -41,7 +38,6 @@ Verbs are optional depending on the noun, but with this outline there are many c
 |t      | till       | forward to character, exclusive (character is the verb)|
 |T      |            | backward to character, exclusive                       |
 
-## Nouns
 |noun                   | mnemonic    | meaning                             |
 |-------                |------------ |--------                             |
 |%                      |             | matching [{( under cursor, inclusive|
