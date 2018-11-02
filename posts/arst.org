@@ -1,0 +1,11 @@
+#+title: Alternative to NotePad++ in Linux tags: [] status: publish
+type: post published: true meta:
+\_oembed\_e40f09bbee0847193f008f7b8d14440f: "{{unknown}}" \_edit\_last:
+'1' \_oembed\_1361ce46c8c09863224188991e25a04b: "{{unknown}}" author:
+login: Nathanisom27 email: NathanIsom27@gmail.com display\_name:
+Nathanisom27 first\_name: Nathan last\_name: Isom
+
+Notepad++ doesn't run in Linux, so I'm saving a link on how to beef up
+the gedit text editor here.
+
+http://grigio.org/pimp\_my\_gedit\_was\_textmate\_linux
