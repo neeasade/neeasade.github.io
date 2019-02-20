@@ -1,0 +1,17 @@
+
+
+
+#+date: <2018-04-10 00:00>
+#+title: quote to string in elisp
+
+I always forget how to do this:
+
+#+begin_src elisp
+(progn 'asdf) ;;; => asdf
+#+end_src
+
+When I want the string "asdf". Fix:
+
+#+begin_src elisp
+(progn (print1-to-string 'asdf)) ;;; => "asdf" 
+#+end_src

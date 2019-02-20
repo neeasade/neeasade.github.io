@@ -1,0 +1,65 @@
+
+
+
+
+
+
+#+date: <2018-05-06 00:00>
+#+title: vim language quick reference
+
+Example command =di"= (| is the cursor below):
+
+#+begin_src txt
+somefunc("here is a |string") --> somefunc("") 
+#+end_src
+
+The general form is =<action> <operator> <text object>=, or as I like to
+think, =<action> <verb> <noun>=. Verbs modify nouns.
+
+So, for =di"= above:
+
+- =d= is the action (delete)
+- =i= is the verb (inside)
+- ="= is the noun (matching quotes)
+
+Verbs are optional depending on the noun, but with this outline there
+are many commands you compose.
+
+| action   | mnemonic   | meaning                        |
+|----------+------------+--------------------------------|
+| c        | change     | delete and enter insert mode   |
+| d        | delete     | delete                         |
+| g        | go         | movement/jump to               |
+| p        | paste      | paste                          |
+| r        | replace    | replace                        |
+| v        | visual     | enter visual mode              |
+| y        | yank       | copy                           |
+
+| verb   | mnemonic   | meaning                                                   |
+|--------+------------+-----------------------------------------------------------|
+| a      | around     | inclusive of noun selector                                |
+| i      | inside     | exclusive of noun selector                                |
+| f      | find       | forward to character, inclusive                           |
+| F      |            | backward to character, inclusive                          |
+| t      | till       | forward to character, exclusive (character is the verb)   |
+| T      |            | backward to character, exclusive                          |
+
+| noun                      | mnemonic    | meaning                                  |
+|---------------------------+-------------+------------------------------------------|
+| b                         | block       | blocks of surrounding =([{= (implicit)   |
+| p                         | paragraph   | paragraph                                |
+| s                         | sentence    | sentence                                 |
+| t                         | tag         | =<tags> pairs of </tags>=                |
+| w                         | word        | word                                     |
+| %                         |             | matching [{( under cursor, inclusive     |
+| /                         |             | forward to search result                 |
+| <,>                       |             | =<tags> pairs of </tags>=                |
+| ?                         |             | backward to search result                |
+| ='=,="=,=`=               |             | surrounding ="'`= pairs                  |
+| =(=,=[=,={=,=}=,=]=,=}=   |             | surrounding =([{= pairs                  |
+
+You can install plugins to get more nouns and nice contextual actions.
+For example with tpope's
+[[https://github.com/tpope/vim-commentary][commentary]] you get a =gc=
+action for commenting in whatever programming language you are in --
+which you can compose with any of the above nouns and verbs!

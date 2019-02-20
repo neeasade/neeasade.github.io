@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://notes.neeasade.netrss.xml"
+      title="RSS feed for https://notes.neeasade.net"/>
+<title>quote to string in elisp</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+    </head>
+<body>
+<div id="preamble" class="status">
+</div>
+<div id="content">
+<div class="post-date">10 Apr 2018</div><h1 class="post-title"><a href="2018-04-10-quote-to-string-in-elisp.html">quote to string in elisp</a></h1>
+<p>
+I always forget how to do this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #747474;">progn</span> 'asdf) <span style="color: #b9b9b9;">;;; </span><span style="color: #ababab;">=&gt; asdf</span>
+</pre>
+</div>
+
+<p>
+When I want the string "asdf". Fix:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #747474;">progn</span> (print1-to-string 'asdf)) <span style="color: #b9b9b9;">;;; </span><span style="color: #ababab;">=&gt; "asdf" </span>
+</pre>
+</div>
+</div>
+<div id="postamble" class="status"></div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://notes.neeasade.netrss.xml"
+      title="RSS feed for https://notes.neeasade.net"/>
+<title>i3-like multihead in bspwm</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+    </head>
+<body>
+<div id="preamble" class="status">
+</div>
+<div id="content">
+<div class="post-date">28 Apr 2015</div><h1 class="post-title"><a href="2015-04-28-BSPWM-Multihead.html">i3-like multihead in bspwm</a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#initial">Initial</a></li>
+<li><a href="#focus">Focus</a>
+<ul>
+<li><a href="#desired-behavior">Desired behavior</a></li>
+</ul>
+</li>
+<li><a href="#movement">Movement</a>
+<ul>
+<li><a href="#desired-behavior-1">Desired behavior</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>
+i3 has fantastic focus and window handling for multiple monitors out of
+the box in my opinion. I didn't realize that I missed this until I was
+on campus and used i3 on a multihead setup there, so I set out to make
+my bspwm setup act the same.
+</p>
+
+<div id="outline-container-orgb5d4f77" class="outline-2">
+<h2 id="initial">Initial</h2>
+<div class="outline-text-2" id="text-initial">
+<p>
+In the example sxhkd in the bspwm repo, the main window focus keybind is
+set up as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + {<span style="color: #8e8e8e;">\_</span>,shift + }{h,j,k,l} bspc node -{f,s}
+{west,south,north,east}
+</pre>
+</div>
+
+<p>
+I'm going to separate this into 2 parts, a focus part and a movement
+part.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbd615f" class="outline-2">
+<h2 id="focus">Focus</h2>
+<div class="outline-text-2" id="text-focus">
+<p>
+So taking the focus part out of the above we get:
+</p>
+<pre class="example">
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+</pre>
+
+<p>
+So, This will focus on a window in a direction determined by keypress,
+which are vi-like here. However, lets say you have 2 monitors, and one
+is empty:
+</p>
+
+
+<figure>
+<img src="http://i.imgur.com/5VBlIjn.png" alt="5VBlIjn.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>img</figcaption>
+</figure>
+
+<p>
+the command <code>bspc node -f east</code> will fail, as there is no window to the
+right, and no action occurs as a result.
+</p>
+</div>
+
+<div id="outline-container-orga142024" class="outline-3">
+<h3 id="desired-behavior">Desired behavior</h3>
+<div class="outline-text-3" id="text-desired-behavior">
+<p>
+In the above, on a focus right, I want the cursor to appear in the
+middle of the right monitor as well as focus on that monitor.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + {h,j,k,l} bspc config
+pointer<span style="color: #8e8e8e;">\_</span>follows<span style="color: #8e8e8e;">\_</span>monitor true;<span style="color: #8e8e8e;">\\</span>
+bspc config pointer<span style="color: #8e8e8e;">\_</span>follows<span style="color: #8e8e8e;">\_</span>focus true;<span style="color: #8e8e8e;">\\</span>
+<span style="color: #7c7c7c;">dir</span>={west,south,north,east};<span style="color: #8e8e8e;">\\</span>
+<span style="color: #747474;">if</span> <span style="color: #8e8e8e;">!</span> bspc node -f $<span style="color: #7c7c7c;">dir</span>; <span style="color: #747474;">then</span><span style="color: #8e8e8e;">\\</span>
+bspc monitor -f $<span style="color: #7c7c7c;">dir</span>;<span style="color: #8e8e8e;">\\</span>
+<span style="color: #747474;">fi</span>;<span style="color: #8e8e8e;">\\</span>
+bspc config pointer<span style="color: #8e8e8e;">\_</span>follows<span style="color: #8e8e8e;">\_</span>monitor false;<span style="color: #8e8e8e;">\\</span>
+bspc config pointer<span style="color: #8e8e8e;">\_</span>follows<span style="color: #8e8e8e;">\_</span>focus false
+</pre>
+</div>
+
+<p>
+When the node right command fails in the above scenario, the monitor to
+the right will be focused, and the pointer will be there.
+</p>
+
+<blockquote>
+<p>
+Why is half of this function setting pointer\<sub>follows</sub>\<sub>*</sub> values?
+</p>
+</blockquote>
+
+<p>
+So let's say you are moving a floating window with your mouse across the
+2 screens - with either of the two pointer options above enabled, when
+you cross the border the cursor will move, and the window with it. This
+window snapping out from under you can be quite annoying.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org81dc55d" class="outline-2">
+<h2 id="movement">Movement</h2>
+<div class="outline-text-2" id="text-movement">
+<p>
+Movement part of the example sxhkd:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + shift + {h,j,k,l} bspc node -s
+{west,south,north,east}
+</pre>
+</div>
+
+<p>
+Alright, so what this does is switch the currently focused window with
+another window by direction, although the focus remains on the original
+window spot, which I've found to be quite annoying. It feels more
+natural to keep focus on the same window and 'carry' it around your
+workspaces/monitors.
+</p>
+</div>
+
+<div id="outline-container-orgab541dc" class="outline-3">
+<h3 id="desired-behavior-1">Desired behavior</h3>
+<div class="outline-text-3" id="text-desired-behavior-1">
+<p>
+When a window is switched, retain focus on the original window that was
+moved. If switching to an empty monitor, move the window to that
+monitor. If switching to an occupied monitor, move the window to that
+monitor instead of switching windows.
+</p>
+
+<p>
+Under this behavior, the keypress <code>super + shift + l</code> would yield the
+following results:
+</p>
+
+<p>
+<img src="http://i.imgur.com/ofjhFSP.png" alt="ofjhFSP.png"> <img src="http://i.imgur.com/HyahZTU.png" alt="HyahZTU.png">
+</p>
+
+<p>
+Here is an implementation: #+begin<sub>src</sub> bash
+super + shift +
+{h,j,k,l} bspc config pointer\<sub>follows</sub>\<sub>focus</sub> true;<br>
+cur\<sub>win</sub>=\((bspc query -W -w) \
+ cur_mon=\)(bspc query -M -m);<br>
+dir={west,south,north,east};<br>
+if ! bspc node -f $dir; then<br>
+bspc node -m $dir;<br>
+bspc monitor -f \(dir; \
+ else \
+ new_mon=\)(bspc query -M -m);<br>
+if [ $new\<sub>mon</sub> -eq $cur\<sub>mon</sub> ]; then<br>
+bspc node -s $cur\<sub>win</sub>;<br>
+else<br>
+bspc node $cur<sub>win</sub> -m ^$new\<sub>mon</sub>;<br>
+fi;<br>
+bspc node -f $cur\<sub>win</sub>;<br>
+fi;<br>
+bspc config pointer\<sub>follows</sub>\<sub>focus</sub> false
+#+end<sub>src</sub>
+</p>
+
+<p>
+You can see from this I used the same strategy as above - check if the
+window focus command failed and act accordingly - if it does not fail,
+then check if we are on a new monitor - if so, move the original window
+to the new monitor.
+</p>
+
+<p>
+wooo.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status"></div>
+</body>
+</html>

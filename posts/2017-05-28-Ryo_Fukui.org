@@ -1,0 +1,28 @@
+#+date: <2017-05-28 00:00>
+#+title: Ryo Fukui albums: -
+
+- Scenery release: 1976 link:
+
+https://www.youtube.com/watch?v=Hrr3dp7zRQY - 
+- Mellow Dream
+release: 1977 link: https://www.youtube.com/watch?v=tFxbMrA6Sfo -
+
+- In New York release: 1999 link:
+https://www.youtube.com/watch?v=PV8tQmtG3dE - 
+
+- [[]]A Letter from Slowboat release: 2015 https://www.youtube.com/watch?v=kVV\_z1lBNLo
+
+Ryo Fukui was a Japanese jazz pianist. He learned to play the piano at
+22 and 6 years later released his debut album /Scenery/ in 1976. He
+passed away in 2016. Today, you can find most of his released work
+online. One album that has escaped is /My Favourite Tune/(1995). A
+youtuber with the handle /Marcel The Drunkard/ had a Japanese contact
+that evidently recorded many of the original bootlegs of Fukui's
+work([[https://www.reddit.com/r/translator/comments/5n8ckh/japanese_english_comment_about_music/?utm_name=frontpage][link]]),
+but he did not have a copy.
+
+Here are youtube links to his(often with other artists) albums at this
+time:
+
+{% for album in page.albums %} - [[file:%7B%7Balbum.link%7D%7D][{{
+album.title }}]] ({{album.release}}) {% endfor %}

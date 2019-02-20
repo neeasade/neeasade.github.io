@@ -1,0 +1,45 @@
+
+
+
+#+date: <2014-02-04 00:00>
+#+title: VirtualBox setup on Arch Linux - Misc 
+
+99% of this should apply for other distros as well.
+
+So, where I currently work, to work via a remote connection, we must be
+using a windows machine, or else we get a nice little message informing
+us that our OS is not supported by their remote service. This can be a
+tad annoying at times.
+
+Regardless of the reason, a nice virtual machine can be very usefull to
+have.
+
+Enter virtualbox, currently available from the virtualbox package on
+most repos.
+
+Note: on Arch, you may have to use the "" command before starting
+VirtBox, if you get an error on startup concerning kernel modules.
+
+I primarily use
+[[http://msft.digitalrivercontent.net/win/X17-24209.iso][windows7 x64]],
+but there are
+[[http://www.w7forums.com/threads/official-windows-7-sp1-iso-image-downloads.12325/][many
+versions]] available for use, officially from microsoft.
+
+After setting up a new machine, you can mount the ISO onto it and
+install as if to a regular hard drive.
+
+ 
+
+POST installation:
+
+There is an extension to virtual box that allows you to do some pretty
+cool things, such as emulate multiple monitors or use a window outside
+of the virtual window.
+
+This extension is installed via an ISO provided by the virtualbox
+website:
+
+http://download.virtualbox.org/virtualbox/
+
+just navigate to your version, download and mount from there.

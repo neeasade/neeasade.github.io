@@ -1,8 +1,0 @@
-#+title: More gw2 API released - Programming 
-
-ArenaNet has release a new API for integrating map tiles into a web
-page. Basic example [[http://jsfiddle.net/cliff/CRRGC/][here]]. Combined
-with the events API they released about a month ago, this makes for an
-interesting project. Perhaps path or quest plotting? someone has already
-made [[http://naturallydelicio.us/map/][a map for the browser]]. I now
-have my project for the weekend.

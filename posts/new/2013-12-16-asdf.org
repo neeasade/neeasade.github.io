@@ -1,5 +1,0 @@
-#+title: asdf 
-
-#+BEGIN_QUOTE
-  In order to grow, you have to get uncomfortable.
-#+END_QUOTE
