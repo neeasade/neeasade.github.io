@@ -1,0 +1,4 @@
+#+title: 404
+#+date: <0001-01-01 00:00>
+
+There is nothing here.

@@ -1,19 +1,22 @@
 #+title: Rice
 #+date: <2015-04-28 00:00>
+# nop MACRO: imglnk @@html:<a href="$1"><img src="$2"></a>@@
+#+MACRO: dtop ** $1 [[file:./assets/img/desktops/full/$1.png][file:./assets/img/desktops/thumb/$1.png]]
+#+OPTIONS: toc:nil
 
-[[file:./assets/img/desktops/full/2017-03-28.png][file:./assets/desktops/thumb/2017-03-28.png]]
-[[file:./assets/img/desktops/full/2017-03-06.png][file:./assets/desktops/thumb/2017-03-06.png]]
-[[file:./assets/img/desktops/full/2017-02-19.png][file:./assets/desktops/thumb/2017-02-19.png]]
-[[file:./assets/img/desktops/full/2017-02-18.png][file:./assets/desktops/thumb/2017-02-18.png]]
-[[file:./assets/img/desktops/full/2017-02-04.png][file:./assets/desktops/thumb/2017-02-04.png]]
-[[file:./assets/img/desktops/full/2016-01-28.png][file:./assets/desktops/thumb/2016-01-28.png]]
-[[file:./assets/img/desktops/full/2015-12-13.png][file:./assets/desktops/thumb/2015-12-13.png]]
-[[file:./assets/img/desktops/full/2015-08-30.png][file:./assets/desktops/thumb/2015-08-30.png]]
-[[file:./assets/img/desktops/full/2015-03-25.png][file:./assets/desktops/thumb/2015-03-25.png]]
-[[file:./assets/img/desktops/full/2015-02-18.png][file:./assets/desktops/thumb/2015-02-18.png]]
-[[file:./assets/img/desktops/full/2015-02-10.png][file:./assets/desktops/thumb/2015-02-10.png]]
-[[file:./assets/img/desktops/full/2014-12-26.png][file:./assets/desktops/thumb/2014-12-26.png]]
-[[file:./assets/img/desktops/full/2014-05-24.png][file:./assets/desktops/thumb/2014-05-24.png]]
-[[file:./assets/img/desktops/full/2013-12-16.png][file:./assets/img/desktops/thumb/2013-12-16.png]]
-[[file:./assets/img/desktops/full/2013-12-16_2.png][file:./assets/desktops/thumb/2013-12-16_2.png]]
-[[file:./assets/img/desktops/full/2013-12-10.png][file:./assets/desktops/thumb/2013-12-10.png]]
+{{{dtop(2017-03-28)}}}
+{{{dtop(2017-03-06)}}}
+{{{dtop(2017-02-19)}}}
+{{{dtop(2017-02-18)}}}
+{{{dtop(2017-02-04)}}}
+{{{dtop(2016-01-28)}}}
+{{{dtop(2015-12-13)}}}
+{{{dtop(2015-08-30)}}}
+{{{dtop(2015-03-25)}}}
+{{{dtop(2015-02-18)}}}
+{{{dtop(2015-02-10)}}}
+{{{dtop(2014-12-26)}}}
+{{{dtop(2014-05-24)}}}
+{{{dtop(2013-12-16)}}}
+{{{dtop(2013-12-16_2)}}}
+{{{dtop(2013-12-10)}}}
