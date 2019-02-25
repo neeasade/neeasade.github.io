@@ -1,11 +1,5 @@
-
-
-
-
-
-
 #+date: <2013-05-29 00:00>
-#+title: CrunchBang 11 - Linux - Personal 
+#+title: CrunchBang 11
 
 Alright, so, after quite a bit of trial and error, I finally have my
 laptop configured the way I want it to be. In a duel boot with

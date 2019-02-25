@@ -1,11 +1,5 @@
-
-
-
-
-
-
 #+date: <2013-06-21 00:00>
-#+title: More gw2 API released - Programming 
+#+title: More gw2 API released
 
 ArenaNet has release a new API for integrating map tiles into a web
 page. Basic example [[http://jsfiddle.net/cliff/CRRGC/][here]]. Combined

@@ -1,8 +1,5 @@
-
-
-
 #+date: <2013-05-17 00:00>
-#+title: General Thoughts on Summer - Personal 
+#+title: General Thoughts on Summer
 
 Sitting in the library prepping for the last test before the break, just
 taking some time to breathe. The first year at college has been a wild
@@ -17,9 +14,7 @@ recruiter and learned it over spring.
 
 After today, I have two weeks of free space. I intend to do some
 catching up with my friends on Guildwars, because classes. Just ordered
-a highly recommended
-[[http://www.newegg.com/Product/Product.aspx?Item=N82E16826249066][headset]]
-50% off, can't wait to try it out. Finally won't have to use my laptop
+a highly recommended [[http://www.newegg.com/Product/Product.aspx?Item=N82E16826249066][headset]] 50% off, can't wait to try it out. Finally won't have to use my laptop
 next to my desktop as a Skype reliance.
 
 Life is good.

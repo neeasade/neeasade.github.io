@@ -1,11 +1,5 @@
-
-
-
-
-
-
 #+date: <2014-02-21 00:00>
-#+title: Configuring constant LANG variable - Linux 
+#+title: Configuring constant LANG variable
 
 After setting your correct locale in the etc/locale.gen file and running
 locale-gen, your system wide language gets set in Linux. Some

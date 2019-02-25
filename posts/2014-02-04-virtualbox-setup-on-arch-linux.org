@@ -1,8 +1,5 @@
-
-
-
 #+date: <2014-02-04 00:00>
-#+title: VirtualBox setup on Arch Linux - Misc 
+#+title: VirtualBox setup on Arch Linux
 
 99% of this should apply for other distros as well.
 

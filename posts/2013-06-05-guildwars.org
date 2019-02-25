@@ -1,11 +1,5 @@
-
-
-
-
-
-
 #+date: <2013-06-05 00:00>
-#+title: Guildwars - Gaming - Personal 
+#+title: Guildwars
 
 Today, I found myself traversing centaur camps whilst trying to complete
 the Arathi Hinterlands. I was on my way to the skill point at the far

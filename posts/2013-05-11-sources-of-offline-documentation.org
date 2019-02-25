@@ -1,8 +1,5 @@
-
-
-
+#+title: Sources of Offline Documentation
 #+date: <2013-05-11 00:00>
-#+title: Sources of Offline Documentation - Programming 
 
 There isn't always an internet connection, and you may be on limited
 bandwidth. Here are sources of documentation for various languages.

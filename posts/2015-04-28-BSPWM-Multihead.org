@@ -16,7 +16,7 @@ set up as such:
 
 #+begin_src bash
 super + {\_,shift + }{h,j,k,l} bspc node -{f,s}
-{west,south,north,east}
+    {west,south,north,east}
 #+end_src
 
 I'm going to separate this into 2 parts, a focus part and a movement
@@ -52,22 +52,22 @@ In the above, on a focus right, I want the cursor to appear in the
 middle of the right monitor as well as focus on that monitor.
 
 #+begin_src bash
-super + {h,j,k,l} bspc config
-pointer\_follows\_monitor true;\\
-bspc config pointer\_follows\_focus true;\\
-dir={west,south,north,east};\\
-if ! bspc node -f $dir; then\\
-bspc monitor -f $dir;\\
-fi;\\
-bspc config pointer\_follows\_monitor false;\\
-bspc config pointer\_follows\_focus false
+super + {h,j,k,l}
+    bspc config pointer_follows_monitor true; \
+    bspc config pointer_follows_focus true; \
+    dir={west,south,north,east}; \
+        if ! bspc node -f $dir; then \
+    bspc monitor -f $dir; \
+    fi; \
+    bspc config pointer_follows_monitor false; \
+    bspc config pointer_follows_focus false
 #+end_src
 
 When the node right command fails in the above scenario, the monitor to
 the right will be focused, and the pointer will be there.
 
 #+BEGIN_QUOTE
-  Why is half of this function setting pointer\_follows\_* values?
+  Why is half of this function setting pointer_follows_* values?
 #+END_QUOTE
 
 So let's say you are moving a floating window with your mouse across the
@@ -76,15 +76,12 @@ you cross the border the cursor will move, and the window with it. This
 window snapping out from under you can be quite annoying.
 
 ** Movement
-   :PROPERTIES:
-   :CUSTOM_ID: movement
-   :END:
 
 Movement part of the example sxhkd:
 
 #+begin_src bash
-super + shift + {h,j,k,l} bspc node -s
-{west,south,north,east}
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
 #+end_src
 
 Alright, so what this does is switch the currently focused window with
@@ -108,25 +105,27 @@ following results:
 
 [[http://i.imgur.com/ofjhFSP.png]] [[http://i.imgur.com/HyahZTU.png]]
 
-Here is an implementation: #+begin_src bash
-super + shift +
-{h,j,k,l} bspc config pointer\_follows\_focus true;\\
-cur\_win=$(bspc query -W -w) \
- cur_mon=$(bspc query -M -m);\\
-dir={west,south,north,east};\\
-if ! bspc node -f $dir; then\\
-bspc node -m $dir;\\
-bspc monitor -f $dir; \
- else \
- new_mon=$(bspc query -M -m);\\
-if [ $new\_mon -eq $cur\_mon ]; then\\
-bspc node -s $cur\_win;\\
-else\\
-bspc node $cur_win -m ^$new\_mon;\\
-fi;\\
-bspc node -f $cur\_win;\\
-fi;\\
-bspc config pointer\_follows\_focus false
+Here is an implementation:
+
+#+begin_src bash
+super + shift + {h,j,k,l}
+    bspc config pointer_follows_focus true; \
+    cur_win=$(bspc query -W -w) \
+    cur_mon=$(bspc query -M -m); \
+    dir={west,south,north,east}; \
+    if ! bspc node -f $dir; then \
+        bspc node -m $dir; \
+        bspc monitor -f $dir; \
+    else \
+        new_mon=$(bspc query -M -m); \
+        if [ $new_mon -eq $cur_mon ]; then \
+            bspc node -s $cur_win; \
+        else \
+            bspc node $cur_win -m ^$new_mon; \
+        fi; \
+    bspc node -f $cur_win; \
+    fi; \
+    bspc config pointer_follows_focus false
 #+end_src
 
 You can see from this I used the same strategy as above - check if the
