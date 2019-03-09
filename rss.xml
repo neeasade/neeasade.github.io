@@ -4,7 +4,7 @@
 <title>Notes</title>
 <description>Notes</description>
 <link>https://notes.neeasade.net</link>
-<lastBuildDate>Sat, 09 Mar 2019 15:39:24 -0500</lastBuildDate>
+<lastBuildDate>Sat, 09 Mar 2019 15:42:19 -0500</lastBuildDate>
 <item>
   <title>git svn workflow</title>
   <description><![CDATA[
@@ -455,7 +455,7 @@ You can continue mapping in programming mode by hitting key combinations
 followed by <code>pn</code>.
 </p>
 
-<div id="outline-container-org092c854" class="outline-2">
+<div id="outline-container-orgdf2fdfc" class="outline-2">
 <h2 id="swaps">Swaps</h2>
 <div class="outline-text-2" id="text-swaps">
 <div class="org-src-container">
@@ -471,7 +471,7 @@ capslock -&gt; left ctrl left ctrl -&gt; capslock
 </div>
 </div>
 
-<div id="outline-container-org2d8a4a8" class="outline-2">
+<div id="outline-container-org266a61f" class="outline-2">
 <h2 id="r_ctrl---fn">R\<sub>Ctrl</sub> -&gt; Fn</h2>
 <div class="outline-text-2" id="text-r_ctrl---fn">
 <p>
@@ -569,7 +569,7 @@ on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 </p>
 
-<div id="outline-container-org8d42c4e" class="outline-2">
+<div id="outline-container-org8e872e6" class="outline-2">
 <h2 id="initial">Initial</h2>
 <div class="outline-text-2" id="text-initial">
 <p>
@@ -590,7 +590,7 @@ part.
 </div>
 </div>
 
-<div id="outline-container-org37c05e1" class="outline-2">
+<div id="outline-container-org301e287" class="outline-2">
 <h2 id="focus">Focus</h2>
 <div class="outline-text-2" id="text-focus">
 <p>
@@ -620,7 +620,7 @@ right, and no action occurs as a result.
 </p>
 </div>
 
-<div id="outline-container-org7660033" class="outline-3">
+<div id="outline-container-org824d858" class="outline-3">
 <h3 id="desired-behavior">Desired behavior</h3>
 <div class="outline-text-3" id="text-desired-behavior">
 <p>
@@ -662,9 +662,9 @@ window snapping out from under you can be quite annoying.
 </div>
 </div>
 
-<div id="outline-container-org7c7a555" class="outline-2">
-<h2 id="org7c7a555">Movement</h2>
-<div class="outline-text-2" id="text-org7c7a555">
+<div id="outline-container-org2566705" class="outline-2">
+<h2 id="org2566705">Movement</h2>
+<div class="outline-text-2" id="text-org2566705">
 <p>
 Movement part of the example sxhkd:
 </p>
@@ -684,7 +684,7 @@ workspaces/monitors.
 </p>
 </div>
 
-<div id="outline-container-orgc812228" class="outline-3">
+<div id="outline-container-org0c4a304" class="outline-3">
 <h3 id="desired-behavior-1">Desired behavior</h3>
 <div class="outline-text-3" id="text-desired-behavior-1">
 <p>
@@ -754,7 +754,7 @@ So, I've been using BSPWM as my main WM for about 5 months now, after
 transitioning from i3, so I thought I would write about my experience.
 </p>
 
-<div id="outline-container-orgdfedf41" class="outline-2">
+<div id="outline-container-org9738ee6" class="outline-2">
 <h2 id="the-i3-days">The i3 Days</h2>
 <div class="outline-text-2" id="text-the-i3-days">
 <p>
@@ -776,7 +776,7 @@ to drive 'deeper' led me to seek what I considered a more advanced WM.
 </div>
 </div>
 
-<div id="outline-container-org2a264b3" class="outline-2">
+<div id="outline-container-org436dcc5" class="outline-2">
 <h2 id="picking-a-wm">Picking a WM</h2>
 <div class="outline-text-2" id="text-picking-a-wm">
 <p>
@@ -798,7 +798,7 @@ lot more effort to get set up to ones liking. So I picked bspwm.
 </div>
 </div>
 
-<div id="outline-container-orgf8d8fd0" class="outline-2">
+<div id="outline-container-org2c81f0d" class="outline-2">
 <h2 id="the-first-attempts">The First Attempts</h2>
 <div class="outline-text-2" id="text-the-first-attempts">
 <p>
@@ -834,7 +834,7 @@ do when starting out, it can be very discouraging.
 </div>
 </div>
 
-<div id="outline-container-org29ab81f" class="outline-2">
+<div id="outline-container-org4551e0a" class="outline-2">
 <h2 id="adjusting">Adjusting</h2>
 <div class="outline-text-2" id="text-adjusting">
 <p>
@@ -852,7 +852,7 @@ management.
 </div>
 </div>
 
-<div id="outline-container-orgf7b2b98" class="outline-2">
+<div id="outline-container-orga14684c" class="outline-2">
 <h2 id="panel">Panel</h2>
 <div class="outline-text-2" id="text-panel">
 <p>
@@ -921,7 +921,7 @@ my setup.
 </div>
 </div>
 
-<div id="outline-container-orgfc6f962" class="outline-2">
+<div id="outline-container-org4ebacd0" class="outline-2">
 <h2 id="aftermath">Aftermath</h2>
 <div class="outline-text-2" id="text-aftermath">
 <p>
@@ -954,9 +954,9 @@ This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 </p>
 
-<div id="outline-container-orgc042d6b" class="outline-2">
-<h2 id="orgc042d6b">Compile the program to debug</h2>
-<div class="outline-text-2" id="text-orgc042d6b">
+<div id="outline-container-org21b4212" class="outline-2">
+<h2 id="org21b4212">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-org21b4212">
 <p>
 I'm assuming here that you have the source of the C file that you wish
 to step through(this post assumes you are trying to learn about
