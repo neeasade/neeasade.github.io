@@ -16,12 +16,15 @@ fi
 
 # oof
 # let's not talk about it
+
 elisp "(org-static-blog-publish)"
 rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net
+
 git checkout master
 rm -rf *
 cp -r /tmp/notes.neeasade.net/* ./
+
 git add --all
 git commit -m "auto commit publish.sh"
 git push origin master
