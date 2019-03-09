@@ -15,7 +15,7 @@ fi
 
 # oof
 # let's not talk about it
-cp site /tmp/notes.neeasade.net
+cp -r site /tmp/notes.neeasade.net
 git checkout master
 rm -rf *
 cp -r /tmp/notes.neeasade.net/* ./
