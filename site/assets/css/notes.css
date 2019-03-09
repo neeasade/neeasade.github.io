@@ -1,0 +1,13 @@
+.post-date {
+    float: right;
+}
+
+img
+{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:auto;
+    height:auto;
+    max-width:90%;
+}
