@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd $(dirname $([ -L $0  ] && readlink -f $0 || echo $0))
+set -e
 
 if [ -z "$(git status -s)" ]; then
     ./site/assets/img/desktops/make_thumbs.sh
@@ -15,6 +16,7 @@ fi
 
 # oof
 # let's not talk about it
+elisp "(org-static-blog-publish)"
 cp -r site /tmp/notes.neeasade.net
 git checkout master
 rm -rf *
