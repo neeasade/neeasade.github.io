@@ -1,0 +1,37 @@
+#+title: Test page
+#+date: <0000-00-00 00:00>
+
+This is a test file to test formatting things
+
+[[file:assets/posts/test.png][link to an asset]]
+
+
+Inline image:
+
+[[./assets/posts/test.png]]
+
+code:
+
+#+begin_src txt
+Here is some really
+cool lookin code
+#+end_src
+
+quote:
+
+#+BEGIN_QUOTE
+This is a quote.
+#+END_QUOTE
+
+graphiz:
+see here for examples: https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
+
+#+BEGIN_SRC dot :file ./assets/posts/test-dot.png  :cmdline -Kdot -Tpng
+digraph {
+    a -> b
+    b -> b
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:./assets/posts/test-dot.png]]
