@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd $(dirname $([ -L $0  ] && readlink -f $0 || echo $0))
-set -e
+# set -e
 
 if [ -z "$(git status -s)" ]; then
     ./site/assets/img/desktops/make_thumbs.sh
