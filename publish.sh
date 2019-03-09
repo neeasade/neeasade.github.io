@@ -17,6 +17,7 @@ fi
 # oof
 # let's not talk about it
 elisp "(org-static-blog-publish)"
+rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net
 git checkout master
 rm -rf *
