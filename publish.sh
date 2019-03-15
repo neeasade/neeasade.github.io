@@ -8,6 +8,7 @@ if [ -z "$(git status -s)" ]; then
     if [ ! -z "$(git status -s)" ]; then
 	git add -u
 	git commit -m "generate thumbs"
+	git push origin source
     fi
 else
     echo unclean git status
