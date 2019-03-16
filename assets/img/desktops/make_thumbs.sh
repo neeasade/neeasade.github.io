@@ -6,9 +6,10 @@ sed -i "/{{{.*/d" "../../../../pages/rice.org"
 
 find full -type f | sort | tac | while read -r file; do
   filename="$(basename "$file")"
-  echo $filename
-  [ ! -f "thumb/$filename" ] && \
+  if [ ! -f "thumb/$filename" ]; then
+      echo $filename
       convert "$file" -resize 900x -filter Lanczos "thumb/$filename"
+  fi
 
-  echo "{{{dtop($filename)}}}" >> "../../../../pages/rice.org"
+  echo "{{{dtop($(basename -s .png "$filename"))}}}" >> "../../../../pages/rice.org"
 done
