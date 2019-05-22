@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://notes.neeasade.netrss.xml"
+      title="RSS feed for https://notes.neeasade.net"/>
+<title>Pok3r Mapping</title>
+<link href="assets/css/normalize.css" rel="stylesheet">
+<link href="assets/css/sakura.css" rel="stylesheet">
+<link href="assets/css/notes.css" rel="stylesheet"></head>
+<body>
+<div id="preamble" class="status">
+</div>
+<div id="content">
+<div class="post-date">19 Mar 2018</div><h1 class="post-title"><a href="2018-03-19-Pok3r-Mapping.html">Pok3r Mapping</a></h1>
+<p>
+Mapping reference that I'm using on my pok3r keyboard.
+</p>
+
+<p>
+To map a key:
+</p>
+
+<ul class="org-ul">
+<li>switch to desired layer with <code>fn + {&lt;,&gt;,?}</code>.</li>
+<li><code>fn + R_Ctrl</code> to enter programming mode</li>
+<li>enter key you want to remap</li>
+<li>enter key you want to map to</li>
+<li><code>pn</code> to map</li>
+<li><code>fn + R_Ctrl</code> to exit</li>
+</ul>
+
+<p>
+You can continue mapping in programming mode by hitting key combinations
+followed by <code>pn</code>.
+</p>
+
+<div id="outline-container-org456b19a" class="outline-2">
+<h2 id="swaps"><a id="org456b19a"></a>Swaps</h2>
+<div class="outline-text-2" id="text-swaps">
+<div class="org-src-container">
+<pre class="src src-text">esc -&gt; fn + esc fn + esc -&gt; esc
+
+l\_meta -&gt; l\_super l\_super -&gt; l\_meta
+
+&#160;-&gt; backspace backspace -&gt;\\
+
+capslock -&gt; left ctrl left ctrl -&gt; capslock
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17043c3" class="outline-2">
+<h2 id="r_ctrl---fn"><a id="org17043c3"></a>R\<sub>Ctrl</sub> -&gt; Fn</h2>
+<div class="outline-text-2" id="text-r_ctrl---fn">
+<p>
+note: this effects only the layer you are on, fn transforms into super
+after this.
+</p>
+
+<ul class="org-ul">
+<li>unplug keyboard, flip switch 4</li>
+<li>hit fn, then r\<sub>ctrl</sub></li>
+<li>hit pn, pn to keep position</li>
+<li>turn off switch 4</li>
+</ul>
+
+<p>
+and now we can have nice vim-like arrow keys:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">fn + h -&gt; fn + j fn + j -&gt; fn + k fn + k -&gt; fn + i
+fn + l -&gt; fn + l
+</pre>
+</div>
+
+<p>
+swap (the now available) right win alt:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">r\_meta -&gt; r\_super r\_super -&gt; r\_meta
+</pre>
+</div>
+
+<p>
+When away, here is an autohotkey script to achieve the same (minus the
+arrow keys):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ahk">#SingleInstance force
+
+Capslock::Ctrl
+
+::Backspace Backspace::\\
+
++BS:: KeyWait, Shift Send, {|} Return
+
+LWin::LAlt LAlt::LWin
+
+RWin::RAlt RAlt::RWin
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<a href="archive.html"> Other posts </a></div>
+</body>
+</html>

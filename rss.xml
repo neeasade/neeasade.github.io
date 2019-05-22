@@ -1,0 +1,1702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>Notes</title>
+<description>Notes</description>
+<link>https://notes.neeasade.net</link>
+<lastBuildDate>Tue, 21 May 2019 21:05:42 -0400</lastBuildDate>
+<item>
+  <title>TLDR org mode + graphviz</title>
+  <description><![CDATA[
+<p>
+Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
+</p>
+
+<div id="outline-container-orgaa2a940" class="outline-2">
+<h2 id="orgaa2a940">Org mode</h2>
+<div class="outline-text-2" id="text-orgaa2a940">
+<p>
+After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
+mode source block like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+digraph {
+    a -&gt; b
+}
+<span style="color: #ababab;">#+END_SRC</span>
+</pre>
+</div>
+
+<p>
+You can eval the block with <code>C-c C-c</code> and then view it inline in emacs by using
+<code>org-toggle-inline-images</code>.
+</p>
+
+<p>
+These blocks also export! Just like in <a href="https://github.com/neeasade/neeasade.github.io/blob/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org#org-mode">this page itself!</a>
+</p>
+
+
+<figure>
+<img src="./assets/posts/dot-example.png" alt="dot-example.png">
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org8c04ed7" class="outline-2">
+<h2 id="org8c04ed7">The Dot language</h2>
+<div class="outline-text-2" id="text-org8c04ed7">
+<p>
+The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
+find that too helpful on it's own, so here are some notes:
+</p>
+
+<p>
+Primitives that matter:
+</p>
+
+<ul class="org-ul">
+<li>a <code>node</code> is a bubble/self contained item that will be connected.</li>
+<li>an <code>edge</code> is the line that connect nodes.</li>
+<li>a <code>graph</code> is a the relation as a whole.</li>
+</ul>
+
+<p>
+A list of attributes that can be applied to these can be found here: <a href="https://www.graphviz.org/doc/info/attrs.html">https://www.graphviz.org/doc/info/attrs.html</a>
+</p>
+
+<p>
+Some nice node options can be seen here: <a href="https://www.graphviz.org/doc/info/shapes.html#polygon">https://www.graphviz.org/doc/info/shapes.html#polygon</a>
+</p>
+
+<p>
+Here is an example that shows how attributes are set and some defaults I like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./assets/posts/dot-internet.png  :cmdline -Kdot -Tpng</span>
+digraph {
+    // --- config
+    graph [rankdir=TB]; // TBLR, top bottom left right, the direction of the graph.
+    graph [dpi=150 splines=ortho]; // you can have multiple attrs per statement
+    edge[decorate=true]
+    node [shape=box];
+
+    // --- definitions
+    // nb: setting definitions on their own is useful in larger graphs for standalone attribute setting
+    computer [label=computer];
+    // quotes are optional, I'm using them when there are spaces
+    phone [label="android phone"];
+    router [label=router];
+
+    // record syntax: | for horizontal, {|} for vert
+    internet [shape=record label="{internet|cat pictures}"]
+
+    // --- relations
+    computer -&gt; router;
+    phone -&gt;router [label="wifi"];
+    router -&gt;internet [dir=both];
+}
+<span style="color: #ababab;">#+END_SRC</span>
+</pre>
+</div>
+
+
+
+<figure>
+<img src="./assets/posts/dot-internet.png" alt="dot-internet.png">
+
+</figure>
+</div>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2019-05-21-tldr-org-mode-+-graphviz.html</link>
+  <pubDate>Tue, 21 May 2019 19:50:00 -0400</pubDate>
+</item>
+<item>
+  <title>git svn workflow</title>
+  <description><![CDATA[
+<p>
+Git provides an <a href="https://git-scm.com/docs/git-svn">svn-wrapper</a>,
+allowing you to use git tools and keep your decentralized workflow even
+when you aren't.
+</p>
+
+<p>
+The following commands are effected:
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">git</th>
+<th scope="col" class="org-left">git svn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">git pull</td>
+<td class="org-left">git svn fetch git svn merge</td>
+</tr>
+
+<tr>
+<td class="org-left">git push</td>
+<td class="org-left">git svn dcommit</td>
+</tr>
+
+<tr>
+<td class="org-left">git clone</td>
+<td class="org-left">git svn clone</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+If you are a <a href="https://magit.vc/">magit</a> user, you can install
+<a href="https://github.com/magit/magit-svn">magit-svn</a>. To enable magit-svn
+globally (magit will still work find with git repos):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'magit-mode-hook 'magit-svn-mode)
+</pre>
+</div>
+
+<p>
+To enable magit-svn on a per-repo basis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #868686;">cd</span> /path/to/repository git config --add
+magit.extension svn
+</pre>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2018-05-07-git-svn-reference.html</link>
+  <pubDate>Mon, 07 May 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>vim language quick reference</title>
+  <description><![CDATA[
+<p>
+Example command <code>di"</code> (| is the cursor below):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-txt">somefunc("here is a |string") --&gt; somefunc("")
+</pre>
+</div>
+
+<p>
+The general form is <code>&lt;action&gt; &lt;operator&gt; &lt;text object&gt;</code>, or as I like to
+think, <code>&lt;action&gt; &lt;verb&gt; &lt;noun&gt;</code>. Verbs modify nouns.
+</p>
+
+<p>
+So, for <code>di"</code> above:
+</p>
+
+<ul class="org-ul">
+<li><code>d</code> is the action (delete)</li>
+<li><code>i</code> is the verb (inside)</li>
+<li><code>"</code> is the noun (matching quotes)</li>
+</ul>
+
+<p>
+Verbs are optional depending on the noun, but with this outline there
+are many commands you compose.
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">action</th>
+<th scope="col" class="org-left">mnemonic</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">change</td>
+<td class="org-left">delete and enter insert mode</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">delete</td>
+<td class="org-left">delete</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">go</td>
+<td class="org-left">movement/jump to</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">paste</td>
+<td class="org-left">paste</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">replace</td>
+<td class="org-left">replace</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">visual</td>
+<td class="org-left">enter visual mode</td>
+</tr>
+
+<tr>
+<td class="org-left">y</td>
+<td class="org-left">yank</td>
+<td class="org-left">copy</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">verb</th>
+<th scope="col" class="org-left">mnemonic</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">around</td>
+<td class="org-left">inclusive of noun selector</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">inside</td>
+<td class="org-left">exclusive of noun selector</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">find</td>
+<td class="org-left">forward to character, inclusive</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">backward to character, inclusive</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">till</td>
+<td class="org-left">forward to character, exclusive (character is the verb)</td>
+</tr>
+
+<tr>
+<td class="org-left">T</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">backward to character, exclusive</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">noun</th>
+<th scope="col" class="org-left">mnemonic</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">block</td>
+<td class="org-left">blocks of surrounding <code>([{</code> (implicit)</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">paragraph</td>
+<td class="org-left">paragraph</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">sentence</td>
+<td class="org-left">sentence</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">tag</td>
+<td class="org-left"><code>&lt;tags&gt; pairs of &lt;/tags&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">word</td>
+<td class="org-left">word</td>
+</tr>
+
+<tr>
+<td class="org-left">%</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">matching [{( under cursor, inclusive</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;,&gt;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>&lt;tags&gt; pairs of &lt;/tags&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">backward to search result</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>'</code>,="<code>,=`</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">surrounding <code>"'`</code> pairs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>(</code>,=[=,={<code>,</code>}=,=]=,=}=</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">surrounding <code>([{</code> pairs</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+You can install plugins to get more nouns and nice contextual actions.
+For example with tpope's
+<a href="https://github.com/tpope/vim-commentary">commentary</a> you get a <code>gc</code>
+action for commenting in whatever programming language you are in &#x2013;
+which you can compose with any of the above nouns and verbs!
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2018-05-06-vim-quick-reference.html</link>
+  <pubDate>Sun, 06 May 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>add local font files linux</title>
+  <description><![CDATA[
+<p>
+If you have a local ttf or other type of font that wasn't available via
+your package manager, you can just place it in the <code>.local/share/fonts</code>
+directory. And of course reload all the fonts with <code>fc-cache -f -v</code>.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2018-04-16-add-local-font-files-linux.html</link>
+  <pubDate>Mon, 16 Apr 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>quote to string in elisp</title>
+  <description><![CDATA[
+<p>
+I always forget how to do this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #747474;">progn</span> 'asdf) <span style="color: #b9b9b9;">;;; </span><span style="color: #ababab;">=&gt; asdf</span>
+</pre>
+</div>
+
+<p>
+When I want the string "asdf". Fix:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #747474;">progn</span> (print1-to-string 'asdf)) <span style="color: #b9b9b9;">;;; </span><span style="color: #ababab;">=&gt; "asdf" </span>
+</pre>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2018-04-10-quote-to-string-in-elisp.html</link>
+  <pubDate>Tue, 10 Apr 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>restclient.el + elasticsearch</title>
+  <description><![CDATA[
+<p>
+todo: and a screenshot of it in action
+</p>
+
+<p>
+<code>restclient.el</code> is an emacs plugin that transforms a buffer into a
+repl-like curl-backed experience (similar to kibana). It has support for
+variables set with arbitrary elisp, turning it into a viable postman
+replacement (with plain text! and versioning!). I find this to be a very
+nice way to store and execute elasticsearch queries, but unfortunately
+you lose autocomplete of ES specific items. Alternatively,
+<a href="https://github.com/dakrone/es-mode">es-mode</a> exists, which is more ES specific but much more featureful.
+</p>
+
+<p>
+Here is a starter point showing some of restclients capabilities and how
+one might use it with elasticsearch:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-txt">;; -*- mode: restclient -*-
+
+# local
+:target = http://localhost:9200
+:cloud-auth = ""
+# Basic http auth example:
+cloud-auth := (concat "Basic " (base64-encode-string "username:password"))
+:prefix = some_prefix
+
+# multiline variable
+:headers = &lt;&lt;
+content-type: application/json
+Authorization: :cloud-auth
+#
+
+# note: there must be a comment to separate request definitions.
+
+# list indices
+GET :target/_cat/indices
+:headers
+
+# logs sorted by a field
+GET :target/:prefix_log/_search
+:headers
+{
+  "sort": [
+    {
+      "timestamp": {
+	"order": "desc"
+      }
+    }
+  ]
+}
+</pre>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2018-04-04-restclient.el-+-elasticsearch.html</link>
+  <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>curl exit code 60 on Windows</title>
+  <description><![CDATA[
+<p>
+Many times the <code>curl</code> tool version available to you on windows is
+outdated and doesn't ship with up to date ca certs. A workaround for
+this is to grab the latest <code>cacert.pem</code> from curl
+<a href="http://curl.haxx.se/docs/caextract.html">here</a> in the same location
+as curl, and rename it to <code>curl-ca-bundle.crt</code>. Thanks to
+<a href="https://superuser.com/questions/442793/why-cant-curl-properly-verify-a-certificate-on-windows">Cheeso</a>
+for the solution. I ran into this while trying to use <code>emacs-request</code> on
+windows.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2018-04-04-curl-exit-code-60-on-Windows.html</link>
+  <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>Pok3r Mapping</title>
+  <description><![CDATA[
+<p>
+Mapping reference that I'm using on my pok3r keyboard.
+</p>
+
+<p>
+To map a key:
+</p>
+
+<ul class="org-ul">
+<li>switch to desired layer with <code>fn + {&lt;,&gt;,?}</code>.</li>
+<li><code>fn + R_Ctrl</code> to enter programming mode</li>
+<li>enter key you want to remap</li>
+<li>enter key you want to map to</li>
+<li><code>pn</code> to map</li>
+<li><code>fn + R_Ctrl</code> to exit</li>
+</ul>
+
+<p>
+You can continue mapping in programming mode by hitting key combinations
+followed by <code>pn</code>.
+</p>
+
+<div id="outline-container-org456b19a" class="outline-2">
+<h2 id="swaps"><a id="org456b19a"></a>Swaps</h2>
+<div class="outline-text-2" id="text-swaps">
+<div class="org-src-container">
+<pre class="src src-text">esc -&gt; fn + esc fn + esc -&gt; esc
+
+l\_meta -&gt; l\_super l\_super -&gt; l\_meta
+
+&#160;-&gt; backspace backspace -&gt;\\
+
+capslock -&gt; left ctrl left ctrl -&gt; capslock
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17043c3" class="outline-2">
+<h2 id="r_ctrl---fn"><a id="org17043c3"></a>R\<sub>Ctrl</sub> -&gt; Fn</h2>
+<div class="outline-text-2" id="text-r_ctrl---fn">
+<p>
+note: this effects only the layer you are on, fn transforms into super
+after this.
+</p>
+
+<ul class="org-ul">
+<li>unplug keyboard, flip switch 4</li>
+<li>hit fn, then r\<sub>ctrl</sub></li>
+<li>hit pn, pn to keep position</li>
+<li>turn off switch 4</li>
+</ul>
+
+<p>
+and now we can have nice vim-like arrow keys:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">fn + h -&gt; fn + j fn + j -&gt; fn + k fn + k -&gt; fn + i
+fn + l -&gt; fn + l
+</pre>
+</div>
+
+<p>
+swap (the now available) right win alt:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">r\_meta -&gt; r\_super r\_super -&gt; r\_meta
+</pre>
+</div>
+
+<p>
+When away, here is an autohotkey script to achieve the same (minus the
+arrow keys):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ahk">#SingleInstance force
+
+Capslock::Ctrl
+
+::Backspace Backspace::\\
+
++BS:: KeyWait, Shift Send, {|} Return
+
+LWin::LAlt LAlt::LWin
+
+RWin::RAlt RAlt::RWin
+</pre>
+</div>
+</div>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2018-03-19-Pok3r-Mapping.html</link>
+  <pubDate>Mon, 19 Mar 2018 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>Ryo Fukui</title>
+  <description><![CDATA[
+<p>
+Ryo Fukui was a Japanese jazz pianist. He learned to play the piano at
+22 and 6 years later released his debut album <i>Scenery</i> in 1976. He
+passed away in 2016. Today, you can find most of his released work
+online. One album that has escaped is <i>My Favourite Tune/(1995). A
+youtuber with the handle /Marcel The Drunkard</i> had a Japanese contact
+that evidently recorded many of the original bootlegs of Fukui's
+work(<a href="https://www.reddit.com/r/translator/comments/5n8ckh/japanese_english_comment_about_music/?utm_name=frontpage">link</a>),
+but he did not have a copy.
+</p>
+
+<p>
+Here are youtube links to his(often with other artists) albums at this
+time:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.youtube.com/watch?v=Hrr3dp7zRQY">Scenery</a> ( 1976)</li>
+<li><a href="https://www.youtube.com/watch?v=tFxbMrA6Sfo">Mellow Dream</a> ( 1977)</li>
+<li><a href="https://www.youtube.com/watch?v=PV8tQmtG3dE">In New York</a> ( 1999)</li>
+<li><a href="https://www.youtube.com/watch?v=kVV%5C_z1lBNLo">A Letter from Slowboat</a> ( 2015)</li>
+</ul>
+]]></description>
+  <link>https://notes.neeasade.net2017-05-28-Ryo_Fukui.html</link>
+  <pubDate>Sun, 28 May 2017 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>i3-like multihead in bspwm</title>
+  <description><![CDATA[
+<p>
+i3 has fantastic focus and window handling for multiple monitors out of
+the box in my opinion. I didn't realize that I missed this until I was
+on campus and used i3 on a multihead setup there, so I set out to make
+my bspwm setup act the same.
+</p>
+
+<div id="outline-container-orgdec69e0" class="outline-2">
+<h2 id="initial"><a id="orgdec69e0"></a>Initial</h2>
+<div class="outline-text-2" id="text-initial">
+<p>
+In the example sxhkd in the bspwm repo, the main window focus keybind is
+set up as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + {<span style="color: #8e8e8e;">\_</span>,shift + }{h,j,k,l} bspc node -{f,s}
+    {west,south,north,east}
+</pre>
+</div>
+
+<p>
+I'm going to separate this into 2 parts, a focus part and a movement
+part.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a224bb" class="outline-2">
+<h2 id="focus"><a id="org2a224bb"></a>Focus</h2>
+<div class="outline-text-2" id="text-focus">
+<p>
+So taking the focus part out of the above we get:
+</p>
+<pre class="example">
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+</pre>
+
+<p>
+So, This will focus on a window in a direction determined by keypress,
+which are vi-like here. However, lets say you have 2 monitors, and one
+is empty:
+</p>
+
+
+<figure>
+<img src="http://i.imgur.com/5VBlIjn.png" alt="5VBlIjn.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>img</figcaption>
+</figure>
+
+<p>
+the command <code>bspc node -f east</code> will fail, as there is no window to the
+right, and no action occurs as a result.
+</p>
+</div>
+
+<div id="outline-container-org2ab9521" class="outline-3">
+<h3 id="desired-behavior"><a id="org2ab9521"></a>Desired behavior</h3>
+<div class="outline-text-3" id="text-desired-behavior">
+<p>
+In the above, on a focus right, I want the cursor to appear in the
+middle of the right monitor as well as focus on that monitor.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + {h,j,k,l}
+    bspc config pointer_follows_monitor true; <span style="color: #8e8e8e;">\</span>
+    bspc config pointer_follows_focus true; <span style="color: #8e8e8e;">\</span>
+    <span style="color: #7c7c7c;">dir</span>={west,south,north,east}; <span style="color: #8e8e8e;">\</span>
+        <span style="color: #747474;">if</span> <span style="color: #8e8e8e;">!</span> bspc node -f $<span style="color: #7c7c7c;">dir</span>; <span style="color: #747474;">then</span> <span style="color: #8e8e8e;">\</span>
+    bspc monitor -f $<span style="color: #7c7c7c;">dir</span>; <span style="color: #8e8e8e;">\</span>
+    <span style="color: #747474;">fi</span>; <span style="color: #8e8e8e;">\</span>
+    bspc config pointer_follows_monitor false; <span style="color: #8e8e8e;">\</span>
+    bspc config pointer_follows_focus false
+</pre>
+</div>
+
+<p>
+When the node right command fails in the above scenario, the monitor to
+the right will be focused, and the pointer will be there.
+</p>
+
+<blockquote>
+<p>
+Why is half of this function setting pointer<sub>follows</sub><sub>*</sub> values?
+</p>
+</blockquote>
+
+<p>
+So let's say you are moving a floating window with your mouse across the
+2 screens - with either of the two pointer options above enabled, when
+you cross the border the cursor will move, and the window with it. This
+window snapping out from under you can be quite annoying.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd5efbb" class="outline-2">
+<h2 id="orgbd5efbb">Movement</h2>
+<div class="outline-text-2" id="text-orgbd5efbb">
+<p>
+Movement part of the example sxhkd:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+</pre>
+</div>
+
+<p>
+Alright, so what this does is switch the currently focused window with
+another window by direction, although the focus remains on the original
+window spot, which I've found to be quite annoying. It feels more
+natural to keep focus on the same window and 'carry' it around your
+workspaces/monitors.
+</p>
+</div>
+
+<div id="outline-container-orgc44b62f" class="outline-3">
+<h3 id="desired-behavior-1"><a id="orgc44b62f"></a>Desired behavior</h3>
+<div class="outline-text-3" id="text-desired-behavior-1">
+<p>
+When a window is switched, retain focus on the original window that was
+moved. If switching to an empty monitor, move the window to that
+monitor. If switching to an occupied monitor, move the window to that
+monitor instead of switching windows.
+</p>
+
+<p>
+Under this behavior, the keypress <code>super + shift + l</code> would yield the
+following results:
+</p>
+
+<p>
+<img src="http://i.imgur.com/ofjhFSP.png" alt="ofjhFSP.png"> <img src="http://i.imgur.com/HyahZTU.png" alt="HyahZTU.png">
+</p>
+
+<p>
+Here is an implementation:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + shift + {h,j,k,l}
+    bspc config pointer_follows_focus true; <span style="color: #8e8e8e;">\</span>
+    <span style="color: #7c7c7c;">cur_win</span>=$(bspc query -W -w) <span style="color: #8e8e8e;">\</span>
+    <span style="color: #7c7c7c;">cur_mon</span>=$(bspc query -M -m); <span style="color: #8e8e8e;">\</span>
+    <span style="color: #7c7c7c;">dir</span>={west,south,north,east}; <span style="color: #8e8e8e;">\</span>
+    <span style="color: #747474;">if</span> <span style="color: #8e8e8e;">!</span> bspc node -f $<span style="color: #7c7c7c;">dir</span>; <span style="color: #747474;">then</span> <span style="color: #8e8e8e;">\</span>
+        bspc node -m $<span style="color: #7c7c7c;">dir</span>; <span style="color: #8e8e8e;">\</span>
+        bspc monitor -f $<span style="color: #7c7c7c;">dir</span>; <span style="color: #8e8e8e;">\</span>
+    <span style="color: #747474;">else</span> <span style="color: #8e8e8e;">\</span>
+        <span style="color: #7c7c7c;">new_mon</span>=$(bspc query -M -m); <span style="color: #8e8e8e;">\</span>
+        <span style="color: #747474;">if</span> [ $<span style="color: #7c7c7c;">new_mon</span> -eq $<span style="color: #7c7c7c;">cur_mon</span> ]; <span style="color: #747474;">then</span> <span style="color: #8e8e8e;">\</span>
+            bspc node -s $<span style="color: #7c7c7c;">cur_win</span>; <span style="color: #8e8e8e;">\</span>
+        <span style="color: #747474;">else</span> <span style="color: #8e8e8e;">\</span>
+            bspc node $<span style="color: #7c7c7c;">cur_win</span> -m ^$<span style="color: #7c7c7c;">new_mon</span>; <span style="color: #8e8e8e;">\</span>
+        <span style="color: #747474;">fi</span>; <span style="color: #8e8e8e;">\</span>
+    bspc node -f $<span style="color: #7c7c7c;">cur_win</span>; <span style="color: #8e8e8e;">\</span>
+    <span style="color: #747474;">fi</span>; <span style="color: #8e8e8e;">\</span>
+    bspc config pointer_follows_focus false
+</pre>
+</div>
+
+<p>
+You can see from this I used the same strategy as above - check if the
+window focus command failed and act accordingly - if it does not fail,
+then check if we are on a new monitor - if so, move the original window
+to the new monitor.
+</p>
+
+<p>
+wooo.
+</p>
+</div>
+</div>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2015-04-28-BSPWM-Multihead.html</link>
+  <pubDate>Tue, 28 Apr 2015 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>BSPWM Experiences</title>
+  <description><![CDATA[
+<p>
+So, I've been using BSPWM as my main WM for about 5 months now, after
+transitioning from i3, so I thought I would write about my experience.
+</p>
+
+<div id="outline-container-org515568c" class="outline-2">
+<h2 id="the-i3-days"><a id="org515568c"></a>The i3 Days</h2>
+<div class="outline-text-2" id="text-the-i3-days">
+<p>
+I had transitioned from openbox to i3, and was getting a hang on
+configuring i3 and what it meant to be running a tilingWM. I was
+enjoying the manual tiling experience and workspace configuration,
+however it felt a little limiting when it came too configuring a
+multihead layout. I could do it, but I could tell that I was limiting
+myself to the current setup I had and that things would need to be
+switched around and configured more if my monitor layout changed or if I
+wanted to change behavior. I was not a fan of how workspaces were
+handled, as it made multihead feel a little funky. However, I was a
+large fan of the focus-follows-mouse setting and layout togglability
+i3-wm presented itself with. The hardware layout limitation I mentioned
+earlier led to me maintaining two i3 config files for a brief time, one
+for my laptop and one for my home setup. This in combination with a want
+to drive 'deeper' led me to seek what I considered a more advanced WM.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge03eedf" class="outline-2">
+<h2 id="picking-a-wm"><a id="orge03eedf"></a>Picking a WM</h2>
+<div class="outline-text-2" id="text-picking-a-wm">
+<p>
+Around this time I was lurking /r/unixporn pretty hardcore, and both
+bspwm and herbsluftwm stood out to me in particular. I briefly
+considered something along the likes of dwm/swm/monsterWM, but those all
+felt like too large a leap. bspwm/herbsluftwm were to my understanding
+both configured with shell scripts! something that feels malleable and
+fun in my mind. I enjoy and hate scripting languages because they feel
+'finnicky', and in my experience lead to alot of
+change-&gt;test-&gt;adjust-&gt;retest cycles. Overall I typically find this type
+of problem solving very relaxing, as you slowly work your way toward a
+goal over possibly many iterations. I continued looking into both WMs
+and asking people on IRC and reddit, trying to gauge the differences
+between the two accurately. It appeared to me that bspwm did more for
+you automatically in the way of tiling, whilst herbstluftWM required a
+lot more effort to get set up to ones liking. So I picked bspwm.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f54d95" class="outline-2">
+<h2 id="the-first-attempts"><a id="org7f54d95"></a>The First Attempts</h2>
+<div class="outline-text-2" id="text-the-first-attempts">
+<p>
+It actually took 3 times before I fully told myself 'Okay this is my WM
+now'. And what I mean by that is I would setup bspwm and try to
+understand exactly what was happening in the examples and configure
+things correctly, usually get it to start but be faced with problems(no
+panel, keybinds not seeming to work, general lack of understanding about
+how to fix problems with it on my end). One prospect that is
+exciting/intimidating is the panel situation - bspwm is EMWH compliant,
+meaning you can use it with a variety of panels(tint2, bmpanel, and many
+others), but the preferred one in the bspwm community seems to be
+lemonbar(formerly known as bar-aint-recursive). What's special about
+lemonbar is that the information displayed on it is very explicity
+specified by the user. That is, you can have multiple scripts and
+programs that gather information and pipe the in a specific format to
+lemonbar, resulting in a look that can be very personalized.
+</p>
+
+<p>
+This feeling of close involvement is evident in bspwm itself - the WM
+works off of system messages, using a client that it comes with(bspc) -
+using this client, you tell bspwm how to look and behave, and even
+trigger actions. This to me is a much higher degree of control that in
+i3. Because the commands from the bspc client can be issued from a shell
+script, it becomes really easy to take output about the current status
+of the WM and manipulate it just the way you want, which you can then
+use to either alter the behavior of BSPWM or send to lemonbar or do
+WHATEVER YOU LIKE WITH IT :D. Again, this is both very awesome and very
+intimidating, because if you can't find an example of what you want to
+do when starting out, it can be very discouraging.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c95958" class="outline-2">
+<h2 id="adjusting"><a id="org6c95958"></a>Adjusting</h2>
+<div class="outline-text-2" id="text-adjusting">
+<p>
+After the 3rd attempt to transition, it stuck. Things finally started to
+click(that the BSPWMRC file was a bash script, that the output of bspc
+was easily manipulated with grep and regex).
+<a href="http://imgur.com/a/hYQkg">here is an album from around that time</a>,
+just starting with bar and had it running well on my laptop. I was still
+feeling stuck on 'flexible' configuration of monitors and workspaces,
+until I saw a config that renamed all monitors on startup in a loop. I
+didn't even realize I could do that! Taking that as a base, I was able
+to get things to the point they are now in terms of multihead
+management.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge0f9408" class="outline-2">
+<h2 id="panel"><a id="orge0f9408"></a>Panel</h2>
+<div class="outline-text-2" id="text-panel">
+<p>
+After I got a basic-ish bspwmrc set, I was determined to get a decent
+panel setup. This proved harder than I thought it would be. There are
+many styles to take inspiration from on the internet. Most bar scripts I
+saw didn't seem to handle multihead well though. This led to my current
+panel start script - taking the idea from the startup loop above, I
+looped through all the monitors displayed by bspwm and gather
+information about the current loop-monitor to explicitly set a panel's
+geometry, allowing for correctly sized bars regardless of differing
+resolutions. Once I got that set, I used z3bra's excellent
+<a href="http://blog.z3bra.org/2014/04/meeting-at-the-bar.html">blog post</a> as
+code to gather information to pipe to lemonbar. However, I did have one
+problem - then the currently playing song from mpc was too long, it
+would overlap with the workspace indicators in the middle of the bar,
+but only on one monitor(different resolutions). This led to me deciding
+just to reduce the amount of information output from that shell script,
+and move the workspace indicators to the left of the panel.
+</p>
+
+<p>
+When people ask for good starting firefox CSS configurations, they
+almost always get referred to
+<a href="http://twily.info/firefox-css#Firefox">twilys</a> to use an example. I
+was a fan of the slants in his browser tabs and panel(He has quite an
+enjoyable style). I really wanted that slant look in my panel as well.
+Initially, I searched for ways to print a colored icon as a separator,
+and this led to me going the [[][powerline panel]] route. I was pretty
+happy with that for awhile, but there is one very limiting factor to
+choosing a powerline style in your panel: the height of your panel is
+restricted to font height. As time went on, I wanted a
+different(thicker) panel setting, so I ditched the powerline and just
+had a straight up color transition in bar. After setting that up, I
+discovered a <a href="https://github.com/LemonBoy/bar/issues/108">background
+rendering bug</a> in lemonbar that the author was able to fix really fast.
+That kinda broke the veil for me that lemonbar was an opensource program
+that I could take and modify if I wanted too(I had never touched code
+outside of work/school/mine), and I still hungered for slants in my
+panel. So, I <a href="https://github.com/neeasade/bar">forked lemonbar</a> and
+added slants to it, to get the style I wanted.
+</p>
+
+<p>
+Soon after this, there was a
+<a href="http://www.reddit.com/r/unixporn/comments/2x6ee0/whats_so_great_about_bspwm/">thread
+on /r/unixporn</a> where someone was asking why bspwm was so popular. In
+the comments, someone was talking about how one feature they were
+disappointed in bspwm not having was a tabbed layout. I saw that and
+thought it would be a good opportunity to test bspwm's flexibility. At
+this point the title displayed in my panel was simply the current active
+window title. So, thinking about how I wanted this to act, I came up
+with
+<a href="https://github.com/neeasade/dotfiles/blob/master/home/bar/.config/bar/title.sh">title.sh</a>,
+a script which outputs window title and id information about the current
+bspc desktop on a monitor in a <code>bspc control --subscribe</code> fashion. I
+still wanted only the active window title displayed if I was in tiling
+mode or focused on a floating window. bspwm's other window mode,
+monocle, consists of the active window taking up the full desktop space,
+with other windows not visible. If a monitor was in monocle mode, I had
+title.sh spit out pairs of window titles and window IDs - which I then
+parse in a separate script to produce clickable title links to their
+associated IDs in lemonbar. This is probably the most unique thing about
+my setup.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea3a6e1" class="outline-2">
+<h2 id="aftermath"><a id="orgea3a6e1"></a>Aftermath</h2>
+<div class="outline-text-2" id="text-aftermath">
+<p>
+Once things were to a point where it felt pleasant to be using bspwm,
+configuration effort went into cleaning up the scripts and trying to
+modularize as much as possible. I really like the ability to toggle
+different options and reload them at will, so I have all the bar display
+options in one 'profile' shell script which all the other panel scripts
+reference. The bspwmrc is at a point where options are organized and
+labeled, and you can run the script again to reload settings and reset
+desktops. Now configuration can go into refining WM options until I hit
+the sweet spot of key combinations and window manipulation options that
+I like.
+</p>
+
+<p>
+tl;dr you get out of it what you put into it
+</p>
+</div>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2015-04-03-BPSWM-Experiences.html</link>
+  <pubDate>Fri, 03 Apr 2015 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>GDB Registers</title>
+  <description><![CDATA[
+<p>
+This will serve as a brief guide on setting up GDB to step through
+assembly code and witness register changes on the fly.
+</p>
+
+<div id="outline-container-orgf7ab5d5" class="outline-2">
+<h2 id="orgf7ab5d5">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-orgf7ab5d5">
+<p>
+I'm assuming here that you have the source of the C file that you wish
+to step through(this post assumes you are trying to learn about
+registers for educational purposes).
+</p>
+
+<p>
+Create a Makefile for your architecture(s) of choice. Here is an example
+of a Makefile for 3 of them:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Makefile">all: 32bit 64bit 64bitInLine
+
+32bit: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+MyProgram.c -o MyProgram
+
+64bit: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+
+64bitInLine: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
+
+</pre>
+</div>
+
+<p>
+(Note for Adam: notice I only removed the -S flag and changed the output
+name)
+</p>
+
+<p>
+This should result in 3 output files with different assembly associated
+with each.
+</p>
+
+<p>
+#GDB
+</p>
+
+<p>
+The GNU Project Debugger(GDB) is a fantastic tool that I am still
+learning about. If you have no idea what it is, it is a fairly powerful
+utility for debugging primarily c/c++ as I currently understand it. I
+recommend this <a href="http://beej.us/guide/bggdb/">crash course guide</a> for a
+quick intro. One of it's many features is the ability to step through
+and view registers as they change(the purpose of this post).
+</p>
+
+<p>
+So, to run GDB on a program made for this purpose you can use: {%
+highlight bash linenos %} $gdb MyProgram
+#+end<sub>src</sub>
+</p>
+
+<p>
+once at the GDB prompt, set a breakpoint at the main() function and then
+run the program - this will cause the breakpoint to instantly be hit.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">(gdb)<span style="color: #747474;">break</span> main (gdb)run
+</pre>
+</div>
+
+<p>
+The command we can use from here to step through the program by assembly
+line is 'si'(step instruction). However, we would not be able to see the
+values of registers as they change on the fly - this is accomplished
+with a tui view. You can activate the register tui layout with the
+command <code>layout reg</code>, which will result in something like this:
+</p>
+
+
+<figure>
+<img src="http://i.imgur.com/SZkGALi.png" alt="SZkGALi.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>GDB</figcaption>
+</figure>
+
+<p>
+And now you can step through each instruction using 'si'. As registers
+change value, they will be highlighted in the top window. Have fun!
+</p>
+</div>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2015-02-20-Registers-with-GDB.html</link>
+  <pubDate>Fri, 20 Feb 2015 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>youtube rip with dwb + youtube-dl</title>
+  <description><![CDATA[
+<p>
+Just finished a snippet that can be used in combination with dwb(or many
+other browsers, probably) to auto download a youtube video and convert
+it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #b9b9b9;">#</span><span style="color: #ababab;">!/bin/</span><span style="color: #747474;">bash</span><span style="color: #ababab;"> </span>
+<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">dwb: xf</span>
+download\<span style="color: #7c7c7c;">_dir</span>=/my/media/dir youtube-dl -x -o
+$<span style="color: #7c7c7c;">download</span><span style="color: #8e8e8e;">\_</span>dir<span style="color: #8e8e8e;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #7c7c7c;">DWB</span><span style="color: #8e8e8e;">\_</span>URI
+</pre>
+</div>
+
+<p>
+It can probably be noted that I had some trouble with the youtube-dl
+naming syntax at first - the '%(title)s' and such needs to be in a
+string or else bash freaks out. Also this will fail without ffmpeg, as
+that is a dep for audio conversion with youtube-dl.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2014-05-24-youtube_rip_with_dwb_+_youtube-dl.html</link>
+  <pubDate>Sat, 24 May 2014 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>WASD V2 Mechanical Keyboard </title>
+  <description><![CDATA[
+<p>
+Yesterday my birthday keyboard arrived from California.
+</p>
+
+<p>
+When the decision for what keybaord to get came around, I had two
+choices :
+</p>
+
+<ul class="org-ul">
+<li>Wait for the CODE mechanical keyboard to come back into stock with</li>
+</ul>
+<p>
+some MX greens.
+</p>
+
+<ul class="org-ul">
+<li>purchase a WASD v2 with some MX greens.</li>
+</ul>
+
+<p>
+The main difference is that with the CODE keyboard I would have had
+backlit keys, but they all would have been the same color. Whereas with
+the WASD, I was able to choose the color of all the keys. This is what I
+ended up doing(as the title indicates) and decided to match the
+colorscheme of the keys to what I currently have at work. That and I got
+to pick some Tux OS keys ;). I waited 2 weeks before letting impatience
+get the better of me and ordering the WASD.
+</p>
+
+<p>
+Anyway, here she is :
+</p>
+
+<p>
+[[<img src="http://i.imgur.com/KZ7YS9U.jpg" alt="KZ7YS9U.jpg">][<img src="http://i.imgur.com/KZ7YS9U.jpg" alt="KZ7YS9U.jpg">]]
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2014-02-23-wasd-v2-mechanical-keyboard.html</link>
+  <pubDate>Sun, 23 Feb 2014 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>Resetting Xdefaults Reference Without Rebooting </title>
+  <description><![CDATA[
+<p>
+true meta: \<sub>edit</sub>\<sub>last</sub>: '1' \<sub>responsive</sub>\<sub>layout</sub>: defau
+</p>
+
+<p>
+Quick tip shamelessly stolen
+from: <a href="genomics.org/~jtang/blog/posts/Reloading_Xdefaults_without_restarting_X/">genomics.org/~jtang/blog/posts/Reloading_Xdefaults_without_restarting_X/</a>
+</p>
+
+<p>
+ 
+</p>
+
+<p>
+To reread your .Xresources file, and throw away your old resources, you
+can type:
+</p>
+
+<blockquote>
+<pre class="example">
+xrdb ~/.Xdefaults
+</pre>
+</blockquote>
+
+<p>
+To reread your .Xresources file, and keep your old resources, type:
+</p>
+
+<blockquote>
+<pre class="example">
+xrdb -merge ~/.Xdefaults
+</pre>
+</blockquote>
+]]></description>
+  <link>https://notes.neeasade.net2014-02-23-resetting-xdefaults-reference-without-rebooting.html</link>
+  <pubDate>Sun, 23 Feb 2014 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>Configuring constant LANG variable</title>
+  <description><![CDATA[
+<p>
+After setting your correct locale in the etc/locale.gen file and running
+locale-gen, your system wide language gets set in Linux. Some
+applications, however, reference the LANG variable in order to determine
+language type. One in particular that I am fond of is sublime text. This
+isn't an issue until you install the package manager - which you will
+probably want to do eventually.
+</p>
+
+<p>
+A temporary fix, as the error logged will inform you, is to set the LANG
+variable either before or with the startup of sublime text.
+</p>
+
+<p>
+However, this may not always be viable, and can be annoying. There are
+two solutions to set this variable upon system startup.
+</p>
+
+<p>
+A "hacky" way to get around this problem would be to set the LANG
+variable within your .bashrc file, as such:
+</p>
+
+<blockquote>
+<p>
+export LANG ="en\<sub>US.UTF</sub>-8"
+</p>
+</blockquote>
+
+<p>
+However, the above only sets the variable for your user/login session.
+</p>
+
+<p>
+To set the LANG variable system wide(the prefferred method), edit or
+create the file /etc/locale.conf to contain:
+</p>
+
+<blockquote>
+<p>
+LANG ="en\<sub>US.UTF</sub>-8"
+</p>
+</blockquote>
+
+<p>
+And upon restart your LANG variable will be set correctly.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2014-02-21-configuring-constant-lang-variable.html</link>
+  <pubDate>Fri, 21 Feb 2014 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>Creation of a time based wallpaper with feh </title>
+  <description><![CDATA[
+<p>
+One of the most popular posts of all time over in /r/wallpapers is an
+album set of 8 8-bit landscapes for every time of day. Here is a quick
+glimpse:
+</p>
+
+<p>
+ 
+</p>
+
+<p>
+[caption id="" align="aligncenter"
+width="1152"]<img src="http://i.imgur.com/axNNqyH.png" alt="axNNqyH.png"> summary
+picture![/caption]
+</p>
+
+<p>
+If you use feh to manage you background, the current background filename
+is stored in ~/.fehbg. If you name each picture in the 8 picture set
+01 - 09, you can easily set an appropriate picture to the time of day.
+</p>
+
+<p>
+Here is the bash script I am currently using to do this:
+</p>
+
+<blockquote>
+<p>
+imagepath="/home/neeasade/images/8bitday";<br>
+while :<br>
+do<br>
+if echo 0$(expr $(date +%H) / 3).png != cat <i>home/neeasade</i>.fehbg |
+egrep '[0-9]{2}.png'; then<br>
+feh &#x2013;bg-fill \(imagepath/0\)(expr $(date +%H) / 3).png;<br>
+fi<br>
+sleep 5<br>
+done
+</p>
+</blockquote>
+
+<p>
+The above while runs forever, checking the name of the current
+background picture at an interval of 5 seconds. Since there are 8
+pictures in the total group, you can take the current hour of the
+day(out of 24) divided by 3 using integer division. running this in the
+background on startup as been giving me a nice wallpaper to match the
+time of day!
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2014-02-17-creation-of-a-time-based-wallpaper-with-feh.html</link>
+  <pubDate>Mon, 17 Feb 2014 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>VirtualBox setup on Arch Linux</title>
+  <description><![CDATA[
+<p>
+99% of this should apply for other distros as well.
+</p>
+
+<p>
+So, where I currently work, to work via a remote connection, we must be
+using a windows machine, or else we get a nice little message informing
+us that our OS is not supported by their remote service. This can be a
+tad annoying at times.
+</p>
+
+<p>
+Regardless of the reason, a nice virtual machine can be very usefull to
+have.
+</p>
+
+<p>
+Enter virtualbox, currently available from the virtualbox package on
+most repos.
+</p>
+
+<p>
+Note: on Arch, you may have to use the "" command before starting
+VirtBox, if you get an error on startup concerning kernel modules.
+</p>
+
+<p>
+I primarily use
+<a href="http://msft.digitalrivercontent.net/win/X17-24209.iso">windows7 x64</a>,
+but there are
+<a href="http://www.w7forums.com/threads/official-windows-7-sp1-iso-image-downloads.12325/">many
+versions</a> available for use, officially from microsoft.
+</p>
+
+<p>
+After setting up a new machine, you can mount the ISO onto it and
+install as if to a regular hard drive.
+</p>
+
+<p>
+ 
+</p>
+
+<p>
+POST installation:
+</p>
+
+<p>
+There is an extension to virtual box that allows you to do some pretty
+cool things, such as emulate multiple monitors or use a window outside
+of the virtual window.
+</p>
+
+<p>
+This extension is installed via an ISO provided by the virtualbox
+website:
+</p>
+
+<p>
+<a href="http://download.virtualbox.org/virtualbox/">http://download.virtualbox.org/virtualbox/</a>
+</p>
+
+<p>
+just navigate to your version, download and mount from there.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2014-02-04-virtualbox-setup-on-arch-linux.html</link>
+  <pubDate>Tue, 04 Feb 2014 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>asdf </title>
+  <description><![CDATA[
+<blockquote>
+<p>
+In order to grow, you have to get uncomfortable.
+</p>
+</blockquote>
+]]></description>
+  <link>https://notes.neeasade.net2013-12-16-asdf.html</link>
+  <pubDate>Mon, 16 Dec 2013 00:00:00 -0500</pubDate>
+</item>
+<item>
+  <title>Weekend </title>
+  <description><![CDATA[
+<p>
+This past week has been crazy. Went in to work on Saturday and ended up
+working from noon to 8, had a good time though. Got some decent overtime
+in, and pizza and mountain dew was had by everyone who was at the
+office. My manager has not been getting sleep, since we are in the
+equivalent of finals week for our process. This has lead to him being
+very loopy, but overall more fun to work with.
+</p>
+
+<p>
+On Friday night, me and the new roommate(Sven) LAN'd it up over at
+Ryan's house. Had the opportunity to see the leap motion in action, and
+holy cow, was it ever worth it. There are many opportunities for this
+device in the future, but since it has only come out in the past month
+or so, it is still pretty rough. However, you do get the ability to fly
+around in Google earth using your hands. Currently, no convenient method
+exists for mapping motions to keys, though.
+</p>
+
+<p>
+The leap motion has a path paved out for it though. It can recognize
+motion and gestures and use them to store MIDI files, a sound type used
+by many applications. It should be possible to use midi files to map
+motions into a key. I look very forward to this in the future. Imagine,
+Skyrim, where one hand is your sword and the other your shield?!
+Beautiful.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-08-04-weekend.html</link>
+  <pubDate>Sun, 04 Aug 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>More gw2 API released</title>
+  <description><![CDATA[
+<p>
+ArenaNet has release a new API for integrating map tiles into a web
+page. Basic example <a href="http://jsfiddle.net/cliff/CRRGC/">here</a>. Combined
+with the events API they released about a month ago, this makes for an
+interesting project. Perhaps path or quest plotting? someone has already
+made <a href="http://naturallydelicio.us/map/">a map for the browser</a>. I now
+have my project for the weekend.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-06-21-more-gw2-api-released.html</link>
+  <pubDate>Fri, 21 Jun 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>Guildwars</title>
+  <description><![CDATA[
+<p>
+Today, I found myself traversing centaur camps whilst trying to complete
+the Arathi Hinterlands. I was on my way to the skill point at the far
+east of the map, running my way past hordes of enemies, using my
+speed-up abilities and shield spells. Progress was slow, and after about
+a half hour, I had had enough. I turned around and started to head back,
+only to be greeted by a group of about a dozen players who were
+efficiently making a path through the centaur camps. I had stumbled upon
+a server event that was going the same way I was. Sticking with them for
+the next half hour made the skill point reachable, as there were others
+trying to acquire that achievement also.
+</p>
+
+<p>
+Guildwars2 rocks.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-06-05-guildwars.html</link>
+  <pubDate>Wed, 05 Jun 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>The Battle for Wesnoth</title>
+  <description><![CDATA[
+<p>
+Having recently installed Crunchbang and written a report on bringing
+modern games to Linux, it was in my interest to check out a few open
+source games. The past few nights I have been obsessively playing
+<a href="http://www.wesnoth.org/">Battle for Wesnoth</a>, a turn based fantasy
+strategy game freely available to Windows, Mac, and Linux.
+</p>
+
+<p>
+If you are enthused by Sid Meier's Civilization series, you will likely
+also be entertained by BfW. The map is out on a hexagonal grid, covering
+various types of terrain. A single unit can occupy spaces, and the
+battle is led by a players heroes, who can recruit units from a keep, as
+shown below:
+</p>
+
+<p>
+[[<img src="http://nathanisom.com/wp/wp-content/uploads/2013/05/Screenshot-05312013-083154-AM.png" alt="Screenshot-05312013-083154-AM.png">][<img src="http://nathanisom.com/wp/wp-content/uploads/2013/05/Screenshot-05312013-083154-AM-300x179.png" alt="Screenshot-05312013-083154-AM-300x179.png">]]
+</p>
+
+<p>
+The thing that has been drawing me to Wesnoth the past couple of nights
+are the campaigns. The sense of purpose is a great thing to have in a
+game. Here is the list of campaigns included in the vanilla version(at
+this time)
+</p>
+
+<p>
+[[<img src="http://nathanisom.com/wp/wp-content/uploads/2013/05/Screenshot-05312013-084120-AM.png" alt="Screenshot-05312013-084120-AM.png">][<img src="http://nathanisom.com/wp/wp-content/uploads/2013/05/Screenshot-05312013-084120-AM-178x300.png" alt="Screenshot-05312013-084120-AM-178x300.png">]]
+</p>
+
+<p>
+taken from the wiki
+</p>
+
+<p>
+That's a lot of adventure! To me, these strings of campaign missions are
+more enjoyable than a civ game where you start simply with the objective
+to “win”. I realize that you can download player-made scenarios for Civ
+5, but the fact that all of these came included was very attractive to
+me.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-05-31-the-battle-for-wesnoth.html</link>
+  <pubDate>Fri, 31 May 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>CrunchBang 11</title>
+  <description><![CDATA[
+<p>
+Alright, so, after quite a bit of trial and error, I finally have my
+laptop configured the way I want it to be. In a duel boot with
+CrunchBang(#!) and Windows 7. Windows is necessary for compatibility of
+certain software(e.g. Visual Studio and Microsoft Office). Initially
+when configuring this, I simply shrank the windows partition of the hard
+drive in the Windows hard drive manager, and then followed the steps off
+of the #! cd. to my dismay, this broke the windows installation and
+rendered it unable to boot. There was no worry though, as I was able to
+access all the windows files and back them up. After much off and on,
+the solution was to install windows on an initially small partition,
+then install Ubuntu into the free space, and finally replace the Ubuntu
+partitions with the #! installation. kind of loopy, but this way the
+grub loader works with both windows and #!. So far openbox, conky, and
+terminator have been a blast configuring, and with the ability to
+rdesktop into my home windows computer, I can effectively develop for
+Windows from #! as well.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-05-29-crunchbang-11.html</link>
+  <pubDate>Wed, 29 May 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>General Thoughts on Summer</title>
+  <description><![CDATA[
+<p>
+Sitting in the library prepping for the last test before the break, just
+taking some time to breathe. The first year at college has been a wild
+transition. Met many people, learned many things, scored an internship,
+progressed in terms of programming. Over the summer and into December, I
+will be working a co-op in town for GE aviation, programming flight
+systems and routing programs. Primarily I will be working with Visual
+Basic, and though I would much prefer C#, I am excited for the chance to
+work in a formal programming environment. They use Git to manage their
+control versions locally, so I'm glad I took the advice of a career fair
+recruiter and learned it over spring.
+</p>
+
+<p>
+After today, I have two weeks of free space. I intend to do some
+catching up with my friends on Guildwars, because classes. Just ordered
+a highly recommended <a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16826249066">headset</a> 50% off, can't wait to try it out. Finally won't have to use my laptop
+next to my desktop as a Skype reliance.
+</p>
+
+<p>
+Life is good.
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-05-17-general-thoughts-on-summer.html</link>
+  <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>Alternative to NotePad++ in Linux </title>
+  <description><![CDATA[
+<p>
+Notepad++ doesn't run in Linux, so I'm saving a link on how to beef up
+the gedit text editor here.
+</p>
+
+<p>
+<a href="http://grigio.org/pimp%5C_my%5C_gedit%5C_was%5C_textmate%5C_linux">http://grigio.org/pimp\_my\_gedit\_was\_textmate\_linux</a>
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-05-12-alternative-to-notepad-in-linux.html</link>
+  <pubDate>Sun, 12 May 2013 00:00:00 -0400</pubDate>
+</item>
+<item>
+  <title>Sources of Offline Documentation</title>
+  <description><![CDATA[
+<p>
+There isn't always an internet connection, and you may be on limited
+bandwidth. Here are sources of documentation for various languages.
+These can all be used offline exactly as if you were online.
+</p>
+
+<p>
+Documentation Page - Direct Download
+</p>
+
+<p>
+<a href="http://www.adobe.com/devnet/actionscript/documentation.html">ActionScript</a> -
+<a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/PlatformASR_Final_en-us.zip">Direct
+Download</a>
+</p>
+
+<p>
+<a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-eedocs-419425.html">Java</a> -
+<a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-eedocs-419425.html#java_ee_sdk-6u2-docs-JPR">Direct
+Download</a>
+</p>
+
+<p>
+<a href="http://perldoc.perl.org/">Perl</a> -
+<a href="http://perldoc.perl.org/perldoc.tar.gz">Direct Download</a>(compressed
+in tar.gz, I recommend extracting with <a href="http://www.7-zip.org/">7zip</a>)
+</p>
+
+<p>
+<a href="http://docs.python.org/3/download.html">Python</a> -
+<a href="http://docs.python.org/3/archives/python-3.3.1-docs-html.zip">Direct
+Download</a>
+</p>
+
+<p>
+<a href="http://ruby-doc.org/downloads/">Ruby</a> -
+<a href="http://ruby-doc.org/downloads/ruby_1_9_3_core_rdocs.tgz">Direct
+Download</a>
+</p>
+]]></description>
+  <link>https://notes.neeasade.net2013-05-11-sources-of-offline-documentation.html</link>
+  <pubDate>Sat, 11 May 2013 00:00:00 -0400</pubDate>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://notes.neeasade.netrss.xml"
+      title="RSS feed for https://notes.neeasade.net"/>
+<title>GDB Registers</title>
+<link href="assets/css/normalize.css" rel="stylesheet">
+<link href="assets/css/sakura.css" rel="stylesheet">
+<link href="assets/css/notes.css" rel="stylesheet"></head>
+<body>
+<div id="preamble" class="status">
+</div>
+<div id="content">
+<div class="post-date">20 Feb 2015</div><h1 class="post-title"><a href="2015-02-20-Registers-with-GDB.html">GDB Registers</a></h1>
+<p>
+This will serve as a brief guide on setting up GDB to step through
+assembly code and witness register changes on the fly.
+</p>
+
+<div id="outline-container-orgf7ab5d5" class="outline-2">
+<h2 id="orgf7ab5d5">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-orgf7ab5d5">
+<p>
+I'm assuming here that you have the source of the C file that you wish
+to step through(this post assumes you are trying to learn about
+registers for educational purposes).
+</p>
+
+<p>
+Create a Makefile for your architecture(s) of choice. Here is an example
+of a Makefile for 3 of them:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-Makefile">all: 32bit 64bit 64bitInLine
+
+32bit: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+MyProgram.c -o MyProgram
+
+64bit: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+
+64bitInLine: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
+
+</pre>
+</div>
+
+<p>
+(Note for Adam: notice I only removed the -S flag and changed the output
+name)
+</p>
+
+<p>
+This should result in 3 output files with different assembly associated
+with each.
+</p>
+
+<p>
+#GDB
+</p>
+
+<p>
+The GNU Project Debugger(GDB) is a fantastic tool that I am still
+learning about. If you have no idea what it is, it is a fairly powerful
+utility for debugging primarily c/c++ as I currently understand it. I
+recommend this <a href="http://beej.us/guide/bggdb/">crash course guide</a> for a
+quick intro. One of it's many features is the ability to step through
+and view registers as they change(the purpose of this post).
+</p>
+
+<p>
+So, to run GDB on a program made for this purpose you can use: {%
+highlight bash linenos %} $gdb MyProgram
+#+end<sub>src</sub>
+</p>
+
+<p>
+once at the GDB prompt, set a breakpoint at the main() function and then
+run the program - this will cause the breakpoint to instantly be hit.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">(gdb)<span style="color: #747474;">break</span> main (gdb)run
+</pre>
+</div>
+
+<p>
+The command we can use from here to step through the program by assembly
+line is 'si'(step instruction). However, we would not be able to see the
+values of registers as they change on the fly - this is accomplished
+with a tui view. You can activate the register tui layout with the
+command <code>layout reg</code>, which will result in something like this:
+</p>
+
+
+<figure>
+<img src="http://i.imgur.com/SZkGALi.png" alt="SZkGALi.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>GDB</figcaption>
+</figure>
+
+<p>
+And now you can step through each instruction using 'si'. As registers
+change value, they will be highlighted in the top window. Have fun!
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<a href="archive.html"> Other posts </a></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://notes.neeasade.netrss.xml"
+      title="RSS feed for https://notes.neeasade.net"/>
+<title>git svn workflow</title>
+<link href="assets/css/normalize.css" rel="stylesheet">
+<link href="assets/css/sakura.css" rel="stylesheet">
+<link href="assets/css/notes.css" rel="stylesheet"></head>
+<body>
+<div id="preamble" class="status">
+</div>
+<div id="content">
+<div class="post-date">07 May 2018</div><h1 class="post-title"><a href="2018-05-07-git-svn-reference.html">git svn workflow</a></h1>
+<p>
+Git provides an <a href="https://git-scm.com/docs/git-svn">svn-wrapper</a>,
+allowing you to use git tools and keep your decentralized workflow even
+when you aren't.
+</p>
+
+<p>
+The following commands are effected:
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">git</th>
+<th scope="col" class="org-left">git svn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">git pull</td>
+<td class="org-left">git svn fetch git svn merge</td>
+</tr>
+
+<tr>
+<td class="org-left">git push</td>
+<td class="org-left">git svn dcommit</td>
+</tr>
+
+<tr>
+<td class="org-left">git clone</td>
+<td class="org-left">git svn clone</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+If you are a <a href="https://magit.vc/">magit</a> user, you can install
+<a href="https://github.com/magit/magit-svn">magit-svn</a>. To enable magit-svn
+globally (magit will still work find with git repos):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'magit-mode-hook 'magit-svn-mode)
+</pre>
+</div>
+
+<p>
+To enable magit-svn on a per-repo basis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #868686;">cd</span> /path/to/repository git config --add
+magit.extension svn
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<a href="archive.html"> Other posts </a></div>
+</body>
+</html>
