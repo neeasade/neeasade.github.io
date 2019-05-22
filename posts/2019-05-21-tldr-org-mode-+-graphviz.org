@@ -1,0 +1,103 @@
+#+title: TLDR org mode + graphviz
+#+date: <2019-05-21 19:50>
+
+Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
+
+* Org mode
+After installing the graphviz package, you will have the =dot= command. If you use it in with an org
+mode source block like so:
+
+#+BEGIN_SRC org
+#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
+digraph {
+    a -> b
+}
+,#+END_SRC
+#+END_SRC
+
+You can eval the block with =C-c C-c= and then view it inline in emacs by using
+=org-toggle-inline-images=.
+
+These blocks also export! Just like in [[http://todo][this page itself!]]
+
+#+BEGIN_SRC dot :file ./assets/posts/dot-example.png  :cmdline -Kdot -Tpng
+digraph {
+    a -> b
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:./assets/posts/dot-example.png]]
+
+* The Dot language
+
+The dot language spec can be found [[https://www.graphviz.org/doc/info/lang.html][here]]. I don't
+find that too helpful on it's own, so here are some notes:
+
+Primitives that matter:
+
+- a =node= is a bubble/self contained item that will be connected.
+- an =edge= is the line that connect nodes.
+- a =graph= is a the relation as a whole.
+
+A list of attributes that can be applied to these can be found here: https://www.graphviz.org/doc/info/attrs.html
+
+Some nice node options can be seen here: https://www.graphviz.org/doc/info/shapes.html#polygon
+
+Here is an example that shows how attributes are set and some defaults I like:
+
+#+BEGIN_SRC org
+#+BEGIN_SRC dot :file ./assets/posts/dot-internet.png  :cmdline -Kdot -Tpng
+digraph {
+    // --- config
+    graph [rankdir=TB]; // TBLR, top bottom left right, the direction of the graph.
+    graph [dpi=150 splines=ortho]; // you can have multiple attrs per statement
+    edge[decorate=true]
+    node [shape=box];
+
+    // --- definitions
+    // nb: setting definitions on their own is useful in larger graphs for standalone attribute setting
+    computer [label=computer];
+    // quotes are optional, I'm using them when there are spaces
+    phone [label="android phone"];
+    router [label=router];
+
+    // record syntax: | for horizontal, {|} for vert
+    internet [shape=record label="{internet|cat pictures}"]
+
+    // --- relations
+    computer -> router;
+    phone ->router [label="wifi"];
+    router ->internet [dir=both];
+}
+,#+END_SRC
+#+END_SRC
+
+
+#+BEGIN_SRC dot :file ./assets/posts/dot-internet.png  :cmdline -Kdot -Tpng
+digraph {
+    // --- config
+    graph [rankdir=TB]; // TBLR, top bottom left right, the direction of the graph.
+    graph [dpi=150 splines=ortho]; // you can have multiple attrs per statement
+    edge[decorate=true]
+    node [shape=box];
+
+    // --- definitions
+    // nb: setting definitions on their own is useful in larger graphs for standalone attribute setting
+    computer [label=computer];
+    // quotes are optional, I'm using them when there are spaces
+    phone [label="android phone"];
+    router [label=router];
+
+    // record syntax: | for horizontal, {|} for vert
+    internet [shape=record label="{internet|cat pictures}"]
+
+    // --- relations
+    computer -> router;
+    phone ->router [label="wifi"];
+    router ->internet [dir=both];
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:./assets/posts/dot-example.png]]
