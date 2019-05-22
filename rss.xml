@@ -4,7 +4,118 @@
 <title>Notes</title>
 <description>Notes</description>
 <link>https://notes.neeasade.net</link>
-<lastBuildDate>Sat, 16 Mar 2019 10:06:14 -0400</lastBuildDate>
+<lastBuildDate>Tue, 21 May 2019 20:57:22 -0400</lastBuildDate>
+<item>
+  <title>TLDR org mode + graphviz</title>
+  <description><![CDATA[
+<p>
+Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
+</p>
+
+<div id="outline-container-org218bce4" class="outline-2">
+<h2 id="org218bce4">Org mode</h2>
+<div class="outline-text-2" id="text-org218bce4">
+<p>
+After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
+mode source block like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+digraph {
+    a -&gt; b
+}
+<span style="color: #ababab;">#+END_SRC</span>
+</pre>
+</div>
+
+<p>
+You can eval the block with <code>C-c C-c</code> and then view it inline in emacs by using
+<code>org-toggle-inline-images</code>.
+</p>
+
+<p>
+These blocks also export! Just like in <a href="http://todo">this page itself!</a>
+</p>
+
+
+<figure>
+<img src="./assets/posts/dot-example.png" alt="dot-example.png">
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org8c2f07f" class="outline-2">
+<h2 id="org8c2f07f">The Dot language</h2>
+<div class="outline-text-2" id="text-org8c2f07f">
+<p>
+The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
+find that too helpful on it's own, so here are some notes:
+</p>
+
+<p>
+Primitives that matter:
+</p>
+
+<ul class="org-ul">
+<li>a <code>node</code> is a bubble/self contained item that will be connected.</li>
+<li>an <code>edge</code> is the line that connect nodes.</li>
+<li>a <code>graph</code> is a the relation as a whole.</li>
+</ul>
+
+<p>
+A list of attributes that can be applied to these can be found here: <a href="https://www.graphviz.org/doc/info/attrs.html">https://www.graphviz.org/doc/info/attrs.html</a>
+</p>
+
+<p>
+Some nice node options can be seen here: <a href="https://www.graphviz.org/doc/info/shapes.html#polygon">https://www.graphviz.org/doc/info/shapes.html#polygon</a>
+</p>
+
+<p>
+Here is an example that shows how attributes are set and some defaults I like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./assets/posts/dot-internet.png  :cmdline -Kdot -Tpng</span>
+digraph {
+    // --- config
+    graph [rankdir=TB]; // TBLR, top bottom left right, the direction of the graph.
+    graph [dpi=150 splines=ortho]; // you can have multiple attrs per statement
+    edge[decorate=true]
+    node [shape=box];
+
+    // --- definitions
+    // nb: setting definitions on their own is useful in larger graphs for standalone attribute setting
+    computer [label=computer];
+    // quotes are optional, I'm using them when there are spaces
+    phone [label="android phone"];
+    router [label=router];
+
+    // record syntax: | for horizontal, {|} for vert
+    internet [shape=record label="{internet|cat pictures}"]
+
+    // --- relations
+    computer -&gt; router;
+    phone -&gt;router [label="wifi"];
+    router -&gt;internet [dir=both];
+}
+<span style="color: #ababab;">#+END_SRC</span>
+</pre>
+</div>
+
+
+
+<figure>
+<img src="./assets/posts/dot-internet.png" alt="dot-internet.png">
+
+</figure>
+</div>
+</div>
+]]></description>
+  <link>https://notes.neeasade.net2019-05-21-tldr-org-mode-+-graphviz.html</link>
+  <pubDate>Tue, 21 May 2019 19:50:00 -0400</pubDate>
+</item>
 <item>
   <title>git svn workflow</title>
   <description><![CDATA[
@@ -455,7 +566,7 @@ You can continue mapping in programming mode by hitting key combinations
 followed by <code>pn</code>.
 </p>
 
-<div id="outline-container-orga1093b3" class="outline-2">
+<div id="outline-container-org4394803" class="outline-2">
 <h2 id="swaps">Swaps</h2>
 <div class="outline-text-2" id="text-swaps">
 <div class="org-src-container">
@@ -471,7 +582,7 @@ capslock -&gt; left ctrl left ctrl -&gt; capslock
 </div>
 </div>
 
-<div id="outline-container-org8874c20" class="outline-2">
+<div id="outline-container-orgf3cd16c" class="outline-2">
 <h2 id="r_ctrl---fn">R\<sub>Ctrl</sub> -&gt; Fn</h2>
 <div class="outline-text-2" id="text-r_ctrl---fn">
 <p>
@@ -569,7 +680,7 @@ on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 </p>
 
-<div id="outline-container-org4ccdb23" class="outline-2">
+<div id="outline-container-org2ec9a73" class="outline-2">
 <h2 id="initial">Initial</h2>
 <div class="outline-text-2" id="text-initial">
 <p>
@@ -590,7 +701,7 @@ part.
 </div>
 </div>
 
-<div id="outline-container-org2450b20" class="outline-2">
+<div id="outline-container-org1af5568" class="outline-2">
 <h2 id="focus">Focus</h2>
 <div class="outline-text-2" id="text-focus">
 <p>
@@ -620,7 +731,7 @@ right, and no action occurs as a result.
 </p>
 </div>
 
-<div id="outline-container-org1195759" class="outline-3">
+<div id="outline-container-org368c02b" class="outline-3">
 <h3 id="desired-behavior">Desired behavior</h3>
 <div class="outline-text-3" id="text-desired-behavior">
 <p>
@@ -662,9 +773,9 @@ window snapping out from under you can be quite annoying.
 </div>
 </div>
 
-<div id="outline-container-org70fa760" class="outline-2">
-<h2 id="org70fa760">Movement</h2>
-<div class="outline-text-2" id="text-org70fa760">
+<div id="outline-container-org736c56e" class="outline-2">
+<h2 id="org736c56e">Movement</h2>
+<div class="outline-text-2" id="text-org736c56e">
 <p>
 Movement part of the example sxhkd:
 </p>
@@ -684,7 +795,7 @@ workspaces/monitors.
 </p>
 </div>
 
-<div id="outline-container-org95010fe" class="outline-3">
+<div id="outline-container-org1c60f95" class="outline-3">
 <h3 id="desired-behavior-1">Desired behavior</h3>
 <div class="outline-text-3" id="text-desired-behavior-1">
 <p>
@@ -754,7 +865,7 @@ So, I've been using BSPWM as my main WM for about 5 months now, after
 transitioning from i3, so I thought I would write about my experience.
 </p>
 
-<div id="outline-container-org1bd45be" class="outline-2">
+<div id="outline-container-org26dae3a" class="outline-2">
 <h2 id="the-i3-days">The i3 Days</h2>
 <div class="outline-text-2" id="text-the-i3-days">
 <p>
@@ -776,7 +887,7 @@ to drive 'deeper' led me to seek what I considered a more advanced WM.
 </div>
 </div>
 
-<div id="outline-container-orga10d121" class="outline-2">
+<div id="outline-container-orgc3d1369" class="outline-2">
 <h2 id="picking-a-wm">Picking a WM</h2>
 <div class="outline-text-2" id="text-picking-a-wm">
 <p>
@@ -798,7 +909,7 @@ lot more effort to get set up to ones liking. So I picked bspwm.
 </div>
 </div>
 
-<div id="outline-container-org5b74fd7" class="outline-2">
+<div id="outline-container-org5423706" class="outline-2">
 <h2 id="the-first-attempts">The First Attempts</h2>
 <div class="outline-text-2" id="text-the-first-attempts">
 <p>
@@ -834,7 +945,7 @@ do when starting out, it can be very discouraging.
 </div>
 </div>
 
-<div id="outline-container-org56fb212" class="outline-2">
+<div id="outline-container-org31b4294" class="outline-2">
 <h2 id="adjusting">Adjusting</h2>
 <div class="outline-text-2" id="text-adjusting">
 <p>
@@ -852,7 +963,7 @@ management.
 </div>
 </div>
 
-<div id="outline-container-orgbd319c7" class="outline-2">
+<div id="outline-container-org658f160" class="outline-2">
 <h2 id="panel">Panel</h2>
 <div class="outline-text-2" id="text-panel">
 <p>
@@ -921,7 +1032,7 @@ my setup.
 </div>
 </div>
 
-<div id="outline-container-orgc526cfc" class="outline-2">
+<div id="outline-container-orgd984726" class="outline-2">
 <h2 id="aftermath">Aftermath</h2>
 <div class="outline-text-2" id="text-aftermath">
 <p>
@@ -954,9 +1065,9 @@ This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 </p>
 
-<div id="outline-container-orgd47270e" class="outline-2">
-<h2 id="orgd47270e">Compile the program to debug</h2>
-<div class="outline-text-2" id="text-orgd47270e">
+<div id="outline-container-org4b4d568" class="outline-2">
+<h2 id="org4b4d568">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-org4b4d568">
 <p>
 I'm assuming here that you have the source of the C file that you wish
 to step through(this post assumes you are trying to learn about
