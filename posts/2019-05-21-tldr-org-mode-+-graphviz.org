@@ -46,17 +46,18 @@ Some nice node options can be seen here: https://www.graphviz.org/doc/info/shape
 
 Here is an example that shows how attributes are set and some defaults I like:
 
-#+BEGIN_SRC org
-#+BEGIN_SRC dot :file ./assets/posts/dot-internet.png  :cmdline -Kdot -Tpng
+#+BEGIN_SRC dot
 digraph {
-    // --- config
-    graph [rankdir=TB]; // TBLR, top bottom left right, the direction of the graph.
-    graph [dpi=150 splines=ortho]; // you can have multiple attrs per statement
-    edge[decorate=true]
+    // config:
+    // TBLR, top bottom left right, the direction of the graph.
+    graph [rankdir=TB];
+    // you can have multiple attrs per statement
+    graph [dpi=150 splines=ortho];
+    edge[decorate=true];
     node [shape=box];
 
-    // --- definitions
-    // nb: setting definitions on their own is useful in larger graphs for standalone attribute setting
+    // definitions:
+    // nb: setting definitions on their own is useful in larger graphs
     computer [label=computer];
     // quotes are optional, I'm using them when there are spaces
     phone [label="android phone"];
@@ -65,12 +66,11 @@ digraph {
     // record syntax: | for horizontal, {|} for vert
     internet [shape=record label="{internet|cat pictures}"]
 
-    // --- relations
+    // relations:
     computer -> router;
-    phone ->router [label="wifi"];
-    router ->internet [dir=both];
+    phone -> router [label="wifi"];
+    router -> internet [dir=both];
 }
-,#+END_SRC
 #+END_SRC
 
 
