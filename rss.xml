@@ -4,7 +4,7 @@
 <title>Notes</title>
 <description>Notes</description>
 <link>https://notes.neeasade.net</link>
-<lastBuildDate>Wed, 22 May 2019 21:46:44 -0400</lastBuildDate>
+<lastBuildDate>Wed, 22 May 2019 21:51:51 -0400</lastBuildDate>
 <item>
   <title>TLDR org mode + graphviz</title>
   <description><![CDATA[
@@ -12,9 +12,9 @@
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-org5d154b7" class="outline-2">
-<h2 id="org5d154b7">Org mode</h2>
-<div class="outline-text-2" id="text-org5d154b7">
+<div id="outline-container-org31a58a6" class="outline-2">
+<h2 id="org31a58a6">Org mode</h2>
+<div class="outline-text-2" id="text-org31a58a6">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
@@ -46,9 +46,9 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-orgb06bc04" class="outline-2">
-<h2 id="orgb06bc04">The Dot language</h2>
-<div class="outline-text-2" id="text-orgb06bc04">
+<div id="outline-container-org7055da1" class="outline-2">
+<h2 id="org7055da1">The Dot language</h2>
+<div class="outline-text-2" id="text-org7055da1">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
@@ -566,8 +566,8 @@ You can continue mapping in programming mode by hitting key combinations
 followed by <code>pn</code>.
 </p>
 
-<div id="outline-container-org1d6f3bd" class="outline-2">
-<h2 id="swaps"><a id="org1d6f3bd"></a>Swaps</h2>
+<div id="outline-container-orgd839e75" class="outline-2">
+<h2 id="swaps"><a id="orgd839e75"></a>Swaps</h2>
 <div class="outline-text-2" id="text-swaps">
 <div class="org-src-container">
 <pre class="src src-text">esc -&gt; fn + esc fn + esc -&gt; esc
@@ -582,8 +582,8 @@ capslock -&gt; left ctrl left ctrl -&gt; capslock
 </div>
 </div>
 
-<div id="outline-container-org2f565c9" class="outline-2">
-<h2 id="r_ctrl---fn"><a id="org2f565c9"></a>R\<sub>Ctrl</sub> -&gt; Fn</h2>
+<div id="outline-container-org6ed5eab" class="outline-2">
+<h2 id="r_ctrl---fn"><a id="org6ed5eab"></a>R\<sub>Ctrl</sub> -&gt; Fn</h2>
 <div class="outline-text-2" id="text-r_ctrl---fn">
 <p>
 note: this effects only the layer you are on, fn transforms into super
@@ -680,8 +680,8 @@ on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 </p>
 
-<div id="outline-container-org49961b0" class="outline-2">
-<h2 id="initial"><a id="org49961b0"></a>Initial</h2>
+<div id="outline-container-org60d0e2a" class="outline-2">
+<h2 id="initial"><a id="org60d0e2a"></a>Initial</h2>
 <div class="outline-text-2" id="text-initial">
 <p>
 In the example sxhkd in the bspwm repo, the main window focus keybind is
@@ -701,8 +701,8 @@ part.
 </div>
 </div>
 
-<div id="outline-container-org27bb92a" class="outline-2">
-<h2 id="focus"><a id="org27bb92a"></a>Focus</h2>
+<div id="outline-container-orgbb13311" class="outline-2">
+<h2 id="focus"><a id="orgbb13311"></a>Focus</h2>
 <div class="outline-text-2" id="text-focus">
 <p>
 So taking the focus part out of the above we get:
@@ -731,8 +731,8 @@ right, and no action occurs as a result.
 </p>
 </div>
 
-<div id="outline-container-org661be6f" class="outline-3">
-<h3 id="desired-behavior"><a id="org661be6f"></a>Desired behavior</h3>
+<div id="outline-container-orgf7e98c0" class="outline-3">
+<h3 id="desired-behavior"><a id="orgf7e98c0"></a>Desired behavior</h3>
 <div class="outline-text-3" id="text-desired-behavior">
 <p>
 In the above, on a focus right, I want the cursor to appear in the
@@ -773,9 +773,9 @@ window snapping out from under you can be quite annoying.
 </div>
 </div>
 
-<div id="outline-container-org93adb1b" class="outline-2">
-<h2 id="org93adb1b">Movement</h2>
-<div class="outline-text-2" id="text-org93adb1b">
+<div id="outline-container-org90e1f2e" class="outline-2">
+<h2 id="org90e1f2e">Movement</h2>
+<div class="outline-text-2" id="text-org90e1f2e">
 <p>
 Movement part of the example sxhkd:
 </p>
@@ -795,8 +795,8 @@ workspaces/monitors.
 </p>
 </div>
 
-<div id="outline-container-org45e899a" class="outline-3">
-<h3 id="desired-behavior-1"><a id="org45e899a"></a>Desired behavior</h3>
+<div id="outline-container-org9f34223" class="outline-3">
+<h3 id="desired-behavior-1"><a id="org9f34223"></a>Desired behavior</h3>
 <div class="outline-text-3" id="text-desired-behavior-1">
 <p>
 When a window is switched, retain focus on the original window that was
@@ -865,8 +865,8 @@ So, I've been using BSPWM as my main WM for about 5 months now, after
 transitioning from i3, so I thought I would write about my experience.
 </p>
 
-<div id="outline-container-org30f8f8a" class="outline-2">
-<h2 id="the-i3-days"><a id="org30f8f8a"></a>The i3 Days</h2>
+<div id="outline-container-orgee8b049" class="outline-2">
+<h2 id="the-i3-days"><a id="orgee8b049"></a>The i3 Days</h2>
 <div class="outline-text-2" id="text-the-i3-days">
 <p>
 I had transitioned from openbox to i3, and was getting a hang on
@@ -887,8 +887,8 @@ to drive 'deeper' led me to seek what I considered a more advanced WM.
 </div>
 </div>
 
-<div id="outline-container-org2e916ad" class="outline-2">
-<h2 id="picking-a-wm"><a id="org2e916ad"></a>Picking a WM</h2>
+<div id="outline-container-orgf8e3408" class="outline-2">
+<h2 id="picking-a-wm"><a id="orgf8e3408"></a>Picking a WM</h2>
 <div class="outline-text-2" id="text-picking-a-wm">
 <p>
 Around this time I was lurking /r/unixporn pretty hardcore, and both
@@ -909,8 +909,8 @@ lot more effort to get set up to ones liking. So I picked bspwm.
 </div>
 </div>
 
-<div id="outline-container-orgee67d67" class="outline-2">
-<h2 id="the-first-attempts"><a id="orgee67d67"></a>The First Attempts</h2>
+<div id="outline-container-orgdd4519d" class="outline-2">
+<h2 id="the-first-attempts"><a id="orgdd4519d"></a>The First Attempts</h2>
 <div class="outline-text-2" id="text-the-first-attempts">
 <p>
 It actually took 3 times before I fully told myself 'Okay this is my WM
@@ -945,8 +945,8 @@ do when starting out, it can be very discouraging.
 </div>
 </div>
 
-<div id="outline-container-orga2454ef" class="outline-2">
-<h2 id="adjusting"><a id="orga2454ef"></a>Adjusting</h2>
+<div id="outline-container-org04c45e4" class="outline-2">
+<h2 id="adjusting"><a id="org04c45e4"></a>Adjusting</h2>
 <div class="outline-text-2" id="text-adjusting">
 <p>
 After the 3rd attempt to transition, it stuck. Things finally started to
@@ -963,8 +963,8 @@ management.
 </div>
 </div>
 
-<div id="outline-container-org7e44385" class="outline-2">
-<h2 id="panel"><a id="org7e44385"></a>Panel</h2>
+<div id="outline-container-org6d14b0c" class="outline-2">
+<h2 id="panel"><a id="org6d14b0c"></a>Panel</h2>
 <div class="outline-text-2" id="text-panel">
 <p>
 After I got a basic-ish bspwmrc set, I was determined to get a decent
@@ -1032,8 +1032,8 @@ my setup.
 </div>
 </div>
 
-<div id="outline-container-org2873e07" class="outline-2">
-<h2 id="aftermath"><a id="org2873e07"></a>Aftermath</h2>
+<div id="outline-container-org083114c" class="outline-2">
+<h2 id="aftermath"><a id="org083114c"></a>Aftermath</h2>
 <div class="outline-text-2" id="text-aftermath">
 <p>
 Once things were to a point where it felt pleasant to be using bspwm,
@@ -1065,9 +1065,9 @@ This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 </p>
 
-<div id="outline-container-org983e082" class="outline-2">
-<h2 id="org983e082">Compile the program to debug</h2>
-<div class="outline-text-2" id="text-org983e082">
+<div id="outline-container-org14f2536" class="outline-2">
+<h2 id="org14f2536">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-org14f2536">
 <p>
 I'm assuming here that you have the source of the C file that you wish
 to step through(this post assumes you are trying to learn about
