@@ -11,3 +11,16 @@ img
     height:auto;
     max-width:90%;
 }
+
+#content, #postamble, #preamble {
+    display: block;
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 0 16px 16px;
+}
+
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
