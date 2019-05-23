@@ -46,7 +46,7 @@ Some nice node options can be seen here: https://www.graphviz.org/doc/info/shape
 
 Here is an example that shows how attributes are set and some defaults I like:
 
-#+BEGIN_SRC dot
+#+BEGIN_SRC dot :file /tmp/none.png
 digraph {
     // config:
     // TBLR, top bottom left right, the direction of the graph.
