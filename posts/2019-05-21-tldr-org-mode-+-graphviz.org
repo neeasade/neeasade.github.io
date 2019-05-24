@@ -46,7 +46,9 @@ Some nice node options can be seen here: https://www.graphviz.org/doc/info/shape
 
 Here is an example that shows how attributes are set and some defaults I like:
 
-#+BEGIN_SRC dot :file /tmp/none.png
+
+#+BEGIN_SRC org
+#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
 digraph {
     // config:
     // TBLR, top bottom left right, the direction of the graph.
@@ -71,6 +73,7 @@ digraph {
     phone -> router [label="wifi"];
     router -> internet [dir=both];
 }
+,#+END_SRC
 #+END_SRC
 
 
@@ -100,4 +103,4 @@ digraph {
 #+END_SRC
 
 #+RESULTS:
-[[file:./assets/posts/dot-example.png]]
+[[file:./assets/posts/dot-internet.png]]
