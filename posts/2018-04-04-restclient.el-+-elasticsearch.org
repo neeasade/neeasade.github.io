@@ -1,5 +1,6 @@
 #+date: <2018-04-04 00:00>
 #+title: restclient.el + elasticsearch
+#+filetags: :emacs:
 
 todo: and a screenshot of it in action
 
