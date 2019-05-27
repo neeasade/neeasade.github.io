@@ -6,21 +6,21 @@
       type="application/rss+xml"
       href="https://notes.neeasade.net/rss.xml"
       title="RSS feed for https://notes.neeasade.net/"/>
-<title>TLDR org mode + graphviz</title>
+<title>Notes</title>
 <link href="assets/css/marx.css" rel="stylesheet">
 <link href="assets/css/notes.css" rel="stylesheet"></head>
 <body>
-<div id="preamble" class="status">
-</div>
+<div id="preamble" class="status"></div>
 <div id="content">
+<h1 class="title">Posts tagged "a":</h1>
 <div class="post-date">21 May 2019</div><h1 class="post-title"><a href="2019-05-21-tldr-org-mode-+-graphviz.html">TLDR org mode + graphviz</a></h1>
 <p>
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-org1473a16" class="outline-2">
-<h2 id="org1473a16">Org mode</h2>
-<div class="outline-text-2" id="text-org1473a16">
+<div id="outline-container-orge2d4095" class="outline-2">
+<h2 id="orge2d4095">Org mode</h2>
+<div class="outline-text-2" id="text-orge2d4095">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
@@ -52,9 +52,9 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-orgea9e8d4" class="outline-2">
-<h2 id="orgea9e8d4">The Dot language</h2>
-<div class="outline-text-2" id="text-orgea9e8d4">
+<div id="outline-container-org5ccd892" class="outline-2">
+<h2 id="org5ccd892">The Dot language</h2>
+<div class="outline-text-2" id="text-org5ccd892">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
@@ -82,11 +82,9 @@ Some nice node options can be seen here: <a href="https://www.graphviz.org/doc/i
 Here is an example that shows how attributes are set and some defaults I like:
 </p>
 
-
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-digraph {
-    // config:
+<pre class="src src-text">digraph {
+    // --- config
     // TBLR, top bottom left right, the direction of the graph.
     graph [rankdir=TB];
     // you can have multiple attrs per statement
@@ -94,7 +92,7 @@ digraph {
     edge[decorate=true];
     node [shape=box];
 
-    // definitions:
+    // --- definitions
     // nb: setting definitions on their own is useful in larger graphs
     computer [label=computer];
     // quotes are optional, I'm using them when there are spaces
@@ -104,12 +102,11 @@ digraph {
     // record syntax: | for horizontal, {|} for vert
     internet [shape=record label="{internet|cat pictures}"]
 
-    // relations:
+    // --- relations
     computer -&gt; router;
-    phone -&gt; router [label="wifi"];
-    router -&gt; internet [dir=both];
+    phone -&gt;router [label="wifi"];
+    router -&gt;internet [dir=both];
 }
-<span style="color: #ababab;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -121,8 +118,9 @@ digraph {
 </figure>
 </div>
 </div>
-<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-emacs.html">emacs</a> </div></div>
-<div id="postamble" class="status">
-<a href="archive.html"> Other posts </a></div>
+<div class="taglist"><a href="tags.html">Tags:</a> <a href="tag-a.html">a</a> <a href="tag-b.html">b</a> </div><div id="archive">
+<a href="archive.html">Other posts</a>
+</div>
+</div>
 </body>
 </html>
