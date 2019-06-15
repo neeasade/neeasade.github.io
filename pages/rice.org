@@ -1,23 +1,13 @@
 #+title: Rice
 #+date: <0001-01-01 00:00>
-#+MACRO: dtop ** $1 [[file:./assets/img/desktops/full/$1.png][file:./assets/img/desktops/thumb/$1.png]]
 
-{{{dtop(2018-12-26)}}}
-{{{dtop(2018-09-21)}}}
-{{{dtop(2018-06-15)}}}
-{{{dtop(2017-03-28)}}}
-{{{dtop(2017-03-06)}}}
-{{{dtop(2017-02-19)}}}
-{{{dtop(2017-02-18)}}}
-{{{dtop(2017-02-04)}}}
-{{{dtop(2016-01-28)}}}
-{{{dtop(2015-12-13)}}}
-{{{dtop(2015-08-30)}}}
-{{{dtop(2015-03-25)}}}
-{{{dtop(2015-02-18)}}}
-{{{dtop(2015-02-10)}}}
-{{{dtop(2014-12-26)}}}
-{{{dtop(2014-05-24)}}}
-{{{dtop(2013-12-16)}}}
-{{{dtop(2013-12-16 (2))}}}
-{{{dtop(2013-12-10)}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(let* ((dtop-path "./assets/img/desktops/")
+        (dtop-path-thumb (format "%sthumb/" dtop-path))
+        (dtop-path-full (format "%sfull/" dtop-path)))
+  (s-join "\n"
+    (mapcar
+      (fn (format "** %s [[file:%s%s][file:%s%s]]" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>))
+      (mapcar (fn (s-replace " " "%20" (f-filename <>)))
+        (reverse (f-entries dtop-path-thumb))))))
+#+END_SRC
