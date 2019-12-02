@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-02 Mon 15:52 -->
+<!-- 2019-12-02 Mon 18:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLDR org mode + graphviz</title>
@@ -192,8 +192,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link href="assets/css/marx.css" rel=stylesheet>
-<link href="assets/css/notes.css" rel=stylesheet>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -248,9 +252,9 @@ for the JavaScript code in this tag.
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-org022cb26" class="outline-2">
-<h2 id="org022cb26">Org mode</h2>
-<div class="outline-text-2" id="text-org022cb26">
+<div id="outline-container-org51cb3aa" class="outline-2">
+<h2 id="org51cb3aa">Org mode</h2>
+<div class="outline-text-2" id="text-org51cb3aa">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
@@ -282,9 +286,9 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-org8a5e621" class="outline-2">
-<h2 id="org8a5e621">The Dot language</h2>
-<div class="outline-text-2" id="text-org8a5e621">
+<div id="outline-container-orgb966356" class="outline-2">
+<h2 id="orgb966356">The Dot language</h2>
+<div class="outline-text-2" id="text-orgb966356">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
