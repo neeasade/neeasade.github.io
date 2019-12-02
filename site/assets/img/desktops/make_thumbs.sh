@@ -10,6 +10,4 @@ find full -type f | sort | tac | while read -r file; do
       echo $filename
       convert "$file" -resize 900x -filter Lanczos "thumb/$filename"
   fi
-
-  echo "{{{dtop($(basename -s .png "$filename"))}}}" >> "../../../../pages/rice.org"
 done
