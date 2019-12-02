@@ -3,16 +3,22 @@
 cd "$(dirname $([ -L $0  ] && readlink -f $0 || echo $0))"
 set -e
 
-elisp "(ns/blog-generate)"
+vdo() {
+    echo "$*"
+    "$@"
+}
 
-rm -rf /tmp/notes.neeasade.net
-cp -r site /tmp/notes.neeasade.net
+export elisp_timeout=30
+vdo elisp "(ns/blog-generate)"
 
-git checkout master
-rm -rf *
-cp -r /tmp/notes.neeasade.net/* ./
+vdo rm -rf /tmp/notes.neeasade.net
+vdo cp -r site /tmp/notes.neeasade.net
 
-git add --all
-git commit -m "auto commit publish.sh"
-git push origin master
-git checkout source
+vdo git checkout master
+vdo rm -rf *
+vdo cp -r /tmp/notes.neeasade.net/* ./
+
+vdo git add --all
+vdo git commit -m "auto commit publish.sh"
+vdo git push origin master
+vdo git checkout source
