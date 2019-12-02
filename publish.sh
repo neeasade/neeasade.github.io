@@ -3,22 +3,7 @@
 cd "$(dirname $([ -L $0  ] && readlink -f $0 || echo $0))"
 set -e
 
-if [ -z "$(git status -s)" ]; then
-    ./site/assets/img/desktops/make_thumbs.sh
-    if [ ! -z "$(git status -s)" ]; then
-	git add -u
-	git commit -m "generate thumbs"
-	git push origin source
-    fi
-else
-    echo unclean git status
-    exit 1
-fi
-
-# oof
-# let's not talk about it
-
-elisp "(org-static-blog-publish)"
+elisp "(ns/blog-generate)"
 
 rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 #+date: <2015-04-03 00:00>
 #+title: BSPWM Experiences
 
@@ -126,7 +120,7 @@ almost always get referred to
 was a fan of the slants in his browser tabs and panel(He has quite an
 enjoyable style). I really wanted that slant look in my panel as well.
 Initially, I searched for ways to print a colored icon as a separator,
-and this led to me going the [[][powerline panel]] route. I was pretty
+and this led to me going the powerline panel route. I was pretty
 happy with that for awhile, but there is one very limiting factor to
 choosing a powerline style in your panel: the height of your panel is
 restricted to font height. As time went on, I wanted a

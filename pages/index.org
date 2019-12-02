@@ -1,0 +1,19 @@
+#+title: Posts
+
+#+BEGIN_SRC elisp :results raw :exports results
+(s-join "\n"
+    ;; test in scratch with "/home/neeasade/git/neeasade.github.io/posts"
+    (->> (f-entries ns/blog-posts-dir (fn (s-ends-with-p ".org" <>)))
+      reverse
+      (mapcar
+	(fn (format "- (%s) [[file:./%s.html][%s]]"
+	      (substring (f-base <> ) 0 10) ;; date
+	      (f-base <>)
+	      ;; cheat, get title line
+	      (->> (org-file-contents <>)
+		(s-split "\n")
+		(-filter (fn (s-starts-with-p "#+title:" <>)))
+		car
+		(s-replace "#+title: " ""))
+	      )))))
+#+END_SRC
