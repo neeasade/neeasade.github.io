@@ -1,6 +1,1 @@
-Org mode blog, generated with org-static-blog[1], and marx[2]. The config can be seen in my emacs config[3].
-
-[1] https://github.com/bastibe/org-static-blog/
-[2] https://github.com/mblode/marx/
-[3] https://github.com/neeasade/emacs.d/search?q=defconfig+blog&unscoped_q=defconfig+blog
-
+Org mode blog. See site generation here: https://github.com/neeasade/emacs.d/search?q=defconfig+blog&unscoped_q=defconfig+blog
