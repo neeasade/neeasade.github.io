@@ -3,9 +3,9 @@
 
 # just assemble the list based on dir contents
 #+BEGIN_SRC elisp :results raw :exports results
-(let* ((dtop-path (concat ns/blog-site-dir "/assets/img/desktops/"))
-        (dtop-path-thumb (format "%sthumb/" dtop-path))
-        (dtop-path-full (format "%sfull/" dtop-path)))
+(let* ((dtop-path (format "%s/assets/img/desktops/" ns/blog-site-dir))
+        (dtop-path-thumb (format "%s/thumb/" dtop-path))
+        (dtop-path-full (format "%s/full/" dtop-path)))
   (s-join "\n"
     (mapcar
       (fn (format "** %s [[file:%s%s][file:%s%s]]" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>))
