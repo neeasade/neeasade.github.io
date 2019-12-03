@@ -3,7 +3,7 @@
 
 # just assemble the list based on dir contents
 #+BEGIN_SRC elisp :results raw :exports results
-(let* ((dtop-path "./assets/img/desktops/"))
+(let* ((dtop-path "./assets/img/desktops/")
         (dtop-path-thumb (format "%s/thumb/" dtop-path))
         (dtop-path-full (format "%s/full/" dtop-path)))
   (s-join "\n"
