@@ -1,8 +1,7 @@
 #+date: <2018-04-04 00:00>
 #+title: restclient.el + elasticsearch
-#+filetags: :emacs:
 
-todo: and a screenshot of it in action
+# todo: add a screenshot of it in action
 
 =restclient.el= is an emacs plugin that transforms a buffer into a
 repl-like curl-backed experience (similar to kibana). It has support for
