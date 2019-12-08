@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-08 Sun 13:01 -->
+<!-- 2019-12-08 Sun 13:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>On Emacs</title>
@@ -256,44 +256,44 @@ This post is a short love letter to emacs, the text editor that has changed the 
 Disclaimer: At the end of the day, a text editor is just a preference, just like mechanical keyboards, vim bindings, window managers and what have you.
 </p>
 
-<div id="outline-container-org57b95a4" class="outline-2">
-<h2 id="org57b95a4">Programmable state</h2>
-<div class="outline-text-2" id="text-org57b95a4">
+<div id="outline-container-orgce62cf9" class="outline-2">
+<h2 id="orgce62cf9">Programmable state</h2>
+<div class="outline-text-2" id="text-orgce62cf9">
 <p>
 Emacs state is a long running emacs lisp repl, with all variable and function assignments tracked in a global environment. This has a few negatives, such as the naming conflict potential of all elisp code, and that any running elisp can affect emacs state (say, freeze the entire experience). However, the benefit of being able to peek and tweak any elisp code live is huge. You can connect or fix elisp packages together in ways not imagined by the authors through that global repl, and see changes instantly, with a very low bar for hackery. The resulting footgun is both the best and worst computing experience I think I'll have for quite awhile.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc8c4a1d" class="outline-2">
-<h2 id="orgc8c4a1d">Blended environment</h2>
-<div class="outline-text-2" id="text-orgc8c4a1d">
+<div id="outline-container-org4b4c7b4" class="outline-2">
+<h2 id="org4b4c7b4">Blended environment</h2>
+<div class="outline-text-2" id="text-org4b4c7b4">
 <p>
 Emacs can be thought of as a toolkit for integrating textual data into a higher level interface, with an API for shaping that data into emacs primitives. Things like buffers, windows, the point, overlays, and major modes are all programmatically available in the expressive emacs lisp language. Combine this with the programmable global state in emacs and you get a very 'flowey' feeling when you switch between different interfaces all using the same UI primitives. I like to contrast this to the rise of many TUI tools for doing things in the terminal in recent years &#x2013; having to learn different keybinds and mental models for each of them (<code>ncmpcpp</code>, <code>tig</code>, <code>mutt</code>, <code>ranger</code>, <code>weechat</code>, &#x2026;) is more overhead for me than using the emacs equivalents and getting the benefit of a consistent interface.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3829aa1" class="outline-2">
-<h2 id="org3829aa1">Emacs lisp</h2>
-<div class="outline-text-2" id="text-org3829aa1">
+<div id="outline-container-org4cd1d89" class="outline-2">
+<h2 id="org4cd1d89">Emacs lisp</h2>
+<div class="outline-text-2" id="text-org4cd1d89">
 <p>
 Emacs lisp is the first lisp I've used for more than 10 seconds, because you're forced to if you want to configure emacs. Having used it for a few years within emacs now, the expressive nature of lisp has grown on me to the extent it shapes how I program in most other languages (possibly in danger of being a <a href="http://wiki.c2.com/?SmugLispWeenie">smug lisp weenie</a>). The semantic nature of lisp means you can always reshape things to get a better view of the problem you are trying to solve, and macros allow you to do so cheaply.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8a09ead" class="outline-2">
-<h2 id="org8a09ead">Fun things I've done with emacs</h2>
-<div class="outline-text-2" id="text-org8a09ead">
+<div id="outline-container-org3c7c3f0" class="outline-2">
+<h2 id="org3c7c3f0">Fun things I've done with emacs</h2>
+<div class="outline-text-2" id="text-org3c7c3f0">
 </div>
-<div id="outline-container-org9d56ea7" class="outline-3">
-<h3 id="org9d56ea7">Shell stuff</h3>
-<div class="outline-text-3" id="text-org9d56ea7">
+<div id="outline-container-org30e60fb" class="outline-3">
+<h3 id="org30e60fb">Shell stuff</h3>
+<div class="outline-text-3" id="text-org30e60fb">
 </div>
-<div id="outline-container-org00a00a0" class="outline-4">
-<h4 id="org00a00a0"><code>shell-mode</code> as my terminal, with a staged shell buffer</h4>
-<div class="outline-text-4" id="text-org00a00a0">
+<div id="outline-container-orgba3e299" class="outline-4">
+<h4 id="orgba3e299"><code>shell-mode</code> as my terminal, with a staged shell buffer</h4>
+<div class="outline-text-4" id="text-orgba3e299">
 <p>
 When I first start emacs, I create an 'on-deck' staged shell buffer with an interactive shell. Then when I 'spawn a terminal', what I'm actually doing is:
 </p>
@@ -310,18 +310,18 @@ This means there is no startup time or delay on the part of the shell for me to 
 </div>
 </div>
 
-<div id="outline-container-org9568209" class="outline-4">
-<h4 id="org9568209">Shell $CWD history</h4>
-<div class="outline-text-4" id="text-org9568209">
+<div id="outline-container-orga47895b" class="outline-4">
+<h4 id="orga47895b">Shell $CWD history</h4>
+<div class="outline-text-4" id="text-orga47895b">
 <p>
 Everytime my prompt prints, it prints a key string for emacs shell to pickup, setting the current directory of the emacs shell buffer sync'd from the bash shell. These values are tracked in a persisent list, so that I can jump to any folder location I've ever been using ivy. Sorting order keeps frequently picked folders near the top with the help of <a href="https://github.com/raxod502/prescient.el">ivy-prescient</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4161414" class="outline-4">
-<h4 id="org4161414">Scripts and functions</h4>
-<div class="outline-text-4" id="text-org4161414">
+<div id="outline-container-org7c9ce2b" class="outline-4">
+<h4 id="org7c9ce2b">Scripts and functions</h4>
+<div class="outline-text-4" id="text-org7c9ce2b">
 <p>
 An <code>elisp</code> script that obfuscates the details of connecting to the running emacs server to interact with it, allowing me to peek at emacs state or do things in emacs from a script or shell:
 </p>
@@ -369,9 +369,9 @@ import/Vapor Memory/Windows&#24417;96  - Gradient Horizont.opus
 </div>
 
 
-<div id="outline-container-org3400ca4" class="outline-3">
-<h3 id="org3400ca4">Org pomodoro status</h3>
-<div class="outline-text-3" id="text-org3400ca4">
+<div id="outline-container-orgbdb005d" class="outline-3">
+<h3 id="orgbdb005d">Org pomodoro status</h3>
+<div class="outline-text-3" id="text-orgbdb005d">
 <p>
 Org mode is a markup format deeply integrated into emacs (the elisp code is the reference implementation). It's what I'm writing the post in. At it's core, org-mode is about headings and metadata around headings. I have a bind to toggle an 'active' heading, and with org-pomodoro I can toggle commands to signal pomodoro breaks, or query the current state in a script for my panel:
 </p>
@@ -384,9 +384,9 @@ Write 'On Emacs' &#9632;&#9632;&#9632;&#9633;&#9633;&#9633;&#9633;&#9633;&#9633;
 </div>
 </div>
 
-<div id="outline-container-org753ac76" class="outline-3">
-<h3 id="org753ac76">Contextual inline eval for lisps</h3>
-<div class="outline-text-3" id="text-org753ac76">
+<div id="outline-container-org5d4e83d" class="outline-3">
+<h3 id="org5d4e83d">Contextual inline eval for lisps</h3>
+<div class="outline-text-3" id="text-org5d4e83d">
 <p>
 I have a lisp eval function that will have different targets in different situations. When on an empty line, it will eval the last s expression. When on a not-empty line, it will eval the top s expression. And if there is anything highlighted, it will eval the region. This means I have just one eval keybind to mash. And with <a href="https://github.com/xiongtx/eros">eros</a> I get sexy inline eval results!:
 </p>
@@ -399,9 +399,9 @@ I have a lisp eval function that will have different targets in different situat
 </div>
 </div>
 
-<div id="outline-container-org5fc9f5a" class="outline-3">
-<h3 id="org5fc9f5a">IRC + highlight buffer</h3>
-<div class="outline-text-3" id="text-org5fc9f5a">
+<div id="outline-container-orgd7cf484" class="outline-3">
+<h3 id="orgd7cf484">IRC + highlight buffer</h3>
+<div class="outline-text-3" id="text-orgd7cf484">
 <p>
 I created a derived text mode for irc highlights that allows me to jump to mentions.
 </p>
@@ -415,9 +415,9 @@ I created a derived text mode for irc highlights that allows me to jump to menti
 </div>
 
 
-<div id="outline-container-orgbafa9f4" class="outline-3">
-<h3 id="orgbafa9f4">Meta file switcher</h3>
-<div class="outline-text-3" id="text-orgbafa9f4">
+<div id="outline-container-org6f0995f" class="outline-3">
+<h3 id="org6f0995f">Meta file switcher</h3>
+<div class="outline-text-3" id="text-org6f0995f">
 <p>
 I created a 'goto file' function that combines:
 </p>
@@ -434,9 +434,9 @@ And then I just have to fuzzy type to get to a matching file.
 </div>
 </div>
 
-<div id="outline-container-orgece7808" class="outline-3">
-<h3 id="orgece7808">Meta GOTO thing</h3>
-<div class="outline-text-3" id="text-orgece7808">
+<div id="outline-container-org18cbf7d" class="outline-3">
+<h3 id="org18cbf7d">Meta GOTO thing</h3>
+<div class="outline-text-3" id="text-org18cbf7d">
 <p>
 I have a function that will follow 'thing' at point, handling:
 </p>
@@ -450,9 +450,9 @@ I have a function that will follow 'thing' at point, handling:
 </div>
 </div>
 
-<div id="outline-container-org2e4e5ee" class="outline-2">
-<h2 id="org2e4e5ee">Other</h2>
-<div class="outline-text-2" id="text-org2e4e5ee">
+<div id="outline-container-org54c06b6" class="outline-2">
+<h2 id="org54c06b6">Other</h2>
+<div class="outline-text-2" id="text-org54c06b6">
 <p>
 <a href="https://nixers.net/showthread.php?tid=2216&amp;pid=19558#pid19558">https://nixers.net/showthread.php?tid=2216&amp;pid=19558#pid19558</a>
 </p>
