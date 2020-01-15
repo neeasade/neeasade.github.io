@@ -8,8 +8,8 @@
       (mapcar
 	(fn (format "- (%s) [[file:./%s.html][%s]]"
 	      (substring (f-base <> ) 0 10) ;; date
-	      (f-base <>)
-	      ;; cheat, get title line
+	      (f-base <>) ;; file
+	      ;; title:
 	      (->> (org-file-contents <>)
 		(s-split "\n")
 		(-filter (fn (s-starts-with-p "#+title:" <>)))

@@ -1,5 +1,6 @@
-.post-date {
-    float: right;
+body {
+    background-image: url("https://neeasade.net/pattern_125.gif");
+    background-repeat: repeat;
 }
 
 img
@@ -14,13 +15,10 @@ img
 
 #content, #postamble, #preamble {
     display: block;
-    margin: 0 auto;
+    margin: 10px auto 10px auto;
+    padding: 0 16px 16px 16px;
     max-width: 768px;
-    padding: 0 16px 16px;
-}
 
-pre {
-  overflow: auto;
-  word-wrap: normal;
-  white-space: pre;
+    background-color: #f7f7f7;
+    border: 2px solid #7F7F7F;
 }

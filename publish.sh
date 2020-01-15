@@ -1,4 +1,5 @@
 #!/bin/sh
+# generate and commit the site
 
 cd "$(dirname $([ -L $0  ] && readlink -f $0 || echo $0))"
 set -e

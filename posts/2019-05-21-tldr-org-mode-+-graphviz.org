@@ -1,6 +1,5 @@
 #+title: TLDR org mode + graphviz
 #+date: <2019-05-21 19:50>
-#+filetags: :emacs:
 
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 
