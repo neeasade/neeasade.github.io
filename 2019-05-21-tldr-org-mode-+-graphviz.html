@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-08 Sun 13:03 -->
+<!-- 2020-01-15 Wed 17:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLDR org mode + graphviz</title>
@@ -192,12 +192,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./assets/css/notes.css">
+<link rel="stylesheet" href="./assets/css/scaffold.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -252,20 +249,20 @@ for the JavaScript code in this tag.
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-org22dff53" class="outline-2">
-<h2 id="org22dff53">Org mode</h2>
-<div class="outline-text-2" id="text-org22dff53">
+<div id="outline-container-org3cc0129" class="outline-2">
+<h2 id="org3cc0129">Org mode</h2>
+<div class="outline-text-2" id="text-org3cc0129">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
-digraph {
-    a -&gt; b
-}
-#+END_SRC
+<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #747474;">digraph</span><span style="color: #999999;"> {</span>
+<span style="color: #999999;">    a -&gt; b</span>
+<span style="color: #999999;">}</span>
+<span style="color: #ababab;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -286,9 +283,9 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-org61539fb" class="outline-2">
-<h2 id="org61539fb">The Dot language</h2>
-<div class="outline-text-2" id="text-org61539fb">
+<div id="outline-container-org126db26" class="outline-2">
+<h2 id="org126db26">The Dot language</h2>
+<div class="outline-text-2" id="text-org126db26">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
@@ -318,32 +315,32 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
-digraph {
-    // config:
-    // TBLR, top bottom left right, the direction of the graph.
-    graph [rankdir=TB];
-    // you can have multiple attrs per statement
-    graph [dpi=150 splines=ortho];
-    edge[decorate=true];
-    node [shape=box];
+<pre class="src src-org"><span style="color: #ababab;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #747474;">digraph</span><span style="color: #999999;"> {</span>
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">config:</span>
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">TBLR, top bottom left right, the direction of the graph.</span>
+<span style="color: #999999;">    </span><span style="color: #747474;">graph</span><span style="color: #999999;"> [</span><span style="color: #7c7c7c;">rankdir=</span><span style="color: #999999;">TB];</span>
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">you can have multiple attrs per statement</span>
+<span style="color: #999999;">    </span><span style="color: #747474;">graph</span><span style="color: #999999;"> [dpi=150 </span><span style="color: #7c7c7c;">splines=</span><span style="color: #999999;">ortho];</span>
+<span style="color: #999999;">    </span><span style="color: #747474;">edge</span><span style="color: #999999;">[</span><span style="color: #7c7c7c;">decorate=</span><span style="color: #999999;">true</span><span style="color: #999999;">];</span>
+<span style="color: #999999;">    </span><span style="color: #747474;">node</span><span style="color: #999999;"> [</span><span style="color: #7c7c7c;">shape=</span><span style="color: #999999;">box</span><span style="color: #999999;">];</span>
 
-    // definitions:
-    // nb: setting definitions on their own is useful in larger graphs
-    computer [label=computer];
-    // quotes are optional, I'm using them when there are spaces
-    phone [label="android phone"];
-    router [label=router];
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">definitions:</span>
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">nb: setting definitions on their own is useful in larger graphs</span>
+<span style="color: #999999;">    computer [</span><span style="color: #7c7c7c;">label=</span><span style="color: #999999;">computer];</span>
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">quotes are optional, I'm using them when there are spaces</span>
+<span style="color: #999999;">    phone [</span><span style="color: #7c7c7c;">label=</span><span style="color: #8e8e8e;">"android phone"</span><span style="color: #999999;">];</span>
+<span style="color: #999999;">    router [</span><span style="color: #7c7c7c;">label=</span><span style="color: #999999;">router];</span>
 
-    // record syntax: | for horizontal, {|} for vert
-    internet [shape=record label="{internet|cat pictures}"]
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">record syntax: | for horizontal, {|} for vert</span>
+<span style="color: #999999;">    internet [</span><span style="color: #7c7c7c;">shape=</span><span style="color: #999999;">record</span><span style="color: #999999;"> </span><span style="color: #7c7c7c;">label=</span><span style="color: #8e8e8e;">"{internet|cat pictures}"</span><span style="color: #999999;">]</span>
 
-    // relations:
-    computer -&gt; router;
-    phone -&gt; router [label="wifi"];
-    router -&gt; internet [dir=both];
-}
-#+END_SRC
+<span style="color: #999999;">    </span><span style="color: #b9b9b9;">// </span><span style="color: #ababab;">relations:</span>
+<span style="color: #999999;">    computer -&gt; router;</span>
+<span style="color: #999999;">    phone -&gt; router [</span><span style="color: #7c7c7c;">label=</span><span style="color: #8e8e8e;">"wifi"</span><span style="color: #999999;">];</span>
+<span style="color: #999999;">    router -&gt; internet [</span><span style="color: #7c7c7c;">dir=</span><span style="color: #999999;">both</span><span style="color: #999999;">];</span>
+<span style="color: #999999;">}</span>
+<span style="color: #ababab;">#+END_SRC</span>
 </pre>
 </div>
 

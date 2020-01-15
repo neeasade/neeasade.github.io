@@ -6,7 +6,7 @@
 <!-- 2020-01-15 Wed 17:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>add local font files linux</title>
+<title>Updating nix channels</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,12 +244,42 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">add local font files linux</h1>
+<h1 class="title">Updating nix channels</h1>
 <p>
-If you have a local ttf or other type of font that wasn't available via
-your package manager, you can just place it in the <code>.local/share/fonts</code>
-directory. And of course reload all the fonts with <code>fc-cache -f -v</code>.
+I'm always forgetting this:
 </p>
+
+<p>
+The command <code>nix-channel</code> is used to create aliases which can be referenced in <code>configuration.nix</code> on nixos. The most important alias is <code>nixos</code>, which is used for the default <code>pkgs</code> reference in your config. Channels are neat but I personally am not really a fan because it is state that exists outside of your config. To change the default nix-channel reference:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --list</span>
+nixos https://nixos.org/channels/nixos-19.09
+
+<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --remove nixos</span>
+uninstalling <span style="color: #8e8e8e;">'nixos-19.09.1861.eb65d1dae62'</span>
+building <span style="color: #8e8e8e;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
+created 0 symlinks<span style="color: #747474;"> in</span> user environment
+
+<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
+
+<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --list</span>
+nixos https://nixos.org/channels/nixos-19.09
+
+<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --update</span>
+nixos https://nixos.org/channels/nixos-19.09
+</pre>
+</div>
+
+<p>
+And then updating the nix-channels can be done with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --update</span>
+</pre>
+</div>
 
 <p>
 <a href="./index.html">Index</a></p>
