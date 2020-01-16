@@ -16,9 +16,9 @@ img
 #content, #postamble, #preamble {
     display: block;
     margin: 10px auto 10px auto;
-    padding: 0 16px 16px 16px;
+    padding: 0 8px 16px 8px;
     max-width: 768px;
 
     background-color: #f7f7f7;
-    border: 2px solid #7F7F7F;
+    border: 1px solid #B0A8A6;
 }
