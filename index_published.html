@@ -6,7 +6,7 @@
 <!-- 2020-01-23 Thu 13:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>youtube rip with dwb + youtube-dl</title>
+<title>Posts</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,39 +244,45 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">youtube rip with dwb + youtube-dl</h1>
+<h1 class="title">Posts</h1>
 <div class="org-center">
 <p>
-published <span class="timestamp-wrapper"><span class="timestamp">2014-05-24</span></span>
-¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">edited 2019-02-19</a>
+<a href="./index.html">Sorted by edit date.</a> Sorted by published date.
 </p>
 </div>
 
-
-
-
-
-
-<p>
-Just finished a snippet that can be used in combination with dwb(or many
-other browsers, probably) to auto download a youtube video and convert
-it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash">#!/bin/bash 
-# dwb: xf
-download\_dir=/my/media/dir youtube-dl -x -o
-$download\_dir'/%(uploader)s/%(title)s.%(ext)s' $DWB\_URI 
-</pre>
-</div>
-
-<p>
-It can probably be noted that I had some trouble with the youtube-dl
-naming syntax at first - the '%(title)s' and such needs to be in a
-string or else bash freaks out. Also this will fail without ffmpeg, as
-that is a dep for audio conversion with youtube-dl.
-</p>
+<ul class="org-ul">
+<li><a href="./2020-01-16-shell-getopts.html">tl;dr shell getopts</a> <span class="timestamp-wrapper"><span class="timestamp">2020-01-16</span></span></li>
+<li><a href="./2020-01-15-Updating-nix-channels.html">Updating nix channels</a> <span class="timestamp-wrapper"><span class="timestamp">2020-01-15</span></span></li>
+<li><a href="./2019-12-06-On-Emacs.html">On Emacs</a> <span class="timestamp-wrapper"><span class="timestamp">2019-12-06</span></span></li>
+<li><a href="./2019-05-21-tldr-org-mode-+-graphviz.html">TLDR org mode + graphviz</a> <span class="timestamp-wrapper"><span class="timestamp">2019-05-21</span></span></li>
+<li><a href="./2018-05-07-git-svn-reference.html">git svn workflow</a> <span class="timestamp-wrapper"><span class="timestamp">2018-05-07</span></span></li>
+<li><a href="./2018-05-06-vim-quick-reference.html">vim language quick reference</a> <span class="timestamp-wrapper"><span class="timestamp">2018-05-06</span></span></li>
+<li><a href="./2018-04-16-add-local-font-files-linux.html">add local font files linux</a> <span class="timestamp-wrapper"><span class="timestamp">2018-04-16</span></span></li>
+<li><a href="./2018-04-10-quote-to-string-in-elisp.html">quote to string in elisp</a> <span class="timestamp-wrapper"><span class="timestamp">2018-04-10</span></span></li>
+<li><a href="./2018-04-04-restclient.el-+-elasticsearch.html">restclient.el + elasticsearch</a> <span class="timestamp-wrapper"><span class="timestamp">2018-04-04</span></span></li>
+<li><a href="./2018-04-04-curl-exit-code-60-on-Windows.html">curl exit code 60 on Windows</a> <span class="timestamp-wrapper"><span class="timestamp">2018-04-04</span></span></li>
+<li><a href="./2018-03-19-Pok3r-Mapping.html">Pok3r Mapping</a> <span class="timestamp-wrapper"><span class="timestamp">2018-03-19</span></span></li>
+<li><a href="./2017-05-28-Ryo_Fukui.html">Ryo Fukui</a> <span class="timestamp-wrapper"><span class="timestamp">2017-05-28</span></span></li>
+<li><a href="./2015-04-28-BSPWM-Multihead.html">i3-like multihead in bspwm</a> <span class="timestamp-wrapper"><span class="timestamp">2015-04-28</span></span></li>
+<li><a href="./2015-04-03-BPSWM-Experiences.html">BSPWM Experiences</a> <span class="timestamp-wrapper"><span class="timestamp">2015-04-03</span></span></li>
+<li><a href="./2015-02-20-Registers-with-GDB.html">GDB Registers</a> <span class="timestamp-wrapper"><span class="timestamp">2015-02-20</span></span></li>
+<li><a href="./2014-05-24-youtube_rip_with_dwb_+_youtube-dl.html">youtube rip with dwb + youtube-dl</a> <span class="timestamp-wrapper"><span class="timestamp">2014-05-24</span></span></li>
+<li><a href="./2014-02-23-wasd-v2-mechanical-keyboard.html">WASD V2 Mechanical Keyboard </a> <span class="timestamp-wrapper"><span class="timestamp">2014-02-23</span></span></li>
+<li><a href="./2014-02-23-resetting-xdefaults-reference-without-rebooting.html">Resetting Xdefaults Reference Without Rebooting </a> <span class="timestamp-wrapper"><span class="timestamp">2014-02-23</span></span></li>
+<li><a href="./2014-02-21-configuring-constant-lang-variable.html">Configuring constant LANG variable</a> <span class="timestamp-wrapper"><span class="timestamp">2014-02-21</span></span></li>
+<li><a href="./2014-02-17-creation-of-a-time-based-wallpaper-with-feh.html">Creation of a time based wallpaper with feh </a> <span class="timestamp-wrapper"><span class="timestamp">2014-02-17</span></span></li>
+<li><a href="./2014-02-04-virtualbox-setup-on-arch-linux.html">VirtualBox setup on Arch Linux</a> <span class="timestamp-wrapper"><span class="timestamp">2014-02-04</span></span></li>
+<li><a href="./2013-12-16-asdf.html">asdf </a> <span class="timestamp-wrapper"><span class="timestamp">2013-12-16</span></span></li>
+<li><a href="./2013-08-04-weekend.html">Weekend </a> <span class="timestamp-wrapper"><span class="timestamp">2013-08-04</span></span></li>
+<li><a href="./2013-06-21-more-gw2-api-released.html">More gw2 API released</a> <span class="timestamp-wrapper"><span class="timestamp">2013-06-21</span></span></li>
+<li><a href="./2013-06-05-guildwars.html">Guildwars</a> <span class="timestamp-wrapper"><span class="timestamp">2013-06-05</span></span></li>
+<li><a href="./2013-05-31-the-battle-for-wesnoth.html">The Battle for Wesnoth</a> <span class="timestamp-wrapper"><span class="timestamp">2013-05-31</span></span></li>
+<li><a href="./2013-05-29-crunchbang-11.html">CrunchBang 11</a> <span class="timestamp-wrapper"><span class="timestamp">2013-05-29</span></span></li>
+<li><a href="./2013-05-17-general-thoughts-on-summer.html">General Thoughts on Summer</a> <span class="timestamp-wrapper"><span class="timestamp">2013-05-17</span></span></li>
+<li><a href="./2013-05-12-alternative-to-notepad-in-linux.html">Alternative to NotePad++ in Linux </a> <span class="timestamp-wrapper"><span class="timestamp">2013-05-12</span></span></li>
+<li><a href="./2013-05-11-sources-of-offline-documentation.html">Sources of Offline Documentation</a> <span class="timestamp-wrapper"><span class="timestamp">2013-05-11</span></span></li>
+</ul>
 
 <div class="org-center">
 <p>

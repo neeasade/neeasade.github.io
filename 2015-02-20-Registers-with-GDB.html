@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-15 Wed 21:06 -->
+<!-- 2020-01-23 Thu 13:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GDB Registers</title>
@@ -245,14 +245,26 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">GDB Registers</h1>
+<div class="org-center">
+<p>
+published <span class="timestamp-wrapper"><span class="timestamp">2015-02-20</span></span>
+¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-02-20-Registers-with-GDB.org">edited 2019-02-19</a>
+</p>
+</div>
+
+
+
+
+
+
 <p>
 This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 </p>
 
-<div id="outline-container-org227794f" class="outline-2">
-<h2 id="org227794f">Compile the program to debug</h2>
-<div class="outline-text-2" id="text-org227794f">
+<div id="outline-container-orgacda5cc" class="outline-2">
+<h2 id="orgacda5cc">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-orgacda5cc">
 <p>
 I'm assuming here that you have the source of the C file that you wish
 to step through(this post assumes you are trying to learn about
@@ -312,7 +324,7 @@ run the program - this will cause the breakpoint to instantly be hit.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">(gdb)<span style="color: #747474;">break</span> main (gdb)run
+<pre class="src src-bash">(gdb)break main (gdb)run
 </pre>
 </div>
 
@@ -336,8 +348,11 @@ And now you can step through each instruction using 'si'. As registers
 change value, they will be highlighted in the top window. Have fun!
 </p>
 
+<div class="org-center">
 <p>
-<a href="./index.html">Index</a></p>
+&gt;&gt;&gt; <a href="./index.html">Index</a> &lt;&lt;&lt;
+</p>
+</div>
 </div>
 </div>
 </div>

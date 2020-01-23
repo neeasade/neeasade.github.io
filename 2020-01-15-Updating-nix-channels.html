@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-15 Wed 21:06 -->
+<!-- 2020-01-23 Thu 13:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Updating nix channels</title>
@@ -245,29 +245,38 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Updating nix channels</h1>
+<div class="org-center">
+<p>
+published <span class="timestamp-wrapper"><span class="timestamp">2020-01-15</span></span>
+¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-15-Updating-nix-channels.org">edited 2020-01-23</a>
+</p>
+</div>
 <p>
 I'm always forgetting this:
 </p>
 
 <p>
-The command <code>nix-channel</code> is used to create aliases which can be referenced in <code>configuration.nix</code> on nixos. The most important alias is <code>nixos</code>, which is used for the default <code>pkgs</code> reference in your config. Channels are neat but I personally am not really a fan because it is state that exists outside of your config. To change the default nix-channel reference:
+The command <code>nix-channel</code> is used to create aliases which can be referenced in <code>configuration.nix</code>
+on nixos. The most important alias is <code>nixos</code>, which is used for the default <code>pkgs</code> reference in
+your config. Channels are neat but I personally am not really a fan because it is state that exists
+outside of your config. To change the default nix-channel reference:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --list</span>
+<pre class="src src-sh"># nix-channel --list
 nixos https://nixos.org/channels/nixos-19.09
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --remove nixos</span>
-uninstalling <span style="color: #8e8e8e;">'nixos-19.09.1861.eb65d1dae62'</span>
-building <span style="color: #8e8e8e;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
-created 0 symlinks<span style="color: #747474;"> in</span> user environment
+# nix-channel --remove nixos
+uninstalling 'nixos-19.09.1861.eb65d1dae62'
+building '/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'...
+created 0 symlinks in user environment
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
+# nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --list</span>
+# nix-channel --list
 nixos https://nixos.org/channels/nixos-19.09
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --update</span>
+# nix-channel --update
 nixos https://nixos.org/channels/nixos-19.09
 </pre>
 </div>
@@ -277,12 +286,15 @@ And then updating the nix-channels can be done with:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #b9b9b9;"># </span><span style="color: #ababab;">nix-channel --update</span>
+<pre class="src src-sh"># nix-channel --update
 </pre>
 </div>
 
+<div class="org-center">
 <p>
-<a href="./index.html">Index</a></p>
+&gt;&gt;&gt; <a href="./index.html">Index</a> &lt;&lt;&lt;
+</p>
+</div>
 </div>
 </body>
 </html>
