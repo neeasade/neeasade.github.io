@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-23 Thu 13:11 -->
+<!-- 2020-01-23 Thu 13:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -249,28 +249,29 @@ for the JavaScript code in this tag.
 <p>
 published <span class="timestamp-wrapper"><span class="timestamp">2020-01-16</span></span>
 ¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org">edited 2020-01-23</a>
+¦ <a href="./index.html">Index</a>
 </p>
 </div>
 <div class="org-src-container">
-<pre class="src src-sh"># the ':' in front means the flag takes an arg
-while getopts w:reh flag; do
-    case $flag in
-	w) wid=$OPTARG;;
-	r) some_thing;;
-	e) print_env;;
-	h) usage;;
-	*) usage;;
-    esac
-done
+<pre class="src src-sh"><span style="color: #b9b9b9;"># </span><span style="color: #ababab;">the ':' in front means the flag takes an arg</span>
+<span style="color: #747474;">while </span><span style="color: #868686;">getopts</span> w:reh flag; <span style="color: #747474;">do</span>
+    <span style="color: #747474;">case</span> $<span style="color: #7c7c7c;">flag</span><span style="color: #747474;"> in</span>
+        w) <span style="color: #7c7c7c;">wid</span>=$<span style="color: #7c7c7c;">OPTARG</span>;;
+        r) some_thing;;
+        e) print_env;;
+        h) usage;;
+        *) usage;;
+    <span style="color: #747474;">esac</span>
+<span style="color: #747474;">done</span>
 
-# this shift at the end is to reset the args to the env of getopts parsing
-shift $((OPTIND-1))
+<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #868686;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 
 <div class="org-center">
 <p>
-&gt;&gt;&gt; <a href="./index.html">Index</a> &lt;&lt;&lt;
+&gt;&gt;&gt; <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> &lt;&lt;&lt;
 </p>
 </div>
 </div>

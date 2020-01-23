@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-23 Thu 13:11 -->
+<!-- 2020-01-23 Thu 13:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>quote to string in elisp</title>
@@ -249,6 +249,7 @@ for the JavaScript code in this tag.
 <p>
 published <span class="timestamp-wrapper"><span class="timestamp">2018-04-10</span></span>
 ¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-10-quote-to-string-in-elisp.org">edited 2019-02-19</a>
+¦ <a href="./index.html">Index</a>
 </p>
 </div>
 
@@ -259,7 +260,7 @@ I always forget how to do this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(progn 'asdf) ;;; =&gt; asdf
+<pre class="src src-elisp">(<span style="color: #747474;">progn</span> 'asdf) <span style="color: #b9b9b9;">;;; </span><span style="color: #ababab;">=&gt; asdf</span>
 </pre>
 </div>
 
@@ -268,13 +269,13 @@ When I want the string "asdf". Fix:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(progn (print1-to-string 'asdf)) ;;; =&gt; "asdf" 
+<pre class="src src-elisp">(<span style="color: #747474;">progn</span> (print1-to-string 'asdf)) <span style="color: #b9b9b9;">;;; </span><span style="color: #ababab;">=&gt; "asdf" </span>
 </pre>
 </div>
 
 <div class="org-center">
 <p>
-&gt;&gt;&gt; <a href="./index.html">Index</a> &lt;&lt;&lt;
+&gt;&gt;&gt; <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> &lt;&lt;&lt;
 </p>
 </div>
 </div>
