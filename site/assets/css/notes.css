@@ -11,14 +11,14 @@ img
     margin-right:auto;
     width:auto;
     height:auto;
-    max-width:90%;
+    max-width:90% !important;
 }
 
 #content, #postamble, #preamble {
     display: block;
     margin: 10px auto 10px auto;
-    padding: 0 8px 16px 8px;
-    max-width: 768px;
+    padding: 0 16px 16px 16px;
+    max-width: 1366px;
 
     background-color: #f7f7f7;
     border: 1px solid #B0A8A6;

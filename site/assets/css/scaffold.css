@@ -107,7 +107,7 @@ samp {
 	/* Fix the odd 'em' font sizing in all browsers. [1] */
 	font-size: 1em;
 	/* Ensure that these are block-level elements by default. */
-	display: block;
+	/* display: block; */
 	/* Ensure that these elements don't soft-wrap by default. [2] */
 	white-space: pre;
 	/* Since white-space is set to "pre", ensure that the element has
@@ -200,7 +200,8 @@ body img {
 	/* Go ahead and make these block-level elements. I'm not sure about this. [4] */
 	display: block;
 	/* [2] */
-	width: 100%;
+	/* width: 100%; */
+	/* min-width: 100%; */
 	max-width: 100%;
 }
 
@@ -1145,7 +1146,7 @@ h3,
 h4,
 h5,
 h6 {
-	margin-top: 2.0em;
+	margin-top: 1.6em;
 	margin-bottom: 0.75em;
 }
 
