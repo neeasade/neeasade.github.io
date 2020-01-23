@@ -1,7 +1,7 @@
-#+title: Posts
+#+title: <(^^,)>
 
 #+BEGIN_CENTER
-Sorted by edit date. [[./index_published.html][Sorted by published date.]]
+[ Sorted by edit date ¦ [[./index_published.html][Sorted by published date]] ]
 #+END_CENTER
 
 #+BEGIN_SRC elisp :results raw :exports results
