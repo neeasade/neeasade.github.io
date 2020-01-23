@@ -112,7 +112,7 @@ samp {
 	white-space: pre;
 	/* Since white-space is set to "pre", ensure that the element has
 	   scrollbars as necessary. */
-	overflow: auto;
+	overflow: auto !important;
 }
 
 
