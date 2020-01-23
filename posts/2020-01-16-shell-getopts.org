@@ -1,0 +1,17 @@
+#+title: tl;dr shell getopts
+
+#+begin_src sh
+# the ':' in front means the flag takes an arg
+while getopts w:reh flag; do
+    case $flag in
+        w) wid=$OPTARG;;
+        r) some_thing;;
+        e) print_env;;
+        h) usage;;
+        *) usage;;
+    esac
+done
+
+# this shift at the end is to reset the args to the env of getopts parsing
+shift $((OPTIND-1))
+#+end_src

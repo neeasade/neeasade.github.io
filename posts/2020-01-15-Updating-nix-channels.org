@@ -2,7 +2,10 @@
 
 I'm always forgetting this:
 
-The command =nix-channel= is used to create aliases which can be referenced in =configuration.nix= on nixos. The most important alias is =nixos=, which is used for the default =pkgs= reference in your config. Channels are neat but I personally am not really a fan because it is state that exists outside of your config. To change the default nix-channel reference:
+The command =nix-channel= is used to create aliases which can be referenced in =configuration.nix=
+on nixos. The most important alias is =nixos=, which is used for the default =pkgs= reference in
+your config. Channels are neat but I personally am not really a fan because it is state that exists
+outside of your config. To change the default nix-channel reference:
 
 #+begin_src sh
   # nix-channel --list

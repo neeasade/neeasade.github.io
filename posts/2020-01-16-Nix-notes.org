@@ -1,0 +1,10 @@
+#+title: Nix notes
+#+draft: t
+
+Some notes about the nix UI/UX (not nix the language).
+
+** Rampup
+
+https://nixos.org/nixos/nix-pills/index.html
+
+**

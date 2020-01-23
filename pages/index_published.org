@@ -1,7 +1,7 @@
 #+title: Posts
 
 #+BEGIN_CENTER
-Sorted by edit date. [[./index_published.html][Sorted by published date.]]
+[[./index.html][Sorted by edit date.]] Sorted by published date.
 #+END_CENTER
 
 #+BEGIN_SRC elisp :results raw :exports results
@@ -11,14 +11,14 @@ Sorted by edit date. [[./index_published.html][Sorted by published date.]]
        ;; sorting order
        ((lambda (items)
 	  (sort items (fn (string-lessp
-				(a-get <1> :edited-date)
-				(a-get <2> :edited-date)
+				(a-get <1> :publish-date)
+				(a-get <2> :publish-date)
 				)))))
        (mapcar
 	(fn (format "- [[file:./%s.html][%s]] <%s> "
 		    (f-base (a-get <> :html-dest))
 		    (a-get <> :title)
-		    (a-get <> :edited-date)
+		    (a-get <> :publish-date)
 		    )))
        reverse
        (s-join "\n")

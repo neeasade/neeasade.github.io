@@ -1,6 +1,7 @@
 body {
     background-image: url("https://neeasade.net/pattern_125.gif");
     background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 img
