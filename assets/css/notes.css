@@ -14,11 +14,16 @@ img
     max-width:90% !important;
 }
 
+@media screen and (max-width: 800px) {
+  #content, #postamble, #preamble {
+    width: 98%;
+  }
+}
+
 #content, #postamble, #preamble {
     display: block;
     margin: 10px auto 10px auto;
     padding: 0 16px 16px 16px;
-    width: 98%;
     max-width: 1366px;
 
     background-color: #f7f7f7;
