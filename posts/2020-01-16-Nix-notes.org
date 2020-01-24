@@ -1,7 +1,7 @@
 #+title: Nix notes
 #+draft: t
 
-Some notes about the nix UI/UX (not nix the language).
+Some notes about the nix dev (not nix the language).
 
 ** Rampup
 

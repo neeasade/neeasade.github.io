@@ -1,7 +1,7 @@
 #+title: <(⹁^^)>
 
 #+BEGIN_CENTER
-[ [[./index.html][Sorted by edit date]] ¦ Sorted by published date ]
+Sort by [ [[./index.html][edit date]] ¦ published date ]
 
 #+END_CENTER
 
