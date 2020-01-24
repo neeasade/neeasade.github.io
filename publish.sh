@@ -4,14 +4,14 @@
 cd "$(dirname $([ -L $0  ] && readlink -f $0 || echo $0))"
 set -e
 
-dirty_tree=$(iif 'git status | grep -q "working tree clean"')
+clean_tree=$(iif 'git status | grep -q "working tree clean"')
 
 vdo() {
     echo "$*"
     "$@"
 }
 
-if $dirty_tree; then
+if ! $clean_tree; then
     vdo git stash
 fi
 
@@ -30,6 +30,6 @@ vdo git commit -m "auto commit publish.sh"
 vdo git push origin master
 vdo git checkout source
 
-if $dirty_tree; then
+if ! $clean_tree; then
     vdo git stash pop
 fi
