@@ -1,6 +1,5 @@
 #+title: Rice
 
-# just assemble the list based on dir contents
 #+BEGIN_SRC elisp :results raw :exports results
   (let* ((dtop-path "./assets/img/desktops/")
 	 (dtop-path-thumb (format "%sthumb/" dtop-path))
@@ -12,7 +11,7 @@
 	 ;; todo: should maybe be a full html decode
 	 (mapcar (fn (s-replace " " "%20" (f-filename <>))))
 	 (mapcar
-	  (fn (format "** %s [[file:%s%s][file:%s%s]]" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>)))
+	  (fn (format "\n#+BEGIN_CENTER\n _%s_ [[file:%s%s][file:%s%s]] \n#+END_CENTER\n" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>)))
 	 (s-join "\n")
 	 ))
 #+END_SRC
