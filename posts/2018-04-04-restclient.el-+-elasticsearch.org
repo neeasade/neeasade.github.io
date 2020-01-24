@@ -14,7 +14,7 @@ you lose autocomplete of ES specific items. Alternatively,
 Here is a starter point showing some of restclients capabilities and how
 one might use it with elasticsearch:
 
-#+begin_src txt
+#+begin_src restclient
 ;; -*- mode: restclient -*-
 
 # local
