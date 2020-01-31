@@ -25,38 +25,38 @@ So, for =di"= above:
 Verbs are optional depending on the noun, but with this outline there
 are many commands you compose.
 
-| action   | mnemonic   | meaning                        |
-|----------+------------+--------------------------------|
-| c        | change     | delete and enter insert mode   |
-| d        | delete     | delete                         |
-| g        | go         | movement/jump to               |
-| p        | paste      | paste                          |
-| r        | replace    | replace                        |
-| v        | visual     | enter visual mode              |
-| y        | yank       | copy                           |
+| action | mnemonic | meaning                      |
+|--------+----------+------------------------------|
+| c      | change   | delete and enter insert mode |
+| d      | delete   | delete                       |
+| g      | go       | movement/jump to             |
+| p      | paste    | paste                        |
+| r      | replace  | replace                      |
+| v      | visual   | enter visual mode            |
+| y      | yank     | copy                         |
 
-| verb   | mnemonic   | meaning                                                   |
-|--------+------------+-----------------------------------------------------------|
-| a      | around     | inclusive of noun selector                                |
-| i      | inside     | exclusive of noun selector                                |
-| f      | find       | forward to character, inclusive                           |
-| F      |            | backward to character, inclusive                          |
-| t      | till       | forward to character, exclusive (character is the verb)   |
-| T      |            | backward to character, exclusive                          |
+| verb | mnemonic | meaning                                                 |
+|------+----------+---------------------------------------------------------|
+| a    | around   | inclusive of noun selector                              |
+| i    | inside   | exclusive of noun selector                              |
+| f    | find     | forward to character, inclusive                         |
+| F    |          | backward to character, inclusive                        |
+| t    | till     | forward to character, exclusive (character is the verb) |
+| T    |          | backward to character, exclusive                        |
 
-| noun                      | mnemonic    | meaning                                  |
-|---------------------------+-------------+------------------------------------------|
-| b                         | block       | blocks of surrounding =([{= (implicit)   |
-| p                         | paragraph   | paragraph                                |
-| s                         | sentence    | sentence                                 |
-| t                         | tag         | =<tags> pairs of </tags>=                |
-| w                         | word        | word                                     |
-| %                         |             | matching [{( under cursor, inclusive     |
-| /                         |             | forward to search result                 |
-| <,>                       |             | =<tags> pairs of </tags>=                |
-| ?                         |             | backward to search result                |
-| ='=,="=,=`=               |             | surrounding ="'`= pairs                  |
-| =(=,=[=,={=,=}=,=]=,=}=   |             | surrounding =([{= pairs                  |
+| noun                         | mnemonic  | meaning                                |
+|------------------------------+-----------+----------------------------------------|
+| b                            | block     | blocks of surrounding =([{= (implicit) |
+| p                            | paragraph | paragraph                              |
+| s                            | sentence  | sentence                               |
+| t                            | tag       | =<tags> pairs of </tags>=              |
+| w                            | word      | word                                   |
+| %                            |           | matching [{( under cursor, inclusive   |
+| ~/~                          |           | forward to search result               |
+| <,>                          |           | =<tags> pairs of </tags>=              |
+| ?                            |           | backward to search result              |
+| ~'~, ~"~, ~`~                |           | surrounding ="'`= pairs                |
+| ~(~, ~[~, ~{~, ~}~, ~]~, ~}~ |           | surrounding =([{= pairs                |
 
 You can install plugins to get more nouns and nice contextual actions.
 For example with tpope's
