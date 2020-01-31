@@ -6,7 +6,7 @@
 <!-- 2020-01-31 Fri 17:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VirtualBox setup on Arch Linux</title>
+<title>wayland notes</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,77 +244,22 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">VirtualBox setup on Arch Linux</h1>
+<h1 class="title">wayland notes</h1>
 <div class="org-center">
 <p>
-[ 2014-02-04 ¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-04-virtualbox-setup-on-arch-linux.org">2019-02-24</a> ]
+[ 2020-01-24 ¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-24-wayland-notes.org">nil</a> ]
 </p>
 </div>
 
-<p>
-99% of this should apply for other distros as well.
-</p>
+<div id="outline-container-orgf0235aa" class="outline-2">
+<h2 id="orgf0235aa">Terms</h2>
+</div>
 
+<div id="outline-container-org5e38fde" class="outline-2">
+<h2 id="org5e38fde">wayland-scanner</h2>
+<div class="outline-text-2" id="text-org5e38fde">
 <p>
-So, where I currently work, to work via a remote connection, we must be
-using a windows machine, or else we get a nice little message informing
-us that our OS is not supported by their remote service. This can be a
-tad annoying at times.
-</p>
-
-<p>
-Regardless of the reason, a nice virtual machine can be very usefull to
-have.
-</p>
-
-<p>
-Enter virtualbox, currently available from the virtualbox package on
-most repos.
-</p>
-
-<p>
-Note: on Arch, you may have to use the "" command before starting
-VirtBox, if you get an error on startup concerning kernel modules.
-</p>
-
-<p>
-I primarily use
-<a href="http://msft.digitalrivercontent.net/win/X17-24209.iso">windows7 x64</a>,
-but there are
-<a href="http://www.w7forums.com/threads/official-windows-7-sp1-iso-image-downloads.12325/">many
-versions</a> available for use, officially from microsoft.
-</p>
-
-<p>
-After setting up a new machine, you can mount the ISO onto it and
-install as if to a regular hard drive.
-</p>
-
-<p>
- 
-</p>
-
-<p>
-POST installation:
-</p>
-
-<p>
-There is an extension to virtual box that allows you to do some pretty
-cool things, such as emulate multiple monitors or use a window outside
-of the virtual window.
-</p>
-
-<p>
-This extension is installed via an ISO provided by the virtualbox
-website:
-</p>
-
-<p>
-<a href="http://download.virtualbox.org/virtualbox/">http://download.virtualbox.org/virtualbox/</a>
-</p>
-
-<p>
-just navigate to your version, download and mount from there.
+<code>wayland-scanner</code> is used to process the xml files that define the wayland protocol and extensions to the protocol. These build on top of wayland's <a href="https://wayland.freedesktop.org/docs/html/ch04.html#sect-Protocol-Wire-Format">wire format</a>, which supports a few different data types. wayland-scanner can be used to generate c headers and glue file from <code>wayland.xml</code>.
 </p>
 
 
@@ -322,6 +267,8 @@ just navigate to your version, download and mount from there.
 <p>
 [ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ]
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>

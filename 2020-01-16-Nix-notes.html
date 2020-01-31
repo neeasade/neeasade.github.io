@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-23 Thu 21:45 -->
+<!-- 2020-01-31 Fri 17:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nix notes</title>
@@ -247,7 +247,7 @@ for the JavaScript code in this tag.
 <h1 class="title">Nix notes</h1>
 <div class="org-center">
 <p>
-[ 2020-01-16 ¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-Nix-notes.org">2020-01-23</a> ]
+[ 2020-01-16 ¦ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-Nix-notes.org">2020-01-31</a> ]
 </p>
 </div>
 
@@ -255,9 +255,79 @@ for the JavaScript code in this tag.
 Some notes about the nix dev (not nix the language).
 </p>
 
-<div id="outline-container-org8c1bc5b" class="outline-2">
-<h2 id="org8c1bc5b">Rampup</h2>
-<div class="outline-text-2" id="text-org8c1bc5b">
+<div id="outline-container-org9cbff4b" class="outline-2">
+<h2 id="org9cbff4b">nix profiles</h2>
+<div class="outline-text-2" id="text-org9cbff4b">
+<p>
+I'm mostly using these at user level.
+</p>
+
+<p>
+This is stolen from the TLDR project:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">action</td>
+<td class="org-left">command</td>
+</tr>
+
+<tr>
+<td class="org-left">List all installed packages</td>
+<td class="org-left"><code>nix-env -q</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Query installed packages</td>
+<td class="org-left"><code>nix-env -q search_term</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Query available packages</td>
+<td class="org-left"><code>nix-env -qa search_term</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Install package</td>
+<td class="org-left"><code>nix-env -i pkg_name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Install a package from a URL</td>
+<td class="org-left"><code>nix-env -i pkg_name --file example.com</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Uninstall package</td>
+<td class="org-left"><code>nix-env -e pkg_name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Upgrade one package</td>
+<td class="org-left"><code>nix-env -u pkg_name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Upgrade all packages</td>
+<td class="org-left"><code>nix-env -u</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgaa461ec" class="outline-2">
+<h2 id="orgaa461ec">Resources</h2>
+<div class="outline-text-2" id="text-orgaa461ec">
 <p>
 <a href="https://nixos.org/nixos/nix-pills/index.html">https://nixos.org/nixos/nix-pills/index.html</a>
 </p>
