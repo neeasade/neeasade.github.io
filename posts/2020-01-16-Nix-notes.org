@@ -3,7 +3,24 @@
 
 Some notes about the nix dev (not nix the language).
 
-** Rampup
+** nix profiles
+
+I'm mostly using these at user level.
+
+This is stolen from the TLDR project:
+
+| action                       | command                                  |
+| List all installed packages  | ~nix-env -q~                             |
+| Query installed packages     | ~nix-env -q search_term~                 |
+| Query available packages     | ~nix-env -qa search_term~                |
+| Install package              | ~nix-env -i pkg_name~                    |
+| Install a package from a URL | ~nix-env -i pkg_name --file example.com~ |
+| Uninstall package            | ~nix-env -e pkg_name~                    |
+| Upgrade one package          | ~nix-env -u pkg_name~                    |
+| Upgrade all packages         | ~nix-env -u~                             |
+
+
+** Resources
 
 https://nixos.org/nixos/nix-pills/index.html
 

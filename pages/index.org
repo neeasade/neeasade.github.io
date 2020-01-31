@@ -6,19 +6,19 @@ Sort by [ edit date ¦ [[./index_published.html][published date]] ]
 
 #+BEGIN_SRC elisp :results raw :exports results
   (->> org-post-metas
-       (-filter (fn (not (a-get <> :is-draft))))
-       (-filter (fn (a-get <> :edited-date))) ; what's tracked by git
+       (-filter (fn (not (ht-get <> :is-draft))))
+       (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
        ;; sorting order
        ((lambda (items)
 	  (sort items (fn (string-lessp
-				(a-get <1> :edited-date)
-				(a-get <2> :edited-date)
+				(ht-get <1> :edited-date)
+				(ht-get <2> :edited-date)
 				)))))
        (mapcar
 	(fn (format "- [[file:./%s.html][%s]] <%s> "
-		    (f-base (a-get <> :html-dest))
-		    (a-get <> :title)
-		    (a-get <> :edited-date)
+		    (f-base (ht-get <> :html-dest))
+		    (ht-get <> :title)
+		    (ht-get <> :edited-date)
 		    )))
        reverse
        (s-join "\n")

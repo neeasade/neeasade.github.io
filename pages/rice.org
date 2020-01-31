@@ -1,5 +1,9 @@
 #+title: Rice
 
+#+begin_center
+[[https://github.com/neeasade/dotfiles][dots]]
+#+end_center
+
 #+BEGIN_SRC elisp :results raw :exports results
   (let* ((dtop-path "./assets/img/desktops/")
 	 (dtop-path-thumb (format "%sthumb/" dtop-path))
