@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-31 Fri 17:25 -->
+<!-- 2020-02-07 Fri 19:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>restclient.el + elasticsearch</title>
@@ -269,33 +269,33 @@ one might use it with elasticsearch:
 <div class="org-src-container">
 <pre class="src src-restclient">;; -*- mode: restclient -*-
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">local</span>
-<span style="color: #686868;">:target</span> = <span style="color: #8e8e8e;">http://localhost:9200</span>
-<span style="color: #686868;">:cloud-auth</span> = <span style="color: #8e8e8e;">""</span>
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">Basic http auth example:</span>
-cloud-auth := (concat <span style="color: #8e8e8e;">"Basic "</span> (base64-encode-string <span style="color: #8e8e8e;">"username:password"</span>))
-<span style="color: #686868;">:prefix</span> = <span style="color: #8e8e8e;">some_prefix</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">local</span>
+<span style="color: #1E88E5;">:target</span> = <span style="color: #66BB6A;">http://localhost:9200</span>
+<span style="color: #1E88E5;">:cloud-auth</span> = <span style="color: #66BB6A;">""</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #66BB6A;">"Basic "</span> (base64-encode-string <span style="color: #66BB6A;">"username:password"</span>))
+<span style="color: #1E88E5;">:prefix</span> = <span style="color: #66BB6A;">some_prefix</span>
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">multiline variable</span>
-<span style="color: #686868;">:headers</span> = <span style="color: #525252;">&lt;&lt;</span>
-<span style="color: #7c7c7c;">content-type</span>: <span style="color: #8e8e8e;">application/json</span>
-<span style="color: #7c7c7c;">Authorization</span>: <span style="color: #8e8e8e;">:cloud-auth</span>
-<span style="color: #b9b9b9;">#</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">multiline variable</span>
+<span style="color: #1E88E5;">:headers</span> = <span style="color: #78909C;">&lt;&lt;</span>
+<span style="color: #26A69A;">content-type</span>: <span style="color: #66BB6A;">application/json</span>
+<span style="color: #26A69A;">Authorization</span>: <span style="color: #66BB6A;">:cloud-auth</span>
+<span style="color: #90A4AE;">#</span>
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">note: there must be a comment to separate request definitions.</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">note: there must be a comment to separate request definitions.</span>
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">list indices</span>
-<span style="color: #747474;">GET</span> <span style="color: #686868;">:target/_cat/indices</span>
-<span style="color: #686868;">:headers</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">list indices</span>
+<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/_cat/indices</span>
+<span style="color: #1E88E5;">:headers</span>
 
-<span style="color: #b9b9b9;"># </span><span style="color: #ababab;">logs sorted by a field</span>
-<span style="color: #747474;">GET</span> <span style="color: #686868;">:target/:prefix_log/_search</span>
-<span style="color: #686868;">:headers</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">logs sorted by a field</span>
+<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/:prefix_log/_search</span>
+<span style="color: #1E88E5;">:headers</span>
 {
-  <span style="color: #8e8e8e;">"sort"</span>: [
+  <span style="color: #66BB6A;">"sort"</span>: [
     {
-      <span style="color: #8e8e8e;">"timestamp"</span>: {
-        <span style="color: #8e8e8e;">"order"</span>: <span style="color: #8e8e8e;">"desc"</span>
+      <span style="color: #66BB6A;">"timestamp"</span>: {
+        <span style="color: #66BB6A;">"order"</span>: <span style="color: #66BB6A;">"desc"</span>
       }
     }
   ]
