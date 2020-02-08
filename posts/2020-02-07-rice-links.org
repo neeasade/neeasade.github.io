@@ -1,0 +1,98 @@
+#+title: rice links
+
+A potential backronym for rice is Race Inspired Cosmetic Enhancements, supposedly a term taken from the car mod community to refer to changes/mods that were done mostly for aesthetic reasons (IE performance was not affected or went down). Anyways this term has been adopted to digital interface modding, mostly the desktop customization community. It can be considered a term of sarcastic affection sometimes, because many blursed ideas come out of the inspo'd ａｅｓｔｈｅｔｉｃ wants. Over time you start to see the same trends over again, and make the same friends post and develop some "opinions" about whatcha like. As for myself, I like the control and the journey of bending the computer to my will, with the blended environment that is afforded to me with emacs in ~$(date +%Y)~, year of the linux desktop. Getting ideas and inspo from people's dotfiles + projects is a great part of that.
+
+Alright, here are some links to places and people in the community.
+
+** Links
+   - [[http://boards.4channel.org/g/catalog#s=desktop%20thread][/g/ desktop thread]]
+   - [[http://boards.4channel.org/w/catalog#s=desktop%20thread][/w/ desktop thread]]
+   - [[http://cyberia.is/][cyberia]]
+   - [[https://2f30.org/][2f30]]
+   - [[https://6c37.github.io/][6c37]]
+   - [[https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites][list or nixers users sites]]
+   - [[https://github.com/nixers-projects][nixer's github]]
+   - [[https://github.com/tatou-tatou/Themes/tree/master/Mousse][tatou-tatou's themes]]
+   - [[https://nixers.net][nixers.net]]
+   - [[https://onodera-punpun.github.io/ricespo/][onodera's ricespo]]
+   - [[https://qchat.rizon.net/?channels=code][#code on rizon]]
+   - [[https://qchat.rizon.net/?channels=rice][#rice on rizon]]
+   - [[https://ricedb.dfg.monster/][#rice db]]
+   - [[https://rizonrice.club/Main_Page][#rice's wiki]]
+   - [[https://stats.foxbnc.co.uk/history.php?cid=rice&year=2018&month=9][#rice stats page]]
+   - [[https://suckless.org/][suckless]]
+   - [[https://www.reddit.com/r/unixart/][/r/unixart]]
+   - [[https://www.reddit.com/r/unixporn/][/r/unixporn]]
+   - [[https://www.shlomifish.org/humour/by-others/funroll-loops/Gentoo-is-Rice.html][gentoo is for ricers]]
+
+** People
+
+These are some people I've encountered and maybe even stayed in touch with over the years(!), or derived inspiration from in one form or another. Given the nature of the internet, I anticipate many of these links to die. Additionally, I'm sure I forgot many, as this list kept getting bigger the more I thought about it.
+
+#+BEGIN_SRC elisp :results raw :exports results
+      (defun ns/make-person-link (name &optional site dots)
+	(format
+	 "[%s]"
+	 (cond
+	   ((and site dots)
+	    (format "[[%s][%s]]|[[%s][dots]]" site name dots))
+	   (site (format "[[%s][%s]]" site name))
+	   (dots (format "[[%s][%s]]" dots name))
+	   (t name))))
+
+      (->> '(
+	 ("addy" "https://addy-dclxvi.github.io/" "https://github.com/addy-dclxvi/dotfiles")
+	 ("adrift")
+	 ("apk" "https://pluvi.us/")
+	 ("baskerville" "http://baskerville.github.io/" "https://github.com/baskerville/dotfiles")
+	 ("burntsushi" "https://blog.burntsushi.net/")
+	 ("camille" "https://catgirl.sh/" "https://github.com/turquoise-hexagon/dots")
+	 ("cosumu" "https://cosumu.github.io/")
+	 ("dcat"  "https://lyngvaer.no/" "https://github.com/dcat/dotfiles")
+	 ("dysfigured" "https://danielfgray.com/" "https://github.com/DanielFGray/dotfiles")
+	 ("enju" "https://enju.dev/" "https://github.com/enjuus/zenbu-templates")
+	 ("greduan" "https://greduan.com/")
+	 ("halfwit" "https://halfwit.github.io/" "https://github.com/halfwit/dotfiles")
+	 ("hazel" "https://qtp2t.club" "https://github.com/ralsei/etc")
+	 ("josuah" "http://josuah.net/" "http://josuah.net/git/")
+	 ("jschx" "https://schil.li/" "https://gitlab.com/jschx/etc")
+	 ("kori" "https://github.com/kori" "https://github.com/kori/shell.d")
+	 ("lains" "https://lainsce.us/" "https://github.com/lainsce/dots")
+	 ("lambdacomplex" "https://lambda.complex.rocks/" "https://github.com/sector-f/dotfiles")
+	 ("lazr" "http://laserswald.net/" "https://github.com/laserswald/dotfiles")
+	 ("leliana" "https://revthefox.co.uk/" "https://github.com/TheReverend403/dotfiles")
+	 ("lucy" nil "https://github.com/lxcyp/dotfiles")
+	 ("lunarmage")
+	 ("lynn" "https://muse.github.io/" "https://github.com/muse/etc")
+	 ("mobo" "https://github.com/wallace-aph/" "https://github.com/wallace-aph/configs")
+	 ("mort" "https://mort.coffee" "https://github.com/mortie/dots")
+	 ("nerdypepper" "https://peppe.rs/" "https://github.com/NerdyPepper/dotfiles")
+	 ("nero" nil "https://github.com/nero/etc")
+	 ("nil" "https://monade.li/" "https://git.monade.li/dotfiles/summary/")
+	 ("noctuid" "http://noctuid.github.io/" "https://github.com/noctuid/dotfiles")
+	 ("onodera" "https://onodera-punpun.github.io/" "https://github.com/onodera-punpun/dotfiles")
+	 ("quad" "https://quad.moe/" "https://gitea.quad.moe/quad/dotfiles")
+	 ("rocx" "https://rocx.rocks/" "https://github.com/rocx/.emacs.d")
+	 ("schisma")
+	 ("sdhand" "https://github.com/sdhand")
+	 ("sircmpwn" "https://drewdevault.com/" "https://git.sr.ht/~sircmpwn/dotfiles")
+	 ("spoonm" "https://spoonm.org/" "https://github.com/skewerr/rice")
+	 ("tudor" "https://tudorr.ro/" "https://github.com/tudurom/dotfiles")
+	 ("twily" "https://twily.info/")
+	 ("uncled1024" "https://teknik.io" "https://git.teknik.io/Uncled1023/Scripts")
+	 ("vain" "https://www.uninformativ.de/" "https://www.uninformativ.de/git/dotfiles-pub/files.html")
+	 ("venam" "https://venam.nixers.net/blog/" "https://github.com/neeasade/dotfiles")
+	 ("vypr" "https://vypr.xyz/" "https://github.com/vypr/dotfiles")
+	 ("windelicato" "http://windelicato.com/" "https://github.com/windelicato/dotfiles")
+	 ("winny" "https://winny.tech/" "https://github.com/winny-/configs")
+	 ("xero" "http://xero.nu/" "https://github.com/xero/dotfiles")
+	 ("yuppie" "https://internaught.io/")
+	 ("z3bra" "https://z3bra.org/" "https://git.z3bra.org/scripts/files.html")
+  )
+       (mapcar (fn (apply 'ns/make-person-link <>) ))
+       ;; (-interpose "|")
+       ;; (-partition 4)
+       (s-join "\n")
+  )
+
+#+END_SRC
