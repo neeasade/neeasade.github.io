@@ -88,6 +88,7 @@ These are some people I've encountered and maybe even stayed in touch with over 
 	 ("xero" "http://xero.nu/" "https://github.com/xero/dotfiles")
 	 ("yuppie" "https://internaught.io/")
 	 ("z3bra" "https://z3bra.org/" "https://git.z3bra.org/scripts/files.html")
+	 ("cosarara" "https://www.cosarara.me/" "https://github.com/cosarara/dotfiles")
   )
        (mapcar (fn (apply 'ns/make-person-link <>) ))
        ;; (-interpose "|")
