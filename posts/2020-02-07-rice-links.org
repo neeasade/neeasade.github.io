@@ -28,7 +28,7 @@ Alright, here are some links to places and people in the community.
 
 ** People
 
-These are some people I've encountered and maybe even stayed in touch with over the years(!), or derived inspiration from in one form or another. Given the nature of the internet, I anticipate many of these links to die. Additionally, I'm sure I forgot many, as this list kept getting bigger the more I thought about it.
+These are some people I've encountered and maybe even stayed in touch with over the years(!), or derived inspiration from in one form or another. Given the nature of the internet, I expect many of these links will die. Additionally, I'm sure I forgot many, as this list kept getting bigger the more I thought about it.
 
 #+BEGIN_SRC elisp :results raw :exports results
   (defun ns/make-person-link (name &optional site dots)
