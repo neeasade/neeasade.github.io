@@ -5,8 +5,8 @@ A potential backronym for rice is Race Inspired Cosmetic Enhancements, supposedl
 Alright, here are some links to places and people in the community.
 
 ** Links
-   - [[http://boards.4channel.org/g/catalog#s=desktop%20thread][/g/ desktop thread]]
-   - [[http://boards.4channel.org/w/catalog#s=desktop%20thread][/w/ desktop thread]]
+   - [[http://boards.4channel.org/g/catalog#s=desktop%20thread][=/g/= desktop thread]]
+   - [[http://boards.4channel.org/w/catalog#s=desktop%20thread][=/w/= desktop thread]]
    - [[http://cyberia.is/][cyberia]]
    - [[https://2f30.org/][2f30]]
    - [[https://6c37.github.io/][6c37]]
@@ -95,11 +95,13 @@ These are some people I've encountered and maybe even stayed in touch with over 
      ("yuppie" "https://internaught.io/")
      ("z3bra" "https://z3bra.org/" "https://git.z3bra.org/scripts/files.html")
      ("zzzeyez" nil "https://github.com/zzzeyez/dots")
+     ("mofukka")
+     ("fyr" nil "https://github.com/lwilletts/dots")
+     ("jiaxsun" nil "https://github.com/Suhmedoh/dotfiles/")
      )
 
     ;; sort by name
-   ((lambda (list)
-      (sort list (fn (string< (first <1>) (first <2>))))))
+   ((lambda (list) (sort list (fn (string< (first <1>) (first <2>))))))
 
    (mapcar (fn (apply 'ns/make-person-link <>) ))
    (s-join "\n")
