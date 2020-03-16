@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>Nix notes</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,20 +244,105 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">Nix notes</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-Nix-notes.org">2020-01-31</a> ¦ 2020-01-16 ]
+</p>
+</div>
+
+<p>
+Some notes about the nix dev (not nix the language).
+</p>
+
+<div id="outline-container-org63b7a3d" class="outline-2">
+<h2 id="org63b7a3d">nix profiles</h2>
+<div class="outline-text-2" id="text-org63b7a3d">
+<p>
+I'm mostly using these at user level.
 </p>
 
 <p>
-(progn "todo")
+This is stolen from the TLDR project:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">action</td>
+<td class="org-left">command</td>
+</tr>
+
+<tr>
+<td class="org-left">List all installed packages</td>
+<td class="org-left"><code>nix-env -q</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Query installed packages</td>
+<td class="org-left"><code>nix-env -q search_term</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Query available packages</td>
+<td class="org-left"><code>nix-env -qa search_term</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Install package</td>
+<td class="org-left"><code>nix-env -i pkg_name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Install a package from a URL</td>
+<td class="org-left"><code>nix-env -i pkg_name --file example.com</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Uninstall package</td>
+<td class="org-left"><code>nix-env -e pkg_name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Upgrade one package</td>
+<td class="org-left"><code>nix-env -u pkg_name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Upgrade all packages</td>
+<td class="org-left"><code>nix-env -u</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgc9b81a9" class="outline-2">
+<h2 id="orgc9b81a9">Resources</h2>
+<div class="outline-text-2" id="text-orgc9b81a9">
+<p>
+<a href="https://nixos.org/nixos/nix-pills/index.html">https://nixos.org/nixos/nix-pills/index.html</a>
+</p>
+
+<p>
+**
 </p>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-16-Nix-notes.org">Source</a> ]
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>

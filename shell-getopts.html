@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>tl;dr shell getopts</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,34 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">tl;dr shell getopts</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org">2020-01-23</a> ¦ 2020-01-16 ]
 </p>
+</div>
 
-<p>
-(progn "todo")
-</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">the ':' in front means the flag takes an arg</span>
+<span style="color: #7E57C2;">while </span><span style="color: #0097A7;">getopts</span> w:reh flag; <span style="color: #7E57C2;">do</span>
+    <span style="color: #7E57C2;">case</span> $<span style="color: #26A69A;">flag</span><span style="color: #7E57C2;"> in</span>
+        w) <span style="color: #26A69A;">wid</span>=$<span style="color: #26A69A;">OPTARG</span>;;
+        r) some_thing;;
+        e) print_env;;
+        h) usage;;
+        *) usage;;
+    <span style="color: #7E57C2;">esac</span>
+<span style="color: #7E57C2;">done</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #0097A7;">shift</span> $((OPTIND-1))
+</pre>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-16-shell-getopts.org">Source</a> ]
 </p>
 </div>
 </div>

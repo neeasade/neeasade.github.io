@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>quote to string in elisp</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,38 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">quote to string in elisp</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-10-quote-to-string-in-elisp.org">2019-02-19</a> ¦ 2018-04-10 ]
 </p>
+</div>
+
+
+
 
 <p>
-(progn "todo")
+I always forget how to do this:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #7E57C2;">progn</span> 'asdf) <span style="color: #90A4AE;">;;; </span><span style="color: #90A4AE;">=&gt; asdf</span>
+</pre>
+</div>
+
+<p>
+When I want the string "asdf". Fix:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #7E57C2;">progn</span> (print1-to-string 'asdf)) <span style="color: #90A4AE;">;;; </span><span style="color: #90A4AE;">=&gt; "asdf" </span>
+</pre>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-10-quote-to-string-in-elisp.org">Source</a> ]
 </p>
 </div>
 </div>

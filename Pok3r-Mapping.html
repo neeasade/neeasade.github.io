@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>Pok3r Mapping</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,20 +244,118 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">Pok3r Mapping</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-03-19-Pok3r-Mapping.org">2019-02-19</a> ¦ 2018-03-19 ]
+</p>
+</div>
+
+
+
+
+
+
+
+<p>
+Mapping reference that I'm using on my pok3r keyboard.
 </p>
 
 <p>
-(progn "todo")
+To map a key:
 </p>
+
+<ul class="org-ul">
+<li>switch to desired layer with <code>fn + {&lt;,&gt;,?}</code>.</li>
+<li><code>fn + R_Ctrl</code> to enter programming mode</li>
+<li>enter key you want to remap</li>
+<li>enter key you want to map to</li>
+<li><code>pn</code> to map</li>
+<li><code>fn + R_Ctrl</code> to exit</li>
+</ul>
+
+<p>
+You can continue mapping in programming mode by hitting key combinations
+followed by <code>pn</code>.
+</p>
+
+<div id="outline-container-org7bcfba1" class="outline-2">
+<h2 id="swaps">Swaps</h2>
+<div class="outline-text-2" id="text-swaps">
+<div class="org-src-container">
+<pre class="src src-text">esc -&gt; fn + esc fn + esc -&gt; esc
+
+l\_meta -&gt; l\_super l\_super -&gt; l\_meta
+
+&#160;-&gt; backspace backspace -&gt;\\
+
+capslock -&gt; left ctrl left ctrl -&gt; capslock
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe1af7b" class="outline-2">
+<h2 id="r_ctrl---fn">R\<sub>Ctrl</sub> -&gt; Fn</h2>
+<div class="outline-text-2" id="text-r_ctrl---fn">
+<p>
+note: this effects only the layer you are on, fn transforms into super
+after this.
+</p>
+
+<ul class="org-ul">
+<li>unplug keyboard, flip switch 4</li>
+<li>hit fn, then r\<sub>ctrl</sub></li>
+<li>hit pn, pn to keep position</li>
+<li>turn off switch 4</li>
+</ul>
+
+<p>
+and now we can have nice vim-like arrow keys:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">fn + h -&gt; fn + j fn + j -&gt; fn + k fn + k -&gt; fn + i
+fn + l -&gt; fn + l
+</pre>
+</div>
+
+<p>
+swap (the now available) right win alt:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">r\_meta -&gt; r\_super r\_super -&gt; r\_meta 
+</pre>
+</div>
+
+<p>
+When away, here is an autohotkey script to achieve the same (minus the
+arrow keys):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ahk">#SingleInstance force
+
+Capslock::Ctrl
+
+::Backspace Backspace::\\
+
++BS:: KeyWait, Shift Send, {|} Return
+
+LWin::LAlt LAlt::LWin
+
+RWin::RAlt RAlt::RWin
+</pre>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-03-19-Pok3r-Mapping.org">Source</a> ]
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>

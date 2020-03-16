@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-16 Mon 10:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>xero's irc ref</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./assets/css/notes.css">
+<link rel="stylesheet" href="./assets/css/scaffold.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">xero's irc ref</h1>
+<div class="org-center">
+<p>
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-11-xero's-irc-ref.org">/run/curre</a> ¦ 2020-03-11 ]
+</p>
+</div>
+
+<p>
+This is a scraping of xero's irc ref from <a href="https://gist.github.com/neeasade/0eb328fcf7516acb552c2417da66e84f">https://gist.github.com/neeasade/0eb328fcf7516acb552c2417da66e84f</a>
+</p>
+
+<div id="outline-container-org5f493a9" class="outline-3">
+<h3 id="org5f493a9">The Basics</h3>
+<div class="outline-text-3" id="text-org5f493a9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">command</td>
+<td class="org-left">meaning</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/join #channel</code></td>
+<td class="org-left">Joins the specified channel.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/part #channel</code></td>
+<td class="org-left">Leaves the specified channel.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/quit [message]</code></td>
+<td class="org-left">Disconnects from current server with optional leaving message.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/server hostname</code></td>
+<td class="org-left">Connects to the specified server.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/list</code></td>
+<td class="org-left">Lists all channels on the current network.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/links</code></td>
+<td class="org-left">Lists all servers on the current network. May be disabled "for</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/nick nickname</code></td>
+<td class="org-left">Changes your nick.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/names #channel</code></td>
+<td class="org-left">Shows the nicks of all users on *channel.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/msg nickname message</code></td>
+<td class="org-left">Sends a private message to a user.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/query nickname message</code></td>
+<td class="org-left">Sends a private message to a user and opens a private chat window.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/me action</code></td>
+<td class="org-left">Prints "yourname action"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/notice nickname message</code></td>
+<td class="org-left">Sends a notice to the specified user. Like a /msg, but usually makes a sound.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/whois nickname</code></td>
+<td class="org-left">Shows information about the specified user. This action is not</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/whowas nickname</code></td>
+<td class="org-left">Shows information about a user who has quit.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/dns nickname</code></td>
+<td class="org-left">Attempts to resolve the IP address of the specified user. Doesn't</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/ping nickname</code></td>
+<td class="org-left">Pings the specified user. This action is visible to the specified user.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf073d0a" class="outline-3">
+<h3 id="orgf073d0a">Nick Management (NickServ)</h3>
+<div class="outline-text-3" id="text-orgf073d0a">
+<p>
+All nickserv commands begin with <code>/ns</code> or <code>/msg NickServ</code>. Depending on
+your client, <code>/ns</code> may not work.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>/ns register password [email]</code></td>
+<td class="org-left">Registers your current nick with NickServ with the chosen password and binds it to an e-mail address (optional).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/ns identify password</code></td>
+<td class="org-left">Identifies your nick to NickServ using the password you set. If you have a nick that's been registered, and you don't i</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/ns recover nickname password</code></td>
+<td class="org-left">Kills (forcibly disconnects) someone who has your registered nick.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/ns ghost nickname password</code></td>
+<td class="org-left">Terminates a "ghost" IRC session that's using your nickname.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/ns set password yournewpassword</code></td>
+<td class="org-left">Changes your password. <b>NOTE:</b> Under no circumstances should you change your nick to the letter O followed by 8 digit</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org00680f7" class="outline-3">
+<h3 id="org00680f7">Channel modes</h3>
+<div class="outline-text-3" id="text-org00680f7">
+<p>
+Set a mode with: <code>/mode #channel +/-attribute &lt;data&gt;</code>.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>+n</code></td>
+<td class="org-left">Disallows external messages.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+t</code></td>
+<td class="org-left">Only op/hops can set the topic.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+p</code></td>
+<td class="org-left">Sets the channel as invisible in /list.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+s</code></td>
+<td class="org-left">Sets the channel as invisible in /list and /whois.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+i</code></td>
+<td class="org-left">Sets the channel as closed unless the person was invited.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+k &lt;pass&gt;</code></td>
+<td class="org-left">Sets a password for the channel which users must enter to join.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+l &lt;number&gt;</code></td>
+<td class="org-left">Sets a limit on the number of users who are allowed in the channel</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+m</code></td>
+<td class="org-left">Prevents users who are not opped/hopped/voiced from talking.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+R</code></td>
+<td class="org-left">Sets the channel so only registered nicks are allowed in.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+M</code></td>
+<td class="org-left">Sets the channel so only registered nicks are allowed to talk.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+S</code></td>
+<td class="org-left">Strips formatting from messages, rendering them as plaintext.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+c</code></td>
+<td class="org-left">Blocks messages containing color codes.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+i</code></td>
+<td class="org-left">A user must be invited to join the channel.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+N</code></td>
+<td class="org-left">No nick changes permitted in the channel.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc6c71d8" class="outline-3">
+<h3 id="orgc6c71d8">ChanServ commands</h3>
+<div class="outline-text-3" id="text-orgc6c71d8">
+<p>
+All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <code>/msg ChanServ</code>. Depending on your client, <code>/cs</code> or <code>/chanserv</code> may not work.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>/cs identify #channel &lt;password&gt;</code></td>
+<td class="org-left">Identifies you as the channel's founder and gives you founder-level privileges.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel mlock modes</code></td>
+<td class="org-left">Locks the channel's modes. Just + unlocks all.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel secureops &lt;on \vert off&gt;</code></td>
+<td class="org-left">Keeps everyone except aops, sops, and the founder from becoming ops.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel keeptopic &lt;on \vert off&gt;</code></td>
+<td class="org-left">Maintains the topic even if everyone leaves.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel enforce &lt;on \vert off&gt;</code></td>
+<td class="org-left">Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel leaveops &lt;on \vert off&gt;</code></td>
+<td class="org-left">Whether or not to allow the first person who join the channel to get ops.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs register #channel password description</code></td>
+<td class="org-left">Registers the current channel to you with ChanServ and sets its password and description.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs drop #channel &lt;dropcode&gt;</code></td>
+<td class="org-left">Un-registers the current channel to you with ChanServ.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel founder &lt;nickname&gt;</code></td>
+<td class="org-left">Sets the current channel's founder.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel password &lt;newpass&gt;</code></td>
+<td class="org-left">Changes the current channel's password to newpass.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel desc &lt;description&gt;</code></td>
+<td class="org-left">Changes the current channel's description.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel url &lt;address&gt;</code></td>
+<td class="org-left">Associates a URL with the channel.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel &lt;email@address&gt;</code></td>
+<td class="org-left">Associates an email address with the channel.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org95cd02f" class="outline-2">
+<h2 id="org95cd02f">Other stuff</h2>
+<div class="outline-text-2" id="text-org95cd02f">
+</div>
+<div id="outline-container-orgfcb5ee8" class="outline-3">
+<h3 id="orgfcb5ee8">Kicking people</h3>
+<div class="outline-text-3" id="text-orgfcb5ee8">
+<ul class="org-ul">
+<li><code>/kick *channel nickname [reason]</code>
+
+<ul class="org-ul">
+<li>temporarily remove user from channel
+<code>/mode nickname +/-attributes [data]</code></li>
+<li>Setting people's modes (for current channel only)</li>
+</ul></li>
+</ul>
+
+<p>
+**User modes
+</p>
+
+<ul class="org-ul">
+<li><code>+q</code>
+
+<ul class="org-ul">
+<li>User is owner of the current channel (prefix ~ on UnrealIRCd,
+usually @ elsewhere)</li>
+</ul></li>
+
+<li><code>+a</code>
+
+<ul class="org-ul">
+<li>User is an admin (SOP) on the current channel (prefix &amp; on
+UnrealIRCd, usually @ elsewhere).</li>
+</ul></li>
+
+<li><code>+o</code>
+
+<ul class="org-ul">
+<li>User is an operator (AOP) on the current channel (prefix @).</li>
+</ul></li>
+
+<li><code>+h</code>
+
+<ul class="org-ul">
+<li>User is a half-op on the current channel (prefix %).</li>
+</ul></li>
+
+<li><code>+v</code>
+
+<ul class="org-ul">
+<li>User has voice on the current channel (prefix +).</li>
+</ul></li>
+</ul>
+
+<p>
+**Banning people
+</p>
+
+<ul class="org-ul">
+<li><code>/mode *channel +b hosts</code>
+
+<ul class="org-ul">
+<li>Hosts take the following form: <code>nickname!userid@hostname</code></li>
+</ul></li>
+
+<li>Use <code>/whois</code>, <code>/whowas</code> or <code>/who</code> to find the information necessary
+for a ban.</li>
+<li><code>*</code> is a wildcard and can replace <code>nickname</code>, <code>userid</code>, parts of
+nickname or <code>userid</code>, <code>hostname</code> or a segment of a <code>hostname</code>.</li>
+</ul>
+
+<p>
+**Examples:
+</p>
+
+<ul class="org-ul">
+<li><code>joe!*@*</code>
+
+<ul class="org-ul">
+<li>Will prevent anyone with the nick joe from joining.</li>
+</ul></li>
+
+<li><code>*myg0t*!*</code>
+
+<ul class="org-ul">
+<li>Will prevent anyone whose nick contains myg0t from joining.</li>
+</ul></li>
+
+<li><code>mark!*elc@*</code>
+
+<ul class="org-ul">
+<li>Will prevent anyone with the nick mark and the userid elc from
+joining.</li>
+</ul></li>
+
+<li><code>*!*@c-123-24-76-213.ga.isp.net</code>
+
+<ul class="org-ul">
+<li>Will prevent anyone with the host c-123-24-76-213.ga.isp.net from
+joining.</li>
+</ul></li>
+
+<li><code>*!*@*</code>
+
+<ul class="org-ul">
+<li>Bans everyone. Don't do that.</li>
+</ul></li>
+</ul>
+
+<p>
+**Access lists
+</p>
+
+<ul class="org-ul">
+<li><code>/cs access *channel add [nickname] [level]</code>
+
+<ul class="org-ul">
+<li>Adds nickname to the channel's access list at the specified level.</li>
+</ul></li>
+
+<li><code>/cs access channel del [nickname]</code>
+
+<ul class="org-ul">
+<li>Removes nickname from the channel's access list.</li>
+</ul></li>
+
+<li><code>/cs access *channel list</code>
+
+<ul class="org-ul">
+<li>Displays the channel's access list.</li>
+</ul></li>
+
+<li><code>/cs access *channel count</code>
+
+<ul class="org-ul">
+<li>Displays how many entries are in the channel's access list.</li>
+</ul></li>
+</ul>
+
+<p>
+**Access levels
+</p>
+
+<p>
+These may vary from network to network. For example, some networks do
+not go by tens and use 3, 4, 5, 10, etc.
+</p>
+
+<ul class="org-ul">
+<li><code>Founder</code>
+
+<ul class="org-ul">
+<li>Full access to ChanServ functions, automatic opping upon entering
+channel.</li>
+</ul></li>
+
+<li><code>100+</code>
+
+<ul class="org-ul">
+<li>Makes the person an SOP, automatic opping upon entering channel.</li>
+</ul></li>
+
+<li><code>50</code>
+
+<ul class="org-ul">
+<li>Makes the parson an AOP, automatic opping upon entering channel.</li>
+</ul></li>
+
+<li><code>40</code>
+
+<ul class="org-ul">
+<li>Automatic half-opping.</li>
+</ul></li>
+
+<li><code>30</code>
+
+<ul class="org-ul">
+<li>Automatic voicing.</li>
+</ul></li>
+
+<li><code>0</code>
+
+<ul class="org-ul">
+<li>No special privileges.</li>
+</ul></li>
+
+<li><code>-1</code>
+
+<ul class="org-ul">
+<li>May not be opped.</li>
+</ul></li>
+
+<li><code>-100</code>
+
+<ul class="org-ul">
+<li>May not join the channel.</li>
+</ul></li>
+</ul>
+
+<p>
+Any nick not on the access list has an access level of <code>0</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e3589e" class="outline-2">
+<h2 id="org3e3589e">AOPs and SOPs</h2>
+<div class="outline-text-2" id="text-org3e3589e">
+</div>
+<div id="outline-container-org7f69a04" class="outline-3">
+<h3 id="org7f69a04">AOPs</h3>
+<div class="outline-text-3" id="text-org7f69a04">
+<ul class="org-ul">
+<li>Are automatically ops and can give themselves ops.</li>
+<li>Can give/take op/halfop/voice to/from other channel members.</li>
+<li>Can unban themselves.</li>
+<li>Receive memos sent to the whole channel.</li>
+<li>Can invite themselves to the channel.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0affa39" class="outline-3">
+<h3 id="org0affa39">SOPs - Can do everything AOPs can.</h3>
+<div class="outline-text-3" id="text-org0affa39">
+<ul class="org-ul">
+<li>Can give and take AOP privileges. - Receive memos sent to the channel's SOPs. - Can add (but</li>
+</ul>
+<p>
+not remove) AKICKs.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4ce1c06" class="outline-3">
+<h3 id="org4ce1c06">Viewing and setting privileges</h3>
+<div class="outline-text-3" id="text-org4ce1c06">
+<ul class="org-ul">
+<li>Viewing AOP and SOP lists -</li>
+</ul>
+<p>
+<code>/cs aop #channel list</code> - <code>/cs sop *channel list</code>
+</p>
+<ul class="org-ul">
+<li>adding a AOP or SOP - <code>/cs [AOP|SOP] channel [ADD|DEL|LIST|CLEAR] [nick | entry-list]</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgac90125" class="outline-3">
+<h3 id="orgac90125">AKICKs</h3>
+<div class="outline-text-3" id="text-orgac90125">
+<p>
+People on the AKICK list are automatically kicked and banned when they
+enter the channel. Bans made as a result of AKICK must be removed
+manually.
+</p>
+
+<ul class="org-ul">
+<li><code>/cs akick *channel add host [reason]</code>
+
+<ul class="org-ul">
+<li>Adds host to *channel's AKICK list [for reason].</li>
+</ul></li>
+
+<li><code>/cs akick *channel del host</code>
+
+<ul class="org-ul">
+<li>Removes host from the AKICK list.</li>
+</ul></li>
+
+<li><code>/cs akick *channel list</code></li>
+<li><code>/cs akick *channel view</code>
+
+<ul class="org-ul">
+<li>Displays the AKICK list.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge0e6ed5" class="outline-3">
+<h3 id="orge0e6ed5">Color codes</h3>
+<div class="outline-text-3" id="text-orge0e6ed5">
+<p>
+it's possible to color your text in irc. in most clients you can use
+control c then foreground,background (background is optional). examples:
+red text <code>^c4</code>. black text on a blue background <code>^c1,2</code>. here's a full
+list of the color codes:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Number</th>
+<th scope="col" class="org-left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">00</td>
+<td class="org-left">white</td>
+</tr>
+
+<tr>
+<td class="org-right">01</td>
+<td class="org-left">black</td>
+</tr>
+
+<tr>
+<td class="org-right">02</td>
+<td class="org-left">blue (navy)</td>
+</tr>
+
+<tr>
+<td class="org-right">03</td>
+<td class="org-left">green</td>
+</tr>
+
+<tr>
+<td class="org-right">04</td>
+<td class="org-left">red</td>
+</tr>
+
+<tr>
+<td class="org-right">05</td>
+<td class="org-left">brown (maroon)</td>
+</tr>
+
+<tr>
+<td class="org-right">06</td>
+<td class="org-left">purple</td>
+</tr>
+
+<tr>
+<td class="org-right">07</td>
+<td class="org-left">orange (olive)</td>
+</tr>
+
+<tr>
+<td class="org-right">08</td>
+<td class="org-left">yellow</td>
+</tr>
+
+<tr>
+<td class="org-right">09</td>
+<td class="org-left">light green (lime)</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">teal (a green/blue cyan)</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">light cyan (cyan / aqua)</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-left">light blue (royal)</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-left">pink (light purple / fuchsia)</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-left">grey</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-left">light grey (silver)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6413d1a" class="outline-3">
+<h3 id="org6413d1a">related</h3>
+<div class="outline-text-3" id="text-org6413d1a">
+<p>
+<a href="https://youtu.be/R8FOGlnYkgg">https://youtu.be/R8FOGlnYkgg</a>
+</p>
+
+
+<div class="org-center">
+<p>
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-03-11-xero's-irc-ref.org">Source</a> ]
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

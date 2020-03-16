@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>git svn workflow</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,86 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">git svn workflow</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-05-07-git-svn-reference.org">2019-02-19</a> ¦ 2018-05-07 ]
+</p>
+</div>
+
+
+
+
+
+
+
+<p>
+Git provides an <a href="https://git-scm.com/docs/git-svn">svn-wrapper</a>,
+allowing you to use git tools and keep your decentralized workflow even
+when you aren't.
 </p>
 
 <p>
-(progn "todo")
+The following commands are effected:
 </p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">git</th>
+<th scope="col" class="org-left">git svn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">git pull</td>
+<td class="org-left">git svn fetch git svn merge</td>
+</tr>
+
+<tr>
+<td class="org-left">git push</td>
+<td class="org-left">git svn dcommit</td>
+</tr>
+
+<tr>
+<td class="org-left">git clone</td>
+<td class="org-left">git svn clone</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+If you are a <a href="https://magit.vc/">magit</a> user, you can install
+<a href="https://github.com/magit/magit-svn">magit-svn</a>. To enable magit-svn
+globally (magit will still work find with git repos):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'magit-mode-hook 'magit-svn-mode) 
+</pre>
+</div>
+
+<p>
+To enable magit-svn on a per-repo basis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #0097A7;">cd</span> /path/to/repository git config --add
+magit.extension svn
+</pre>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-05-07-git-svn-reference.org">Source</a> ]
 </p>
 </div>
 </div>

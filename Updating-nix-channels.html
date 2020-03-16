@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>Updating nix channels</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,56 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">Updating nix channels</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-15-Updating-nix-channels.org">2020-01-23</a> ¦ 2020-01-15 ]
+</p>
+</div>
+
+<p>
+I'm always forgetting this:
 </p>
 
 <p>
-(progn "todo")
+The command <code>nix-channel</code> is used to create aliases which can be referenced in <code>configuration.nix</code>
+on nixos. The most important alias is <code>nixos</code>, which is used for the default <code>pkgs</code> reference in
+your config. Channels are neat but I personally am not really a fan because it is state that exists
+outside of your config. To change the default nix-channel reference:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --list</span>
+nixos https://nixos.org/channels/nixos-19.09
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --remove nixos</span>
+uninstalling <span style="color: #66BB6A;">'nixos-19.09.1861.eb65d1dae62'</span>
+building <span style="color: #66BB6A;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
+created 0 symlinks<span style="color: #7E57C2;"> in</span> user environment
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --list</span>
+nixos https://nixos.org/channels/nixos-19.09
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --update</span>
+nixos https://nixos.org/channels/nixos-19.09
+</pre>
+</div>
+
+<p>
+And then updating the nix-channels can be done with:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --update</span>
+</pre>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-15-Updating-nix-channels.org">Source</a> ]
 </p>
 </div>
 </div>

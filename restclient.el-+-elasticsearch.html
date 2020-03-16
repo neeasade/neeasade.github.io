@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>restclient.el + elasticsearch</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,69 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">restclient.el + elasticsearch</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">2020-01-23</a> ¦ 2018-04-04 ]
+</p>
+</div>
+
+<p>
+<code>restclient.el</code> is an emacs plugin that transforms a buffer into a
+repl-like curl-backed experience (similar to kibana). It has support for
+variables set with arbitrary elisp, turning it into a viable postman
+replacement (with plain text! and versioning!). I find this to be a very
+nice way to store and execute elasticsearch queries, but unfortunately
+you lose autocomplete of ES specific items. Alternatively,
+<a href="https://github.com/dakrone/es-mode">es-mode</a> exists, which is more ES specific but much more featureful.
 </p>
 
 <p>
-(progn "todo")
+Here is a starter point showing some of restclients capabilities and how
+one might use it with elasticsearch:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-restclient">;; -*- mode: restclient -*-
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">local</span>
+<span style="color: #1E88E5;">:target</span> = <span style="color: #66BB6A;">http://localhost:9200</span>
+<span style="color: #1E88E5;">:cloud-auth</span> = <span style="color: #66BB6A;">""</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #66BB6A;">"Basic "</span> (base64-encode-string <span style="color: #66BB6A;">"username:password"</span>))
+<span style="color: #1E88E5;">:prefix</span> = <span style="color: #66BB6A;">some_prefix</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">multiline variable</span>
+<span style="color: #1E88E5;">:headers</span> = <span style="color: #78909C;">&lt;&lt;</span>
+<span style="color: #26A69A;">content-type</span>: <span style="color: #66BB6A;">application/json</span>
+<span style="color: #26A69A;">Authorization</span>: <span style="color: #66BB6A;">:cloud-auth</span>
+<span style="color: #90A4AE;">#</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">note: there must be a comment to separate request definitions.</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">list indices</span>
+<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/_cat/indices</span>
+<span style="color: #1E88E5;">:headers</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">logs sorted by a field</span>
+<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/:prefix_log/_search</span>
+<span style="color: #1E88E5;">:headers</span>
+{
+  <span style="color: #66BB6A;">"sort"</span>: [
+    {
+      <span style="color: #66BB6A;">"timestamp"</span>: {
+        <span style="color: #66BB6A;">"order"</span>: <span style="color: #66BB6A;">"desc"</span>
+      }
+    }
+  ]
+}
+</pre>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">Source</a> ]
 </p>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>Configuring constant LANG variable</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,66 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">Configuring constant LANG variable</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-21-configuring-constant-lang-variable.org">2019-02-24</a> ¦ 2014-02-21 ]
+</p>
+</div>
+
+<p>
+After setting your correct locale in the etc/locale.gen file and running
+locale-gen, your system wide language gets set in Linux. Some
+applications, however, reference the LANG variable in order to determine
+language type. One in particular that I am fond of is sublime text. This
+isn't an issue until you install the package manager - which you will
+probably want to do eventually.
 </p>
 
 <p>
-(progn "todo")
+A temporary fix, as the error logged will inform you, is to set the LANG
+variable either before or with the startup of sublime text.
+</p>
+
+<p>
+However, this may not always be viable, and can be annoying. There are
+two solutions to set this variable upon system startup.
+</p>
+
+<p>
+A "hacky" way to get around this problem would be to set the LANG
+variable within your .bashrc file, as such:
+</p>
+
+<blockquote>
+<p>
+export LANG ="en\<sub>US.UTF</sub>-8"
+</p>
+</blockquote>
+
+<p>
+However, the above only sets the variable for your user/login session.
+</p>
+
+<p>
+To set the LANG variable system wide(the prefferred method), edit or
+create the file /etc/locale.conf to contain:
+</p>
+
+<blockquote>
+<p>
+LANG ="en\<sub>US.UTF</sub>-8"
+</p>
+</blockquote>
+
+<p>
+And upon restart your LANG variable will be set correctly.
 </p>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-02-21-configuring-constant-lang-variable.org">Source</a> ]
 </p>
 </div>
 </div>

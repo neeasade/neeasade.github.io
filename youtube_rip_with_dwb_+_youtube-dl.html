@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>youtube rip with dwb + youtube-dl</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,44 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">youtube rip with dwb + youtube-dl</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">2019-02-19</a> ¦ 2014-05-24 ]
 </p>
+</div>
+
+
+
+
+
+
 
 <p>
-(progn "todo")
+Just finished a snippet that can be used in combination with dwb(or many
+other browsers, probably) to auto download a youtube video and convert
+it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #90A4AE;">#</span><span style="color: #90A4AE;">!/bin/</span><span style="color: #7E57C2;">bash</span><span style="color: #90A4AE;"> </span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">dwb: xf</span>
+download\<span style="color: #26A69A;">_dir</span>=/my/media/dir youtube-dl -x -o
+$<span style="color: #26A69A;">download</span><span style="color: #66BB6A;">\_</span>dir<span style="color: #66BB6A;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #26A69A;">DWB</span><span style="color: #66BB6A;">\_</span>URI 
+</pre>
+</div>
+
+<p>
+It can probably be noted that I had some trouble with the youtube-dl
+naming syntax at first - the '%(title)s' and such needs to be in a
+string or else bash freaks out. Also this will fail without ffmpeg, as
+that is a dep for audio conversion with youtube-dl.
 </p>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">Source</a> ]
 </p>
 </div>
 </div>

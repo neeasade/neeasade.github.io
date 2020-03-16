@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>Resetting Xdefaults Reference Without Rebooting</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,57 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">Resetting Xdefaults Reference Without Rebooting</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-23-resetting-xdefaults-reference-without-rebooting.org">2019-02-19</a> ¦ 2014-02-23 ]
+</p>
+</div>
+
+
+
+
+
+
+
+<p>
+true meta: \<sub>edit</sub>\<sub>last</sub>: '1' \<sub>responsive</sub>\<sub>layout</sub>: defau
 </p>
 
 <p>
-(progn "todo")
+Quick tip shamelessly stolen
+from: <a href="genomics.org/~jtang/blog/posts/Reloading_Xdefaults_without_restarting_X/">genomics.org/~jtang/blog/posts/Reloading_Xdefaults_without_restarting_X/</a>
 </p>
+
+<p>
+ 
+</p>
+
+<p>
+To reread your .Xresources file, and throw away your old resources, you
+can type:
+</p>
+
+<blockquote>
+<pre class="example">
+xrdb ~/.Xdefaults
+</pre>
+</blockquote>
+
+<p>
+To reread your .Xresources file, and keep your old resources, type:
+</p>
+
+<blockquote>
+<pre class="example">
+xrdb -merge ~/.Xdefaults
+</pre>
+</blockquote>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-02-23-resetting-xdefaults-reference-without-rebooting.org">Source</a> ]
 </p>
 </div>
 </div>

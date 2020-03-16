@@ -6,7 +6,7 @@
 <!-- 2020-03-16 Mon 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Map</title>
+<title>adhoc executable patching on nixos</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -244,19 +244,77 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Site Map</h1>
+<h1 class="title">adhoc executable patching on nixos</h1>
+<div class="org-center">
 <p>
-For posts, See <a href="./index.html">the index</a>.
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-14-adhoc-executable-patching-on-nix.org">2020-03-16</a> ¦ 2020-03-14 ]
+</p>
+</div>
+
+<p>
+AKA 'one weird trick' for getting that ELF executable someone just handed you working soon™ (don't depend on this often)
 </p>
 
 <p>
-(progn "todo")
+Create a <code>shell.nix</code> file that looks like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nix"><span style="color: #7E57C2;">let</span>
+  <span style="color: #26A69A;">pkgs</span> = <span style="color: #0097A7;">import</span> <span style="color: #5C6BC0;">&lt;nixpkgs&gt;</span> {};
+<span style="color: #7E57C2;">in</span> pkgs.mkShell {
+  <span style="color: #26A69A;">nativeBuildInputs</span> =
+    (<span style="color: #7E57C2;">with</span> pkgs; [
+      gcc
+
+      <span style="color: #90A4AE;"># example libraries you might want:</span>
+      zlib
+      SDL2
+    ]);
+}
+</pre>
+</div>
+
+<p>
+Launch the nix-shell, patch the linker so you can call the executable and see what's up:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ nix-shell shell.nix
+$ patchelf --set-interpreter <span style="color: #66BB6A;">"$(</span><span style="color: #ff00ff;">cat</span><span style="color: #66BB6A;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
+</pre>
+</div>
+
+<p>
+Strategies to find out what you might need:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ ldd /path/to/executable
+$ strace /path/to/executable
+</pre>
+</div>
+
+<p>
+Update the <code>shell.nix</code> file with the dependencies/linked libraries your executable might need, and then patch the executable from the derived nix-shell based on that:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ nix-shell ./shell.nix
+$ <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
+$ <span style="color: #26A69A;">new_rpath</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #66BB6A;">"$NIX_LDFLAGS"</span> | tr <span style="color: #66BB6A;">' '</span> $<span style="color: #66BB6A;">'\n'</span> | grep <span style="color: #66BB6A;">"^-L"</span> | sed -E <span style="color: #66BB6A;">'s/^-L/:/'</span> | tr -d $<span style="color: #66BB6A;">'\n'</span>)
+$ patchelf --set-rpath <span style="color: #66BB6A;">"$new_rpath"</span> /path/to/executable
+</pre>
+</div>
+
+<p>
+Then you should be able to run the executable by calling it.
 </p>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sitemap.org">Source</a> ]
+[ <a href="./index.html">Index</a> ¦ <a href="https://neeasade.net">Root</a> ¦ <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-03-14-adhoc-executable-patching-on-nix.org">Source</a> ]
 </p>
 </div>
 </div>
