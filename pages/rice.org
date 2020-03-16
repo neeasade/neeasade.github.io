@@ -1,8 +1,11 @@
 #+title: Rice
 
-#+begin_center
-[[https://github.com/neeasade/dotfiles][dots]]
-#+end_center
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-nav-strip
+    "[[https://github.com/neeasade/dotfiles][dots]]"
+    "[[http://notes.neeasade.net/rice-links.html][rice links]]"
+    )
+#+END_SRC
 
 #+BEGIN_SRC elisp :results raw :exports results
   (let* ((dtop-path "./assets/img/desktops/")
