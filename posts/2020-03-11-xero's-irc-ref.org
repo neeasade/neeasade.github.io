@@ -1,7 +1,7 @@
 #+title: xero's irc ref
 #+draft: t
 
-This is a scraping of xero's irc ref from https://gist.github.com/neeasade/0eb328fcf7516acb552c2417da66e84f
+This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061b4ecbeb9f99
 
 ** The Basics
 
@@ -25,8 +25,7 @@ This is a scraping of xero's irc ref from https://gist.github.com/neeasade/0eb32
 
 ** Nick Management (NickServ)
 
-All nickserv commands begin with =/ns= or =/msg NickServ=. Depending on
-your client, =/ns= may not work.
+All nickserv commands begin with =/ns= or =/msg NickServ=. Depending on your client, =/ns= may not work.
 
 | =/ns register password [email]=    | Registers your current nick with NickServ with the chosen password and binds it to an e-mail address (optional).        |
 | =/ns identify password=            | Identifies your nick to NickServ using the password you set. If you have a nick that's been registered, and you don't i |
@@ -57,148 +56,78 @@ Set a mode with: =/mode #channel +/-attribute <data>=.
 
 All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depending on your client, =/cs= or =/chanserv= may not work.
 
-# note to self: figuring out how to do the vert stuff
 
-| =/cs identify #channel <password>=           | Identifies you as the channel's founder and gives you founder-level privileges.           |   |
-| =/cs set #channel mlock modes=               | Locks the channel's modes. Just + unlocks all.                                            |   |
-| =/cs set #channel secureops <on \vert off>=  | Keeps everyone except aops, sops, and the founder from becoming ops.                      |   |
-| =/cs set #channel keeptopic <on \vert off>=  | Maintains the topic even if everyone leaves.                                              |   |
-| =/cs set #channel enforce <on \vert off>=    | Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced. |   |
-| =/cs set #channel leaveops <on \vert off>=   | Whether or not to allow the first person who join the channel to get ops.                 |   |
-| =/cs register #channel password description= | Registers the current channel to you with ChanServ and sets its password and description. |   |
-| =/cs drop #channel <dropcode>=               | Un-registers the current channel to you with ChanServ.                                    |   |
-| =/cs set #channel founder <nickname>=        | Sets the current channel's founder.                                                       |   |
-| =/cs set #channel password <newpass>=        | Changes the current channel's password to newpass.                                        |   |
-| =/cs set #channel desc <description>=        | Changes the current channel's description.                                                |   |
-| =/cs set #channel url <address>=             | Associates a URL with the channel.                                                        |   |
-| =/cs set #channel <email@address>=           | Associates an email address with the channel.                                             |   |
+# todo: replace the broken vert below with this hack: @@html:<code>@@A\vert{}B@@html:</code>@@
+# maybe macro it so this can still be useful as a notes file
+
+| _                                            | _                                                                                         |
+| =/cs identify #channel <password>=           | Identifies you as the channel's founder and gives you founder-level privileges.           |
+| =/cs set #channel mlock modes=               | Locks the channel's modes. Just + unlocks all.                                            |
+| =/cs set #channel secureops <on\vert{}off>=  | Keeps everyone except aops, sops, and the founder from becoming ops.                      |
+| =/cs set #channel keeptopic <on\vert{}off>=  | Maintains the topic even if everyone leaves.                                              |
+| =/cs set #channel enforce <on\vert{}off>=    | Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced. |
+| =/cs set #channel leaveops <on\\vert{}off>=  | Whether or not to allow the first person who join the channel to get ops.                 |
+| =/cs register #channel password description= | Registers the current channel to you with ChanServ and sets its password and description. |
+| =/cs drop #channel <dropcode>=               | Un-registers the current channel to you with ChanServ.                                    |
+| =/cs set #channel founder <nickname>=        | Sets the current channel's founder.                                                       |
+| =/cs set #channel password <newpass>=        | Changes the current channel's password to newpass.                                        |
+| =/cs set #channel desc <description>=        | Changes the current channel's description.                                                |
+| =/cs set #channel url <address>=             | Associates a URL with the channel.                                                        |
+| =/cs set #channel <email@address>=           | Associates an email address with the channel.                                             |
 
 * Other stuff
 
 ** Kicking people
 
-- =/kick *channel nickname [reason]=
+| =/kick #channel nickname [reason]=    | temporarily remove user from channel              |
+| =/mode nickname +/-attributes [data]= | Setting people's modes (for current channel only) |
 
-  - temporarily remove user from channel
-    =/mode nickname +/-attributes [data]=
-  - Setting people's modes (for current channel only)
+** User modes
 
-**User modes
+| =+q= | User is owner of the current channel (prefix ~ on UnrealIRCd, usually @ elsewhere)           |
+| =+a= | User is an admin (SOP) on the current channel (prefix & on UnrealIRCd, usually @ elsewhere). |
+| =+o= | User is an operator (AOP) on the current channel (prefix @).                                 |
+| =+h= | User is a half-op on the current channel (prefix %).                                         |
+| =+v= | User has voice on the current channel (prefix +).                                            |
 
-- =+q=
-
-  - User is owner of the current channel (prefix ~ on UnrealIRCd,
-    usually @ elsewhere)
-
-- =+a=
-
-  - User is an admin (SOP) on the current channel (prefix & on
-    UnrealIRCd, usually @ elsewhere).
-
-- =+o=
-
-  - User is an operator (AOP) on the current channel (prefix @).
-
-- =+h=
-
-  - User is a half-op on the current channel (prefix %).
-
-- =+v=
-
-  - User has voice on the current channel (prefix +).
-
-**Banning people
+** Banning people
 
 - =/mode *channel +b hosts=
-
   - Hosts take the following form: =nickname!userid@hostname=
 
-- Use =/whois=, =/whowas= or =/who= to find the information necessary
-  for a ban.
-- =*= is a wildcard and can replace =nickname=, =userid=, parts of
-  nickname or =userid=, =hostname= or a segment of a =hostname=.
+- Use =/whois=, =/whowas= or =/who= to find the information necessary for a ban.
+- =*= is a wildcard and can replace =nickname=, =userid=, parts of nickname or =userid=, =hostname= or a segment of a =hostname=.
 
-**Examples:
+*** Examples:
 
-- =joe!*@*=
+| =joe!*@*=                        | Will prevent anyone with the nick joe from joining.                        |
+| =*myg0t*!*=                      | Will prevent anyone whose nick contains myg0t from joining.                |
+| =mark!*elc@*=                    | Will prevent anyone with the nick mark and the userid elc from joining.    |
+| =*!*@c-123-24-76-213.ga.isp.net= | Will prevent anyone with the host c-123-24-76-213.ga.isp.net from joining. |
+| =*!*@*=                          | Bans everyone. Don't do that.                                              |
 
-  - Will prevent anyone with the nick joe from joining.
+** Access lists
 
-- =*myg0t*!*=
+| =/cs access #channel add [nickname] [level]= | Adds nickname to the channel's access list at the specified level. |
+| =/cs access channel del [nickname]=          | Removes nickname from the channel's access list.                   |
+| =/cs access #channel list=                   | Displays the channel's access list.                                |
+| =/cs access #channel count=                  | Displays how many entries are in the channel's access list.        |
 
-  - Will prevent anyone whose nick contains myg0t from joining.
+*** Access levels
 
-- =mark!*elc@*=
+ These may vary from network to network. For example, some networks do
+ not go by tens and use 3, 4, 5, 10, etc.
 
-  - Will prevent anyone with the nick mark and the userid elc from
-    joining.
+ | =Founder= | Full access to ChanServ functions, automatic opping upon entering channel. |
+ | =100+=    | Makes the person an SOP, automatic opping upon entering channel.           |
+ | =50=      | Makes the parson an AOP, automatic opping upon entering channel.           |
+ | =40=      | Automatic half-opping.                                                     |
+ | =30=      | Automatic voicing.                                                         |
+ | =0=       | No special privileges.                                                     |
+ | =-1=      | May not be opped.                                                          |
+ | =-100=    | May not join the channel.                                                  |
 
-- =*!*@c-123-24-76-213.ga.isp.net=
-
-  - Will prevent anyone with the host c-123-24-76-213.ga.isp.net from
-    joining.
-
-- =*!*@*=
-
-  - Bans everyone. Don't do that.
-
-**Access lists
-
-- =/cs access *channel add [nickname] [level]=
-
-  - Adds nickname to the channel's access list at the specified level.
-
-- =/cs access channel del [nickname]=
-
-  - Removes nickname from the channel's access list.
-
-- =/cs access *channel list=
-
-  - Displays the channel's access list.
-
-- =/cs access *channel count=
-
-  - Displays how many entries are in the channel's access list.
-
-**Access levels
-
-These may vary from network to network. For example, some networks do
-not go by tens and use 3, 4, 5, 10, etc.
-
-- =Founder=
-
-  - Full access to ChanServ functions, automatic opping upon entering
-    channel.
-
-- =100+=
-
-  - Makes the person an SOP, automatic opping upon entering channel.
-
-- =50=
-
-  - Makes the parson an AOP, automatic opping upon entering channel.
-
-- =40=
-
-  - Automatic half-opping.
-
-- =30=
-
-  - Automatic voicing.
-
-- =0=
-
-  - No special privileges.
-
-- =-1=
-
-  - May not be opped.
-
-- =-100=
-
-  - May not join the channel.
-
-Any nick not on the access list has an access level of =0=.
+ Any nick not on the access list has an access level of =0=.
 
 * AOPs and SOPs
 
@@ -212,14 +141,17 @@ Any nick not on the access list has an access level of =0=.
 
 ** SOPs - Can do everything AOPs can.
 
-- Can give and take AOP privileges. - Receive memos sent to the channel's SOPs. - Can add (but
-not remove) AKICKs.
+- Can give and take AOP privileges.
+- Receive memos sent to the channel's SOPs.
+- Can add (but not remove) AKICKs.
 
 ** Viewing and setting privileges
 
-- Viewing AOP and SOP lists -
-=/cs aop #channel list= - =/cs sop *channel list=
-- adding a AOP or SOP - =/cs [AOP|SOP] channel [ADD|DEL|LIST|CLEAR] [nick | entry-list]=
+- Viewing AOP and SOP lists
+- =/cs aop #channel list=
+- =/cs sop #channel list=
+- adding a AOP or SOP
+- =/cs [AOP|SOP] channel [ADD|DEL|LIST|CLEAR] [nick | entry-list]=
 
 ** AKICKs
 
@@ -227,17 +159,14 @@ People on the AKICK list are automatically kicked and banned when they
 enter the channel. Bans made as a result of AKICK must be removed
 manually.
 
-- =/cs akick *channel add host [reason]=
+- =/cs akick #channel add host [reason]=
+  - Adds host to #channel's AKICK list [for reason].
 
-  - Adds host to *channel's AKICK list [for reason].
-
-- =/cs akick *channel del host=
-
+- =/cs akick #channel del host=
   - Removes host from the AKICK list.
 
-- =/cs akick *channel list=
-- =/cs akick *channel view=
-
+- =/cs akick #channel list=
+- =/cs akick #channel view=
   - Displays the AKICK list.
 
 ** Color codes
@@ -266,6 +195,6 @@ list of the color codes:
 |     14 | grey                          |
 |     15 | light grey (silver)           |
 
-** related
+** Related
 
 https://youtu.be/R8FOGlnYkgg
