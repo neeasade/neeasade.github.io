@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-16 Mon 10:07 -->
+<!-- 2020-04-04 Sat 13:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>xero's irc ref</title>
@@ -200,7 +200,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -252,12 +252,12 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-This is a scraping of xero's irc ref from <a href="https://gist.github.com/neeasade/0eb328fcf7516acb552c2417da66e84f">https://gist.github.com/neeasade/0eb328fcf7516acb552c2417da66e84f</a>
+This is a scraping of xero's irc ref from <a href="https://gist.github.com/xero/2d6e4b061b4ecbeb9f99">https://gist.github.com/xero/2d6e4b061b4ecbeb9f99</a>
 </p>
 
-<div id="outline-container-org5f493a9" class="outline-3">
-<h3 id="org5f493a9">The Basics</h3>
-<div class="outline-text-3" id="text-org5f493a9">
+<div id="outline-container-orgfd236a6" class="outline-3">
+<h3 id="orgfd236a6">The Basics</h3>
+<div class="outline-text-3" id="text-orgfd236a6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -356,12 +356,11 @@ This is a scraping of xero's irc ref from <a href="https://gist.github.com/neeas
 </div>
 </div>
 
-<div id="outline-container-orgf073d0a" class="outline-3">
-<h3 id="orgf073d0a">Nick Management (NickServ)</h3>
-<div class="outline-text-3" id="text-orgf073d0a">
+<div id="outline-container-org6886e27" class="outline-3">
+<h3 id="org6886e27">Nick Management (NickServ)</h3>
+<div class="outline-text-3" id="text-org6886e27">
 <p>
-All nickserv commands begin with <code>/ns</code> or <code>/msg NickServ</code>. Depending on
-your client, <code>/ns</code> may not work.
+All nickserv commands begin with <code>/ns</code> or <code>/msg NickServ</code>. Depending on your client, <code>/ns</code> may not work.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -402,9 +401,9 @@ your client, <code>/ns</code> may not work.
 </div>
 </div>
 
-<div id="outline-container-org00680f7" class="outline-3">
-<h3 id="org00680f7">Channel modes</h3>
-<div class="outline-text-3" id="text-org00680f7">
+<div id="outline-container-org8dd88a8" class="outline-3">
+<h3 id="org8dd88a8">Channel modes</h3>
+<div class="outline-text-3" id="text-org8dd88a8">
 <p>
 Set a mode with: <code>/mode #channel +/-attribute &lt;data&gt;</code>.
 </p>
@@ -492,11 +491,265 @@ Set a mode with: <code>/mode #channel +/-attribute &lt;data&gt;</code>.
 </div>
 </div>
 
-<div id="outline-container-orgc6c71d8" class="outline-3">
-<h3 id="orgc6c71d8">ChanServ commands</h3>
-<div class="outline-text-3" id="text-orgc6c71d8">
+<div id="outline-container-org3bfedfd" class="outline-3">
+<h3 id="org3bfedfd">ChanServ commands</h3>
+<div class="outline-text-3" id="text-org3bfedfd">
 <p>
 All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <code>/msg ChanServ</code>. Depending on your client, <code>/cs</code> or <code>/chanserv</code> may not work.
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">_</td>
+<td class="org-left">_</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs identify #channel &lt;password&gt;</code></td>
+<td class="org-left">Identifies you as the channel's founder and gives you founder-level privileges.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel mlock modes</code></td>
+<td class="org-left">Locks the channel's modes. Just + unlocks all.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel secureops &lt;on\vert{}off&gt;</code></td>
+<td class="org-left">Keeps everyone except aops, sops, and the founder from becoming ops.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel keeptopic &lt;on\vert{}off&gt;</code></td>
+<td class="org-left">Maintains the topic even if everyone leaves.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel enforce &lt;on\vert{}off&gt;</code></td>
+<td class="org-left">Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel leaveops &lt;on\\vert{}off&gt;</code></td>
+<td class="org-left">Whether or not to allow the first person who join the channel to get ops.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs register #channel password description</code></td>
+<td class="org-left">Registers the current channel to you with ChanServ and sets its password and description.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs drop #channel &lt;dropcode&gt;</code></td>
+<td class="org-left">Un-registers the current channel to you with ChanServ.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel founder &lt;nickname&gt;</code></td>
+<td class="org-left">Sets the current channel's founder.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel password &lt;newpass&gt;</code></td>
+<td class="org-left">Changes the current channel's password to newpass.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel desc &lt;description&gt;</code></td>
+<td class="org-left">Changes the current channel's description.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel url &lt;address&gt;</code></td>
+<td class="org-left">Associates a URL with the channel.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs set #channel &lt;email@address&gt;</code></td>
+<td class="org-left">Associates an email address with the channel.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org86654ec" class="outline-2">
+<h2 id="org86654ec">Other stuff</h2>
+<div class="outline-text-2" id="text-org86654ec">
+</div>
+<div id="outline-container-orgb366f94" class="outline-3">
+<h3 id="orgb366f94">Kicking people</h3>
+<div class="outline-text-3" id="text-orgb366f94">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>/kick #channel nickname [reason]</code></td>
+<td class="org-left">temporarily remove user from channel</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/mode nickname +/-attributes [data]</code></td>
+<td class="org-left">Setting people's modes (for current channel only)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6dcdb37" class="outline-3">
+<h3 id="org6dcdb37">User modes</h3>
+<div class="outline-text-3" id="text-org6dcdb37">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>+q</code></td>
+<td class="org-left">User is owner of the current channel (prefix ~ on UnrealIRCd, usually @ elsewhere)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+a</code></td>
+<td class="org-left">User is an admin (SOP) on the current channel (prefix &amp; on UnrealIRCd, usually @ elsewhere).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+o</code></td>
+<td class="org-left">User is an operator (AOP) on the current channel (prefix @).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+h</code></td>
+<td class="org-left">User is a half-op on the current channel (prefix %).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>+v</code></td>
+<td class="org-left">User has voice on the current channel (prefix +).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6ac4a85" class="outline-3">
+<h3 id="org6ac4a85">Banning people</h3>
+<div class="outline-text-3" id="text-org6ac4a85">
+<ul class="org-ul">
+<li><code>/mode *channel +b hosts</code>
+<ul class="org-ul">
+<li>Hosts take the following form: <code>nickname!userid@hostname</code></li>
+</ul></li>
+
+<li>Use <code>/whois</code>, <code>/whowas</code> or <code>/who</code> to find the information necessary for a ban.</li>
+<li><code>*</code> is a wildcard and can replace <code>nickname</code>, <code>userid</code>, parts of nickname or <code>userid</code>, <code>hostname</code> or a segment of a <code>hostname</code>.</li>
+</ul>
+</div>
+
+<div id="outline-container-org58525b8" class="outline-4">
+<h4 id="org58525b8">Examples:</h4>
+<div class="outline-text-4" id="text-org58525b8">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>joe!*@*</code></td>
+<td class="org-left">Will prevent anyone with the nick joe from joining.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>*myg0t*!*</code></td>
+<td class="org-left">Will prevent anyone whose nick contains myg0t from joining.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>mark!*elc@*</code></td>
+<td class="org-left">Will prevent anyone with the nick mark and the userid elc from joining.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>*!*@c-123-24-76-213.ga.isp.net</code></td>
+<td class="org-left">Will prevent anyone with the host c-123-24-76-213.ga.isp.net from joining.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>*!*@*</code></td>
+<td class="org-left">Bans everyone. Don't do that.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b58b7c" class="outline-3">
+<h3 id="org6b58b7c">Access lists</h3>
+<div class="outline-text-3" id="text-org6b58b7c">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>/cs access #channel add [nickname] [level]</code></td>
+<td class="org-left">Adds nickname to the channel's access list at the specified level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs access channel del [nickname]</code></td>
+<td class="org-left">Removes nickname from the channel's access list.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs access #channel list</code></td>
+<td class="org-left">Displays the channel's access list.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/cs access #channel count</code></td>
+<td class="org-left">Displays how many entries are in the channel's access list.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orge1d9e6f" class="outline-4">
+<h4 id="orge1d9e6f">Access levels</h4>
+<div class="outline-text-4" id="text-orge1d9e6f">
+<p>
+These may vary from network to network. For example, some networks do
+not go by tens and use 3, 4, 5, 10, etc.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -506,291 +759,49 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 <col  class="org-left" />
 
 <col  class="org-left" />
-
-<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left"><code>/cs identify #channel &lt;password&gt;</code></td>
-<td class="org-left">Identifies you as the channel's founder and gives you founder-level privileges.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>Founder</code></td>
+<td class="org-left">Full access to ChanServ functions, automatic opping upon entering channel.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs set #channel mlock modes</code></td>
-<td class="org-left">Locks the channel's modes. Just + unlocks all.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>100+</code></td>
+<td class="org-left">Makes the person an SOP, automatic opping upon entering channel.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs set #channel secureops &lt;on \vert off&gt;</code></td>
-<td class="org-left">Keeps everyone except aops, sops, and the founder from becoming ops.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>50</code></td>
+<td class="org-left">Makes the parson an AOP, automatic opping upon entering channel.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs set #channel keeptopic &lt;on \vert off&gt;</code></td>
-<td class="org-left">Maintains the topic even if everyone leaves.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>40</code></td>
+<td class="org-left">Automatic half-opping.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs set #channel enforce &lt;on \vert off&gt;</code></td>
-<td class="org-left">Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>30</code></td>
+<td class="org-left">Automatic voicing.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs set #channel leaveops &lt;on \vert off&gt;</code></td>
-<td class="org-left">Whether or not to allow the first person who join the channel to get ops.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>0</code></td>
+<td class="org-left">No special privileges.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs register #channel password description</code></td>
-<td class="org-left">Registers the current channel to you with ChanServ and sets its password and description.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>-1</code></td>
+<td class="org-left">May not be opped.</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>/cs drop #channel &lt;dropcode&gt;</code></td>
-<td class="org-left">Un-registers the current channel to you with ChanServ.</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>/cs set #channel founder &lt;nickname&gt;</code></td>
-<td class="org-left">Sets the current channel's founder.</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>/cs set #channel password &lt;newpass&gt;</code></td>
-<td class="org-left">Changes the current channel's password to newpass.</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>/cs set #channel desc &lt;description&gt;</code></td>
-<td class="org-left">Changes the current channel's description.</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>/cs set #channel url &lt;address&gt;</code></td>
-<td class="org-left">Associates a URL with the channel.</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>/cs set #channel &lt;email@address&gt;</code></td>
-<td class="org-left">Associates an email address with the channel.</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>-100</code></td>
+<td class="org-left">May not join the channel.</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-
-<div id="outline-container-org95cd02f" class="outline-2">
-<h2 id="org95cd02f">Other stuff</h2>
-<div class="outline-text-2" id="text-org95cd02f">
-</div>
-<div id="outline-container-orgfcb5ee8" class="outline-3">
-<h3 id="orgfcb5ee8">Kicking people</h3>
-<div class="outline-text-3" id="text-orgfcb5ee8">
-<ul class="org-ul">
-<li><code>/kick *channel nickname [reason]</code>
-
-<ul class="org-ul">
-<li>temporarily remove user from channel
-<code>/mode nickname +/-attributes [data]</code></li>
-<li>Setting people's modes (for current channel only)</li>
-</ul></li>
-</ul>
-
-<p>
-**User modes
-</p>
-
-<ul class="org-ul">
-<li><code>+q</code>
-
-<ul class="org-ul">
-<li>User is owner of the current channel (prefix ~ on UnrealIRCd,
-usually @ elsewhere)</li>
-</ul></li>
-
-<li><code>+a</code>
-
-<ul class="org-ul">
-<li>User is an admin (SOP) on the current channel (prefix &amp; on
-UnrealIRCd, usually @ elsewhere).</li>
-</ul></li>
-
-<li><code>+o</code>
-
-<ul class="org-ul">
-<li>User is an operator (AOP) on the current channel (prefix @).</li>
-</ul></li>
-
-<li><code>+h</code>
-
-<ul class="org-ul">
-<li>User is a half-op on the current channel (prefix %).</li>
-</ul></li>
-
-<li><code>+v</code>
-
-<ul class="org-ul">
-<li>User has voice on the current channel (prefix +).</li>
-</ul></li>
-</ul>
-
-<p>
-**Banning people
-</p>
-
-<ul class="org-ul">
-<li><code>/mode *channel +b hosts</code>
-
-<ul class="org-ul">
-<li>Hosts take the following form: <code>nickname!userid@hostname</code></li>
-</ul></li>
-
-<li>Use <code>/whois</code>, <code>/whowas</code> or <code>/who</code> to find the information necessary
-for a ban.</li>
-<li><code>*</code> is a wildcard and can replace <code>nickname</code>, <code>userid</code>, parts of
-nickname or <code>userid</code>, <code>hostname</code> or a segment of a <code>hostname</code>.</li>
-</ul>
-
-<p>
-**Examples:
-</p>
-
-<ul class="org-ul">
-<li><code>joe!*@*</code>
-
-<ul class="org-ul">
-<li>Will prevent anyone with the nick joe from joining.</li>
-</ul></li>
-
-<li><code>*myg0t*!*</code>
-
-<ul class="org-ul">
-<li>Will prevent anyone whose nick contains myg0t from joining.</li>
-</ul></li>
-
-<li><code>mark!*elc@*</code>
-
-<ul class="org-ul">
-<li>Will prevent anyone with the nick mark and the userid elc from
-joining.</li>
-</ul></li>
-
-<li><code>*!*@c-123-24-76-213.ga.isp.net</code>
-
-<ul class="org-ul">
-<li>Will prevent anyone with the host c-123-24-76-213.ga.isp.net from
-joining.</li>
-</ul></li>
-
-<li><code>*!*@*</code>
-
-<ul class="org-ul">
-<li>Bans everyone. Don't do that.</li>
-</ul></li>
-</ul>
-
-<p>
-**Access lists
-</p>
-
-<ul class="org-ul">
-<li><code>/cs access *channel add [nickname] [level]</code>
-
-<ul class="org-ul">
-<li>Adds nickname to the channel's access list at the specified level.</li>
-</ul></li>
-
-<li><code>/cs access channel del [nickname]</code>
-
-<ul class="org-ul">
-<li>Removes nickname from the channel's access list.</li>
-</ul></li>
-
-<li><code>/cs access *channel list</code>
-
-<ul class="org-ul">
-<li>Displays the channel's access list.</li>
-</ul></li>
-
-<li><code>/cs access *channel count</code>
-
-<ul class="org-ul">
-<li>Displays how many entries are in the channel's access list.</li>
-</ul></li>
-</ul>
-
-<p>
-**Access levels
-</p>
-
-<p>
-These may vary from network to network. For example, some networks do
-not go by tens and use 3, 4, 5, 10, etc.
-</p>
-
-<ul class="org-ul">
-<li><code>Founder</code>
-
-<ul class="org-ul">
-<li>Full access to ChanServ functions, automatic opping upon entering
-channel.</li>
-</ul></li>
-
-<li><code>100+</code>
-
-<ul class="org-ul">
-<li>Makes the person an SOP, automatic opping upon entering channel.</li>
-</ul></li>
-
-<li><code>50</code>
-
-<ul class="org-ul">
-<li>Makes the parson an AOP, automatic opping upon entering channel.</li>
-</ul></li>
-
-<li><code>40</code>
-
-<ul class="org-ul">
-<li>Automatic half-opping.</li>
-</ul></li>
-
-<li><code>30</code>
-
-<ul class="org-ul">
-<li>Automatic voicing.</li>
-</ul></li>
-
-<li><code>0</code>
-
-<ul class="org-ul">
-<li>No special privileges.</li>
-</ul></li>
-
-<li><code>-1</code>
-
-<ul class="org-ul">
-<li>May not be opped.</li>
-</ul></li>
-
-<li><code>-100</code>
-
-<ul class="org-ul">
-<li>May not join the channel.</li>
-</ul></li>
-</ul>
 
 <p>
 Any nick not on the access list has an access level of <code>0</code>.
@@ -798,14 +809,15 @@ Any nick not on the access list has an access level of <code>0</code>.
 </div>
 </div>
 </div>
-
-<div id="outline-container-org3e3589e" class="outline-2">
-<h2 id="org3e3589e">AOPs and SOPs</h2>
-<div class="outline-text-2" id="text-org3e3589e">
 </div>
-<div id="outline-container-org7f69a04" class="outline-3">
-<h3 id="org7f69a04">AOPs</h3>
-<div class="outline-text-3" id="text-org7f69a04">
+
+<div id="outline-container-org7eaa491" class="outline-2">
+<h2 id="org7eaa491">AOPs and SOPs</h2>
+<div class="outline-text-2" id="text-org7eaa491">
+</div>
+<div id="outline-container-org26d0dda" class="outline-3">
+<h3 id="org26d0dda">AOPs</h3>
+<div class="outline-text-3" id="text-org26d0dda">
 <ul class="org-ul">
 <li>Are automatically ops and can give themselves ops.</li>
 <li>Can give/take op/halfop/voice to/from other channel members.</li>
@@ -816,36 +828,33 @@ Any nick not on the access list has an access level of <code>0</code>.
 </div>
 </div>
 
-<div id="outline-container-org0affa39" class="outline-3">
-<h3 id="org0affa39">SOPs - Can do everything AOPs can.</h3>
-<div class="outline-text-3" id="text-org0affa39">
+<div id="outline-container-orgc4acf26" class="outline-3">
+<h3 id="orgc4acf26">SOPs - Can do everything AOPs can.</h3>
+<div class="outline-text-3" id="text-orgc4acf26">
 <ul class="org-ul">
-<li>Can give and take AOP privileges. - Receive memos sent to the channel's SOPs. - Can add (but</li>
-</ul>
-<p>
-not remove) AKICKs.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4ce1c06" class="outline-3">
-<h3 id="org4ce1c06">Viewing and setting privileges</h3>
-<div class="outline-text-3" id="text-org4ce1c06">
-<ul class="org-ul">
-<li>Viewing AOP and SOP lists -</li>
-</ul>
-<p>
-<code>/cs aop #channel list</code> - <code>/cs sop *channel list</code>
-</p>
-<ul class="org-ul">
-<li>adding a AOP or SOP - <code>/cs [AOP|SOP] channel [ADD|DEL|LIST|CLEAR] [nick | entry-list]</code></li>
+<li>Can give and take AOP privileges.</li>
+<li>Receive memos sent to the channel's SOPs.</li>
+<li>Can add (but not remove) AKICKs.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgac90125" class="outline-3">
-<h3 id="orgac90125">AKICKs</h3>
-<div class="outline-text-3" id="text-orgac90125">
+<div id="outline-container-org0ef7340" class="outline-3">
+<h3 id="org0ef7340">Viewing and setting privileges</h3>
+<div class="outline-text-3" id="text-org0ef7340">
+<ul class="org-ul">
+<li>Viewing AOP and SOP lists</li>
+<li><code>/cs aop #channel list</code></li>
+<li><code>/cs sop #channel list</code></li>
+<li>adding a AOP or SOP</li>
+<li><code>/cs [AOP|SOP] channel [ADD|DEL|LIST|CLEAR] [nick | entry-list]</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcc17949" class="outline-3">
+<h3 id="orgcc17949">AKICKs</h3>
+<div class="outline-text-3" id="text-orgcc17949">
 <p>
 People on the AKICK list are automatically kicked and banned when they
 enter the channel. Bans made as a result of AKICK must be removed
@@ -853,21 +862,18 @@ manually.
 </p>
 
 <ul class="org-ul">
-<li><code>/cs akick *channel add host [reason]</code>
-
+<li><code>/cs akick #channel add host [reason]</code>
 <ul class="org-ul">
-<li>Adds host to *channel's AKICK list [for reason].</li>
+<li>Adds host to #channel's AKICK list [for reason].</li>
 </ul></li>
 
-<li><code>/cs akick *channel del host</code>
-
+<li><code>/cs akick #channel del host</code>
 <ul class="org-ul">
 <li>Removes host from the AKICK list.</li>
 </ul></li>
 
-<li><code>/cs akick *channel list</code></li>
-<li><code>/cs akick *channel view</code>
-
+<li><code>/cs akick #channel list</code></li>
+<li><code>/cs akick #channel view</code>
 <ul class="org-ul">
 <li>Displays the AKICK list.</li>
 </ul></li>
@@ -875,9 +881,9 @@ manually.
 </div>
 </div>
 
-<div id="outline-container-orge0e6ed5" class="outline-3">
-<h3 id="orge0e6ed5">Color codes</h3>
-<div class="outline-text-3" id="text-orge0e6ed5">
+<div id="outline-container-orge9628a3" class="outline-3">
+<h3 id="orge9628a3">Color codes</h3>
+<div class="outline-text-3" id="text-orge9628a3">
 <p>
 it's possible to color your text in irc. in most clients you can use
 control c then foreground,background (background is optional). examples:
@@ -984,9 +990,9 @@ list of the color codes:
 </div>
 </div>
 
-<div id="outline-container-org6413d1a" class="outline-3">
-<h3 id="org6413d1a">related</h3>
-<div class="outline-text-3" id="text-org6413d1a">
+<div id="outline-container-org13e99f3" class="outline-3">
+<h3 id="org13e99f3">Related</h3>
+<div class="outline-text-3" id="text-org13e99f3">
 <p>
 <a href="https://youtu.be/R8FOGlnYkgg">https://youtu.be/R8FOGlnYkgg</a>
 </p>
