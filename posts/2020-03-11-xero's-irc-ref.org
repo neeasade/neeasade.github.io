@@ -1,5 +1,5 @@
 #+title: xero's irc ref
-#+draft: t
+#+pubdate: <2020-04-04 Sat>
 
 This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061b4ecbeb9f99
 
@@ -8,7 +8,7 @@ This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061
 | command                    | meaning                                                                       |
 | =/join #channel=           | Joins the specified channel.                                                  |
 | =/part #channel=           | Leaves the specified channel.                                                 |
-| =/quit [message]=          | Disconnects from current server with optional leaving message.                |
+| =/quit <message>=          | Disconnects from current server with optional leaving message.                |
 | =/server hostname=         | Connects to the specified server.                                             |
 | =/list=                    | Lists all channels on the current network.                                    |
 | =/links=                   | Lists all servers on the current network. May be disabled "for                |
@@ -27,7 +27,7 @@ This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061
 
 All nickserv commands begin with =/ns= or =/msg NickServ=. Depending on your client, =/ns= may not work.
 
-| =/ns register password [email]=    | Registers your current nick with NickServ with the chosen password and binds it to an e-mail address (optional).        |
+| =/ns register password <email>=    | Registers your current nick with NickServ with the chosen password and binds it to an e-mail address (optional).        |
 | =/ns identify password=            | Identifies your nick to NickServ using the password you set. If you have a nick that's been registered, and you don't i |
 | =/ns recover nickname password=    | Kills (forcibly disconnects) someone who has your registered nick.                                                      |
 | =/ns ghost nickname password=      | Terminates a "ghost" IRC session that's using your nickname.                                                            |
@@ -57,30 +57,31 @@ Set a mode with: =/mode #channel +/-attribute <data>=.
 All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depending on your client, =/cs= or =/chanserv= may not work.
 
 
-# todo: replace the broken vert below with this hack: @@html:<code>@@A\vert{}B@@html:</code>@@
-# maybe macro it so this can still be useful as a notes file
+# pain
+# #+MACRO:  code @@html:<code>@@$1@@html:</code>@@
+# using ! so org tables cal still align and \vert{} inline looks gross to me here
+#+MACRO: code (eval (format "@@html:<code>@@%s@@html:</code>@@" (s-replace "!" "\\vert{}" $1)))
 
-| _                                            | _                                                                                         |
-| =/cs identify #channel <password>=           | Identifies you as the channel's founder and gives you founder-level privileges.           |
-| =/cs set #channel mlock modes=               | Locks the channel's modes. Just + unlocks all.                                            |
-| =/cs set #channel secureops <on\vert{}off>=  | Keeps everyone except aops, sops, and the founder from becoming ops.                      |
-| =/cs set #channel keeptopic <on\vert{}off>=  | Maintains the topic even if everyone leaves.                                              |
-| =/cs set #channel enforce <on\vert{}off>=    | Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced. |
-| =/cs set #channel leaveops <on\\vert{}off>=  | Whether or not to allow the first person who join the channel to get ops.                 |
-| =/cs register #channel password description= | Registers the current channel to you with ChanServ and sets its password and description. |
-| =/cs drop #channel <dropcode>=               | Un-registers the current channel to you with ChanServ.                                    |
-| =/cs set #channel founder <nickname>=        | Sets the current channel's founder.                                                       |
-| =/cs set #channel password <newpass>=        | Changes the current channel's password to newpass.                                        |
-| =/cs set #channel desc <description>=        | Changes the current channel's description.                                                |
-| =/cs set #channel url <address>=             | Associates a URL with the channel.                                                        |
-| =/cs set #channel <email@address>=           | Associates an email address with the channel.                                             |
+| =/cs identify #channel <password>=              | Identifies you as the channel's founder and gives you founder-level privileges.           |
+| =/cs set #channel mlock modes=                  | Locks the channel's modes. Just + unlocks all.                                            |
+| {{{code(/cs set #channel secureops <on!off>)}}} | Keeps everyone except aops, sops, and the founder from becoming ops.                      |
+| {{{code(/cs set #channel keeptopic <on!off>)}}} | Maintains the topic even if everyone leaves.                                              |
+| {{{code(/cs set #channel enforce <on!off>)}}}   | Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced. |
+| {{{code(/cs set #channel leaveops <on!off>)}}}  | Whether or not to allow the first person who join the channel to get ops.                 |
+| =/cs register #channel password description=    | Registers the current channel to you with ChanServ and sets its password and description. |
+| =/cs drop #channel <dropcode>=                  | Un-registers the current channel to you with ChanServ.                                    |
+| =/cs set #channel founder <nickname>=           | Sets the current channel's founder.                                                       |
+| =/cs set #channel password <newpass>=           | Changes the current channel's password to newpass.                                        |
+| =/cs set #channel desc <description>=           | Changes the current channel's description.                                                |
+| =/cs set #channel url <address>=                | Associates a URL with the channel.                                                        |
+| =/cs set #channel <email@address>=              | Associates an email address with the channel.                                             |
 
 * Other stuff
 
 ** Kicking people
 
-| =/kick #channel nickname [reason]=    | temporarily remove user from channel              |
-| =/mode nickname +/-attributes [data]= | Setting people's modes (for current channel only) |
+| =/kick #channel nickname <reason>=    | temporarily remove user from channel              |
+| =/mode nickname +/-attributes <data>= | Setting people's modes (for current channel only) |
 
 ** User modes
 
@@ -108,8 +109,8 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 
 ** Access lists
 
-| =/cs access #channel add [nickname] [level]= | Adds nickname to the channel's access list at the specified level. |
-| =/cs access channel del [nickname]=          | Removes nickname from the channel's access list.                   |
+| =/cs access #channel add <nickname> <level>= | Adds nickname to the channel's access list at the specified level. |
+| =/cs access #channel del <nickname>=         | Removes nickname from the channel's access list.                   |
 | =/cs access #channel list=                   | Displays the channel's access list.                                |
 | =/cs access #channel count=                  | Displays how many entries are in the channel's access list.        |
 
@@ -139,19 +140,17 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - Receive memos sent to the whole channel.
 - Can invite themselves to the channel.
 
-** SOPs - Can do everything AOPs can.
+** SOPs
 
+- Can do everything AOPs can.
 - Can give and take AOP privileges.
 - Receive memos sent to the channel's SOPs.
 - Can add (but not remove) AKICKs.
 
 ** Viewing and setting privileges
 
-- Viewing AOP and SOP lists
-- =/cs aop #channel list=
-- =/cs sop #channel list=
-- adding a AOP or SOP
-- =/cs [AOP|SOP] channel [ADD|DEL|LIST|CLEAR] [nick | entry-list]=
+| {{{code(/cs <aop!sop> #channel list=)}}}                                  | Viewing AOP and SOP lists |
+| {{{code(/cs <AOP!SOP> #channel <ADD!DEL!LIST!CLEAR> <nick!entry-list>)}}} | adding a AOP or SOP       |
 
 ** AKICKs
 
@@ -159,15 +158,9 @@ People on the AKICK list are automatically kicked and banned when they
 enter the channel. Bans made as a result of AKICK must be removed
 manually.
 
-- =/cs akick #channel add host [reason]=
-  - Adds host to #channel's AKICK list [for reason].
-
-- =/cs akick #channel del host=
-  - Removes host from the AKICK list.
-
-- =/cs akick #channel list=
-- =/cs akick #channel view=
-  - Displays the AKICK list.
+| =/cs akick #channel add host <reason>=     | Adds host to #channel's AKICK list (for reason). |
+| =/cs akick #channel del host=              | Removes host from the AKICK list.                |
+| {{{code(/cs akick #channel <list!view>)}}} | Displays the AKICK list.                         |
 
 ** Color codes
 
@@ -197,4 +190,4 @@ list of the color codes:
 
 ** Related
 
-https://youtu.be/R8FOGlnYkgg
+(cw: 🅱enis) https://youtu.be/R8FOGlnYkgg
