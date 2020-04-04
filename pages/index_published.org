@@ -2,24 +2,27 @@
 
 #+BEGIN_CENTER
 Sort by [ [[./index.html][edit date]] ¦ published date ]
-
 #+END_CENTER
 
 #+BEGIN_SRC elisp :results raw :exports results
-  (->> org-post-metas
-       (-filter (fn (not (a-get <> :is-draft))))
-       (-filter (fn (a-get <> :edited-date))) ; what's tracked by git
+  (->> 
+     (if (boundp 'org-post-metas)
+       org-post-metas
+     (mapcar 'ns/blog-file-to-meta (f-entries ns/blog-posts-dir (fn (s-ends-with-p ".org" <>)))))
+
+       (-filter (fn (not (ht-get <> :is-draft))))
+       (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
        ;; sorting order
        ((lambda (items)
 	  (sort items (fn (string-lessp
-				(a-get <1> :publish-date)
-				(a-get <2> :publish-date)
+				(ht-get <1> :publish-date)
+				(ht-get <2> :publish-date)
 				)))))
        (mapcar
 	(fn (format "- [[file:./%s.html][%s]] <%s> "
-		    (f-base (a-get <> :html-dest))
-		    (a-get <> :title)
-		    (a-get <> :publish-date)
+		    (f-base (ht-get <> :html-dest))
+		    (ht-get <> :title)
+		    (ht-get <> :publish-date)
 		    )))
        reverse
        (s-join "\n")
