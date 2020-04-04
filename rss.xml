@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes]]></description>
   <language>en</language>
-  <pubDate>Sat, 04 Apr 2020 13:32:38 -0400</pubDate>
-  <lastBuildDate>Sat, 04 Apr 2020 13:32:38 -0400</lastBuildDate>
+  <pubDate>Sat, 04 Apr 2020 16:30:08 -0400</pubDate>
+  <lastBuildDate>Sat, 04 Apr 2020 16:30:08 -0400</lastBuildDate>
   <generator>Emacs 26.3 Org-mode 9.1.14</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>xero's irc ref</title>
+    <link>https://notes.neeasade.net/xero's-irc-ref.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/xero's-irc-ref.html</guid>
+    <pubDate>Sat, 04 Apr 2020 00:00:00 -0400</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>adhoc executable patching on nixos</title>
     <link>https://notes.neeasade.net/adhoc-executable-patching-on-nix.html</link>
