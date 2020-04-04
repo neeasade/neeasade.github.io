@@ -8,7 +8,10 @@ clean_tree=$(iif 'git status | grep -q "working tree clean"')
 
 vdo() {
     echo "$*"
-    "$@" || echo "!!! step failed"
+    if ! "$@"; then
+	echo "!!! step failed"
+	exit 1
+    fi
 }
 
 if ! $clean_tree; then
