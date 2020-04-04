@@ -3,6 +3,7 @@
 #+TITLE: neeasade's notes
 #+DESCRIPTION: neeasade's notes
 #+HTML_LINK_HOME: https://notes.neeasade.net/
+#+RSS_FEED_URL: https://notes.neeasade.net/rss.xml
 # #+RSS_IMAGE_URL: http://url/to/some/icon.png
 
 # rss format reference:
