@@ -7,7 +7,7 @@ set -e
 clean_tree=$(iif 'git status | grep -q "working tree clean"')
 
 vdo() {
-    echo "$*"
+    echo "\$ $*"
     if ! "$@"; then
 	echo "!!! step failed"
 	exit 1
@@ -24,7 +24,13 @@ vdo elisp "(ns/blog-generate)"
 vdo rm -rf /tmp/notes.neeasade.net
 vdo cp -r site /tmp/notes.neeasade.net
 
+vdo git reset --hard
+
 vdo git checkout master
+
+git fetch origin
+git reset --hard origin/master
+
 vdo rm -rf *
 vdo cp -r /tmp/notes.neeasade.net/* ./
 
