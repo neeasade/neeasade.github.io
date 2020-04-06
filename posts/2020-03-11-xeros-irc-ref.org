@@ -4,6 +4,9 @@
 This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061b4ecbeb9f99
 
 ** The Basics
+:PROPERTIES:
+:CUSTOM_ID: h-af9b727a-fe44-40f2-8ba6-e18272277397
+:END:
 
 | command                    | meaning                                                                       |
 | =/join #channel=           | Joins the specified channel.                                                  |
@@ -13,7 +16,7 @@ This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061
 | =/list=                    | Lists all channels on the current network.                                    |
 | =/links=                   | Lists all servers on the current network. May be disabled "for                |
 | =/nick nickname=           | Changes your nick.                                                            |
-| =/names #channel=          | Shows the nicks of all users on *channel.                                     |
+| =/names #channel=          | Shows the nicks of all users on #channel.                                     |
 | =/msg nickname message=    | Sends a private message to a user.                                            |
 | =/query nickname message=  | Sends a private message to a user and opens a private chat window.            |
 | =/me action=               | Prints "yourname action"                                                      |
@@ -24,6 +27,9 @@ This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061
 | =/ping nickname=           | Pings the specified user. This action is visible to the specified user.       |
 
 ** Nick Management (NickServ)
+:PROPERTIES:
+:CUSTOM_ID: h-4404e409-385b-48dd-9eb1-b42e9f161876
+:END:
 
 All nickserv commands begin with =/ns= or =/msg NickServ=. Depending on your client, =/ns= may not work.
 
@@ -34,6 +40,9 @@ All nickserv commands begin with =/ns= or =/msg NickServ=. Depending on your cli
 | =/ns set password yournewpassword= | Changes your password. *NOTE:* Under no circumstances should you change your nick to the letter O followed by 8 digit   |
 
 ** Channel modes
+:PROPERTIES:
+:CUSTOM_ID: h-6dc4ab3f-d0ed-4c66-b41a-719058cb93c2
+:END:
 
 Set a mode with: =/mode #channel +/-attribute <data>=.
 
@@ -53,6 +62,9 @@ Set a mode with: =/mode #channel +/-attribute <data>=.
 | =+N=          | No nick changes permitted in the channel.                          |
 
 ** ChanServ commands
+:PROPERTIES:
+:CUSTOM_ID: h-a226cb18-b018-4504-8261-0b65f28a02e5
+:END:
 
 All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depending on your client, =/cs= or =/chanserv= may not work.
 
@@ -62,9 +74,9 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 # using ! so org tables cal still align and \vert{} inline looks gross to me here
 #+MACRO: code (eval (format "@@html:<code>@@%s@@html:</code>@@" (s-replace "!" "\\vert{}" $1)))
 
+| {{{code(/cs set #channel secureops <on!off>)}}} | Keeps everyone except aops, sops, and the founder from becoming ops.                      |
 | =/cs identify #channel <password>=              | Identifies you as the channel's founder and gives you founder-level privileges.           |
 | =/cs set #channel mlock modes=                  | Locks the channel's modes. Just + unlocks all.                                            |
-| {{{code(/cs set #channel secureops <on!off>)}}} | Keeps everyone except aops, sops, and the founder from becoming ops.                      |
 | {{{code(/cs set #channel keeptopic <on!off>)}}} | Maintains the topic even if everyone leaves.                                              |
 | {{{code(/cs set #channel enforce <on!off>)}}}   | Restores op/halfop/voice if a person with op/halfop/voice gets de-opped/halfopped/voiced. |
 | {{{code(/cs set #channel leaveops <on!off>)}}}  | Whether or not to allow the first person who join the channel to get ops.                 |
@@ -77,13 +89,22 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =/cs set #channel <email@address>=              | Associates an email address with the channel.                                             |
 
 * Other stuff
+:PROPERTIES:
+:CUSTOM_ID: h-b90868c6-7968-4fa1-b6fb-de667b7599c1
+:END:
 
 ** Kicking people
+:PROPERTIES:
+:CUSTOM_ID: h-d321c0d4-db80-4f25-8941-933172fac07e
+:END:
 
 | =/kick #channel nickname <reason>=    | temporarily remove user from channel              |
 | =/mode nickname +/-attributes <data>= | Setting people's modes (for current channel only) |
 
 ** User modes
+:PROPERTIES:
+:CUSTOM_ID: h-c03ad93e-65cc-4dd6-9aa7-af5c82dcf350
+:END:
 
 | =+q= | User is owner of the current channel (prefix ~ on UnrealIRCd, usually @ elsewhere)           |
 | =+a= | User is an admin (SOP) on the current channel (prefix & on UnrealIRCd, usually @ elsewhere). |
@@ -92,6 +113,9 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =+v= | User has voice on the current channel (prefix +).                                            |
 
 ** Banning people
+:PROPERTIES:
+:CUSTOM_ID: h-07580360-b48c-4a4a-818a-61f1f750ecfc
+:END:
 
 - =/mode *channel +b hosts=
   - Hosts take the following form: =nickname!userid@hostname=
@@ -100,6 +124,9 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - =*= is a wildcard and can replace =nickname=, =userid=, parts of nickname or =userid=, =hostname= or a segment of a =hostname=.
 
 *** Examples:
+:PROPERTIES:
+:CUSTOM_ID: h-1cca042b-1f35-4d85-acf0-e379c7224f4d
+:END:
 
 | =joe!*@*=                        | Will prevent anyone with the nick joe from joining.                        |
 | =*myg0t*!*=                      | Will prevent anyone whose nick contains myg0t from joining.                |
@@ -108,6 +135,9 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =*!*@*=                          | Bans everyone. Don't do that.                                              |
 
 ** Access lists
+:PROPERTIES:
+:CUSTOM_ID: h-76341ce0-127b-4af7-bb0c-7f0e46086748
+:END:
 
 | =/cs access #channel add <nickname> <level>= | Adds nickname to the channel's access list at the specified level. |
 | =/cs access #channel del <nickname>=         | Removes nickname from the channel's access list.                   |
@@ -115,6 +145,9 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =/cs access #channel count=                  | Displays how many entries are in the channel's access list.        |
 
 *** Access levels
+:PROPERTIES:
+:CUSTOM_ID: h-249213a8-a9fa-43e9-9a46-f9d15df4f420
+:END:
 
  These may vary from network to network. For example, some networks do
  not go by tens and use 3, 4, 5, 10, etc.
@@ -131,8 +164,14 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
  Any nick not on the access list has an access level of =0=.
 
 * AOPs and SOPs
+:PROPERTIES:
+:CUSTOM_ID: h-c32b1089-530f-473f-9331-1c78baab2b41
+:END:
 
 ** AOPs
+:PROPERTIES:
+:CUSTOM_ID: h-253a1f1e-e527-461b-b323-b92cabde0574
+:END:
 
 - Are automatically ops and can give themselves ops.
 - Can give/take op/halfop/voice to/from other channel members.
@@ -141,6 +180,9 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - Can invite themselves to the channel.
 
 ** SOPs
+:PROPERTIES:
+:CUSTOM_ID: h-a395932a-b851-4a52-958c-05987399ff40
+:END:
 
 - Can do everything AOPs can.
 - Can give and take AOP privileges.
@@ -148,11 +190,17 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - Can add (but not remove) AKICKs.
 
 ** Viewing and setting privileges
+:PROPERTIES:
+:CUSTOM_ID: h-da4abeac-93a5-427a-87cc-270d9cd61125
+:END:
 
 | {{{code(/cs <aop!sop> #channel list=)}}}                                  | Viewing AOP and SOP lists |
 | {{{code(/cs <AOP!SOP> #channel <ADD!DEL!LIST!CLEAR> <nick!entry-list>)}}} | adding a AOP or SOP       |
 
 ** AKICKs
+:PROPERTIES:
+:CUSTOM_ID: h-e0d5cdf5-5b64-4da5-8973-c00702bc3107
+:END:
 
 People on the AKICK list are automatically kicked and banned when they
 enter the channel. Bans made as a result of AKICK must be removed
@@ -163,6 +211,9 @@ manually.
 | {{{code(/cs akick #channel <list!view>)}}} | Displays the AKICK list.                         |
 
 ** Color codes
+:PROPERTIES:
+:CUSTOM_ID: h-783bf87b-f96c-4b8d-a756-651cb73c3a64
+:END:
 
 it's possible to color your text in irc. in most clients you can use
 control c then foreground,background (background is optional). examples:
@@ -189,5 +240,8 @@ list of the color codes:
 |     15 | light grey (silver)           |
 
 ** Related
+:PROPERTIES:
+:CUSTOM_ID: h-f34114f3-04ec-4275-a9e5-03dd636cff16
+:END:
 
 (cw: 🅱enis) https://youtu.be/R8FOGlnYkgg
