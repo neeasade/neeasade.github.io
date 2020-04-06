@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-04 Sat 16:32 -->
+<!-- 2020-04-06 Mon 14:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>xero's irc ref</title>
@@ -247,7 +247,7 @@ for the JavaScript code in this tag.
 <h1 class="title">xero's irc ref</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-11-xeros-irc-ref.org">2020-04-04</a> ¦ 2020-04-04 ]
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-11-xeros-irc-ref.org">2020-04-06</a> ¦ 2020-04-04 ]
 </p>
 </div>
 
@@ -255,9 +255,9 @@ for the JavaScript code in this tag.
 This is a scraping of xero's irc ref from <a href="https://gist.github.com/xero/2d6e4b061b4ecbeb9f99">https://gist.github.com/xero/2d6e4b061b4ecbeb9f99</a>
 </p>
 
-<div id="outline-container-org04e8d6b" class="outline-3">
-<h3 id="org04e8d6b">The Basics</h3>
-<div class="outline-text-3" id="text-org04e8d6b">
+<div id="outline-container-org221a835" class="outline-3">
+<h3 id="h-af9b727a-fe44-40f2-8ba6-e18272277397">The Basics</h3>
+<div class="outline-text-3" id="text-h-af9b727a-fe44-40f2-8ba6-e18272277397">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -309,7 +309,7 @@ This is a scraping of xero's irc ref from <a href="https://gist.github.com/xero/
 
 <tr>
 <td class="org-left"><code>/names #channel</code></td>
-<td class="org-left">Shows the nicks of all users on *channel.</td>
+<td class="org-left">Shows the nicks of all users on #channel.</td>
 </tr>
 
 <tr>
@@ -356,9 +356,9 @@ This is a scraping of xero's irc ref from <a href="https://gist.github.com/xero/
 </div>
 </div>
 
-<div id="outline-container-org4594294" class="outline-3">
-<h3 id="org4594294">Nick Management (NickServ)</h3>
-<div class="outline-text-3" id="text-org4594294">
+<div id="outline-container-orgf4e9203" class="outline-3">
+<h3 id="h-4404e409-385b-48dd-9eb1-b42e9f161876">Nick Management (NickServ)</h3>
+<div class="outline-text-3" id="text-h-4404e409-385b-48dd-9eb1-b42e9f161876">
 <p>
 All nickserv commands begin with <code>/ns</code> or <code>/msg NickServ</code>. Depending on your client, <code>/ns</code> may not work.
 </p>
@@ -401,9 +401,9 @@ All nickserv commands begin with <code>/ns</code> or <code>/msg NickServ</code>.
 </div>
 </div>
 
-<div id="outline-container-org9071b46" class="outline-3">
-<h3 id="org9071b46">Channel modes</h3>
-<div class="outline-text-3" id="text-org9071b46">
+<div id="outline-container-org63a69fe" class="outline-3">
+<h3 id="h-6dc4ab3f-d0ed-4c66-b41a-719058cb93c2">Channel modes</h3>
+<div class="outline-text-3" id="text-h-6dc4ab3f-d0ed-4c66-b41a-719058cb93c2">
 <p>
 Set a mode with: <code>/mode #channel +/-attribute &lt;data&gt;</code>.
 </p>
@@ -491,9 +491,9 @@ Set a mode with: <code>/mode #channel +/-attribute &lt;data&gt;</code>.
 </div>
 </div>
 
-<div id="outline-container-org633c24d" class="outline-3">
-<h3 id="org633c24d">ChanServ commands</h3>
-<div class="outline-text-3" id="text-org633c24d">
+<div id="outline-container-orgc24e507" class="outline-3">
+<h3 id="h-a226cb18-b018-4504-8261-0b65f28a02e5">ChanServ commands</h3>
+<div class="outline-text-3" id="text-h-a226cb18-b018-4504-8261-0b65f28a02e5">
 <p>
 All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <code>/msg ChanServ</code>. Depending on your client, <code>/cs</code> or <code>/chanserv</code> may not work.
 </p>
@@ -509,6 +509,11 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </colgroup>
 <tbody>
 <tr>
+<td class="org-left"><code>/cs set #channel secureops &lt;on&vert;off&gt;</code></td>
+<td class="org-left">Keeps everyone except aops, sops, and the founder from becoming ops.</td>
+</tr>
+
+<tr>
 <td class="org-left"><code>/cs identify #channel &lt;password&gt;</code></td>
 <td class="org-left">Identifies you as the channel's founder and gives you founder-level privileges.</td>
 </tr>
@@ -516,11 +521,6 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 <tr>
 <td class="org-left"><code>/cs set #channel mlock modes</code></td>
 <td class="org-left">Locks the channel's modes. Just + unlocks all.</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>/cs set #channel secureops &lt;on&vert;off&gt;</code></td>
-<td class="org-left">Keeps everyone except aops, sops, and the founder from becoming ops.</td>
 </tr>
 
 <tr>
@@ -577,13 +577,14 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </div>
 </div>
 
-<div id="outline-container-org2888c90" class="outline-2">
-<h2 id="org2888c90">Other stuff</h2>
-<div class="outline-text-2" id="text-org2888c90">
+<div id="outline-container-org88ea50f" class="outline-2">
+<h2 id="h-b90868c6-7968-4fa1-b6fb-de667b7599c1">Other stuff</h2>
+<div class="outline-text-2" id="text-h-b90868c6-7968-4fa1-b6fb-de667b7599c1">
 </div>
-<div id="outline-container-org8db6064" class="outline-3">
-<h3 id="org8db6064">Kicking people</h3>
-<div class="outline-text-3" id="text-org8db6064">
+
+<div id="outline-container-orgb90a5ba" class="outline-3">
+<h3 id="h-d321c0d4-db80-4f25-8941-933172fac07e">Kicking people</h3>
+<div class="outline-text-3" id="text-h-d321c0d4-db80-4f25-8941-933172fac07e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -607,9 +608,9 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </div>
 </div>
 
-<div id="outline-container-orgd1ee944" class="outline-3">
-<h3 id="orgd1ee944">User modes</h3>
-<div class="outline-text-3" id="text-orgd1ee944">
+<div id="outline-container-orgfa3e652" class="outline-3">
+<h3 id="h-c03ad93e-65cc-4dd6-9aa7-af5c82dcf350">User modes</h3>
+<div class="outline-text-3" id="text-h-c03ad93e-65cc-4dd6-9aa7-af5c82dcf350">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -648,9 +649,9 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </div>
 </div>
 
-<div id="outline-container-org6ad945d" class="outline-3">
-<h3 id="org6ad945d">Banning people</h3>
-<div class="outline-text-3" id="text-org6ad945d">
+<div id="outline-container-orgc62374f" class="outline-3">
+<h3 id="h-07580360-b48c-4a4a-818a-61f1f750ecfc">Banning people</h3>
+<div class="outline-text-3" id="text-h-07580360-b48c-4a4a-818a-61f1f750ecfc">
 <ul class="org-ul">
 <li><code>/mode *channel +b hosts</code>
 <ul class="org-ul">
@@ -662,9 +663,9 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </ul>
 </div>
 
-<div id="outline-container-orgdacf81c" class="outline-4">
-<h4 id="orgdacf81c">Examples:</h4>
-<div class="outline-text-4" id="text-orgdacf81c">
+<div id="outline-container-orgd746e9c" class="outline-4">
+<h4 id="h-1cca042b-1f35-4d85-acf0-e379c7224f4d">Examples:</h4>
+<div class="outline-text-4" id="text-h-1cca042b-1f35-4d85-acf0-e379c7224f4d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -704,9 +705,9 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </div>
 </div>
 
-<div id="outline-container-org3db43bb" class="outline-3">
-<h3 id="org3db43bb">Access lists</h3>
-<div class="outline-text-3" id="text-org3db43bb">
+<div id="outline-container-orgcf07f75" class="outline-3">
+<h3 id="h-76341ce0-127b-4af7-bb0c-7f0e46086748">Access lists</h3>
+<div class="outline-text-3" id="text-h-76341ce0-127b-4af7-bb0c-7f0e46086748">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -739,9 +740,9 @@ All ChanServ commands begin with <code>/cs</code> or <code>/chanserv</code> or <
 </table>
 </div>
 
-<div id="outline-container-orga5ab4ba" class="outline-4">
-<h4 id="orga5ab4ba">Access levels</h4>
-<div class="outline-text-4" id="text-orga5ab4ba">
+<div id="outline-container-orgf154c93" class="outline-4">
+<h4 id="h-249213a8-a9fa-43e9-9a46-f9d15df4f420">Access levels</h4>
+<div class="outline-text-4" id="text-h-249213a8-a9fa-43e9-9a46-f9d15df4f420">
 <p>
 These may vary from network to network. For example, some networks do
 not go by tens and use 3, 4, 5, 10, etc.
@@ -806,13 +807,14 @@ Any nick not on the access list has an access level of <code>0</code>.
 </div>
 </div>
 
-<div id="outline-container-org16c5cfa" class="outline-2">
-<h2 id="org16c5cfa">AOPs and SOPs</h2>
-<div class="outline-text-2" id="text-org16c5cfa">
+<div id="outline-container-org7ebd2aa" class="outline-2">
+<h2 id="h-c32b1089-530f-473f-9331-1c78baab2b41">AOPs and SOPs</h2>
+<div class="outline-text-2" id="text-h-c32b1089-530f-473f-9331-1c78baab2b41">
 </div>
-<div id="outline-container-org3755aff" class="outline-3">
-<h3 id="org3755aff">AOPs</h3>
-<div class="outline-text-3" id="text-org3755aff">
+
+<div id="outline-container-org4dd9b53" class="outline-3">
+<h3 id="h-253a1f1e-e527-461b-b323-b92cabde0574">AOPs</h3>
+<div class="outline-text-3" id="text-h-253a1f1e-e527-461b-b323-b92cabde0574">
 <ul class="org-ul">
 <li>Are automatically ops and can give themselves ops.</li>
 <li>Can give/take op/halfop/voice to/from other channel members.</li>
@@ -823,9 +825,9 @@ Any nick not on the access list has an access level of <code>0</code>.
 </div>
 </div>
 
-<div id="outline-container-orgf1cd8d8" class="outline-3">
-<h3 id="orgf1cd8d8">SOPs</h3>
-<div class="outline-text-3" id="text-orgf1cd8d8">
+<div id="outline-container-org7c9dcf2" class="outline-3">
+<h3 id="h-a395932a-b851-4a52-958c-05987399ff40">SOPs</h3>
+<div class="outline-text-3" id="text-h-a395932a-b851-4a52-958c-05987399ff40">
 <ul class="org-ul">
 <li>Can do everything AOPs can.</li>
 <li>Can give and take AOP privileges.</li>
@@ -835,9 +837,9 @@ Any nick not on the access list has an access level of <code>0</code>.
 </div>
 </div>
 
-<div id="outline-container-org41cf3f5" class="outline-3">
-<h3 id="org41cf3f5">Viewing and setting privileges</h3>
-<div class="outline-text-3" id="text-org41cf3f5">
+<div id="outline-container-org92a561c" class="outline-3">
+<h3 id="h-da4abeac-93a5-427a-87cc-270d9cd61125">Viewing and setting privileges</h3>
+<div class="outline-text-3" id="text-h-da4abeac-93a5-427a-87cc-270d9cd61125">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -861,9 +863,9 @@ Any nick not on the access list has an access level of <code>0</code>.
 </div>
 </div>
 
-<div id="outline-container-orgb6d690e" class="outline-3">
-<h3 id="orgb6d690e">AKICKs</h3>
-<div class="outline-text-3" id="text-orgb6d690e">
+<div id="outline-container-org25019e2" class="outline-3">
+<h3 id="h-e0d5cdf5-5b64-4da5-8973-c00702bc3107">AKICKs</h3>
+<div class="outline-text-3" id="text-h-e0d5cdf5-5b64-4da5-8973-c00702bc3107">
 <p>
 People on the AKICK list are automatically kicked and banned when they
 enter the channel. Bans made as a result of AKICK must be removed
@@ -898,9 +900,9 @@ manually.
 </div>
 </div>
 
-<div id="outline-container-org70a8a87" class="outline-3">
-<h3 id="org70a8a87">Color codes</h3>
-<div class="outline-text-3" id="text-org70a8a87">
+<div id="outline-container-org210a4b5" class="outline-3">
+<h3 id="h-783bf87b-f96c-4b8d-a756-651cb73c3a64">Color codes</h3>
+<div class="outline-text-3" id="text-h-783bf87b-f96c-4b8d-a756-651cb73c3a64">
 <p>
 it's possible to color your text in irc. in most clients you can use
 control c then foreground,background (background is optional). examples:
@@ -1007,9 +1009,9 @@ list of the color codes:
 </div>
 </div>
 
-<div id="outline-container-org92b3f20" class="outline-3">
-<h3 id="org92b3f20">Related</h3>
-<div class="outline-text-3" id="text-org92b3f20">
+<div id="outline-container-org5e932e4" class="outline-3">
+<h3 id="h-f34114f3-04ec-4275-a9e5-03dd636cff16">Related</h3>
+<div class="outline-text-3" id="text-h-f34114f3-04ec-4275-a9e5-03dd636cff16">
 <p>
 (cw: 🅱enis) <a href="https://youtu.be/R8FOGlnYkgg">https://youtu.be/R8FOGlnYkgg</a>
 </p>
