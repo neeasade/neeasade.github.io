@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes]]></description>
   <language>en</language>
-  <pubDate>Tue, 07 Apr 2020 09:50:35 -0500</pubDate>
-  <lastBuildDate>Tue, 07 Apr 2020 09:50:35 -0500</lastBuildDate>
+  <pubDate>Tue, 07 Apr 2020 17:16:48 -0500</pubDate>
+  <lastBuildDate>Tue, 07 Apr 2020 17:16:48 -0500</lastBuildDate>
   <generator>Emacs 26.3 Org-mode 9.1.14</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>My Mobile Setup</title>
+    <link>https://notes.neeasade.net/mobile-capture-with-orgzly,-termux,-and-syncthing.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/mobile-capture-with-orgzly,-termux,-and-syncthing.html</guid>
+    <pubDate>Tue, 07 Apr 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>xero's irc ref</title>
     <link>https://notes.neeasade.net/xeros-irc-ref.html</link>

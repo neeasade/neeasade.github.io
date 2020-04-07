@@ -195,8 +195,8 @@ sup {
 
 
 body img {
-	/* Remove the border on images inside links in IE 10. [1] */
-	border-style: none;
+	/* /\* Remove the border on images inside links in IE 10. [1] *\/ */
+	/* border-style: none; */
 	/* Go ahead and make these block-level elements. I'm not sure about this. [4] */
 	display: block;
 	/* [2] */
