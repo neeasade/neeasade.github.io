@@ -12,6 +12,8 @@ img
     width:auto;
     height:auto;
     max-width:90% !important;
+    max-height:400px;
+    border: 1px solid #B0A8A6
 }
 
 @media screen and (max-width: 800px) {

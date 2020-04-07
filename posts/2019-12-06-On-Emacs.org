@@ -78,12 +78,12 @@ Write 'On Emacs' ■■■□□□□□□□
 *** Contextual inline eval for lisps
     I have a lisp eval function that will have different targets in different situations. When on an empty line, it will eval the last s expression. When on a not-empty line, it will eval the top s expression. And if there is anything highlighted, it will eval the region. This means I have just one eval keybind to mash. And with [[https://github.com/xiongtx/eros][eros]] I get sexy inline eval results!:
 
-[[./assets/posts/eros.png]]
+{{{image(eros.png)}}}
 
 *** IRC + highlight buffer
     I created a derived text mode for irc highlights that allows me to jump to mentions.
 
-[[./assets/posts/circe.png]]
+{{{image(circe.png)}}}
 
 
 *** Meta file switcher
