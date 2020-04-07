@@ -17,8 +17,8 @@
 		   "sitemap")
 		 (f-base (ht-get <> :path))
 		 )))
-   (mapcar (fn (format " - [[%s][%s]]"
-		       (ht-get <> :html-dest)
+   (mapcar (fn (format " - [[./%s.html][%s]]"
+		       (f-base (ht-get <> :path))
 		       (ht-get <> :title)
 		       )))
    (s-join "\n")
