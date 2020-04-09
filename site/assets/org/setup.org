@@ -1,5 +1,6 @@
 #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 #+HTML_HEAD: <link rel="stylesheet" href="./assets/css/notes.css">
 #+HTML_HEAD: <link rel="stylesheet" href="./assets/css/scaffold.css">
+#+HTML_HEAD: <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 #+MACRO:  image [[file:./assets/posts/$1][file:./assets/posts/$1]]
