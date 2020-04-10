@@ -6,7 +6,7 @@
 <!-- 2020-04-10 Fri 15:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Updating nix channels</title>
+<title>youtube rip with dwb + youtube-dl</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,56 +245,44 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Updating nix channels</h1>
+<h1 class="title">youtube rip with dwb + youtube-dl</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-15-Updating-nix-channels.org">2020-01-23</a> | 2020-01-15 ]
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">2019-02-19</a> | 2014-05-24 ]
 </p>
 </div>
 
-<p>
-I'm always forgetting this:
-</p>
+
+
+
+
+
 
 <p>
-The command <code>nix-channel</code> is used to create aliases which can be referenced in <code>configuration.nix</code>
-on nixos. The most important alias is <code>nixos</code>, which is used for the default <code>pkgs</code> reference in
-your config. Channels are neat but I personally am not really a fan because it is state that exists
-outside of your config. To change the default nix-channel reference:
+Just finished a snippet that can be used in combination with dwb(or many
+other browsers, probably) to auto download a youtube video and convert
+it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --list</span>
-nixos https://nixos.org/channels/nixos-19.09
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --remove nixos</span>
-uninstalling <span style="color: #66BB6A;">'nixos-19.09.1861.eb65d1dae62'</span>
-building <span style="color: #66BB6A;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
-created 0 symlinks<span style="color: #7E57C2;"> in</span> user environment
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --list</span>
-nixos https://nixos.org/channels/nixos-19.09
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --update</span>
-nixos https://nixos.org/channels/nixos-19.09
+<pre class="src src-bash"><span style="color: #90A4AE;">#</span><span style="color: #90A4AE;">!/bin/</span><span style="color: #7E57C2;">bash</span><span style="color: #90A4AE;"> </span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">dwb: xf</span>
+download\<span style="color: #26A69A;">_dir</span>=/my/media/dir youtube-dl -x -o
+$<span style="color: #26A69A;">download</span><span style="color: #66BB6A;">\_</span>dir<span style="color: #66BB6A;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #26A69A;">DWB</span><span style="color: #66BB6A;">\_</span>URI 
 </pre>
 </div>
 
 <p>
-And then updating the nix-channels can be done with:
+It can probably be noted that I had some trouble with the youtube-dl
+naming syntax at first - the '%(title)s' and such needs to be in a
+string or else bash freaks out. Also this will fail without ffmpeg, as
+that is a dep for audio conversion with youtube-dl.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-sh"><span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">nix-channel --update</span>
-</pre>
-</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-15-Updating-nix-channels.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
+[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
 </p>
 </div>
 </div>

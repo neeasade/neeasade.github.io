@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-09 Thu 07:46 -->
+<!-- 2020-04-10 Fri 15:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Mobile Setup</title>
+<title>restclient.el + elasticsearch</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,142 +245,70 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Mobile Setup</h1>
+<h1 class="title">restclient.el + elasticsearch</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-07-mobile-capture-with-orgzly,-termux,-and-syncthing.org">2020-04-07</a> | 2020-04-07 ]
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">2020-01-23</a> | 2018-04-04 ]
 </p>
 </div>
 
 <p>
-TL;DR Syncthing + Termux + Orgzly
+<code>restclient.el</code> is an emacs plugin that transforms a buffer into a
+repl-like curl-backed experience (similar to kibana). It has support for
+variables set with arbitrary elisp, turning it into a viable postman
+replacement (with plain text! and versioning!). I find this to be a very
+nice way to store and execute elasticsearch queries, but unfortunately
+you lose autocomplete of ES specific items. Alternatively,
+<a href="https://github.com/dakrone/es-mode">es-mode</a> exists, which is more ES specific but much more featureful.
 </p>
 
 <p>
-Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual &#x2013; this is motivated by my recent re-interest in capturing things in <a href="https://orgmode.org/">org-mode</a>. Here I will cover the tools and apps I've setup to try and get a 'blended' mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it's worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
-</p>
-
-<div id="outline-container-org80dd4af" class="outline-2">
-<h2 id="org80dd4af">Syncthing</h2>
-<div class="outline-text-2" id="text-org80dd4af">
-<p>
-<a href="https://syncthing.net/">Syncthing</a> is a program for syncing files and folders between devices. It is speedy enough for my use, and nixos has defined service files available for it so it's pretty easy to get something that "just works" between devices. This is key to the 'blended' feeling I alluded to above because it allows easy sending of data back and forth between my phone and computers (and the interface is pretty slick!). You can get away with only syncing between your devices, but I've opted to also have a vps running a syncthing service so that things are pretty nice.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgb4d98a2" class="outline-2">
-<h2 id="orgb4d98a2">Orgzly</h2>
-<div class="outline-text-2" id="text-orgb4d98a2">
-<p>
-<a href="http://www.orgzly.com/">Orgzly</a> markets itself as an "outliner for notes and todo lists", but the kicker is that is uses org files as it's store. This means that orgzly headlines are org headlines, with everything that implies (agenda, scheduling, priority, keywords, and so on). I've setup a <code>capture.org</code> file in a syncthing folder on my desktop and phone, allowing me to capture notes on the go and then refile them back when I'm on my desktop computer. Now that's cool! here's a brief glance capturing a note on the phone and it's org mode counterpart:
-</p>
-
-
-<div class="figure">
-<p><a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png" /></a>
-</p>
-</div>
-
-<div class="org-center">
-<p>
-turns into:
-</p>
-</div>
-
-
-<div class="figure">
-<p><a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png" /></a>
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org7dbf820" class="outline-2">
-<h2 id="org7dbf820">Music</h2>
-<div class="outline-text-2" id="text-org7dbf820">
-<p>
-I use the BlackPlayer music player, which lets you choose what folders to search for music from. I'm sure you can see where this is going&#x2026; with MPD on my desktop it's really easy to do something like <code>mpc playlist -f '%file%' | shuf | head -n 100 | fd cp $music_dir/{} $syncthing_dir</code> and wham! A smattering of my music collection is now available for me to enjoy on my phone! Of course, the reality is a little more complicated. I want to limit the size of the music collection that ends up on my phone. What actually ends up happening is something like:
+Here is a starter point showing some of restclients capabilities and how
+one might use it with elasticsearch:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">200mb</span>
-<span style="color: #26A69A;">size_limit</span>=200000
-<span style="color: #26A69A;">sync_music_dir</span>=<span style="color: #66BB6A;">"$HOME/sync/orgzly/music"</span>
-<span style="color: #26A69A;">music_dir</span>=<span style="color: #66BB6A;">"$HOME/Music"</span>
+<pre class="src src-restclient">;; -*- mode: restclient -*-
 
-<span style="color: #26A69A;">IFS</span>=$<span style="color: #66BB6A;">'\n'</span>
-<span style="color: #7E57C2;">for</span> f<span style="color: #7E57C2;"> in</span> $(<span style="color: #ff00ff;">mpc</span> playlist -f <span style="color: #66BB6A;">'%file%'</span> | shuf); <span style="color: #7E57C2;">do</span>
-    <span style="color: #26A69A;">collection_size</span>=$(<span style="color: #ff00ff;">du</span> <span style="color: #66BB6A;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #66BB6A;">'s/\t.*//'</span>)
-    <span style="color: #7E57C2;">if</span> [ $<span style="color: #26A69A;">collection_size</span> -lt $<span style="color: #26A69A;">size_limit</span> ]; <span style="color: #7E57C2;">then</span>
-        <span style="color: #0097A7;">echo</span> cp <span style="color: #66BB6A;">"${music_dir}/$f"</span> <span style="color: #66BB6A;">"$sync_music_dir"</span>
-        cp <span style="color: #66BB6A;">"${music_dir}/$f"</span> <span style="color: #66BB6A;">"$sync_music_dir"</span>
-    <span style="color: #7E57C2;">fi</span>
-<span style="color: #7E57C2;">done</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">local</span>
+<span style="color: #1E88E5;">:target</span> = <span style="color: #66BB6A;">http://localhost:9200</span>
+<span style="color: #1E88E5;">:cloud-auth</span> = <span style="color: #66BB6A;">""</span>
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #66BB6A;">"Basic "</span> (base64-encode-string <span style="color: #66BB6A;">"username:password"</span>))
+<span style="color: #1E88E5;">:prefix</span> = <span style="color: #66BB6A;">some_prefix</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">multiline variable</span>
+<span style="color: #1E88E5;">:headers</span> = <span style="color: #78909C;">&lt;&lt;</span>
+<span style="color: #26A69A;">content-type</span>: <span style="color: #66BB6A;">application/json</span>
+<span style="color: #26A69A;">Authorization</span>: <span style="color: #66BB6A;">:cloud-auth</span>
+<span style="color: #90A4AE;">#</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">note: there must be a comment to separate request definitions.</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">list indices</span>
+<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/_cat/indices</span>
+<span style="color: #1E88E5;">:headers</span>
+
+<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">logs sorted by a field</span>
+<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/:prefix_log/_search</span>
+<span style="color: #1E88E5;">:headers</span>
+{
+  <span style="color: #66BB6A;">"sort"</span>: [
+    {
+      <span style="color: #66BB6A;">"timestamp"</span>: {
+        <span style="color: #66BB6A;">"order"</span>: <span style="color: #66BB6A;">"desc"</span>
+      }
+    }
+  ]
+}
 </pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd8635c6" class="outline-2">
-<h2 id="orgd8635c6">Browsing the internet</h2>
-<div class="outline-text-2" id="text-orgd8635c6">
-<p>
-Chome on android doesn't have a umatrix option. This sucks, because the UX is pretty decent. But life is too short for fake download buttons. Firefox + umatrix is an OK combination. One thing I realized I wanted when I did this switch was a 'startpage' with common links I use on my phone. Enter <a href="./startpage.html">startpage</a>, yay:
-</p>
-</div>
-</div>
-
-<div id="outline-container-org082e394" class="outline-2">
-<h2 id="org082e394">Audiobooks</h2>
-<div class="outline-text-2" id="text-org082e394">
-<p>
-Somewhere in the past few year or so audiobooks snuck into my life, and I've found I really only listen to them on my phone. Audible is pretty convienent, but sometimes the one credit a month doesn't meet my listening rate (I listen when cleaning the house, going for a walk, taking a piss, you know how it is). It turns out that many of the audiobooks I've listened to are available on youtube (and thus, a youtube-dl call away). And so, <a href="https://play.google.com/store/apps/details?id=mdmt.sabp.free&amp;hl=en_US">Simple Audiobook Player</a> entered my life &#x2013; it has the ability to play local files but with audiobook niceties (like saving your spot, and adjusting the playback speed).
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc6386da" class="outline-2">
-<h2 id="orgc6386da">Termux and bringing it all together</h2>
-<div class="outline-text-2" id="text-orgc6386da">
-<p>
-Alright, here's where things get spicy. Termux is a linux environment for Android. What's cool about it is how flexible it is. I use it as a scriptable share target (<code>~/bin/termux-url-opener</code>) so I can do whatever I want with termux as a sharehole! such as:
-</p>
-
-<ul class="org-ul">
-<li>share a youtube vid with termux -&gt; youtube-dl it on my phone and add it to my audiobook library</li>
-<li>share a url -&gt; add a heading with the url onto <code>capture.org</code> for later review</li>
-<li>share a file -&gt; copy the file as an artifact and add a heading <code>capture.org</code></li>
-</ul>
-
-
-<p>
-Here's a UX example showing url capture for <a href="https://github.com/rxi/fe">https://github.com/rxi/fe</a>:
-</p>
-
-
-<div class="figure">
-<p><a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png" /></a>
-</p>
-</div>
-
-<p>
-See that termux icon at the top right? After tapping it, a note becomes available on my desktop (and on orgzly on my phone):
-</p>
-
-
-<div class="figure">
-<p><a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png" /></a>
-</p>
 </div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-07-mobile-capture-with-orgzly,-termux,-and-syncthing.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
+[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
 </p>
-</div>
-</div>
 </div>
 </div>
 </body>

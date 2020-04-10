@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-09 Thu 07:46 -->
+<!-- 2020-04-10 Fri 15:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>restclient.el + elasticsearch</title>
+<title>reverse ssh tunnels</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,70 +245,95 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">restclient.el + elasticsearch</h1>
+<h1 class="title">reverse ssh tunnels</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">2020-01-23</a> | 2018-04-04 ]
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-04-10</a> | 2020-04-10 ]
 </p>
 </div>
 
 <p>
-<code>restclient.el</code> is an emacs plugin that transforms a buffer into a
-repl-like curl-backed experience (similar to kibana). It has support for
-variables set with arbitrary elisp, turning it into a viable postman
-replacement (with plain text! and versioning!). I find this to be a very
-nice way to store and execute elasticsearch queries, but unfortunately
-you lose autocomplete of ES specific items. Alternatively,
-<a href="https://github.com/dakrone/es-mode">es-mode</a> exists, which is more ES specific but much more featureful.
+You have 3 machines:
 </p>
 
+<ul class="org-ul">
+<li><code>home</code>: some computer you want to access while away</li>
+<li><code>vps</code>: a vps that you have so it can be used to access <code>home</code></li>
+<li><code>laptop</code>: a laptop you want to use to access <code>home</code></li>
+</ul>
+
 <p>
-Here is a starter point showing some of restclients capabilities and how
-one might use it with elasticsearch:
+The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
+</p>
+
+<div id="outline-container-orgb0a663b" class="outline-2">
+<h2 id="orgb0a663b">From <code>home</code></h2>
+<div class="outline-text-2" id="text-orgb0a663b">
+<pre class="example">
+ssh -R 22222:localhost:22 username@vps
+</pre>
+
+<p>
+This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> through the ssh connection. Some mode detail and visualizations may be found <a href="https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work">here</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7478aab" class="outline-2">
+<h2 id="org7478aab">From <code>laptop</code></h2>
+<div class="outline-text-2" id="text-org7478aab">
+<pre class="example">
+# to access home after ssh'ing into vps:
+ssh localhost -p 22222
+
+# to access home in one go from laptop:
+ssh -t vps 'ssh localhost -p 22222'
+
+# to Jump from the laptop (-J is the jumpbox target):
+ssh -J username@vps:22 localhost -p 22222
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6f1ce07" class="outline-2">
+<h2 id="org6f1ce07">TRAMP syntax</h2>
+<div class="outline-text-2" id="text-org6f1ce07">
+<p>
+emacs TRAMP syntax for jumping across a local reference on a different port:
+</p>
+
+<pre class="example">
+find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
+</pre>
+
+<p>
+and then here's a cool trick for providing the connection into to a remote shell through the environment with <code>$TRAMP_INFO</code>: (this will also do the jumping for you!)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-restclient">;; -*- mode: restclient -*-
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">local</span>
-<span style="color: #1E88E5;">:target</span> = <span style="color: #66BB6A;">http://localhost:9200</span>
-<span style="color: #1E88E5;">:cloud-auth</span> = <span style="color: #66BB6A;">""</span>
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">Basic http auth example:</span>
-cloud-auth := (concat <span style="color: #66BB6A;">"Basic "</span> (base64-encode-string <span style="color: #66BB6A;">"username:password"</span>))
-<span style="color: #1E88E5;">:prefix</span> = <span style="color: #66BB6A;">some_prefix</span>
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">multiline variable</span>
-<span style="color: #1E88E5;">:headers</span> = <span style="color: #78909C;">&lt;&lt;</span>
-<span style="color: #26A69A;">content-type</span>: <span style="color: #66BB6A;">application/json</span>
-<span style="color: #26A69A;">Authorization</span>: <span style="color: #66BB6A;">:cloud-auth</span>
-<span style="color: #90A4AE;">#</span>
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">note: there must be a comment to separate request definitions.</span>
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">list indices</span>
-<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/_cat/indices</span>
-<span style="color: #1E88E5;">:headers</span>
-
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">logs sorted by a field</span>
-<span style="color: #7E57C2;">GET</span> <span style="color: #42A5F5;">:target/:prefix_log/_search</span>
-<span style="color: #1E88E5;">:headers</span>
-{
-  <span style="color: #66BB6A;">"sort"</span>: [
-    {
-      <span style="color: #66BB6A;">"timestamp"</span>: {
-        <span style="color: #66BB6A;">"order"</span>: <span style="color: #66BB6A;">"desc"</span>
-      }
-    }
-  ]
-}
+<pre class="src src-emacs-lisp">(<span style="color: #7E57C2;">let*</span> ((tramp-connection-path <span style="color: #66BB6A;">"/ssh:username@vps|ssh:username@localhost#22222"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #66BB6A;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #66BB6A;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+  (shell))
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org2453c34" class="outline-2">
+<h2 id="org2453c34">Other</h2>
+<div class="outline-text-2" id="text-org2453c34">
+<p>
+<a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
+</p>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
+[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-10-reverse-ssh-tunnels.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>

@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-09 Thu 07:46 -->
+<!-- 2020-04-10 Fri 15:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>youtube rip with dwb + youtube-dl</title>
+<title>TLDR org mode + graphviz</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,45 +245,126 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">youtube rip with dwb + youtube-dl</h1>
+<h1 class="title">TLDR org mode + graphviz</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">2019-02-19</a> | 2014-05-24 ]
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">2020-01-15</a> | 2019-05-21 ]
 </p>
 </div>
 
-
-
-
-
-
-
 <p>
-Just finished a snippet that can be used in combination with dwb(or many
-other browsers, probably) to auto download a youtube video and convert
-it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
+Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
+</p>
+
+<div id="outline-container-org4da336f" class="outline-2">
+<h2 id="org4da336f">Org mode</h2>
+<div class="outline-text-2" id="text-org4da336f">
+<p>
+After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
+mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #90A4AE;">#</span><span style="color: #90A4AE;">!/bin/</span><span style="color: #7E57C2;">bash</span><span style="color: #90A4AE;"> </span>
-<span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">dwb: xf</span>
-download\<span style="color: #26A69A;">_dir</span>=/my/media/dir youtube-dl -x -o
-$<span style="color: #26A69A;">download</span><span style="color: #66BB6A;">\_</span>dir<span style="color: #66BB6A;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #26A69A;">DWB</span><span style="color: #66BB6A;">\_</span>URI 
+<pre class="src src-org"><span style="color: #90A4AE;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+digraph {
+    a -&gt; b
+}
+<span style="color: #90A4AE;">#+END_SRC</span>
 </pre>
 </div>
 
 <p>
-It can probably be noted that I had some trouble with the youtube-dl
-naming syntax at first - the '%(title)s' and such needs to be in a
-string or else bash freaks out. Also this will fail without ffmpeg, as
-that is a dep for audio conversion with youtube-dl.
+You can eval the block with <code>C-c C-c</code> and then view it inline in emacs by using
+<code>org-toggle-inline-images</code>.
 </p>
+
+<p>
+These blocks also export! Just like in <a href="https://github.com/neeasade/neeasade.github.io/blob/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org#org-mode">this page itself!</a>
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/posts/dot-example.png" alt="dot-example.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org106dc4c" class="outline-2">
+<h2 id="org106dc4c">The Dot language</h2>
+<div class="outline-text-2" id="text-org106dc4c">
+<p>
+The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
+find that too helpful on it's own, so here are some notes:
+</p>
+
+<p>
+Primitives that matter:
+</p>
+
+<ul class="org-ul">
+<li>a <code>node</code> is a bubble/self contained item that will be connected.</li>
+<li>an <code>edge</code> is the line that connect nodes.</li>
+<li>a <code>graph</code> is a the relation as a whole.</li>
+</ul>
+
+<p>
+A list of attributes that can be applied to these can be found here: <a href="https://www.graphviz.org/doc/info/attrs.html">https://www.graphviz.org/doc/info/attrs.html</a>
+</p>
+
+<p>
+Some nice node options can be seen here: <a href="https://www.graphviz.org/doc/info/shapes.html#polygon">https://www.graphviz.org/doc/info/shapes.html#polygon</a>
+</p>
+
+<p>
+Here is an example that shows how attributes are set and some defaults I like:
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #90A4AE;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+digraph {
+    // config:
+    // TBLR, top bottom left right, the direction of the graph.
+    graph [rankdir=TB];
+    // you can have multiple attrs per statement
+    graph [dpi=150 splines=ortho];
+    edge[decorate=true];
+    node [shape=box];
+
+    // definitions:
+    // nb: setting definitions on their own is useful in larger graphs
+    computer [label=computer];
+    // quotes are optional, I'm using them when there are spaces
+    phone [label="android phone"];
+    router [label=router];
+
+    // record syntax: | for horizontal, {|} for vert
+    internet [shape=record label="{internet|cat pictures}"]
+
+    // relations:
+    computer -&gt; router;
+    phone -&gt; router [label="wifi"];
+    router -&gt; internet [dir=both];
+}
+<span style="color: #90A4AE;">#+END_SRC</span>
+</pre>
+</div>
+
+
+
+<div class="figure">
+<p><img src="./assets/posts/dot-internet.png" alt="dot-internet.png" />
+</p>
+</div>
 
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
+[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>
