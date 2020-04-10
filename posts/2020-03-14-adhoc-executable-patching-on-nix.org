@@ -1,4 +1,5 @@
 #+title: adhoc executable patching on nixos
+#+rss_title: adhoc executable patching on nixos
 
 AKA 'one weird trick' for getting that ELF executable someone just handed you working soon™ (don't depend on this often)
 

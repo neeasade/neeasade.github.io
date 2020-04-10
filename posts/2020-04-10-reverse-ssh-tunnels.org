@@ -1,0 +1,52 @@
+#+title: reverse ssh tunnels
+#+rss_title: reverse ssh tunnels
+
+You have 3 machines:
+
+- ~home~: some computer you want to access while away
+- ~vps~: a vps that you have so it can be used to access ~home~
+- ~laptop~: a laptop you want to use to access ~home~
+
+The problem is that ~home~ is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on ~vps~.
+
+** From ~home~
+
+#+begin_src
+ssh -R 22222:localhost:22 username@vps
+#+end_src
+
+This will set a shim on ~vps:22222~ -> ~home:22~ through the ssh connection. Some mode detail and visualizations may be found [[https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work][here]].
+
+** From ~laptop~
+
+#+begin_src
+# to access home after ssh'ing into vps:
+ssh localhost -p 22222
+
+# to access home in one go from laptop:
+ssh -t vps 'ssh localhost -p 22222'
+
+# to Jump from the laptop (-J is the jumpbox target):
+ssh -J username@vps:22 localhost -p 22222
+#+end_src
+
+** TRAMP syntax
+
+emacs TRAMP syntax for jumping across a local reference on a different port:
+
+#+begin_src
+find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
+#+end_src
+
+and then here's a cool trick for providing the connection into to a remote shell through the environment with ~$TRAMP_INFO~: (this will also do the jumping for you!)
+
+#+begin_src emacs-lisp
+(let* ((tramp-connection-path "/ssh:username@vps|ssh:username@localhost#22222")
+        (default-directory (concat tramp-connection-path "/home/username"))
+        (process-environment (cons (format "TRAMP_INFO=%s" tramp-connection-path) process-environment)))
+  (shell))
+#+end_src
+
+** Other
+
+https://en.wikibooks.org/wiki/OpenSSH > Cookbook

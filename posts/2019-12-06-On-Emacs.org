@@ -1,4 +1,5 @@
 #+title: On Emacs
+#+rss_title: On Emacs
 
 This post is a short love letter to emacs, the text editor that has changed the way I do my daily computing for a few years now. You can find my config [[https://github.com/neeasade/emacs.d][here]].
 
