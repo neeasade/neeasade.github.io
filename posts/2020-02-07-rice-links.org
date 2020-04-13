@@ -18,7 +18,7 @@ Alright, here are links to some people and places in the community.
    - [[https://onodera-punpun.github.io/ricespo/][onodera's ricespo]]
    - [[https://qchat.rizon.net/?channels=code][#code on rizon]]
    - [[https://qchat.rizon.net/?channels=rice][#rice on rizon]]
-   - [[https://danielfgray.gitlab.io/ricedb-ui/#/][#rice db]]
+   - [[https://ricedb.dfg.monster/][#rice db]]
    - [[https://rizonrice.club/Main_Page][#rice's wiki]]
    - [[https://stats.foxbnc.co.uk/history.php?cid=rice&year=2018&month=9][#rice stats page]]
    - [[https://suckless.org/][suckless]]
