@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-12 Sun 10:00 -->
+<!-- 2020-04-29 Wed 06:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -248,7 +248,7 @@ for the JavaScript code in this tag.
 <h1 class="title">reverse ssh tunnels</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-04-12</a> | 2020-04-10 ]
+[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-04-29</a> | 2020-04-10 ]
 </p>
 </div>
 
@@ -266,22 +266,22 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-org0cc99e9" class="outline-2">
-<h2 id="org0cc99e9">From <code>home</code></h2>
-<div class="outline-text-2" id="text-org0cc99e9">
+<div id="outline-container-orgfb34bf9" class="outline-2">
+<h2 id="orgfb34bf9">From <code>home</code></h2>
+<div class="outline-text-2" id="text-orgfb34bf9">
 <pre class="example">
 ssh -R 22222:localhost:22 username@vps
 </pre>
 
 <p>
-This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> through the ssh connection. Some mode detail and visualizations may be found <a href="https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work">here</a>.
+This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> through the ssh connection. Some more detail and visualizations may be found <a href="https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work">here</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge295745" class="outline-2">
-<h2 id="orge295745">From <code>laptop</code></h2>
-<div class="outline-text-2" id="text-orge295745">
+<div id="outline-container-org730d91b" class="outline-2">
+<h2 id="org730d91b">From <code>laptop</code></h2>
+<div class="outline-text-2" id="text-org730d91b">
 <pre class="example">
 # to access home after ssh'ing into vps:
 ssh localhost -p 22222
@@ -295,9 +295,9 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 </div>
 
-<div id="outline-container-org03e63c6" class="outline-2">
-<h2 id="org03e63c6">TRAMP syntax</h2>
-<div class="outline-text-2" id="text-org03e63c6">
+<div id="outline-container-org47ee3cd" class="outline-2">
+<h2 id="org47ee3cd">TRAMP syntax</h2>
+<div class="outline-text-2" id="text-org47ee3cd">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
 </p>
@@ -311,18 +311,18 @@ and then here's a cool trick for providing the connection into to a remote shell
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #7E57C2;">let*</span> ((tramp-connection-path <span style="color: #66BB6A;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #66BB6A;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #66BB6A;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #73777D;">let*</span> ((tramp-connection-path <span style="color: #008FAC;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #008FAC;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #008FAC;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb0dad21" class="outline-2">
-<h2 id="orgb0dad21">Other</h2>
-<div class="outline-text-2" id="text-orgb0dad21">
+<div id="outline-container-orga2003cd" class="outline-2">
+<h2 id="orga2003cd">Other</h2>
+<div class="outline-text-2" id="text-orga2003cd">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
 </p>

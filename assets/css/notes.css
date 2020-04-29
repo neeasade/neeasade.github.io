@@ -26,7 +26,8 @@ img
     display: block;
     margin: 10px auto 10px auto;
     padding: 0 16px 16px 16px;
-    max-width: 1366px;
+    /* padding: 0 0.2em 0.2em 0.2em; */
+    max-width: 60em;
 
     background-color: #f7f7f7;
     border: 1px solid #B0A8A6;

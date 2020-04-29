@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-12 Sun 10:00 -->
+<!-- 2020-04-29 Wed 06:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>adhoc executable patching on nixos</title>
@@ -261,14 +261,14 @@ Create a <code>shell.nix</code> file that looks like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #7E57C2;">let</span>
-  <span style="color: #26A69A;">pkgs</span> = <span style="color: #0097A7;">import</span> <span style="color: #5C6BC0;">&lt;nixpkgs&gt;</span> {};
-<span style="color: #7E57C2;">in</span> pkgs.mkShell {
-  <span style="color: #26A69A;">nativeBuildInputs</span> =
-    (<span style="color: #7E57C2;">with</span> pkgs; [
+<pre class="src src-nix"><span style="color: #73777D;">let</span>
+  <span style="color: #007BD9;">pkgs</span> = <span style="color: #73777D;">import</span> <span style="color: #73777D;">&lt;nixpkgs&gt;</span> {};
+<span style="color: #73777D;">in</span> pkgs.mkShell {
+  <span style="color: #007BD9;">nativeBuildInputs</span> =
+    (<span style="color: #73777D;">with</span> pkgs; [
       gcc
 
-      <span style="color: #90A4AE;"># example libraries you might want:</span>
+      <span style="color: #A7ABB2;"># example libraries you might want:</span>
       zlib
       SDL2
     ]);
@@ -282,7 +282,7 @@ Launch the nix-shell, patch the linker so you can call the executable and see wh
 
 <div class="org-src-container">
 <pre class="src src-sh">$ nix-shell shell.nix
-$ patchelf --set-interpreter <span style="color: #66BB6A;">"$(</span><span style="color: #ff00ff;">cat</span><span style="color: #66BB6A;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
+$ patchelf --set-interpreter <span style="color: #008FAC;">"$(</span><span style="color: #ff00ff;">cat</span><span style="color: #008FAC;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
 </pre>
 </div>
 
@@ -302,9 +302,9 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 
 <div class="org-src-container">
 <pre class="src src-sh">$ nix-shell ./shell.nix
-$ <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
-$ <span style="color: #26A69A;">new_rpath</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #66BB6A;">"$NIX_LDFLAGS"</span> | tr <span style="color: #66BB6A;">' '</span> $<span style="color: #66BB6A;">'\n'</span> | grep <span style="color: #66BB6A;">"^-L"</span> | sed -E <span style="color: #66BB6A;">'s/^-L/:/'</span> | tr -d $<span style="color: #66BB6A;">'\n'</span>)
-$ patchelf --set-rpath <span style="color: #66BB6A;">"$new_rpath"</span> /path/to/executable
+$ <span style="color: #A7ABB2;"># </span><span style="color: #A7ABB2;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
+$ <span style="color: #007BD9;">new_rpath</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #008FAC;">"$NIX_LDFLAGS"</span> | tr <span style="color: #008FAC;">' '</span> $<span style="color: #008FAC;">'\n'</span> | grep <span style="color: #008FAC;">"^-L"</span> | sed -E <span style="color: #008FAC;">'s/^-L/:/'</span> | tr -d $<span style="color: #008FAC;">'\n'</span>)
+$ patchelf --set-rpath <span style="color: #008FAC;">"$new_rpath"</span> /path/to/executable
 </pre>
 </div>
 
