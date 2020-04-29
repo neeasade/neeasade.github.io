@@ -31,13 +31,13 @@ I use the BlackPlayer music player, which lets you choose what folders to search
   music_dir="$HOME/Music"
 
   IFS=$'\n'
-  for f in $(mpc playlist -f '%file%' | shuf); do
+  while read -r f
       collection_size=$(du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//')
       if [ $collection_size -lt $size_limit ]; then
 	  echo cp "${music_dir}/$f" "$sync_music_dir"
 	  cp "${music_dir}/$f" "$sync_music_dir"
       fi
-  done
+  done <(mpc playlist -f '%file%' | shuf)
 #+end_src
 
 ** Browsing the internet
@@ -53,8 +53,8 @@ Somewhere in the past few year or so audiobooks snuck into my life, and I've fou
 Alright, here's where things get spicy. Termux is a linux environment for Android. What's cool about it is how flexible it is. I use it as a scriptable share target (=~/bin/termux-url-opener=) so I can do whatever I want with termux as a sharehole! such as:
 
 - share a youtube vid with termux -> youtube-dl it on my phone and add it to my audiobook library
-- share a url -> add a heading with the url onto =capture.org= for later review
-- share a file -> copy the file as an artifact and add a heading =capture.org=
+- share a url -> add a heading with the url in =capture.org= for later review
+- share a file -> copy the file to a shared folder and capturing linking it within =capture.org=
 
 
 Here's a UX example showing url capture for https://github.com/rxi/fe:

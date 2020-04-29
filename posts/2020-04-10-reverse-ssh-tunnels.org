@@ -15,7 +15,7 @@ The problem is that ~home~ is behind some network you don't control. You can use
 ssh -R 22222:localhost:22 username@vps
 #+end_src
 
-This will set a shim on ~vps:22222~ -> ~home:22~ through the ssh connection. Some mode detail and visualizations may be found [[https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work][here]].
+This will set a shim on ~vps:22222~ -> ~home:22~ through the ssh connection. Some more detail and visualizations may be found [[https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work][here]].
 
 ** From ~laptop~
 
