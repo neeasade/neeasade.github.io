@@ -1283,7 +1283,8 @@ fieldset {
  */
 
 body {
-	color: #595959;
+	/* color: #595959; */
+	color: #5a5e65;
 }
 
 
@@ -1295,7 +1296,8 @@ a {
 
 a:focus,
 a:hover {
-	color: #595959;
+	/* color: #595959; */
+	color: #5a5e65;
 }
 
 
@@ -1311,7 +1313,7 @@ code {
 
 
 pre {
-	border-left: 0.3rem solid #5680cc;
+	/* border-left: 0.1rem solid #5680cc; */
 }
 
 

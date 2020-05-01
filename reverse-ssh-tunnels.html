@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-29 Wed 06:45 -->
+<!-- 2020-05-01 Fri 09:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -248,7 +248,7 @@ for the JavaScript code in this tag.
 <h1 class="title">reverse ssh tunnels</h1>
 <div class="org-center">
 <p>
-[ <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-04-29</a> | 2020-04-10 ]
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-04-29</a> • 2020-04-10
 </p>
 </div>
 
@@ -266,9 +266,9 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-orgfb34bf9" class="outline-2">
-<h2 id="orgfb34bf9">From <code>home</code></h2>
-<div class="outline-text-2" id="text-orgfb34bf9">
+<div id="outline-container-org8ee35d7" class="outline-2">
+<h2 id="org8ee35d7">From <code>home</code></h2>
+<div class="outline-text-2" id="text-org8ee35d7">
 <pre class="example">
 ssh -R 22222:localhost:22 username@vps
 </pre>
@@ -279,9 +279,9 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 
-<div id="outline-container-org730d91b" class="outline-2">
-<h2 id="org730d91b">From <code>laptop</code></h2>
-<div class="outline-text-2" id="text-org730d91b">
+<div id="outline-container-org39221f1" class="outline-2">
+<h2 id="org39221f1">From <code>laptop</code></h2>
+<div class="outline-text-2" id="text-org39221f1">
 <pre class="example">
 # to access home after ssh'ing into vps:
 ssh localhost -p 22222
@@ -295,9 +295,9 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 </div>
 
-<div id="outline-container-org47ee3cd" class="outline-2">
-<h2 id="org47ee3cd">TRAMP syntax</h2>
-<div class="outline-text-2" id="text-org47ee3cd">
+<div id="outline-container-orga53c59a" class="outline-2">
+<h2 id="orga53c59a">TRAMP syntax</h2>
+<div class="outline-text-2" id="text-orga53c59a">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
 </p>
@@ -320,9 +320,9 @@ and then here's a cool trick for providing the connection into to a remote shell
 </div>
 </div>
 
-<div id="outline-container-orga2003cd" class="outline-2">
-<h2 id="orga2003cd">Other</h2>
-<div class="outline-text-2" id="text-orga2003cd">
+<div id="outline-container-org1f29d73" class="outline-2">
+<h2 id="org1f29d73">Other</h2>
+<div class="outline-text-2" id="text-org1f29d73">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
 </p>
@@ -330,7 +330,7 @@ and then here's a cool trick for providing the connection into to a remote shell
 
 <div class="org-center">
 <p>
-[ <a href="./index.html">Index</a> | <a href="https://neeasade.net">Root</a> | <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-10-reverse-ssh-tunnels.org">Source</a> | <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> ]
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-10-reverse-ssh-tunnels.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 </div>
