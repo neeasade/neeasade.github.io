@@ -2,7 +2,7 @@
 
 # note to self: the reason you aren't using ns/blog-make-nav-strip here is the external 'Sort-by'
 #+BEGIN_CENTER
-Sort by [ edit date ¦ [[./index_published.html][published date]] ]
+Sort by [ edit date • [[./index_published.html][published date]] ]
 #+END_CENTER
 
 #+BEGIN_SRC elisp :results raw :exports results
