@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes]]></description>
   <language>en</language>
-  <pubDate>Sat, 02 May 2020 08:29:54 -0500</pubDate>
-  <lastBuildDate>Sat, 02 May 2020 08:29:54 -0500</lastBuildDate>
+  <pubDate>Sat, 02 May 2020 11:32:16 -0500</pubDate>
+  <lastBuildDate>Sat, 02 May 2020 11:32:16 -0500</lastBuildDate>
   <generator>Emacs 27.0 Org-mode 9.1.14</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>May Days</title>
+    <link>https://notes.neeasade.net/blog-meta.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/blog-meta.html</guid>
+    <pubDate>Sat, 02 May 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>reverse ssh tunnels</title>
     <link>https://notes.neeasade.net/reverse-ssh-tunnels.html</link>
