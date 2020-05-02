@@ -17,3 +17,13 @@ I think here I'll just layout some of my goals for this site even existing:
 - writing can help clarify thoughts, and take things from "fuzzy" to concrete
 - feel 𝙰𝙴𝚂𝚃𝙷𝙴𝚃𝙸𝙲/match some rice looks
 
+** High level May goals
+
+- conquer the 'hardcore' section here at >80wpm https://10fastfingers.com/top1000 (maybe the goal should be 90wpm? the star jump is from 80 to 100)
+- write more (wowie)
+- keep working out (been doing so every other day)
+- "get good" at (ongoing/vague currently -- I've got some specific projects noted down in my [[https://orgmode.org/][org notes]])
+  - clojure
+  - nix
+  - org scheduling + agenda modes (related: [[https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing.html][my mobile org setup]])
+- start searching for a job? part of this ties into the feeling of "getting good" at the above
