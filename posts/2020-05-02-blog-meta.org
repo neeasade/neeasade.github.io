@@ -1,0 +1,19 @@
+#+title: May Days
+#+rss_title: May Days
+
+{{{image(may.png)}}}
+
+There's a nice post/site/idea circulating around, [[https://100daystooffload.com/][100daystooffload]], which encourages people with personal blogs to post once a day for 100 days with low pressure requirements. This notion really vibed with me, I think because I've spent a fair amount of time tweaking this site, and not nearly as much time actually putting stuff out there. So... consider this the first post of that. I plan to [[https://mastodon.social/web/accounts/405380][toot]] these posts to join in on the feed of other bloggers doing the same thing.
+
+** Site Meta
+
+I think here I'll just layout some of my goals for this site even existing:
+
+- reference material for myself (and potentially have my stuff corrected by others)
+- reference material for others (it should be easy to share to an anchor link)
+- "wiki like" content, where it's not a big deal if things are edited (this is why every post has a link to it's git history and there are different sort orders on the front page of the site)
+- selectively publish posts to an RSS feed
+- high integration with my environment (emacs) such that my editing experience in posts leaks to other areas of my workflow
+- writing can help clarify thoughts, and take things from "fuzzy" to concrete
+- feel 𝙰𝙴𝚂𝚃𝙷𝙴𝚃𝙸𝙲/match some rice looks
+
