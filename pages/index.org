@@ -1,4 +1,4 @@
-#+title: <(^^,)>
+#+title: Notes
 
 # note to self: the reason you aren't using ns/blog-make-nav-strip here is the external 'Sort-by'
 #+BEGIN_CENTER

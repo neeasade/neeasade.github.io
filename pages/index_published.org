@@ -1,4 +1,4 @@
-#+title: <(⹁^^)>
+#+title: Notes
 
 #+BEGIN_CENTER
 Sort by [ [[./index.html][edit date]] • published date ]
