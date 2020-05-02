@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-02 Sat 12:22 -->
+<!-- 2020-05-02 Sat 12:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
@@ -260,18 +260,18 @@ TL;DR Syncthing + Termux + Orgzly
 Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual &#x2013; this is motivated by my recent re-interest in capturing things in <a href="https://orgmode.org/">org-mode</a>. Here I will cover the tools and apps I've setup to try and get a 'blended' mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it's worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
 </p>
 
-<div id="outline-container-org1dba728" class="outline-2">
-<h2 id="org1dba728">Syncthing</h2>
-<div class="outline-text-2" id="text-org1dba728">
+<div id="outline-container-orge4d4a16" class="outline-2">
+<h2 id="orge4d4a16">Syncthing</h2>
+<div class="outline-text-2" id="text-orge4d4a16">
 <p>
 <a href="https://syncthing.net/">Syncthing</a> is a program for syncing files and folders between devices. It is speedy enough for my use, and nixos has defined service files available for it so it's pretty easy to get something that "just works" between devices. This is key to the 'blended' feeling I alluded to above because it allows easy sending of data back and forth between my phone and computers (and the interface is pretty slick!). You can get away with only syncing between your devices, but I've opted to also have a vps running a syncthing service so that things are pretty nice.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgbc1bfd1" class="outline-2">
-<h2 id="orgbc1bfd1">Orgzly</h2>
-<div class="outline-text-2" id="text-orgbc1bfd1">
+<div id="outline-container-orgc92b0a5" class="outline-2">
+<h2 id="orgc92b0a5">Orgzly</h2>
+<div class="outline-text-2" id="text-orgc92b0a5">
 <p>
 <a href="http://www.orgzly.com/">Orgzly</a> markets itself as an "outliner for notes and todo lists", but the kicker is that is uses org files as it's store. This means that orgzly headlines are org headlines, with everything that implies (agenda, scheduling, priority, keywords, and so on). I've setup a <code>capture.org</code> file in a syncthing folder on my desktop and phone, allowing me to capture notes on the go and then refile them back when I'm on my desktop computer. Now that's cool! here's a brief glance capturing a note on the phone and it's org mode counterpart:
 </p>
@@ -296,9 +296,9 @@ turns into:
 </div>
 </div>
 
-<div id="outline-container-org891ed06" class="outline-2">
-<h2 id="org891ed06">Music</h2>
-<div class="outline-text-2" id="text-org891ed06">
+<div id="outline-container-orgbd556ae" class="outline-2">
+<h2 id="orgbd556ae">Music</h2>
+<div class="outline-text-2" id="text-orgbd556ae">
 <p>
 I use the BlackPlayer music player, which lets you choose what folders to search for music from. I'm sure you can see where this is going&#x2026; with MPD on my desktop it's really easy to do something like <code>mpc playlist -f '%file%' | shuf | head -n 100 | fd cp $music_dir/{} $syncthing_dir</code> and wham! A smattering of my music collection is now available for me to enjoy on my phone! Of course, the reality is a little more complicated. I want to limit the size of the music collection that ends up on my phone. What actually ends up happening is something like:
 </p>
@@ -322,27 +322,27 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </div>
 </div>
 
-<div id="outline-container-orgba77702" class="outline-2">
-<h2 id="orgba77702">Browsing the internet</h2>
-<div class="outline-text-2" id="text-orgba77702">
+<div id="outline-container-org071ad4e" class="outline-2">
+<h2 id="org071ad4e">Browsing the internet</h2>
+<div class="outline-text-2" id="text-org071ad4e">
 <p>
 Chome on android doesn't have a umatrix option. This sucks, because the UX is pretty decent. But life is too short for fake download buttons. Firefox + umatrix is an OK combination. One thing I realized I wanted when I did this switch was a 'startpage' with common links I use on my phone. Enter <a href="./startpage.html">startpage</a>, yay:
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5c63121" class="outline-2">
-<h2 id="org5c63121">Audiobooks</h2>
-<div class="outline-text-2" id="text-org5c63121">
+<div id="outline-container-org48b9275" class="outline-2">
+<h2 id="org48b9275">Audiobooks</h2>
+<div class="outline-text-2" id="text-org48b9275">
 <p>
 Somewhere in the past few year or so audiobooks snuck into my life, and I've found I really only listen to them on my phone. Audible is pretty convienent, but sometimes the one credit a month doesn't meet my listening rate (I listen when cleaning the house, going for a walk, taking a piss, you know how it is). It turns out that many of the audiobooks I've listened to are available on youtube (and thus, a youtube-dl call away). And so, <a href="https://play.google.com/store/apps/details?id=mdmt.sabp.free&amp;hl=en_US">Simple Audiobook Player</a> entered my life &#x2013; it has the ability to play local files but with audiobook niceties (like saving your spot, and adjusting the playback speed).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org34a7036" class="outline-2">
-<h2 id="org34a7036">Termux and bringing it all together</h2>
-<div class="outline-text-2" id="text-org34a7036">
+<div id="outline-container-orgbd43ea3" class="outline-2">
+<h2 id="orgbd43ea3">Termux and bringing it all together</h2>
+<div class="outline-text-2" id="text-orgbd43ea3">
 <p>
 Alright, here's where things get spicy. Termux is a linux environment for Android. What's cool about it is how flexible it is. I use it as a scriptable share target (<code>~/bin/termux-url-opener</code>) so I can do whatever I want with termux as a sharehole! such as:
 </p>
