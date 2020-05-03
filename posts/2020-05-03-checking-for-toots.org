@@ -37,7 +37,7 @@ Note: There is the ability to clear all notifications, but then you also lose up
 
 ** Rolling my own
 
-Alright, I need 2 things -- a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). We need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well -- awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
+Alright, I need 2 things -- a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well -- awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 
 #+begin_src bash
 toot notifications | awk 'BEGIN { RS="\n─+\n" }; {print $0}'
@@ -63,4 +63,4 @@ From there it's a short trip to have a panel button, you just call the script!
 
 {{{image(toot_panel.png)}}}
 
-With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, we're all set for some distration free tootin' without the FOMO of mentions.
+With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, I'm all set for some distration free tootin' without the FOMO of mentions.
