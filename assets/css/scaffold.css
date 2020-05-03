@@ -1331,7 +1331,8 @@ pre > code {
 
 hr {
 	border: 0;
-	border-top: 0.1rem solid #f4f5f6;
+	/* border-top: 0.1rem solid #9A9EBB; */
+	border-top: 0.1rem solid #c2c6e3;
 }
 
 

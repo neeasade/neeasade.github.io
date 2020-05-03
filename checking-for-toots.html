@@ -6,7 +6,7 @@
 <!-- 2020-05-03 Sun 17:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GDB Registers</title>
+<title>checking for toots</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,114 +245,106 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">GDB Registers</h1>
+<h1 class="title">checking for toots</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-02-20-Registers-with-GDB.org">2019-02-19</a> • 2015-02-20
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-03-checking-for-toots.org">2020-05-03</a> • 2020-05-03
 </p>
 </div>
 
-
-
-
-
-
-
 <p>
-This will serve as a brief guide on setting up GDB to step through
-assembly code and witness register changes on the fly.
-</p>
-
-<div id="outline-container-org51a1ae5" class="outline-2">
-<h2 id="org51a1ae5">Compile the program to debug</h2>
-<div class="outline-text-2" id="text-org51a1ae5">
-<p>
-I'm assuming here that you have the source of the C file that you wish
-to step through(this post assumes you are trying to learn about
-registers for educational purposes).
-</p>
-
-<p>
-Create a Makefile for your architecture(s) of choice. Here is an example
-of a Makefile for 3 of them:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-Makefile">all: 32bit 64bit 64bitInLine
-
-32bit: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
-MyProgram.c -o MyProgram
-
-64bit: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
-
-64bitInLine: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
-
-</pre>
-</div>
-
-<p>
-(Note for Adam: notice I only removed the -S flag and changed the output
-name)
-</p>
-
-<p>
-This should result in 3 output files with different assembly associated
-with each.
-</p>
-
-<p>
-#GDB
-</p>
-
-<p>
-The GNU Project Debugger(GDB) is a fantastic tool that I am still
-learning about. If you have no idea what it is, it is a fairly powerful
-utility for debugging primarily c/c++ as I currently understand it. I
-recommend this <a href="http://beej.us/guide/bggdb/">crash course guide</a> for a
-quick intro. One of it's many features is the ability to step through
-and view registers as they change(the purpose of this post).
-</p>
-
-<p>
-So, to run GDB on a program made for this purpose you can use: {%
-highlight bash linenos %} $gdb MyProgram
-#+end<sub>src</sub>
-</p>
-
-<p>
-once at the GDB prompt, set a breakpoint at the main() function and then
-run the program - this will cause the breakpoint to instantly be hit.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash">(gdb)<span style="color: #73777D;">break</span> main (gdb)run
-</pre>
-</div>
-
-<p>
-The command we can use from here to step through the program by assembly
-line is 'si'(step instruction). However, we would not be able to see the
-values of registers as they change on the fly - this is accomplished
-with a tui view. You can activate the register tui layout with the
-command <code>layout reg</code>, which will result in something like this:
+The mastodon cli client <code>toot</code> is pretty nice for tootin'. If I want to post something I can just <code>toot post "some really unique thought"</code> and BAM it's out there on the internet forever. It even supports media &#x2013; EG <code>echo 'can I pipe stuff into toot?' | toot post -m $(shot)</code> and I can put adhoc screenshots in there:
 </p>
 
 
 <div class="figure">
-<p><img src="http://i.imgur.com/SZkGALi.png" alt="SZkGALi.png" />
+<p><a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png" /></a>
 </p>
-<p><span class="figure-number">Figure 1: </span>GDB</p>
 </div>
 
 <p>
-And now you can step through each instruction using 'si'. As registers
-change value, they will be highlighted in the top window. Have fun!
+This is all well and good, but then I'm blind to when replies to toots happen (and with FOMO, I end up checking more often than I have too). Luckily, the toot cli client has a way to check for notifications. Unluckily, the toot nofications don't come through in a very structured way, and there's no way to get "unseen" notifications, it just sends everything (or well, some last N notifications):
+</p>
+
+<pre class="example">
+$ toot notifications
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ @friend@linuxrocks.online mentioned you in
+@friend@linuxrocks.online                                                           2020-04-28 16:22
+
+@neeasade
+Hidden windows as in minimized? I thought, bspwm doesn't have that...?
+
+ID 104077129364588593  ↲ In reply to 104076791236950072
+────────────────────────────────────────────────────────────────────────────────────────────────────
+⁉️ Lazr ⁉️ @lazr@mstdn.io reblogged your status
+kitten mittens @neeasade                                                            2020-04-28 14:56
+
+bspwm breaks a little on with lots of hidden windows (see the smooshed boi in the gap)
+
+Media:
+https://mastodon.social/media/H7EiE9_nJzLtHDbPRxs
+
+ID 104076791236950072
+────────────────────────────────────────────────────────────────────────────────────────────────────
+hazel :blobcatcomfy: @hazel@is.nota.live now follows you
+────────────────────────────────────────────────────────────────────────────────────────────────────
+...
+</pre>
+
+<p>
+Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I'd like to preserve that.
+</p>
+
+<div id="outline-container-orgca1192d" class="outline-2">
+<h2 id="orgca1192d">Rolling my own</h2>
+<div class="outline-text-2" id="text-orgca1192d">
+<p>
+Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). We need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">toot notifications | awk <span style="color: #008FAC;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+</pre>
+</div>
+
+<p>
+And with diff, I can check if anything has changed (provided I save the seen notifications output somewhere). First I isolate to just the new content, and then I count how many of the new notifications contain "mentioned you" (I only have FOMO about conversation):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #A7ABB2;">#</span><span style="color: #A7ABB2;">!/usr/bin/</span><span style="color: #73777D;">env</span><span style="color: #A7ABB2;"> bash</span>
+<span style="color: #A7ABB2;"># </span><span style="color: #A7ABB2;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #A7ABB2;"># </span><span style="color: #A7ABB2;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+
+<span style="color: #007BD9;">count</span>=0
+<span style="color: #73777D;">if</span> ! <span style="color: #007BD9;">diff</span>=$(<span style="color: #ff00ff;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #73777D;">then</span>
+    <span style="color: #007BD9;">new_content</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #008FAC;">"$diff"</span> | grep <span style="color: #008FAC;">'^&lt;'</span> | sed <span style="color: #008FAC;">'s/&lt; //'</span>)
+    <span style="color: #007BD9;">count</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #008FAC;">"$new_content"</span> | awk <span style="color: #008FAC;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #73777D;">fi</span>
+
+<span style="color: #73777D;">echo</span> <span style="color: #008FAC;">"toot mentions: $count"</span>
+</pre>
+</div>
+
+<p>
+From there it's a short trip to have a panel button, you just call the script!
+</p>
+
+
+<div class="figure">
+<p><a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png" /></a>
+</p>
+</div>
+
+<p>
+With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, we're all set for some distration free tootin' without the FOMO of mentions.
 </p>
 
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2015-02-20-Registers-with-GDB.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-03-checking-for-toots.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 </div>
