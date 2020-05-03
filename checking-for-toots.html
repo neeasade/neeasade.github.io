@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-03 Sun 17:21 -->
+<!-- 2020-05-03 Sun 18:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -296,11 +296,11 @@ hazel :blobcatcomfy: @hazel@is.nota.live now follows you
 Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I'd like to preserve that.
 </p>
 
-<div id="outline-container-orgca1192d" class="outline-2">
-<h2 id="orgca1192d">Rolling my own</h2>
-<div class="outline-text-2" id="text-orgca1192d">
+<div id="outline-container-org38d4661" class="outline-2">
+<h2 id="org38d4661">Rolling my own</h2>
+<div class="outline-text-2" id="text-org38d4661">
 <p>
-Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). We need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
+Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 </p>
 
 <div class="org-src-container">
@@ -338,7 +338,7 @@ From there it's a short trip to have a panel button, you just call the script!
 </div>
 
 <p>
-With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, we're all set for some distration free tootin' without the FOMO of mentions.
+With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, I'm all set for some distration free tootin' without the FOMO of mentions.
 </p>
 
 

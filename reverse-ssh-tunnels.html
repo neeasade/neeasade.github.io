@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-03 Sun 17:21 -->
+<!-- 2020-05-03 Sun 18:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -266,9 +266,9 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-org088aa1b" class="outline-2">
-<h2 id="org088aa1b">From <code>home</code></h2>
-<div class="outline-text-2" id="text-org088aa1b">
+<div id="outline-container-org79083e9" class="outline-2">
+<h2 id="org79083e9">From <code>home</code></h2>
+<div class="outline-text-2" id="text-org79083e9">
 <pre class="example">
 ssh -R 22222:localhost:22 username@vps
 </pre>
@@ -279,9 +279,9 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 
-<div id="outline-container-org8bb0180" class="outline-2">
-<h2 id="org8bb0180">From <code>laptop</code></h2>
-<div class="outline-text-2" id="text-org8bb0180">
+<div id="outline-container-org26e3b02" class="outline-2">
+<h2 id="org26e3b02">From <code>laptop</code></h2>
+<div class="outline-text-2" id="text-org26e3b02">
 <pre class="example">
 # to access home after ssh'ing into vps:
 ssh localhost -p 22222
@@ -295,9 +295,9 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 </div>
 
-<div id="outline-container-orgbbd6927" class="outline-2">
-<h2 id="orgbbd6927">TRAMP syntax</h2>
-<div class="outline-text-2" id="text-orgbbd6927">
+<div id="outline-container-orgd28eddc" class="outline-2">
+<h2 id="orgd28eddc">TRAMP syntax</h2>
+<div class="outline-text-2" id="text-orgd28eddc">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
 </p>
@@ -320,9 +320,9 @@ and then here's a cool trick for providing the connection into to a remote shell
 </div>
 </div>
 
-<div id="outline-container-org4b5869b" class="outline-2">
-<h2 id="org4b5869b">Other</h2>
-<div class="outline-text-2" id="text-org4b5869b">
+<div id="outline-container-org48cd82b" class="outline-2">
+<h2 id="org48cd82b">Other</h2>
+<div class="outline-text-2" id="text-org48cd82b">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
 </p>
