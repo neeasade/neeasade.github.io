@@ -16,6 +16,8 @@ I think here I'll just layout some of my goals for this site even existing:
 - high integration with my environment (emacs) such that my editing experience in posts leaks to other areas of my workflow
 - writing can help clarify thoughts, and take things from "fuzzy" to concrete
 - feel 𝙰𝙴𝚂𝚃𝙷𝙴𝚃𝙸𝙲/match some rice looks
+- feel OK "offloading" here/nonsense posts as well
+- copy/share stuff I want to preserve (like nice poems or something)
 
 ** High level May goals
 

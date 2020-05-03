@@ -1,0 +1,66 @@
+#+title: checking for toots
+#+rss_title: checking for toots
+
+The mastodon cli client ~toot~ is pretty nice for tootin'. If I want to post something I can just ~toot post "some really unique thought"~ and BAM it's out there on the internet forever. It even supports media -- EG ~echo 'can I pipe stuff into toot?' | toot post -m $(shot)~ and I can put adhoc screenshots in there:
+
+{{{image(toot.png)}}}
+
+This is all well and good, but then I'm blind to when replies to toots happen (and with FOMO, I end up checking more often than I have too). Luckily, the toot cli client has a way to check for notifications. Unluckily, the toot nofications don't come through in a very structured way, and there's no way to get "unseen" notifications, it just sends everything (or well, some last N notifications):
+
+#+begin_src
+$ toot notifications
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ @friend@linuxrocks.online mentioned you in
+@friend@linuxrocks.online                                                           2020-04-28 16:22
+
+@neeasade
+Hidden windows as in minimized? I thought, bspwm doesn't have that...?
+
+ID 104077129364588593  ↲ In reply to 104076791236950072
+────────────────────────────────────────────────────────────────────────────────────────────────────
+⁉️ Lazr ⁉️ @lazr@mstdn.io reblogged your status
+kitten mittens @neeasade                                                            2020-04-28 14:56
+
+bspwm breaks a little on with lots of hidden windows (see the smooshed boi in the gap)
+
+Media:
+https://mastodon.social/media/H7EiE9_nJzLtHDbPRxs
+
+ID 104076791236950072
+────────────────────────────────────────────────────────────────────────────────────────────────────
+hazel :blobcatcomfy: @hazel@is.nota.live now follows you
+────────────────────────────────────────────────────────────────────────────────────────────────────
+...
+#+end_src
+
+Note: There is the ability to clear all notifications, but then you also lose upstream history -- I'd like to preserve that.
+
+** Rolling my own
+
+Alright, I need 2 things -- a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). We need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well -- awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
+
+#+begin_src bash
+toot notifications | awk 'BEGIN { RS="\n─+\n" }; {print $0}'
+#+end_src
+
+And with diff, I can check if anything has changed (provided I save the seen notifications output somewhere). First I isolate to just the new content, and then I count how many of the new notifications contain "mentioned you" (I only have FOMO about conversation):
+
+#+begin_src bash
+#!/usr/bin/env bash
+# to save the 'seen' state (will mapped to a click on the panel):
+# toot notifications >/tmp/toot-notifications.txt
+
+count=0
+if ! diff=$(diff <(toot notifications) <(cat /tmp/toot-notifications)); then
+    new_content=$(echo "$diff" | grep '^<' | sed 's/< //')
+    count=$(echo "$new_content" | awk 'BEGIN { RS="\n─+\n" }; /mentioned you/{print "mentioned"}' | wc -l)
+fi
+
+echo "toot mentions: $count"
+#+end_src
+
+From there it's a short trip to have a panel button, you just call the script!
+
+{{{image(toot_panel.png)}}}
+
+With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, we're all set for some distration free tootin' without the FOMO of mentions.
