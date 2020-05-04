@@ -1,0 +1,45 @@
+# generate a bunch of headings like the reference headline, which can then be exported to rss
+
+#+TITLE: neeasade's notes (full feed)
+#+DESCRIPTION: neeasade's notes (full feed)
+#+HTML_LINK_HOME: https://notes.neeasade.net/
+#+RSS_FEED_URL: https://notes.neeasade.net/rss_full.xml
+# #+RSS_IMAGE_URL: http://url/to/some/icon.png
+
+# rss format reference:
+# * wow what a headline
+#   :PROPERTIES:
+#   :ID:       wow-what-a-headline
+#   :PUBDATE:  <2020-03-16 Mon 18:57>
+#   :RSS_PERMALINK:  https://full-link-to-post.html
+#   :END:
+
+#+BEGIN_SRC elisp :results raw :exports results
+  (->>
+   (if (boundp 'org-post-metas)
+       org-post-metas
+     (mapcar 'ns/blog-file-to-meta (f-entries ns/blog-posts-dir (fn (s-ends-with-p ".org" <>)))))
+
+   (-filter (fn (not (ht-get <> :is-draft))))
+   (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
+   ;; sorting order
+   ((lambda (items)
+      (sort items (fn (string-lessp
+		       (ht-get <1> :publish-date)
+		       (ht-get <2> :publish-date)
+		       )))))
+   (mapcar
+    (fn (format (s-join "\n" '("* %s"
+			       ":PROPERTIES:"
+			       ":ID: %s"
+			       ":PUBDATE: %s"
+			       ":RSS_PERMALINK: %s"
+			       ":END:"))
+		(ht-get <> :rss-title)
+		(ht-get <> :rss-title)
+		(ht-get <> :publish-date)
+		(f-filename (ht-get <> :html-dest))
+		)))
+   reverse
+   (s-join "\n"))
+#+END_SRC
