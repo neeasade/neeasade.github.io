@@ -12,6 +12,11 @@ li {
     margin-left: 2em !important;
 }
 
+/* hide org mode figure notes on image captions */
+.figure-number {
+    display: none;
+}
+
 img
 {
     display:block;
