@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+     xmlns:georss="http://www.georss.org/georss"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:media="http://search.yahoo.com/mrss/"><channel>
+  <title>neeasade's notes (full feed)</title>
+  <atom:link href="https://notes.neeasade.net/rss_full.xml" rel="self" type="application/rss+xml" />
+  <link>https://notes.neeasade.net/</link>
+  <description><![CDATA[neeasade's notes (full feed)]]></description>
+  <language>en</language>
+  <pubDate>Mon, 04 May 2020 15:04:36 -0500</pubDate>
+  <lastBuildDate>Mon, 04 May 2020 15:04:36 -0500</lastBuildDate>
+  <generator>Emacs 27.0 Org-mode 9.1.14</generator>
+  <webMaster>neeasade@erasmus (nil)</webMaster>
+  <image>
+    <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
+    <title>neeasade's notes (full feed)</title>
+    <link>https://notes.neeasade.net/</link>
+  </image>
+
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/colemak-dh-mod.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/colemak-dh-mod.html</guid>
+    <pubDate>Mon, 04 May 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>checking for toots</title>
+    <link>https://notes.neeasade.net/checking-for-toots.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/checking-for-toots.html</guid>
+    <pubDate>Sun, 03 May 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>May Days</title>
+    <link>https://notes.neeasade.net/blog-meta.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/blog-meta.html</guid>
+    <pubDate>Sat, 02 May 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>reverse ssh tunnels</title>
+    <link>https://notes.neeasade.net/reverse-ssh-tunnels.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/reverse-ssh-tunnels.html</guid>
+    <pubDate>Fri, 10 Apr 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing.html</guid>
+    <pubDate>Tue, 07 Apr 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>xero's irc ref</title>
+    <link>https://notes.neeasade.net/xeros-irc-ref.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/xeros-irc-ref.html</guid>
+    <pubDate>Sat, 04 Apr 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>adhoc executable patching on nixos</title>
+    <link>https://notes.neeasade.net/adhoc-executable-patching-on-nix.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/adhoc-executable-patching-on-nix.html</guid>
+    <pubDate>Sat, 14 Mar 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/rice-links.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/rice-links.html</guid>
+    <pubDate>Fri, 07 Feb 2020 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/shell-getopts.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/shell-getopts.html</guid>
+    <pubDate>Thu, 16 Jan 2020 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/Updating-nix-channels.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/Updating-nix-channels.html</guid>
+    <pubDate>Wed, 15 Jan 2020 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>On Emacs</title>
+    <link>https://notes.neeasade.net/On-Emacs.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/On-Emacs.html</guid>
+    <pubDate>Fri, 06 Dec 2019 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/tldr-org-mode--graphviz.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/tldr-org-mode--graphviz.html</guid>
+    <pubDate>Tue, 21 May 2019 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/git-svn-reference.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/git-svn-reference.html</guid>
+    <pubDate>Mon, 07 May 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/vim-quick-reference.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/vim-quick-reference.html</guid>
+    <pubDate>Sun, 06 May 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/add-local-font-files-linux.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/add-local-font-files-linux.html</guid>
+    <pubDate>Mon, 16 Apr 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/quote-to-string-in-elisp.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/quote-to-string-in-elisp.html</guid>
+    <pubDate>Tue, 10 Apr 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/restclient.el--elasticsearch.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/restclient.el--elasticsearch.html</guid>
+    <pubDate>Wed, 04 Apr 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/curl-exit-code-60-on-Windows.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/curl-exit-code-60-on-Windows.html</guid>
+    <pubDate>Wed, 04 Apr 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/Pok3r-Mapping.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/Pok3r-Mapping.html</guid>
+    <pubDate>Mon, 19 Mar 2018 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/Ryo_Fukui.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/Ryo_Fukui.html</guid>
+    <pubDate>Sun, 28 May 2017 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/BSPWM-Multihead.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/BSPWM-Multihead.html</guid>
+    <pubDate>Tue, 28 Apr 2015 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/BPSWM-Experiences.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/BPSWM-Experiences.html</guid>
+    <pubDate>Fri, 03 Apr 2015 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/Registers-with-GDB.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/Registers-with-GDB.html</guid>
+    <pubDate>Fri, 20 Feb 2015 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/youtube_rip_with_dwb__youtube-dl.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/youtube_rip_with_dwb__youtube-dl.html</guid>
+    <pubDate>Sat, 24 May 2014 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/wasd-v2-mechanical-keyboard.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/wasd-v2-mechanical-keyboard.html</guid>
+    <pubDate>Sun, 23 Feb 2014 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/resetting-xdefaults-reference-without-rebooting.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/resetting-xdefaults-reference-without-rebooting.html</guid>
+    <pubDate>Sun, 23 Feb 2014 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/configuring-constant-lang-variable.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/configuring-constant-lang-variable.html</guid>
+    <pubDate>Fri, 21 Feb 2014 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/creation-of-a-time-based-wallpaper-with-feh.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/creation-of-a-time-based-wallpaper-with-feh.html</guid>
+    <pubDate>Mon, 17 Feb 2014 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/virtualbox-setup-on-arch-linux.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/virtualbox-setup-on-arch-linux.html</guid>
+    <pubDate>Tue, 04 Feb 2014 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/asdf.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/asdf.html</guid>
+    <pubDate>Mon, 16 Dec 2013 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/weekend.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/weekend.html</guid>
+    <pubDate>Sun, 04 Aug 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/more-gw2-api-released.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/more-gw2-api-released.html</guid>
+    <pubDate>Fri, 21 Jun 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/guildwars.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/guildwars.html</guid>
+    <pubDate>Wed, 05 Jun 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/the-battle-for-wesnoth.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/the-battle-for-wesnoth.html</guid>
+    <pubDate>Fri, 31 May 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/crunchbang-11.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/crunchbang-11.html</guid>
+    <pubDate>Wed, 29 May 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/general-thoughts-on-summer.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/general-thoughts-on-summer.html</guid>
+    <pubDate>Fri, 17 May 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/alternative-to-notepad-in-linux.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/alternative-to-notepad-in-linux.html</guid>
+    <pubDate>Sun, 12 May 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/sources-of-offline-documentation.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/sources-of-offline-documentation.html</guid>
+    <pubDate>Sat, 11 May 2013 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+</channel>
+</rss>
