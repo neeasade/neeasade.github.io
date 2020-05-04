@@ -6,7 +6,7 @@
 <!-- 2020-05-04 Mon 14:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Creation of a time based wallpaper with feh</title>
+<title>colemak-dh mod</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -242,91 +242,54 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Creation of a time based wallpaper with feh</h1>
+<h1 class="title">colemak-dh mod</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-17-creation-of-a-time-based-wallpaper-with-feh.org">2019-02-24</a> • 2014-02-17
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-04-colemak-dh-mod.org">2020-05-04</a> • 2020-05-04
 </p>
 </div>
 
 <p>
-One of the most popular posts of all time over in /r/wallpapers is an
-album set of 8 8-bit landscapes for every time of day. Here is a quick
-glimpse:
+For about a year and a half now, I have used a nonstandard keyboard layout, colemak-dh. I wrote about my initial transition <a href="https://forum.colemak.com/topic/2483-25-months-colemakdh-55wpm-vim-comfy-hand-roles/#p22279">here</a>. A year and a half is probably enough time for some ~reflections~.
+</p>
+
+
+<div class="figure">
+<p><a href="./assets/posts/colemak-dh.png"><img src="./assets/posts/colemak-dh.png" alt="colemak-dh.png" /></a>
+</p>
+<p><span class="figure-number">Figure 1: </span>colemak-dh on an ansi board</p>
+</div>
+
+<p>
+My main goal in transitioning to this layout was not speed &#x2013; it was comfort (when typing words, not code). At then end of a few hours mashing a qwerty layout, I would notice hand fatigue and myself becoming frustrated typing at the keyboard at the end of the day. It's safe to say that mission has been accomplished; if anything, I sometimes feel guilty I don't type more in order to experience those sweet, sweet handrolls.
 </p>
 
 <p>
- 
+That's not to say there's been no challenges:
+</p>
+
+<ul class="org-ul">
+<li>I must remap keys or use a qwerty board for games</li>
+<li>I must remap interfaces that I plan to use long term</li>
+<li>I lost the ability to touch type at full speed on qwerty</li>
+<li>I depend on running software to change the layout or having a physical board on me with colemak-dh bindings</li>
+</ul>
+
+<p>
+For software keyboard remapping, autohotkey has me covered on windows, and setxkbmap has me covered on linux (granted, I had to do <a href="https://github.com/neeasade/BigBagKbdTrixXKB">some</a> <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/colemak">tweaking </a>to get a no-root-needed solution). In other cases I'm at the mercy of the software I'm provided to allow me to remap actions to keys. Luckily that's mostly emacs, which lets me map things on a grand scale. For hardware keyboard remapping, I'm currently just relying on a configured pok3r keyboard that I can take with me for more adhoc situations.
 </p>
 
 <p>
-[caption id="" align="aligncenter"
-width="1152"]<img src="http://i.imgur.com/axNNqyH.png" alt="axNNqyH.png" /> summary
-picture![/caption]
-</p>
-
-<p>
-If you use feh to manage you background, the current background filename
-is stored in ~/.fehbg. If you name each picture in the 8 picture set
-01 - 09, you can easily set an appropriate picture to the time of day.
-</p>
-
-<p>
-Here is the bash script I am currently using to do this:
-</p>
-
-<blockquote>
-<p>
-imagepath="/home/neeasade/images/8bitday";<br />
-while :<br />
-do<br />
-if echo 0$(expr $(date +%H) / 3).png != cat <i>home/neeasade</i>.fehbg |
-egrep '[0-9]{2}.png'; then<br />
-feh &#x2013;bg-fill \(imagepath/0\)(expr $(date +%H) / 3).png;<br />
-fi<br />
-sleep 5<br />
-done
-</p>
-</blockquote>
-
-<p>
-The above while runs forever, checking the name of the current
-background picture at an interval of 5 seconds. Since there are 8
-pictures in the total group, you can take the current hour of the
-day(out of 24) divided by 3 using integer division. running this in the
-background on startup as been giving me a nice wallpaper to match the
-time of day!
+The next step on this "typing journey" is really just to get better at writing and communication. Typing in comfort means nothing if I don't do it, and deciding to put this much effort into it is sort of a commitment to "work" &#x2013; at the end of the day I am writing for other people, including my future self.
 </p>
 
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-02-17-creation-of-a-time-based-wallpaper-with-feh.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-04-colemak-dh-mod.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 </div>
