@@ -21,13 +21,17 @@ followed by =pn=.
 :END:
 
 #+begin_src text
-  esc -> fn + esc fn + esc -> esc
+esc -> fn + esc
+fn + esc -> esc
 
-  l_meta -> l_super l_super -> l_meta
+l_meta -> l_super
+l_super -> l_meta
 
-   -> backspace backspace -> \
+\ -> backspace
+backspace -> \
 
-  capslock -> left ctrl left ctrl -> capslock
+capslock -> left ctrl
+left ctrl -> capslock
 #+end_src
 
 ** [[#h-e8380d65-0a26-4e42-81f1-03e97655a171][Right control -> Function key]]
