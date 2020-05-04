@@ -4,7 +4,7 @@
 
 This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061b4ecbeb9f99
 
-** The Basics
+** [[#h-af9b727a-fe44-40f2-8ba6-e18272277397][The Basics]]
 :PROPERTIES:
 :CUSTOM_ID: h-af9b727a-fe44-40f2-8ba6-e18272277397
 :END:
@@ -27,7 +27,7 @@ This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061
 | =/dns nickname=            | Attempts to resolve the IP address of the specified user. Doesn't             |
 | =/ping nickname=           | Pings the specified user. This action is visible to the specified user.       |
 
-** Nick Management (NickServ)
+** [[#h-4404e409-385b-48dd-9eb1-b42e9f161876][Nick Management (NickServ)]]
 :PROPERTIES:
 :CUSTOM_ID: h-4404e409-385b-48dd-9eb1-b42e9f161876
 :END:
@@ -40,7 +40,7 @@ All nickserv commands begin with =/ns= or =/msg NickServ=. Depending on your cli
 | =/ns ghost nickname password=      | Terminates a "ghost" IRC session that's using your nickname.                                                            |
 | =/ns set password yournewpassword= | Changes your password. *NOTE:* Under no circumstances should you change your nick to the letter O followed by 8 digit   |
 
-** Channel modes
+** [[#h-6dc4ab3f-d0ed-4c66-b41a-719058cb93c2][Channel modes]]
 :PROPERTIES:
 :CUSTOM_ID: h-6dc4ab3f-d0ed-4c66-b41a-719058cb93c2
 :END:
@@ -62,7 +62,7 @@ Set a mode with: =/mode #channel +/-attribute <data>=.
 | =+i=          | A user must be invited to join the channel.                        |
 | =+N=          | No nick changes permitted in the channel.                          |
 
-** ChanServ commands
+** [[#h-a226cb18-b018-4504-8261-0b65f28a02e5][ChanServ commands]]
 :PROPERTIES:
 :CUSTOM_ID: h-a226cb18-b018-4504-8261-0b65f28a02e5
 :END:
@@ -73,7 +73,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 # pain
 # #+MACRO:  code @@html:<code>@@$1@@html:</code>@@
 # using ! so org tables cal still align and \vert{} inline looks gross to me here
-#+MACRO: code (eval (format "@@html:<code>@@%s@@html:</code>@@" (s-replace "!" "\\vert{}" $1)))
+#+macro: code (eval (format "@@html:<code>@@%s@@html:</code>@@" (s-replace "!" "\\vert{}" $1)))
 
 | {{{code(/cs set #channel secureops <on!off>)}}} | Keeps everyone except aops, sops, and the founder from becoming ops.                      |
 | =/cs identify #channel <password>=              | Identifies you as the channel's founder and gives you founder-level privileges.           |
@@ -89,12 +89,12 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =/cs set #channel url <address>=                | Associates a URL with the channel.                                                        |
 | =/cs set #channel <email@address>=              | Associates an email address with the channel.                                             |
 
-* Other stuff
+* [[#h-b90868c6-7968-4fa1-b6fb-de667b7599c1][Other stuff]]
 :PROPERTIES:
 :CUSTOM_ID: h-b90868c6-7968-4fa1-b6fb-de667b7599c1
 :END:
 
-** Kicking people
+** [[#h-d321c0d4-db80-4f25-8941-933172fac07e][Kicking people]]
 :PROPERTIES:
 :CUSTOM_ID: h-d321c0d4-db80-4f25-8941-933172fac07e
 :END:
@@ -102,7 +102,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =/kick #channel nickname <reason>=    | temporarily remove user from channel              |
 | =/mode nickname +/-attributes <data>= | Setting people's modes (for current channel only) |
 
-** User modes
+** [[#h-c03ad93e-65cc-4dd6-9aa7-af5c82dcf350][User modes]]
 :PROPERTIES:
 :CUSTOM_ID: h-c03ad93e-65cc-4dd6-9aa7-af5c82dcf350
 :END:
@@ -113,7 +113,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =+h= | User is a half-op on the current channel (prefix %).                                         |
 | =+v= | User has voice on the current channel (prefix +).                                            |
 
-** Banning people
+** [[#h-07580360-b48c-4a4a-818a-61f1f750ecfc][Banning people]]
 :PROPERTIES:
 :CUSTOM_ID: h-07580360-b48c-4a4a-818a-61f1f750ecfc
 :END:
@@ -124,7 +124,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - Use =/whois=, =/whowas= or =/who= to find the information necessary for a ban.
 - =*= is a wildcard and can replace =nickname=, =userid=, parts of nickname or =userid=, =hostname= or a segment of a =hostname=.
 
-*** Examples:
+*** [[#h-1cca042b-1f35-4d85-acf0-e379c7224f4d][Examples:]]
 :PROPERTIES:
 :CUSTOM_ID: h-1cca042b-1f35-4d85-acf0-e379c7224f4d
 :END:
@@ -135,7 +135,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =*!*@c-123-24-76-213.ga.isp.net= | Will prevent anyone with the host c-123-24-76-213.ga.isp.net from joining. |
 | =*!*@*=                          | Bans everyone. Don't do that.                                              |
 
-** Access lists
+** [[#h-76341ce0-127b-4af7-bb0c-7f0e46086748][Access lists]]
 :PROPERTIES:
 :CUSTOM_ID: h-76341ce0-127b-4af7-bb0c-7f0e46086748
 :END:
@@ -145,31 +145,31 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | =/cs access #channel list=                   | Displays the channel's access list.                                |
 | =/cs access #channel count=                  | Displays how many entries are in the channel's access list.        |
 
-*** Access levels
+*** [[#h-249213a8-a9fa-43e9-9a46-f9d15df4f420][Access levels]]
 :PROPERTIES:
 :CUSTOM_ID: h-249213a8-a9fa-43e9-9a46-f9d15df4f420
 :END:
 
- These may vary from network to network. For example, some networks do
- not go by tens and use 3, 4, 5, 10, etc.
+These may vary from network to network. For example, some networks do
+not go by tens and use 3, 4, 5, 10, etc.
 
- | =Founder= | Full access to ChanServ functions, automatic opping upon entering channel. |
- | =100+=    | Makes the person an SOP, automatic opping upon entering channel.           |
- | =50=      | Makes the parson an AOP, automatic opping upon entering channel.           |
- | =40=      | Automatic half-opping.                                                     |
- | =30=      | Automatic voicing.                                                         |
- | =0=       | No special privileges.                                                     |
- | =-1=      | May not be opped.                                                          |
- | =-100=    | May not join the channel.                                                  |
+| =Founder= | Full access to ChanServ functions, automatic opping upon entering channel. |
+| =100+=    | Makes the person an SOP, automatic opping upon entering channel.           |
+| =50=      | Makes the parson an AOP, automatic opping upon entering channel.           |
+| =40=      | Automatic half-opping.                                                     |
+| =30=      | Automatic voicing.                                                         |
+| =0=       | No special privileges.                                                     |
+| =-1=      | May not be opped.                                                          |
+| =-100=    | May not join the channel.                                                  |
 
- Any nick not on the access list has an access level of =0=.
+Any nick not on the access list has an access level of =0=.
 
-* AOPs and SOPs
+* [[#h-c32b1089-530f-473f-9331-1c78baab2b41][AOPs and SOPs]]
 :PROPERTIES:
 :CUSTOM_ID: h-c32b1089-530f-473f-9331-1c78baab2b41
 :END:
 
-** AOPs
+** [[#h-253a1f1e-e527-461b-b323-b92cabde0574][AOPs]]
 :PROPERTIES:
 :CUSTOM_ID: h-253a1f1e-e527-461b-b323-b92cabde0574
 :END:
@@ -180,7 +180,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - Receive memos sent to the whole channel.
 - Can invite themselves to the channel.
 
-** SOPs
+** [[#h-a395932a-b851-4a52-958c-05987399ff40][SOPs]]
 :PROPERTIES:
 :CUSTOM_ID: h-a395932a-b851-4a52-958c-05987399ff40
 :END:
@@ -190,7 +190,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 - Receive memos sent to the channel's SOPs.
 - Can add (but not remove) AKICKs.
 
-** Viewing and setting privileges
+** [[#h-da4abeac-93a5-427a-87cc-270d9cd61125][Viewing and setting privileges]]
 :PROPERTIES:
 :CUSTOM_ID: h-da4abeac-93a5-427a-87cc-270d9cd61125
 :END:
@@ -198,7 +198,7 @@ All ChanServ commands begin with =/cs= or =/chanserv= or =/msg ChanServ=. Depend
 | {{{code(/cs <aop!sop> #channel list=)}}}                                  | Viewing AOP and SOP lists |
 | {{{code(/cs <AOP!SOP> #channel <ADD!DEL!LIST!CLEAR> <nick!entry-list>)}}} | adding a AOP or SOP       |
 
-** AKICKs
+** [[#h-e0d5cdf5-5b64-4da5-8973-c00702bc3107][AKICKs]]
 :PROPERTIES:
 :CUSTOM_ID: h-e0d5cdf5-5b64-4da5-8973-c00702bc3107
 :END:
@@ -211,7 +211,7 @@ manually.
 | =/cs akick #channel del host=              | Removes host from the AKICK list.                |
 | {{{code(/cs akick #channel <list!view>)}}} | Displays the AKICK list.                         |
 
-** Color codes
+** [[#h-783bf87b-f96c-4b8d-a756-651cb73c3a64][Color codes]]
 :PROPERTIES:
 :CUSTOM_ID: h-783bf87b-f96c-4b8d-a756-651cb73c3a64
 :END:
@@ -240,7 +240,7 @@ list of the color codes:
 |     14 | grey                          |
 |     15 | light grey (silver)           |
 
-** Related
+** [[#h-f34114f3-04ec-4275-a9e5-03dd636cff16][Related]]
 :PROPERTIES:
 :CUSTOM_ID: h-f34114f3-04ec-4275-a9e5-03dd636cff16
 :END:

@@ -1,52 +1,53 @@
 #+title: i3-like multihead in bspwm
 #+date: <2015-04-28 00:00>
+#+OPTIONS: ^:nil
 
 i3 has fantastic focus and window handling for multiple monitors out of
 the box in my opinion. I didn't realize that I missed this until I was
 on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 
-** Initial
-   :PROPERTIES:
-   :CUSTOM_ID: initial
-   :END:
+** [[#h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4][Initial]]
+:PROPERTIES:
+:CUSTOM_ID: h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4
+:END:
 
 In the example sxhkd in the bspwm repo, the main window focus keybind is
 set up as such:
 
 #+begin_src bash
-super + {\_,shift + }{h,j,k,l} bspc node -{f,s}
+super + {_,shift + }{h,j,k,l} bspc node -{f,s}
     {west,south,north,east}
 #+end_src
 
 I'm going to separate this into 2 parts, a focus part and a movement
 part.
 
-** Focus
-   :PROPERTIES:
-   :CUSTOM_ID: focus
-   :END:
+** [[#h-0469c988-ab08-4684-afb2-708743a574aa][Focus]]
+:PROPERTIES:
+:CUSTOM_ID: h-0469c988-ab08-4684-afb2-708743a574aa
+:END:
 
-So taking the focus part out of the above we get: 
+So taking the focus part out of the above we get:
 #+begin_src
-super + {h,j,k,l} 
-    bspc node -f {west,south,north,east} 
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
 #+end_src
 
 So, This will focus on a window in a direction determined by keypress,
 which are vi-like here. However, lets say you have 2 monitors, and one
 is empty:
 
-#+CAPTION: img
+#+caption: img
 [[http://i.imgur.com/5VBlIjn.png]]
 
 the command =bspc node -f east= will fail, as there is no window to the
 right, and no action occurs as a result.
 
-*** Desired behavior
-    :PROPERTIES:
-    :CUSTOM_ID: desired-behavior
-    :END:
+*** [[#h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b][Desired behavior]]
+:PROPERTIES:
+:CUSTOM_ID: h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b
+:END:
 
 In the above, on a focus right, I want the cursor to appear in the
 middle of the right monitor as well as focus on that monitor.
@@ -56,7 +57,7 @@ super + {h,j,k,l}
     bspc config pointer_follows_monitor true; \
     bspc config pointer_follows_focus true; \
     dir={west,south,north,east}; \
-        if ! bspc node -f $dir; then \
+	if ! bspc node -f $dir; then \
     bspc monitor -f $dir; \
     fi; \
     bspc config pointer_follows_monitor false; \
@@ -66,16 +67,20 @@ super + {h,j,k,l}
 When the node right command fails in the above scenario, the monitor to
 the right will be focused, and the pointer will be there.
 
-#+BEGIN_QUOTE
-  Why is half of this function setting pointer_follows_* values?
-#+END_QUOTE
+#
+#+begin_quote
+Why is half of this function setting pointer_follows_* values?
+#+end_quote
 
 So let's say you are moving a floating window with your mouse across the
 2 screens - with either of the two pointer options above enabled, when
 you cross the border the cursor will move, and the window with it. This
 window snapping out from under you can be quite annoying.
 
-** Movement
+** [[#h-cc243055-0839-4d72-8471-2319a4d41e20][Movement]]
+:PROPERTIES:
+:CUSTOM_ID: h-cc243055-0839-4d72-8471-2319a4d41e20
+:END:
 
 Movement part of the example sxhkd:
 
@@ -90,10 +95,10 @@ window spot, which I've found to be quite annoying. It feels more
 natural to keep focus on the same window and 'carry' it around your
 workspaces/monitors.
 
-*** Desired behavior
-    :PROPERTIES:
-    :CUSTOM_ID: desired-behavior-1
-    :END:
+*** [[#h-1915bc68-2afc-4d9f-ba88-c00ad1915867][Desired behavior]]
+:PROPERTIES:
+:CUSTOM_ID: h-1915bc68-2afc-4d9f-ba88-c00ad1915867
+:END:
 
 When a window is switched, retain focus on the original window that was
 moved. If switching to an empty monitor, move the window to that
@@ -114,15 +119,15 @@ super + shift + {h,j,k,l}
     cur_mon=$(bspc query -M -m); \
     dir={west,south,north,east}; \
     if ! bspc node -f $dir; then \
-        bspc node -m $dir; \
-        bspc monitor -f $dir; \
+	bspc node -m $dir; \
+	bspc monitor -f $dir; \
     else \
-        new_mon=$(bspc query -M -m); \
-        if [ $new_mon -eq $cur_mon ]; then \
-            bspc node -s $cur_win; \
-        else \
-            bspc node $cur_win -m ^$new_mon; \
-        fi; \
+	new_mon=$(bspc query -M -m); \
+	if [ $new_mon -eq $cur_mon ]; then \
+	    bspc node -s $cur_win; \
+	else \
+	    bspc node $cur_win -m ^$new_mon; \
+	fi; \
     bspc node -f $cur_win; \
     fi; \
     bspc config pointer_follows_focus false

@@ -1,16 +1,13 @@
-
-
-
-
-
-
 #+date: <2015-02-20 00:00>
 #+title: GDB Registers
 
 This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 
-* Compile the program to debug
+** Compile the program to debug
+:PROPERTIES:
+:CUSTOM_ID: h-adac1e41-906a-43a7-9f03-1237daaabf01
+:END:
 
 I'm assuming here that you have the source of the C file that you wish
 to step through(this post assumes you are trying to learn about
@@ -19,7 +16,7 @@ registers for educational purposes).
 Create a Makefile for your architecture(s) of choice. Here is an example
 of a Makefile for 3 of them:
 
-#+begin_src Makefile linenos
+#+begin_src makefile
 all: 32bit 64bit 64bitInLine
 
 32bit: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
@@ -28,16 +25,15 @@ MyProgram.c -o MyProgram
 64bit: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
 
 64bitInLine: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
-
 #+end_src
-
-(Note for Adam: notice I only removed the -S flag and changed the output
-name)
 
 This should result in 3 output files with different assembly associated
 with each.
 
-#GDB
+** GDB
+:PROPERTIES:
+:CUSTOM_ID: h-5fc9a60c-09e9-422a-8f37-df6437afc10c
+:END:
 
 The GNU Project Debugger(GDB) is a fantastic tool that I am still
 learning about. If you have no idea what it is, it is a fairly powerful
@@ -53,8 +49,9 @@ highlight bash linenos %} $gdb MyProgram
 once at the GDB prompt, set a breakpoint at the main() function and then
 run the program - this will cause the breakpoint to instantly be hit.
 
-#+begin_src bash linenos
-(gdb)break main (gdb)run
+#+begin_src bash
+(gdb)break main
+(gdb)run
 #+end_src
 
 The command we can use from here to step through the program by assembly

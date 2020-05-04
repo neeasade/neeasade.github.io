@@ -35,7 +35,10 @@ hazel :blobcatcomfy: @hazel@is.nota.live now follows you
 
 Note: There is the ability to clear all notifications, but then you also lose upstream history -- I'd like to preserve that.
 
-** Rolling my own
+** [[#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28][Rolling my own]]
+:PROPERTIES:
+:CUSTOM_ID: h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28
+:END:
 
 Alright, I need 2 things -- a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well -- awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 

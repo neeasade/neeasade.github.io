@@ -4,23 +4,32 @@ TL;DR Syncthing + Termux + Orgzly
 
 Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual -- this is motivated by my recent re-interest in capturing things in [[https://orgmode.org/][org-mode]]. Here I will cover the tools and apps I've setup to try and get a 'blended' mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it's worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
 
-** Syncthing
+** [[#h-11b4a27d-4fc3-4357-8afe-c828e328574f][Syncthing]]
+:PROPERTIES:
+:CUSTOM_ID: h-11b4a27d-4fc3-4357-8afe-c828e328574f
+:END:
 
 [[https://syncthing.net/][Syncthing]] is a program for syncing files and folders between devices. It is speedy enough for my use, and nixos has defined service files available for it so it's pretty easy to get something that "just works" between devices. This is key to the 'blended' feeling I alluded to above because it allows easy sending of data back and forth between my phone and computers (and the interface is pretty slick!). You can get away with only syncing between your devices, but I've opted to also have a vps running a syncthing service so that things are pretty nice.
 
-** Orgzly
+** [[#h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04][Orgzly]]
+:PROPERTIES:
+:CUSTOM_ID: h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04
+:END:
 
 [[http://www.orgzly.com/][Orgzly]] markets itself as an "outliner for notes and todo lists", but the kicker is that is uses org files as it's store. This means that orgzly headlines are org headlines, with everything that implies (agenda, scheduling, priority, keywords, and so on). I've setup a ~capture.org~ file in a syncthing folder on my desktop and phone, allowing me to capture notes on the go and then refile them back when I'm on my desktop computer. Now that's cool! here's a brief glance capturing a note on the phone and it's org mode counterpart:
 
 {{{image(Screenshot_20200407-165136.png)}}}
 
-#+BEGIN_CENTER
+#+begin_center
 turns into:
-#+END_CENTER
+#+end_center
 
 {{{image(post_org.png)}}}
 
-** Music
+** [[#h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74][Music]]
+:PROPERTIES:
+:CUSTOM_ID: h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74
+:END:
 
 I use the BlackPlayer music player, which lets you choose what folders to search for music from. I'm sure you can see where this is going... with MPD on my desktop it's really easy to do something like =mpc playlist -f '%file%' | shuf | head -n 100 | fd cp $music_dir/{} $syncthing_dir= and wham! A smattering of my music collection is now available for me to enjoy on my phone! Of course, the reality is a little more complicated. I want to limit the size of the music collection that ends up on my phone. What actually ends up happening is something like:
 
@@ -40,15 +49,24 @@ I use the BlackPlayer music player, which lets you choose what folders to search
   done <(mpc playlist -f '%file%' | shuf)
 #+end_src
 
-** Browsing the internet
+** [[#h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719][Browsing the internet]]
+:PROPERTIES:
+:CUSTOM_ID: h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719
+:END:
 
-Chome on android doesn't have a umatrix option. This sucks, because the UX is pretty decent. But life is too short for fake download buttons. Firefox + umatrix is an OK combination. One thing I realized I wanted when I did this switch was a 'startpage' with common links I use on my phone. Enter [[./startpage.html][startpage]], yay:
+Chome on android doesn't have a umatrix option. This sucks, because the UX is pretty decent. But life is too short for fake download buttons. Firefox + umatrix is an OK combination. One thing I realized I wanted when I did this switch was a 'startpage' with common links I use on my phone. Enter [[file:./startpage.html][startpage]], yay:
 
-** Audiobooks
+** [[#h-6398d541-3e48-4846-807b-077455426531][Audiobooks]]
+:PROPERTIES:
+:CUSTOM_ID: h-6398d541-3e48-4846-807b-077455426531
+:END:
 
 Somewhere in the past few year or so audiobooks snuck into my life, and I've found I really only listen to them on my phone. Audible is pretty convienent, but sometimes the one credit a month doesn't meet my listening rate (I listen when cleaning the house, going for a walk, taking a piss, you know how it is). It turns out that many of the audiobooks I've listened to are available on youtube (and thus, a youtube-dl call away). And so, [[https://play.google.com/store/apps/details?id=mdmt.sabp.free&hl=en_US][Simple Audiobook Player]] entered my life -- it has the ability to play local files but with audiobook niceties (like saving your spot, and adjusting the playback speed).
 
-** Termux and bringing it all together
+** [[#h-c6bb3ae8-90ab-473d-a487-e7a020a003af][Termux and bringing it all together]]
+:PROPERTIES:
+:CUSTOM_ID: h-c6bb3ae8-90ab-473d-a487-e7a020a003af
+:END:
 
 Alright, here's where things get spicy. Termux is a linux environment for Android. What's cool about it is how flexible it is. I use it as a scriptable share target (=~/bin/termux-url-opener=) so I can do whatever I want with termux as a sharehole! such as:
 

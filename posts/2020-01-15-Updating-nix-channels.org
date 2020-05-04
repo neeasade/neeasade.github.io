@@ -8,25 +8,25 @@ your config. Channels are neat but I personally am not really a fan because it i
 outside of your config. To change the default nix-channel reference:
 
 #+begin_src sh
-  # nix-channel --list
-  nixos https://nixos.org/channels/nixos-19.09
+# nix-channel --list
+nixos https://nixos.org/channels/nixos-19.09
 
-  # nix-channel --remove nixos
-  uninstalling 'nixos-19.09.1861.eb65d1dae62'
-  building '/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'...
-  created 0 symlinks in user environment
+# nix-channel --remove nixos
+uninstalling 'nixos-19.09.1861.eb65d1dae62'
+building '/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'...
+created 0 symlinks in user environment
 
-  # nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos
+# nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos
 
-  # nix-channel --list
-  nixos https://nixos.org/channels/nixos-19.09
+# nix-channel --list
+nixos https://nixos.org/channels/nixos-19.09
 
-  # nix-channel --update
-  nixos https://nixos.org/channels/nixos-19.09
+# nix-channel --update
+nixos https://nixos.org/channels/nixos-19.09
 #+end_src
 
 And then updating the nix-channels can be done with:
 
 #+begin_src sh
-  # nix-channel --update
+# nix-channel --update
 #+end_src

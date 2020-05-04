@@ -4,109 +4,114 @@ A potential backronym for rice is Race Inspired Cosmetic Enhancements, supposedl
 
 Alright, here are links to some people and places in the community.
 
-** Places
+** [[#h-1c22411b-0af5-4230-be11-822c5c70a462][Places]]
+:PROPERTIES:
+:CUSTOM_ID: h-1c22411b-0af5-4230-be11-822c5c70a462
+:END:
 
-   - [[http://boards.4channel.org/g/catalog#s=desktop%20thread][=/g/= desktop thread]]
-   - [[http://boards.4channel.org/w/catalog#s=desktop%20thread][=/w/= desktop thread]]
-   - [[http://cyberia.is/][cyberia]]
-   - [[https://2f30.org/][2f30]]
-   - [[https://6c37.github.io/][6c37]]
-   - [[https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites][list or nixers users sites]]
-   - [[https://github.com/nixers-projects][nixer's github]]
-   - [[https://github.com/tatou-tatou/Themes/tree/master/Mousse][tatou-tatou's themes]]
-   - [[https://nixers.net][nixers.net]]
-   - [[https://onodera-punpun.github.io/ricespo/][onodera's ricespo]]
-   - [[https://qchat.rizon.net/?channels=code][#code on rizon]]
-   - [[https://qchat.rizon.net/?channels=rice][#rice on rizon]]
-   - [[https://ricedb.dfg.monster/][#rice db]]
-   - [[https://rizonrice.club/Main_Page][#rice's wiki]]
-   - [[https://stats.foxbnc.co.uk/history.php?cid=rice&year=2018&month=9][#rice stats page]]
-   - [[https://suckless.org/][suckless]]
-   - [[https://www.reddit.com/r/unixart/][/r/unixart]]
-   - [[https://www.reddit.com/r/unixporn/][/r/unixporn]]
-   - [[http://dotfiles.github.io/][dotfiles.github.io]]
-   - [[https://www.shlomifish.org/humour/by-others/funroll-loops/Gentoo-is-Rice.html][gentoo is for ricers]]
-   - [[https://github.com/torvim/pape][pape]]
+- [[http://boards.4channel.org/g/catalog#s=desktop%20thread][=/g/= desktop thread]]
+- [[http://boards.4channel.org/w/catalog#s=desktop%20thread][=/w/= desktop thread]]
+- [[http://cyberia.is/][cyberia]]
+- [[https://2f30.org/][2f30]]
+- [[https://6c37.github.io/][6c37]]
+- [[https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites][list or nixers users sites]]
+- [[https://github.com/nixers-projects][nixer's github]]
+- [[https://github.com/tatou-tatou/Themes/tree/master/Mousse][tatou-tatou's themes]]
+- [[https://nixers.net][nixers.net]]
+- [[https://onodera-punpun.github.io/ricespo/][onodera's ricespo]]
+- [[https://qchat.rizon.net/?channels=code][#code on rizon]]
+- [[https://qchat.rizon.net/?channels=rice][#rice on rizon]]
+- [[https://ricedb.dfg.monster/][#rice db]]
+- [[https://rizonrice.club/Main_Page][#rice's wiki]]
+- [[https://stats.foxbnc.co.uk/history.php?cid=rice&year=2018&month=9][#rice stats page]]
+- [[https://suckless.org/][suckless]]
+- [[https://www.reddit.com/r/unixart/][/r/unixart]]
+- [[https://www.reddit.com/r/unixporn/][/r/unixporn]]
+- [[http://dotfiles.github.io/][dotfiles.github.io]]
+- [[https://www.shlomifish.org/humour/by-others/funroll-loops/Gentoo-is-Rice.html][gentoo is for ricers]]
+- [[https://github.com/torvim/pape][pape]]
 
-** People
+** [[#h-bd88e966-6b56-4d10-b99a-21572ce3bfe9][People]]
+:PROPERTIES:
+:CUSTOM_ID: h-bd88e966-6b56-4d10-b99a-21572ce3bfe9
+:END:
 
 These are some people I've encountered and maybe even stayed in touch with over the years(!), or derived inspiration from in one form or another. Given the nature of the internet, I expect many of these links will die. Additionally, I'm sure I forgot many, as this list kept getting bigger the more I thought about it.
 
-#+BEGIN_SRC elisp :results raw :exports results
-  (defun ns/make-person-link (name &optional site dots)
-    (format
-     "[%s]"
-     (cond
-       ((and site dots)
-	(format "[[%s][%s]]|[[%s][dots]]" site name dots))
-       (site (format "[[%s][%s]]" site name))
-       (dots (format "[[%s][%s]]" dots name))
-       (t name))))
+#+begin_src elisp :results raw :exports results
+(defun ns/make-person-link (name &optional site dots)
+  (format
+   "[%s]"
+   (cond
+     ((and site dots)
+      (format "[[%s][%s]]|[[%s][dots]]" site name dots))
+     (site (format "[[%s][%s]]" site name))
+     (dots (format "[[%s][%s]]" dots name))
+     (t name))))
 
-  (->>
-   '(
-     ("addy" "https://addy-dclxvi.github.io/" "https://github.com/addy-dclxvi/dotfiles")
-     ("adrift")
-     ("apk" "https://pluvi.us/")
-     ("baskerville" "http://baskerville.github.io/" "https://github.com/baskerville/dotfiles")
-     ("bushidoboy" "https://bushidoboy.com/" "https://github.com/donniebishop/dotfiles")
-     ("burntsushi" "https://blog.burntsushi.net/")
-     ("camille" "https://catgirl.sh/" "https://github.com/turquoise-hexagon/dots")
-     ("cosarara" "https://www.cosarara.me/" "https://github.com/cosarara/dotfiles")
-     ("cosumu" "https://cosumu.github.io/")
-     ("dcat"  "https://lyngvaer.no/" "https://github.com/dcat/dotfiles")
-     ("dysfigured" "https://danielfgray.com/" "https://github.com/DanielFGray/dotfiles")
-     ("enju" "https://enju.dev/" "https://github.com/enjuus/zenbu-templates")
-     ("eti" "https://eti.tf/" "https://github.com/eti0/dots")
-     ("greduan" "https://greduan.com/")
-     ("halfwit" "https://halfwit.github.io/" "https://github.com/halfwit/dotfiles")
-     ("hazel" "https://qtp2t.club" "https://github.com/ralsei/etc")
-     ("icyphox" "https://icyphox.sh/" "https://github.com/icyphox/dotfiles")
-     ("josuah" "http://josuah.net/" "http://josuah.net/git/")
-     ("jschx" "https://schil.li/" "https://gitlab.com/jschx/etc")
-     ("kori" "https://github.com/kori" "https://github.com/kori/shell.d")
-     ("lains" "https://lainsce.us/" "https://github.com/lainsce/dots")
-     ("lambdacomplex" "https://lambda.complex.rocks/" "https://github.com/sector-f/dotfiles")
-     ("lazr" "http://laserswald.net/" "https://github.com/laserswald/dotfiles")
-     ("leliana" "https://revthefox.co.uk/" "https://github.com/TheReverend403/dotfiles")
-     ("lucy" nil "https://github.com/lxcyp/dotfiles")
-     ("lunarmage")
-     ("lynn" "https://muse.github.io/" "https://github.com/muse/etc")
-     ("mobo" "https://github.com/wallace-aph/" "https://github.com/wallace-aph/configs")
-     ("mort" "https://mort.coffee" "https://github.com/mortie/dots")
-     ("nerdypepper" "https://peppe.rs/" "https://github.com/NerdyPepper/dotfiles")
-     ("nero" nil "https://github.com/nero/etc")
-     ("nil" "https://monade.li/" "https://git.monade.li/dotfiles/summary/")
-     ("noctuid" "http://noctuid.github.io/" "https://github.com/noctuid/dotfiles")
-     ("onodera" "https://onodera-punpun.github.io/" "https://github.com/onodera-punpun/dotfiles")
-     ("quad" "https://quad.moe/" "https://gitea.quad.moe/quad/dotfiles")
-     ("rocx" "https://rocx.rocks/" "https://github.com/rocx/.emacs.d")
-     ("schisma")
-     ("sdhand" "https://github.com/sdhand")
-     ("sircmpwn" "https://drewdevault.com/" "https://git.sr.ht/~sircmpwn/dotfiles")
-     ("spoonm" "https://spoonm.org/" "https://github.com/skewerr/rice")
-     ("tudor" "https://tudorr.ro/" "https://github.com/tudurom/dotfiles")
-     ("twily" "https://twily.info/")
-     ("uncled1024" "https://teknik.io" "https://git.teknik.io/Uncled1023/Scripts")
-     ("vain" "https://www.uninformativ.de/" "https://www.uninformativ.de/git/dotfiles-pub/files.html")
-     ("venam" "https://venam.nixers.net/blog/" "https://github.com/neeasade/dotfiles")
-     ("vypr" "https://vypr.xyz/" "https://github.com/vypr/dotfiles")
-     ("windelicato" "http://windelicato.com/" "https://github.com/windelicato/dotfiles")
-     ("winny" "https://winny.tech/" "https://github.com/winny-/configs")
-     ("xero" "http://xero.nu/" "https://github.com/xero/dotfiles")
-     ("yuppie" "https://internaught.io/")
-     ("z3bra" "https://z3bra.org/" "https://git.z3bra.org/scripts/files.html")
-     ("zzzeyez" nil "https://github.com/zzzeyez/dots")
-     ("mofukka")
-     ("fyr" nil "https://github.com/lwilletts/dots")
-     ("jiaxsun" nil "https://github.com/Suhmedoh/dotfiles/")
-     )
-
-    ;; sort by name
-   ((lambda (list) (sort list (fn (string< (first <1>) (first <2>))))))
-
-   (mapcar (fn (apply 'ns/make-person-link <>) ))
-   (s-join "\n")
+(->>
+ '(
+   ("addy" "https://addy-dclxvi.github.io/" "https://github.com/addy-dclxvi/dotfiles")
+   ("adrift")
+   ("apk" "https://pluvi.us/")
+   ("baskerville" "http://baskerville.github.io/" "https://github.com/baskerville/dotfiles")
+   ("bushidoboy" "https://bushidoboy.com/" "https://github.com/donniebishop/dotfiles")
+   ("burntsushi" "https://blog.burntsushi.net/")
+   ("camille" "https://catgirl.sh/" "https://github.com/turquoise-hexagon/dots")
+   ("cosarara" "https://www.cosarara.me/" "https://github.com/cosarara/dotfiles")
+   ("cosumu" "https://cosumu.github.io/")
+   ("dcat"  "https://lyngvaer.no/" "https://github.com/dcat/dotfiles")
+   ("dysfigured" "https://danielfgray.com/" "https://github.com/DanielFGray/dotfiles")
+   ("enju" "https://enju.dev/" "https://github.com/enjuus/zenbu-templates")
+   ("eti" "https://eti.tf/" "https://github.com/eti0/dots")
+   ("greduan" "https://greduan.com/")
+   ("halfwit" "https://halfwit.github.io/" "https://github.com/halfwit/dotfiles")
+   ("hazel" "https://qtp2t.club" "https://github.com/ralsei/etc")
+   ("icyphox" "https://icyphox.sh/" "https://github.com/icyphox/dotfiles")
+   ("josuah" "http://josuah.net/" "http://josuah.net/git/")
+   ("jschx" "https://schil.li/" "https://gitlab.com/jschx/etc")
+   ("kori" "https://github.com/kori" "https://github.com/kori/shell.d")
+   ("lains" "https://lainsce.us/" "https://github.com/lainsce/dots")
+   ("lambdacomplex" "https://lambda.complex.rocks/" "https://github.com/sector-f/dotfiles")
+   ("lazr" "http://laserswald.net/" "https://github.com/laserswald/dotfiles")
+   ("leliana" "https://revthefox.co.uk/" "https://github.com/TheReverend403/dotfiles")
+   ("lucy" nil "https://github.com/lxcyp/dotfiles")
+   ("lunarmage")
+   ("lynn" "https://muse.github.io/" "https://github.com/muse/etc")
+   ("mobo" "https://github.com/wallace-aph/" "https://github.com/wallace-aph/configs")
+   ("mort" "https://mort.coffee" "https://github.com/mortie/dots")
+   ("nerdypepper" "https://peppe.rs/" "https://github.com/NerdyPepper/dotfiles")
+   ("nero" nil "https://github.com/nero/etc")
+   ("nil" "https://monade.li/" "https://git.monade.li/dotfiles/summary/")
+   ("noctuid" "http://noctuid.github.io/" "https://github.com/noctuid/dotfiles")
+   ("onodera" "https://onodera-punpun.github.io/" "https://github.com/onodera-punpun/dotfiles")
+   ("quad" "https://quad.moe/" "https://gitea.quad.moe/quad/dotfiles")
+   ("rocx" "https://rocx.rocks/" "https://github.com/rocx/.emacs.d")
+   ("schisma")
+   ("sdhand" "https://github.com/sdhand")
+   ("sircmpwn" "https://drewdevault.com/" "https://git.sr.ht/~sircmpwn/dotfiles")
+   ("spoonm" "https://spoonm.org/" "https://github.com/skewerr/rice")
+   ("tudor" "https://tudorr.ro/" "https://github.com/tudurom/dotfiles")
+   ("twily" "https://twily.info/")
+   ("uncled1024" "https://teknik.io" "https://git.teknik.io/Uncled1023/Scripts")
+   ("vain" "https://www.uninformativ.de/" "https://www.uninformativ.de/git/dotfiles-pub/files.html")
+   ("venam" "https://venam.nixers.net/blog/" "https://github.com/neeasade/dotfiles")
+   ("vypr" "https://vypr.xyz/" "https://github.com/vypr/dotfiles")
+   ("windelicato" "http://windelicato.com/" "https://github.com/windelicato/dotfiles")
+   ("winny" "https://winny.tech/" "https://github.com/winny-/configs")
+   ("xero" "http://xero.nu/" "https://github.com/xero/dotfiles")
+   ("yuppie" "https://internaught.io/")
+   ("z3bra" "https://z3bra.org/" "https://git.z3bra.org/scripts/files.html")
+   ("zzzeyez" nil "https://github.com/zzzeyez/dots")
+   ("mofukka")
+   ("fyr" nil "https://github.com/lwilletts/dots")
+   ("jiaxsun" nil "https://github.com/Suhmedoh/dotfiles/")
    )
 
-#+END_SRC
+ ;; sort by name
+ ((lambda (list) (sort list (fn (string< (first <1>) (first <2>))))))
+
+ (mapcar (fn (apply 'ns/make-person-link <>) ))
+ (s-join "\n")
+ )
+#+end_src

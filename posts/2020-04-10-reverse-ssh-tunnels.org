@@ -9,7 +9,10 @@ You have 3 machines:
 
 The problem is that ~home~ is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on ~vps~.
 
-** From ~home~
+** [[#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4][From ~home~]]
+:PROPERTIES:
+:CUSTOM_ID: h-a3854f2f-36e7-43a8-8b45-b4a491923ba4
+:END:
 
 #+begin_src
 ssh -R 22222:localhost:22 username@vps
@@ -17,7 +20,10 @@ ssh -R 22222:localhost:22 username@vps
 
 This will set a shim on ~vps:22222~ -> ~home:22~ through the ssh connection. Some more detail and visualizations may be found [[https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work][here]].
 
-** From ~laptop~
+** [[#h-56d8bbe1-5940-4d97-b817-a71979240c19][From ~laptop~]]
+:PROPERTIES:
+:CUSTOM_ID: h-56d8bbe1-5940-4d97-b817-a71979240c19
+:END:
 
 #+begin_src
 # to access home after ssh'ing into vps:
@@ -30,7 +36,10 @@ ssh -t vps 'ssh localhost -p 22222'
 ssh -J username@vps:22 localhost -p 22222
 #+end_src
 
-** TRAMP syntax
+** [[#h-76dc15ec-0aab-464c-a674-60474010c8f0][TRAMP syntax]]
+:PROPERTIES:
+:CUSTOM_ID: h-76dc15ec-0aab-464c-a674-60474010c8f0
+:END:
 
 emacs TRAMP syntax for jumping across a local reference on a different port:
 
@@ -47,6 +56,9 @@ and then here's a cool trick for providing the connection into to a remote shell
   (shell))
 #+end_src
 
-** Other
+** [[#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4][Other]]
+:PROPERTIES:
+:CUSTOM_ID: h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4
+:END:
 
 https://en.wikibooks.org/wiki/OpenSSH > Cookbook
