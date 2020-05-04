@@ -1,6 +1,6 @@
 #+title: colemak-dh mod
 
-For about a year and a half now, I have used a nonstandard keyboard layout, colemak-dh. I wrote about my initial transition [[https://forum.colemak.com/topic/2483-25-months-colemakdh-55wpm-vim-comfy-hand-roles/#p22279][here]]. A year and a half is probably enough time for some \tilde{}reflections~.
+For about a year and a half now, I have used a nonstandard keyboard layout, [[https://colemakmods.github.io/mod-dh/][colemak-dh]]. I wrote about my initial transition [[https://forum.colemak.com/topic/2483-25-months-colemakdh-55wpm-vim-comfy-hand-roles/#p22279][here]]. A year and a half is probably enough time for some \tilde{}reflections~.
 
 #+caption: colemak-dh on an ansi board
 {{{image(colemak-dh.png)}}}
