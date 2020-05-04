@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-03 Sun 18:15 -->
+<!-- 2020-05-03 Sun 21:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>i3-like multihead in bspwm</title>
@@ -248,7 +248,7 @@ for the JavaScript code in this tag.
 <h1 class="title">i3-like multihead in bspwm</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-04-28-BSPWM-Multihead.org">2019-02-24</a> • 2015-04-28
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-04-28-BSPWM-Multihead.org">2020-05-03</a> • 2015-04-28
 </p>
 </div>
 
@@ -259,16 +259,16 @@ on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 </p>
 
-<div id="outline-container-org7f28146" class="outline-2">
-<h2 id="initial">Initial</h2>
-<div class="outline-text-2" id="text-initial">
+<div id="outline-container-org4c24ddb" class="outline-2">
+<h2 id="h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4"><a href="#h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">Initial</a></h2>
+<div class="outline-text-2" id="text-h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">
 <p>
 In the example sxhkd in the bspwm repo, the main window focus keybind is
 set up as such:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">super + {<span style="color: #008FAC;">\_</span>,shift + }{h,j,k,l} bspc node -{f,s}
+<pre class="src src-bash">super + {_,shift + }{h,j,k,l} bspc node -{f,s}
     {west,south,north,east}
 </pre>
 </div>
@@ -280,15 +280,15 @@ part.
 </div>
 </div>
 
-<div id="outline-container-org3faa567" class="outline-2">
-<h2 id="focus">Focus</h2>
-<div class="outline-text-2" id="text-focus">
+<div id="outline-container-orgd3271f2" class="outline-2">
+<h2 id="h-0469c988-ab08-4684-afb2-708743a574aa"><a href="#h-0469c988-ab08-4684-afb2-708743a574aa">Focus</a></h2>
+<div class="outline-text-2" id="text-h-0469c988-ab08-4684-afb2-708743a574aa">
 <p>
-So taking the focus part out of the above we get: 
+So taking the focus part out of the above we get:
 </p>
 <pre class="example">
-super + {h,j,k,l} 
-    bspc node -f {west,south,north,east} 
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
 </pre>
 
 <p>
@@ -310,9 +310,9 @@ right, and no action occurs as a result.
 </p>
 </div>
 
-<div id="outline-container-orge559fd9" class="outline-3">
-<h3 id="desired-behavior">Desired behavior</h3>
-<div class="outline-text-3" id="text-desired-behavior">
+<div id="outline-container-org41ff3a6" class="outline-3">
+<h3 id="h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b"><a href="#h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">Desired behavior</a></h3>
+<div class="outline-text-3" id="text-h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">
 <p>
 In the above, on a focus right, I want the cursor to appear in the
 middle of the right monitor as well as focus on that monitor.
@@ -338,7 +338,7 @@ the right will be focused, and the pointer will be there.
 
 <blockquote>
 <p>
-Why is half of this function setting pointer<sub>follows</sub><sub>*</sub> values?
+Why is half of this function setting pointer_follows_* values?
 </p>
 </blockquote>
 
@@ -352,9 +352,9 @@ window snapping out from under you can be quite annoying.
 </div>
 </div>
 
-<div id="outline-container-org6bdd352" class="outline-2">
-<h2 id="org6bdd352">Movement</h2>
-<div class="outline-text-2" id="text-org6bdd352">
+<div id="outline-container-orgbd859ba" class="outline-2">
+<h2 id="h-cc243055-0839-4d72-8471-2319a4d41e20"><a href="#h-cc243055-0839-4d72-8471-2319a4d41e20">Movement</a></h2>
+<div class="outline-text-2" id="text-h-cc243055-0839-4d72-8471-2319a4d41e20">
 <p>
 Movement part of the example sxhkd:
 </p>
@@ -374,9 +374,9 @@ workspaces/monitors.
 </p>
 </div>
 
-<div id="outline-container-org50b48c7" class="outline-3">
-<h3 id="desired-behavior-1">Desired behavior</h3>
-<div class="outline-text-3" id="text-desired-behavior-1">
+<div id="outline-container-org2e0cfaf" class="outline-3">
+<h3 id="h-1915bc68-2afc-4d9f-ba88-c00ad1915867"><a href="#h-1915bc68-2afc-4d9f-ba88-c00ad1915867">Desired behavior</a></h3>
+<div class="outline-text-3" id="text-h-1915bc68-2afc-4d9f-ba88-c00ad1915867">
 <p>
 When a window is switched, retain focus on the original window that was
 moved. If switching to an empty monitor, move the window to that

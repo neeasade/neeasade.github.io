@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-03 Sun 18:15 -->
+<!-- 2020-05-03 Sun 21:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pok3r Mapping</title>
@@ -248,15 +248,9 @@ for the JavaScript code in this tag.
 <h1 class="title">Pok3r Mapping</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-03-19-Pok3r-Mapping.org">2019-02-19</a> • 2018-03-19
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-03-19-Pok3r-Mapping.org">2020-05-03</a> • 2018-03-19
 </p>
 </div>
-
-
-
-
-
-
 
 <p>
 Mapping reference that I'm using on my pok3r keyboard.
@@ -280,25 +274,29 @@ You can continue mapping in programming mode by hitting key combinations
 followed by <code>pn</code>.
 </p>
 
-<div id="outline-container-orgda5fdcf" class="outline-2">
-<h2 id="swaps">Swaps</h2>
-<div class="outline-text-2" id="text-swaps">
+<div id="outline-container-org72728f1" class="outline-2">
+<h2 id="h-c834be12-6d81-46c9-952f-d5d712b46ce0"><a href="#h-c834be12-6d81-46c9-952f-d5d712b46ce0">Swaps</a></h2>
+<div class="outline-text-2" id="text-h-c834be12-6d81-46c9-952f-d5d712b46ce0">
 <div class="org-src-container">
-<pre class="src src-text">esc -&gt; fn + esc fn + esc -&gt; esc
+<pre class="src src-text">esc -&gt; fn + esc
+fn + esc -&gt; esc
 
-l\_meta -&gt; l\_super l\_super -&gt; l\_meta
+l_meta -&gt; l_super
+l_super -&gt; l_meta
 
-&#160;-&gt; backspace backspace -&gt;\\
+\&#160;-&gt; backspace
+backspace -&gt; \
 
-capslock -&gt; left ctrl left ctrl -&gt; capslock
+capslock -&gt; left ctrl
+left ctrl -&gt; capslock
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8f289b5" class="outline-2">
-<h2 id="r_ctrl---fn">R\<sub>Ctrl</sub> -&gt; Fn</h2>
-<div class="outline-text-2" id="text-r_ctrl---fn">
+<div id="outline-container-org2d6977b" class="outline-2">
+<h2 id="h-e8380d65-0a26-4e42-81f1-03e97655a171"><a href="#h-e8380d65-0a26-4e42-81f1-03e97655a171">Right control -&gt; Function key</a></h2>
+<div class="outline-text-2" id="text-h-e8380d65-0a26-4e42-81f1-03e97655a171">
 <p>
 note: this effects only the layer you are on, fn transforms into super
 after this.
@@ -306,7 +304,7 @@ after this.
 
 <ul class="org-ul">
 <li>unplug keyboard, flip switch 4</li>
-<li>hit fn, then r\<sub>ctrl</sub></li>
+<li>hit fn, then r<sub>ctrl</sub></li>
 <li>hit pn, pn to keep position</li>
 <li>turn off switch 4</li>
 </ul>
@@ -316,8 +314,8 @@ and now we can have nice vim-like arrow keys:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">fn + h -&gt; fn + j fn + j -&gt; fn + k fn + k -&gt; fn + i
-fn + l -&gt; fn + l
+<pre class="src src-text">  fn + h -&gt; fn + j fn + j -&gt; fn + k fn + k -&gt; fn + i
+  fn + l -&gt; fn + l
 </pre>
 </div>
 
@@ -326,7 +324,7 @@ swap (the now available) right win alt:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">r\_meta -&gt; r\_super r\_super -&gt; r\_meta 
+<pre class="src src-text">  r_meta -&gt; r_super r_super -&gt; r_meta
 </pre>
 </div>
 
@@ -336,17 +334,17 @@ arrow keys):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ahk">#SingleInstance force
+<pre class="src src-ahk">  #<span style="color: #0000ff;">SingleInstance</span> force
 
-Capslock::Ctrl
+  <span style="color: #73777D;">Capslock</span>::<span style="color: #73777D;">Ctrl</span>
 
-::Backspace Backspace::\\
+  ::<span style="color: #73777D;">Backspace</span> <span style="color: #73777D;">Backspace</span>::\\
 
-+BS:: KeyWait, Shift Send, {|} Return
+  +<span style="color: #73777D;">BS</span>:: <span style="color: #0000ff;">KeyWait</span>, <span style="color: #73777D;">Shift</span> <span style="color: #0000ff;">Send</span>, {|} <span style="color: #0000ff;">Return</span>
 
-LWin::LAlt LAlt::LWin
+  <span style="color: #73777D;">LWin</span>::<span style="color: #73777D;">LAlt</span> <span style="color: #73777D;">LAlt</span>::<span style="color: #73777D;">LWin</span>
 
-RWin::RAlt RAlt::RWin
+  <span style="color: #73777D;">RWin</span>::<span style="color: #73777D;">RAlt</span> <span style="color: #73777D;">RAlt</span>::<span style="color: #73777D;">RWin</span>
 </pre>
 </div>
 

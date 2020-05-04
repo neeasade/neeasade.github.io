@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-03 Sun 18:15 -->
+<!-- 2020-05-03 Sun 21:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GDB Registers</title>
@@ -248,24 +248,18 @@ for the JavaScript code in this tag.
 <h1 class="title">GDB Registers</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-02-20-Registers-with-GDB.org">2019-02-19</a> • 2015-02-20
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-02-20-Registers-with-GDB.org">2020-05-03</a> • 2015-02-20
 </p>
 </div>
-
-
-
-
-
-
 
 <p>
 This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 </p>
 
-<div id="outline-container-orgdb3b450" class="outline-2">
-<h2 id="orgdb3b450">Compile the program to debug</h2>
-<div class="outline-text-2" id="text-orgdb3b450">
+<div id="outline-container-org60c1311" class="outline-2">
+<h2 id="h-adac1e41-906a-43a7-9f03-1237daaabf01">Compile the program to debug</h2>
+<div class="outline-text-2" id="text-h-adac1e41-906a-43a7-9f03-1237daaabf01">
 <p>
 I'm assuming here that you have the source of the C file that you wish
 to step through(this post assumes you are trying to learn about
@@ -278,32 +272,27 @@ of a Makefile for 3 of them:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-Makefile">all: 32bit 64bit 64bitInLine
+<pre class="src src-makefile"><span style="color: #BA48B4;">all</span>: 32bit 64bit 64bitInLine
 
-32bit: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+<span style="color: #BA48B4;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
 MyProgram.c -o MyProgram
 
-64bit: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+<span style="color: #BA48B4;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
 
-64bitInLine: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
-
+<span style="color: #BA48B4;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
 </pre>
 </div>
-
-<p>
-(Note for Adam: notice I only removed the -S flag and changed the output
-name)
-</p>
 
 <p>
 This should result in 3 output files with different assembly associated
 with each.
 </p>
+</div>
+</div>
 
-<p>
-#GDB
-</p>
-
+<div id="outline-container-org456d98e" class="outline-2">
+<h2 id="h-5fc9a60c-09e9-422a-8f37-df6437afc10c">GDB</h2>
+<div class="outline-text-2" id="text-h-5fc9a60c-09e9-422a-8f37-df6437afc10c">
 <p>
 The GNU Project Debugger(GDB) is a fantastic tool that I am still
 learning about. If you have no idea what it is, it is a fairly powerful
@@ -325,7 +314,8 @@ run the program - this will cause the breakpoint to instantly be hit.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">(gdb)<span style="color: #73777D;">break</span> main (gdb)run
+<pre class="src src-bash">(gdb)<span style="color: #73777D;">break</span> main
+(gdb)run
 </pre>
 </div>
 
