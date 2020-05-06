@@ -1,6 +1,5 @@
 #+title: Archiving CD's on linux
 #+pubdate: <2020-05-05>
-#+draft: t
 
 ** [[#h-c2430d47-065c-438b-9ffe-3856b927a6ce][Mounting data CD's/DVD's]]
 :PROPERTIES:
