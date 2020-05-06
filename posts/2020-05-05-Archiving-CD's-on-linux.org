@@ -1,0 +1,54 @@
+#+title: Archiving CD's on linux
+#+pubdate: <2020-05-05>
+#+draft: t
+
+** [[#h-c2430d47-065c-438b-9ffe-3856b927a6ce][Mounting data CD's/DVD's]]
+:PROPERTIES:
+:CUSTOM_ID: h-c2430d47-065c-438b-9ffe-3856b927a6ce
+:END:
+
+You might have to install one or both of these packages: ~cdrecord cdrkit~ to get the ~iso9660~ mount type (you can check if you have support with ~cat /proc/filesystems | grep iso9660~)
+
+Peek at ~ls /dev/sr*~ for the devices, or ~lsblk~ for the ~rom~ type to get your mount address.
+
+Then:
+
+#+begin_src
+mount <dev> /path/to/mountpoint
+#+end_src
+
+or, more explicitly:
+
+#+begin_src
+mount -t iso9660 <dev> /path/to/mountpoint
+#+end_src
+
+** [[#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895][Getting the content from a Music CD/DVD]]
+:PROPERTIES:
+:CUSTOM_ID: h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895
+:END:
+
+With cdparanoia:
+
+#+begin_src
+cd /place/to/store/tracks
+cdparanoia -d <dev> -B
+#+end_src
+
+** [[#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf][Backing up to an ISO]]
+:PROPERTIES:
+:CUSTOM_ID: h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf
+:END:
+
+#+begin_src
+dd if=<dev> of=/path/to/label.iso
+#+end_src
+
+** [[#h-8052e45f-f714-4bd1-b2ed-39ed0175a499][Mounting an ISO]]
+:PROPERTIES:
+:CUSTOM_ID: h-8052e45f-f714-4bd1-b2ed-39ed0175a499
+:END:
+
+#+begin_src
+mount /path/to/image.iso /path/to/mountpoint/ -o loop
+#+end_src
