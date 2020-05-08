@@ -1,0 +1,22 @@
+#+title: Automata tiling backgrounds
+#+pubdate: <2020-05-08>
+#+draft: t
+
+An internet friend, [[https://catgirl.sh/][camille]], has a very approachable [[https://github.com/turquoise-hexagon/automata][repo]] that serves as a celluar automata playground. The setup is very easy to tinker with, and I've had lots of fun playing with it. My method for generating tiled wallpapers has been to set small board sizes, mess with the colors, and take screenshots as things play out in mpv. Here's a dumping of some shots of the 'disease' automata with some light colors:
+
+| {{{image(ca_dump/mpv-shot0079.jpg)}}} | {{{image(ca_dump/mpv-shot0060.jpg )}}} | {{{image(ca_dump/mpv-shot0080.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0025.jpg)}}} | {{{image(ca_dump/mpv-shot0061.jpg )}}} | {{{image(ca_dump/mpv-shot0082.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0029.jpg)}}} | {{{image(ca_dump/mpv-shot0063.jpg )}}} | {{{image(ca_dump/mpv-shot0084.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0030.jpg)}}} | {{{image(ca_dump/mpv-shot0064.jpg )}}} | {{{image(ca_dump/mpv-shot0089.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0031.jpg)}}} | {{{image(ca_dump/mpv-shot0065.jpg)}}}  | {{{image(ca_dump/mpv-shot0090.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0033.jpg)}}} | {{{image(ca_dump/mpv-shot0066.jpg)}}}  | {{{image(ca_dump/mpv-shot0091.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0035.jpg)}}} | {{{image(ca_dump/mpv-shot0067.jpg)}}}  | {{{image(ca_dump/mpv-shot0095.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0057.jpg)}}} | {{{image(ca_dump/mpv-shot0068.jpg)}}}  | {{{image(ca_dump/mpv-shot0097.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0041.jpg)}}} | {{{image(ca_dump/mpv-shot0069.jpg)}}}  | {{{image(ca_dump/mpv-shot0098.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0042.jpg)}}} | {{{image(ca_dump/mpv-shot0070.jpg)}}}  | {{{image(ca_dump/mpv-shot0100.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0047.jpg)}}} | {{{image(ca_dump/mpv-shot0071.jpg)}}}  | {{{image(ca_dump/mpv-shot0101.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0050.jpg)}}} | {{{image(ca_dump/mpv-shot0072.jpg)}}}  | {{{image(ca_dump/mpv-shot0102.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0051.jpg)}}} | {{{image(ca_dump/mpv-shot0073.jpg)}}}  | {{{image(ca_dump/mpv-shot0104.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0052.jpg)}}} | {{{image(ca_dump/mpv-shot0074.jpg)}}}  | {{{image(ca_dump/mpv-shot0107.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0053.jpg)}}} | {{{image(ca_dump/mpv-shot0075.jpg)}}}  | {{{image(ca_dump/mpv-shot0109.jpg)}}} |
+| {{{image(ca_dump/mpv-shot0056.jpg)}}} | {{{image(ca_dump/mpv-shot0076.jpg)}}}  | {{{image(ca_dump/mpv-shot0111.jpg)}}} |
