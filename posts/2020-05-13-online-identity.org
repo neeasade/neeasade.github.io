@@ -1,0 +1,9 @@
+#+title: online identity
+#+pubdate: <2020-05-13>
+#+draft: t
+
+note: this is rambly feely stuff
+
+Context is everything, of course.
+
+Most of the time when communicating with people there is an implicit disclaimer attached to what's being said. Sometimes it's helpful to remember that. When communicating in good faith it can be

@@ -1,0 +1,12 @@
+#+title: trampolining
+#+pubdate: <2020-05-16>
+#+draft: t
+
+Most executable text files in Linux start with a shebang (=#!=) to tell the OS what program to run the file with. What happens is a process is spawned with the program in the shebang, with the file as the first argument. IE, when you call some file =$HOME/hello.sh=:
+
+#+begin_src
+#!/usr/bin/bash
+echo "hello world!"
+#+end_src
+
+A process is created with the call structure =/usr/bin/bash

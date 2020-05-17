@@ -1,4 +1,5 @@
 #+title: Automata tiling backgrounds
+#+rss_title: Automata tiling backgrounds
 #+pubdate: <2020-05-08>
 
 An internet friend, [[https://catgirl.sh/][camille]], has a very approachable [[https://github.com/turquoise-hexagon/automata][repo]] that serves as a celluar automata playground. The setup is very easy to tinker with, and I've had lots of fun playing with it. My method for generating tiled wallpapers has been to set small board sizes, mess with the colors, and take screenshots as things play out in mpv. Here's a dumping of some shots of the 'disease' automata with some light colors:
