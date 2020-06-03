@@ -2,34 +2,51 @@
 
 A potential backronym for rice is Race Inspired Cosmetic Enhancements, supposedly a term taken from the car mod community to refer to changes/mods that were done mostly for aesthetic reasons (IE performance was not affected or went down). Anyways this term has been adopted to digital interface modding, mostly the desktop customization community. It can be considered a term of sarcastic affection sometimes, because many blursed ideas come out of the inspo'd ａｅｓｔｈｅｔｉｃ wants. Over time you start to see the same trends over again, and make the same friends post and develop some "opinions" about whatcha like. As for myself, I like the control and the journey of bending the computer to my will, with the blended environment that is afforded to me with emacs in ~$(date +%Y)~, year of the linux desktop. Getting ideas and inspo from people's dotfiles + projects is a great part of that.
 
-Alright, here are links to some people and places in the community.
+Alright, here are links to some places and people in the community.
 
 ** [[#h-1c22411b-0af5-4230-be11-822c5c70a462][Places]]
 :PROPERTIES:
 :CUSTOM_ID: h-1c22411b-0af5-4230-be11-822c5c70a462
 :END:
 
-- [[http://boards.4channel.org/g/catalog#s=desktop%20thread][=/g/= desktop thread]]
-- [[http://boards.4channel.org/w/catalog#s=desktop%20thread][=/w/= desktop thread]]
-- [[http://cyberia.is/][cyberia]]
-- [[https://2f30.org/][2f30]]
-- [[https://6c37.github.io/][6c37]]
-- [[https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites][list or nixers users sites]]
-- [[https://github.com/nixers-projects][nixer's github]]
-- [[https://github.com/tatou-tatou/Themes/tree/master/Mousse][tatou-tatou's themes]]
-- [[https://nixers.net][nixers.net]]
-- [[https://onodera-punpun.github.io/ricespo/][onodera's ricespo]]
-- [[https://qchat.rizon.net/?channels=code][#code on rizon]]
-- [[https://qchat.rizon.net/?channels=rice][#rice on rizon]]
-- [[https://ricedb.dfg.monster/][#rice db]]
-- [[https://rizonrice.club/Main_Page][#rice's wiki]]
-- [[https://stats.foxbnc.co.uk/history.php?cid=rice&year=2018&month=9][#rice stats page]]
-- [[https://suckless.org/][suckless]]
-- [[https://www.reddit.com/r/unixart/][/r/unixart]]
-- [[https://www.reddit.com/r/unixporn/][/r/unixporn]]
-- [[http://dotfiles.github.io/][dotfiles.github.io]]
-- [[https://www.shlomifish.org/humour/by-others/funroll-loops/Gentoo-is-Rice.html][gentoo is for ricers]]
-- [[https://github.com/torvim/pape][pape]]
+This is of course not comprehensive.
+
+
+#+begin_src elisp :results raw :exports results
+
+(->>
+ '(
+   ("http://boards.4channel.org/g/catalog#s=desktop%20thread" "=/g/= desktop thread")
+   ("http://boards.4channel.org/w/catalog#s=desktop%20thread" "=/w/= desktop thread")
+   ("http://cyberia.is/" "cyberia")
+   ("https://2f30.org/" "2f30")
+   ("https://6c37.github.io/" "6c37")
+   ("https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites" "list of nixers users sites")
+   ("https://github.com/nixers-projects" "nixer's github")
+   ("https://github.com/tatou-tatou/Themes/tree/master/Mousse" "tatou-tatou's themes")
+   ("https://nixers.net" "nixers.net")
+   ("https://onodera-punpun.github.io/ricespo/" "onodera's ricespo")
+   ("https://qchat.rizon.net/?channels=code" "#code on rizon")
+   ("https://qchat.rizon.net/?channels=rice" "#rice on rizon")
+   ("https://ricedb.dfg.monster/" "#rice db")
+   ("https://rizonrice.club/Main_Page" "#rice's wiki")
+   ("https://stats.foxbnc.co.uk/history.php?cid=rice&year=2018&month=9" "#rice stats page")
+   ("https://suckless.org/" "suckless")
+   ("https://www.reddit.com/r/unixart/" "/r/unixart")
+   ("https://www.reddit.com/r/unixporn/" "/r/unixporn")
+   ("http://dotfiles.github.io/" "dotfiles.github.io")
+   ("https://www.shlomifish.org/humour/by-others/funroll-loops/Gentoo-is-Rice.html" "gentoo is for ricers")
+   ("https://github.com/torvim/pape" "pape")
+   )
+
+ ;; sort by label
+ ((lambda (list) (sort list (fn (string< (second <1>) (second <2>))))))
+
+ (mapcar (fn (format "[[%s][%s]]" (first <>) (second <>))))
+ (s-join " ⋄ ")
+ )
+
+#+end_src
 
 ** [[#h-bd88e966-6b56-4d10-b99a-21572ce3bfe9][People]]
 :PROPERTIES:
