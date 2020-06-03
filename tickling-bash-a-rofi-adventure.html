@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-08 Fri 15:31 -->
+<!-- 2020-06-02 Tue 19:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About</title>
+<title>tickling bash, the quest for the perfect menu</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,16 +245,95 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">About</h1>
+<h1 class="title">tickling bash, the quest for the perfect menu</h1>
+<div class="org-center">
 <p>
-I am neeasade. I've listed some of the goals of this site <a href="./blog-meta.html">here</a>.
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2020-05-17</a> • 2020-05-10
 </p>
+</div>
+
+<p>
+tl;dr: I wanted to stop reading stdin after the first newline, and I did a hacky thing to get that, the essence of which is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">sh -c <span style="color: #008FAC;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #73777D;">read</span> pid; <span style="color: #73777D;">read</span> line; <span style="color: #73777D;">echo</span> <span style="color: #008FAC;">"$line"</span>; <span style="color: #73777D;">kill</span> $<span style="color: #007BD9;">pid</span>)
+</pre>
+</div>
+
+<div id="outline-container-orgff131e3" class="outline-2">
+<h2 id="orgff131e3">History</h2>
+<div class="outline-text-2" id="text-orgff131e3">
+<p>
+I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical about being able to bring up a menu, mash a few buttons, and get to where you are going. There are lots of really cool generic "select thing from list" programs out there. As time goes on, you think of more things you might do, and some take it really far (todo: link old halfwit dmenu workflow, maybe the rofi google search thing, maybe finda)
+</p>
+
+<p>
+Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some neat features like positional arguments and the ability to specify the colorscheme from Xresources. In my day to day, occasionally I would find a neat use or have a cool idea, and then integrate it into my setup. Stuff like "search mpd songs and insert one at the current playlist position" or "select a password to copy into the clipboard". Wow this is all super cool! We can just do things and integrate them with little script ideas, neat.
+</p>
+
+<p>
+Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and there, and one of it's features was a builting "switch to window by title" feature, which is pretty cool! I right away stole the idea in a <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows">dmenu script</a>. But then I got to thinking, what if I had a "switch to everything" script. The vision I had in my head of a single hub to jump to or DO anything was a really nice picture, indeed. And thus, dmenu<sub>switcher</sub> was born, a script I would then shout about many times. dmenu<sub>switcher</sub> is a script that matches dmenu selections to bash functions in an associated array &#x2013; so I added actions to:
+</p>
+
+<ul class="org-ul">
+<li>jump to window</li>
+<li>jump to browser tab</li>
+<li>jump to open file in emacs</li>
+</ul>
+
+<p>
+In the process of implementing that last point, I realized I might not need dmenu after all. Within emacs itself, I was using <a href="https://oremacs.com/swiper/">ivy</a> to switch to things. From there I learned that you can spawn an emacs frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">script</a> that just spawned an emacs frame containing ivy. In combination with <a href="https://github.com/raxod502/prescient.el">prescient.el</a> this means my "mega menu" gets extra sorting based on selected entries &#x2013; previously selected things automatically float to the top! How nice. However, I'm already using dmenu in many places. This leads to me making a script in my path also named dmenu pointing at emacs<sub>dmenu</sub>.
+</p>
+
+<p>
+Such is the state of things for a few months.
+</p>
+
+<hr />
+
+<p>
+In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (aside: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my emacs<sub>dmenu</sub> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. And I had some ideas about adding more stuff to the jump script&#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8fa4b35" class="outline-2">
+<h2 id="org8fa4b35">Rofi to the rescue</h2>
+<div class="outline-text-2" id="text-org8fa4b35">
+<p>
+At this point I decided to check out rofi &#x2013; and was rewarded with the very nice <code>-async-pre-read</code> flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That means I can just summon the jump menu and start typing. This is a golden experience! It means I can sent search candidates that take a long time to get (say, my browser history in the past week) but start searching right away.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6bc987a" class="outline-2">
+<h2 id="org6bc987a">Tickling bash</h2>
+<div class="outline-text-2" id="text-org6bc987a">
+<p>
+You start to notice a few more speed' things in your interfaces. Such as in a big dmenu script described above&#x2026; You see, dmenu (and my emacs<sub>dmenu</sub> thing) block until stdin is read all the way through.
+</p>
+
+
+<p>
+_
+</p>
+
+<p>
+note about some items I want to include
+</p>
+<ul class="org-ul">
+<li>type doesn't work on associative arrays if nothing is added into them</li>
+<li>how to "kill to the left", ie pid passing &#x2013; mention the setsid madness</li>
+</ul>
 
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/pages/about.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> • <a href="https://github.com/neeasade/neeasade.github.io/commits/source/pages/about.org">History</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>
