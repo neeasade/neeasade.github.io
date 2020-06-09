@@ -6,7 +6,7 @@
 <!-- 2020-06-09 Tue 05:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Creation of a time based wallpaper with feh</title>
+<title>Pinebook Pro</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="ok ok" />
 <style type="text/css">
@@ -221,91 +221,86 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Creation of a time based wallpaper with feh</h1>
+<h1 class="title">Pinebook Pro</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-17-creation-of-a-time-based-wallpaper-with-feh.org">2019-02-24</a> • 2014-02-17
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-06-09-Pinebook-Pro.org">2020-06-09</a> • 2020-06-09
 </p>
 </div>
 
 <p>
-One of the most popular posts of all time over in /r/wallpapers is an
-album set of 8 8-bit landscapes for every time of day. Here is a quick
-glimpse:
+I'm typing this on a new pinebook pro that I've had for about a week. I'm rolling with the default
+manjaro image so far, just slapped emacs and bspwm on the bad boy and treat it like a little lispy
+hacktop. Like everyone said, the build quality at $200 is great. So far the battery life seems
+stellar, and I can just sling this thing around with me, I want to take it everywhere. That said,
+it's slow as balls, and I definitely appreciate my buttery-smooth workstation upon return.
 </p>
 
 <p>
- 
+Some time back, like many dotfile havers do, I wrote a stow-equivalent script, which I called stOwO.
+It has the luxury of assuming the location of the dotfiles repo, and tries to match the stow link
+path style of stow. Like many scripts used onlyl for the personal deployment of inconsequential
+things, it is poorly tested. This means I'm used to having to do some poking on a new machine where
+I setup my dots to get things going.
 </p>
 
 <p>
-[caption id="" align="aligncenter"
-width="1152"]<img src="http://i.imgur.com/axNNqyH.png" alt="axNNqyH.png" /> summary
-picture![/caption]
+This time I had things in place for a few days before my muscle memory let me to try and 'stow'
+something &#x2013; to my surprise I didn't have stow installed! Guess stOwO + my bootstrap script is
+getting to a usable state (for me)!
+</p>
+
+<hr />
+
+<p>
+It's currently 5AM and I'm on the porch with 2 kitties. They haven't gotten much porch time lately,
+so they are very content (they throw themselves against the concrete to scratch their backs, it's
+fun to watch).
 </p>
 
 <p>
-If you use feh to manage you background, the current background filename
-is stored in ~/.fehbg. If you name each picture in the 8 picture set
-01 - 09, you can easily set an appropriate picture to the time of day.
+An internet friend, Tudor, is currently persuing the goal of having the "most portable home" with
+systemd-homed and Nix &#x2013; The idea being that with Nix you could bootstrap all the packages you need,
+without the need for NixOS (and, of course, all the systemd-homed cool stuff). As a very lazy nixos
+user who puts everything in the global config, this didn't appeal to me much until now &#x2013; the act of
+`pacman -S &lt;package&gt;` everytime I realize I've forgotten something I want is very annoying,
+especially if I'm away from an internet connection. Slapping Nix on this and being good to go soon™
+would have been much more magical. But then I wouldn't feel as much pressure to thrown NixOS arm on
+here.
 </p>
 
-<p>
-Here is the bash script I am currently using to do this:
-</p>
-
-<blockquote>
-<p>
-imagepath="/home/neeasade/images/8bitday";<br />
-while :<br />
-do<br />
-if echo 0$(expr $(date +%H) / 3).png != cat <i>home/neeasade</i>.fehbg |
-egrep '[0-9]{2}.png'; then<br />
-feh &#x2013;bg-fill \(imagepath/0\)(expr $(date +%H) / 3).png;<br />
-fi<br />
-sleep 5<br />
-done
-</p>
-</blockquote>
+<hr />
 
 <p>
-The above while runs forever, checking the name of the current
-background picture at an interval of 5 seconds. Since there are 8
-pictures in the total group, you can take the current hour of the
-day(out of 24) divided by 3 using integer division. running this in the
-background on startup as been giving me a nice wallpaper to match the
-time of day!
+This post is a little wander-y. One of my goals for this month is to write more, for a few reasons:
+</p>
+
+<ul class="org-ul">
+<li>I want to have more bandwidth to communicate in a textual form and not feel worn down from doing so.</li>
+<li>Writing can help take stuff from fuzzy idea to hard reality &#x2013; you are forced to put into words
+what you want to express.</li>
+<li>Sometimes I feel anxiety putting stuff out on the inter dot net. Doing it more might help squash that.</li>
+<li>I have this vague idea that writing = communication and programming = communication (not always,
+but in many contexts), and I'm hoping that the two skills will influence each other a little.</li>
+<li>Asynchronous communication of ideas (+ feedback) - I'm just one person after all, and so If I can dump things
+somewhere and point to them, or improve my knowledge along the way through feedback.</li>
+</ul>
+
+<p>
+So far, I have been writing a little more this month, if only in my journal. Thinking of this blog
+as "wiki-like" helps defeat the anxiety point above (the idea being that an unfinished/imperfect
+thing is A-OK to put out there). When I think of the blogs I enjoy stumbling upon, there is a
+feeling of intimacy WRT the glimpse into people's lives you can get (even if the content being
+shared is technical). I suppose I want to contribute to that feeling of sharing.
 </p>
 
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-02-17-creation-of-a-time-based-wallpaper-with-feh.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-06-09-Pinebook-Pro.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 </div>

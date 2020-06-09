@@ -3,11 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-02 Tue 19:33 -->
+<!-- 2020-06-09 Tue 05:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
 <meta name="generator" content="Org mode" />
+<meta name="author" content="ok ok" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -197,50 +198,28 @@
 <link rel="stylesheet" href="./assets/css/scaffold.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -266,7 +245,7 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-orgc3ec25e" class="outline-2">
+<div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
 <h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code></a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <pre class="example">
@@ -279,7 +258,7 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 
-<div id="outline-container-orgd606449" class="outline-2">
+<div id="outline-container-h-56d8bbe1-5940-4d97-b817-a71979240c19" class="outline-2">
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code></a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <pre class="example">
@@ -295,7 +274,7 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 </div>
 
-<div id="outline-container-orgc274064" class="outline-2">
+<div id="outline-container-h-76dc15ec-0aab-464c-a674-60474010c8f0" class="outline-2">
 <h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">TRAMP syntax</a></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
@@ -320,7 +299,7 @@ and then here's a cool trick for providing the connection into to a remote shell
 </div>
 </div>
 
-<div id="outline-container-orga58047d" class="outline-2">
+<div id="outline-container-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4" class="outline-2">
 <h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">Other</a></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
