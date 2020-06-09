@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-09 Tue 05:48 -->
+<!-- 2020-06-09 Tue 05:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -240,9 +240,9 @@ tl;dr: I wanted to stop reading stdin after the first newline, and I did a hacky
 </pre>
 </div>
 
-<div id="outline-container-org1c8a26c" class="outline-2">
-<h2 id="org1c8a26c">History</h2>
-<div class="outline-text-2" id="text-org1c8a26c">
+<div id="outline-container-org966dc14" class="outline-2">
+<h2 id="org966dc14">History</h2>
+<div class="outline-text-2" id="text-org966dc14">
 <p>
 I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical about being able to bring up a menu, mash a few buttons, and get to where you are going. There are lots of really cool generic "select thing from list" programs out there. As time goes on, you think of more things you might do, and some take it really far (todo: link old halfwit dmenu workflow, maybe the rofi google search thing, maybe finda)
 </p>
@@ -277,18 +277,18 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-orgde6bd65" class="outline-2">
-<h2 id="orgde6bd65">Rofi to the rescue</h2>
-<div class="outline-text-2" id="text-orgde6bd65">
+<div id="outline-container-org1ac2ce9" class="outline-2">
+<h2 id="org1ac2ce9">Rofi to the rescue</h2>
+<div class="outline-text-2" id="text-org1ac2ce9">
 <p>
 At this point I decided to check out rofi &#x2013; and was rewarded with the very nice <code>-async-pre-read</code> flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That means I can just summon the jump menu and start typing. This is a golden experience! It means I can sent search candidates that take a long time to get (say, my browser history in the past week) but start searching right away.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4bac92c" class="outline-2">
-<h2 id="org4bac92c">Tickling bash</h2>
-<div class="outline-text-2" id="text-org4bac92c">
+<div id="outline-container-orgcfc8ffe" class="outline-2">
+<h2 id="orgcfc8ffe">Tickling bash</h2>
+<div class="outline-text-2" id="text-orgcfc8ffe">
 <p>
 You start to notice a few more speed' things in your interfaces. Such as in a big dmenu script described above&#x2026; You see, dmenu (and my emacs<sub>dmenu</sub> thing) block until stdin is read all the way through.
 </p>
