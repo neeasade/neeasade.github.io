@@ -1,0 +1,53 @@
+#+title: Pinebook Pro
+#+rss_title: Pinebook Pro
+#+pubdate: <2020-06-09>
+
+I'm typing this on a new pinebook pro that I've had for about a week. I'm rolling with the default
+manjaro image so far, just slapped emacs and bspwm on the bad boy and treat it like a little lispy
+hacktop. Like everyone said, the build quality at $200 is great. So far the battery life seems
+stellar, and I can just sling this thing around with me, I want to take it everywhere. That said,
+it's slow as balls, and I definitely appreciate my buttery-smooth workstation upon return.
+
+Some time back, like many dotfile havers do, I wrote a stow-equivalent script, which I called stOwO.
+It has the luxury of assuming the location of the dotfiles repo, and tries to match the stow link
+path style of stow. Like many scripts used onlyl for the personal deployment of inconsequential
+things, it is poorly tested. This means I'm used to having to do some poking on a new machine where
+I setup my dots to get things going.
+
+This time I had things in place for a few days before my muscle memory let me to try and 'stow'
+something -- to my surprise I didn't have stow installed! Guess stOwO + my bootstrap script is
+getting to a usable state (for me)!
+
+-----
+
+It's currently 5AM and I'm on the porch with 2 kitties. They haven't gotten much porch time lately,
+so they are very content (they throw themselves against the concrete to scratch their backs, it's
+fun to watch).
+
+An internet friend, Tudor, is currently persuing the goal of having the "most portable home" with
+systemd-homed and Nix -- The idea being that with Nix you could bootstrap all the packages you need,
+without the need for NixOS (and, of course, all the systemd-homed cool stuff). As a very lazy nixos
+user who puts everything in the global config, this didn't appeal to me much until now -- the act of
+`pacman -S <package>` everytime I realize I've forgotten something I want is very annoying,
+especially if I'm away from an internet connection. Slapping Nix on this and being good to go soon™
+would have been much more magical. But then I wouldn't feel as much pressure to thrown NixOS arm on
+here.
+
+-----
+
+This post is a little wander-y. One of my goals for this month is to write more, for a few reasons:
+
+- I want to have more bandwidth to communicate in a textual form and not feel worn down from doing so.
+- Writing can help take stuff from fuzzy idea to hard reality -- you are forced to put into words
+  what you want to express.
+- Sometimes I feel anxiety putting stuff out on the inter dot net. Doing it more might help squash that.
+- I have this vague idea that writing = communication and programming = communication (not always,
+  but in many contexts), and I'm hoping that the two skills will influence each other a little.
+- Asynchronous communication of ideas (+ feedback) - I'm just one person after all, and so If I can dump things
+  somewhere and point to them, or improve my knowledge along the way through feedback.
+
+So far, I have been writing a little more this month, if only in my journal. Thinking of this blog
+as "wiki-like" helps defeat the anxiety point above (the idea being that an unfinished/imperfect
+thing is A-OK to put out there). When I think of the blogs I enjoy stumbling upon, there is a
+feeling of intimacy WRT the glimpse into people's lives you can get (even if the content being
+shared is technical). I suppose I want to contribute to that feeling of sharing.
