@@ -1,44 +1,80 @@
 #+title: tickling bash, the quest for the perfect menu
+#+rss_title: tickling bash, the quest for the perfect menu
 #+pubdate: <2020-05-10>
-#+draft: t
 
-tl;dr: I wanted to stop reading stdin after the first newline, and I did a hacky thing to get that, the essence of which is:
+# todo: maybe lift this option to setup file:
+# disable _ and ^ sub and super script
+#+OPTIONS: ^:nil
+
+#+begin_center
+(where the 'perfect menu' means you can start typing right away)
+#+end_center
+
+*tl;dr*: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
 
 #+begin_src sh
 sh -c 'echo $$; echo a; sleep 100; echo b' | (read pid; read line; echo "$line"; kill $pid)
 #+end_src
 
-** History
+I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical
+about being able to bring up a menu, mash a few buttons, and get to where you are going. There are
+lots of really cool generic "select thing from list" programs out there. As time goes on, you think
+of more things you might do, and some take [[https://www.youtube.com/watch?v=NqbHe9X4PWU][it]] [[https://github.com/BelkaDev/RofiFtw][really]] [[https://keminglabs.com/finda/][far]].
 
-I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical about being able to bring up a menu, mash a few buttons, and get to where you are going. There are lots of really cool generic "select thing from list" programs out there. As time goes on, you think of more things you might do, and some take it really far (todo: link old halfwit dmenu workflow, maybe the rofi google search thing, maybe finda)
+** Setup
 
-Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some neat features like positional arguments and the ability to specify the colorscheme from Xresources. In my day to day, occasionally I would find a neat use or have a cool idea, and then integrate it into my setup. Stuff like "search mpd songs and insert one at the current playlist position" or "select a password to copy into the clipboard". Wow this is all super cool! We can just do things and integrate them with little script ideas, neat.
+Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
+neat features like positional arguments and the ability to specify the colorscheme from Xresources.
+In my day to day, occasionally I would find a neat use or have a cool idea, and then integrate it
+into my setup. Stuff like "search mpd songs and insert one at the current playlist position" or
+"select a password to copy into the clipboard". Wow this is all super cool! We can just do things
+and integrate them with little script ideas, neat.
 
-Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and there, and one of it's features was a builting "switch to window by title" feature, which is pretty cool! I right away stole the idea in a [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows][dmenu script]]. But then I got to thinking, what if I had a "switch to everything" script. The vision I had in my head of a single hub to jump to or DO anything was a really nice picture, indeed. And thus, dmenu_switcher was born, a script I would then shout about many times. dmenu_switcher is a script that matches dmenu selections to bash functions in an associated array -- so I added actions to:
+Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and there, and one of
+it's features was a builting "switch to window by title" feature, which is pretty cool! I right away
+stole the idea in a [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows][dmenu script]]. But then I got to thinking, what if I had a "switch to everything"
+script. The vision I had in my head of a single hub to jump to or DO anything was a really nice
+picture, indeed. And thus, ~dmenu_switcher~ was born, a script I would then shout about many times.
+~dmenu_switcher~ is a script that matches dmenu selections to bash functions in an associated array --
+so I added actions to:
 
 - jump to window
 - jump to browser tab
 - jump to open file in emacs
 
-In the process of implementing that last point, I realized I might not need dmenu after all. Within emacs itself, I was using [[https://oremacs.com/swiper/][ivy]] to switch to things. From there I learned that you can spawn an emacs frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu][script]] that just spawned an emacs frame containing ivy. In combination with [[https://github.com/raxod502/prescient.el][prescient.el]] this means my "mega menu" gets extra sorting based on selected entries -- previously selected things automatically float to the top! How nice. However, I'm already using dmenu in many places. This leads to me making a script in my path also named dmenu pointing at emacs_dmenu.
+In the process of implementing that last point, I realized I might not need dmenu after all. Within
+emacs itself, I was using [[https://oremacs.com/swiper/][ivy]] to switch to things. From there I learned that you can spawn an emacs
+frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu][script]]
+that just spawned an emacs frame containing ivy. In combination with [[https://github.com/raxod502/prescient.el][prescient.el]] this means my
+"mega menu" gets extra sorting based on selected entries -- previously selected things automatically
+float to the top! How nice. However, I'm already using dmenu in many places. This leads to me making
+a script in my path also named dmenu pointing at [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu][emacs_dmenu]].
 
 Such is the state of things for a few months.
 
 -----
 
-In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (aside: emacs was lagging and I [[https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007][found out why]]). You start noticing things. Things like the fact that dmenu (and my emacs_dmenu wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. And I had some ideas about adding more stuff to the jump script...
+In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (tangent: emacs was lagging and I [[https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007][found out why]]). You start noticing things. Things like the fact that dmenu (and my ~emacs_dmenu~ wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. A 200ms bump is quite noticable in the "flow" of things (you have an action in mind, you mash the keybind and start typing then OOPS I just sent gibberish to my text editor).
 
-** Rofi to the rescue
+** Rofi
 
-At this point I decided to check out rofi -- and was rewarded with the very nice ~-async-pre-read~ flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That means I can just summon the jump menu and start typing. This is a golden experience! It means I can sent search candidates that take a long time to get (say, my browser history in the past week) but start searching right away.
+At this point I decided to check out [[https://github.com/davatorium/rofi][rofi]] -- and was rewarded with the very nice ~-async-pre-read~
+flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
+means I can just summon the jump menu and start typing before candidates are ready. This is a golden
+experience! It means I can include search candidates that take a long time to get (say, my browser
+history in the past week) but still start typing right away.
 
-** Tickling bash
+** Tickling bash (cheating)
 
-You start to notice a few more speed' things in your interfaces. Such as in a big dmenu script described above... You see, dmenu (and my emacs_dmenu thing) block until stdin is read all the way through.
+So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 
+#+begin_src sh
+(echo a; sleep 10; echo b) | rofi -dmenu -async-pre-read 0
+#+end_src
 
-_
+You see the issue with this? After I select something (intending to move on to an action), I'm stuck again! until all the candidates have been created. Yet another bump in what I'm trying to do. Clearly, this is an insult and I must make the machine do my bidding. This is not a fault with rofi -- it returns right away after selecting an option, as expected.
 
-note about some items I want to include
-- type doesn't work on associative arrays if nothing is added into them
-- how to "kill to the left", ie pid passing -- mention the setsid madness
+So the way I cheated was to run the 'candidate maker' in a subshell, pass it's pid along to my wrapper, and kill it once rofi returned. Can't pass options when your dead. A shortened version of this fix may be found at the top of this post, but here's some links showing the use in my wrapper (gross):
+
+- [[https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu_switcher#L196][dmenu_switcher]] (passes along pid to kill)
+- [[https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu#L21-L24][rofi wrapper]] (notes the pid and kills the feeder after rofi returns)
