@@ -40,13 +40,13 @@ I use the BlackPlayer music player, which lets you choose what folders to search
   music_dir="$HOME/Music"
 
   IFS=$'\n'
-  while read -r f
+  while read -r f; do
       collection_size=$(du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//')
       if [ $collection_size -lt $size_limit ]; then
 	  echo cp "${music_dir}/$f" "$sync_music_dir"
 	  cp "${music_dir}/$f" "$sync_music_dir"
       fi
-  done <(mpc playlist -f '%file%' | shuf)
+  done < <(mpc playlist -f '%file%' | shuf)
 #+end_src
 
 ** [[#h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719][Browsing the internet]]
