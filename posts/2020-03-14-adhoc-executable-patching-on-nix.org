@@ -47,9 +47,7 @@ Then you should be able to run the executable by calling it normally (in or out 
 
 -----
 
-That's all well and good for /right now/, but what if we lose the nix store references we just patched in! Plus, we can't exactly carry this around. Let's put the above into a build definition so we can always have it:
-
-Let's note how to do the above as a build definition (the example here is a dynamicly-linked release of  [[https://github.com/borkdude/babashka/releases/tag/v0.1.3][babashka]]):
+That's all well and good for /right now/, but what if we lose the nix store references we just patched in! Plus, we can't exactly carry this around. Let's note how to do the above as a build definition (the example here is a dynamically-linked release of  [[https://github.com/borkdude/babashka/releases/tag/v0.1.3][babashka]]):
 
 #+begin_src nix
 babashka = stdenv.mkDerivation rec {

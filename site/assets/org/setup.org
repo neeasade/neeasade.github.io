@@ -3,10 +3,7 @@
 #+HTML_HEAD: <link rel="stylesheet" href="./assets/css/scaffold.css">
 #+HTML_HEAD: <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-
 # cf https://orgmode.org/manual/Macro-Replacement.html
-
-
 
 # link images from the post assets folder fo the site:
 #+MACRO:  image [[file:./assets/posts/$1][file:./assets/posts/$1]]
