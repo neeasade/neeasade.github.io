@@ -23,11 +23,11 @@ mention it's easy to create your own interpreters (link to elisp and example scr
 
 ** nix-shell multiline shebangs
 
-todo: fill in the comment
+# todo: fill in the comment
 
-The other day I learned from [[this comment ]]that nix-shell can contain a multiline shebang in which
-the interpreter AND dependencies are referenced from the current nixpkgs on the machine (though I'd
-bet there's a contained way to specify the nixpkgs you want as well):
+# The other day I learned from [[this comment ]]that nix-shell can contain a multiline shebang in which
+# the interpreter AND dependencies are referenced from the current nixpkgs on the machine (though I'd
+# bet there's a contained way to specify the nixpkgs you want as well):
 
 #+begin_src
 todo
