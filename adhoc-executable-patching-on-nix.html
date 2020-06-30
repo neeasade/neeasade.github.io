@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-09 Tue 05:52 -->
+<!-- 2020-06-30 Tue 10:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>adhoc executable patching on nixos</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="ok ok" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -198,28 +197,50 @@
 <link rel="stylesheet" href="./assets/css/scaffold.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -227,12 +248,12 @@
 <h1 class="title">adhoc executable patching on nixos</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-14-adhoc-executable-patching-on-nix.org">2020-04-10</a> • 2020-03-14
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-14-adhoc-executable-patching-on-nix.org">2020-06-30</a> • 2020-03-14
 </p>
 </div>
 
 <p>
-AKA 'one weird trick' for getting that ELF executable someone just handed you working soon™ (don't depend on this often)
+'one weird trick' for getting that ELF executable someone just handed you working soon™
 </p>
 
 <p>
@@ -240,14 +261,14 @@ Create a <code>shell.nix</code> file that looks like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix">let
-  pkgs = import &lt;nixpkgs&gt; {};
-in pkgs.mkShell {
-  nativeBuildInputs =
-    (with pkgs; [
+<pre class="src src-nix"><span style="color: #eb7e614e9cdc;">let</span>
+  <span style="color: #28ef740328ef;">pkgs</span> = <span style="color: #6af87bbf6957;">import</span> <span style="color: #2cc03bc32bad;">&lt;nixpkgs&gt;</span> {};
+<span style="color: #eb7e614e9cdc;">in</span> pkgs.mkShell {
+  <span style="color: #28ef740328ef;">nativeBuildInputs</span> =
+    (<span style="color: #eb7e614e9cdc;">with</span> pkgs; [
       gcc
 
-      # example libraries you might want:
+      <span style="color: #6af87bbf6957;"># example libraries you might want:</span>
       zlib
       SDL2
     ]);
@@ -261,7 +282,7 @@ Launch the nix-shell, patch the linker so you can call the executable and see wh
 
 <div class="org-src-container">
 <pre class="src src-sh">$ nix-shell shell.nix
-$ patchelf --set-interpreter <span style="color: #008FAC;">"$(</span><span style="color: #ff00ff;">cat</span><span style="color: #008FAC;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
+$ patchelf --set-interpreter <span style="color: #44048cdd4404;">"$(</span><span style="color: #edad125370dc;">cat</span><span style="color: #44048cdd4404;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
 </pre>
 </div>
 
@@ -281,14 +302,71 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 
 <div class="org-src-container">
 <pre class="src src-sh">$ nix-shell ./shell.nix
-$ <span style="color: #A7ABB2;"># </span><span style="color: #A7ABB2;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
-$ <span style="color: #007BD9;">new_rpath</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #008FAC;">"$NIX_LDFLAGS"</span> | tr <span style="color: #008FAC;">' '</span> $<span style="color: #008FAC;">'\n'</span> | grep <span style="color: #008FAC;">"^-L"</span> | sed -E <span style="color: #008FAC;">'s/^-L/:/'</span> | tr -d $<span style="color: #008FAC;">'\n'</span>)
-$ patchelf --set-rpath <span style="color: #008FAC;">"$new_rpath"</span> /path/to/executable
+$ <span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
+$ <span style="color: #28ef740328ef;">new_rpath</span>=$(<span style="color: #edad125370dc;">echo</span> <span style="color: #44048cdd4404;">"$NIX_LDFLAGS"</span> | tr <span style="color: #44048cdd4404;">' '</span> $<span style="color: #44048cdd4404;">'\n'</span> | grep <span style="color: #44048cdd4404;">"^-L"</span> | sed -E <span style="color: #44048cdd4404;">'s/^-L/:/'</span> | tr -d $<span style="color: #44048cdd4404;">'\n'</span>)
+$ patchelf --set-rpath <span style="color: #44048cdd4404;">"$new_rpath"</span> /path/to/executable
 </pre>
 </div>
 
 <p>
-Then you should be able to run the executable by calling it.
+Then you should be able to run the executable by calling it normally (in or out of a nix-shell context).
+</p>
+
+<div class="org-center">
+<p>
+🍄
+</p>
+</div>
+
+<p>
+That's all well and good for <i>right now</i>, but what if we lose the nix store references we just patched in! Plus, we can't exactly carry this around. Let's put the above into a build definition so we can always have it:
+</p>
+
+<p>
+Let's note how to do the above as a build definition (the example here is a dynamicly-linked release of  <a href="https://github.com/borkdude/babashka/releases/tag/v0.1.3">babashka</a>):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nix"><span style="color: #28ef740328ef;">babashka</span> = stdenv.mkDerivation <span style="color: #eb7e614e9cdc;">rec</span> {
+    <span style="color: #28ef740328ef;">name</span> = <span style="color: #44048cdd4404;">"babashka"</span>;
+    <span style="color: #6af87bbf6957;"># this is the way to coerce a string into a path</span>
+    <span style="color: #6af87bbf6957;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
+
+    <span style="color: #6af87bbf6957;"># showing a few different ways:</span>
+    <span style="color: #6af87bbf6957;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
+    <span style="color: #28ef740328ef;">src</span> = (fetchurl {
+        <span style="color: #28ef740328ef;">url</span> = <span style="color: #44048cdd4404;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
+        <span style="color: #28ef740328ef;">sha256</span> = <span style="color: #44048cdd4404;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
+    });
+
+    <span style="color: #28ef740328ef;">unpackPhase</span> = <span style="color: #44048cdd4404;">"unzip $src"</span>;
+    <span style="color: #6af87bbf6957;"># if src is a path to the executable:</span>
+    <span style="color: #6af87bbf6957;"># unpackPhase = "cp $src bb";</span>
+
+    <span style="color: #6af87bbf6957;"># note: the chmod is only needed when using direct path to local executable</span>
+    <span style="color: #28ef740328ef;">patchPhase</span> = <span style="color: #44048cdd4404;">''</span>
+<span style="color: #44048cdd4404;">        chmod u+w ./bb</span>
+<span style="color: #44048cdd4404;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
+<span style="color: #44048cdd4404;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
+<span style="color: #44048cdd4404;">        patchelf --set-rpath "$new_rpath" ./bb</span>
+<span style="color: #44048cdd4404;">    ''</span>;
+
+    <span style="color: #28ef740328ef;">dontBuild</span> = <span style="color: #6af87bbf6957;">true</span>;
+
+    <span style="color: #28ef740328ef;">installPhase</span> = <span style="color: #44048cdd4404;">''</span>
+<span style="color: #44048cdd4404;">        mkdir -p $out/bin</span>
+<span style="color: #44048cdd4404;">        cp bb $out/bin</span>
+<span style="color: #44048cdd4404;">    ''</span>;
+
+    <span style="color: #28ef740328ef;">nativeBuildInputs</span> = (<span style="color: #eb7e614e9cdc;">with</span> pkgs; [
+        gcc-unwrapped.lib zlib unzip
+    ]);
+};
+</pre>
+</div>
+
+<p>
+And bam! now we can integrate our sins into our package definitions.
 </p>
 
 

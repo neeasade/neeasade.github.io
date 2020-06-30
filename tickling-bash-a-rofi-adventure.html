@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-09 Tue 05:52 -->
+<!-- 2020-06-30 Tue 10:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="ok ok" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -198,28 +197,50 @@
 <link rel="stylesheet" href="./assets/css/scaffold.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -227,32 +248,52 @@
 <h1 class="title">tickling bash, the quest for the perfect menu</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2020-05-17</a> • 2020-05-10
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2020-06-19</a> • 2020-05-10
+</p>
+</div>
+
+<div class="org-center">
+<p>
+(where the 'perfect menu' means you can start typing right away)
 </p>
 </div>
 
 <p>
-tl;dr: I wanted to stop reading stdin after the first newline, and I did a hacky thing to get that, the essence of which is:
+<b>tl;dr</b>: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #008FAC;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #73777D;">read</span> pid; <span style="color: #73777D;">read</span> line; <span style="color: #73777D;">echo</span> <span style="color: #008FAC;">"$line"</span>; <span style="color: #73777D;">kill</span> $<span style="color: #007BD9;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #44048cdd4404;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #6af87bbf6957;">read</span> pid; <span style="color: #6af87bbf6957;">read</span> line; <span style="color: #6af87bbf6957;">echo</span> <span style="color: #44048cdd4404;">"$line"</span>; <span style="color: #6af87bbf6957;">kill</span> $<span style="color: #28ef740328ef;">pid</span>)
 </pre>
 </div>
 
-<div id="outline-container-org966dc14" class="outline-2">
-<h2 id="org966dc14">History</h2>
-<div class="outline-text-2" id="text-org966dc14">
 <p>
-I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical about being able to bring up a menu, mash a few buttons, and get to where you are going. There are lots of really cool generic "select thing from list" programs out there. As time goes on, you think of more things you might do, and some take it really far (todo: link old halfwit dmenu workflow, maybe the rofi google search thing, maybe finda)
+I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical
+about being able to bring up a menu, mash a few buttons, and get to where you are going. There are
+lots of really cool generic "select thing from list" programs out there. As time goes on, you think
+of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
+</p>
+
+<div id="outline-container-orgc29b86f" class="outline-2">
+<h2 id="orgc29b86f">Setup</h2>
+<div class="outline-text-2" id="text-orgc29b86f">
+<p>
+Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
+neat features like positional arguments and the ability to specify the colorscheme from Xresources.
+In my day to day, occasionally I would find a neat use or have a cool idea, and then integrate it
+into my setup. Stuff like "search mpd songs and insert one at the current playlist position" or
+"select a password to copy into the clipboard". Wow this is all super cool! We can just do things
+and integrate them with little script ideas, neat.
 </p>
 
 <p>
-Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some neat features like positional arguments and the ability to specify the colorscheme from Xresources. In my day to day, occasionally I would find a neat use or have a cool idea, and then integrate it into my setup. Stuff like "search mpd songs and insert one at the current playlist position" or "select a password to copy into the clipboard". Wow this is all super cool! We can just do things and integrate them with little script ideas, neat.
-</p>
-
-<p>
-Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and there, and one of it's features was a builting "switch to window by title" feature, which is pretty cool! I right away stole the idea in a <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows">dmenu script</a>. But then I got to thinking, what if I had a "switch to everything" script. The vision I had in my head of a single hub to jump to or DO anything was a really nice picture, indeed. And thus, dmenu<sub>switcher</sub> was born, a script I would then shout about many times. dmenu<sub>switcher</sub> is a script that matches dmenu selections to bash functions in an associated array &#x2013; so I added actions to:
+Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and there, and one of
+it's features was a builting "switch to window by title" feature, which is pretty cool! I right away
+stole the idea in a <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows">dmenu script</a>. But then I got to thinking, what if I had a "switch to everything"
+script. The vision I had in my head of a single hub to jump to or DO anything was a really nice
+picture, indeed. And thus, <code>dmenu_switcher</code> was born, a script I would then shout about many times.
+<code>dmenu_switcher</code> is a script that matches dmenu selections to bash functions in an associated array &#x2013;
+so I added actions to:
 </p>
 
 <ul class="org-ul">
@@ -262,48 +303,67 @@ Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and t
 </ul>
 
 <p>
-In the process of implementing that last point, I realized I might not need dmenu after all. Within emacs itself, I was using <a href="https://oremacs.com/swiper/">ivy</a> to switch to things. From there I learned that you can spawn an emacs frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">script</a> that just spawned an emacs frame containing ivy. In combination with <a href="https://github.com/raxod502/prescient.el">prescient.el</a> this means my "mega menu" gets extra sorting based on selected entries &#x2013; previously selected things automatically float to the top! How nice. However, I'm already using dmenu in many places. This leads to me making a script in my path also named dmenu pointing at emacs<sub>dmenu</sub>.
+In the process of implementing that last point, I realized I might not need dmenu after all. Within
+emacs itself, I was using <a href="https://oremacs.com/swiper/">ivy</a> to switch to things. From there I learned that you can spawn an emacs
+frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">script</a>
+that just spawned an emacs frame containing ivy. In combination with <a href="https://github.com/raxod502/prescient.el">prescient.el</a> this means my
+"mega menu" gets extra sorting based on selected entries &#x2013; previously selected things automatically
+float to the top! How nice. However, I'm already using dmenu in many places. This leads to me making
+a script in my path also named dmenu pointing at <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">emacs_dmenu</a>.
 </p>
 
 <p>
 Such is the state of things for a few months.
 </p>
 
-<hr />
+<div class="org-center">
+<p>
+🍉
+</p>
+</div>
 
 <p>
-In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (aside: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my emacs<sub>dmenu</sub> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. And I had some ideas about adding more stuff to the jump script&#x2026;
+In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (tangent: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my <code>emacs_dmenu</code> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. A 200ms bump is quite noticable in the "flow" of things (you have an action in mind, you mash the keybind and start typing then OOPS I just sent gibberish to my text editor).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1ac2ce9" class="outline-2">
-<h2 id="org1ac2ce9">Rofi to the rescue</h2>
-<div class="outline-text-2" id="text-org1ac2ce9">
+<div id="outline-container-orgb13a2ac" class="outline-2">
+<h2 id="orgb13a2ac">Rofi</h2>
+<div class="outline-text-2" id="text-orgb13a2ac">
 <p>
-At this point I decided to check out rofi &#x2013; and was rewarded with the very nice <code>-async-pre-read</code> flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That means I can just summon the jump menu and start typing. This is a golden experience! It means I can sent search candidates that take a long time to get (say, my browser history in the past week) but start searching right away.
+At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
+flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
+means I can just summon the jump menu and start typing before candidates are ready. This is a golden
+experience! It means I can include search candidates that take a long time to get (say, my browser
+history in the past week) but still start typing right away.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgcfc8ffe" class="outline-2">
-<h2 id="orgcfc8ffe">Tickling bash</h2>
-<div class="outline-text-2" id="text-orgcfc8ffe">
+<div id="outline-container-orgb224145" class="outline-2">
+<h2 id="orgb224145">Tickling bash (cheating)</h2>
+<div class="outline-text-2" id="text-orgb224145">
 <p>
-You start to notice a few more speed' things in your interfaces. Such as in a big dmenu script described above&#x2026; You see, dmenu (and my emacs<sub>dmenu</sub> thing) block until stdin is read all the way through.
+So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 </p>
 
+<div class="org-src-container">
+<pre class="src src-sh">(<span style="color: #6af87bbf6957;">echo</span> a; sleep 10; <span style="color: #6af87bbf6957;">echo</span> b) | rofi -dmenu -async-pre-read 0
+</pre>
+</div>
 
 <p>
-_
+You see the issue with this? After I select something (intending to move on to an action), I'm stuck again! until all the candidates have been created. Yet another bump in what I'm trying to do. Clearly, this is an insult and I must make the machine do my bidding. This is not a fault with rofi &#x2013; it returns right away after selecting an option, as expected.
 </p>
 
 <p>
-note about some items I want to include
+So the way I cheated was to run the 'candidate maker' in a subshell, pass it's pid along to my wrapper, and kill it once rofi returned. Can't pass options when your dead. A shortened version of this fix may be found at the top of this post, but here's some links showing the use in my wrapper (gross):
 </p>
+
 <ul class="org-ul">
-<li>type doesn't work on associative arrays if nothing is added into them</li>
-<li>how to "kill to the left", ie pid passing &#x2013; mention the setsid madness</li>
+<li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu_switcher#L196">dmenu_switcher</a> (passes along pid to kill)</li>
+<li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu#L21-L24">rofi wrapper</a> (notes the pid and kills the feeder after rofi returns)</li>
 </ul>
 
 

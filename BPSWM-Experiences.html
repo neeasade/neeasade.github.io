@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-09 Tue 05:51 -->
+<!-- 2020-06-30 Tue 10:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>BSPWM Experiences</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="ok ok" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -198,28 +197,50 @@
 <link rel="stylesheet" href="./assets/css/scaffold.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -236,7 +257,7 @@ So, I've been using BSPWM as my main WM for about 5 months now, after
 transitioning from i3, so I thought I would write about my experience.
 </p>
 
-<div id="outline-container-h-68d2f9dc-ab36-4f7e-bca1-cd58b50b5e2e" class="outline-2">
+<div id="outline-container-org3eb70ed" class="outline-2">
 <h2 id="h-68d2f9dc-ab36-4f7e-bca1-cd58b50b5e2e"><a href="#h-68d2f9dc-ab36-4f7e-bca1-cd58b50b5e2e">The i3 Days</a></h2>
 <div class="outline-text-2" id="text-h-68d2f9dc-ab36-4f7e-bca1-cd58b50b5e2e">
 <p>
@@ -258,7 +279,7 @@ to drive 'deeper' led me to seek what I considered a more advanced WM.
 </div>
 </div>
 
-<div id="outline-container-h-0c84a821-8dd4-41ad-9162-ce892fe2b4d2" class="outline-2">
+<div id="outline-container-orgd047d90" class="outline-2">
 <h2 id="h-0c84a821-8dd4-41ad-9162-ce892fe2b4d2"><a href="#h-0c84a821-8dd4-41ad-9162-ce892fe2b4d2">Picking a WM</a></h2>
 <div class="outline-text-2" id="text-h-0c84a821-8dd4-41ad-9162-ce892fe2b4d2">
 <p>
@@ -280,7 +301,7 @@ lot more effort to get set up to ones liking. So I picked bspwm.
 </div>
 </div>
 
-<div id="outline-container-h-cd9143b3-bd45-4204-b760-a04033881a1b" class="outline-2">
+<div id="outline-container-orgb005ba7" class="outline-2">
 <h2 id="h-cd9143b3-bd45-4204-b760-a04033881a1b"><a href="#h-cd9143b3-bd45-4204-b760-a04033881a1b">The First Attempts</a></h2>
 <div class="outline-text-2" id="text-h-cd9143b3-bd45-4204-b760-a04033881a1b">
 <p>
@@ -316,7 +337,7 @@ do when starting out, it can be very discouraging.
 </div>
 </div>
 
-<div id="outline-container-h-15b4a7d3-e84f-4c58-bb63-4217acee7a01" class="outline-2">
+<div id="outline-container-orga860baf" class="outline-2">
 <h2 id="h-15b4a7d3-e84f-4c58-bb63-4217acee7a01"><a href="#h-15b4a7d3-e84f-4c58-bb63-4217acee7a01">Adjusting</a></h2>
 <div class="outline-text-2" id="text-h-15b4a7d3-e84f-4c58-bb63-4217acee7a01">
 <p>
@@ -334,7 +355,7 @@ management.
 </div>
 </div>
 
-<div id="outline-container-h-0a8eb7c6-2047-408f-b069-5d22596c57a3" class="outline-2">
+<div id="outline-container-org37ab7bb" class="outline-2">
 <h2 id="h-0a8eb7c6-2047-408f-b069-5d22596c57a3"><a href="#h-0a8eb7c6-2047-408f-b069-5d22596c57a3">Panel</a></h2>
 <div class="outline-text-2" id="text-h-0a8eb7c6-2047-408f-b069-5d22596c57a3">
 <p>
@@ -403,7 +424,7 @@ my setup.
 </div>
 </div>
 
-<div id="outline-container-h-2d5893c0-6a60-4e09-bee7-6070d4a97bad" class="outline-2">
+<div id="outline-container-orga8bbb2a" class="outline-2">
 <h2 id="h-2d5893c0-6a60-4e09-bee7-6070d4a97bad"><a href="#h-2d5893c0-6a60-4e09-bee7-6070d4a97bad">Aftermath</a></h2>
 <div class="outline-text-2" id="text-h-2d5893c0-6a60-4e09-bee7-6070d4a97bad">
 <p>

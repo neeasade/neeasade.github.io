@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-09 Tue 05:52 -->
+<!-- 2020-06-30 Tue 10:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>trampolining</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="ok ok" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -198,28 +197,50 @@
 <link rel="stylesheet" href="./assets/css/scaffold.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -227,12 +248,14 @@
 <h1 class="title">trampolining</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-16-trampolining.org">2020-05-17</a> • 2020-05-16
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-16-trampolining.org">2020-06-30</a> • 2020-05-16
 </p>
 </div>
 
 <p>
-Most executable text files in Linux start with a shebang (<code>#!</code>) to tell the OS what program to run the file with. What happens is a process is spawned with the program in the shebang, with the file as the first argument. IE, when you call some file <code>$HOME/hello.sh</code>:
+Most executable text files in Linux start with a shebang (<code>#!</code>) to tell the OS what program to run
+the file with. What happens is a process is spawned with the program in the shebang, with the file
+as the first argument. IE, when you call some file <code>/path/to/some/hello.sh</code>:
 </p>
 
 <pre class="example">
@@ -241,7 +264,36 @@ echo "hello world!"
 </pre>
 
 <p>
-A process is created with the call structure =/usr/bin/bash
+A process is created with the call structure <code>["/usr/bin/bash", "/path/to/some/hello.sh"]</code>
+</p>
+
+<p>
+Notice I use the full path to bash here &#x2013; that is because this method needs the full path to the
+program to run the script with. (that is <code>#!bash</code> doesn't work).
+</p>
+
+<p>
+todo here: talk about limitation/only one argument can be passed to initial interpreter
+mention /usr/bin/env &lt;thing&gt; for finding thing in path
+mention it's easy to create your own interpreters (link to elisp and example script?)
+</p>
+
+
+<div id="outline-container-orgb0fd022" class="outline-2">
+<h2 id="orgb0fd022">nix-shell multiline shebangs</h2>
+<div class="outline-text-2" id="text-orgb0fd022">
+<pre class="example">
+todo
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc1a3c8f" class="outline-2">
+<h2 id="orgc1a3c8f">nix auto trampolining</h2>
+<div class="outline-text-2" id="text-orgc1a3c8f">
+<p>
+I mentioned in my last post that an internet friend is trying to get the "most portable" $HOME. One
+hack involved in this meant using the host libc so that openGL is feasible. todo tudu todo&#x2026;..
 </p>
 
 
@@ -249,6 +301,8 @@ A process is created with the call structure =/usr/bin/bash
 <p>
 <a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-16-trampolining.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>
