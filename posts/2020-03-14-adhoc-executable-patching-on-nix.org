@@ -1,7 +1,7 @@
 #+title: adhoc executable patching on nixos
 #+rss_title: adhoc executable patching on nixos
 
-AKA 'one weird trick' for getting that ELF executable someone just handed you working soon™ (don't depend on this often)
+'one weird trick' for getting that ELF executable someone just handed you working soon™
 
 Create a ~shell.nix~ file that looks like:
 
@@ -43,4 +43,50 @@ $ new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/
 $ patchelf --set-rpath "$new_rpath" /path/to/executable
 #+end_src
 
-Then you should be able to run the executable by calling it.
+Then you should be able to run the executable by calling it normally (in or out of a nix-shell context).
+
+-----
+
+That's all well and good for /right now/, but what if we lose the nix store references we just patched in! Plus, we can't exactly carry this around. Let's put the above into a build definition so we can always have it:
+
+Let's note how to do the above as a build definition (the example here is a dynamicly-linked release of  [[https://github.com/borkdude/babashka/releases/tag/v0.1.3][babashka]]):
+
+#+begin_src nix
+babashka = stdenv.mkDerivation rec {
+    name = "babashka";
+    # this is the way to coerce a string into a path
+    # src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";
+
+    # showing a few different ways:
+    # src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";
+    src = (fetchurl {
+        url = "https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip";
+        sha256 = "0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq";
+    });
+
+    unpackPhase = "unzip $src";
+    # if src is a path to the executable:
+    # unpackPhase = "cp $src bb";
+
+    # note: the chmod is only needed when using direct path to local executable
+    patchPhase = ''
+        chmod u+w ./bb
+        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb
+        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')
+        patchelf --set-rpath "$new_rpath" ./bb
+    '';
+
+    dontBuild = true;
+
+    installPhase = ''
+        mkdir -p $out/bin
+        cp bb $out/bin
+    '';
+
+    nativeBuildInputs = (with pkgs; [
+        gcc-unwrapped.lib zlib unzip
+    ]);
+};
+#+end_src
+
+And bam! now we can integrate our sins into our package definitions.

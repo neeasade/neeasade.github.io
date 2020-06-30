@@ -112,7 +112,7 @@ These are some people I've encountered and maybe even stayed in touch with over 
    ("twily" "https://twily.info/")
    ("uncled1024" "https://teknik.io" "https://git.teknik.io/Uncled1023/Scripts")
    ("vain" "https://www.uninformativ.de/" "https://www.uninformativ.de/git/dotfiles-pub/files.html")
-   ("venam" "https://venam.nixers.net/blog/" "https://github.com/neeasade/dotfiles")
+   ("venam" "https://venam.nixers.net/blog/")
    ("vypr" "https://vypr.xyz/" "https://github.com/vypr/dotfiles")
    ("windelicato" "http://windelicato.com/" "https://github.com/windelicato/dotfiles")
    ("winny" "https://winny.tech/" "https://github.com/winny-/configs")
