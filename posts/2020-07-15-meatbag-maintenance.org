@@ -1,0 +1,69 @@
+#+title: meatbag maintenance
+#+pubdate: <2020-08-15>
+#+draft: t
+
+Accept that you are trapped in this bag of flesh for the current eternity. It is worth shaping your reality through this skin sack to be better. A better vehicle for the entity that is YOU = a better life and time here, regardless of circumstance.
+
+** Exercise
+
+Getting sweaty 3x 20 minutes a week can reduce your overall mortality rate by *a third*. The transition of your body from an untrained state into a trained one ("noob gains") is a wonderful thing to experience. This is probably the #1 thing on the list, as regular exercise will increase your overall energy level and allow for a higher quality sleep.
+
+# todo: link to exercise depression related study
+I cannot stress this enough, regular exercise boosts your energy, mood, and overall health. You will be happier if you exercise.
+
+** Teeth
+Healthy gums = tight gums = less room for sugars and foods to get stuck between your teeth. You can get healthy gums by flossing *regularly*. Brush your teeth and floss to remove bits that would stick around and rot your teeth.
+
+Everytime you drink {soda,coffee,tea,<anything acidic>}, you lower the PH level of your mouth, leaving your teeth in a weakened state until things normalize. My current mental model is to imagine a "time-to-normal PH" timer that resets everytime I take a sip of coffee. Thus, it's in my best interest to intake my coffee in a short time window, as opposed to sipping it all day.
+
+
+** Sleep
+
+# todo: link to circadium rhythm page here
+Keeping a regular sleep schedule schedule is the key here. Habit is everything, and your body will help you both fall asleep and wake up if you get this down.
+
+- Keep your sleep area as dark as possible
+  - remove any blue light source from within your room
+  - blackout curtains
+- Get a box fan for white noise if you need to mask surrounding sounds
+- Don't use your bed for anything other than sleep or sex
+  - If you lounge in bed, your brain will associate it with "lounge time" and you will want to be awake
+
+** Diet
+outline:
+talk about insulin/carb cycle for energy
+mention keto as a way to lose weight
+
+
+** Skin
+
+- Use sunscreen when you will be outside for extended periods of time (>30 min)
+- Mosturize chronic or seasonally dry areas
+
+** Lungs
+
+# todo: expand/say this better.
+Your lungs are only meant to process air. Don't make a habit of putting not-air into them.
+
+** Brain (mental?)
+
+** Supplements
+
+# todo: add something emphasizing 'Do your research' about these
+This section is less "tried and true" maintenance -- that is, sleep + exercise will do much more for you than anything in this section.
+
+Some supplements may be thought of as "insurance" -- the idea is you are somehow more deficient than you normally would be, so you should compensate your bodily need externally to cheat the natural route. I will tag those supplement headings with "insurance".
+
+*** Magnesium                                                     :insurance:
+
+*** D3                                                            :insurance:
+
+*** Fish Oil                                                      :insurance:
+
+*** Creatine
+
+*** Ashwagandha
+
+An adaptogen that provides stress relief when taken regularly.
+
+*** Rhodiola
