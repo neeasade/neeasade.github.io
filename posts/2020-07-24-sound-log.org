@@ -1,0 +1,53 @@
+#+title: sound log
+#+pubdate: <2020-07-24>
+#+draft: t
+
+At [[https://www.recurse.com/][recurse center]], most textual communication happens in a private zulip instance for members of the community there. Within, there is a ~#music~  stream where people can share what they are listening too. This is sometimes themed, sometimes mixed. I started a topic there called "sound log" where I just put whatever I found that day, and many of my go-tos for getting in the right space.
+
+(apologies for the text puke, the script used is in the source of this page)
+
+# #+begin_src sh :results inline
+# _() {
+#     content=$(curl "$*" 2>/dev/null)
+#     title=$(echo "$content" | pup title text{} | sed 's/- YouTube//' | python3 -c 'import html, sys; [print(html.unescape(l), end="") for l in sys.stdin]')
+#     # title=$(echo "$content" | pup title text{} | sed 's/- YouTube//')
+#     # life is pain:
+#     title=$(echo "$title" | sed 's/\[/\&#91\;/g' | sed 's/\]/\&#93\;/g')
+#     echo "- [[$*][$title]]"
+# }
+
+# _ https://www.youtube.com/watch?v=Q9XTqQbuavI
+# _ https://www.youtube.com/watch?v=td6yY7_zdE8
+# _ https://www.youtube.com/watch?v=oWzzNvcxY4w
+# _ https://www.youtube.com/watch?v=Hrr3dp7zRQY
+# _ https://www.youtube.com/watch?v=HSp0E0kCzVc
+# _ https://www.youtube.com/watch?v=gr0XWmEbiMQ
+# _ https://www.youtube.com/watch?v=ZIgya1ADwas
+# _ https://www.youtube.com/watch?v=sZNAYp5xBO4
+# _ https://dmttapes.bandcamp.com/track/--929
+# _ https://www.youtube.com/watch?v=5sLpG4MG5J8
+# _ https://www.youtube.com/watch?v=y40XVMNw_QA
+# _ https://www.youtube.com/watch?v=9cuxrkZeai8
+# _ https://www.youtube.com/watch?v=FanUFsBHcpE
+# _ https://www.youtube.com/watch?v=1C3tLxvVC8g
+# _ https://www.youtube.com/watch?v=_YLK8rTo3_s
+# _ https://www.youtube.com/watch?v=vsJEEfdnOZI
+# _ https://www.youtube.com/watch?v=p_TkwNLJn68
+# _ https://www.youtube.com/watch?v=GSdYPkgCvtE
+# _ https://www.youtube.com/watch?v=DtxL04VwLU8
+# _ https://www.youtube.com/watch?v=pGl4slGxY8U
+# _ https://www.youtube.com/watch?v=a8P8ATq9eFA
+# _ https://www.youtube.com/watch?v=Xw5AiRVqfqk
+# _ https://www.youtube.com/watch?v=Y8FumF-9sjU
+# _ https://www.youtube.com/watch?v=Xl9lQonO_RQ
+# _ https://imbaru.bandcamp.com/album/trukur-2017
+# _ https://www.youtube.com/watch?v=pai5xUPx040
+# _ https://www.youtube.com/watch?v=h8-aLFYfoHg
+# _ https://www.youtube.com/watch?v=tS19lI7SGUI
+# _ https://www.youtube.com/watch?v=T8KnGZIaP_E
+# _ https://www.youtube.com/watch?v=UJjPGIWM-cw
+# _ https://www.youtube.com/watch?v=TvV4wzN_oh4
+# _ https://www.youtube.com/watch?v=9zIcg2vXo10
+# _ https://www.youtube.com/watch?v=FrwksKULOmQ
+# #+end_src
+

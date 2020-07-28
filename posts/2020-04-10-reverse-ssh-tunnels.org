@@ -25,7 +25,7 @@ This will set a shim on ~vps:22222~ -> ~home:22~ through the ssh connection. Som
 :CUSTOM_ID: h-56d8bbe1-5940-4d97-b817-a71979240c19
 :END:
 
-#+begin_src
+#+begin_src sh
 # to access home after ssh'ing into vps:
 ssh localhost -p 22222
 
