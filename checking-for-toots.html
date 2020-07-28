@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-30 Tue 10:57 -->
+<!-- 2020-07-28 Tue 00:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -194,7 +194,7 @@
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/notes.css">
-<link rel="stylesheet" href="./assets/css/scaffold.css">
+<link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 /*
@@ -296,7 +296,7 @@ hazel :blobcatcomfy: @hazel@is.nota.live now follows you
 Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I'd like to preserve that.
 </p>
 
-<div id="outline-container-org81910d5" class="outline-2">
+<div id="outline-container-org36a418c" class="outline-2">
 <h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
@@ -304,7 +304,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #44048cdd4404;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #5f3171e51188;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -313,17 +313,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #6af87bbf6957;">#</span><span style="color: #6af87bbf6957;">!/usr/bin/</span><span style="color: #eb7e614e9cdc;">env</span><span style="color: #6af87bbf6957;"> bash</span>
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #89d48b5e8e43;">#</span><span style="color: #89d48b5e8e43;">!/usr/bin/</span><span style="color: #17ff701ea8c2;">env</span><span style="color: #89d48b5e8e43;"> bash</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #28ef740328ef;">count</span>=0
-<span style="color: #eb7e614e9cdc;">if</span> <span style="color: #44048cdd4404;">!</span> <span style="color: #28ef740328ef;">diff</span>=$(<span style="color: #edad125370dc;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #eb7e614e9cdc;">then</span>
-    <span style="color: #28ef740328ef;">new_content</span>=$(<span style="color: #edad125370dc;">echo</span> <span style="color: #44048cdd4404;">"$diff"</span> | grep <span style="color: #44048cdd4404;">'^&lt;'</span> | sed <span style="color: #44048cdd4404;">'s/&lt; //'</span>)
-    <span style="color: #28ef740328ef;">count</span>=$(<span style="color: #edad125370dc;">echo</span> <span style="color: #44048cdd4404;">"$new_content"</span> | awk <span style="color: #44048cdd4404;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #eb7e614e9cdc;">fi</span>
+<span style="color: #e8191fd8d30c;">count</span>=0
+<span style="color: #17ff701ea8c2;">if</span> <span style="color: #5f3171e51188;">!</span> <span style="color: #e8191fd8d30c;">diff</span>=$(<span style="color: #e8191fd8d30c;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #17ff701ea8c2;">then</span>
+    <span style="color: #e8191fd8d30c;">new_content</span>=$(<span style="color: #e8191fd8d30c;">echo</span> <span style="color: #5f3171e51188;">"$diff"</span> | grep <span style="color: #5f3171e51188;">'^&lt;'</span> | sed <span style="color: #5f3171e51188;">'s/&lt; //'</span>)
+    <span style="color: #e8191fd8d30c;">count</span>=$(<span style="color: #e8191fd8d30c;">echo</span> <span style="color: #5f3171e51188;">"$new_content"</span> | awk <span style="color: #5f3171e51188;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #17ff701ea8c2;">fi</span>
 
-<span style="color: #6af87bbf6957;">echo</span> <span style="color: #44048cdd4404;">"toot mentions: $count"</span>
+<span style="color: #17ff701ea8c2;">echo</span> <span style="color: #5f3171e51188;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -341,6 +341,7 @@ From there it's a short trip to have a panel button, you just call the script!
 With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, I'm all set for some distration free tootin' without the FOMO of mentions.
 </p>
 
+<hr />
 
 <div class="org-center">
 <p>

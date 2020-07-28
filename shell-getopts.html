@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-30 Tue 10:57 -->
+<!-- 2020-07-28 Tue 00:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -194,7 +194,7 @@
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/notes.css">
-<link rel="stylesheet" href="./assets/css/scaffold.css">
+<link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 /*
@@ -253,22 +253,23 @@ for the JavaScript code in this tag.
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">the ':' in front means the flag takes an arg</span>
-<span style="color: #eb7e614e9cdc;">while </span><span style="color: #6af87bbf6957;">getopts</span> w:reh flag; <span style="color: #eb7e614e9cdc;">do</span>
-    <span style="color: #eb7e614e9cdc;">case</span> $<span style="color: #28ef740328ef;">flag</span><span style="color: #eb7e614e9cdc;"> in</span>
-        w) <span style="color: #28ef740328ef;">wid</span>=$<span style="color: #28ef740328ef;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">the ':' in front means the flag takes an arg</span>
+<span style="color: #17ff701ea8c2;">while </span><span style="color: #17ff701ea8c2;">getopts</span> w:reh flag; <span style="color: #17ff701ea8c2;">do</span>
+    <span style="color: #17ff701ea8c2;">case</span> $<span style="color: #e8191fd8d30c;">flag</span><span style="color: #17ff701ea8c2;"> in</span>
+        w) <span style="color: #e8191fd8d30c;">wid</span>=$<span style="color: #e8191fd8d30c;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #eb7e614e9cdc;">esac</span>
-<span style="color: #eb7e614e9cdc;">done</span>
+    <span style="color: #17ff701ea8c2;">esac</span>
+<span style="color: #17ff701ea8c2;">done</span>
 
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #6af87bbf6957;">shift</span> $((OPTIND-1))
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #17ff701ea8c2;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 
+<hr />
 
 <div class="org-center">
 <p>

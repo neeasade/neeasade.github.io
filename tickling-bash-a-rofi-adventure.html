@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-30 Tue 10:57 -->
+<!-- 2020-07-28 Tue 00:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -194,7 +194,7 @@
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/notes.css">
-<link rel="stylesheet" href="./assets/css/scaffold.css">
+<link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 /*
@@ -263,7 +263,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #44048cdd4404;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #6af87bbf6957;">read</span> pid; <span style="color: #6af87bbf6957;">read</span> line; <span style="color: #6af87bbf6957;">echo</span> <span style="color: #44048cdd4404;">"$line"</span>; <span style="color: #6af87bbf6957;">kill</span> $<span style="color: #28ef740328ef;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #5f3171e51188;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #17ff701ea8c2;">read</span> pid; <span style="color: #17ff701ea8c2;">read</span> line; <span style="color: #17ff701ea8c2;">echo</span> <span style="color: #5f3171e51188;">"$line"</span>; <span style="color: #17ff701ea8c2;">kill</span> $<span style="color: #e8191fd8d30c;">pid</span>)
 </pre>
 </div>
 
@@ -274,9 +274,9 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-org2a6f095" class="outline-2">
-<h2 id="org2a6f095">Setup</h2>
-<div class="outline-text-2" id="text-org2a6f095">
+<div id="outline-container-orgaa6990a" class="outline-2">
+<h2 id="orgaa6990a">Setup</h2>
+<div class="outline-text-2" id="text-orgaa6990a">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
 neat features like positional arguments and the ability to specify the colorscheme from Xresources.
@@ -328,9 +328,9 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-org589779b" class="outline-2">
-<h2 id="org589779b">Rofi</h2>
-<div class="outline-text-2" id="text-org589779b">
+<div id="outline-container-org76a32b1" class="outline-2">
+<h2 id="org76a32b1">Rofi</h2>
+<div class="outline-text-2" id="text-org76a32b1">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
 flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
@@ -341,15 +341,15 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-org9ac904c" class="outline-2">
-<h2 id="org9ac904c">Tickling bash (cheating)</h2>
-<div class="outline-text-2" id="text-org9ac904c">
+<div id="outline-container-org4baedfc" class="outline-2">
+<h2 id="org4baedfc">Tickling bash (cheating)</h2>
+<div class="outline-text-2" id="text-org4baedfc">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #6af87bbf6957;">echo</span> a; sleep 10; <span style="color: #6af87bbf6957;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #17ff701ea8c2;">echo</span> a; sleep 10; <span style="color: #17ff701ea8c2;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
@@ -366,6 +366,7 @@ So the way I cheated was to run the 'candidate maker' in a subshell, pass it's p
 <li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu#L21-L24">rofi wrapper</a> (notes the pid and kills the feeder after rofi returns)</li>
 </ul>
 
+<hr />
 
 <div class="org-center">
 <p>

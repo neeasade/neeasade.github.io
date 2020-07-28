@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-30 Tue 10:57 -->
+<!-- 2020-07-28 Tue 00:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>restclient.el + elasticsearch</title>
@@ -194,7 +194,7 @@
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/notes.css">
-<link rel="stylesheet" href="./assets/css/scaffold.css">
+<link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 /*
@@ -270,33 +270,33 @@ one might use it with elasticsearch:
 <div class="org-src-container">
 <pre class="src src-restclient">;; -*- mode: restclient -*-
 
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">local</span>
-<span style="color: #edad125370dc;">:target</span> = <span style="color: #44048cdd4404;">http://localhost:9200</span>
-<span style="color: #edad125370dc;">:cloud-auth</span> = <span style="color: #44048cdd4404;">""</span>
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">Basic http auth example:</span>
-cloud-auth := (concat <span style="color: #44048cdd4404;">"Basic "</span> (base64-encode-string <span style="color: #44048cdd4404;">"username:password"</span>))
-<span style="color: #edad125370dc;">:prefix</span> = <span style="color: #44048cdd4404;">some_prefix</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">local</span>
+<span style="color: #e8191fd8d30c;">:target</span> = <span style="color: #5f3171e51188;">http://localhost:9200</span>
+<span style="color: #e8191fd8d30c;">:cloud-auth</span> = <span style="color: #5f3171e51188;">""</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #5f3171e51188;">"Basic "</span> (base64-encode-string <span style="color: #5f3171e51188;">"username:password"</span>))
+<span style="color: #e8191fd8d30c;">:prefix</span> = <span style="color: #5f3171e51188;">some_prefix</span>
 
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">multiline variable</span>
-<span style="color: #edad125370dc;">:headers</span> = <span style="color: #6af87bbf6957;">&lt;&lt;</span>
-<span style="color: #28ef740328ef;">content-type</span>: <span style="color: #44048cdd4404;">application/json</span>
-<span style="color: #28ef740328ef;">Authorization</span>: <span style="color: #44048cdd4404;">:cloud-auth</span>
-<span style="color: #6af87bbf6957;">#</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">multiline variable</span>
+<span style="color: #e8191fd8d30c;">:headers</span> = <span style="color: #89d48b5e8e43;">&lt;&lt;</span>
+<span style="color: #e8191fd8d30c;">content-type</span>: <span style="color: #5f3171e51188;">application/json</span>
+<span style="color: #e8191fd8d30c;">Authorization</span>: <span style="color: #5f3171e51188;">:cloud-auth</span>
+<span style="color: #89d48b5e8e43;">#</span>
 
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">note: there must be a comment to separate request definitions.</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">note: there must be a comment to separate request definitions.</span>
 
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">list indices</span>
-<span style="color: #eb7e614e9cdc;">GET</span> <span style="color: #edad125370dc;">:target/_cat/indices</span>
-<span style="color: #edad125370dc;">:headers</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">list indices</span>
+<span style="color: #17ff701ea8c2;">GET</span> <span style="color: #e8191fd8d30c;">:target/_cat/indices</span>
+<span style="color: #e8191fd8d30c;">:headers</span>
 
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">logs sorted by a field</span>
-<span style="color: #eb7e614e9cdc;">GET</span> <span style="color: #edad125370dc;">:target/:prefix_log/_search</span>
-<span style="color: #edad125370dc;">:headers</span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">logs sorted by a field</span>
+<span style="color: #17ff701ea8c2;">GET</span> <span style="color: #e8191fd8d30c;">:target/:prefix_log/_search</span>
+<span style="color: #e8191fd8d30c;">:headers</span>
 {
-  <span style="color: #44048cdd4404;">"sort"</span>: [
+  <span style="color: #5f3171e51188;">"sort"</span>: [
     {
-      <span style="color: #44048cdd4404;">"timestamp"</span>: {
-        <span style="color: #44048cdd4404;">"order"</span>: <span style="color: #44048cdd4404;">"desc"</span>
+      <span style="color: #5f3171e51188;">"timestamp"</span>: {
+        <span style="color: #5f3171e51188;">"order"</span>: <span style="color: #5f3171e51188;">"desc"</span>
       }
     }
   ]
@@ -304,6 +304,7 @@ cloud-auth := (concat <span style="color: #44048cdd4404;">"Basic "</span> (base6
 </pre>
 </div>
 
+<hr />
 
 <div class="org-center">
 <p>

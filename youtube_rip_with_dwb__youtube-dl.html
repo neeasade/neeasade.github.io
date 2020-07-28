@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-30 Tue 10:57 -->
+<!-- 2020-07-28 Tue 00:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>youtube rip with dwb + youtube-dl</title>
@@ -194,7 +194,7 @@
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/notes.css">
-<link rel="stylesheet" href="./assets/css/scaffold.css">
+<link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
 /*
@@ -265,10 +265,10 @@ it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #6af87bbf6957;">#</span><span style="color: #6af87bbf6957;">!/bin/</span><span style="color: #eb7e614e9cdc;">bash</span><span style="color: #6af87bbf6957;"> </span>
-<span style="color: #6af87bbf6957;"># </span><span style="color: #6af87bbf6957;">dwb: xf</span>
-download\<span style="color: #28ef740328ef;">_dir</span>=/my/media/dir youtube-dl -x -o
-$<span style="color: #28ef740328ef;">download</span><span style="color: #44048cdd4404;">\_</span>dir<span style="color: #44048cdd4404;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #28ef740328ef;">DWB</span><span style="color: #44048cdd4404;">\_</span>URI 
+<pre class="src src-bash"><span style="color: #89d48b5e8e43;">#</span><span style="color: #89d48b5e8e43;">!/bin/</span><span style="color: #17ff701ea8c2;">bash</span><span style="color: #89d48b5e8e43;"> </span>
+<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">dwb: xf</span>
+download\<span style="color: #e8191fd8d30c;">_dir</span>=/my/media/dir youtube-dl -x -o
+$<span style="color: #e8191fd8d30c;">download</span><span style="color: #5f3171e51188;">\_</span>dir<span style="color: #5f3171e51188;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #e8191fd8d30c;">DWB</span><span style="color: #5f3171e51188;">\_</span>URI 
 </pre>
 </div>
 
@@ -279,6 +279,7 @@ string or else bash freaks out. Also this will fail without ffmpeg, as
 that is a dep for audio conversion with youtube-dl.
 </p>
 
+<hr />
 
 <div class="org-center">
 <p>
