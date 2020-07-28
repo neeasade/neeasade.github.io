@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 00:32 -->
+<!-- 2020-07-28 Tue 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GDB Registers</title>
@@ -257,8 +257,8 @@ This will serve as a brief guide on setting up GDB to step through
 assembly code and witness register changes on the fly.
 </p>
 
-<div id="outline-container-org43d46e2" class="outline-2">
-<h2 id="h-adac1e41-906a-43a7-9f03-1237daaabf01">Compile the program to debug</h2>
+<div id="outline-container-orgb264bc9" class="outline-2">
+<h2 id="h-adac1e41-906a-43a7-9f03-1237daaabf01"><span class="section-number-2">1</span> Compile the program to debug</h2>
 <div class="outline-text-2" id="text-h-adac1e41-906a-43a7-9f03-1237daaabf01">
 <p>
 I'm assuming here that you have the source of the C file that you wish
@@ -272,14 +272,14 @@ of a Makefile for 3 of them:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-makefile"><span style="color: #e8191fd8d30c;">all</span>: 32bit 64bit 64bitInLine
+<pre class="src src-makefile"><span style="color: #e71fd2;">all</span>: 32bit 64bit 64bitInLine
 
-<span style="color: #e8191fd8d30c;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+<span style="color: #e71fd2;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
 MyProgram.c -o MyProgram
 
-<span style="color: #e8191fd8d30c;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+<span style="color: #e71fd2;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
 
-<span style="color: #e8191fd8d30c;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
+<span style="color: #e71fd2;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
 </pre>
 </div>
 
@@ -290,8 +290,8 @@ with each.
 </div>
 </div>
 
-<div id="outline-container-orgd54091d" class="outline-2">
-<h2 id="h-5fc9a60c-09e9-422a-8f37-df6437afc10c">GDB</h2>
+<div id="outline-container-org7499f32" class="outline-2">
+<h2 id="h-5fc9a60c-09e9-422a-8f37-df6437afc10c"><span class="section-number-2">2</span> GDB</h2>
 <div class="outline-text-2" id="text-h-5fc9a60c-09e9-422a-8f37-df6437afc10c">
 <p>
 The GNU Project Debugger(GDB) is a fantastic tool that I am still
@@ -314,7 +314,7 @@ run the program - this will cause the breakpoint to instantly be hit.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">(gdb)<span style="color: #17ff701ea8c2;">break</span> main
+<pre class="src src-bash">(gdb)<span style="color: #176fa8;">break</span> main
 (gdb)run
 </pre>
 </div>

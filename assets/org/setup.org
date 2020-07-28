@@ -14,6 +14,8 @@
 
 #+MACRO:  hsep (eval (ns/blog-make-hsep))
 
+#+MACRO:  color @@html:<span style="background: $1;">$1</span>@@
+
 # cf: https://emacs.stackexchange.com/questions/7792/can-i-make-links-in-org-mode-that-contain-brackets-or/7793#7793
 # Square Bracket Open [
 #+MACRO: BO @@latex:\char91@@ @@html:&#91;@@

@@ -6,7 +6,7 @@
 <!-- 2020-07-28 Tue 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>tickling bash, the quest for the perfect menu</title>
+<title>Org-mode</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -245,135 +245,27 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">tickling bash, the quest for the perfect menu</h1>
+<h1 class="title">Org-mode</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2020-06-19</a> • 2020-05-10
-</p>
-</div>
-
-<div class="org-center">
-<p>
-(where the 'perfect menu' means you can start typing right away)
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-07-28-Org-mode.org">nil</a> • 2020-07-28
 </p>
 </div>
 
 <p>
-<b>tl;dr</b>: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #5e7111;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #176fa8;">read</span> pid; <span style="color: #176fa8;">read</span> line; <span style="color: #176fa8;">echo</span> <span style="color: #5e7111;">"$line"</span>; <span style="color: #176fa8;">kill</span> $<span style="color: #e71fd2;">pid</span>)
-</pre>
-</div>
-
-<p>
-I really like selecting things from fuzzy searchin' keyboard-driven menus. There's something magical
-about being able to bring up a menu, mash a few buttons, and get to where you are going. There are
-lots of really cool generic "select thing from list" programs out there. As time goes on, you think
-of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
-</p>
-
-<div id="outline-container-org6df5554" class="outline-2">
-<h2 id="org6df5554"><span class="section-number-2">1</span> Setup</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
-neat features like positional arguments and the ability to specify the colorscheme from Xresources.
-In my day to day, occasionally I would find a neat use or have a cool idea, and then integrate it
-into my setup. Stuff like "search mpd songs and insert one at the current playlist position" or
-"select a password to copy into the clipboard". Wow this is all super cool! We can just do things
-and integrate them with little script ideas, neat.
+Org mode, a markup format canonically defined by "what's included with emacs right now" (not to say that isn't mostly stable) is great. And terrible. And great.
 </p>
 
 <p>
-Eventually I had a hankering for a "mega dmenu script". I'd seen rofi here and there, and one of
-it's features was a builting "switch to window by title" feature, which is pretty cool! I right away
-stole the idea in a <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows">dmenu script</a>. But then I got to thinking, what if I had a "switch to everything"
-script. The vision I had in my head of a single hub to jump to or DO anything was a really nice
-picture, indeed. And thus, <code>dmenu_switcher</code> was born, a script I would then shout about many times.
-<code>dmenu_switcher</code> is a script that matches dmenu selections to bash functions in an associated array &#x2013;
-so I added actions to:
+It can be considered a subset of latex by default, and thus, you will encounter unexpected results with
 </p>
-
-<ul class="org-ul">
-<li>jump to window</li>
-<li>jump to browser tab</li>
-<li>jump to open file in emacs</li>
-</ul>
-
-<p>
-In the process of implementing that last point, I realized I might not need dmenu after all. Within
-emacs itself, I was using <a href="https://oremacs.com/swiper/">ivy</a> to switch to things. From there I learned that you can spawn an emacs
-frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">script</a>
-that just spawned an emacs frame containing ivy. In combination with <a href="https://github.com/raxod502/prescient.el">prescient.el</a> this means my
-"mega menu" gets extra sorting based on selected entries &#x2013; previously selected things automatically
-float to the top! How nice. However, I'm already using dmenu in many places. This leads to me making
-a script in my path also named dmenu pointing at <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">emacs_dmenu</a>.
-</p>
-
-<p>
-Such is the state of things for a few months.
-</p>
-
-<div class="org-center">
-<p>
-🍉
-</p>
-</div>
-
-<p>
-In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (tangent: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my <code>emacs_dmenu</code> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. A 200ms bump is quite noticable in the "flow" of things (you have an action in mind, you mash the keybind and start typing then OOPS I just sent gibberish to my text editor).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org6ad1596" class="outline-2">
-<h2 id="org6ad1596"><span class="section-number-2">2</span> Rofi</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
-flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
-means I can just summon the jump menu and start typing before candidates are ready. This is a golden
-experience! It means I can include search candidates that take a long time to get (say, my browser
-history in the past week) but still start typing right away.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org99a975f" class="outline-2">
-<h2 id="org99a975f"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #176fa8;">echo</span> a; sleep 10; <span style="color: #176fa8;">echo</span> b) | rofi -dmenu -async-pre-read 0
-</pre>
-</div>
-
-<p>
-You see the issue with this? After I select something (intending to move on to an action), I'm stuck again! until all the candidates have been created. Yet another bump in what I'm trying to do. Clearly, this is an insult and I must make the machine do my bidding. This is not a fault with rofi &#x2013; it returns right away after selecting an option, as expected.
-</p>
-
-<p>
-So the way I cheated was to run the 'candidate maker' in a subshell, pass it's pid along to my wrapper, and kill it once rofi returned. Can't pass options when your dead. A shortened version of this fix may be found at the top of this post, but here's some links showing the use in my wrapper (gross):
-</p>
-
-<ul class="org-ul">
-<li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu_switcher#L196">dmenu_switcher</a> (passes along pid to kill)</li>
-<li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu#L21-L24">rofi wrapper</a> (notes the pid and kills the feeder after rofi returns)</li>
-</ul>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-07-28-Org-mode.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
-</div>
-</div>
 </div>
 </div>
 </body>

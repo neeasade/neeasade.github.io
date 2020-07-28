@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 00:32 -->
+<!-- 2020-07-28 Tue 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLDR org mode + graphviz</title>
@@ -256,20 +256,20 @@ for the JavaScript code in this tag.
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-orgf1a2580" class="outline-2">
-<h2 id="orgf1a2580">Org mode</h2>
-<div class="outline-text-2" id="text-orgf1a2580">
+<div id="outline-container-org2c125ba" class="outline-2">
+<h2 id="org2c125ba"><span class="section-number-2">1</span> Org mode</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #89d48b5e8e43;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<pre class="src src-org"><span style="color: #898a8d;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
 digraph {
     a -&gt; b
 }
-<span style="color: #89d48b5e8e43;">#+END_SRC</span>
+<span style="color: #898a8d;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -290,9 +290,9 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-org9d31ef1" class="outline-2">
-<h2 id="org9d31ef1">The Dot language</h2>
-<div class="outline-text-2" id="text-org9d31ef1">
+<div id="outline-container-orgc14b699" class="outline-2">
+<h2 id="orgc14b699"><span class="section-number-2">2</span> The Dot language</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
@@ -322,7 +322,7 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #89d48b5e8e43;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<pre class="src src-org"><span style="color: #898a8d;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
 digraph {
     // config:
     // TBLR, top bottom left right, the direction of the graph.
@@ -347,7 +347,7 @@ digraph {
     phone -&gt; router [label="wifi"];
     router -&gt; internet [dir=both];
 }
-<span style="color: #89d48b5e8e43;">#+END_SRC</span>
+<span style="color: #898a8d;">#+END_SRC</span>
 </pre>
 </div>
 

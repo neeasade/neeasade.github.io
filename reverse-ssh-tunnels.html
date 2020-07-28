@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 00:32 -->
+<!-- 2020-07-28 Tue 11:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -266,8 +266,8 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-org4118a3f" class="outline-2">
-<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code></a></h2>
+<div id="outline-container-orgc5c976a" class="outline-2">
+<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1</span> <a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code></a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <pre class="example">
 ssh -R 22222:localhost:22 username@vps
@@ -279,25 +279,25 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 
-<div id="outline-container-org8edde75" class="outline-2">
-<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code></a></h2>
+<div id="outline-container-org89a25ee" class="outline-2">
+<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2</span> <a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code></a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><span style="color: #898a8d;"># </span><span style="color: #898a8d;">to access home after ssh'ing into vps:</span>
 ssh localhost -p 22222
 
-<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #5f3171e51188;">'ssh localhost -p 22222'</span>
+<span style="color: #898a8d;"># </span><span style="color: #898a8d;">to access home in one go from laptop:</span>
+ssh -t vps <span style="color: #5e7111;">'ssh localhost -p 22222'</span>
 
-<span style="color: #89d48b5e8e43;"># </span><span style="color: #89d48b5e8e43;">to Jump from the laptop (-J is the jumpbox target):</span>
+<span style="color: #898a8d;"># </span><span style="color: #898a8d;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1ed5f6e" class="outline-2">
-<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">TRAMP syntax</a></h2>
+<div id="outline-container-orgbf60776" class="outline-2">
+<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3</span> <a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">TRAMP syntax</a></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
@@ -312,17 +312,17 @@ and then here's a cool trick for providing the connection into to a remote shell
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #17ff701ea8c2;">let*</span> ((tramp-connection-path <span style="color: #5f3171e51188;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #5f3171e51188;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #5f3171e51188;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #176fa8;">let*</span> ((tramp-connection-path <span style="color: #5e7111;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #5e7111;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #5e7111;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgda94f04" class="outline-2">
-<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">Other</a></h2>
+<div id="outline-container-org0ca7528" class="outline-2">
+<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4</span> <a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">Other</a></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
