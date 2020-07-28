@@ -4,16 +4,18 @@ This is a test file to test formatting things
 
 [[file:assets/posts/test.png][link to an asset]]
 
-
 Inline image:
 
 [[./assets/posts/test.png]]
 
 code:
 
-#+begin_src txt
-Here is some really
-cool lookin code
+#+begin_src elisp
+(if t
+    (progn 'wow)
+  ;; do the thing:
+  "um ok"
+  )
 #+end_src
 
 quote:
@@ -34,3 +36,33 @@ digraph {
 
 #+RESULTS:
 [[file:./assets/posts/test-dot.png]]
+
+* [[#h-430694fe-e684-4e5a-9173-8806a206775c][here is a headline!]]
+:PROPERTIES:
+:CUSTOM_ID: h-430694fe-e684-4e5a-9173-8806a206775c
+:END:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo lorem. Donec facilisis pretium condimentum. Sed eget odio urna. Curabitur rhoncus vitae leo eget pulvinar. Vestibulum in est eget tortor sollicitudin interdum. Fusce faucibus, tellus quis suscipit tincidunt, lorem dui pharetra risus, quis vehicula eros tortor id eros. Mauris a magna a neque eleifend blandit sed in massa. In vulputate enim ac vulputate rutrum. Phasellus sodales arcu id mi semper cursus a ut sem. Duis et feugiat lectus. Nunc gravida pharetra ante a gravida. Nulla finibus mi at mauris pharetra, vulputate aliquet lectus tempor.
+
+Mauris id efficitur felis. Duis luctus ante faucibus eros consectetur, eu placerat leo condimentum. Ut non mauris luctus, malesuada lorem in, fermentum ante. Proin auctor sagittis enim, vel auctor dui volutpat ut. Cras eleifend porta posuere. Sed congue dui vitae magna consectetur consectetur. Donec venenatis nisi ex. Duis a eros convallis, pellentesque eros sed, mattis purus. In quis ligula sem. Suspendisse quis est ac massa blandit sollicitudin id eget augue. Cras gravida tempus augue, vitae consequat dui aliquet nec. Cras eros sem, luctus ac tortor nec, volutpat tincidunt mi. Sed imperdiet felis eget volutpat malesuada.
+
+** [[#h-f00dcb3a-389f-4e9b-83de-c5231d9657e9][subheading]]
+:PROPERTIES:
+:CUSTOM_ID: h-f00dcb3a-389f-4e9b-83de-c5231d9657e9
+:END:
+
+- a
+- fucking
+- list
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo lorem. Donec facilisis pretium condimentum. Sed eget odio urna. Curabitur rhoncus vitae leo eget pulvinar. Vestibulum in est eget tortor sollicitudin interdum. Fusce faucibus, tellus quis suscipit tincidunt, lorem dui pharetra risus, quis vehicula eros tortor id eros. Mauris a magna a neque eleifend blandit sed in massa. In vulputate enim ac vulputate rutrum. Phasellus sodales arcu id mi semper cursus a ut sem. Duis et feugiat lectus. Nunc gravida pharetra ante a gravida. Nulla finibus mi at mauris pharetra, vulputate aliquet lectus tempor.
+
+*** [[#h-67749138-1184-4363-a60f-90d5ccc5ba13][another one]]
+:PROPERTIES:
+:CUSTOM_ID: h-67749138-1184-4363-a60f-90d5ccc5ba13
+:END:
+
+* [[#h-235b399a-d62d-49ec-959e-3288f7383eba][next heading]]
+:PROPERTIES:
+:CUSTOM_ID: h-235b399a-d62d-49ec-959e-3288f7383eba
+:END:

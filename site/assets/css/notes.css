@@ -54,7 +54,7 @@ img
     /* max-width: 60em; */
 
     /* background-color: #eef0f3; */
-	background: var(--nc-bg-1);
+    background: var(--nc-bg-1);
 
     /* inner border: c2c6e3 */
     /* outer border: 9A9EBB */
@@ -70,4 +70,14 @@ img
     /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABHNCSVQICAgIfAhkiAAAARdJREFUWEftWMENAzEIu0zR1bpFZ+kWXe2maF+pqpyQbUiUpKLfC2BsoAnl9ni9D8fvfN6Lw+zwxitew2lA2cA1MfZ8y7pqX89/GWUDq4GmA/XU56+NRUxLRJjRZYBaEi8n/TZALWl7M4r8hWuUnRKo64cDHdVMVmLuOToNqBo4Kr0ab5//elTs9TsqepUhdfxdrmqqAxUgStyKn0AR06pyyWgy6u1GxJx6ucmuT0abvUGOJ1QS/zvwt1vpIKna79MuzmxgrwLeRMOvUFWB4UCtXRCrAHpBIP80o8iRyizyJy/J1DnHAlbfXpDR5YGijHt3PVsKl03JNkBRraFEetvDGlVv5gggekGgePusdLzNER34rAL13Afll101ik1bLQAAAABJRU5ErkJggg==") 14 /  14px / 0 round; */
     /* border-width:  14px; */
     /* border-style:  solid; */
+}
+
+.section-number-1,
+.section-number-2,
+.section-number-3,
+.section-number-4,
+.section-number-5
+{
+    color: #898a8d;
+    float: right;
 }
