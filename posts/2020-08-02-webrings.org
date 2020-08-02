@@ -1,0 +1,15 @@
+#+title: webrings
+#+pubdate: <2020-08-02>
+#+draft: t
+
+web rings seem to be making a comeback. here are a few of them.
+
+# todo: add notes about what 'theme' these seem to have
+
+- https://webring.xxiivv.com/
+- https://hotlinewebring.club/
+- https://xn--sr8hvo.ws/
+- https://hbaguette.neocities.org/other/ringlink/sitelist/
+- https://park-city.club/users.html
+- https://webring.recurse.com/
+- https://emreed.net/LowTech_Directory.html
