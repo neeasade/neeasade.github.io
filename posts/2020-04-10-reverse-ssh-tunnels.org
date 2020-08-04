@@ -47,7 +47,7 @@ emacs TRAMP syntax for jumping across a local reference on a different port:
 find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
 #+end_src
 
-and then here's a cool trick for providing the connection into to a remote shell through the environment with ~$TRAMP_INFO~: (this will also do the jumping for you!)
+and then here's a cool trick for providing the connection info to a remote shell through the environment with ~$TRAMP_INFO~: (this will also do the jumping for you!)
 
 #+begin_src emacs-lisp
 (let* ((tramp-connection-path "/ssh:username@vps|ssh:username@localhost#22222:")

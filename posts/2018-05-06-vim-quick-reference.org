@@ -1,11 +1,5 @@
-
-
-
-
-
-
-#+date: <2018-05-06 00:00>
 #+title: vim language quick reference
+#+pubdate: <2018-05-06 00:00>
 
 Example command =di"= (| is the cursor below):
 
@@ -25,6 +19,12 @@ So, for =di"= above:
 Verbs are optional depending on the noun, but with this outline there
 are many commands you compose.
 
+
+** [[#h-db13f55e-95e0-49ba-bb8e-7d51a7c996a2][Actions]]
+:PROPERTIES:
+:CUSTOM_ID: h-db13f55e-95e0-49ba-bb8e-7d51a7c996a2
+:END:
+
 | action | mnemonic | meaning                      |
 |--------+----------+------------------------------|
 | c      | change   | delete and enter insert mode |
@@ -35,6 +35,11 @@ are many commands you compose.
 | v      | visual   | enter visual mode            |
 | y      | yank     | copy                         |
 
+** [[#h-26bed420-c778-4113-946c-e034463cc628][Verbs]]
+:PROPERTIES:
+:CUSTOM_ID: h-26bed420-c778-4113-946c-e034463cc628
+:END:
+
 | verb | mnemonic | meaning                                                 |
 |------+----------+---------------------------------------------------------|
 | a    | around   | inclusive of noun selector                              |
@@ -43,6 +48,11 @@ are many commands you compose.
 | F    |          | backward to character, inclusive                        |
 | t    | till     | forward to character, exclusive (character is the verb) |
 | T    |          | backward to character, exclusive                        |
+
+** [[#h-e32d2d3f-d18b-4b9a-9a09-00f32acefce5][Nouns]]
+:PROPERTIES:
+:CUSTOM_ID: h-e32d2d3f-d18b-4b9a-9a09-00f32acefce5
+:END:
 
 | noun                         | mnemonic  | meaning                                |
 |------------------------------+-----------+----------------------------------------|
@@ -58,8 +68,6 @@ are many commands you compose.
 | ~'~, ~"~, ~`~                |           | surrounding ="'`= pairs                |
 | ~(~, ~[~, ~{~, ~}~, ~]~, ~}~ |           | surrounding =([{= pairs                |
 
-You can install plugins to get more nouns and nice contextual actions.
-For example with tpope's
-[[https://github.com/tpope/vim-commentary][commentary]] you get a =gc=
-action for commenting in whatever programming language you are in --
-which you can compose with any of the above nouns and verbs!
+You can install plugins to get more nouns and nice contextual actions. For example with tpope's
+[[https://github.com/tpope/vim-commentary][commentary]] you get a =gc= action for commenting in whatever programming language you are in -- which
+you can compose with any of the above nouns and verbs!

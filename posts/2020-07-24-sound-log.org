@@ -1,6 +1,5 @@
 #+title: sound log
 #+pubdate: <2020-07-24>
-#+draft: t
 
 At [[https://www.recurse.com/][recurse center]], most textual communication happens in a private zulip instance for members of the community there. Within, there is a ~#music~  stream where people can share what they are listening too. This is sometimes themed, sometimes mixed. I started a topic there called "sound log" where I just put whatever I found that day, and many of my go-tos for getting in the right space.
 
@@ -11,8 +10,9 @@ At [[https://www.recurse.com/][recurse center]], most textual communication happ
 #     content=$(curl "$*" 2>/dev/null)
 #     title=$(echo "$content" | pup title text{} | sed 's/- YouTube//' | python3 -c 'import html, sys; [print(html.unescape(l), end="") for l in sys.stdin]')
 #     # title=$(echo "$content" | pup title text{} | sed 's/- YouTube//')
-#     # life is pain:
-#     title=$(echo "$title" | sed 's/\[/\&#91\;/g' | sed 's/\]/\&#93\;/g')
+#     # title=$(echo "$title" | sed 's/\[/\&#91\;/g' | sed 's/\]/\&#93\;/g')
+#     # insert a macro we declare in setup.org, so that we can have nice things
+#     title=$(echo "$title" | sed 's/\[/{{{BO}}}/g' | sed 's/\]/{{{BC}}}/g')
 #     echo "- [[$*][$title]]"
 # }
 
@@ -51,3 +51,36 @@ At [[https://www.recurse.com/][recurse center]], most textual communication happ
 # _ https://www.youtube.com/watch?v=FrwksKULOmQ
 # #+end_src
 
+- [[https://www.youtube.com/watch?v=Q9XTqQbuavI][æ™‚ã�®å›žå»Šä¸€æ™‚é–“"ã‚¯ãƒ­ãƒŽãƒ»ãƒˆãƒªã‚¬ãƒ¼" ]]
+- [[https://www.youtube.com/watch?v=td6yY7_zdE8]["Ebi" aka Susumu Yokota -  Zen full Album (1994) ]]
+- [[https://www.youtube.com/watch?v=oWzzNvcxY4w][Machine Girl - WLFGRL {{{BO}}}Full Album{{{BC}}} ]]
+- [[https://www.youtube.com/watch?v=Hrr3dp7zRQY][Ryo Fukui - Scenery 1976 (FULL ALBUM) ]]
+- [[https://www.youtube.com/watch?v=HSp0E0kCzVc][Haircuts for Men â€” 1982 (Full Album) ]]
+- [[https://www.youtube.com/watch?v=gr0XWmEbiMQ][Gabor Szabo - Dreams (1968) {{{BO}}}full album{{{BC}}} ]]
+- [[https://www.youtube.com/watch?v=ZIgya1ADwas][The Garden | Lofi HipHop Mix | ]]
+- [[https://www.youtube.com/watch?v=sZNAYp5xBO4][Takatoshi Naitoh (å†…è—¤å­�æ•�) - In The Forest (1993) {{{BO}}}Full Album{{{BC}}} ]]
+- [[https://dmttapes.bandcamp.com/track/--929][ポップは、それ自体を食べます | haircuts for men | DMT Tapes FL]]
+- [[https://www.youtube.com/watch?v=5sLpG4MG5J8][Ð“Ñ€ÑƒÐ¿Ð¿Ð° Ð�Ð»ÑŒÑ�Ð½Ñ� "Ð�Ð° Ð·Ð°Ñ€Ðµ". Ð¢ÐµÐ»ÐµÐ¼Ð¾Ñ�Ñ‚ ÐœÐ¾Ñ�ÐºÐ²Ð° - Ð›ÐµÐ½Ð¸Ð½Ð³Ñ€Ð°Ð´ "Ð Ð¾Ðº Ð¸ Ð²Ð¾ÐºÑ€ÑƒÐ³ Ð½ÐµÐ³Ð¾" (1987) ]]
+- [[https://www.youtube.com/watch?v=y40XVMNw_QA][haircuts for men : ÐºÐ¾Ð³Ð´Ð° Ð·Ð»Ð¾ Ð³Ð¾Ñ�Ð¿Ð¾Ð´Ñ�Ñ‚Ð²ÑƒÐµÑ‚ ]]
+- [[https://www.youtube.com/watch?v=9cuxrkZeai8][Masayoshi Takanaka â€Žâ€“ An Insatiable High LP 1977 ]]
+- [[https://www.youtube.com/watch?v=FanUFsBHcpE][Sewerslvt - Was It Weird I Listened To "Im God" By Clams Casino's When I Lost My Virginity ]]
+- [[https://www.youtube.com/watch?v=1C3tLxvVC8g][FILMMAKER - ETERNAL RETURN {{{BO}}}FULL ALBUM{{{BC}}} ]]
+- [[https://www.youtube.com/watch?v=_YLK8rTo3_s][runescapeæ–¯å‡±åˆ© : runescapeâ€‹â€‹.â€‹â€‹wav2æˆ°åˆ©å“�çš„æˆ°çˆ­ ]]
+- [[https://www.youtube.com/watch?v=vsJEEfdnOZI][Years of Denial - Body Map ]]
+- [[https://www.youtube.com/watch?v=p_TkwNLJn68][Above & Beyond presents OceanLab - Sirens Of The Sea (Continuous Mix) ]]
+- [[https://www.youtube.com/watch?v=GSdYPkgCvtE][Jinsang - Solitude {{{BO}}}Full BeatTape{{{BC}}} ]]
+- [[https://www.youtube.com/watch?v=DtxL04VwLU8][Madlib - Flight To Brazil (Full Album) - Madlib Medicine Show - HD ]]
+- [[https://www.youtube.com/watch?v=pGl4slGxY8U][Warcraft 2 Soundtrack (Full) ]]
+- [[https://www.youtube.com/watch?v=a8P8ATq9eFA][Sewerslvt - Oni ]]
+- [[https://www.youtube.com/watch?v=Xw5AiRVqfqk][Aphex Twin - Selected Ambient Works 85-92 ]]
+- [[https://www.youtube.com/watch?v=Y8FumF-9sjU][Blanck Mass - Dumb Flesh (Full Album HD) ]]
+- [[https://www.youtube.com/watch?v=Xl9lQonO_RQ][Kaskade - 4 AM (Adam K & Soha Mix) {{{BO}}}Midnight Drive Video{{{BC}}} ]]
+- [[https://imbaru.bandcamp.com/album/trukur-2017][Trukur (2017) | Imbaru]]
+- [[https://www.youtube.com/watch?v=pai5xUPx040][Voyage Futur : Inner Sphere ]]
+- [[https://www.youtube.com/watch?v=h8-aLFYfoHg][haircuts for men : nothing special, nothing wonderful ]]
+- [[https://www.youtube.com/watch?v=tS19lI7SGUI][{{{BO}}}1970{{{BC}}} Minoru Muraoka â€“ Bamboo {{{BO}}}Full Album{{{BC}}} ]]
+- [[https://www.youtube.com/watch?v=T8KnGZIaP_E][â—�BEST PSYQUI MIX â—�ãƒ™ã‚¹ãƒˆPSYQUIãƒŸãƒƒã‚¯ã‚¹ vol.1 ]]
+- [[https://www.youtube.com/watch?v=UJjPGIWM-cw][ã€�æ�±æ–¹ãƒ¡ãƒ‰ãƒ¬ãƒ¼ã€‘Touhou Piano Arrange Medley The Bestã€�ä½œæ¥­ç”¨BGMã€‘ ]]
+- [[https://www.youtube.com/watch?v=TvV4wzN_oh4][Lindsheaven Virtual Plaza : Rainforest Hill (I + II) ]]
+- [[https://www.youtube.com/watch?v=9zIcg2vXo10][{{{BO}}}01{{{BC}}} Deep & Lo fi House Mix ]]
+- [[https://www.youtube.com/watch?v=FrwksKULOmQ][Haruomi Hosono - The Aegean Sea (FULL ALBUM) ]]
