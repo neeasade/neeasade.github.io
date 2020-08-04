@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 11:10 -->
+<!-- 2020-08-04 Tue 13:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>i3-like multihead in bspwm</title>
@@ -193,6 +193,8 @@
   /*]]>*/-->
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/notes.css">
+<link rel="stylesheet" href="/assets/css/new.css">
 <link rel="stylesheet" href="./assets/css/notes.css">
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -252,6 +254,7 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
+<hr />
 <p>
 i3 has fantastic focus and window handling for multiple monitors out of
 the box in my opinion. I didn't realize that I missed this until I was
@@ -259,7 +262,7 @@ on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 </p>
 
-<div id="outline-container-org783122d" class="outline-2">
+<div id="outline-container-org4b7d41c" class="outline-2">
 <h2 id="h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4"><span class="section-number-2">1</span> <a href="#h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">Initial</a></h2>
 <div class="outline-text-2" id="text-h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">
 <p>
@@ -280,7 +283,7 @@ part.
 </div>
 </div>
 
-<div id="outline-container-orgfbd5560" class="outline-2">
+<div id="outline-container-org52a802d" class="outline-2">
 <h2 id="h-0469c988-ab08-4684-afb2-708743a574aa"><span class="section-number-2">2</span> <a href="#h-0469c988-ab08-4684-afb2-708743a574aa">Focus</a></h2>
 <div class="outline-text-2" id="text-h-0469c988-ab08-4684-afb2-708743a574aa">
 <p>
@@ -310,7 +313,7 @@ right, and no action occurs as a result.
 </p>
 </div>
 
-<div id="outline-container-org6f03a57" class="outline-3">
+<div id="outline-container-org7f439b4" class="outline-3">
 <h3 id="h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b"><span class="section-number-3">2.1</span> <a href="#h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">Desired behavior</a></h3>
 <div class="outline-text-3" id="text-h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">
 <p>
@@ -322,9 +325,9 @@ middle of the right monitor as well as focus on that monitor.
 <pre class="src src-bash">super + {h,j,k,l}
     bspc config pointer_follows_monitor true; <span style="color: #5e7111;">\</span>
     bspc config pointer_follows_focus true; <span style="color: #5e7111;">\</span>
-    <span style="color: #e71fd2;">dir</span>={west,south,north,east}; <span style="color: #5e7111;">\</span>
-        <span style="color: #176fa8;">if</span> <span style="color: #5e7111;">!</span> bspc node -f $<span style="color: #e71fd2;">dir</span>; <span style="color: #176fa8;">then</span> <span style="color: #5e7111;">\</span>
-    bspc monitor -f $<span style="color: #e71fd2;">dir</span>; <span style="color: #5e7111;">\</span>
+    <span style="color: #bc17ab;">dir</span>={west,south,north,east}; <span style="color: #5e7111;">\</span>
+        <span style="color: #176fa8;">if</span> <span style="color: #5e7111;">!</span> bspc node -f $<span style="color: #bc17ab;">dir</span>; <span style="color: #176fa8;">then</span> <span style="color: #5e7111;">\</span>
+    bspc monitor -f $<span style="color: #bc17ab;">dir</span>; <span style="color: #5e7111;">\</span>
     <span style="color: #176fa8;">fi</span>; <span style="color: #5e7111;">\</span>
     bspc config pointer_follows_monitor false; <span style="color: #5e7111;">\</span>
     bspc config pointer_follows_focus false
@@ -352,7 +355,7 @@ window snapping out from under you can be quite annoying.
 </div>
 </div>
 
-<div id="outline-container-org771d45f" class="outline-2">
+<div id="outline-container-org88729f9" class="outline-2">
 <h2 id="h-cc243055-0839-4d72-8471-2319a4d41e20"><span class="section-number-2">3</span> <a href="#h-cc243055-0839-4d72-8471-2319a4d41e20">Movement</a></h2>
 <div class="outline-text-2" id="text-h-cc243055-0839-4d72-8471-2319a4d41e20">
 <p>
@@ -374,7 +377,7 @@ workspaces/monitors.
 </p>
 </div>
 
-<div id="outline-container-org7c5ca1c" class="outline-3">
+<div id="outline-container-org08ab309" class="outline-3">
 <h3 id="h-1915bc68-2afc-4d9f-ba88-c00ad1915867"><span class="section-number-3">3.1</span> <a href="#h-1915bc68-2afc-4d9f-ba88-c00ad1915867">Desired behavior</a></h3>
 <div class="outline-text-3" id="text-h-1915bc68-2afc-4d9f-ba88-c00ad1915867">
 <p>
@@ -400,20 +403,20 @@ Here is an implementation:
 <div class="org-src-container">
 <pre class="src src-bash">super + shift + {h,j,k,l}
     bspc config pointer_follows_focus true; <span style="color: #5e7111;">\</span>
-    <span style="color: #e71fd2;">cur_win</span>=$(<span style="color: #e71fd2;">bspc</span> query -W -w) <span style="color: #5e7111;">\</span>
-    <span style="color: #e71fd2;">cur_mon</span>=$(<span style="color: #e71fd2;">bspc</span> query -M -m); <span style="color: #5e7111;">\</span>
-    <span style="color: #e71fd2;">dir</span>={west,south,north,east}; <span style="color: #5e7111;">\</span>
-    <span style="color: #176fa8;">if</span> <span style="color: #5e7111;">!</span> bspc node -f $<span style="color: #e71fd2;">dir</span>; <span style="color: #176fa8;">then</span> <span style="color: #5e7111;">\</span>
-        bspc node -m $<span style="color: #e71fd2;">dir</span>; <span style="color: #5e7111;">\</span>
-        bspc monitor -f $<span style="color: #e71fd2;">dir</span>; <span style="color: #5e7111;">\</span>
+    <span style="color: #bc17ab;">cur_win</span>=$(<span style="color: #bc17ab;">bspc</span> query -W -w) <span style="color: #5e7111;">\</span>
+    <span style="color: #bc17ab;">cur_mon</span>=$(<span style="color: #bc17ab;">bspc</span> query -M -m); <span style="color: #5e7111;">\</span>
+    <span style="color: #bc17ab;">dir</span>={west,south,north,east}; <span style="color: #5e7111;">\</span>
+    <span style="color: #176fa8;">if</span> <span style="color: #5e7111;">!</span> bspc node -f $<span style="color: #bc17ab;">dir</span>; <span style="color: #176fa8;">then</span> <span style="color: #5e7111;">\</span>
+        bspc node -m $<span style="color: #bc17ab;">dir</span>; <span style="color: #5e7111;">\</span>
+        bspc monitor -f $<span style="color: #bc17ab;">dir</span>; <span style="color: #5e7111;">\</span>
     <span style="color: #176fa8;">else</span> <span style="color: #5e7111;">\</span>
-        <span style="color: #e71fd2;">new_mon</span>=$(<span style="color: #e71fd2;">bspc</span> query -M -m); <span style="color: #5e7111;">\</span>
-        <span style="color: #176fa8;">if</span> [ $<span style="color: #e71fd2;">new_mon</span> -eq $<span style="color: #e71fd2;">cur_mon</span> ]; <span style="color: #176fa8;">then</span> <span style="color: #5e7111;">\</span>
-            bspc node -s $<span style="color: #e71fd2;">cur_win</span>; <span style="color: #5e7111;">\</span>
+        <span style="color: #bc17ab;">new_mon</span>=$(<span style="color: #bc17ab;">bspc</span> query -M -m); <span style="color: #5e7111;">\</span>
+        <span style="color: #176fa8;">if</span> [ $<span style="color: #bc17ab;">new_mon</span> -eq $<span style="color: #bc17ab;">cur_mon</span> ]; <span style="color: #176fa8;">then</span> <span style="color: #5e7111;">\</span>
+            bspc node -s $<span style="color: #bc17ab;">cur_win</span>; <span style="color: #5e7111;">\</span>
         <span style="color: #176fa8;">else</span> <span style="color: #5e7111;">\</span>
-            bspc node $<span style="color: #e71fd2;">cur_win</span> -m ^$<span style="color: #e71fd2;">new_mon</span>; <span style="color: #5e7111;">\</span>
+            bspc node $<span style="color: #bc17ab;">cur_win</span> -m ^$<span style="color: #bc17ab;">new_mon</span>; <span style="color: #5e7111;">\</span>
         <span style="color: #176fa8;">fi</span>; <span style="color: #5e7111;">\</span>
-    bspc node -f $<span style="color: #e71fd2;">cur_win</span>; <span style="color: #5e7111;">\</span>
+    bspc node -f $<span style="color: #bc17ab;">cur_win</span>; <span style="color: #5e7111;">\</span>
     <span style="color: #176fa8;">fi</span>; <span style="color: #5e7111;">\</span>
     bspc config pointer_follows_focus false
 </pre>

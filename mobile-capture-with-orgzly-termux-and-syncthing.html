@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 11:10 -->
+<!-- 2020-08-04 Tue 13:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
@@ -193,6 +193,8 @@
   /*]]>*/-->
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/notes.css">
+<link rel="stylesheet" href="/assets/css/new.css">
 <link rel="stylesheet" href="./assets/css/notes.css">
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -252,6 +254,7 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
+<hr />
 <p>
 TL;DR Syncthing + Termux + Orgzly
 </p>
@@ -260,7 +263,7 @@ TL;DR Syncthing + Termux + Orgzly
 Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual &#x2013; this is motivated by my recent re-interest in capturing things in <a href="https://orgmode.org/">org-mode</a>. Here I will cover the tools and apps I've setup to try and get a 'blended' mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it's worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
 </p>
 
-<div id="outline-container-orgb56c60c" class="outline-2">
+<div id="outline-container-org43f2f1e" class="outline-2">
 <h2 id="h-11b4a27d-4fc3-4357-8afe-c828e328574f"><span class="section-number-2">1</span> <a href="#h-11b4a27d-4fc3-4357-8afe-c828e328574f">Syncthing</a></h2>
 <div class="outline-text-2" id="text-h-11b4a27d-4fc3-4357-8afe-c828e328574f">
 <p>
@@ -269,7 +272,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </div>
 </div>
 
-<div id="outline-container-org239009b" class="outline-2">
+<div id="outline-container-org3e8fc14" class="outline-2">
 <h2 id="h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04"><span class="section-number-2">2</span> <a href="#h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">Orgzly</a></h2>
 <div class="outline-text-2" id="text-h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">
 <p>
@@ -296,7 +299,7 @@ turns into:
 </div>
 </div>
 
-<div id="outline-container-orgecf4cc2" class="outline-2">
+<div id="outline-container-orgad1fe42" class="outline-2">
 <h2 id="h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74"><span class="section-number-2">3</span> <a href="#h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">Music</a></h2>
 <div class="outline-text-2" id="text-h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">
 <p>
@@ -305,14 +308,14 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 
 <div class="org-src-container">
 <pre class="src src-sh">  <span style="color: #898a8d;"># </span><span style="color: #898a8d;">200mb</span>
-  <span style="color: #e71fd2;">size_limit</span>=200000
-  <span style="color: #e71fd2;">sync_music_dir</span>=<span style="color: #5e7111;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #e71fd2;">music_dir</span>=<span style="color: #5e7111;">"$HOME/Music"</span>
+  <span style="color: #bc17ab;">size_limit</span>=200000
+  <span style="color: #bc17ab;">sync_music_dir</span>=<span style="color: #5e7111;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #bc17ab;">music_dir</span>=<span style="color: #5e7111;">"$HOME/Music"</span>
 
-  <span style="color: #e71fd2;">IFS</span>=$<span style="color: #5e7111;">'\n'</span>
+  <span style="color: #bc17ab;">IFS</span>=$<span style="color: #5e7111;">'\n'</span>
   <span style="color: #176fa8;">while </span><span style="color: #176fa8;">read</span> -r f; <span style="color: #176fa8;">do</span>
-      <span style="color: #e71fd2;">collection_size</span>=$(<span style="color: #e71fd2;">du</span> <span style="color: #5e7111;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #5e7111;">'s/\t.*//'</span>)
-      <span style="color: #176fa8;">if</span> [ $<span style="color: #e71fd2;">collection_size</span> -lt $<span style="color: #e71fd2;">size_limit</span> ]; <span style="color: #176fa8;">then</span>
+      <span style="color: #bc17ab;">collection_size</span>=$(<span style="color: #bc17ab;">du</span> <span style="color: #5e7111;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #5e7111;">'s/\t.*//'</span>)
+      <span style="color: #176fa8;">if</span> [ $<span style="color: #bc17ab;">collection_size</span> -lt $<span style="color: #bc17ab;">size_limit</span> ]; <span style="color: #176fa8;">then</span>
           <span style="color: #176fa8;">echo</span> cp <span style="color: #5e7111;">"${music_dir}/$f"</span> <span style="color: #5e7111;">"$sync_music_dir"</span>
           cp <span style="color: #5e7111;">"${music_dir}/$f"</span> <span style="color: #5e7111;">"$sync_music_dir"</span>
       <span style="color: #176fa8;">fi</span>
@@ -322,7 +325,7 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </div>
 </div>
 
-<div id="outline-container-org8bf2df3" class="outline-2">
+<div id="outline-container-orgbd70831" class="outline-2">
 <h2 id="h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719"><span class="section-number-2">4</span> <a href="#h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">Browsing the internet</a></h2>
 <div class="outline-text-2" id="text-h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">
 <p>
@@ -331,7 +334,7 @@ Chome on android doesn't have a umatrix option. This sucks, because the UX is pr
 </div>
 </div>
 
-<div id="outline-container-org9703eef" class="outline-2">
+<div id="outline-container-org8c6661f" class="outline-2">
 <h2 id="h-6398d541-3e48-4846-807b-077455426531"><span class="section-number-2">5</span> <a href="#h-6398d541-3e48-4846-807b-077455426531">Audiobooks</a></h2>
 <div class="outline-text-2" id="text-h-6398d541-3e48-4846-807b-077455426531">
 <p>
@@ -340,7 +343,7 @@ Somewhere in the past few year or so audiobooks snuck into my life, and I've fou
 </div>
 </div>
 
-<div id="outline-container-org46674aa" class="outline-2">
+<div id="outline-container-orged59e86" class="outline-2">
 <h2 id="h-c6bb3ae8-90ab-473d-a487-e7a020a003af"><span class="section-number-2">6</span> <a href="#h-c6bb3ae8-90ab-473d-a487-e7a020a003af">Termux and bringing it all together</a></h2>
 <div class="outline-text-2" id="text-h-c6bb3ae8-90ab-473d-a487-e7a020a003af">
 <p>

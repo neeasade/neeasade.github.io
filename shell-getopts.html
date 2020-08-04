@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 11:10 -->
+<!-- 2020-08-04 Tue 13:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -193,6 +193,8 @@
   /*]]>*/-->
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/notes.css">
+<link rel="stylesheet" href="/assets/css/new.css">
 <link rel="stylesheet" href="./assets/css/notes.css">
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -252,11 +254,12 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
+<hr />
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #898a8d;"># </span><span style="color: #898a8d;">the ':' in front means the flag takes an arg</span>
 <span style="color: #176fa8;">while </span><span style="color: #176fa8;">getopts</span> w:reh flag; <span style="color: #176fa8;">do</span>
-    <span style="color: #176fa8;">case</span> $<span style="color: #e71fd2;">flag</span><span style="color: #176fa8;"> in</span>
-        w) <span style="color: #e71fd2;">wid</span>=$<span style="color: #e71fd2;">OPTARG</span>;;
+    <span style="color: #176fa8;">case</span> $<span style="color: #bc17ab;">flag</span><span style="color: #176fa8;"> in</span>
+        w) <span style="color: #bc17ab;">wid</span>=$<span style="color: #bc17ab;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;

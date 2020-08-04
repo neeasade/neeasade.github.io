@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 11:10 -->
+<!-- 2020-08-04 Tue 13:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>restclient.el + elasticsearch</title>
@@ -193,6 +193,8 @@
   /*]]>*/-->
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/notes.css">
+<link rel="stylesheet" href="/assets/css/new.css">
 <link rel="stylesheet" href="./assets/css/notes.css">
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -252,6 +254,7 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
+<hr />
 <p>
 <code>restclient.el</code> is an emacs plugin that transforms a buffer into a
 repl-like curl-backed experience (similar to kibana). It has support for
@@ -271,27 +274,27 @@ one might use it with elasticsearch:
 <pre class="src src-restclient">;; -*- mode: restclient -*-
 
 <span style="color: #898a8d;"># </span><span style="color: #898a8d;">local</span>
-<span style="color: #e71fd2;">:target</span> = <span style="color: #5e7111;">http://localhost:9200</span>
-<span style="color: #e71fd2;">:cloud-auth</span> = <span style="color: #5e7111;">""</span>
+<span style="color: #bc17ab;">:target</span> = <span style="color: #5e7111;">http://localhost:9200</span>
+<span style="color: #bc17ab;">:cloud-auth</span> = <span style="color: #5e7111;">""</span>
 <span style="color: #898a8d;"># </span><span style="color: #898a8d;">Basic http auth example:</span>
 cloud-auth := (concat <span style="color: #5e7111;">"Basic "</span> (base64-encode-string <span style="color: #5e7111;">"username:password"</span>))
-<span style="color: #e71fd2;">:prefix</span> = <span style="color: #5e7111;">some_prefix</span>
+<span style="color: #bc17ab;">:prefix</span> = <span style="color: #5e7111;">some_prefix</span>
 
 <span style="color: #898a8d;"># </span><span style="color: #898a8d;">multiline variable</span>
-<span style="color: #e71fd2;">:headers</span> = <span style="color: #898a8d;">&lt;&lt;</span>
-<span style="color: #e71fd2;">content-type</span>: <span style="color: #5e7111;">application/json</span>
-<span style="color: #e71fd2;">Authorization</span>: <span style="color: #5e7111;">:cloud-auth</span>
+<span style="color: #bc17ab;">:headers</span> = <span style="color: #898a8d;">&lt;&lt;</span>
+<span style="color: #bc17ab;">content-type</span>: <span style="color: #5e7111;">application/json</span>
+<span style="color: #bc17ab;">Authorization</span>: <span style="color: #5e7111;">:cloud-auth</span>
 <span style="color: #898a8d;">#</span>
 
 <span style="color: #898a8d;"># </span><span style="color: #898a8d;">note: there must be a comment to separate request definitions.</span>
 
 <span style="color: #898a8d;"># </span><span style="color: #898a8d;">list indices</span>
-<span style="color: #176fa8;">GET</span> <span style="color: #e71fd2;">:target/_cat/indices</span>
-<span style="color: #e71fd2;">:headers</span>
+<span style="color: #176fa8;">GET</span> <span style="color: #bc17ab;">:target/_cat/indices</span>
+<span style="color: #bc17ab;">:headers</span>
 
 <span style="color: #898a8d;"># </span><span style="color: #898a8d;">logs sorted by a field</span>
-<span style="color: #176fa8;">GET</span> <span style="color: #e71fd2;">:target/:prefix_log/_search</span>
-<span style="color: #e71fd2;">:headers</span>
+<span style="color: #176fa8;">GET</span> <span style="color: #bc17ab;">:target/:prefix_log/_search</span>
+<span style="color: #bc17ab;">:headers</span>
 {
   <span style="color: #5e7111;">"sort"</span>: [
     {

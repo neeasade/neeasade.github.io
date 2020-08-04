@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-28 Tue 11:10 -->
+<!-- 2020-08-04 Tue 13:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -193,6 +193,8 @@
   /*]]>*/-->
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/notes.css">
+<link rel="stylesheet" href="/assets/css/new.css">
 <link rel="stylesheet" href="./assets/css/notes.css">
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -248,10 +250,11 @@ for the JavaScript code in this tag.
 <h1 class="title">reverse ssh tunnels</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-07-28</a> • 2020-04-10
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-08-04</a> • 2020-04-10
 </p>
 </div>
 
+<hr />
 <p>
 You have 3 machines:
 </p>
@@ -266,7 +269,7 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-orgc5c976a" class="outline-2">
+<div id="outline-container-org2739b96" class="outline-2">
 <h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1</span> <a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code></a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <pre class="example">
@@ -279,7 +282,7 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 
-<div id="outline-container-org89a25ee" class="outline-2">
+<div id="outline-container-org5d14345" class="outline-2">
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2</span> <a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code></a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
@@ -296,7 +299,7 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 </div>
 
-<div id="outline-container-orgbf60776" class="outline-2">
+<div id="outline-container-orge971772" class="outline-2">
 <h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3</span> <a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">TRAMP syntax</a></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
@@ -308,7 +311,7 @@ find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
 </pre>
 
 <p>
-and then here's a cool trick for providing the connection into to a remote shell through the environment with <code>$TRAMP_INFO</code>: (this will also do the jumping for you!)
+and then here's a cool trick for providing the connection info to a remote shell through the environment with <code>$TRAMP_INFO</code>: (this will also do the jumping for you!)
 </p>
 
 <div class="org-src-container">
@@ -321,7 +324,7 @@ and then here's a cool trick for providing the connection into to a remote shell
 </div>
 </div>
 
-<div id="outline-container-org0ca7528" class="outline-2">
+<div id="outline-container-org5577aa1" class="outline-2">
 <h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4</span> <a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">Other</a></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
