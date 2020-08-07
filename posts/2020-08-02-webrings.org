@@ -1,8 +1,7 @@
 #+title: webrings
 #+pubdate: <2020-08-02>
-#+draft: t
 
-web rings seem to be making a comeback. here are a few of them.
+webrings seem to be making a comeback. here are a few of them.
 
 # todo: add notes about what 'theme' these seem to have
 

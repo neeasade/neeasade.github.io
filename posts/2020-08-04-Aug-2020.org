@@ -6,7 +6,7 @@ November 2019 I quit my contracted software job, drove across the country to fam
 
 - Met some extended family in Sinaloa, Mexico
 - Attended a 3 month batch at the Recurse Center in NYC
-  - Gave lighting talks about {emacs,systemd,keyboards}
+  - Gave lighting talks about {emacs,systemd,keyboards,music}
   - Became a member of a wonderful community
   - Chased many divergent interests
 - Conquered an ever-growing backlog of "cool emacs links"
@@ -15,6 +15,7 @@ November 2019 I quit my contracted software job, drove across the country to fam
 - Improved my typing speed by working through some exercises
 - Improved my Clojure programming (and some local scripts with the wonderful Babashka)
 - Enjoyed many fantasy {audio,}books
+- Realized a PIM system in org mode
 
 This is the longest period of time I've been unemployed since starting college in the fall of 2012. My SO jokes that I'm ready for retirement as I find ways to fill up my free time between programming and little things like going on walks through nearby trails. I'm very grateful to have been able to take this time (thanks KS cost of living), and feel like I've gotten a peek into what life can be when you have this much time and space (regardless of global pandemic status).
 

@@ -1,3 +1,6 @@
 #+title: 404
 
+#+BEGIN_CENTER
 There is nothing here.
+#+END_CENTER
+
