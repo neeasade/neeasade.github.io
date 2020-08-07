@@ -17,6 +17,13 @@ body {
     display: none;
 }
 
+.timestamp {
+    /* inactive modeline */
+    background: #d1dae5;
+    color: #3f4043;
+    padding: 2px;
+}
+
 table
 {
     /* display:block; */
