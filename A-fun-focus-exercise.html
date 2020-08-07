@@ -6,7 +6,7 @@
 <!-- 2020-08-07 Fri 14:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>checking for toots</title>
+<title>A fun focus exercise</title>
 <meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -247,111 +247,142 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">checking for toots</h1>
+<h1 class="title">A fun focus exercise</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-03-checking-for-toots.org">2020-05-03</a> • 2020-05-03
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-07-A-fun-focus-exercise.org">2020-08-07</a> • 2020-08-07
 </p>
 </div>
 
 <hr />
 <p>
-The mastodon cli client <code>toot</code> is pretty nice for tootin'. If I want to post something I can just <code>toot post "some really unique thought"</code> and BAM it's out there on the internet forever. It even supports media &#x2013; EG <code>echo 'can I pipe stuff into toot?' | toot post -m $(shot)</code> and I can put adhoc screenshots in there:
+Circa 2015 I worked for a contracting software company (you know the ones, all work is project based, your time "on the bench" is paid so you can be retained, priorities shift fast because someone is always chasing a whale), where I had a weekly 1-on-1 meeting with an "agile coach". Later I learned the practice of holding 1-on-1's was common (at least in agile shops), but at the time it was a brand new thing for me. The check-in was nice and sort of served as a "psychological stand up" or something. IDK, just felt nice to take a short meeting to be like "yeah, things are going OK, have a good one" (and if they weren't, a place to ask questions).
 </p>
-
-
-<div class="figure">
-<p><a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png" /></a>
-</p>
-</div>
 
 <p>
-This is all well and good, but then I'm blind to when replies to toots happen (and with FOMO, I end up checking more often than I have too). Luckily, the toot cli client has a way to check for notifications. Unluckily, the toot nofications don't come through in a very structured way, and there's no way to get "unseen" notifications, it just sends everything (or well, some last N notifications):
+Anyway, at one of these meetings the coach had an exercise that I really enjoyed for showing the value of working on only one thing at a time. It's something I hear repeated everywhere, that humans can't multitask well, and that deliberate learning by isolating a task can get you farther than switching over everywhere. In my experience that has proved true, and this was a fun exercise to prove the point.
 </p>
-
-<pre class="example">
-$ toot notifications
-────────────────────────────────────────────────────────────────────────────────────────────────────
- @friend@linuxrocks.online mentioned you in
-@friend@linuxrocks.online                                                           2020-04-28 16:22
-
-@neeasade
-Hidden windows as in minimized? I thought, bspwm doesn't have that...?
-
-ID 104077129364588593  ↲ In reply to 104076791236950072
-────────────────────────────────────────────────────────────────────────────────────────────────────
-⁉️ Lazr ⁉️ @lazr@mstdn.io reblogged your status
-kitten mittens @neeasade                                                            2020-04-28 14:56
-
-bspwm breaks a little on with lots of hidden windows (see the smooshed boi in the gap)
-
-Media:
-https://mastodon.social/media/H7EiE9_nJzLtHDbPRxs
-
-ID 104076791236950072
-────────────────────────────────────────────────────────────────────────────────────────────────────
-hazel :blobcatcomfy: @hazel@is.nota.live now follows you
-────────────────────────────────────────────────────────────────────────────────────────────────────
-...
-</pre>
 
 <p>
-Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I'd like to preserve that.
+I received a piece of paper with 2 sides, each with the same table:
 </p>
 
-<div id="outline-container-org1daa92c" class="outline-2">
-<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1</span> <a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
-<div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">numbers</td>
+<td class="org-left">letters</td>
+<td class="org-left">roman numberals</td>
+<td class="org-left">fibonacci</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">xxxxx</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">xxxxx</td>
+</tr>
+</tbody>
+</table>
+
 <p>
-Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #5e7111;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
-</pre>
-</div>
-
-<p>
-And with diff, I can check if anything has changed (provided I save the seen notifications output somewhere). First I isolate to just the new content, and then I count how many of the new notifications contain "mentioned you" (I only have FOMO about conversation):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #898a8d;">#</span><span style="color: #898a8d;">!/usr/bin/</span><span style="color: #176fa8;">env</span><span style="color: #898a8d;"> bash</span>
-<span style="color: #898a8d;"># </span><span style="color: #898a8d;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #898a8d;"># </span><span style="color: #898a8d;">toot notifications &gt;/tmp/toot-notifications.txt</span>
-
-<span style="color: #bc17ab;">count</span>=0
-<span style="color: #176fa8;">if</span> <span style="color: #5e7111;">!</span> <span style="color: #bc17ab;">diff</span>=$(<span style="color: #bc17ab;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #176fa8;">then</span>
-    <span style="color: #bc17ab;">new_content</span>=$(<span style="color: #bc17ab;">echo</span> <span style="color: #5e7111;">"$diff"</span> | grep <span style="color: #5e7111;">'^&lt;'</span> | sed <span style="color: #5e7111;">'s/&lt; //'</span>)
-    <span style="color: #bc17ab;">count</span>=$(<span style="color: #bc17ab;">echo</span> <span style="color: #5e7111;">"$new_content"</span> | awk <span style="color: #5e7111;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #176fa8;">fi</span>
-
-<span style="color: #176fa8;">echo</span> <span style="color: #5e7111;">"toot mentions: $count"</span>
-</pre>
-</div>
-
-<p>
-From there it's a short trip to have a panel button, you just call the script!
-</p>
-
-
-<div class="figure">
-<p><a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png" /></a>
-</p>
-</div>
-
-<p>
-With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, I'm all set for some distration free tootin' without the FOMO of mentions.
+You can guess where this is going. He timed me filling in the table 2 times, once row-by-row, once column-by-column. The column-by-column side was faster for me, of course. Anyway I just thought this was a great exercise for demonstrating some cost to context switching.
 </p>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-03-checking-for-toots.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-07-A-fun-focus-exercise.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
-</div>
-</div>
 </div>
 </div>
 </body>
