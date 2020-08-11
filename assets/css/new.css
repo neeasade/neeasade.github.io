@@ -20,32 +20,28 @@
 	/* --nc-font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace; */
 	--nc-font-mono: "Go Mono", "Courier New", Courier, monospace, monospace;
 
-	--nc-tx-1: #3f4043;
-	--nc-tx-2: #3f4043;
-	/* --nc-tx-2: #1A1A1A; */
-	/* --nc-bg-1: #FFFFFF; */
-	--nc-bg-1: #f3f5f8;
-	/* --nc-bg-2: #F6F8FA; */
-	--nc-bg-2: #edeff2; /* lab-darken 2 */
+	--accent2_: #5e7111;
+	--accent2: #a95011;
+	--accent1_: #176fa8;
+	--accent1: #bc17ab;
+	--background_plus: #8fe7d5;
+	--background__: #d0d8e4;
+	--background_: #e5e9f0;
 
+	--background: #f3f5f8;
+	--foreground_: #898a8d;
+	--foreground: #3f4043;
 
-	/* --nc-bg-2: #d1dae5; /* stolen from inactive modeline color *\/ */
-	/* --nc-bg-3: #E5E7EB; */
-	--nc-bg-3: #d1dae5; /* stolen from inactive modeline color */
-
-	/* --nc-lk-1: #0070F3; */
-	/* --nc-lk-2: #0366D6; */
-	/* --nc-lk-1: #0070F3; */
-	/* --nc-lk-2: #3f4043; */
-
-	--nc-lk-1: #e71fd2;
-	--nc-lk-2: #176fa8;
-
-
-
-	--nc-lk-tx: #f3f5f8;
-	--nc-ac-1: #8fe7d5;
-	--nc-ac-tx: #3f4043;
+	--nc-tx-1: var(--foreground);
+	--nc-tx-2: var(--foreground);
+	--nc-bg-1: var(--background);
+	--nc-bg-2: var(--background_);
+	--nc-bg-3: var(--background__);
+	--nc-lk-1: var(--accent1);
+	--nc-lk-2: var(--accent1_);
+	--nc-lk-tx: var(--background);
+	--nc-ac-1: var(--background_plus);
+	--nc-ac-tx: var(--foreground);
 }
 
 * {
@@ -95,6 +91,7 @@ html,input,select,button {
 
 body {
 	/* Center body in page */
+
 	margin: 0 auto;
 	max-width: 750px;
 	/* padding: 2rem; */
@@ -161,11 +158,13 @@ h6 {
 }
 
 a {
-	color: var(--nc-lk-1);
+	color: var(--foreground);
+	text-decoration: underline;
 }
 
 a:visited {
-	color: var(--nc-lk-2);
+	color: var(--foreground_);
+	text-decoration: underline;
 }
 
 abbr:hover {
@@ -397,7 +396,7 @@ th {
 
 tr:nth-child(even) {
 	/* Set every other cell slightly darker. Improves readability. */
-	background: var(--nc-bg-2);
+	/* background: var(--nc-bg-1); */
 }
 
 table caption {

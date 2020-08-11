@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-08-07 Fri 14:40 -->
+<!-- 2020-08-11 Tue 15:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Archiving CD's on linux</title>
@@ -250,13 +250,13 @@ for the JavaScript code in this tag.
 <h1 class="title">Archiving CD's on linux</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-05-Archiving-CD's-on-linux.org">2020-05-06</a> • 2020-05-05
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-05-Archiving-CD's-on-linux.org">2020-08-11</a> • 2020-05-05
 </p>
 </div>
 
 <hr />
 
-<div id="outline-container-orgef44771" class="outline-2">
+<div id="outline-container-org0cf0094" class="outline-2">
 <h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><span class="section-number-2">1</span> <a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">Mounting data CD's/DVD's</a></h2>
 <div class="outline-text-2" id="text-h-c2430d47-065c-438b-9ffe-3856b927a6ce">
 <p>
@@ -271,44 +271,48 @@ Peek at <code>ls /dev/sr*</code> for the devices, or <code>lsblk</code> for the 
 Then:
 </p>
 
-<pre class="example">
-mount &lt;dev&gt; /path/to/mountpoint
+<div class="org-src-container">
+<pre class="src src-sh">mount &lt;dev&gt; /path/to/mountpoint
 </pre>
+</div>
 
 <p>
 or, more explicitly:
 </p>
 
-<pre class="example">
-mount -t iso9660 &lt;dev&gt; /path/to/mountpoint
+<div class="org-src-container">
+<pre class="src src-sh">mount -t iso9660 &lt;dev&gt; /path/to/mountpoint
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org52922d8" class="outline-2">
+<div id="outline-container-org9ea9976" class="outline-2">
 <h2 id="h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895"><span class="section-number-2">2</span> <a href="#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">Getting the content from a Music CD/DVD</a></h2>
 <div class="outline-text-2" id="text-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">
 <p>
 With cdparanoia:
 </p>
 
-<pre class="example">
-cd /place/to/store/tracks
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #176fa8;">cd</span> /place/to/store/tracks
 cdparanoia -d &lt;dev&gt; -B
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org155d539" class="outline-2">
+<div id="outline-container-org43068e1" class="outline-2">
 <h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3</span> <a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">Backing up to an ISO</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
-<pre class="example">
-dd if=&lt;dev&gt; of=/path/to/label.iso
+<div class="org-src-container">
+<pre class="src src-sh">dd <span style="color: #bc17ab;">if</span>=&lt;dev&gt; <span style="color: #bc17ab;">of</span>=/path/to/label.iso <span style="color: #bc17ab;">bs</span>=128k
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org6913f7f" class="outline-2">
+<div id="outline-container-org0aae03a" class="outline-2">
 <h2 id="h-8052e45f-f714-4bd1-b2ed-39ed0175a499"><span class="section-number-2">4</span> <a href="#h-8052e45f-f714-4bd1-b2ed-39ed0175a499">Mounting an ISO</a></h2>
 <div class="outline-text-2" id="text-h-8052e45f-f714-4bd1-b2ed-39ed0175a499">
 <pre class="example">
