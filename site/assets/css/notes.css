@@ -18,10 +18,7 @@ body {
 }
 
 .timestamp {
-    /* inactive modeline */
-    background: #d1dae5;
-    color: #3f4043;
-    padding: 2px;
+    color: var(--accent1_);
 }
 
 table
@@ -54,29 +51,8 @@ img
 /* } */
 
 #content, #postamble, #preamble {
-    display: block;
-    margin: 10px auto 10px auto;
-    padding: 0 16px 16px 16px;
-    /* padding: 0 0.2em 0.2em 0.2em; */
-    /* max-width: 60em; */
-
-    /* background-color: #eef0f3; */
+    padding: 10px;
     background: var(--nc-bg-1);
-
-    /* inner border: c2c6e3 */
-    /* outer border: 9A9EBB */
-    /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABHNCSVQICAgIfAhkiAAAAGJJREFUOI1jbOta/p+ByoCFgYGBwcbGhmoGHjlyhIGJaqYhgRFuKAsuiSNHjhDUjCuCcRrKwMDAUFUWyYhLDl9SHDphOmoo9QHeJEVuCYbTUEpKrqETpkPHUBYGBuJKJFIAADHjEqIMeb/nAAAAAElFTkSuQmCC") 7 /  7px / 0 round; */
-    /* border-width:  7px; */
-
-    /* border-style:  solid; */
-
-    /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABHNCSVQICAgIfAhkiAAAAPNJREFUWEftmMEOwjAMQ9cvA4nvRoIvYxfCoShybFZNFtm1yey9pkvbcbneXpvwPB/3IaRtqt5QE08zWhWOD6vGz9TZ/Ij/EK0Ks0LLjWaGVhlFeilRlFidgSpRpPdlNFtcYUxdfLNh9L553NdofDmaitOn3s5o1nVWrXqk5/cfZfv2rzXK6vn0elQbKjmWGKr9dKuGElkjKB7ptVFEsLoHiLgm2kTZmmGJofhe9YgQO95EWWIovokiQuw4JKqeKtVdlarnsx9FyI9uBKqe35lprrk+178vjlkwvlc6Npdkdlc6Notp1Xn/f/6j7Caie31CbAe8yAFlZBt7OAAAAABJRU5ErkJggg==") 14 /  14px / 0 round; */
-    /* border-width:  14px; */
-    /* border-style:  solid; */
-
-    /* border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABHNCSVQICAgIfAhkiAAAARdJREFUWEftWMENAzEIu0zR1bpFZ+kWXe2maF+pqpyQbUiUpKLfC2BsoAnl9ni9D8fvfN6Lw+zwxitew2lA2cA1MfZ8y7pqX89/GWUDq4GmA/XU56+NRUxLRJjRZYBaEi8n/TZALWl7M4r8hWuUnRKo64cDHdVMVmLuOToNqBo4Kr0ab5//elTs9TsqepUhdfxdrmqqAxUgStyKn0AR06pyyWgy6u1GxJx6ucmuT0abvUGOJ1QS/zvwt1vpIKna79MuzmxgrwLeRMOvUFWB4UCtXRCrAHpBIP80o8iRyizyJy/J1DnHAlbfXpDR5YGijHt3PVsKl03JNkBRraFEetvDGlVv5gggekGgePusdLzNER34rAL13Afll101ik1bLQAAAABJRU5ErkJggg==") 14 /  14px / 0 round; */
-    /* border-width:  14px; */
-    /* border-style:  solid; */
 }
 
 .section-number-1,
@@ -85,6 +61,6 @@ img
 .section-number-4,
 .section-number-5
 {
-    color: #898a8d;
+    color: var(--foreground_);
     float: right;
 }

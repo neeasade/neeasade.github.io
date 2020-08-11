@@ -12,13 +12,13 @@ Peek at ~ls /dev/sr*~ for the devices, or ~lsblk~ for the ~rom~ type to get your
 
 Then:
 
-#+begin_src
+#+begin_src sh
 mount <dev> /path/to/mountpoint
 #+end_src
 
 or, more explicitly:
 
-#+begin_src
+#+begin_src sh
 mount -t iso9660 <dev> /path/to/mountpoint
 #+end_src
 
@@ -29,7 +29,7 @@ mount -t iso9660 <dev> /path/to/mountpoint
 
 With cdparanoia:
 
-#+begin_src
+#+begin_src sh
 cd /place/to/store/tracks
 cdparanoia -d <dev> -B
 #+end_src
@@ -39,8 +39,8 @@ cdparanoia -d <dev> -B
 :CUSTOM_ID: h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf
 :END:
 
-#+begin_src
-dd if=<dev> of=/path/to/label.iso
+#+begin_src sh
+dd if=<dev> of=/path/to/label.iso bs=128k
 #+end_src
 
 ** [[#h-8052e45f-f714-4bd1-b2ed-39ed0175a499][Mounting an ISO]]
