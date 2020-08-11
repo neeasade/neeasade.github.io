@@ -19,10 +19,10 @@ Sort by [ [[./index.html][edit date]] • published date ]
 				(ht-get <2> :publish-date)
 				)))))
        (mapcar
-	(fn (format "- [[file:./%s.html][%s]] <%s> "
+	(fn (format "- <%s> [[file:./%s.html][%s]] "
+		    (ht-get <> :publish-date)
 		    (f-base (ht-get <> :html-dest))
 		    (ht-get <> :title)
-		    (ht-get <> :publish-date)
 		    )))
        reverse
        (s-join "\n")
