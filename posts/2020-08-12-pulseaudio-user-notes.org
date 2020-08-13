@@ -1,0 +1,62 @@
+#+title: pulseaudio user notes
+#+pubdate: <2020-08-12>
+
+When in doubt, ~pavucontrol~ can save you/check all mic and speaker sources.
+
+** [[#h-0f0f140b-cace-40c9-814c-37c348635dc5][interfaces]]
+:PROPERTIES:
+:CUSTOM_ID: h-0f0f140b-cace-40c9-814c-37c348635dc5
+:END:
+
+| interface | program     |
+|-----------+-------------|
+| cli       | ponymix     |
+| gui       | pavucontrol |
+| tray      | pasystray   |
+
+** [[#h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3][mute noise from a stream]]
+:PROPERTIES:
+:CUSTOM_ID: h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3
+:END:
+
+*EXTREMELY* useful for video calling. Relies on nix and [[https://tazj.in/][tazjin]]'s monorepo:
+
+#+begin_src sh
+nix-build -E '(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'
+./result/bin/nsfv-setup
+#+end_src
+
+Then, in ~pavucontrol~, your audio sinks will have a "LAPSPA Plugin Noise Detector on <sink name>"
+option added for all your sinks -- just point your application output to it -- voila! Remove
+background noise from video calls and other things.
+
+tazjin notes there may be an issue with this out of the box though:
+
+#+begin_quote
+I have this issue on one machine and simply run a shell loop that re-runs the script every ~5
+minutes or so, which is unnoticeable and keeps it from drifting
+#+end_quote
+
+
+** TODO Split an audio source so it can go to a stream and your local speakers
+
+Some leftover notes from when I was last messing with this with [[https://obsproject.com/][OBS]].
+
+#+begin_src sh
+pactl list short sinks
+
+# add a null sync
+pactl load-module module-null-sink
+# => 25
+
+pactl load-module module-combine-sink slaves=<number>,<name>
+
+ 2	alsa_output.pci-0000_00_1f.3.analog-stereo	module-alsa-card.c	s16le 2ch 44100Hz	RUNNING
+
+pactl load-module module-combine-sink slaves=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink slaves=25,null
+pactl load-module module-combine-sink slaves=25,analog-stereo
+
+# number is the output of the above
+# name is the internal name of the output you want to use on obs?
+#+end_src

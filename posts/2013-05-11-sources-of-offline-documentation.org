@@ -1,28 +1,9 @@
-#+title: Sources of Offline Documentation
+#+title: Offline documentation
 #+date: <2013-05-11 00:00>
 
-There isn't always an internet connection, and you may be on limited
-bandwidth. Here are sources of documentation for various languages.
-These can all be used offline exactly as if you were online.
+Offline documentation reference == speedy access and maybe some tooling included.
 
-Documentation Page - Direct Download
+[[https://zealdocs.org/][zeal]] is a decent document set browser on linux, compatible with dashdocs, one of the first offline document browsers that helped popularize this sort of thing. There is even an [[https://github.com/dash-docs-el/dash-docs][emacs package]] for browsign dash docsets.
 
-[[http://www.adobe.com/devnet/actionscript/documentation.html][ActionScript]] -
-[[http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/PlatformASR_Final_en-us.zip][Direct
-Download]]
+https://devdocs.io/ is a no setup required documentation browser with offline capabilities (PWA-type of thing).
 
-[[http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-eedocs-419425.html][Java]] -
-[[http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-eedocs-419425.html#java_ee_sdk-6u2-docs-JPR][Direct
-Download]]
-
-[[http://perldoc.perl.org/][Perl]] -
-[[http://perldoc.perl.org/perldoc.tar.gz][Direct Download]](compressed
-in tar.gz, I recommend extracting with [[http://www.7-zip.org/][7zip]])
-
-[[http://docs.python.org/3/download.html][Python]] -
-[[http://docs.python.org/3/archives/python-3.3.1-docs-html.zip][Direct
-Download]]
-
-[[http://ruby-doc.org/downloads/][Ruby]] -
-[[http://ruby-doc.org/downloads/ruby_1_9_3_core_rdocs.tgz][Direct
-Download]]
