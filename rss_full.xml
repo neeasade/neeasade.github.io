@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Tue, 11 Aug 2020 16:08:41 -0500</pubDate>
-  <lastBuildDate>Tue, 11 Aug 2020 16:08:41 -0500</lastBuildDate>
+  <pubDate>Thu, 13 Aug 2020 15:54:13 -0500</pubDate>
+  <lastBuildDate>Thu, 13 Aug 2020 15:54:13 -0500</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.1.14</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>nil</title>
+    <link>https://notes.neeasade.net/pulseaudio-user-notes.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/pulseaudio-user-notes.html</guid>
+    <pubDate>Wed, 12 Aug 2020 00:00:00 -0500</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>nil</title>
     <link>https://notes.neeasade.net/A-fun-focus-exercise.html</link>
@@ -332,15 +341,6 @@
   </item>
   <item>
     <title>nil</title>
-    <link>https://notes.neeasade.net/resetting-xdefaults-reference-without-rebooting.html</link>
-    <author>neeasade@erasmus (nil)</author>
-    <guid isPermaLink="false">https://notes.neeasade.net/resetting-xdefaults-reference-without-rebooting.html</guid>
-    <pubDate>Sun, 23 Feb 2014 00:00:00 -0600</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>nil</title>
     <link>https://notes.neeasade.net/configuring-constant-lang-variable.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/configuring-constant-lang-variable.html</guid>
@@ -426,15 +426,6 @@
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/general-thoughts-on-summer.html</guid>
     <pubDate>Fri, 17 May 2013 00:00:00 -0500</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>nil</title>
-    <link>https://notes.neeasade.net/alternative-to-notepad-in-linux.html</link>
-    <author>neeasade@erasmus (nil)</author>
-    <guid isPermaLink="false">https://notes.neeasade.net/alternative-to-notepad-in-linux.html</guid>
-    <pubDate>Sun, 12 May 2013 00:00:00 -0500</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
