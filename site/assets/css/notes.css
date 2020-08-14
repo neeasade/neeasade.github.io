@@ -1,16 +1,8 @@
 body {
-    /* background-image: url("https://neeasade.net/pattern_125.gif"); */
     background-image: url("../img/backgrounds/newfeather.png");
     background-repeat: repeat;
     background-attachment: fixed;
 }
-
-/* this is a hack so that list items that wrapped are still aligned */
-/* also has the nice side effect of indenting nested lists  */
-/* li { */
-/*     text-indent: -2em; */
-/*     margin-left: 2em !important; */
-/* } */
 
 /* hide org mode figure notes on image captions */
 .figure-number {
@@ -21,46 +13,29 @@ body {
     color: var(--accent1_);
 }
 
-table
-{
-    /* display:block; */
-    margin-left: auto;
-    margin-right: auto;
-    width:80%;
-    height:auto;
-    /* max-width:90% !important; */
-    /* border: 1px solid #B0A8A6 */
+table {
+    margin: auto;
 }
 
-img
-{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    width:auto;
-    height:auto;
-    max-width:90% !important;
-    max-height:400px;
-    border: 1px solid #B0A8A6
+img {
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 400px;
+    border: 1px solid var(--nc-bg-2);
 }
-
-/* @media screen and (max-width: 800px) { */
-/*   #content, #postamble, #preamble { */
-/*     width: 98%; */
-/*   } */
-/* } */
 
 #content, #postamble, #preamble {
-    padding: 10px;
-    background: var(--nc-bg-1);
+    padding: 14px;
+    background: var(--background);
 }
 
 .section-number-1,
 .section-number-2,
 .section-number-3,
 .section-number-4,
-.section-number-5
-{
+.section-number-5 {
     color: var(--foreground_);
     float: right;
 }

@@ -1,0 +1,52 @@
+#+title: color spaces
+#+pubdate: <2020-08-13>
+#+draft: t
+
+Why do color spaces exist?
+
+(Aside from being the biggest yak shave) To give us tools to reason about colors and their relations. Think of color spaces as maps or frameworks for navigating some color range (usually called a [[https://en.wikipedia.org/wiki/Gamut][gamut]]) that are there to help you make sensible changes.
+
+** Some color spaces:
+
+*** HSL
+- Hue
+- Saturation
+- Luminance
+
+#+CAPTION: um
+{{{image(color_cylinder.png)}}}
+
+
+*** cieLAB
+
+CIE is the International Commission on Illumination.
+
+** Hue
+
+My mental model of hue is to think of it like a "color compass", pointing in a direction whose strength may be tweaked by changing the saturation value. Here is an example of the same color with a changed hue (chose the reference values given with HSL):
+
+HSL with .5 saturation and .5 luminance:
+
+| hue (degrees) | border  | color                |
+|---------------+---------+----------------------|
+|             0 | red     | {{{color(#bf3f3f)}}} |
+|            60 | yellow  | {{{color(#bfbf3f)}}} |
+|           120 | green   | {{{color(#3fbf3f)}}} |
+|           180 | cyan    | {{{color(#3fbfbf)}}} |
+|           240 | blue    | {{{color(#3f3fbf)}}} |
+|           300 | magenta | {{{color(#bf3fbf)}}} |
+|           360 | red     | {{{color(#bf3f3f)}}} |
+
+
+** Color relations
+
+It can be useful to compare colors by a given value. For example, readability of text on a page may be determined by contrasting the lightness of 2 colors. Or you can measure the distance between colors while performing an operation to ensure you have enough folds.
+
+** links and references:
+
+- https://peteroupc.github.io/colorgen.html
+- https://en.wikipedia.org/wiki/CIELAB_color_space
+- https://en.wikipedia.org/wiki/Standard_illuminant#White_points_of_standard_illuminants
+- http://colorizer.org/
+- https://github.com/yurikhan/yk-color/blob/master/yk-color.el
+- https://www.w3.org/TR/WCAG20/#relativeluminancedef

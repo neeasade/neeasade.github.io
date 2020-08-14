@@ -3,7 +3,7 @@
 
 Offline documentation reference == speedy access and maybe some tooling included.
 
-[[https://zealdocs.org/][zeal]] is a decent document set browser on linux, compatible with dashdocs, one of the first offline document browsers that helped popularize this sort of thing. There is even an [[https://github.com/dash-docs-el/dash-docs][emacs package]] for browsign dash docsets.
+[[https://zealdocs.org/][zeal]] is a decent offline document browser on Linux, compatible with dash docsets, one of the first offline document browsers that helped popularize offline browser references). There is even an [[https://github.com/dash-docs-el/dash-docs][emacs package]] for browsing dash docsets.
 
 https://devdocs.io/ is a no setup required documentation browser with offline capabilities (PWA-type of thing).
 
