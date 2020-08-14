@@ -8,7 +8,9 @@ Some context: [[./Automata-tiling-backgrounds.org][part 1]]
 
 [[https://catgirl.sh/][Camille]] showed up in my DM's with some more patterns - These patterns were pulled from a set of 4000 images that were generated with random [[https://en.wikipedia.org/wiki/Elementary_cellular_automaton][1 dimensional rules]] and then sorted by compression to judge the 'interesting' ones. Enjoy:
 
-(spoiler: click the images to preview them on this page!)
+#+BEGIN_CENTER
+click the images to preview them on this page!
+#+END_CENTER
 
 #+MACRO:  cool @@html: <img src="./assets/posts/ca_dump2/$1.png" onclick="(function() {document.body.style.backgroundImage = 'url(./assets/posts/ca_dump2/$1.png)'; })(); return false;" />@@
 
