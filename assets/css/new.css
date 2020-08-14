@@ -103,7 +103,7 @@ body {
 
 	/* Main body text */
 	color: var(--nc-tx-2);
-	font-size: 1.03rem;
+	font-size: 1 rem;
 	line-height: 1.5;
 }
 
@@ -378,25 +378,21 @@ legend {
 }
 
 table {
-	/* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
-	border-collapse: collapse;
-	width: 100%
+	    /* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
+	    border-collapse: collapse;
+	    max-width: 90%;
+	    border: 1px solid var(--nc-bg-3);
 }
 
 td,
 th {
 	border: 1px solid var(--nc-bg-3);
 	text-align: left;
-	padding: .5rem;
+	padding: .2rem;
 }
 
 th {
 	background: var(--nc-bg-2);
-}
-
-tr:nth-child(even) {
-	/* Set every other cell slightly darker. Improves readability. */
-	/* background: var(--nc-bg-1); */
 }
 
 table caption {
@@ -445,6 +441,3 @@ input {
 	box-sizing: border-box;
 }
 
-img {
-	max-width: 100%;
-}
