@@ -27,7 +27,7 @@ nix-build -E '(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.n
 #+end_src
 
 Then, in ~pavucontrol~, your audio sinks will have a "LAPSPA Plugin Noise Detector on <sink name>"
-option added for all your sinks -- just point your application output to it -- voila! Remove
+option added -- just point your application output to it and voila! Remove
 background noise from video calls and other things.
 
 tazjin notes there may be an issue with this out of the box though:

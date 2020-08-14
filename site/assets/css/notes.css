@@ -29,6 +29,8 @@ img {
 #content, #postamble, #preamble {
     padding: 14px;
     background: var(--background);
+    border-left: 1px solid var(--nc-bg-2);
+    border-right: 1px solid var(--nc-bg-2);
 }
 
 .section-number-1,
