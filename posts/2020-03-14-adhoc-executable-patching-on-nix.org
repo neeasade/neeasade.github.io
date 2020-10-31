@@ -23,24 +23,24 @@ in pkgs.mkShell {
 Launch the nix-shell, patch the linker so you can call the executable and see what's up:
 
 #+begin_src sh
-$ nix-shell shell.nix
-$ patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" /path/to/executable
+; nix-shell shell.nix
+; patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" /path/to/executable
 #+end_src
 
 Strategies to find out what you might need:
 
 #+begin_src sh
-$ ldd /path/to/executable
-$ strace /path/to/executable
+; ldd /path/to/executable
+; strace /path/to/executable
 #+end_src
 
 Update the ~shell.nix~ file with the dependencies/linked libraries your executable might need, and then patch the executable from the derived nix-shell based on that:
 
 #+begin_src sh
-$ nix-shell ./shell.nix
-$ # you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself
-$ new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')
-$ patchelf --set-rpath "$new_rpath" /path/to/executable
+; nix-shell ./shell.nix
+; # you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself
+; new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')
+; patchelf --set-rpath "$new_rpath" /path/to/executable
 #+end_src
 
 Then you should be able to run the executable by calling it normally (in or out of a nix-shell context).
