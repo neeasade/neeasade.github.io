@@ -12,8 +12,14 @@ if ! $clean_tree; then
     git stash
 fi
 
-export elisp_timeout=30
-elisp "(ns/blog-generate)"
+cat<<EOF > ./site/assets/css/colors.css
+:root {
+$(show-theme | awk '{gsub("+", "_plus", $0); print "--" $0 ";"}')
+}
+EOF
+
+
+elisp -b "(progn (ns/writing) (ns/org) (ns/blog) (ns/blog-generate))"
 
 rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net

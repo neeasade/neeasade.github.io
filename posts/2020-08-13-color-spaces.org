@@ -13,9 +13,7 @@ Why do color spaces exist?
 - Saturation
 - Luminance
 
-#+CAPTION: um
 {{{image(color_cylinder.png)}}}
-
 
 *** cieLAB
 
@@ -37,10 +35,9 @@ HSL with .5 saturation and .5 luminance:
 |           300 | magenta | {{{color(#bf3fbf)}}} |
 |           360 | red     | {{{color(#bf3f3f)}}} |
 
-
 ** Color relations
 
-It can be useful to compare colors by a given value. For example, readability of text on a page may be determined by contrasting the lightness of 2 colors. Or you can measure the distance between colors while performing an operation to ensure you have enough folds.
+It can be useful to compare colors by a given value. For example, readability of text on a page may be determined by contrasting the lightness of 2 colors. Or you can measure the distance between colors while performing an operation to ensure you have something "sufficiently different" while iterating some color operation.
 
 ** links and references:
 

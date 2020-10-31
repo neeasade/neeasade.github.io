@@ -24,8 +24,9 @@ quote:
 This is a quote.
 #+END_QUOTE
 
-graphiz:
-see here for examples: https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
+Graphviz:
+
+some more examples: https://renenyffenegger.ch/notes/tools/Graphviz/examples/index
 
 #+BEGIN_SRC dot :file ./assets/posts/test-dot.png  :cmdline -Kdot -Tpng
 digraph {

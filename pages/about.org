@@ -1,0 +1,6 @@
+#+title: About
+
+# whaddaboutit
+# Data plumber. Interested in '(emacs clojure nix bash coffee recurse-center rice colemak-dh stoicism). Views my own.
+
+Under construction

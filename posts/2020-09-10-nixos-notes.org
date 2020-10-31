@@ -1,0 +1,20 @@
+#+title: nixos notes
+#+pubdate: <2020-09-10>
+#+draft: t
+
+Nix is so meta.
+
+** local profile
+
+In general, prefer nix-run to nix-env -i for adhoc installs:
+
+no: ~nix-env -iA nixos.gimp~
+yes: ~nix ~
+
+** neat links
+
+- https://nix.dev/
+- https://github.com/nix-community/nix-direnv
+- https://learnxinyminutes.com/docs/nix/
+- https://nixos.org/guides/nix-pills/
+- https://christine.website/blog/how-i-start-nix-2020-03-08

@@ -8,6 +8,7 @@ Anyway, at one of these meetings the coach had an exercise that I really enjoyed
 I received a piece of paper with 2 sides, each with the same table:
 
 | numbers | letters | roman numberals | fibonacci |
+|---------+---------+-----------------+-----------|
 |         |         |                 |           |
 |         |         |                 |           |
 |         |         |                 |           |
@@ -18,7 +19,7 @@ I received a piece of paper with 2 sides, each with the same table:
 |         |         |                 |           |
 |         |         |                 |           |
 |         |         |                 |           |
-|         |         |                 |  xxxxx    |
-|         |         |                 |  xxxxx    |
+|         |         |                 | xxxxx     |
+|         |         |                 | xxxxx     |
 
 You can guess where this is going. He timed me filling in the table 2 times, once row-by-row, once column-by-column. The column-by-column side was faster for me, of course. Anyway I just thought this was a great exercise for demonstrating some cost to context switching.

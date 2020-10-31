@@ -2,14 +2,14 @@
 
 @font-face {
     font-family: 'Go Mono';
-    src: url('./assets/fonts/GoMonoRegular.ttf') format('truetype');
+    src: url('/assets/fonts/GoMonoRegular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Charter Regular';
-    src: url('./assets/fonts/charter.ttf') format('truetype');
+    src: url('/assets/fonts/charter.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -20,17 +20,17 @@
 	/* --nc-font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace; */
 	--nc-font-mono: "Go Mono", "Courier New", Courier, monospace, monospace;
 
-	--accent2_: #5e7111;
-	--accent2: #a95011;
-	--accent1_: #176fa8;
-	--accent1: #bc17ab;
-	--background_plus: #8fe7d5;
-	--background__: #d0d8e4;
-	--background_: #e5e9f0;
+	/* --accent2_: #5e7111; */
+	/* --accent2: #a95011; */
+	/* --accent1_: #176fa8; */
+	/* --accent1: #bc17ab; */
+	/* --background_plus: #8fe7d5; */
+	/* --background__: #d0d8e4; */
+	/* --background_: #e5e9f0; */
 
-	--background: #f3f5f8;
-	--foreground_: #898a8d;
-	--foreground: #3f4043;
+	/* --background: #f3f5f8; */
+	/* --foreground_: #898a8d; */
+	/* --foreground: #3f4043; */
 
 	--nc-tx-1: var(--foreground);
 	--nc-tx-2: var(--foreground);
@@ -133,29 +133,12 @@ h6 {
 	margin-bottom: .3rem;
 }
 
-h1 {
-	font-size: 2.25rem;
-}
-
-h2 {
-	font-size: 1.85rem;
-}
-
-h3 {
-	font-size: 1.55rem;
-}
-
-h4 {
-	font-size: 1.25rem;
-}
-
-h5 {
-	font-size: 1rem;
-}
-
-h6 {
-	font-size: .875rem;
-}
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1.12em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
 
 a {
 	color: var(--foreground);

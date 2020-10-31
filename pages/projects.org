@@ -1,0 +1,21 @@
+#+title: Projects
+
+* [[https://github.com/neeasade/dotfiles][dotfiles]] + [[https://github.com/neeasade/emacs.d][emacs.d]]
+
+These repositories constitute where I turn my desktop into an interactive environment for workflow experiments, resulting in fun combinations of the programs I use every day.
+
+* [[https://github.com/gnotclub/xst][xst]]
+
+ A fork of the [[https://st.suckless.org/][st terminal]] with some patches applied, with Xresources integration and live reloading.
+
+* [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el][colors.el]]
+
+A collection of [[https://notes.neeasade.net/color-spaces.html][colorspace]] utility functions.
+
+* [[https://github.com/neeasade/bspwwm][bspwwm]]
+
+A *vaporware* Wayland compositor built on top of wlroots using Nix and Clojure. Mostly a playground to experiment with Clojure FFI to the Wlroots libraries.
+
+* [[https://github.com/neeasade/passage][passage]]
+
+A password store built on top of the [[https://github.com/FiloSottile/age][age]] encryption tool.
