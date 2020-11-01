@@ -1,0 +1,15 @@
+#+title: annoying org typing slowdowns
+#+pubdate: <2020-11-01>
+
+This is a list of things I had to turn off to not fuck with my typing speed in org buffers (sometimes I am really sensitive to latency/breaks in typing). For context, I usually run things in one really big notes file.
+
+- smartparens mode
+- modeline
+- git-gutter mode
+- timers that query the current buffer I'm typing in
+- flyspell-mode (switched to a keybind to flyspell the buffer)
+- (rarely) font-locking
+
+Related: [[https://github.com/rnkn/olivetti][olivetti-mode]] has some nice display settings that don't takeover everything, for the pretty.
+
+These were all super annoying to track down because I would have to wait until I was caffienated enough to be "sensitive" to the speed and then profile everything. But now the feeling is SUPER COMFY.
