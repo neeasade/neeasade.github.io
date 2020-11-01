@@ -10,6 +10,8 @@ This is a list of things I had to turn off to not fuck with my typing speed in o
 - flyspell-mode (switched to a keybind to flyspell the buffer)
 - (rarely) font-locking
 
+You can see how I'm doing this [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/org.el#L174][here]] and [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/editing.el#L11][here]].
+
 These were all super annoying to track down because I would have to wait until I was caffienated enough to be "sensitive" to the speed and then profile everything. But now the feeling is SUPER COMFY.
 
 Related: [[https://github.com/rnkn/olivetti][olivetti-mode]] has some nice display settings that don't takeover everything, for the pretty.
