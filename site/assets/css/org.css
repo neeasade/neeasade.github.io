@@ -10,10 +10,10 @@
 .todo   { font-family: var(--nc-font-mono); background-color: var(--background_); color: var(--accent2_);}
 .done   { font-family: monospace; color: --var(--accent2); background-color: --var(background_);}
 .priority { font-family: monospace; color: orange; }
-.tag    { background-color: #eee; font-family: monospace;
+.tag    { background-color: var(--background_); font-family: --var(--nc-font-mono);
 	  padding: 2px; font-size: 80%; font-weight: normal; }
-.timestamp { color: #bebebe; }
-.timestamp-kwd { color: #5f9ea0; }
+/* .timestamp { color: #bebebe; } */
+/* .timestamp-kwd { color: #5f9ea0; } */
 .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
 .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
 .org-center { margin-left: auto; margin-right: auto; text-align: center; }
@@ -30,21 +30,21 @@ p.verse { margin-left: 3%; }
 /*     margin: 1.2em; */
 /* } */
 
-/* pre.src { */
-/*     position: relative; */
-/*     overflow: visible; */
-/*     padding-top: 1.2em; */
-/* } */
+pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+}
 
-/* pre.src:before { */
-/*     display: none; */
-/*     position: absolute; */
-/*     background-color: white; */
-/*     top: -10px; */
-/*     right: 10px; */
-/*     padding: 3px; */
-/*     border: 1px solid black; */
-/* } */
+pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+}
 
 pre.src:hover:before { display: inline;}
 /* Languages per Org manual */
@@ -168,20 +168,22 @@ dt { font-weight: bold; }
     text-align: right;
     vertical-align: middle;
 }
+
 .inlinetask {
     padding: 10px;
     border: 2px solid gray;
     margin: 10px;
     background: #ffffcc;
 }
+
 #org-div-home-and-up
 { text-align: right; font-size: 70%; white-space: nowrap; }
 textarea { overflow-x: auto; }
 .linenr { font-size: smaller }
-.code-highlighted { background-color: #ffff00; }
+/* .code-highlighted { background-color: #ffff00; } */
 .org-info-js_info-navigation { border-style: none; }
 #org-info-js_console-label
 { font-size: 10px; font-weight: bold; white-space: nowrap; }
-.org-info-js_search-highlight
-{ background-color: #ffff00; color: #000000; font-weight: bold; }
+/* .org-info-js_search-highlight */
+/* { background-color: #ffff00; color: #000000; font-weight: bold; } */
 .org-svg { width: 90%; }

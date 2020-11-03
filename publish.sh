@@ -12,7 +12,9 @@ if ! $clean_tree; then
     git stash
 fi
 
-elisp -b "(progn (ns/core) (ns/extra) (ns/style) (ns/blog-generate))"
+# emacs in batch mode doesn't include font-locking, so everything is broken.
+# elisp -b "(progn (ns/core) (ns/extra) (font-lock-mode 1) (ns/style) (ns/blog-generate))"
+elisp_timeout=120 elisp "(ns/blog-generate)"
 
 rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net
