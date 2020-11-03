@@ -5,22 +5,26 @@
 #+END_CENTER
 
 #+BEGIN_SRC elisp :results raw :exports results
-  (->>
-   (if (boundp 'org-page-metas)
-       org-page-metas
-     (mapcar 'ns/blog-file-to-meta (f-entries ns/blog-pages-dir (fn (s-ends-with-p ".org" <>)))))
+(->>
+ (if (boundp 'org-page-metas)
+     org-page-metas
+   (mapcar 'ns/blog-file-to-meta (f-entries ns/blog-pages-dir (fn (s-ends-with-p ".org" <>)))))
 
-   (-remove (fn (-contains-p
-		 '("index"
-		   "index_published"
-		   "404"
-		   "sitemap")
-		 (f-base (ht-get <> :path))
-		 )))
-   (mapcar (fn (format " - [[./%s.html][%s]]"
-		       (f-base (ht-get <> :path))
-		       (ht-get <> :title)
-		       )))
-   (s-join "\n")
-   )
+ (-remove (fn (-contains-p
+	       '("index"
+		 "index_published"
+		 "404"
+		 "sitemap")
+	       (f-base (ht-get <> :path))
+	       )))
+ (mapcar (fn (format "- [[./%s.html][%s]]"
+		     (f-base (ht-get <> :path))
+		     (ht-get <> :title)
+		     )))
+ (append
+  '("- [[./rss.org][rss (curated)]]"
+    "- [[./rss_full.org][rss (full)]]")
+  )
+ (s-join "\n")
+ )
 #+END_SRC
