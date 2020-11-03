@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 06:48 -->
+<!-- 2020-11-03 Tue 07:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
@@ -62,7 +62,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 <div id="outline-container-h-11b4a27d-4fc3-4357-8afe-c828e328574f" class="outline-2">
-<h2 id="h-11b4a27d-4fc3-4357-8afe-c828e328574f"><span class="section-number-2">1</span> <a href="#h-11b4a27d-4fc3-4357-8afe-c828e328574f">Syncthing</a></h2>
+<h2 id="h-11b4a27d-4fc3-4357-8afe-c828e328574f"><a href="#h-11b4a27d-4fc3-4357-8afe-c828e328574f">Syncthing</a></h2>
 <div class="outline-text-2" id="text-h-11b4a27d-4fc3-4357-8afe-c828e328574f">
 <p>
 <a href="https://syncthing.net/">Syncthing</a> is a program for syncing files and folders between devices. It is speedy enough for my use, and nixos has defined service files available for it so it's pretty easy to get something that "just works" between devices. This is key to the 'blended' feeling I alluded to above because it allows easy sending of data back and forth between my phone and computers (and the interface is pretty slick!). You can get away with only syncing between your devices, but I've opted to also have a vps running a syncthing service so that things are pretty nice.
@@ -71,7 +71,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </div>
 
 <div id="outline-container-h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04" class="outline-2">
-<h2 id="h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04"><span class="section-number-2">2</span> <a href="#h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">Orgzly</a></h2>
+<h2 id="h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04"><a href="#h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">Orgzly</a></h2>
 <div class="outline-text-2" id="text-h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">
 <p>
 <a href="http://www.orgzly.com/">Orgzly</a> markets itself as an "outliner for notes and todo lists", but the kicker is that is uses org files as it's store. This means that orgzly headlines are org headlines, with everything that implies (agenda, scheduling, priority, keywords, and so on). I've setup a <code>capture.org</code> file in a syncthing folder on my desktop and phone, allowing me to capture notes on the go and then refile them back when I'm on my desktop computer. Now that's cool! here's a brief glance capturing a note on the phone and it's org mode counterpart:
@@ -98,33 +98,33 @@ turns into:
 </div>
 
 <div id="outline-container-h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74" class="outline-2">
-<h2 id="h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74"><span class="section-number-2">3</span> <a href="#h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">Music</a></h2>
+<h2 id="h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74"><a href="#h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">Music</a></h2>
 <div class="outline-text-2" id="text-h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">
 <p>
 I use the BlackPlayer music player, which lets you choose what folders to search for music from. I'm sure you can see where this is going&#x2026; with MPD on my desktop it's really easy to do something like <code>mpc playlist -f '%file%' | shuf | head -n 100 | fd cp $music_dir/{} $syncthing_dir</code> and wham! A smattering of my music collection is now available for me to enjoy on my phone! Of course, the reality is a little more complicated. I want to limit the size of the music collection that ends up on my phone. What actually ends up happening is something like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #646568;"># </span><span style="color: #646568;">200mb</span>
-  <span style="color: #2b249e;">size_limit</span>=200000
-  <span style="color: #2b249e;">sync_music_dir</span>=<span style="color: #2b7600;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #2b249e;">music_dir</span>=<span style="color: #2b7600;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #ffffff;"># </span><span style="color: brightblack;">200mb</span>
+  <span style="color: #000000;">size_limit</span>=200000
+  <span style="color: #000000;">sync_music_dir</span>=<span style="color: #00ff00;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #000000;">music_dir</span>=<span style="color: #00ff00;">"$HOME/Music"</span>
 
-  <span style="color: #2b249e;">IFS</span>=$<span style="color: #2b7600;">'\n'</span>
-  <span style="color: #005ec2;">while </span><span style="color: #005ec2;">read</span> -r f; <span style="color: #005ec2;">do</span>
-      <span style="color: #2b249e;">collection_size</span>=$(<span style="color: #2b249e;">du</span> <span style="color: #2b7600;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #2b7600;">'s/\t.*//'</span>)
-      <span style="color: #005ec2;">if</span> [ $<span style="color: #2b249e;">collection_size</span> -lt $<span style="color: #2b249e;">size_limit</span> ]; <span style="color: #005ec2;">then</span>
-          <span style="color: #005ec2;">echo</span> cp <span style="color: #2b7600;">"${music_dir}/$f"</span> <span style="color: #2b7600;">"$sync_music_dir"</span>
-          cp <span style="color: #2b7600;">"${music_dir}/$f"</span> <span style="color: #2b7600;">"$sync_music_dir"</span>
-      <span style="color: #005ec2;">fi</span>
-  <span style="color: #005ec2;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #2b7600;">'%file%'</span> | shuf)
+  <span style="color: #000000;">IFS</span>=$<span style="color: #00ff00;">'\n'</span>
+  <span style="color: #ff00ff;">while </span><span style="color: #00ffff;">read</span> -r f; <span style="color: #ff00ff;">do</span>
+      <span style="color: #000000;">collection_size</span>=$(<span style="color: #0000ff;">du</span> <span style="color: #00ff00;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #00ff00;">'s/\t.*//'</span>)
+      <span style="color: #ff00ff;">if</span> [ $<span style="color: #000000;">collection_size</span> -lt $<span style="color: #000000;">size_limit</span> ]; <span style="color: #ff00ff;">then</span>
+          <span style="color: #00ffff;">echo</span> cp <span style="color: #00ff00;">"${music_dir}/$f"</span> <span style="color: #00ff00;">"$sync_music_dir"</span>
+          cp <span style="color: #00ff00;">"${music_dir}/$f"</span> <span style="color: #00ff00;">"$sync_music_dir"</span>
+      <span style="color: #ff00ff;">fi</span>
+  <span style="color: #ff00ff;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #00ff00;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
 </div>
 
 <div id="outline-container-h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719" class="outline-2">
-<h2 id="h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719"><span class="section-number-2">4</span> <a href="#h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">Browsing the internet</a></h2>
+<h2 id="h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719"><a href="#h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">Browsing the internet</a></h2>
 <div class="outline-text-2" id="text-h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">
 <p>
 Chome on android doesn't have a umatrix option. This sucks, because the UX is pretty decent. But life is too short for fake download buttons. Firefox + umatrix is an OK combination. One thing I realized I wanted when I did this switch was a 'startpage' with common links I use on my phone. Enter <a href="./startpage.html">startpage</a>, yay:
@@ -133,7 +133,7 @@ Chome on android doesn't have a umatrix option. This sucks, because the UX is pr
 </div>
 
 <div id="outline-container-h-6398d541-3e48-4846-807b-077455426531" class="outline-2">
-<h2 id="h-6398d541-3e48-4846-807b-077455426531"><span class="section-number-2">5</span> <a href="#h-6398d541-3e48-4846-807b-077455426531">Audiobooks</a></h2>
+<h2 id="h-6398d541-3e48-4846-807b-077455426531"><a href="#h-6398d541-3e48-4846-807b-077455426531">Audiobooks</a></h2>
 <div class="outline-text-2" id="text-h-6398d541-3e48-4846-807b-077455426531">
 <p>
 Somewhere in the past few year or so audiobooks snuck into my life, and I've found I really only listen to them on my phone. Audible is pretty convienent, but sometimes the one credit a month doesn't meet my listening rate (I listen when cleaning the house, going for a walk, taking a piss, you know how it is). It turns out that many of the audiobooks I've listened to are available on youtube (and thus, a youtube-dl call away). And so, <a href="https://play.google.com/store/apps/details?id=mdmt.sabp.free&amp;hl=en_US">Simple Audiobook Player</a> entered my life &#x2013; it has the ability to play local files but with audiobook niceties (like saving your spot, and adjusting the playback speed).
@@ -142,7 +142,7 @@ Somewhere in the past few year or so audiobooks snuck into my life, and I've fou
 </div>
 
 <div id="outline-container-h-c6bb3ae8-90ab-473d-a487-e7a020a003af" class="outline-2">
-<h2 id="h-c6bb3ae8-90ab-473d-a487-e7a020a003af"><span class="section-number-2">6</span> <a href="#h-c6bb3ae8-90ab-473d-a487-e7a020a003af">Termux and bringing it all together</a></h2>
+<h2 id="h-c6bb3ae8-90ab-473d-a487-e7a020a003af"><a href="#h-c6bb3ae8-90ab-473d-a487-e7a020a003af">Termux and bringing it all together</a></h2>
 <div class="outline-text-2" id="text-h-c6bb3ae8-90ab-473d-a487-e7a020a003af">
 <p>
 Alright, here's where things get spicy. Termux is a linux environment for Android. What's cool about it is how flexible it is. I use it as a scriptable share target (<code>~/bin/termux-url-opener</code>) so I can do whatever I want with termux as a sharehole! such as:

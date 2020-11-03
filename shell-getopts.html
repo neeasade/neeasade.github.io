@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 06:48 -->
+<!-- 2020-11-03 Tue 07:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -54,19 +54,19 @@
 
 <hr />
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #646568;"># </span><span style="color: #646568;">the ':' in front means the flag takes an arg</span>
-<span style="color: #005ec2;">while </span><span style="color: #005ec2;">getopts</span> w:reh flag; <span style="color: #005ec2;">do</span>
-    <span style="color: #005ec2;">case</span> $<span style="color: #2b249e;">flag</span><span style="color: #005ec2;"> in</span>
-        w) <span style="color: #2b249e;">wid</span>=$<span style="color: #2b249e;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #ffffff;"># </span><span style="color: brightblack;">the ':' in front means the flag takes an arg</span>
+<span style="color: #ff00ff;">while </span><span style="color: #00ffff;">getopts</span> w:reh flag; <span style="color: #ff00ff;">do</span>
+    <span style="color: #ff00ff;">case</span> $<span style="color: #000000;">flag</span><span style="color: #ff00ff;"> in</span>
+        w) <span style="color: #000000;">wid</span>=$<span style="color: #000000;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #005ec2;">esac</span>
-<span style="color: #005ec2;">done</span>
+    <span style="color: #ff00ff;">esac</span>
+<span style="color: #ff00ff;">done</span>
 
-<span style="color: #646568;"># </span><span style="color: #646568;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #005ec2;">shift</span> $((OPTIND-1))
+<span style="color: #ffffff;"># </span><span style="color: brightblack;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #00ffff;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 

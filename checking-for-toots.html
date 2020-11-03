@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 06:48 -->
+<!-- 2020-11-03 Tue 07:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -98,14 +98,14 @@ Note: There is the ability to clear all notifications, but then you also lose up
 </p>
 
 <div id="outline-container-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28" class="outline-2">
-<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1</span> <a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
+<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
 Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #2b7600;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #00ff00;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -114,17 +114,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #646568;">#</span><span style="color: #646568;">!/usr/bin/</span><span style="color: #005ec2;">env</span><span style="color: #646568;"> bash</span>
-<span style="color: #646568;"># </span><span style="color: #646568;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #646568;"># </span><span style="color: #646568;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #ffffff;">#</span><span style="color: brightblack;">!/usr/bin/</span><span style="color: #ff00ff;">env</span><span style="color: brightblack;"> bash</span>
+<span style="color: #ffffff;"># </span><span style="color: brightblack;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #ffffff;"># </span><span style="color: brightblack;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #2b249e;">count</span>=0
-<span style="color: #005ec2;">if</span> <span style="color: #2b7600;">!</span> <span style="color: #2b249e;">diff</span>=$(<span style="color: #2b249e;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #005ec2;">then</span>
-    <span style="color: #2b249e;">new_content</span>=$(<span style="color: #2b249e;">echo</span> <span style="color: #2b7600;">"$diff"</span> | grep <span style="color: #2b7600;">'^&lt;'</span> | sed <span style="color: #2b7600;">'s/&lt; //'</span>)
-    <span style="color: #2b249e;">count</span>=$(<span style="color: #2b249e;">echo</span> <span style="color: #2b7600;">"$new_content"</span> | awk <span style="color: #2b7600;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #005ec2;">fi</span>
+<span style="color: #000000;">count</span>=0
+<span style="color: #ff00ff;">if</span> <span style="color: #00ff00;">!</span> <span style="color: #000000;">diff</span>=$(<span style="color: #0000ff;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #ff00ff;">then</span>
+    <span style="color: #000000;">new_content</span>=$(<span style="color: #0000ff;">echo</span> <span style="color: #00ff00;">"$diff"</span> | grep <span style="color: #00ff00;">'^&lt;'</span> | sed <span style="color: #00ff00;">'s/&lt; //'</span>)
+    <span style="color: #000000;">count</span>=$(<span style="color: #0000ff;">echo</span> <span style="color: #00ff00;">"$new_content"</span> | awk <span style="color: #00ff00;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #ff00ff;">fi</span>
 
-<span style="color: #005ec2;">echo</span> <span style="color: #2b7600;">"toot mentions: $count"</span>
+<span style="color: #00ffff;">echo</span> <span style="color: #00ff00;">"toot mentions: $count"</span>
 </pre>
 </div>
 
