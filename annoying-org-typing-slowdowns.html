@@ -6,7 +6,7 @@
 <!-- 2020-11-02 Mon 22:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Guildwars</title>
+<title>annoying org typing slowdowns</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/assets/css/org.css">
@@ -45,36 +45,50 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Guildwars</h1>
+<h1 class="title">annoying org typing slowdowns</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2013-06-05-guildwars.org">2019-02-24</a> • 2013-06-05
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-01-annoying-org-typing-slowdowns.org">2020-11-02</a> • 2020-11-01
 </p>
 </div>
 
 <hr />
 <p>
-Today, I found myself traversing centaur camps whilst trying to complete
-the Arathi Hinterlands. I was on my way to the skill point at the far
-east of the map, running my way past hordes of enemies, using my
-speed-up abilities and shield spells. Progress was slow, and after about
-a half hour, I had had enough. I turned around and started to head back,
-only to be greeted by a group of about a dozen players who were
-efficiently making a path through the centaur camps. I had stumbled upon
-a server event that was going the same way I was. Sticking with them for
-the next half hour made the skill point reachable, as there were others
-trying to acquire that achievement also.
+This is a list of things I had to turn off to not fuck with my typing speed in emacs org-mode buffers (sometimes I am really sensitive to latency/breaks in typing). For context, I usually run things in one really big notes file.
+</p>
+
+<ul class="org-ul">
+<li>smartparens mode</li>
+<li>modeline</li>
+<li>git-gutter mode</li>
+<li>timers that query the current buffer I'm typing in</li>
+<li>flyspell-mode (switched to a keybind to flyspell the buffer)</li>
+<li>(rarely) font-locking</li>
+<li>(rarely) irc volume</li>
+<li>(rarely) having a large window (this makes the redisplay cost higher)</li>
+</ul>
+
+<p>
+You can see how I'm doing this <a href="https://github.com/neeasade/emacs.d/blob/3f99869ec8ebabf5caf49a3c601092a4702c1342/lisp/trees/org.el#L425-L446">here</a> and <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/editing.el#L11">here</a>.
 </p>
 
 <p>
-Guildwars2 rocks.
+These were all super annoying to track down because I would have to wait until I was caffienated enough to be "sensitive" to the speed and then profile everything. But now the feeling is SUPER COMFY.
+</p>
+
+<p>
+Related: <a href="https://github.com/rnkn/olivetti">olivetti-mode</a> has some nice display settings that don't takeover everything, for the pretty.
+</p>
+
+<p>
+Related pain: <a href="https://emacshorrors.com/posts/self-insert-command.html">https://emacshorrors.com/posts/self-insert-command.html</a>
 </p>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2013-06-05-guildwars.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-01-annoying-org-typing-slowdowns.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 </div>
