@@ -1,7 +1,7 @@
 #+title: annoying org typing slowdowns
 #+pubdate: <2020-11-01>
 
-This is a list of things I had to turn off to not fuck with my typing speed in org buffers (sometimes I am really sensitive to latency/breaks in typing). For context, I usually run things in one really big notes file.
+This is a list of things I had to turn off to not fuck with my typing speed in emacs org-mode buffers (sometimes I am really sensitive to latency/breaks in typing). For context, I usually run things in one really big notes file.
 
 - smartparens mode
 - modeline
@@ -9,6 +9,8 @@ This is a list of things I had to turn off to not fuck with my typing speed in o
 - timers that query the current buffer I'm typing in
 - flyspell-mode (switched to a keybind to flyspell the buffer)
 - (rarely) font-locking
+- (rarely) irc volume
+- (rarely) having a large window (this makes the redisplay cost higher)
 
 You can see how I'm doing this [[https://github.com/neeasade/emacs.d/blob/3f99869ec8ebabf5caf49a3c601092a4702c1342/lisp/trees/org.el#L425-L446][here]] and [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/editing.el#L11][here]].
 
