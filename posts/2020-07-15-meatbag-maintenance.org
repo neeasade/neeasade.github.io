@@ -1,25 +1,33 @@
 #+title: meatbag maintenance
 #+pubdate: <2020-08-15>
-#+draft: t
+
+#+MACRO:  examine [[https://examine.com/supplements/$1/#effect-matrix][examine.com: $1]]
 
 Accept that you are trapped in this bag of flesh for the current eternity. It is worth shaping your reality through this skin sack to be better. A better vehicle for the entity that is YOU = a better life and time here, as much as you can.
 
-** Exercise
+** [[#h-d445764d-4713-481b-860b-cf34bcd8722a][Exercise]]
+:PROPERTIES:
+:CUSTOM_ID: h-d445764d-4713-481b-860b-cf34bcd8722a
+:END:
 
-Getting sweaty 3x 20 minutes a week can reduce your overall mortality rate by *a third*. The transition of your body from an untrained state into a trained one ("noob gains") is a wonderful thing to experience. This is probably the #1 thing on the list, as regular exercise will increase your overall energy level and allow for a higher quality sleep.
+Getting sweaty 3x 20 minutes a week can reduce your overall mortality rate significantly. The transition of your body from an untrained state into a trained one ("noob gains") is a wonderful thing to experience. This is probably the #1 thing on the list, as regular exercise will increase your overall energy level and allow for a higher quality sleep.
 
-# todo: link to exercise depression related study
-I cannot stress this enough, regular exercise boosts your energy, mood, and overall health. You will be happier if you exercise.
+I cannot stress this enough, regular exercise boosts your energy, mood, and overall health. You will be more content if you exercise.
 
-** Teeth
+** [[#h-7935a434-4d6b-489b-bb1a-0d0c6815cd88][Teeth]]
+:PROPERTIES:
+:CUSTOM_ID: h-7935a434-4d6b-489b-bb1a-0d0c6815cd88
+:END:
+
 Healthy gums = tight gums = less room for sugars and foods to get stuck between your teeth. You can get healthy gums by flossing *regularly*. Brush your teeth and floss to remove bits that would stick around and rot your teeth.
 
-Everytime you drink {soda,coffee,tea,<anything acidic>}, you lower the PH level of your mouth, leaving your teeth in a weakened state until things normalize. My current mental model is to imagine a "time-to-normal PH" timer that resets everytime I take a sip of coffee. Thus, it's in my best interest to intake my coffee in a short time window, as opposed to sipping it all day.
+Every time you drink {soda,coffee,tea,<anything acidic>}, you lower the PH level of your mouth, leaving your teeth in a weakened state until things normalize. My current mental model is to imagine a "time-to-normal PH" timer that resets everytime I take a sip of coffee. Thus, it's in my best interest to intake my coffee in a short time window, as opposed to sipping it all day.
 
+** [[#h-57583996-7d9e-4091-beb0-4ffc9087504a][Sleep]]
+:PROPERTIES:
+:CUSTOM_ID: h-57583996-7d9e-4091-beb0-4ffc9087504a
+:END:
 
-** Sleep
-
-# todo: link to circadium rhythm page here
 Keeping a regular sleep schedule schedule is the key here. Habit is everything, and your body will help you both fall asleep and wake up if you get this down.
 
 - Keep your sleep area as dark as possible
@@ -29,43 +37,87 @@ Keeping a regular sleep schedule schedule is the key here. Habit is everything, 
 - Don't use your bed for anything other than sleep or sex
   - If you lounge in bed, your brain will associate it with "lounge time" and you will want to be awake
 
-Some psychological notes: When you are sleep deprived, your ability to gauge your sleep deprivation is degraded. Also, you cannot "pay back" sleep evenly -- you will simply be off the next few days (that is, you cannot make up an all-nighter all at once, you feel it's effects for quite awhile).
+Other: When you are sleep deprived, your ability to gauge your sleep deprivation is degraded. Also, you cannot "pay back" sleep evenly -- you will simply be off (that is, you cannot make up an all-nighter all at once, you feel it's effects for awhile).
 
-** Diet
-outline:
-talk about insulin/carb cycle for energy
-mention keto as a way to lose weight
+** [[#h-2d5f4ffd-d0f4-4bca-82ab-5204f116e371][Diet]]
+:PROPERTIES:
+:CUSTOM_ID: h-2d5f4ffd-d0f4-4bca-82ab-5204f116e371
+:END:
 
+Fasting (or intermittent fasting) can be a powerful tool.
 
-** Skin
+I'm an off and on keto dieter. There's plenty of resources around for how that changes your body's relationship to insulin and fat. I will emphasize here that for weight loss purposes, the main advantage is the loss of appetite that people experience on keto, allowing them to have an easier time maintaining a caloric deficit.
+
+** [[#h-3dd729a7-0f82-4b68-a320-4fab18920606][Skin]]
+:PROPERTIES:
+:CUSTOM_ID: h-3dd729a7-0f82-4b68-a320-4fab18920606
+:END:
 
 - Use sunscreen when you will be outside for extended periods of time (>30 min)
-- Mosturize chronic or seasonally dry areas
+- Moisturize chronic or seasonally dry areas
+- WASH YO FACE
 
-** Lungs
+** [[#h-23ddb084-820d-4469-99c3-cefa2a646056][Lungs]]
+:PROPERTIES:
+:CUSTOM_ID: h-23ddb084-820d-4469-99c3-cefa2a646056
+:END:
 
-# todo: expand/say this better.
 Your lungs are only meant to process air. Don't make a habit of putting not-air into them.
 
-** Brain (mental?)
+** TODO [[#h-663e81a9-8ea1-4b2d-93c2-326ddfcb02ac][Brain]]
+:PROPERTIES:
+:CUSTOM_ID: h-663e81a9-8ea1-4b2d-93c2-326ddfcb02ac
+:END:
 
-** Supplements
+Philosophy can be kind of weirdly helpful because changing your view can make "everything" seem totally different even though nothing has changed. I find the concepts in the school of stoicism motivating and helpful for becoming content (ie not happy).
 
-# todo: add something emphasizing 'Do your research' about these
+** TODO [[#h-b5506c20-0216-43e2-a03e-8bac63e4d748][Supplements]]
+:PROPERTIES:
+:CUSTOM_ID: h-b5506c20-0216-43e2-a03e-8bac63e4d748
+:END:
+
 This section is less "tried and true" maintenance -- that is, sleep + exercise will do much more for you than anything in this section.
 
-Some supplements may be thought of as "insurance" -- the idea is you are somehow more deficient than you normally would be, so you should compensate your bodily need externally to cheat the natural route. I will tag those supplement headings with "insurance".
+Some supplements may be thought of as insurance -- the idea is you are somehow more deficient than you "normally" would be, so you should compensate your bodily need externally to cheat the natural route. I will tag those supplement headings with an ~insurance~ tag.
 
-*** Magnesium                                                     :insurance:
+*** [[#h-345ced5c-c5df-4c31-8cb3-a1ae8f49f0b5][Magnesium]]        :insurance:
+:PROPERTIES:
+:CUSTOM_ID: h-345ced5c-c5df-4c31-8cb3-a1ae8f49f0b5
+:END:
 
-*** D3                                                            :insurance:
+{{{examine(Magnesium)}}}
 
-*** Fish Oil                                                      :insurance:
 
-*** Creatine
+*** [[#h-3ff5ebe0-cb48-4961-961f-dde558b47d1e][D3]]               :insurance:
+:PROPERTIES:
+:CUSTOM_ID: h-3ff5ebe0-cb48-4961-961f-dde558b47d1e
+:END:
+{{{examine(vitamin-d)}}}
 
-*** Ashwagandha
+*** [[#h-7bff7ed1-2f56-4142-88e7-2651d3c1e2d4][Fish Oil]]         :insurance:
+:PROPERTIES:
+:CUSTOM_ID: h-7bff7ed1-2f56-4142-88e7-2651d3c1e2d4
+:END:
+{{{examine(fish-oil)}}}
 
-An adaptogen that provides stress relief when taken regularly.
+*** [[#h-9cf0cab2-ede6-4d27-afb0-b89587946b92][Creatine]]
+:PROPERTIES:
+:CUSTOM_ID: h-9cf0cab2-ede6-4d27-afb0-b89587946b92
+:END:
+{{{examine(creatine)}}}
 
-*** Rhodiola
+*** [[#h-1e8c3f51-c8ee-41da-bbf8-6b530d32238a][Ashwagandha]]
+:PROPERTIES:
+:CUSTOM_ID: h-1e8c3f51-c8ee-41da-bbf8-6b530d32238a
+:END:
+
+{{{examine(Ashwagandha)}}}
+
+# An adaptogen that provides stress relief when taken regularly.
+
+*** [[#h-b27c5cef-b862-4889-afe0-b5ab892cdf6a][Rhodiola rosea]]
+:PROPERTIES:
+:CUSTOM_ID: h-b27c5cef-b862-4889-afe0-b5ab892cdf6a
+:END:
+
+{{{examine(rhodiola-rosea)}}}
