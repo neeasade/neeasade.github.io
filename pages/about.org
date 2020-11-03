@@ -2,7 +2,7 @@
 
 The vibe of "Nathan's Notes" is meant to be casual. I wanted a place to put stuff and maybe share links to reference material for others, encourage myself to write and share more. The author is posting all this from Emacs, so related themes will leak in (feedback loop, expressive programming languages, workflow integrations).
 
-See [[./blog-meta.org#https://notes.neeasade.net/blog-meta.html#h-a074491a-fbb9-48fe-80af-ec7786fa9a03][here]] for a more complete list of things I want out of this site.
+See [[./blog-meta.org#h-a074491a-fbb9-48fe-80af-ec7786fa9a03][here]] for a more complete list of things I want out of this site.
 
 Here are some sources of inspiration I have from other blogs (for friend inspo, see the list of peeps in [[./rice-links.org][rice links]]):
 
