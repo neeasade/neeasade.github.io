@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 07:36 -->
+<!-- 2020-11-03 Tue 13:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Updating nix channels</title>
@@ -65,20 +65,20 @@ outside of your config. To change the default nix-channel reference:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ffffff;"># </span><span style="color: brightblack;">nix-channel --list</span>
+<pre class="src src-sh"><span style="color: #646568;"># </span><span style="color: #646568;">nix-channel --list</span>
 nixos https://nixos.org/channels/nixos-19.09
 
-<span style="color: #ffffff;"># </span><span style="color: brightblack;">nix-channel --remove nixos</span>
-uninstalling <span style="color: #00ff00;">'nixos-19.09.1861.eb65d1dae62'</span>
-building <span style="color: #00ff00;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
-created 0 symlinks<span style="color: #ff00ff;"> in</span> user environment
+<span style="color: #646568;"># </span><span style="color: #646568;">nix-channel --remove nixos</span>
+uninstalling <span style="color: #2b7600;">'nixos-19.09.1861.eb65d1dae62'</span>
+building <span style="color: #2b7600;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
+created 0 symlinks<span style="color: #005ec2;"> in</span> user environment
 
-<span style="color: #ffffff;"># </span><span style="color: brightblack;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
+<span style="color: #646568;"># </span><span style="color: #646568;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
 
-<span style="color: #ffffff;"># </span><span style="color: brightblack;">nix-channel --list</span>
+<span style="color: #646568;"># </span><span style="color: #646568;">nix-channel --list</span>
 nixos https://nixos.org/channels/nixos-19.09
 
-<span style="color: #ffffff;"># </span><span style="color: brightblack;">nix-channel --update</span>
+<span style="color: #646568;"># </span><span style="color: #646568;">nix-channel --update</span>
 nixos https://nixos.org/channels/nixos-19.09
 </pre>
 </div>
@@ -88,7 +88,7 @@ And then updating the nix-channels can be done with:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ffffff;"># </span><span style="color: brightblack;">nix-channel --update</span>
+<pre class="src src-sh"><span style="color: #646568;"># </span><span style="color: #646568;">nix-channel --update</span>
 </pre>
 </div>
 
@@ -97,6 +97,13 @@ And then updating the nix-channels can be done with:
 <div class="org-center">
 <p>
 <a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-15-Updating-nix-channels.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<p>
+ <a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
+<a href='https://webring.recurse.com' class='no-tufte-underline'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 07:36 -->
+<!-- 2020-11-03 Tue 13:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>color spaces</title>
@@ -61,13 +61,13 @@ Why do color spaces exist?
 (Aside from being the biggest yak shave) To give us tools to reason about colors and their relations. Think of color spaces as maps or frameworks for navigating some color range (usually called a <a href="https://en.wikipedia.org/wiki/Gamut">gamut</a>) that are there to help you make sensible changes.
 </p>
 
-<div id="outline-container-orgbc007e7" class="outline-2">
-<h2 id="orgbc007e7">Some color spaces:</h2>
-<div class="outline-text-2" id="text-orgbc007e7">
+<div id="outline-container-org44caecd" class="outline-2">
+<h2 id="org44caecd"><span class="section-number-2">1</span> Some color spaces:</h2>
+<div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org041d8c3" class="outline-3">
-<h3 id="org041d8c3">HSL</h3>
-<div class="outline-text-3" id="text-org041d8c3">
+<div id="outline-container-org17e61f9" class="outline-3">
+<h3 id="org17e61f9"><span class="section-number-3">1.1</span> HSL</h3>
+<div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Hue</li>
 <li>Saturation</li>
@@ -82,9 +82,9 @@ Why do color spaces exist?
 </div>
 </div>
 
-<div id="outline-container-org4521e5c" class="outline-3">
-<h3 id="org4521e5c">cieLAB</h3>
-<div class="outline-text-3" id="text-org4521e5c">
+<div id="outline-container-org84385f3" class="outline-3">
+<h3 id="org84385f3"><span class="section-number-3">1.2</span> cieLAB</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 CIE is the International Commission on Illumination.
 </p>
@@ -92,9 +92,9 @@ CIE is the International Commission on Illumination.
 </div>
 </div>
 
-<div id="outline-container-org4e81e6d" class="outline-2">
-<h2 id="org4e81e6d">Hue</h2>
-<div class="outline-text-2" id="text-org4e81e6d">
+<div id="outline-container-org9513210" class="outline-2">
+<h2 id="org9513210"><span class="section-number-2">2</span> Hue</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 My mental model of hue is to think of it like a "color compass", pointing in a direction whose strength may be tweaked by changing the saturation value. Here is an example of the same color with a changed hue (chose the reference values given with HSL):
 </p>
@@ -124,61 +124,61 @@ HSL with .5 saturation and .5 luminance:
 <tr>
 <td class="org-right">0</td>
 <td class="org-left">red</td>
-<td class="org-left"><code style="background: #bf3f3f;color: #ffffff; padding: 2px; border: 1px solid #bf3f3f">#bf3f3f</code></td>
+<td class="org-left"><code style="background: #bf3f3f;color: #e2e4e7; padding: 2px; border: 1px solid #bf3f3f">#bf3f3f</code></td>
 </tr>
 
 <tr>
 <td class="org-right">60</td>
 <td class="org-left">yellow</td>
-<td class="org-left"><code style="background: #bfbf3f;color: #ffffff; padding: 2px; border: 1px solid #ffffff">#bfbf3f</code></td>
+<td class="org-left"><code style="background: #bfbf3f;color: #38393c; padding: 2px; border: 1px solid #38393c">#bfbf3f</code></td>
 </tr>
 
 <tr>
 <td class="org-right">120</td>
 <td class="org-left">green</td>
-<td class="org-left"><code style="background: #3fbf3f;color: #ffffff; padding: 2px; border: 1px solid #ffffff">#3fbf3f</code></td>
+<td class="org-left"><code style="background: #3fbf3f;color: #38393c; padding: 2px; border: 1px solid #38393c">#3fbf3f</code></td>
 </tr>
 
 <tr>
 <td class="org-right">180</td>
 <td class="org-left">cyan</td>
-<td class="org-left"><code style="background: #3fbfbf;color: #ffffff; padding: 2px; border: 1px solid #ffffff">#3fbfbf</code></td>
+<td class="org-left"><code style="background: #3fbfbf;color: #38393c; padding: 2px; border: 1px solid #38393c">#3fbfbf</code></td>
 </tr>
 
 <tr>
 <td class="org-right">240</td>
 <td class="org-left">blue</td>
-<td class="org-left"><code style="background: #3f3fbf;color: #ffffff; padding: 2px; border: 1px solid #3f3fbf">#3f3fbf</code></td>
+<td class="org-left"><code style="background: #3f3fbf;color: #e2e4e7; padding: 2px; border: 1px solid #3f3fbf">#3f3fbf</code></td>
 </tr>
 
 <tr>
 <td class="org-right">300</td>
 <td class="org-left">magenta</td>
-<td class="org-left"><code style="background: #bf3fbf;color: #ffffff; padding: 2px; border: 1px solid #bf3fbf">#bf3fbf</code></td>
+<td class="org-left"><code style="background: #bf3fbf;color: #e2e4e7; padding: 2px; border: 1px solid #bf3fbf">#bf3fbf</code></td>
 </tr>
 
 <tr>
 <td class="org-right">360</td>
 <td class="org-left">red</td>
-<td class="org-left"><code style="background: #bf3f3f;color: #ffffff; padding: 2px; border: 1px solid #bf3f3f">#bf3f3f</code></td>
+<td class="org-left"><code style="background: #bf3f3f;color: #e2e4e7; padding: 2px; border: 1px solid #bf3f3f">#bf3f3f</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgc48006f" class="outline-2">
-<h2 id="orgc48006f">Color relations</h2>
-<div class="outline-text-2" id="text-orgc48006f">
+<div id="outline-container-org1afc66a" class="outline-2">
+<h2 id="org1afc66a"><span class="section-number-2">3</span> Color relations</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 It can be useful to compare colors by a given value. For example, readability of text on a page may be determined by contrasting the lightness of 2 colors. Or you can measure the distance between colors while performing an operation to ensure you have something "sufficiently different" while iterating some color operation.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5884a53" class="outline-2">
-<h2 id="org5884a53">links and references:</h2>
-<div class="outline-text-2" id="text-org5884a53">
+<div id="outline-container-orgdb55080" class="outline-2">
+<h2 id="orgdb55080"><span class="section-number-2">4</span> links and references:</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><a href="https://peteroupc.github.io/colorgen.html">https://peteroupc.github.io/colorgen.html</a></li>
 <li><a href="https://en.wikipedia.org/wiki/CIELAB_color_space">https://en.wikipedia.org/wiki/CIELAB_color_space</a></li>
@@ -193,6 +193,13 @@ It can be useful to compare colors by a given value. For example, readability of
 <div class="org-center">
 <p>
 <a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-13-color-spaces.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<p>
+ <a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
+<a href='https://webring.recurse.com' class='no-tufte-underline'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
 </div>
 </div>

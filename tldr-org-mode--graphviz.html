@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 07:36 -->
+<!-- 2020-11-03 Tue 13:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLDR org mode + graphviz</title>
@@ -57,20 +57,20 @@
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-org4efe072" class="outline-2">
-<h2 id="org4efe072">Org mode</h2>
-<div class="outline-text-2" id="text-org4efe072">
+<div id="outline-container-org4f95f97" class="outline-2">
+<h2 id="org4f95f97"><span class="section-number-2">1</span> Org mode</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #ffffff;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #ff00ff;">digraph</span><span style="color: brightred;"> {</span>
-<span style="color: brightred;">    a -&gt; b</span>
-<span style="color: brightred;">}</span>
-<span style="color: #ffffff;">#+END_SRC</span>
+<pre class="src src-org"><span style="color: #646568;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #005ec2;">digraph</span><span style="color: #38393c;"> {</span>
+<span style="color: #38393c;">    a -&gt; b</span>
+<span style="color: #38393c;">}</span>
+<span style="color: #646568;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -91,9 +91,9 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-orgface0b0" class="outline-2">
-<h2 id="orgface0b0">The Dot language</h2>
-<div class="outline-text-2" id="text-orgface0b0">
+<div id="outline-container-org0e99012" class="outline-2">
+<h2 id="org0e99012"><span class="section-number-2">2</span> The Dot language</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
@@ -123,32 +123,32 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #ffffff;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #ff00ff;">digraph</span><span style="color: brightred;"> {</span>
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">config:</span>
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">TBLR, top bottom left right, the direction of the graph.</span>
-<span style="color: brightred;">    </span><span style="color: #ff00ff;">graph</span><span style="color: brightred;"> [</span><span style="color: #000000;">rankdir=</span><span style="color: brightred;">TB];</span>
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">you can have multiple attrs per statement</span>
-<span style="color: brightred;">    </span><span style="color: #ff00ff;">graph</span><span style="color: brightred;"> [dpi=150 </span><span style="color: #000000;">splines=</span><span style="color: brightred;">ortho];</span>
-<span style="color: brightred;">    </span><span style="color: #ff00ff;">edge</span><span style="color: brightred;">[</span><span style="color: #000000;">decorate=</span><span style="color: brightred;">true</span><span style="color: brightred;">];</span>
-<span style="color: brightred;">    </span><span style="color: #ff00ff;">node</span><span style="color: brightred;"> [</span><span style="color: #000000;">shape=</span><span style="color: brightred;">box</span><span style="color: brightred;">];</span>
+<pre class="src src-org"><span style="color: #646568;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #005ec2;">digraph</span><span style="color: #38393c;"> {</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">config:</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">TBLR, top bottom left right, the direction of the graph.</span>
+<span style="color: #38393c;">    </span><span style="color: #005ec2;">graph</span><span style="color: #38393c;"> [</span><span style="color: #2b249e;">rankdir=</span><span style="color: #38393c;">TB];</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">you can have multiple attrs per statement</span>
+<span style="color: #38393c;">    </span><span style="color: #005ec2;">graph</span><span style="color: #38393c;"> [dpi=150 </span><span style="color: #2b249e;">splines=</span><span style="color: #38393c;">ortho];</span>
+<span style="color: #38393c;">    </span><span style="color: #005ec2;">edge</span><span style="color: #38393c;">[</span><span style="color: #2b249e;">decorate=</span><span style="color: #38393c;">true</span><span style="color: #38393c;">];</span>
+<span style="color: #38393c;">    </span><span style="color: #005ec2;">node</span><span style="color: #38393c;"> [</span><span style="color: #2b249e;">shape=</span><span style="color: #38393c;">box</span><span style="color: #38393c;">];</span>
 
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">definitions:</span>
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">nb: setting definitions on their own is useful in larger graphs</span>
-<span style="color: brightred;">    computer [</span><span style="color: #000000;">label=</span><span style="color: brightred;">computer];</span>
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">quotes are optional, I'm using them when there are spaces</span>
-<span style="color: brightred;">    phone [</span><span style="color: #000000;">label=</span><span style="color: #00ff00;">"android phone"</span><span style="color: brightred;">];</span>
-<span style="color: brightred;">    router [</span><span style="color: #000000;">label=</span><span style="color: brightred;">router];</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">definitions:</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">nb: setting definitions on their own is useful in larger graphs</span>
+<span style="color: #38393c;">    computer [</span><span style="color: #2b249e;">label=</span><span style="color: #38393c;">computer];</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">quotes are optional, I'm using them when there are spaces</span>
+<span style="color: #38393c;">    phone [</span><span style="color: #2b249e;">label=</span><span style="color: #2b7600;">"android phone"</span><span style="color: #38393c;">];</span>
+<span style="color: #38393c;">    router [</span><span style="color: #2b249e;">label=</span><span style="color: #38393c;">router];</span>
 
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">record syntax: | for horizontal, {|} for vert</span>
-<span style="color: brightred;">    internet [</span><span style="color: #000000;">shape=</span><span style="color: brightred;">record</span><span style="color: brightred;"> </span><span style="color: #000000;">label=</span><span style="color: #00ff00;">"{internet|cat pictures}"</span><span style="color: brightred;">]</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">record syntax: | for horizontal, {|} for vert</span>
+<span style="color: #38393c;">    internet [</span><span style="color: #2b249e;">shape=</span><span style="color: #38393c;">record</span><span style="color: #38393c;"> </span><span style="color: #2b249e;">label=</span><span style="color: #2b7600;">"{internet|cat pictures}"</span><span style="color: #38393c;">]</span>
 
-<span style="color: brightred;">    </span><span style="color: #ffffff;">// </span><span style="color: brightblack;">relations:</span>
-<span style="color: brightred;">    computer -&gt; router;</span>
-<span style="color: brightred;">    phone -&gt; router [</span><span style="color: #000000;">label=</span><span style="color: #00ff00;">"wifi"</span><span style="color: brightred;">];</span>
-<span style="color: brightred;">    router -&gt; internet [</span><span style="color: #000000;">dir=</span><span style="color: brightred;">both</span><span style="color: brightred;">];</span>
-<span style="color: brightred;">}</span>
-<span style="color: #ffffff;">#+END_SRC</span>
+<span style="color: #38393c;">    </span><span style="color: #646568;">// </span><span style="color: #646568;">relations:</span>
+<span style="color: #38393c;">    computer -&gt; router;</span>
+<span style="color: #38393c;">    phone -&gt; router [</span><span style="color: #2b249e;">label=</span><span style="color: #2b7600;">"wifi"</span><span style="color: #38393c;">];</span>
+<span style="color: #38393c;">    router -&gt; internet [</span><span style="color: #2b249e;">dir=</span><span style="color: #38393c;">both</span><span style="color: #38393c;">];</span>
+<span style="color: #38393c;">}</span>
+<span style="color: #646568;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -164,6 +164,13 @@ Here is an example that shows how attributes are set and some defaults I like:
 <div class="org-center">
 <p>
 <a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<p>
+ <a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
+<a href='https://webring.recurse.com' class='no-tufte-underline'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
 </div>
 </div>
