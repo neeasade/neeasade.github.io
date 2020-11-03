@@ -11,3 +11,4 @@ webrings seem to be making a comeback. here are a few of them.
 - https://webring.recurse.com/
 - https://emreed.net/LowTech_Directory.html
 - https://octo-ring.com/
+- https://webring-2020.glitch.me/
