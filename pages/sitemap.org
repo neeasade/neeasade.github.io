@@ -22,8 +22,8 @@
 		     (ht-get <> :title)
 		     )))
  (append
-  '("- [[./rss.org][rss (curated)]]"
-    "- [[./rss_full.org][rss (full)]]")
+  '("- [[./rss.xml][rss (curated)]]"
+    "- [[./rss_full.xml][rss (full)]]")
   )
  (s-join "\n")
  )
