@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-03 Tue 14:29 -->
+<!-- 2020-11-04 Wed 12:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -75,8 +75,8 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-org03f8a52" class="outline-2">
-<h2 id="org03f8a52"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-org2403ce7" class="outline-2">
+<h2 id="org2403ce7"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
@@ -119,7 +119,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍄
+🍉
 </p>
 </div>
 
@@ -129,8 +129,8 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-org2190f1c" class="outline-2">
-<h2 id="org2190f1c"><span class="section-number-2">2</span> Rofi</h2>
+<div id="outline-container-org49fa3de" class="outline-2">
+<h2 id="org49fa3de"><span class="section-number-2">2</span> Rofi</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -142,8 +142,8 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-orgcd2d3ea" class="outline-2">
-<h2 id="orgcd2d3ea"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
+<div id="outline-container-org27ca8e9" class="outline-2">
+<h2 id="org27ca8e9"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
@@ -177,8 +177,9 @@ So the way I cheated was to run the 'candidate maker' in a subshell, pass it's p
 
 <div class="org-center">
 <p>
- <a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
-<a href='https://webring.recurse.com' class='no-tufte-underline'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
+<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
 </div>
 </div>

@@ -1,7 +1,9 @@
 body {
-    background-image: url("../img/backgrounds/newfeather.png");
-    background-repeat: repeat;
-    background-attachment: fixed;
+    /* background-image: url("../img/backgrounds/newfeather.png"); */
+    /* background-repeat: repeat; */
+    background-color: var(--background_plus);
+    /* background-color: #a7cae3; */
+    /* background-attachment: fixed; */
 }
 
 /* hide org mode figure notes on image captions */
@@ -29,8 +31,8 @@ img {
 #content, #postamble, #preamble {
     padding: 14px;
     background: var(--background);
-    border-left: 1px solid var(--nc-bg-2);
-    border-right: 1px solid var(--nc-bg-2);
+    /* border-left: 1px solid var(--nc-bg-2); */
+    /* border-right: 1px solid var(--nc-bg-2); */
 }
 
 .section-number-1,
