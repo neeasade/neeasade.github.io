@@ -6,6 +6,7 @@ See [[https://notes.neeasade.net/blog-meta.html#h-a074491a-fbb9-48fe-80af-ec7786
 
 Here are some sources of inspiration I have from other blogs (for friend inspo, see the list of peeps in [[./rice-links.org][rice links]]):
 
+- writing https://waitbutwhy.com/
 - writing http://ruricolist.com/
 - writing http://www.stilldrinking.org/
 - writing https://doreenmichele.blogspot.com/

@@ -35,7 +35,8 @@
 	--nc-tx-1: var(--foreground);
 	--nc-tx-2: var(--foreground);
 	--nc-bg-1: var(--background);
-	--nc-bg-2: var(--background_);
+	/* --nc-bg-2: var(--background_); */
+	--nc-bg-2: var(--background);
 	--nc-bg-3: var(--background__);
 	--nc-lk-1: var(--accent1);
 	--nc-lk-2: var(--accent1_);

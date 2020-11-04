@@ -8,9 +8,9 @@
 	    font-weight: bold;
 	    margin-top:0; }
 .todo   { font-family: var(--nc-font-mono); background-color: var(--background_); color: var(--accent2_);}
-.done   { font-family: monospace; color: --var(--accent2); background-color: --var(background_);}
+.done   { font-family: monospace; color: var(--accent2); background-color: var(background_);}
 .priority { font-family: monospace; color: orange; }
-.tag    { background-color: var(--background_); font-family: --var(--nc-font-mono);
+.tag    { background-color: var(--background_); font-family: var(--nc-font-mono);
 	  padding: 2px; font-size: 80%; font-weight: normal; }
 /* .timestamp { color: #bebebe; } */
 /* .timestamp-kwd { color: #5f9ea0; } */
