@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-04 Wed 20:59 -->
+<!-- 2020-11-04 Wed 21:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(reduce)</title>
@@ -122,7 +122,7 @@ then it's a question of learning what the various collection functions are usefu
 
 <div class="org-center">
 <p>
-🍓
+🍇
 </p>
 </div>
 
@@ -135,7 +135,8 @@ Write a function which separates the items of a sequence by an arbitrary value.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(= (__ 0 [1 2 3]) [1 0 2 0 3])
+<pre class="src src-clojure"><span style="color: #646568;">;; </span><span style="color: #646568;">replace the '__'</span>
+(= (__ 0 [1 2 3]) [1 0 2 0 3])
 (= (apply str (__ <span style="color: #2b7600;">", "</span> [<span style="color: #2b7600;">"one"</span> <span style="color: #2b7600;">"two"</span> <span style="color: #2b7600;">"three"</span>])) <span style="color: #2b7600;">"one, two, three"</span>)
 (= (__ <span style="color: #005ec2;">:z</span> [<span style="color: #005ec2;">:a</span> <span style="color: #005ec2;">:b</span> <span style="color: #005ec2;">:c</span> <span style="color: #005ec2;">:d</span>]) [<span style="color: #005ec2;">:a</span> <span style="color: #005ec2;">:z</span> <span style="color: #005ec2;">:b</span> <span style="color: #005ec2;">:z</span> <span style="color: #005ec2;">:c</span> <span style="color: #005ec2;">:z</span> <span style="color: #005ec2;">:d</span>])
 </pre>
@@ -166,9 +167,10 @@ After:
 
 <div class="org-src-container">
 <pre class="src src-clojure">(<span style="color: #005ec2;">fn</span> [sep coll]
-   (reduce (<span style="color: #005ec2;">fn</span> [state next]
-             (conj state next sep))
-           [] coll))
+   (butlast
+    (reduce (<span style="color: #005ec2;">fn</span> [state next]
+              (conj state next sep))
+            [] coll)))
 </pre>
 </div>
 
