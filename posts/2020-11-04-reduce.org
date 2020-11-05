@@ -1,6 +1,5 @@
 #+title: (reduce)
 #+pubdate: <2020-11-04>
-#+draft: t
 
 #+OPTIONS: ^:nil
 
