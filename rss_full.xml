@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Wed, 04 Nov 2020 21:43:05 -0600</pubDate>
-  <lastBuildDate>Wed, 04 Nov 2020 21:43:05 -0600</lastBuildDate>
+  <pubDate>Thu, 05 Nov 2020 10:13:56 -0600</pubDate>
+  <lastBuildDate>Thu, 05 Nov 2020 10:13:56 -0600</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3.7</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -25,7 +25,7 @@
   </image>
 
   <item>
-    <title>nil</title>
+    <title>(reduce)</title>
     <link>https://notes.neeasade.net/reduce.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/reduce.html</guid>
@@ -34,7 +34,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>annoying org typing slowdowns</title>
     <link>https://notes.neeasade.net/annoying-org-typing-slowdowns.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/annoying-org-typing-slowdowns.html</guid>
@@ -43,7 +43,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>meatbag maintenance</title>
     <link>https://notes.neeasade.net/meatbag-maintenance.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/meatbag-maintenance.html</guid>
@@ -61,7 +61,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>pulseaudio user notes</title>
     <link>https://notes.neeasade.net/pulseaudio-user-notes.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/pulseaudio-user-notes.html</guid>
@@ -70,7 +70,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>A fun focus exercise</title>
     <link>https://notes.neeasade.net/A-fun-focus-exercise.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/A-fun-focus-exercise.html</guid>
@@ -88,7 +88,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>ImageMagick notes</title>
     <link>https://notes.neeasade.net/ImageMagick-notes.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/ImageMagick-notes.html</guid>
@@ -97,7 +97,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>webrings</title>
     <link>https://notes.neeasade.net/webrings.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/webrings.html</guid>
@@ -106,7 +106,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>sound log</title>
     <link>https://notes.neeasade.net/sound-log.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/sound-log.html</guid>
@@ -142,7 +142,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Archiving CD's on linux</title>
     <link>https://notes.neeasade.net/Archiving-CD's-on-linux.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Archiving-CD's-on-linux.html</guid>
@@ -151,7 +151,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>colemak-dh mod</title>
     <link>https://notes.neeasade.net/colemak-dh-mod.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/colemak-dh-mod.html</guid>
@@ -187,7 +187,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>My Mobile Setup</title>
     <link>https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing.html</guid>
@@ -214,7 +214,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>rice links</title>
     <link>https://notes.neeasade.net/rice-links.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/rice-links.html</guid>
@@ -223,7 +223,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>tl;dr shell getopts</title>
     <link>https://notes.neeasade.net/shell-getopts.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/shell-getopts.html</guid>
@@ -232,7 +232,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Updating nix channels</title>
     <link>https://notes.neeasade.net/Updating-nix-channels.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Updating-nix-channels.html</guid>
@@ -250,7 +250,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>TLDR org mode + graphviz</title>
     <link>https://notes.neeasade.net/tldr-org-mode--graphviz.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/tldr-org-mode--graphviz.html</guid>
@@ -259,7 +259,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>git svn workflow</title>
     <link>https://notes.neeasade.net/git-svn-reference.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/git-svn-reference.html</guid>
@@ -268,7 +268,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>vim language quick reference</title>
     <link>https://notes.neeasade.net/vim-quick-reference.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/vim-quick-reference.html</guid>
@@ -277,7 +277,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>add local font files linux</title>
     <link>https://notes.neeasade.net/add-local-font-files-linux.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/add-local-font-files-linux.html</guid>
@@ -286,7 +286,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>quote to string in elisp</title>
     <link>https://notes.neeasade.net/quote-to-string-in-elisp.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/quote-to-string-in-elisp.html</guid>
@@ -295,7 +295,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>restclient.el + elasticsearch</title>
     <link>https://notes.neeasade.net/restclient.el--elasticsearch.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/restclient.el--elasticsearch.html</guid>
@@ -304,7 +304,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>curl exit code 60 on Windows</title>
     <link>https://notes.neeasade.net/curl-exit-code-60-on-Windows.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/curl-exit-code-60-on-Windows.html</guid>
@@ -313,7 +313,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Pok3r Mapping</title>
     <link>https://notes.neeasade.net/Pok3r-Mapping.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Pok3r-Mapping.html</guid>
@@ -322,7 +322,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Ryo Fukui</title>
     <link>https://notes.neeasade.net/Ryo_Fukui.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Ryo_Fukui.html</guid>
@@ -331,7 +331,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>i3-like multihead in bspwm</title>
     <link>https://notes.neeasade.net/BSPWM-Multihead.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/BSPWM-Multihead.html</guid>
@@ -340,7 +340,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>BSPWM Experiences</title>
     <link>https://notes.neeasade.net/BPSWM-Experiences.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/BPSWM-Experiences.html</guid>
@@ -349,7 +349,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>GDB Registers</title>
     <link>https://notes.neeasade.net/Registers-with-GDB.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Registers-with-GDB.html</guid>
@@ -358,7 +358,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>youtube rip with dwb + youtube-dl</title>
     <link>https://notes.neeasade.net/youtube_rip_with_dwb__youtube-dl.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/youtube_rip_with_dwb__youtube-dl.html</guid>
@@ -367,7 +367,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>WASD V2 Mechanical Keyboard</title>
     <link>https://notes.neeasade.net/wasd-v2-mechanical-keyboard.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/wasd-v2-mechanical-keyboard.html</guid>
@@ -376,7 +376,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Configuring constant LANG variable</title>
     <link>https://notes.neeasade.net/configuring-constant-lang-variable.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/configuring-constant-lang-variable.html</guid>
@@ -385,7 +385,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Creation of a time based wallpaper with feh</title>
     <link>https://notes.neeasade.net/creation-of-a-time-based-wallpaper-with-feh.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/creation-of-a-time-based-wallpaper-with-feh.html</guid>
@@ -394,7 +394,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>VirtualBox setup on Arch Linux</title>
     <link>https://notes.neeasade.net/virtualbox-setup-on-arch-linux.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/virtualbox-setup-on-arch-linux.html</guid>
@@ -403,7 +403,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>asdf</title>
     <link>https://notes.neeasade.net/asdf.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/asdf.html</guid>
@@ -412,7 +412,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Weekend</title>
     <link>https://notes.neeasade.net/weekend.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/weekend.html</guid>
@@ -421,7 +421,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>More gw2 API released</title>
     <link>https://notes.neeasade.net/more-gw2-api-released.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/more-gw2-api-released.html</guid>
@@ -430,7 +430,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Guildwars</title>
     <link>https://notes.neeasade.net/guildwars.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/guildwars.html</guid>
@@ -439,7 +439,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>The Battle for Wesnoth</title>
     <link>https://notes.neeasade.net/the-battle-for-wesnoth.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/the-battle-for-wesnoth.html</guid>
@@ -448,7 +448,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>CrunchBang 11</title>
     <link>https://notes.neeasade.net/crunchbang-11.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/crunchbang-11.html</guid>
@@ -457,7 +457,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>General Thoughts on Summer</title>
     <link>https://notes.neeasade.net/general-thoughts-on-summer.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/general-thoughts-on-summer.html</guid>
@@ -466,7 +466,7 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>nil</title>
+    <title>Offline documentation</title>
     <link>https://notes.neeasade.net/sources-of-offline-documentation.html</link>
     <author>neeasade@erasmus (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/sources-of-offline-documentation.html</guid>
