@@ -1,0 +1,66 @@
+#+title: my shell prompt
+#+rss_title: my shell prompt
+#+pubdate: <2020-11-09>
+
+A [[https://nixers.net/Thread-Your-PROMPT][thread]] was recently promoted on nixers to show your shell prompt, so I'll share some features of mine. I usually use bash with emacs shell-mode, so I get vim bindings for free via evil, with the mode indicator being the cursor ('|' vs '█'). I usually use '♥'  as a prompt character, but for the sake of this post I'll use '$', as  the heart can look wildly different depending on your font setup.
+
+Errors and background processes:
+
+#+begin_src text
+$ false
+! vim temp.txt
+[1]+  Stopped                 vim temp.txt
+$! true
+$$ fg
+vim temp
+$
+#+end_src
+
+git stuff:
+
+#+begin_src text
+$ cd $(mktemp -d)
+$ git init
+Initialized empty Git repository in /tmp/tmp.enlQwywyEv/.git/
+$ touch readme.md
+? $ git checkout -b new_branch
+Switched to a new branch 'new_branch'
+(new_branch|?) $ git add readme.md
+(new_branch|+) $ echo 'edit' >> readme.md
+(new_branch|+*) $ git commit -m "initial"
+[new_branch (root-commit) 3ff638e] initial
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.md
+(new_branch) $ git checkout -b master; git reset --hard
+Switched to a new branch 'master'
+HEAD is now at 3ff638e initial
+$
+#+end_src
+
+non-standard environment detection (checks capital variables):
+
+#+begin_src text
+$ PYTHONPATH="$HOME/something/stateful"
+E $ envv
+PYTHONPATH=/home/neeasade/something/stateful
+E $ unset PYTHONPATH
+$
+#+end_src
+
+ssh hostname:
+
+#+begin_src text
+$ ssh super.cool.vps
+trouw $ logout
+$
+#+end_src
+
+and a hack that tells emacs where the shell is (including tramp information -- this is normally used in the prompt, I'm just showing it out here):
+
+#+begin_src text
+$ ssh super.cool.vps
+trouw $ tell_emacs_shell_location
++Pr0mPT+/ssh:neeasade@192.0.2.0:/home/neeasade+
+trouw $ logout
+$
+#+end_src
