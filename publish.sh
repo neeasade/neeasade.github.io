@@ -13,8 +13,9 @@ if ! $clean_tree; then
 fi
 
 # emacs in batch mode doesn't include font-locking, so everything is broken.
-# elisp -b "(progn (ns/core) (ns/extra) (font-lock-mode 1) (ns/style) (ns/blog-generate))"
-elisp_timeout=120 elisp "(ns/blog-generate)"
+# elisp -b "(progn (ns/core) (ns/extra) (ns/development) (ns/style) (ns/blog-generate))"
+elisp -w "(progn (ns/core) (ns/extra) (ns/development) (ns/style) (ns/blog-generate))"
+# elisp_timeout=120 elisp "(ns/blog-generate)"
 
 rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net

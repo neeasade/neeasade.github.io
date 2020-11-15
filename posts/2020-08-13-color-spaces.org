@@ -2,9 +2,9 @@
 #+pubdate: <2020-08-13>
 #+draft: t
 
-Why do color spaces exist?
+Color spaces are a nice tool because they give you properties to change and compare across colors.
 
-(Aside from being the biggest yak shave) To give us tools to reason about colors and their relations. Think of color spaces as maps or frameworks for navigating some color range (usually called a [[https://en.wikipedia.org/wiki/Gamut][gamut]]) that are there to help you make sensible changes.
+Think of color spaces as maps or frameworks for navigating some color range (usually called a [[https://en.wikipedia.org/wiki/Gamut][gamut]]) that are there to help you make sensible changes.
 
 ** Some color spaces:
 

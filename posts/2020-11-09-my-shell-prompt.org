@@ -2,7 +2,7 @@
 #+rss_title: my shell prompt
 #+pubdate: <2020-11-09>
 
-A [[https://nixers.net/Thread-Your-PROMPT][thread]] was recently promoted on nixers to show your shell prompt, so I'll share some features of mine. I usually use bash with emacs shell-mode, so I get vim bindings for free via evil, with the mode indicator being the cursor ('|' vs '█'). I usually use '♥'  as a prompt character, but for the sake of this post I'll use '$', as  the heart can look wildly different depending on your font setup.
+A [[https://nixers.net/Thread-Your-PROMPT][thread]] was recently promoted on nixers to show your shell prompt, so I'll share some features of mine. I usually use bash with Emacs shell-mode, so I get vim bindings for free via evil, with the mode indicator being the cursor ('|' vs '█'). I usually use '♥'  as a prompt character, but for the sake of this post I'll use '$', as the heart can look wildly different depending on your font setup.
 
 Errors and background processes:
 
@@ -55,7 +55,7 @@ trouw $ logout
 $
 #+end_src
 
-and a hack that tells emacs where the shell is (including tramp information -- this is normally used in the prompt, I'm just showing it out here):
+and a hack that tells Emacs where the shell is (including tramp information -- this is normally used in the prompt, I'm just showing it out here):
 
 #+begin_src text
 $ ssh super.cool.vps

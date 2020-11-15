@@ -7,8 +7,10 @@ This is a list of things I had to turn off to not fuck with my typing speed in e
 - modeline
 - git-gutter mode
 - timers that query the current buffer I'm typing in
+- emojify-mode
 - flyspell-mode (switched to a keybind to flyspell the buffer)
 - (rarely) font-locking
+  - related: font-locking takes longer if you have a really big emacs window (ie hidpi fullscreen emacs will lag, but if you float that bad boy in the center you will have a good time).
 - (rarely) irc volume
 - (rarely) having a large window (this makes the redisplay cost higher)
 

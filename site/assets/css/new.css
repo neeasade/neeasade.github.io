@@ -20,18 +20,6 @@
 	/* --nc-font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace; */
 	--nc-font-mono: "Go Mono", "Courier New", Courier, monospace, monospace;
 
-	/* --accent2_: #5e7111; */
-	/* --accent2: #a95011; */
-	/* --accent1_: #176fa8; */
-	/* --accent1: #bc17ab; */
-	/* --background_plus: #8fe7d5; */
-	/* --background__: #d0d8e4; */
-	/* --background_: #e5e9f0; */
-
-	/* --background: #f3f5f8; */
-	/* --foreground_: #898a8d; */
-	/* --foreground: #3f4043; */
-
 	--nc-tx-1: var(--foreground);
 	--nc-tx-2: var(--foreground);
 	--nc-bg-1: var(--background);
