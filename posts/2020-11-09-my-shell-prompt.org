@@ -64,3 +64,5 @@ trouw $ tell_emacs_shell_location
 trouw $ logout
 $
 #+end_src
+
+Source is here: [[https://github.com/neeasade/dotfiles/blob/083d2996df4a2fff6b7ebfbc237a6a27babcf4b9/shell/.sh.d/style#L109][~/.sh.d/style]]
