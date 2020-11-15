@@ -14,9 +14,9 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Thu, 05 Nov 2020 10:13:56 -0600</pubDate>
-  <lastBuildDate>Thu, 05 Nov 2020 10:13:56 -0600</lastBuildDate>
-  <generator>Emacs 27.1 Org-mode 9.3.7</generator>
+  <pubDate>Sun, 15 Nov 2020 16:56:22 -0600</pubDate>
+  <lastBuildDate>Sun, 15 Nov 2020 16:56:22 -0600</lastBuildDate>
+  <generator>Emacs 27.1 Org-mode 9.4</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>my shell prompt</title>
+    <link>https://notes.neeasade.net/my-shell-prompt.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/my-shell-prompt.html</guid>
+    <pubDate>Mon, 09 Nov 2020 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>(reduce)</title>
     <link>https://notes.neeasade.net/reduce.html</link>

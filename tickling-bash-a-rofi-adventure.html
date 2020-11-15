@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:13 -->
+<!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -19,25 +19,23 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
        var target = document.getElementById(id);
        if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
        }
      }
      function CodeHighlightOff(elem, id)
      {
        var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
      }
     /*]]>*///-->
 // @license-end
@@ -64,7 +62,7 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #2b7600;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #005ec2;">read</span> pid; <span style="color: #005ec2;">read</span> line; <span style="color: #005ec2;">echo</span> <span style="color: #2b7600;">"$line"</span>; <span style="color: #005ec2;">kill</span> $<span style="color: #2b249e;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #2c7600;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0061c4;">read</span> pid; <span style="color: #0061c4;">read</span> line; <span style="color: #0061c4;">echo</span> <span style="color: #2c7600;">"$line"</span>; <span style="color: #0061c4;">kill</span> $<span style="color: #2d249f;">pid</span>)
 </pre>
 </div>
 
@@ -75,9 +73,9 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-org029c970" class="outline-2">
-<h2 id="org029c970">Setup</h2>
-<div class="outline-text-2" id="text-org029c970">
+<div id="outline-container-orgcf60ab6" class="outline-2">
+<h2 id="orgcf60ab6">Setup</h2>
+<div class="outline-text-2" id="text-orgcf60ab6">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
 neat features like positional arguments and the ability to specify the colorscheme from Xresources.
@@ -119,7 +117,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍄
+🍍
 </p>
 </div>
 
@@ -129,9 +127,9 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-orgb5ccf52" class="outline-2">
-<h2 id="orgb5ccf52">Rofi</h2>
-<div class="outline-text-2" id="text-orgb5ccf52">
+<div id="outline-container-org75352ca" class="outline-2">
+<h2 id="org75352ca">Rofi</h2>
+<div class="outline-text-2" id="text-org75352ca">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
 flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
@@ -142,15 +140,15 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-org4d38852" class="outline-2">
-<h2 id="org4d38852">Tickling bash (cheating)</h2>
-<div class="outline-text-2" id="text-org4d38852">
+<div id="outline-container-org0755690" class="outline-2">
+<h2 id="org0755690">Tickling bash (cheating)</h2>
+<div class="outline-text-2" id="text-org0755690">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #005ec2;">echo</span> a; sleep 10; <span style="color: #005ec2;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #0061c4;">echo</span> a; sleep 10; <span style="color: #0061c4;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:13 -->
+<!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -19,25 +19,23 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
        var target = document.getElementById(id);
        if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
        }
      }
      function CodeHighlightOff(elem, id)
      {
        var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
      }
     /*]]>*///-->
 // @license-end
@@ -54,19 +52,19 @@
 
 <hr />
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #646568;"># </span><span style="color: #646568;">the ':' in front means the flag takes an arg</span>
-<span style="color: #005ec2;">while </span><span style="color: #005ec2;">getopts</span> w:reh flag; <span style="color: #005ec2;">do</span>
-    <span style="color: #005ec2;">case</span> $<span style="color: #2b249e;">flag</span><span style="color: #005ec2;"> in</span>
-        w) <span style="color: #2b249e;">wid</span>=$<span style="color: #2b249e;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #656669;"># </span><span style="color: #656669;">the ':' in front means the flag takes an arg</span>
+<span style="color: #0061c4;">while </span><span style="color: #0061c4;">getopts</span> w:reh flag; <span style="color: #0061c4;">do</span>
+    <span style="color: #0061c4;">case</span> $<span style="color: #2d249f;">flag</span><span style="color: #0061c4;"> in</span>
+        w) <span style="color: #2d249f;">wid</span>=$<span style="color: #2d249f;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #005ec2;">esac</span>
-<span style="color: #005ec2;">done</span>
+    <span style="color: #0061c4;">esac</span>
+<span style="color: #0061c4;">done</span>
 
-<span style="color: #646568;"># </span><span style="color: #646568;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #005ec2;">shift</span> $((OPTIND-1))
+<span style="color: #656669;"># </span><span style="color: #656669;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #0061c4;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 

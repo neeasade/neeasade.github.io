@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:13 -->
+<!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>trampolining</title>
@@ -19,25 +19,23 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
        var target = document.getElementById(id);
        if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
        }
      }
      function CodeHighlightOff(elem, id)
      {
        var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
      }
     /*]]>*///-->
 // @license-end
@@ -80,18 +78,18 @@ mention it's easy to create your own interpreters (link to elisp and example scr
 </p>
 
 
-<div id="outline-container-orgf409d85" class="outline-2">
-<h2 id="orgf409d85">nix-shell multiline shebangs</h2>
-<div class="outline-text-2" id="text-orgf409d85">
+<div id="outline-container-org98834f4" class="outline-2">
+<h2 id="org98834f4">nix-shell multiline shebangs</h2>
+<div class="outline-text-2" id="text-org98834f4">
 <pre class="example">
 todo
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgee38216" class="outline-2">
-<h2 id="orgee38216">nix auto trampolining</h2>
-<div class="outline-text-2" id="text-orgee38216">
+<div id="outline-container-org25ce3a2" class="outline-2">
+<h2 id="org25ce3a2">nix auto trampolining</h2>
+<div class="outline-text-2" id="text-org25ce3a2">
 <p>
 I mentioned in my last post that an internet friend is trying to get the "most portable" $HOME. One
 hack involved in this meant using the host libc so that openGL is feasible. todo tudu todo&#x2026;..

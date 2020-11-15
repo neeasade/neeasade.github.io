@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:13 -->
+<!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>On Emacs</title>
@@ -19,25 +19,23 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
        var target = document.getElementById(id);
        if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
        }
      }
      function CodeHighlightOff(elem, id)
      {
        var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
      }
     /*]]>*///-->
 // @license-end
@@ -132,7 +130,7 @@ An <code>elisp</code> script that obfuscates the details of connecting to the ru
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ elisp <span style="color: #2b7600;">'(message "hello from the shell")'</span>
+<pre class="src src-sh">$ elisp <span style="color: #2c7600;">'(message "hello from the shell")'</span>
 </pre>
 </div>
 
@@ -197,7 +195,7 @@ I have a lisp eval function that will have different targets in different situat
 </p>
 
 
-<div class="figure">
+<div id="org02265c3" class="figure">
 <p><a href="./assets/posts/eros.png"><img src="./assets/posts/eros.png" alt="eros.png" /></a>
 </p>
 </div>
@@ -212,7 +210,7 @@ I created a derived text mode for irc highlights that allows me to jump to menti
 </p>
 
 
-<div class="figure">
+<div id="orgdd8beb0" class="figure">
 <p><a href="./assets/posts/circe.png"><img src="./assets/posts/circe.png" alt="circe.png" /></a>
 </p>
 </div>

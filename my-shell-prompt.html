@@ -6,7 +6,7 @@
 <!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ImageMagick notes</title>
+<title>my shell prompt</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/assets/css/org.css">
@@ -43,34 +43,91 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">ImageMagick notes</h1>
+<h1 class="title">my shell prompt</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org">2020-08-04</a> • 2020-08-03
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-09-my-shell-prompt.org">2020-11-15</a> • 2020-11-09
 </p>
 </div>
 
 <hr />
-
-<div id="outline-container-h-311d42c6-cd20-4f19-922e-8df55e7fee07" class="outline-2">
-<h2 id="h-311d42c6-cd20-4f19-922e-8df55e7fee07"><a href="#h-311d42c6-cd20-4f19-922e-8df55e7fee07">Rotate a tiled image 45 degrees</a></h2>
-<div class="outline-text-2" id="text-h-311d42c6-cd20-4f19-922e-8df55e7fee07">
 <p>
-Better results with square images, of course. The <code>45</code> is the degree amount.
+A <a href="https://nixers.net/Thread-Your-PROMPT">thread</a> was recently promoted on nixers to show your shell prompt, so I'll share some features of mine. I usually use bash with Emacs shell-mode, so I get vim bindings for free via evil, with the mode indicator being the cursor ('|' vs '█'). I usually use '♥'  as a prompt character, but for the sake of this post I'll use '$', as the heart can look wildly different depending on your font setup.
+</p>
+
+<p>
+Errors and background processes:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">convert in.png  -matte -virtual-pixel tile +distort  ScaleRotateTranslate  <span style="color: #2c7600;">'1  1  45'</span> out.png
+<pre class="src src-text">$ false
+! vim temp.txt
+[1]+  Stopped                 vim temp.txt
+$! true
+$$ fg
+vim temp
+$
 </pre>
 </div>
-</div>
+
+<p>
+git stuff:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ cd $(mktemp -d)
+$ git init
+Initialized empty Git repository in /tmp/tmp.enlQwywyEv/.git/
+$ touch readme.md
+? $ git checkout -b new_branch
+Switched to a new branch 'new_branch'
+(new_branch|?) $ git add readme.md
+(new_branch|+) $ echo 'edit' &gt;&gt; readme.md
+(new_branch|+*) $ git commit -m "initial"
+[new_branch (root-commit) 3ff638e] initial
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.md
+(new_branch) $ git checkout -b master; git reset --hard
+Switched to a new branch 'master'
+HEAD is now at 3ff638e initial
+$
+</pre>
 </div>
 
-<div id="outline-container-h-ac358ddb-6701-4782-8641-22946fc54b18" class="outline-2">
-<h2 id="h-ac358ddb-6701-4782-8641-22946fc54b18"><a href="#h-ac358ddb-6701-4782-8641-22946fc54b18">Stack images vertically</a></h2>
-<div class="outline-text-2" id="text-h-ac358ddb-6701-4782-8641-22946fc54b18">
+<p>
+non-standard environment detection (checks capital variables):
+</p>
+
 <div class="org-src-container">
-<pre class="src src-sh">convert 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
+<pre class="src src-text">$ PYTHONPATH="$HOME/something/stateful"
+E $ envv
+PYTHONPATH=/home/neeasade/something/stateful
+E $ unset PYTHONPATH
+$
+</pre>
+</div>
+
+<p>
+ssh hostname:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ ssh super.cool.vps
+trouw $ logout
+$
+</pre>
+</div>
+
+<p>
+and a hack that tells Emacs where the shell is (including tramp information &#x2013; this is normally used in the prompt, I'm just showing it out here):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ ssh super.cool.vps
+trouw $ tell_emacs_shell_location
++Pr0mPT+/ssh:neeasade@192.0.2.0:/home/neeasade+
+trouw $ logout
+$
 </pre>
 </div>
 
@@ -78,7 +135,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-03-ImageMagick-notes.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-09-my-shell-prompt.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 
@@ -88,8 +145,6 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
-</div>
-</div>
 </div>
 </div>
 </body>

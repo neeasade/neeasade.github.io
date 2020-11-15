@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:13 -->
+<!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>pulseaudio user notes</title>
@@ -19,25 +19,23 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
        var target = document.getElementById(id);
        if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
        }
      }
      function CodeHighlightOff(elem, id)
      {
        var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
      }
     /*]]>*///-->
 // @license-end
@@ -102,7 +100,7 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #2b7600;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #2c7600;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -127,9 +125,9 @@ minutes or so, which is unnoticeable and keeps it from drifting
 </div>
 
 
-<div id="outline-container-org29a3951" class="outline-2">
-<h2 id="org29a3951"><span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers</h2>
-<div class="outline-text-2" id="text-org29a3951">
+<div id="outline-container-org27aad98" class="outline-2">
+<h2 id="org27aad98"><span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers</h2>
+<div class="outline-text-2" id="text-org27aad98">
 <p>
 Some leftover notes from when I was last messing with this with <a href="https://obsproject.com/">OBS</a>.
 </p>
@@ -137,20 +135,20 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #646568;"># </span><span style="color: #646568;">add a null sync</span>
+<span style="color: #656669;"># </span><span style="color: #656669;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #646568;"># </span><span style="color: #646568;">=&gt; 25</span>
+<span style="color: #656669;"># </span><span style="color: #656669;">=&gt; 25</span>
 
-pactl load-module module-combine-sink <span style="color: #2b249e;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink <span style="color: #2d249f;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
  2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
 
-pactl load-module module-combine-sink <span style="color: #2b249e;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #2b249e;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #2b249e;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink <span style="color: #2d249f;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink <span style="color: #2d249f;">slaves</span>=25,null
+pactl load-module module-combine-sink <span style="color: #2d249f;">slaves</span>=25,analog-stereo
 
-<span style="color: #646568;"># </span><span style="color: #646568;">number is the output of the above</span>
-<span style="color: #646568;"># </span><span style="color: #646568;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #656669;"># </span><span style="color: #656669;">number is the output of the above</span>
+<span style="color: #656669;"># </span><span style="color: #656669;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 

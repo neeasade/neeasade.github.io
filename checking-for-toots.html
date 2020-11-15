@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-05 Thu 10:13 -->
+<!-- 2020-11-15 Sun 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -19,25 +19,23 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
        var target = document.getElementById(id);
        if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
        }
      }
      function CodeHighlightOff(elem, id)
      {
        var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
      }
     /*]]>*///-->
 // @license-end
@@ -58,7 +56,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin'. If I want 
 </p>
 
 
-<div class="figure">
+<div id="orgc0505cc" class="figure">
 <p><a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png" /></a>
 </p>
 </div>
@@ -105,7 +103,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #2b7600;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #2c7600;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -114,17 +112,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #646568;">#</span><span style="color: #646568;">!/usr/bin/</span><span style="color: #005ec2;">env</span><span style="color: #646568;"> bash</span>
-<span style="color: #646568;"># </span><span style="color: #646568;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #646568;"># </span><span style="color: #646568;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #656669;">#</span><span style="color: #656669;">!/usr/bin/</span><span style="color: #0061c4;">env</span><span style="color: #656669;"> bash</span>
+<span style="color: #656669;"># </span><span style="color: #656669;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #656669;"># </span><span style="color: #656669;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #2b249e;">count</span>=0
-<span style="color: #005ec2;">if</span> <span style="color: #2b7600;">!</span> <span style="color: #2b249e;">diff</span>=$(<span style="color: #2b249e;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #005ec2;">then</span>
-    <span style="color: #2b249e;">new_content</span>=$(<span style="color: #2b249e;">echo</span> <span style="color: #2b7600;">"$diff"</span> | grep <span style="color: #2b7600;">'^&lt;'</span> | sed <span style="color: #2b7600;">'s/&lt; //'</span>)
-    <span style="color: #2b249e;">count</span>=$(<span style="color: #2b249e;">echo</span> <span style="color: #2b7600;">"$new_content"</span> | awk <span style="color: #2b7600;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #005ec2;">fi</span>
+<span style="color: #2d249f;">count</span>=0
+<span style="color: #0061c4;">if</span> <span style="color: #2c7600;">!</span> <span style="color: #2d249f;">diff</span>=$(<span style="color: #2d249f;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #0061c4;">then</span>
+    <span style="color: #2d249f;">new_content</span>=$(<span style="color: #2d249f;">echo</span> <span style="color: #2c7600;">"$diff"</span> | grep <span style="color: #2c7600;">'^&lt;'</span> | sed <span style="color: #2c7600;">'s/&lt; //'</span>)
+    <span style="color: #2d249f;">count</span>=$(<span style="color: #2d249f;">echo</span> <span style="color: #2c7600;">"$new_content"</span> | awk <span style="color: #2c7600;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #0061c4;">fi</span>
 
-<span style="color: #005ec2;">echo</span> <span style="color: #2b7600;">"toot mentions: $count"</span>
+<span style="color: #0061c4;">echo</span> <span style="color: #2c7600;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -133,7 +131,7 @@ From there it's a short trip to have a panel button, you just call the script!
 </p>
 
 
-<div class="figure">
+<div id="org27f9eda" class="figure">
 <p><a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png" /></a>
 </p>
 </div>
