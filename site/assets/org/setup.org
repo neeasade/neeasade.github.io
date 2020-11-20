@@ -28,6 +28,9 @@
 
 #+MACRO:  color (eval (ns/blog-make-color-preview $1))
 
+
+#+MACRO:  detail @@html: <div class="detail"> $1 </div> @@
+
 # cf: https://emacs.stackexchange.com/questions/7792/can-i-make-links-in-org-mode-that-contain-brackets-or/7793#7793
 # Square Bracket Open [
 #+MACRO: BO @@latex:\char91@@@@html:&#91;@@

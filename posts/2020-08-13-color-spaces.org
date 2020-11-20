@@ -1,25 +1,158 @@
-#+title: color spaces
+#+title: reasoning about colors
 #+pubdate: <2020-08-13>
 #+draft: t
 
-Color spaces are a nice tool because they give you properties to change and compare across colors.
+#+MACRO:  flexdiv @@html: <div style="display: flex; flex-wrap: wrap; justify-content: center;">  @@
+#+MACRO:  div_ @@html: </div> @@
+#+MACRO:  colorblock (eval (ns/blog-make-color-block $1 $2 $3))
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
+       (colors
+	(ns/color-gradient (length word)
+			   (ht-get ns/theme :foreground)
+			   (ht-get ns/theme :background)
+			   t))
+       ;; (word "ＡＥＳＴＨＥＴＩＣ")
+       ;; (colors
+       ;; 	(-map (fn (-reduce-from
+       ;; 		   (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
+       ;; 		   "#2d249f"
+       ;; 		   (range (+ 1 <>))))
+       ;; 	      (range (length word))))
+       )
+  (->> (-map 'string word)
+       (-zip (-map 'ns/color-shorten colors))
+       (-map
+	(fn
+	 (ns/blog-make-color-block
+	  (- (/ 100 (length word)) 1)
+	  (first <>)
+	  (cdr <>))))
+       (s-join "\n")))
+#+end_SRC
+{{{div_}}}
+
+In July 2020 I went on a colorscheme vision quest. This led to some research on various [[https://en.wikipedia.org/wiki/Color_space][color spaces]] and their utility, some investigation into the [[http://chriskempson.com/projects/base16/#styling-guidelines][styling guidelines]] outlined by the base16 project, and the [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][color utilities]] that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
+
+** Motivation
+
+I've been a part of several linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way.
+
+I'm colorblind. This means I might be really picky about some colors. For example, I don't like the color red used for emphasis in text -- thin red lines look the same as thin black lines to me (and so, red text doesn't typically >POP< for me, unless it's bold or has some other emphasis included).
+
+Bootstrapping builders exist for base16! If I can bootstrap on top of their system I get a lot of free coverage within the software ecosystem.
+
+Plus, I just find this sort of thing really fun. Visual feedback is pleasing. Finding the right colors makes my lizard brain return to monke.
+
+# {{{detail(where's the emphasis?? I can't tell :()}}}
+
+** Side note: The Canvas
+
+This will be the focal point of inconsistency. The level of brightness, quality of screen, and ambient lighting level are all things that affect the value of the screen's [[https://en.wikipedia.org/wiki/White_point][white point]], which is what everything else is relative too. Luckily you can (attempt to) account for this as well.
+
+** Color Spaces
+
+Color spaces are ways of defining colors in different sets of properties. You can then mess with these and convert them back into a format you can render (typically RGB). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like.
+
+TODO: link color resource section here
+
+*** TODO RGB
+
+The one you know and love, red, green, blue.
+
+# show gradient or red -> green -> blue
+
+*** TODO HSL
+
+# show hue colors
+
+# saturation scale
+# luminance scale
+
+*** TODO lCH
+
+note the different hue here
+chromacity, "distance from gray"
+
+*** TODO cieLAB
+
+*** TODO HSLuv
+
+** Other stuff
+
+*** TODO Contrast
+*** TODO Distance
+*** TODO Gradients
+*** TODO Pastel
+pastel definition
+*** TODO Colorwheel rotations
+talk about hue rotations, visualize some in different spaces
+*** TODO white-point adjustment
+cielab relative white point adjustment
+
+** How am I using all this??
+
+> wants
+Create a map of colors meant to be used for different purposes and emphasis:.....
+list the properties here
+
+> method
+proceed to experiment a bunch within colorspaces used above -- note some things you've played with:
+colorwheel rotations
+complementary colors
+contrast iteration
+cielab distance with "pastel" effect for fading
+color mixing to a certain distance
+note color-iterate usage here and what this all looks like
+
+> bootstrapping
+find some relation between that and base16 standards and what you want:.....
+
+note your tweaks specifically to the base16 stuff:
+
+> profit:
+use your base16 boostrap everywhere, but ALSO your colormap, as used in some properties of this site right now(link to colors.css)
+
+
+
+
+
+
+
+
+
+ARST: HERE DOWN IS OLD STUFF
+
+
+
+
+In addition to the properties you can play with in color spaces
+
+{{{flexdiv}}}
+{{{colorblock(16,#BF3F3F,red\,0°)}}}
+{{{colorblock(16,#BFBF3F,yellow\,60°)}}} {{{colorblock(16,#3FBF3F,green\,120°)}}}
+{{{colorblock(16,#3FBFBF,cyan\,180°)}}}
+{{{colorblock(16,#3F3FBF,blue\,240°)}}}
+{{{colorblock(16,#BF3FBF,magenta\,300°)}}}
+{{{div_}}}
+{{{detail(the islands that hue points us towards)}}}
+
 
 Think of color spaces as maps or frameworks for navigating some color range (usually called a [[https://en.wikipedia.org/wiki/Gamut][gamut]]) that are there to help you make sensible changes.
 
-** Some color spaces:
+**** Some color spaces:
 
-*** HSL
+***** HSL
 - Hue
 - Saturation
 - Luminance
 
+#+CAPTION: This is the caption for the next table (or link)
 {{{image(color_cylinder.png)}}}
 
-*** cieLAB
-
-CIE is the International Commission on Illumination.
-
-** Hue
+**** Hue
 
 My mental model of hue is to think of it like a "color compass", pointing in a direction whose strength may be tweaked by changing the saturation value. Here is an example of the same color with a changed hue (chose the reference values given with HSL):
 
@@ -35,11 +168,7 @@ HSL with .5 saturation and .5 luminance:
 |           300 | magenta | {{{color(#bf3fbf)}}} |
 |           360 | red     | {{{color(#bf3f3f)}}} |
 
-** Color relations
-
-It can be useful to compare colors by a given value. For example, readability of text on a page may be determined by contrasting the lightness of 2 colors. Or you can measure the distance between colors while performing an operation to ensure you have something "sufficiently different" while iterating some color operation.
-
-** links and references:
+**** links and references:
 
 - https://peteroupc.github.io/colorgen.html
 - https://en.wikipedia.org/wiki/CIELAB_color_space
