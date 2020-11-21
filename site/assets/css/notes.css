@@ -22,6 +22,7 @@ table {
 img {
     margin: auto;
     width: auto;
+    text-align: center;
     height: auto;
     max-width: 90%;
     max-height: 400px;

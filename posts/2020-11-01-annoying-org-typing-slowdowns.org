@@ -12,7 +12,9 @@ This is a list of things I had to turn off to not fuck with my typing speed in e
 - (rarely) font-locking
   - related: font-locking takes longer if you have a really big emacs window (ie hidpi fullscreen emacs will lag, but if you float that bad boy in the center you will have a good time).
 - (rarely) irc volume
-- (rarely) having a large window (this makes the redisplay cost higher)
+
+# - (rarely) having a large window (this makes the redisplay cost higher)
+# you mention this above
 
 You can see how I'm doing this [[https://github.com/neeasade/emacs.d/blob/3f99869ec8ebabf5caf49a3c601092a4702c1342/lisp/trees/org.el#L425-L446][here]] and [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/editing.el#L11][here]].
 

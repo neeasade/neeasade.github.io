@@ -362,6 +362,7 @@ th {
 	border: 1px solid var(--nc-bg-3);
 	text-align: left;
 	padding: .4rem;
+	word-break: keep-all;
 }
 
 th {

@@ -2,11 +2,8 @@
 #+pubdate: <2020-08-13>
 #+draft: t
 
-#+MACRO:  flexdiv @@html: <div style="display: flex; flex-wrap: wrap; justify-content: center;">  @@
-#+MACRO:  div_ @@html: </div> @@
 #+MACRO:  colorblock (eval (ns/blog-make-color-block $1 $2 $3))
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
@@ -14,16 +11,17 @@
 			   (ht-get ns/theme :foreground)
 			   (ht-get ns/theme :background)
 			   t))
-       ;; 	(-map (fn (-reduce-from
-       ;; 		   (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
-       ;; 		   "#2d249f"
-       ;; 		   (range (+ 1 <>))))
-       ;; 	      (range (length word))))
+
+       ;; (colors (-map (fn (-reduce-from
+       ;; 			  (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
+       ;; 			  "#2d249f"
+       ;; 			  (range (+ 1 <>))))
+       ;; 		     (range (length word))))
+
        )
   (ns/blog-make-color-strip colors (-map 'string word))
   )
 #+end_SRC
-{{{div_}}}
 
 In July 2020 I went on a colorscheme vision quest. This led to some research on various [[https://en.wikipedia.org/wiki/Color_space][color spaces]] and their utility, some investigation into the [[http://chriskempson.com/projects/base16/#styling-guidelines][styling guidelines]] outlined by the base16 project, and the [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][color utilities]] that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
 
@@ -43,7 +41,7 @@ This will be the focal point of inconsistency. The level of brightness, quality 
 
 ** Color Spaces
 
-Color spaces are ways of defining colors in different sets of properties. They are the main tool you will have for reasoning about tweaking colors. You can then mess with these and convert them back into a format you can render (typically RGB) within a [[https://en.wikipedia.org/wiki/Gamut][color gamut]] (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like.
+Color spaces are ways of defining colors in different sets of properties. They are the main tool you will have for reasoning about tweaking /individual/ colors. You can then mess with these and convert them back into a format you can render (typically RGB) within a [[https://en.wikipedia.org/wiki/Gamut][color gamut]] (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like.
 
 TODO: link color resource section here
 
@@ -53,25 +51,21 @@ The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of ea
 
 Here is a gradient from {{{color(#cc3333)}}} to {{{color(#33cc33)}}} to {{{color(#3333cc)}}}:
 
-{{{flexdiv()}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
   (ns/color-gradient 15 "#cc3333" "#33cc33" t)
   (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t))))
 #+end_SRC
-{{{div_}}}
 
  To show the lighting effect, let's repeat the above gradient, but instead of using ~33~ for filler, we'll use ~99~ -- that's triple(!) the secondary color amounts:
 
-{{{flexdiv()}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
   (ns/color-gradient 15 "#cc9999" "#99cc99" t)
   (cdr (ns/color-gradient 15 "#99cc99" "#9999cc" t))))
 #+end_SRC
-{{{div_}}}
 
 *** HSL
 
@@ -87,7 +81,6 @@ Saturation in HSL is a controlled version of chromacity ("distance from gray"). 
 
 Hue has several defined points (at rotating 60° angles), I like to think of it like a color compass:
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
@@ -99,9 +92,7 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 				    (list (+ 60 H) 50 50))))
 
 	;; starting with 1% saturation (0% removes our hue entirely)
-	(ns/color-hsl-transform
-	 "#cccccc"
-	 (lambda (H S L) (list 0 50 50)))
+(ns/color-make-hsl 0 50 50)
 	(range 5)))
  '("red, 0°"
    "yellow, 60°"
@@ -110,12 +101,10 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
    "blue, 240°"
    "magenta, 300°"))
 #+end_SRC
-{{{div_}}}
 {{{detail(HSL: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
 
 Let's see the effect saturation has:
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
@@ -132,12 +121,10 @@ Let's see the effect saturation has:
 (ns/color-make-hsl 240 1 50)
 	(range 10))))
 #+end_SRC
-{{{div_}}}
 {{{detail(HSL: saturation scale 0-100% (step 10%), luminance 50%, hue 240° (blue))}}}
 
 And luminance:
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
@@ -153,7 +140,6 @@ And luminance:
 (ns/color-make-hsl 240 50 1)
 	(range 10))))
 #+end_SRC
-{{{div_}}}
 {{{detail(HSL: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
 *** HSLuv
@@ -162,7 +148,6 @@ And luminance:
 
 What does that mean for us? Well, let's take our above examples and recreate them in the HSLuv space:
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
@@ -183,12 +168,10 @@ What does that mean for us? Well, let's take our above examples and recreate the
    "blue, 240°"
    "magenta, 300°"))
 #+end_SRC
-{{{div_}}}
 {{{detail(HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
 
 Saturation:
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
@@ -206,12 +189,10 @@ Saturation:
 	;; "#7e387e3880c5"
 	(range 10))))
 #+end_SRC
-{{{div_}}}
 {{{detail(HSLuv: saturation scale 0-100% (step 10%), luminance 50%, hue 240° (blue))}}}
 
 Luminance:
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
@@ -228,7 +209,6 @@ Luminance:
     (ns/color-make-hsluv 240 50 1)
 	(range 10))))
 #+end_SRC
-{{{div_}}}
 {{{detail(HSLuv: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
 
@@ -241,7 +221,7 @@ Luminance:
 | [B] toggle  | -100-100 | blue <--> yellow |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
 
-The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to transformers when converting into and out of the CIELAB colorspace.
+The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to functions when converting into and out of the CIELAB colorspace.
 
 The standard white point is defined as ~d65~ -- in this section, every conversion will be made with ~d65~. Here is a table of commonly used white points and their meaning (for values, see the bottom of the wikipedia link).
 
@@ -252,45 +232,183 @@ The standard white point is defined as ~d65~ -- in this section, every conversio
 
 The knobs A and B allow you to play with the 4 primary colors of the LAB space. If you take a look at the values, you might notice that the more negative we go, we get "cooler" colors, while on the positive end, we get "warmer" colors.
 
-Let's look at some LAB colors. I'll aim for cooler tones first:
+Let's look at some LAB colors. The labels below will have the values of  ~(L A B)~ -- Remember, A is green to red, B is blue to yellow (each with a value -100 to 100)
 
-{{{flexdiv}}}
 #+BEGIN_SRC elisp :results raw :exports results
+(s-join
+ "\n"
+ (-map (lambda (colors)
+    (apply
+     'ns/blog-make-color-strip
+     (-unzip
+      (-map
+       (lambda (props)
+	 (list
+	  (apply 'ns/color-make-lab props)
+	  (format "(%s, %s, %s)" (nth 0 props) (nth 1 props) (nth 2 props))))
+       colors))))
+  '(
+    ((50 -80 0)
+     (50 -60 0)
+     (50 -40 0)
+     (50 -20 0)
+     (50 0 0))
 
-(let
-    ((colors '()
-       )
-     (labels '())
-     )
-  (ns/blog-make-color-strip
-   (-map
-    (fn
-     (apply 'ns/color-make-lab <>)
-     )
-    colors
-    )
-
-   )
-  )
-
+    ((50 0 0)
+     (50 20 0)
+     (50 40 0)
+     (50 60 0)
+     (50 80 0)))))
 #+end_SRC
-{{{div_}}}
-{{{detail(HSLuv: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
+
+#+BEGIN_SRC elisp :results raw :exports results
+(s-join
+ "\n"
+ (-map (lambda (colors)
+	 (apply
+	  'ns/blog-make-color-strip
+	  (-unzip
+	   (-map
+	    (lambda (props)
+	      (list
+	       (apply 'ns/color-make-lab props)
+	       (format "(%s, %s, %s)" (nth 0 props) (nth 1 props) (nth 2 props))))
+	    colors))))
+       '(((50 0 -80)
+	  (50 0 -60)
+	  (50 0 -40)
+	  (50 0 -20)
+	  (50 0 0))
+
+	 ((50 0 0)
+	  (50 0 20)
+	  (50 0 40)
+	  (50 0 60)
+	  (50 0 80)))))
+#+end_SRC
+
+#+BEGIN_SRC elisp :results raw :exports results
+(s-join
+ "\n"
+ (-map (lambda (colors)
+    (apply
+     'ns/blog-make-color-strip
+     (-unzip
+      (-map
+       (lambda (props)
+	 (list
+	  (apply 'ns/color-make-lab props)
+	  (format "(%s, %s, %s)" (nth 0 props) (nth 1 props) (nth 2 props))))
+       colors))))
+  '(((50 -80 -80)
+     (50 -60 -60)
+     (50 -40 -40)
+     (50 -20 -20)
+     (50 0 0))
+
+    ((50 0 0)
+     (50 20 20)
+     (50 40 40)
+     (50 60 60)
+     (50 80 80)))))
+#+end_SRC
+
+{{{detail(lab scales: -A -> +A, -B -> +B, {-A,-B} -> {+A,+B})}}}
+
+*** LCH
 
 
+LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is different. Instead of 6 defined islands to sail to with our color compass, there are 4:
+
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-lch-transform acc
+				  (lambda (L C H)
+				    (list L C (+ 90 H)))))
+
+	;; starting with 1% saturation (0% removes our hue entirely)
+	(ns/color-make-lch 50 50 0)
+	(range 5)))
+ '("red, 0°"
+   "yellow, 90°"
+   "green, 180°"
+   "blue, 270°"
+   ))
+#+end_SRC
+{{{detail(lCH: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%)}}}
 
 
-
-*** TODO LCH
 
 note the different hue here
 chromacity, "distance from gray"
 
-
 ** Other stuff
 
-*** TODO Contrast
+*** Contrast
+
+For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: [[https://www.w3.org/TR/WCAG/#contrast-minimum][link]]. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the `base-16` grayscale sets: {{{color(#f7f7f7)}}} and {{{color(#101010)}}}. For reference, the contrast ratio between {{{color(#000000)}}} and {{{color(#ffffff}}} is 21.0
+
+dark:
+
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-tint-ratio acc "#101010" new)
+
+	  ;; (ns/color-lch-transform acc
+	  ;; 			  (lambda (L C H)
+	  ;; 			    (list L C (+ 90 H))))
+	  )
+
+	;; starting with 1% saturation (0% removes our hue entirely)
+	;; (ns/color-make-lch 50 50 0)
+	"#101010"
+	'(2.0 2.5 3.0 4.0 4.5)
+	))
+
+ (-map 'number-to-string '(2.0 2.5 3.0 4.0 4.5))
+ )
+
+#+end_src
+
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-tint-ratio acc "#101010" new)
+
+	  ;; (ns/color-lch-transform acc
+	  ;; 			  (lambda (L C H)
+	  ;; 			    (list L C (+ 90 H))))
+	  )
+
+	;; starting with 1% saturation (0% removes our hue entirely)
+	;; (ns/color-make-lch 50 50 0)
+	"#f7f7f7"
+	'(2.0 2.5 3.0 4.0 4.5)
+	))
+
+ (-map 'number-to-string '(2.0 2.5 3.0 4.0 4.5))
+ )
+
+#+end_src
+
+
+
+
+light:
+
 *** TODO Distance
+
 *** TODO Gradients
 *** TODO Pastel
 pastel definition
