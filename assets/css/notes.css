@@ -22,6 +22,7 @@ table {
 img {
     margin: auto;
     width: auto;
+    text-align: center;
     height: auto;
     max-width: 90%;
     max-height: 400px;
@@ -42,4 +43,23 @@ img {
 .section-number-5 {
     color: var(--foreground_);
     float: right;
+}
+
+.colorblock {
+    min-width: fit-content;
+
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+
+    display: block;
+    font-family: var(--nc-font-mono);
+    font-size: 0.9rem;
+}
+
+.detail {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 0.9rem;
 }
