@@ -14,23 +14,14 @@
 			   (ht-get ns/theme :foreground)
 			   (ht-get ns/theme :background)
 			   t))
-       ;; (word "ＡＥＳＴＨＥＴＩＣ")
-       ;; (colors
        ;; 	(-map (fn (-reduce-from
        ;; 		   (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
        ;; 		   "#2d249f"
        ;; 		   (range (+ 1 <>))))
        ;; 	      (range (length word))))
        )
-  (->> (-map 'string word)
-       (-zip (-map 'ns/color-shorten colors))
-       (-map
-	(fn
-	 (ns/blog-make-color-block
-	  (- (/ 100 (length word)) 1)
-	  (first <>)
-	  (cdr <>))))
-       (s-join "\n")))
+  (ns/blog-make-color-strip colors (-map 'string word))
+  )
 #+end_SRC
 {{{div_}}}
 
@@ -46,39 +37,209 @@ Bootstrapping builders exist for base16! If I can bootstrap on top of their syst
 
 Plus, I just find this sort of thing really fun. Visual feedback is pleasing. Finding the right colors makes my lizard brain return to monke.
 
-# {{{detail(where's the emphasis?? I can't tell :()}}}
-
 ** Side note: The Canvas
 
 This will be the focal point of inconsistency. The level of brightness, quality of screen, and ambient lighting level are all things that affect the value of the screen's [[https://en.wikipedia.org/wiki/White_point][white point]], which is what everything else is relative too. Luckily you can (attempt to) account for this as well.
 
 ** Color Spaces
 
-Color spaces are ways of defining colors in different sets of properties. You can then mess with these and convert them back into a format you can render (typically RGB). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like.
+Color spaces are ways of defining colors in different sets of properties. You can then mess with these and convert them back into a format you can render (typically RGB) within a [[https://en.wikipedia.org/wiki/Gamut][color gamut]] (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like.
 
 TODO: link color resource section here
 
-*** TODO RGB
+*** RGB
 
-The one you know and love, red, green, blue.
+The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach {{{color(#ffffff)}}} (and down, -> {{{color(#000000)}}}). This isn't particularly flexible in "ways you can think about colors".
 
-# show gradient or red -> green -> blue
+Here is a gradient from {{{color(#cc3333)}}} to {{{color(#33cc33)}}} to {{{color(#3333cc)}}}:
 
-*** TODO HSL
+{{{flexdiv()}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (append
+  (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+  (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t))))
+#+end_SRC
+{{{div_}}}
 
-# show hue colors
+ To show the lighting effect, let's repeat the above gradient, but instead of using ~33~ for filler, we'll use ~99~ -- that's triple(!) the secondary color amounts:
 
-# saturation scale
-# luminance scale
+{{{flexdiv()}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (append
+  (ns/color-gradient 15 "#cc9999" "#99cc99" t)
+  (cdr (ns/color-gradient 15 "#99cc99" "#9999cc" t))))
+#+end_SRC
+{{{div_}}}
 
-*** TODO lCH
+*** HSL
+
+[[https://en.wikipedia.org/wiki/HSL_and_HSV][wikipedia: HSL and HSV]]
+
+| [H]ue        | 0-360 | Color "direction" |
+| [S]aturation | 0-100 | Color "strength"  |
+| [L]uminance  | 0-100 | Light level       |
+
+Saturation in HSL is a controlled version of chroma ("distance from gray"). See the wiki section for more details.
+
+{{{image(color_cylinder.png)}}}
+
+Hue has several defined points (at rotating 60° angles), I like to think of it like a color compass:
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-hsl-transform acc
+				  (lambda (H S L)
+				    (list (+ 60 H) 50 50))))
+
+	;; starting with 1% saturation (0% removes our hue entirely)
+	(ns/color-hsl-transform
+	 "#cccccc"
+	 (lambda (H S L) (list 0 50 50)))
+	(range 5)))
+ '("red, 0°"
+   "yellow, 60°"
+   "green, 120°"
+   "cyan, 180°"
+   "blue, 240°"
+   "magenta, 300°"))
+#+end_SRC
+{{{div_}}}
+{{{detail(HSL: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
+
+Let's see the effect saturation has:
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-hsl-transform acc
+				  (lambda (H S L)
+				    (list H
+					  ;; correct for our starting position
+					  (+ 10 (* 10 (first (cl-round S 10))))
+					  L))))
+	;; starting with 1% saturation (0% removes our hue entirely)
+	"#7e387e3880c5"
+	(range 10))))
+#+end_SRC
+{{{div_}}}
+{{{detail(HSL: saturation scale 0-100% (step 10%), luminance 50%, hue of the blue above)}}}
+
+And luminance:
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-hsl-transform acc
+				  (lambda (H S L)
+				    (list H
+					  S
+					  ;; correct for our starting position
+					  (+ 10 (* 10 (first (cl-round L 10))))))))
+	;; starting with 1% luminance (0% removes our hue entirely)
+	"#0145014503d9"
+	(range 10))))
+#+end_SRC
+{{{div_}}}
+{{{detail(HSL: luminance scale 0-100% (step 10%), saturation 50%, hue of the blue above)}}}
+
+*** HSLuv
+
+[[https://www.hsluv.org/comparison/][hsluv]] is an altered version of HSL that tries to be perceptually uniform with regards to luminance. HSL luminance by comparison is hard to make contrast comparisons in.
+
+What does that mean for us? Well, let's take our above examples and recreate them in the HSLuv space:
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-hsluv-transform acc
+				    (lambda (H S L)
+				      (list (+ 60 H) 50 50))))
+
+	;; starting with 1% saturation (0% removes our hue entirely)
+	(ns/color-hsluv-transform
+	 "#cccccc"
+	 (lambda (H S L) (list 0 50 50)))
+	(range 5)))
+ '("red, 0°"
+   "yellow, 60°"
+   "green, 120°"
+   "cyan, 180°"
+   "blue, 240°"
+   "magenta, 300°"))
+#+end_SRC
+{{{div_}}}
+{{{detail(HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
+
+Saturation:
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-hsluv-transform acc
+				  (lambda (H S L)
+				    (list H
+					  ;; correct for our starting position
+					  (+ 10 (* 10 (first (cl-round S 10))))
+					  L))))
+	;; starting with 1% saturation (0% removes our hue entirely)
+	"#7e387e3880c5"
+	(range 10))))
+#+end_SRC
+{{{div_}}}
+{{{detail(HSLuv: saturation scale 0-100% (step 10%), luminance 50%, hue of the blue above)}}}
+
+Luminance:
+
+{{{flexdiv}}}
+#+BEGIN_SRC elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-hsluv-transform acc
+				  (lambda (H S L)
+				    (list H
+					  S
+					  ;; correct for our starting position
+					  (+ 10 (* 10 (first (cl-round L 10))))))))
+	;; starting with 1% luminance (0% removes our hue entirely)
+	"#0145014503d9"
+	(range 10))))
+#+end_SRC
+{{{div_}}}
+
+
+*** TODO cieLAB
+
+*** TODO LCH
 
 note the different hue here
 chromacity, "distance from gray"
 
-*** TODO cieLAB
-
-*** TODO HSLuv
 
 ** Other stuff
 
@@ -92,7 +253,11 @@ talk about hue rotations, visualize some in different spaces
 *** TODO white-point adjustment
 cielab relative white point adjustment
 
-** How am I using all this??
+** Implementing helpers
+mention notice of emacs colors.el
+how you built transformation colors and also reference the really helpful color notes
+
+** Vision quest
 
 > wants
 Create a map of colors meant to be used for different purposes and emphasis:.....
@@ -116,6 +281,7 @@ note your tweaks specifically to the base16 stuff:
 use your base16 boostrap everywhere, but ALSO your colormap, as used in some properties of this site right now(link to colors.css)
 
 
+** Vision quest
 
 
 
@@ -130,15 +296,6 @@ ARST: HERE DOWN IS OLD STUFF
 
 In addition to the properties you can play with in color spaces
 
-{{{flexdiv}}}
-{{{colorblock(16,#BF3F3F,red\,0°)}}}
-{{{colorblock(16,#BFBF3F,yellow\,60°)}}} {{{colorblock(16,#3FBF3F,green\,120°)}}}
-{{{colorblock(16,#3FBFBF,cyan\,180°)}}}
-{{{colorblock(16,#3F3FBF,blue\,240°)}}}
-{{{colorblock(16,#BF3FBF,magenta\,300°)}}}
-{{{div_}}}
-{{{detail(the islands that hue points us towards)}}}
-
 
 Think of color spaces as maps or frameworks for navigating some color range (usually called a [[https://en.wikipedia.org/wiki/Gamut][gamut]]) that are there to help you make sensible changes.
 
@@ -148,9 +305,6 @@ Think of color spaces as maps or frameworks for navigating some color range (usu
 - Hue
 - Saturation
 - Luminance
-
-#+CAPTION: This is the caption for the next table (or link)
-{{{image(color_cylinder.png)}}}
 
 **** Hue
 

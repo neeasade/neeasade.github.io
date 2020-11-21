@@ -26,10 +26,9 @@
 
 #+MACRO:  hsep (eval (ns/blog-make-hsep))
 
-#+MACRO:  color (eval (ns/blog-make-color-preview $1))
+#+MACRO:  color (eval (ns/blog-make-color-preview $1 $2))
 
-
-#+MACRO:  detail @@html: <div class="detail"> $1 </div> @@
+#+MACRO:  detail (eval (ns/blog-make-detail $1 $2 $3 $4 $5 $6 $7 $8 $9))
 
 # cf: https://emacs.stackexchange.com/questions/7792/can-i-make-links-in-org-mode-that-contain-brackets-or/7793#7793
 # Square Bracket Open [

@@ -45,13 +45,11 @@ img {
 }
 
 .colorblock {
-    /* min-width: 100px; */
     min-width: fit-content;
 
     text-align: center;
     height: 50px;
     line-height: 50px;
-    padding: 2px;
 
     display: block;
     font-family: var(--nc-font-mono);
