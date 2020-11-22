@@ -6,7 +6,7 @@
 <!-- 2020-11-21 Sat 21:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Configuring constant LANG variable</title>
+<title>Projects</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/assets/css/org.css">
@@ -43,68 +43,57 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Configuring constant LANG variable</h1>
-<div class="org-center">
+<h1 class="title">Projects</h1>
+<hr />
+
+<div id="outline-container-org3e53526" class="outline-2">
+<h2 id="org3e53526"><span class="section-number-2">1</span> <a href="https://github.com/neeasade/dotfiles">dotfiles</a> + <a href="https://github.com/neeasade/emacs.d">emacs.d</a></h2>
+<div class="outline-text-2" id="text-1">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-21-configuring-constant-lang-variable.org">2019-02-24</a> • 2014-02-21
+These repositories constitute where I turn my desktop into an interactive environment for workflow experiments, resulting in fun combinations of the programs I use every day.
 </p>
 </div>
+</div>
 
-<hr />
+<div id="outline-container-org15d6544" class="outline-2">
+<h2 id="org15d6544"><span class="section-number-2">2</span> <a href="https://github.com/gnotclub/xst">xst</a></h2>
+<div class="outline-text-2" id="text-2">
 <p>
-After setting your correct locale in the etc/locale.gen file and running
-locale-gen, your system wide language gets set in Linux. Some
-applications, however, reference the LANG variable in order to determine
-language type. One in particular that I am fond of is sublime text. This
-isn't an issue until you install the package manager - which you will
-probably want to do eventually.
+A fork of the <a href="https://st.suckless.org/">st terminal</a> with some patches applied, with Xresources integration and live reloading.
 </p>
+</div>
+</div>
 
+<div id="outline-container-org9f4b76d" class="outline-2">
+<h2 id="org9f4b76d"><span class="section-number-2">3</span> <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el">colors.el</a></h2>
+<div class="outline-text-2" id="text-3">
 <p>
-A temporary fix, as the error logged will inform you, is to set the LANG
-variable either before or with the startup of sublime text.
+A collection of <a href="https://notes.neeasade.net/color-spaces.html">colorspace</a> utility functions.
 </p>
+</div>
+</div>
 
+<div id="outline-container-org4a08159" class="outline-2">
+<h2 id="org4a08159"><span class="section-number-2">4</span> <a href="https://github.com/neeasade/bspwwm">bspwwm</a></h2>
+<div class="outline-text-2" id="text-4">
 <p>
-However, this may not always be viable, and can be annoying. There are
-two solutions to set this variable upon system startup.
+A <b>vaporware</b> Wayland compositor built on top of wlroots using Nix and Clojure. Mostly a playground to experiment with Clojure FFI to the Wlroots libraries.
 </p>
+</div>
+</div>
 
+<div id="outline-container-org665a426" class="outline-2">
+<h2 id="org665a426"><span class="section-number-2">5</span> <a href="https://github.com/neeasade/passage">passage</a></h2>
+<div class="outline-text-2" id="text-5">
 <p>
-A "hacky" way to get around this problem would be to set the LANG
-variable within your .bashrc file, as such:
-</p>
-
-<blockquote>
-<p>
-export LANG ="en\<sub>US.UTF</sub>-8"
-</p>
-</blockquote>
-
-<p>
-However, the above only sets the variable for your user/login session.
-</p>
-
-<p>
-To set the LANG variable system wide(the prefferred method), edit or
-create the file /etc/locale.conf to contain:
-</p>
-
-<blockquote>
-<p>
-LANG ="en\<sub>US.UTF</sub>-8"
-</p>
-</blockquote>
-
-<p>
-And upon restart your LANG variable will be set correctly.
+A password store built on top of the <a href="https://github.com/FiloSottile/age">age</a> encryption tool.
 </p>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-02-21-configuring-constant-lang-variable.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/pages/projects.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> • <a href="https://github.com/neeasade/neeasade.github.io/commits/source/pages/projects.org">History</a>
 </p>
 </div>
 
@@ -114,6 +103,8 @@ And upon restart your LANG variable will be set correctly.
 <a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>
