@@ -30,7 +30,7 @@ In July 2020 I went on a color-scheme vision quest. This led to some research on
 :CUSTOM_ID: h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620
 :END:
 
-I've been a part of several Linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way.
+I've been a part of several Linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way -- know what I can do to individual colors when making a "color framework" helps immensely.
 
 I'm colorblind. This means I might be really picky about some colors. For example, I don't like the color red used for emphasis in text -- thin red lines look the same as thin black lines to me (and so, red text doesn't typically >POP< for me, unless it's bold or has some other emphasis included).
 
@@ -51,8 +51,6 @@ This will be the focal point of inconsistency. The level of brightness, quality 
 :END:
 
 Color spaces are ways of defining colors in different sets of properties. They are the main tool you will have for reasoning about tweaking /individual/ colors. You can then mess with these and convert them back into a format you can render (typically RGB) within a [[https://en.wikipedia.org/wiki/Gamut][color gamut]] (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like. When I define the valid values for ranges, I will be using the scale I've implemented in my [[#h-cb3c6479-7d62-4028-8942-2b033bb1247a][helpers]].
-
-TODO: link color resource section here
 
 *** [[#h-99356355-d54c-41d8-bc1a-6e14e29f42c8][RGB]]
 :PROPERTIES:
@@ -88,7 +86,7 @@ To show the lighting effect, let's repeat the above gradient, but instead of usi
 
 | [H]ue        | 0-360 | Color "direction" |
 | [S]aturation | 0-100 | Color "strength"  |
-| [L]uminance  | 0-100 | Light level       |
+| [L]ightless  | 0-100 | Light level       |
 
 Saturation in HSL is a controlled version of chromacity ("distance from gray"). See the wiki section for more details.
 
@@ -116,7 +114,7 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
    "blue, 240°"
    "magenta, 300°"))
 #+end_src
-{{{detail(HSL: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
+{{{detail(HSL: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%)}}}
 
 Let's see the effect saturation has:
 
@@ -136,9 +134,9 @@ Let's see the effect saturation has:
 (ns/color-make-hsl 240 1 50)
 	(range 10))))
 #+end_src
-{{{detail(HSL: saturation scale 0-100% (step 10%), luminance 50%, hue 240° (blue))}}}
+{{{detail(HSL: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
 
-And luminance:
+And lightness:
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
@@ -155,14 +153,14 @@ And luminance:
 (ns/color-make-hsl 240 50 1)
 	(range 10))))
 #+end_src
-{{{detail(HSL: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
+{{{detail(HSL: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
 *** [[#h-c147b84d-d95b-4d2d-8426-2f96529a8428][HSLuv]]
 :PROPERTIES:
 :CUSTOM_ID: h-c147b84d-d95b-4d2d-8426-2f96529a8428
 :END:
 
-[[https://www.hsluv.org/comparison/][hsluv]] is an altered version of HSL that tries to be perceptually uniform with regards to luminance. HSL luminance by comparison is hard to make contrast comparisons in.
+[[https://www.hsluv.org/comparison/][hsluv]] is an altered version of HSL that tries to be perceptually uniform with regards to lightness. HSL lightness by comparison is hard to make contrast comparisons in.
 
 What does that mean for us? Well, let's take our above examples and recreate them in the HSLuv space:
 
@@ -186,7 +184,7 @@ What does that mean for us? Well, let's take our above examples and recreate the
    "blue, 240°"
    "magenta, 300°"))
 #+end_src
-{{{detail(HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
+{{{detail(HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%)}}}
 
 Saturation:
 
@@ -207,9 +205,9 @@ Saturation:
 	;; "#7e387e3880c5"
 	(range 10))))
 #+end_src
-{{{detail(HSLuv: saturation scale 0-100% (step 10%), luminance 50%, hue 240° (blue))}}}
+{{{detail(HSLuv: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
 
-Luminance:
+Lightness:
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
@@ -223,11 +221,11 @@ Luminance:
 					  S
 					  ;; correct for our starting position
 					  (+ 10 (* 10 (first (cl-round L 10))))))))
-	;; starting with 1% luminance (0% removes our hue entirely)
+	;; starting with 1% lightness (0% removes our hue entirely)
     (ns/color-make-hsluv 240 50 1)
 	(range 10))))
 #+end_src
-{{{detail(HSLuv: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
+{{{detail(HSLuv: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
 TODO: expound on hsluv here?
 
@@ -238,7 +236,7 @@ TODO: expound on hsluv here?
 
 [[https://en.wikipedia.org/wiki/CIELAB_color_space][wikipedia link]]
 
-| [L]uminance |                 0-100 | Light level                                                                                                                                                 |
+| [L]ightness |                 0-100 | Light level                                                                                                                                                 |
 | [A] toggle  |              -100-100 | green <--> red                                                                                                                                              |
 | [B] toggle  |              -100-100 | blue <--> yellow                                                                                                                                            |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
@@ -368,7 +366,7 @@ LCh is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 #+end_src
 {{{detail(LCh: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%)}}}
 
-Chromacity, "distance from gray":
+Chromacity, "distance from gray" - very similar to Saturation (which I've seen cited as simply misnamed chromacity):
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
@@ -382,13 +380,88 @@ Chromacity, "distance from gray":
 					  ;; correct for our starting position
 					  (+ 10 (* 10 (first (cl-round C 10))))
 					  H))))
-(ns/color-make-lch 50 1 270)
+(ns/color-make-lch 50 0 270)
+
 	(range 10))))
 #+end_src
+{{{detail(LCh: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue))}}}
 
-{{detail(LCh: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue))}}}
+Let's compare some spaces. We'll take some the RGB gradient from above, normalize the lightness in HSLuv and then maximize l[C]h, H[S]L, and H[S]Luv:
 
-Let's take some colors and then maximize their chromas:
+#+begin_src elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (append
+  (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+  (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t))))
+#+end_src
+{{{detail(original)}}}
+
+#+begin_src elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map
+  (lambda (c)
+    (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50)))))
+  (append
+   (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+   (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+#+end_src
+{{{detail(squash lightness to 50 in HSLuv)}}}
+
+#+begin_src elisp :results raw :exports results
+
+(s-join "\n"
+	(list
+	 (ns/blog-make-color-strip
+	  (-map
+	   (lambda (c)
+	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50))))
+	     (-> c (ns/color-lch-transform (lambda (L C H) (list L 100 H))))
+	     )
+	   (append
+	    (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+	    (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+
+	 (ns/blog-make-color-strip
+	  (-map
+	   (lambda (c)
+	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50))))
+	     (-> c (ns/color-hsl-transform (lambda (H S L) (list H 100 L))))
+	     )
+	   (append
+	    (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+	    (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+
+	 (ns/blog-make-color-strip
+	  (-map
+	   (lambda (c)
+	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50))))
+	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H 100 L))))
+	     )
+	   (append
+	    (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+	    (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))))
+#+end_src
+{{{detail(3 branches off of the above: lCH maximize C, HSL maximize S, HSLuv maximize S)}}}
+
+
+
+#+begin_src elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map
+  (lambda (c)
+    (ns/color-lch-transform
+    c
+(lambda (L C H)
+			    (list L 100 H))))
+  (append
+   (ns/color-gradient 15 "#cc3333" "#33cc33" t)
+   (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+#+end_src
+{{{detail: lCH, C maximized}}}
+
+{{{detail: HSL, S maximized}}}
+
+{{{detail: HSLuv, S maximized}}}
 
 
 ** TODO [[#h-e1c795a7-b3d9-4be3-9874-1b98a2069520][Other stuff]]
@@ -401,9 +474,9 @@ Let's take some colors and then maximize their chromas:
 :CUSTOM_ID: h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51
 :END:
 
-For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: [[https://www.w3.org/TR/WCAG/#contrast-minimum][link]]. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the `base-16` grayscale sets: {{{color(#f7f7f7)}}} and {{{color(#101010)}}}. For reference, the contrast ratio between {{{color(#000000)}}} and {{{color(#ffffff}}} is 21.0
+For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: [[https://www.w3.org/TR/WCAG/#contrast-minimum][link]]. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: {{{color(#f7f7f7)}}} and {{{color(#101010)}}}. For reference, the contrast ratio between {{{color(#000000)}}} and {{{color(#ffffff)}}} is 21.0
 
-dark:
+Dark:
 
 #+begin_src elisp :results raw :exports results
 (s-join "\n"
@@ -412,10 +485,15 @@ dark:
 	  ,@(-map
 	     (lambda (fg)
 	       (ns/blog-make-color-block
-		(/ 100.0 5.0)
+		(/ 100.0 3.0)
 		"#101010"
-		(second fg)
+		;; (second fg)
+		(format "%s: %s"
+			(second fg)
+			"Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.")
+		;; (second fg)
 		(ns/color-shorten (first fg))
+		"colorblock colorpadding"
 		))
 
 	     (cdr
@@ -425,13 +503,14 @@ dark:
 			(first acc)
 			"#101010" new) new))
 	       '("#101010")
-	       '(2.0 2.5 3.0 4.0 4.5)
+	       '(2.0 2.5 3.5 4.0 4.5 5.0)
 	       )))
 	  "@@html: </div> @@"
 	  ))
 #+end_src
+{{{detail(dark contrast ratios, 2.0 - 5.0, step .5)}}}
 
-light:
+Light:
 
 #+begin_src elisp :results raw :exports results
 (s-join "\n"
@@ -440,10 +519,13 @@ light:
 	  ,@(-map
 	     (lambda (fg)
 	       (ns/blog-make-color-block
-		(/ 100.0 5.0)
+		(/ 100.0 3.0)
 		"#f7f7f7"
-		(second fg)
+		(format "%s: %s"
+			(second fg)
+			"Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.")
 		(ns/color-shorten (first fg))
+		"colorblock colorpadding"
 		))
 
 	     (cdr
@@ -453,16 +535,22 @@ light:
 			(first acc)
 			"#f7f7f7" new) new))
 	       '("#f7f7f7")
-	       '(2.0 2.5 3.0 4.0 4.5)
+	       '(2.0 2.5 3.5 4.0 4.5 5.0)
 	       )))
 	  "@@html: </div> @@"
 	  ))
 #+end_src
+{{{detail(light contrast ratios, 2.0 - 5.0, step .5)}}}
+
+I think it's pretty clear from these examples that higher contrast goes a long way in dark color schemes.
 
 *** TODO [[#h-e260bdea-3408-47e6-a195-f5a62ed979bc][Distance]]
 :PROPERTIES:
 :CUSTOM_ID: h-e260bdea-3408-47e6-a195-f5a62ed979bc
 :END:
+
+Color distance is a measure of how far apart colors are by properties
+
 
 *** TODO [[#h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01][Gradients]]
 :PROPERTIES:
@@ -479,7 +567,13 @@ have high value and low saturation.
 :PROPERTIES:
 :CUSTOM_ID: h-81b4122f-f725-45ec-8c4a-437688cbcc2a
 :END:
+
 talk about hue rotations, visualize some in different spaces
+
+Colorwheel rotations are all about hue. The circle that hue forms is the colorwheel for that colorspace. Colors that are opposed here (180° away from each other) are complementary colors. One way to attempt to generate color palettes  is to do "colorwheel rotations" where you take colors around equidistant points around the colorwheel. The hue values we've been showing are examples of a colorwheel rotation (6 points around 60°)
+
+Let's say we have some
+
 
 *** TODO [[#h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532][white-point adjustment]]
 :PROPERTIES:
@@ -520,7 +614,7 @@ I also implemented a function for comparing contrast, referencing Peter Occil's 
 ;; => 3.0000000000000004
 #+end_src
 
-These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ns/color-iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}!)
+These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ns/color-iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}}!)
 
 #+begin_src emacs-lisp
 (ns/color-iterate
@@ -536,7 +630,6 @@ These pieces (transformers and comparison functions) can be combined to do thing
 
  ;; check that we've reached some desired contrast ratio
  ;; 4.5, Here against a background #f7f7f7
- ;; (here 4.5)
  (lambda (c)
    (> (ns/color-contrast-ratio "#f7f7f7" c)
       4.5)))
@@ -545,13 +638,37 @@ These pieces (transformers and comparison functions) can be combined to do thing
 ;; (converted: #2d2c2c)
 #+end_src
 
+Is a color light? just check the lightness value in LAB space (note: that 65 value is \tilde{}opinions~):
+#+begin_src emacs-lisp
+(defun ns/color-is-light-p (name)
+  (> (first (ns/color-name-to-lab name))
+     65))
+#+end_src
 
-how you built transformation colors and also reference the really helpful color notes
+A neat trick you can do with this is decide whether or not to use a dark or light foreground against the color:
+
+#+begin_src elisp :results raw :exports results
+(apply 'ns/blog-make-color-strip
+       (-unzip
+	(-map
+	 (lambda (c)
+	   (list
+	    c (if (ns/color-is-light-p c) "light" "dark")))
+	 '(
+	   "#006d77"
+	   "#83c5be"
+	   "#429958"
+	   "#edf6f9"
+	   "#ffddd2"))))
+#+end_src
+
 
 ** [[#h-0942db07-512b-45d6-8fd2-f3a641379b66][Vision quest]]
 :PROPERTIES:
 :CUSTOM_ID: h-0942db07-512b-45d6-8fd2-f3a641379b66
 :END:
+
+Alright, we've gone through a fair amount of ways you can play with individual colors.
 
 > wants
 
@@ -587,5 +704,5 @@ use your base16 boostrap everywhere, but ALSO your colormap, as used in some pro
 - https://en.wikipedia.org/wiki/CIELAB_color_space
 - https://en.wikipedia.org/wiki/Standard_illuminant#White_points_of_standard_illuminants
 - http://colorizer.org/
-- https://github.com/yurikhan/yk-color/blob/master/yk-color.el
 - https://www.w3.org/TR/WCAG20/#relativeluminancedef
+- https://www.24a11y.com/2019/color-theory-and-contrast-ratios/
