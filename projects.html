@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-21 Sat 21:52 -->
+<!-- 2020-11-23 Mon 16:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Projects</title>
@@ -19,26 +19,50 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -46,8 +70,8 @@
 <h1 class="title">Projects</h1>
 <hr />
 
-<div id="outline-container-org3e53526" class="outline-2">
-<h2 id="org3e53526"><span class="section-number-2">1</span> <a href="https://github.com/neeasade/dotfiles">dotfiles</a> + <a href="https://github.com/neeasade/emacs.d">emacs.d</a></h2>
+<div id="outline-container-orgbf20876" class="outline-2">
+<h2 id="orgbf20876"><span class="section-number-2">1</span> <a href="https://github.com/neeasade/dotfiles">dotfiles</a> + <a href="https://github.com/neeasade/emacs.d">emacs.d</a></h2>
 <div class="outline-text-2" id="text-1">
 <p>
 These repositories constitute where I turn my desktop into an interactive environment for workflow experiments, resulting in fun combinations of the programs I use every day.
@@ -55,8 +79,8 @@ These repositories constitute where I turn my desktop into an interactive enviro
 </div>
 </div>
 
-<div id="outline-container-org15d6544" class="outline-2">
-<h2 id="org15d6544"><span class="section-number-2">2</span> <a href="https://github.com/gnotclub/xst">xst</a></h2>
+<div id="outline-container-org78cb9e3" class="outline-2">
+<h2 id="org78cb9e3"><span class="section-number-2">2</span> <a href="https://github.com/gnotclub/xst">xst</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A fork of the <a href="https://st.suckless.org/">st terminal</a> with some patches applied, with Xresources integration and live reloading.
@@ -64,8 +88,8 @@ A fork of the <a href="https://st.suckless.org/">st terminal</a> with some patch
 </div>
 </div>
 
-<div id="outline-container-org9f4b76d" class="outline-2">
-<h2 id="org9f4b76d"><span class="section-number-2">3</span> <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el">colors.el</a></h2>
+<div id="outline-container-orgf122fac" class="outline-2">
+<h2 id="orgf122fac"><span class="section-number-2">3</span> <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el">colors.el</a></h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A collection of <a href="https://notes.neeasade.net/color-spaces.html">colorspace</a> utility functions.
@@ -73,8 +97,8 @@ A collection of <a href="https://notes.neeasade.net/color-spaces.html">colorspac
 </div>
 </div>
 
-<div id="outline-container-org4a08159" class="outline-2">
-<h2 id="org4a08159"><span class="section-number-2">4</span> <a href="https://github.com/neeasade/bspwwm">bspwwm</a></h2>
+<div id="outline-container-orgf127498" class="outline-2">
+<h2 id="orgf127498"><span class="section-number-2">4</span> <a href="https://github.com/neeasade/bspwwm">bspwwm</a></h2>
 <div class="outline-text-2" id="text-4">
 <p>
 A <b>vaporware</b> Wayland compositor built on top of wlroots using Nix and Clojure. Mostly a playground to experiment with Clojure FFI to the Wlroots libraries.
@@ -82,8 +106,8 @@ A <b>vaporware</b> Wayland compositor built on top of wlroots using Nix and Cloj
 </div>
 </div>
 
-<div id="outline-container-org665a426" class="outline-2">
-<h2 id="org665a426"><span class="section-number-2">5</span> <a href="https://github.com/neeasade/passage">passage</a></h2>
+<div id="outline-container-org680f90b" class="outline-2">
+<h2 id="org680f90b"><span class="section-number-2">5</span> <a href="https://github.com/neeasade/passage">passage</a></h2>
 <div class="outline-text-2" id="text-5">
 <p>
 A password store built on top of the <a href="https://github.com/FiloSottile/age">age</a> encryption tool.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-21 Sat 21:52 -->
+<!-- 2020-11-23 Mon 16:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Test page</title>
@@ -19,26 +19,50 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -58,7 +82,7 @@ Inline image:
 </p>
 
 
-<div id="orga422439" class="figure">
+<div class="figure">
 <p><img src="./assets/posts/test.png" alt="test.png" />
 </p>
 </div>
@@ -95,12 +119,12 @@ some more examples: <a href="https://renenyffenegger.ch/notes/tools/Graphviz/exa
 </p>
 
 
-<div id="orgc549a3e" class="figure">
+<div class="figure">
 <p><img src="./assets/posts/test-dot.png" alt="test-dot.png" />
 </p>
 </div>
 
-<div id="outline-container-h-430694fe-e684-4e5a-9173-8806a206775c" class="outline-2">
+<div id="outline-container-orgcde0f3e" class="outline-2">
 <h2 id="h-430694fe-e684-4e5a-9173-8806a206775c"><span class="section-number-2">1</span> <a href="#h-430694fe-e684-4e5a-9173-8806a206775c">here is a headline!</a></h2>
 <div class="outline-text-2" id="text-h-430694fe-e684-4e5a-9173-8806a206775c">
 <p>
@@ -112,7 +136,7 @@ Mauris id efficitur felis. Duis luctus ante faucibus eros consectetur, eu placer
 </p>
 </div>
 
-<div id="outline-container-h-f00dcb3a-389f-4e9b-83de-c5231d9657e9" class="outline-3">
+<div id="outline-container-org052aa43" class="outline-3">
 <h3 id="h-f00dcb3a-389f-4e9b-83de-c5231d9657e9"><span class="section-number-3">1.1</span> <a href="#h-f00dcb3a-389f-4e9b-83de-c5231d9657e9">subheading</a></h3>
 <div class="outline-text-3" id="text-h-f00dcb3a-389f-4e9b-83de-c5231d9657e9">
 <ul class="org-ul">
@@ -126,7 +150,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo 
 </p>
 </div>
 
-<div id="outline-container-h-67749138-1184-4363-a60f-90d5ccc5ba13" class="outline-4">
+<div id="outline-container-org42b9eb3" class="outline-4">
 <h4 id="h-67749138-1184-4363-a60f-90d5ccc5ba13"><span class="section-number-4">1.1.1</span> <a href="#h-67749138-1184-4363-a60f-90d5ccc5ba13">another one</a></h4>
 <div class="outline-text-4" id="text-h-67749138-1184-4363-a60f-90d5ccc5ba13">
 </div>
@@ -134,7 +158,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo 
 </div>
 </div>
 
-<div id="outline-container-h-235b399a-d62d-49ec-959e-3288f7383eba" class="outline-2">
+<div id="outline-container-orgf665744" class="outline-2">
 <h2 id="h-235b399a-d62d-49ec-959e-3288f7383eba"><span class="section-number-2">2</span> <a href="#h-235b399a-d62d-49ec-959e-3288f7383eba">next heading</a></h2>
 <div class="outline-text-2" id="text-h-235b399a-d62d-49ec-959e-3288f7383eba">
 <hr />

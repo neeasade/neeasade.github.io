@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-21 Sat 21:52 -->
+<!-- 2020-11-23 Mon 16:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>On Emacs</title>
@@ -19,26 +19,50 @@
 <link rel="stylesheet" href="./assets/css/new.css">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
@@ -59,7 +83,7 @@ This post is a short love letter to emacs, the text editor that has changed the 
 Disclaimer: At the end of the day, a text editor is just a preference, just like mechanical keyboards, vim bindings, window managers and what have you.
 </p>
 
-<div id="outline-container-h-8e4f945a-37c2-4d42-be79-a975cade36f9" class="outline-2">
+<div id="outline-container-org30bf3d3" class="outline-2">
 <h2 id="h-8e4f945a-37c2-4d42-be79-a975cade36f9"><span class="section-number-2">1</span> <a href="#h-8e4f945a-37c2-4d42-be79-a975cade36f9">Programmable state</a></h2>
 <div class="outline-text-2" id="text-h-8e4f945a-37c2-4d42-be79-a975cade36f9">
 <p>
@@ -68,7 +92,7 @@ Emacs state is a long running emacs lisp repl, with all variable and function as
 </div>
 </div>
 
-<div id="outline-container-h-13fbbde3-2f8f-46bc-be50-2cacd057a744" class="outline-2">
+<div id="outline-container-orga1810fb" class="outline-2">
 <h2 id="h-13fbbde3-2f8f-46bc-be50-2cacd057a744"><span class="section-number-2">2</span> <a href="#h-13fbbde3-2f8f-46bc-be50-2cacd057a744">Blended environment</a></h2>
 <div class="outline-text-2" id="text-h-13fbbde3-2f8f-46bc-be50-2cacd057a744">
 <p>
@@ -77,7 +101,7 @@ Emacs can be thought of as a toolkit for integrating textual data into a higher 
 </div>
 </div>
 
-<div id="outline-container-h-97a67f51-b0b7-49c7-be42-83a026b58043" class="outline-2">
+<div id="outline-container-orgc88999f" class="outline-2">
 <h2 id="h-97a67f51-b0b7-49c7-be42-83a026b58043"><span class="section-number-2">3</span> <a href="#h-97a67f51-b0b7-49c7-be42-83a026b58043">Emacs lisp</a></h2>
 <div class="outline-text-2" id="text-h-97a67f51-b0b7-49c7-be42-83a026b58043">
 <p>
@@ -86,15 +110,15 @@ Emacs lisp is the first lisp I've used for more than 10 seconds, because you're 
 </div>
 </div>
 
-<div id="outline-container-h-525c8289-7b42-4e7c-a08f-101994ca8066" class="outline-2">
+<div id="outline-container-orgd4ba7a1" class="outline-2">
 <h2 id="h-525c8289-7b42-4e7c-a08f-101994ca8066"><span class="section-number-2">4</span> <a href="#h-525c8289-7b42-4e7c-a08f-101994ca8066">Fun things I've done with emacs</a></h2>
 <div class="outline-text-2" id="text-h-525c8289-7b42-4e7c-a08f-101994ca8066">
 </div>
-<div id="outline-container-h-fadca8cd-9f0e-404d-a820-a892afd4dc7c" class="outline-3">
+<div id="outline-container-org1667156" class="outline-3">
 <h3 id="h-fadca8cd-9f0e-404d-a820-a892afd4dc7c"><span class="section-number-3">4.1</span> <a href="#h-fadca8cd-9f0e-404d-a820-a892afd4dc7c">Shell stuff</a></h3>
 <div class="outline-text-3" id="text-h-fadca8cd-9f0e-404d-a820-a892afd4dc7c">
 </div>
-<div id="outline-container-h-c641f262-63ae-40c1-847b-f32801e1b447" class="outline-4">
+<div id="outline-container-org3d8366d" class="outline-4">
 <h4 id="h-c641f262-63ae-40c1-847b-f32801e1b447"><span class="section-number-4">4.1.1</span> <a href="#h-c641f262-63ae-40c1-847b-f32801e1b447"><code>shell-mode</code> as my terminal, with a staged shell buffer</a></h4>
 <div class="outline-text-4" id="text-h-c641f262-63ae-40c1-847b-f32801e1b447">
 <p>
@@ -113,7 +137,7 @@ This means there is no startup time or delay on the part of the shell for me to 
 </div>
 </div>
 
-<div id="outline-container-h-c158a52f-4538-4a23-a7a5-1c4e714d7e19" class="outline-4">
+<div id="outline-container-org2da956d" class="outline-4">
 <h4 id="h-c158a52f-4538-4a23-a7a5-1c4e714d7e19"><span class="section-number-4">4.1.2</span> <a href="#h-c158a52f-4538-4a23-a7a5-1c4e714d7e19">Shell $CWD history</a></h4>
 <div class="outline-text-4" id="text-h-c158a52f-4538-4a23-a7a5-1c4e714d7e19">
 <p>
@@ -122,7 +146,7 @@ Everytime my prompt prints, it prints a key string for emacs shell to pickup, se
 </div>
 </div>
 
-<div id="outline-container-h-b176dd54-5955-4d01-8ad3-7e8a1ec8a21f" class="outline-4">
+<div id="outline-container-org6dbe479" class="outline-4">
 <h4 id="h-b176dd54-5955-4d01-8ad3-7e8a1ec8a21f"><span class="section-number-4">4.1.3</span> <a href="#h-b176dd54-5955-4d01-8ad3-7e8a1ec8a21f">Scripts and functions</a></h4>
 <div class="outline-text-4" id="text-h-b176dd54-5955-4d01-8ad3-7e8a1ec8a21f">
 <p>
@@ -172,7 +196,7 @@ import/Vapor Memory/Windows&#24417;96  - Gradient Horizont.opus
 </div>
 
 
-<div id="outline-container-h-a90f40d3-9b7a-4072-ba55-79706612e385" class="outline-3">
+<div id="outline-container-org4cecdb5" class="outline-3">
 <h3 id="h-a90f40d3-9b7a-4072-ba55-79706612e385"><span class="section-number-3">4.2</span> <a href="#h-a90f40d3-9b7a-4072-ba55-79706612e385">Org pomodoro status</a></h3>
 <div class="outline-text-3" id="text-h-a90f40d3-9b7a-4072-ba55-79706612e385">
 <p>
@@ -187,7 +211,7 @@ Write 'On Emacs' &#9632;&#9632;&#9632;&#9633;&#9633;&#9633;&#9633;&#9633;&#9633;
 </div>
 </div>
 
-<div id="outline-container-h-b7164713-2ccc-4516-88b3-e9e9d0cc5280" class="outline-3">
+<div id="outline-container-org5bc50ad" class="outline-3">
 <h3 id="h-b7164713-2ccc-4516-88b3-e9e9d0cc5280"><span class="section-number-3">4.3</span> <a href="#h-b7164713-2ccc-4516-88b3-e9e9d0cc5280">Contextual inline eval for lisps</a></h3>
 <div class="outline-text-3" id="text-h-b7164713-2ccc-4516-88b3-e9e9d0cc5280">
 <p>
@@ -195,14 +219,14 @@ I have a lisp eval function that will have different targets in different situat
 </p>
 
 
-<div id="org87d5764" class="figure">
+<div class="figure">
 <p><a href="./assets/posts/eros.png"><img src="./assets/posts/eros.png" alt="eros.png" /></a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-h-47ae41c2-5ecb-442f-b142-2e8c8cb05f0e" class="outline-3">
+<div id="outline-container-orgac1723c" class="outline-3">
 <h3 id="h-47ae41c2-5ecb-442f-b142-2e8c8cb05f0e"><span class="section-number-3">4.4</span> <a href="#h-47ae41c2-5ecb-442f-b142-2e8c8cb05f0e">IRC + highlight buffer</a></h3>
 <div class="outline-text-3" id="text-h-47ae41c2-5ecb-442f-b142-2e8c8cb05f0e">
 <p>
@@ -210,7 +234,7 @@ I created a derived text mode for irc highlights that allows me to jump to menti
 </p>
 
 
-<div id="orgb884c16" class="figure">
+<div class="figure">
 <p><a href="./assets/posts/circe.png"><img src="./assets/posts/circe.png" alt="circe.png" /></a>
 </p>
 </div>
@@ -218,7 +242,7 @@ I created a derived text mode for irc highlights that allows me to jump to menti
 </div>
 
 
-<div id="outline-container-h-91a68a46-e5fc-485f-a1cb-f6464acec9fd" class="outline-3">
+<div id="outline-container-orgcdbdd40" class="outline-3">
 <h3 id="h-91a68a46-e5fc-485f-a1cb-f6464acec9fd"><span class="section-number-3">4.5</span> <a href="#h-91a68a46-e5fc-485f-a1cb-f6464acec9fd">Meta file switcher</a></h3>
 <div class="outline-text-3" id="text-h-91a68a46-e5fc-485f-a1cb-f6464acec9fd">
 <p>
@@ -237,7 +261,7 @@ And then I just have to fuzzy type to get to a matching file.
 </div>
 </div>
 
-<div id="outline-container-h-67f8078e-b949-4c42-a763-169d8f0e05a7" class="outline-3">
+<div id="outline-container-orge1c7c18" class="outline-3">
 <h3 id="h-67f8078e-b949-4c42-a763-169d8f0e05a7"><span class="section-number-3">4.6</span> <a href="#h-67f8078e-b949-4c42-a763-169d8f0e05a7">Meta GOTO thing</a></h3>
 <div class="outline-text-3" id="text-h-67f8078e-b949-4c42-a763-169d8f0e05a7">
 <p>
@@ -253,7 +277,7 @@ I have a function that will follow 'thing' at point, handling:
 </div>
 </div>
 
-<div id="outline-container-h-068ed8fe-fa21-43df-96e4-1360d1684886" class="outline-2">
+<div id="outline-container-orgc631121" class="outline-2">
 <h2 id="h-068ed8fe-fa21-43df-96e4-1360d1684886"><span class="section-number-2">5</span> <a href="#h-068ed8fe-fa21-43df-96e4-1360d1684886">Other</a></h2>
 <div class="outline-text-2" id="text-h-068ed8fe-fa21-43df-96e4-1360d1684886">
 <p>

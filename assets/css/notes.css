@@ -45,21 +45,33 @@ img {
     float: right;
 }
 
-.colorblock {
+.colorblock{
     min-width: fit-content;
 
     text-align: center;
-    height: 50px;
-    line-height: 50px;
+    min-height: 50px;
 
     display: block;
     font-family: var(--nc-font-mono);
     font-size: 0.9rem;
 }
 
+.colorpadding {
+    padding: 5px;
+    margin: 5px;
+}
+
+.colorcenter {
+    line-height: 50px;
+}
+
+/* p ~ .detail { */
+/*     display: none; */
+/* } */
+
 .detail {
     text-align: center;
-    margin-top: 0px;
+    margin-top: -0.9rem;
     padding-top: 0px;
     font-size: 0.9rem;
 }

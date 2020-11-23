@@ -14,10 +14,10 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes]]></description>
   <language>en</language>
-  <pubDate>Sat, 21 Nov 2020 21:52:57 -0600</pubDate>
-  <lastBuildDate>Sat, 21 Nov 2020 21:52:57 -0600</lastBuildDate>
-  <generator>Emacs 27.1 Org-mode 9.4</generator>
-  <webMaster>neeasade@erasmus (nil)</webMaster>
+  <pubDate>Mon, 23 Nov 2020 16:14:50 -0600</pubDate>
+  <lastBuildDate>Mon, 23 Nov 2020 16:14:50 -0600</lastBuildDate>
+  <generator>Emacs 27.1 Org-mode 9.3.1</generator>
+  <webMaster>neeasade@geloof (nil)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>neeasade's notes</title>
@@ -27,7 +27,7 @@
   <item>
     <title>my shell prompt</title>
     <link>https://notes.neeasade.net/my-shell-prompt.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/my-shell-prompt.html</guid>
     <pubDate>Mon, 09 Nov 2020 00:00:00 -0600</pubDate>
 
@@ -36,7 +36,7 @@
   <item>
     <title>Automata tiling backgrounds 2</title>
     <link>https://notes.neeasade.net/Automata-tiling-backgrounds-2.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Automata-tiling-backgrounds-2.html</guid>
     <pubDate>Fri, 14 Aug 2020 00:00:00 -0500</pubDate>
 
@@ -45,7 +45,7 @@
   <item>
     <title>8 Months Adrift</title>
     <link>https://notes.neeasade.net/Aug-2020.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Aug-2020.html</guid>
     <pubDate>Tue, 04 Aug 2020 00:00:00 -0500</pubDate>
 
@@ -54,7 +54,7 @@
   <item>
     <title>Pinebook Pro</title>
     <link>https://notes.neeasade.net/Pinebook-Pro.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Pinebook-Pro.html</guid>
     <pubDate>Tue, 09 Jun 2020 00:00:00 -0500</pubDate>
 
@@ -63,7 +63,7 @@
   <item>
     <title>tickling bash, the quest for the perfect menu</title>
     <link>https://notes.neeasade.net/tickling-bash-a-rofi-adventure.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/tickling-bash-a-rofi-adventure.html</guid>
     <pubDate>Sun, 10 May 2020 00:00:00 -0500</pubDate>
 
@@ -72,7 +72,7 @@
   <item>
     <title>Automata tiling backgrounds</title>
     <link>https://notes.neeasade.net/Automata-tiling-backgrounds.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/Automata-tiling-backgrounds.html</guid>
     <pubDate>Fri, 08 May 2020 00:00:00 -0500</pubDate>
 
@@ -81,7 +81,7 @@
   <item>
     <title>checking for toots</title>
     <link>https://notes.neeasade.net/checking-for-toots.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/checking-for-toots.html</guid>
     <pubDate>Sun, 03 May 2020 00:00:00 -0500</pubDate>
 
@@ -90,7 +90,7 @@
   <item>
     <title>May Days</title>
     <link>https://notes.neeasade.net/blog-meta.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/blog-meta.html</guid>
     <pubDate>Sat, 02 May 2020 00:00:00 -0500</pubDate>
 
@@ -99,7 +99,7 @@
   <item>
     <title>reverse ssh tunnels</title>
     <link>https://notes.neeasade.net/reverse-ssh-tunnels.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/reverse-ssh-tunnels.html</guid>
     <pubDate>Fri, 10 Apr 2020 00:00:00 -0500</pubDate>
 
@@ -108,7 +108,7 @@
   <item>
     <title>xero's irc ref</title>
     <link>https://notes.neeasade.net/xeros-irc-ref.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/xeros-irc-ref.html</guid>
     <pubDate>Sat, 04 Apr 2020 00:00:00 -0500</pubDate>
 
@@ -117,7 +117,7 @@
   <item>
     <title>adhoc executable patching on nixos</title>
     <link>https://notes.neeasade.net/adhoc-executable-patching-on-nix.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/adhoc-executable-patching-on-nix.html</guid>
     <pubDate>Sat, 14 Mar 2020 00:00:00 -0500</pubDate>
 
@@ -126,7 +126,7 @@
   <item>
     <title>On Emacs</title>
     <link>https://notes.neeasade.net/On-Emacs.html</link>
-    <author>neeasade@erasmus (nil)</author>
+    <author>neeasade@geloof (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/On-Emacs.html</guid>
     <pubDate>Fri, 06 Dec 2019 00:00:00 -0600</pubDate>
 
