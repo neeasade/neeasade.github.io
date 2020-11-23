@@ -10,15 +10,7 @@
 	(ns/color-gradient (length word)
 			   (ht-get ns/theme :foreground)
 			   (ht-get ns/theme :background)
-			   t))
-
-       ;; (colors (-map (fn (-reduce-from
-       ;; 			  (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
-       ;; 			  "#2d249f"
-       ;; 			  (range (+ 1 <>))))
-       ;; 		     (range (length word))))
-
-       )
+			   t)))
   (ns/blog-make-color-strip colors (-map 'string word))
   )
 #+end_SRC
@@ -121,18 +113,9 @@ Let's see the effect saturation has:
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ns/color-hsl-transform acc
-				  (lambda (H S L)
-				    (list H
-					  ;; correct for our starting position
-					  (+ 10 (* 10 (first (cl-round S 10))))
-					  L))))
-	;; starting with 1% saturation (0% removes our hue entirely)
-(ns/color-make-hsl 240 1 50)
-	(range 10))))
+       (-map
+	(fn (ns/color-make-hsl 240 (* 10 <>) 50))
+	(range 11))))
 #+end_src
 {{{detail(HSL: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
 
@@ -141,17 +124,9 @@ And lightness:
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ns/color-hsl-transform acc
-				  (lambda (H S L)
-				    (list H
-					  S
-					  ;; correct for our starting position
-					  (+ 10 (* 10 (first (cl-round L 10))))))))
-(ns/color-make-hsl 240 50 1)
-	(range 10))))
+       (-map
+	(fn (ns/color-make-hsl 240 50 (* 10 <>)))
+	(range 11))))
 #+end_src
 {{{detail(HSL: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
@@ -191,19 +166,9 @@ Saturation:
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ns/color-hsluv-transform acc
-				  (lambda (H S L)
-				    (list H
-					  ;; correct for our starting position
-					  (+ 10 (* 10 (first (cl-round S 10))))
-					  L))))
-	;; starting with 1% saturation (0% removes our hue entirely)
-    (ns/color-make-hsluv 240 1 50)
-	;; "#7e387e3880c5"
-	(range 10))))
+       (-map
+	(fn (ns/color-make-hsluv 240 (* 10 <>) 50))
+	(range 11))))
 #+end_src
 {{{detail(HSLuv: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
 
@@ -212,18 +177,9 @@ Lightness:
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ns/color-hsluv-transform acc
-				  (lambda (H S L)
-				    (list H
-					  S
-					  ;; correct for our starting position
-					  (+ 10 (* 10 (first (cl-round L 10))))))))
-	;; starting with 1% lightness (0% removes our hue entirely)
-    (ns/color-make-hsluv 240 50 1)
-	(range 10))))
+       (-map
+	(fn (ns/color-make-hsluv 240 50 (* 10 <>)))
+	(range 11))))
 #+end_src
 {{{detail(HSLuv: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
@@ -236,9 +192,9 @@ TODO: expound on hsluv here?
 
 [[https://en.wikipedia.org/wiki/CIELAB_color_space][wikipedia link]]
 
-| [L]ightness |                 0-100 | Light level                                                                                                                                                 |
-| [A] toggle  |              -100-100 | green <--> red                                                                                                                                              |
-| [B] toggle  |              -100-100 | blue <--> yellow                                                                                                                                            |
+| [L]ightness |                 0-100 | Light level                                                                                         |
+| [A] toggle  |              -100-100 | green <--> red                                                                                      |
+| [B] toggle  |              -100-100 | blue <--> yellow                                                                                    |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
 
 The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to functions when converting into and out of the CIELAB colorspace.
@@ -561,7 +517,21 @@ Color distance is a measure of how far apart colors are by properties
 :PROPERTIES:
 :CUSTOM_ID: h-1ed7ea90-395e-4486-a11c-6f3c9054dd15
 :END:
-have high value and low saturation.
+
+"Pastel Colors" when described in HSL have high lightness and low saturation. This means we can invent a function to "pastelize" a color, bit by bit. Let's take a rather dark defined color {{{color(#2d249f)}}}, and run it through with the same effect we have at the top of this page:
+
+#+BEGIN_SRC elisp :results raw :exports results
+(let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
+       (colors (-map (fn (-reduce-from
+			  (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
+			  "#2d249f"
+			  (range (+ 1 <>))))
+		     (range (length word))))
+
+       )
+  (ns/blog-make-color-strip colors (-map 'string word)))
+#+end_SRC
+
 
 *** TODO [[#h-81b4122f-f725-45ec-8c4a-437688cbcc2a][Colorwheel rotations]]
 :PROPERTIES:
@@ -614,30 +584,6 @@ I also implemented a function for comparing contrast, referencing Peter Occil's 
 ;; => 3.0000000000000004
 #+end_src
 
-These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ns/color-iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}}!)
-
-#+begin_src emacs-lisp
-(ns/color-iterate
- "#eeeeee"
-
- ;; Darken the color a little at a time in LAB space:
- (lambda (c)
-   (ns/color-lab-transform
-    c
-    (lambda (L A B)
-      (list (- L 0.1)
-	    A B))))
-
- ;; check that we've reached some desired contrast ratio
- ;; 4.5, Here against a background #f7f7f7
- (lambda (c)
-   (> (ns/color-contrast-ratio "#f7f7f7" c)
-      4.5)))
-
-;; => "#2d662ca72d1b"
-;; (converted: #2d2c2c)
-#+end_src
-
 Is a color light? just check the lightness value in LAB space (note: that 65 value is \tilde{}opinions~):
 #+begin_src emacs-lisp
 (defun ns/color-is-light-p (name)
@@ -662,6 +608,29 @@ A neat trick you can do with this is decide whether or not to use a dark or ligh
 	   "#ffddd2"))))
 #+end_src
 
+These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ns/color-iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}}!)
+
+#+begin_src emacs-lisp
+(ns/color-iterate
+ "#eeeeee"
+
+ ;; Darken the color a little at a time in LAB space:
+ (lambda (c)
+   (ns/color-lab-transform
+    c
+    (lambda (L A B)
+      (list (- L 0.1)
+	    A B))))
+
+ ;; check that we've reached some desired contrast ratio
+ ;; 4.5, Here against a background #f7f7f7
+ (lambda (c)
+   (> (ns/color-contrast-ratio "#f7f7f7" c)
+      4.5)))
+
+;; => "#2d662ca72d1b"
+;; (converted: #2d2c2c)
+#+end_src
 
 ** [[#h-0942db07-512b-45d6-8fd2-f3a641379b66][Vision quest]]
 :PROPERTIES:
