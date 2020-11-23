@@ -23,11 +23,14 @@
   )
 #+end_SRC
 
-In July 2020 I went on a colorscheme vision quest. This led to some research on various [[https://en.wikipedia.org/wiki/Color_space][color spaces]] and their utility, some investigation into the [[http://chriskempson.com/projects/base16/#styling-guidelines][styling guidelines]] outlined by the base16 project, and the [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][color utilities]] that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
+In July 2020 I went on a color-scheme vision quest. This led to some research on various [[https://en.wikipedia.org/wiki/Color_space][color spaces]] and their utility, some investigation into the [[http://chriskempson.com/projects/base16/#styling-guidelines][styling guidelines]] outlined by the base16 project, and the [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][color utilities]] that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
 
-** Motivation
+** [[#h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620][Motivation]]
+:PROPERTIES:
+:CUSTOM_ID: h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620
+:END:
 
-I've been a part of several linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way.
+I've been a part of several Linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way.
 
 I'm colorblind. This means I might be really picky about some colors. For example, I don't like the color red used for emphasis in text -- thin red lines look the same as thin black lines to me (and so, red text doesn't typically >POP< for me, unless it's bold or has some other emphasis included).
 
@@ -35,39 +38,51 @@ Bootstrapping builders exist for base16! If I can bootstrap on top of their syst
 
 Plus, I just find this sort of thing really fun. Visual feedback is pleasing. Finding the right colors makes my lizard brain return to monke.
 
-** Side note: The Canvas
+** [[#h-3820d027-5602-4691-b9ca-b36aadd3871a][Side note: The Canvas]]
+:PROPERTIES:
+:CUSTOM_ID: h-3820d027-5602-4691-b9ca-b36aadd3871a
+:END:
 
 This will be the focal point of inconsistency. The level of brightness, quality of screen, and ambient lighting level are all things that affect the value of the screen's [[https://en.wikipedia.org/wiki/White_point][white point]], which is what everything else is relative too. Luckily you can (attempt to) account for this as well.
 
-** Color Spaces
+** [[#h-a71813d2-7e36-4f52-b22c-87e22d4a2620][Color Spaces]]
+:PROPERTIES:
+:CUSTOM_ID: h-a71813d2-7e36-4f52-b22c-87e22d4a2620
+:END:
 
-Color spaces are ways of defining colors in different sets of properties. They are the main tool you will have for reasoning about tweaking /individual/ colors. You can then mess with these and convert them back into a format you can render (typically RGB) within a [[https://en.wikipedia.org/wiki/Gamut][color gamut]] (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like.
+Color spaces are ways of defining colors in different sets of properties. They are the main tool you will have for reasoning about tweaking /individual/ colors. You can then mess with these and convert them back into a format you can render (typically RGB) within a [[https://en.wikipedia.org/wiki/Gamut][color gamut]] (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like. When I define the valid values for ranges, I will be using the scale I've implemented in my [[#h-cb3c6479-7d62-4028-8942-2b033bb1247a][helpers]].
 
 TODO: link color resource section here
 
-*** RGB
+*** [[#h-99356355-d54c-41d8-bc1a-6e14e29f42c8][RGB]]
+:PROPERTIES:
+:CUSTOM_ID: h-99356355-d54c-41d8-bc1a-6e14e29f42c8
+:END:
 
 The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach {{{color(#ffffff)}}} (and down, -> {{{color(#000000)}}}). This isn't particularly flexible in "ways you can think about colors".
 
 Here is a gradient from {{{color(#cc3333)}}} to {{{color(#33cc33)}}} to {{{color(#3333cc)}}}:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
   (ns/color-gradient 15 "#cc3333" "#33cc33" t)
   (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t))))
-#+end_SRC
+#+end_src
 
- To show the lighting effect, let's repeat the above gradient, but instead of using ~33~ for filler, we'll use ~99~ -- that's triple(!) the secondary color amounts:
+To show the lighting effect, let's repeat the above gradient, but instead of using ~33~ for filler, we'll use ~99~ -- that's triple(!) the secondary color amounts:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
   (ns/color-gradient 15 "#cc9999" "#99cc99" t)
   (cdr (ns/color-gradient 15 "#99cc99" "#9999cc" t))))
-#+end_SRC
+#+end_src
 
-*** HSL
+*** [[#h-43869bc7-a7d1-410f-9341-521974751dac][HSL]]
+:PROPERTIES:
+:CUSTOM_ID: h-43869bc7-a7d1-410f-9341-521974751dac
+:END:
 
 [[https://en.wikipedia.org/wiki/HSL_and_HSV][wikipedia: HSL and HSV]]
 
@@ -81,7 +96,7 @@ Saturation in HSL is a controlled version of chromacity ("distance from gray"). 
 
 Hue has several defined points (at rotating 60° angles), I like to think of it like a color compass:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -100,12 +115,12 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
    "cyan, 180°"
    "blue, 240°"
    "magenta, 300°"))
-#+end_SRC
+#+end_src
 {{{detail(HSL: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
 
 Let's see the effect saturation has:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -120,12 +135,12 @@ Let's see the effect saturation has:
 	;; starting with 1% saturation (0% removes our hue entirely)
 (ns/color-make-hsl 240 1 50)
 	(range 10))))
-#+end_SRC
+#+end_src
 {{{detail(HSL: saturation scale 0-100% (step 10%), luminance 50%, hue 240° (blue))}}}
 
 And luminance:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -139,16 +154,19 @@ And luminance:
 					  (+ 10 (* 10 (first (cl-round L 10))))))))
 (ns/color-make-hsl 240 50 1)
 	(range 10))))
-#+end_SRC
+#+end_src
 {{{detail(HSL: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
-*** HSLuv
+*** [[#h-c147b84d-d95b-4d2d-8426-2f96529a8428][HSLuv]]
+:PROPERTIES:
+:CUSTOM_ID: h-c147b84d-d95b-4d2d-8426-2f96529a8428
+:END:
 
 [[https://www.hsluv.org/comparison/][hsluv]] is an altered version of HSL that tries to be perceptually uniform with regards to luminance. HSL luminance by comparison is hard to make contrast comparisons in.
 
 What does that mean for us? Well, let's take our above examples and recreate them in the HSLuv space:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -167,12 +185,12 @@ What does that mean for us? Well, let's take our above examples and recreate the
    "cyan, 180°"
    "blue, 240°"
    "magenta, 300°"))
-#+end_SRC
+#+end_src
 {{{detail(HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, luminance 50%)}}}
 
 Saturation:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -188,12 +206,12 @@ Saturation:
     (ns/color-make-hsluv 240 1 50)
 	;; "#7e387e3880c5"
 	(range 10))))
-#+end_SRC
+#+end_src
 {{{detail(HSLuv: saturation scale 0-100% (step 10%), luminance 50%, hue 240° (blue))}}}
 
 Luminance:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -208,17 +226,21 @@ Luminance:
 	;; starting with 1% luminance (0% removes our hue entirely)
     (ns/color-make-hsluv 240 50 1)
 	(range 10))))
-#+end_SRC
+#+end_src
 {{{detail(HSLuv: luminance scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
+TODO: expound on hsluv here?
 
-*** CIELAB
+*** [[#h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e][CIELAB]]
+:PROPERTIES:
+:CUSTOM_ID: h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e
+:END:
 
 [[https://en.wikipedia.org/wiki/CIELAB_color_space][wikipedia link]]
 
-| [L]uminance |    0-100 | Light level      |
-| [A] toggle  | -100-100 | green <--> red   |
-| [B] toggle  | -100-100 | blue <--> yellow |
+| [L]uminance |                 0-100 | Light level                                                                                                                                                 |
+| [A] toggle  |              -100-100 | green <--> red                                                                                                                                              |
+| [B] toggle  |              -100-100 | blue <--> yellow                                                                                                                                            |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
 
 The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to functions when converting into and out of the CIELAB colorspace.
@@ -234,7 +256,7 @@ The knobs A and B allow you to play with the 4 primary colors of the LAB space. 
 
 Let's look at some LAB colors. The labels below will have the values of  ~(L A B)~ -- Remember, A is green to red, B is blue to yellow (each with a value -100 to 100)
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (s-join
  "\n"
  (-map (lambda (colors)
@@ -259,9 +281,9 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
      (50 40 0)
      (50 60 0)
      (50 80 0)))))
-#+end_SRC
+#+end_src
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (s-join
  "\n"
  (-map (lambda (colors)
@@ -285,9 +307,9 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
 	  (50 0 40)
 	  (50 0 60)
 	  (50 0 80)))))
-#+end_SRC
+#+end_src
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (s-join
  "\n"
  (-map (lambda (colors)
@@ -311,16 +333,22 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
      (50 40 40)
      (50 60 60)
      (50 80 80)))))
-#+end_SRC
+#+end_src
 
 {{{detail(lab scales: -A -> +A, -B -> +B, {-A,-B} -> {+A,+B})}}}
 
-*** LCH
+*** [[#h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413][LCh]]
+:PROPERTIES:
+:CUSTOM_ID: h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413
+:END:
 
+| [L]uminance  | 0-100 | Light level        |
+| [C]hromacity | 0-100 | Distance from gray |
+| [h]ue        | 0-360 | Color "direction"  |
 
-LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is different. Instead of 6 defined islands to sail to with our color compass, there are 4:
+LCh is a "cylindrical" version of cieLAB. What that means for us is that Hue is different. Instead of 6 defined islands to sail to with our color compass, there are 4:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (-map 'ns/color-shorten
        (-reductions-from
@@ -330,7 +358,6 @@ LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 				  (lambda (L C H)
 				    (list L C (+ 90 H)))))
 
-	;; starting with 1% saturation (0% removes our hue entirely)
 	(ns/color-make-lch 50 50 0)
 	(range 3)))
  '("red, 0°"
@@ -338,96 +365,201 @@ LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
    "green, 180°"
    "blue, 270°"
    ))
-#+end_SRC
-{{{detail(lCH: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%)}}}
+#+end_src
+{{{detail(LCh: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%)}}}
+
+Chromacity, "distance from gray":
+
+#+begin_src elisp :results raw :exports results
+(ns/blog-make-color-strip
+ (-map 'ns/color-shorten
+       (-reductions-from
+	(lambda (acc new)
+	  ;; list
+	  (ns/color-lch-transform acc
+				  (lambda (L C H)
+				    (list L
+					  ;; correct for our starting position
+					  (+ 10 (* 10 (first (cl-round C 10))))
+					  H))))
+(ns/color-make-lch 50 1 270)
+	(range 10))))
+#+end_src
+
+{{detail(LCh: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue))}}}
+
+Let's take some colors and then maximize their chromas:
 
 
+** TODO [[#h-e1c795a7-b3d9-4be3-9874-1b98a2069520][Other stuff]]
+:PROPERTIES:
+:CUSTOM_ID: h-e1c795a7-b3d9-4be3-9874-1b98a2069520
+:END:
 
-note the different hue here
-chromacity, "distance from gray"
-
-** TODO Other stuff
-
-*** Contrast
+*** [[#h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51][Contrast]]
+:PROPERTIES:
+:CUSTOM_ID: h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51
+:END:
 
 For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: [[https://www.w3.org/TR/WCAG/#contrast-minimum][link]]. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the `base-16` grayscale sets: {{{color(#f7f7f7)}}} and {{{color(#101010)}}}. For reference, the contrast ratio between {{{color(#000000)}}} and {{{color(#ffffff}}} is 21.0
 
 dark:
 
-#+BEGIN_SRC elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ns/color-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ns/color-tint-ratio acc "#101010" new)
+#+begin_src elisp :results raw :exports results
+(s-join "\n"
+	`(
+	  "@@html: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  @@"
+	  ,@(-map
+	     (lambda (fg)
+	       (ns/blog-make-color-block
+		(/ 100.0 5.0)
+		"#101010"
+		(second fg)
+		(ns/color-shorten (first fg))
+		))
 
-	  ;; (ns/color-lch-transform acc
-	  ;; 			  (lambda (L C H)
-	  ;; 			    (list L C (+ 90 H))))
-	  )
-
-	;; starting with 1% saturation (0% removes our hue entirely)
-	;; (ns/color-make-lch 50 50 0)
-	"#101010"
-	'(2.0 2.5 3.0 4.0 4.5)
-	))
-
- (-map 'number-to-string '(2.0 2.5 3.0 4.0 4.5))
- )
-
+	     (cdr
+	      (-reductions-from
+	       (lambda (acc new)
+		 (list (ns/color-tint-ratio
+			(first acc)
+			"#101010" new) new))
+	       '("#101010")
+	       '(2.0 2.5 3.0 4.0 4.5)
+	       )))
+	  "@@html: </div> @@"
+	  ))
 #+end_src
-
-#+BEGIN_SRC elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ns/color-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ns/color-tint-ratio acc "#101010" new)
-
-	  ;; (ns/color-lch-transform acc
-	  ;; 			  (lambda (L C H)
-	  ;; 			    (list L C (+ 90 H))))
-	  )
-
-	;; starting with 1% saturation (0% removes our hue entirely)
-	;; (ns/color-make-lch 50 50 0)
-	"#f7f7f7"
-	'(2.0 2.5 3.0 4.0 4.5)
-	))
-
- (-map 'number-to-string '(2.0 2.5 3.0 4.0 4.5))
- )
-
-#+end_src
-
-
-
 
 light:
 
-*** TODO Distance
+#+begin_src elisp :results raw :exports results
+(s-join "\n"
+	`(
+	  "@@html: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  @@"
+	  ,@(-map
+	     (lambda (fg)
+	       (ns/blog-make-color-block
+		(/ 100.0 5.0)
+		"#f7f7f7"
+		(second fg)
+		(ns/color-shorten (first fg))
+		))
 
-*** TODO Gradients
-*** TODO Pastel
-pastel definition
-*** TODO Colorwheel rotations
+	     (cdr
+	      (-reductions-from
+	       (lambda (acc new)
+		 (list (ns/color-tint-ratio
+			(first acc)
+			"#f7f7f7" new) new))
+	       '("#f7f7f7")
+	       '(2.0 2.5 3.0 4.0 4.5)
+	       )))
+	  "@@html: </div> @@"
+	  ))
+#+end_src
+
+*** TODO [[#h-e260bdea-3408-47e6-a195-f5a62ed979bc][Distance]]
+:PROPERTIES:
+:CUSTOM_ID: h-e260bdea-3408-47e6-a195-f5a62ed979bc
+:END:
+
+*** TODO [[#h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01][Gradients]]
+:PROPERTIES:
+:CUSTOM_ID: h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01
+:END:
+
+*** [[#h-1ed7ea90-395e-4486-a11c-6f3c9054dd15][Pastel]]
+:PROPERTIES:
+:CUSTOM_ID: h-1ed7ea90-395e-4486-a11c-6f3c9054dd15
+:END:
+have high value and low saturation.
+
+*** TODO [[#h-81b4122f-f725-45ec-8c4a-437688cbcc2a][Colorwheel rotations]]
+:PROPERTIES:
+:CUSTOM_ID: h-81b4122f-f725-45ec-8c4a-437688cbcc2a
+:END:
 talk about hue rotations, visualize some in different spaces
-*** TODO white-point adjustment
+
+*** TODO [[#h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532][white-point adjustment]]
+:PROPERTIES:
+:CUSTOM_ID: h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532
+:END:
 cielab relative white point adjustment
 
-** Implementing helpers
-mention notice of emacs colors.el
+** [[#h-cb3c6479-7d62-4028-8942-2b033bb1247a][Implementing helpers]]
+:PROPERTIES:
+:CUSTOM_ID: h-cb3c6479-7d62-4028-8942-2b033bb1247a
+:END:
+
+This section is about the tools I implemented and use to actually do the thing™.
+
+Emacs ships with a fair amount of [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][conversion functions]], but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue ~color-name-to-rgb~, ~color-srgb-to-lab~, ~color-lab-to-lch~, and pipe back out. To assist with this, I implemented some [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el][wrappers]] that would do the conversion to your space of choice (coming from the 'name', strings eg "{{{color(#c930e8)}}}"). Here's an example -- say you wanted to increase luminosity of that color by a multiplier ~1.5~:
+
+#+begin_src emacs-lisp
+(ns/color-hsl-transform
+ "#c930e8"
+ (lambda (H S L)
+   (list H S (* 1.5 L))))
+
+;; => "#eb16af59f708"
+#+end_src
+
+{{{color(#eb16af59f708)}}} is definitely a lighter color, nice.
+
+#+begin_quote
+Side note for the notation here: Emacs colors use 4 bytes, not 2, which is why we have such a long boy there. When I export to HTML I use do a pass to shorten the color into a 2 byte space so the browser can render it.
+#+end_quote
+
+I also implemented a function for comparing contrast, referencing Peter Occil's wonderful [[https://peteroupc.github.io/colorgen.html][color notes]]:
+
+#+begin_src emacs-lisp
+;; order does not matter:
+(ns/color-contrast-ratio "#ffffff" "#445544")
+
+;; => 3.0000000000000004
+#+end_src
+
+These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ns/color-iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}!)
+
+#+begin_src emacs-lisp
+(ns/color-iterate
+ "#eeeeee"
+
+ ;; Darken the color a little at a time in LAB space:
+ (lambda (c)
+   (ns/color-lab-transform
+    c
+    (lambda (L A B)
+      (list (- L 0.1)
+	    A B))))
+
+ ;; check that we've reached some desired contrast ratio
+ ;; 4.5, Here against a background #f7f7f7
+ ;; (here 4.5)
+ (lambda (c)
+   (> (ns/color-contrast-ratio "#f7f7f7" c)
+      4.5)))
+
+;; => "#2d662ca72d1b"
+;; (converted: #2d2c2c)
+#+end_src
+
+
 how you built transformation colors and also reference the really helpful color notes
 
-** Vision quest
+** [[#h-0942db07-512b-45d6-8fd2-f3a641379b66][Vision quest]]
+:PROPERTIES:
+:CUSTOM_ID: h-0942db07-512b-45d6-8fd2-f3a641379b66
+:END:
 
 > wants
+
 Create a map of colors meant to be used for different purposes and emphasis:.....
 list the properties here
 
 > method
+
 proceed to experiment a bunch within colorspaces used above -- note some things you've played with:
 colorwheel rotations
 complementary colors
@@ -437,56 +569,19 @@ color mixing to a certain distance
 note color-iterate usage here and what this all looks like
 
 > bootstrapping
+
 find some relation between that and base16 standards and what you want:.....
 
 note your tweaks specifically to the base16 stuff:
 
-> profit:
+> profit
+
 use your base16 boostrap everywhere, but ALSO your colormap, as used in some properties of this site right now(link to colors.css)
 
-
-** Vision quest
-
-
-
-
-
-
-
-ARST: HERE DOWN IS OLD STUFF
-
-
-
-
-In addition to the properties you can play with in color spaces
-
-
-Think of color spaces as maps or frameworks for navigating some color range (usually called a [[https://en.wikipedia.org/wiki/Gamut][gamut]]) that are there to help you make sensible changes.
-
-**** Some color spaces:
-
-***** HSL
-- Hue
-- Saturation
-- Luminance
-
-**** Hue
-
-My mental model of hue is to think of it like a "color compass", pointing in a direction whose strength may be tweaked by changing the saturation value. Here is an example of the same color with a changed hue (chose the reference values given with HSL):
-
-HSL with .5 saturation and .5 luminance:
-
-| hue (degrees) | border  | color                |
-|---------------+---------+----------------------|
-|             0 | red     | {{{color(#bf3f3f)}}} |
-|            60 | yellow  | {{{color(#bfbf3f)}}} |
-|           120 | green   | {{{color(#3fbf3f)}}} |
-|           180 | cyan    | {{{color(#3fbfbf)}}} |
-|           240 | blue    | {{{color(#3f3fbf)}}} |
-|           300 | magenta | {{{color(#bf3fbf)}}} |
-|           360 | red     | {{{color(#bf3f3f)}}} |
-
-**** links and references:
+* [[#h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe][links and references:]]
+:PROPERTIES:
+:CUSTOM_ID: h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe
+:END:
 
 - https://peteroupc.github.io/colorgen.html
 - https://en.wikipedia.org/wiki/CIELAB_color_space
