@@ -11,8 +11,7 @@
 			   (ht-get ns/theme :foreground)
 			   (ht-get ns/theme :background)
 			   t)))
-  (ns/blog-make-color-strip colors (-map 'string word))
-  )
+  (ns/blog-make-color-strip colors (-map 'string word)))
 #+end_SRC
 
 In July 2020 I went on a color-scheme vision quest. This led to some research on various [[https://en.wikipedia.org/wiki/Color_space][color spaces]] and their utility, some investigation into the [[http://chriskempson.com/projects/base16/#styling-guidelines][styling guidelines]] outlined by the base16 project, and the [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][color utilities]] that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
@@ -192,9 +191,9 @@ TODO: expound on hsluv here?
 
 [[https://en.wikipedia.org/wiki/CIELAB_color_space][wikipedia link]]
 
-| [L]ightness |                 0-100 | Light level                                                                                         |
-| [A] toggle  |              -100-100 | green <--> red                                                                                      |
-| [B] toggle  |              -100-100 | blue <--> yellow                                                                                    |
+| [L]ightness |                 0-100 | Light level                                                                                                                                                 |
+| [A] toggle  |              -100-100 | green <--> red                                                                                                                                              |
+| [B] toggle  |              -100-100 | blue <--> yellow                                                                                                                                            |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
 
 The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to functions when converting into and out of the CIELAB colorspace.
@@ -513,37 +512,134 @@ Color distance is a measure of how far apart colors are by properties
 :CUSTOM_ID: h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01
 :END:
 
+A gradient is where you travel from one color's initial property values to some other color's property values, collecting the intermediate steps.
+
 *** [[#h-1ed7ea90-395e-4486-a11c-6f3c9054dd15][Pastel]]
 :PROPERTIES:
 :CUSTOM_ID: h-1ed7ea90-395e-4486-a11c-6f3c9054dd15
 :END:
 
-"Pastel Colors" when described in HSL have high lightness and low saturation. This means we can invent a function to "pastelize" a color, bit by bit. Let's take a rather dark defined color {{{color(#2d249f)}}}, and run it through with the same effect we have at the top of this page:
+"Pastel Colors" when described in HSL have high lightness and low saturation. This means we can invent a function to "pastelize" a color, bit by bit (increasing lightness and lowering saturation). Let's take a rather dark defined color {{{color(#2d249f)}}}, and run it through with the same effect we have at the top of this page, making it more pastel until it's pretty bright:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors (-map (fn (-reduce-from
 			  (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
 			  "#2d249f"
 			  (range (+ 1 <>))))
-		     (range (length word))))
-
-       )
+		     (range (length word)))))
   (ns/blog-make-color-strip colors (-map 'string word)))
-#+end_SRC
+#+end_src
 
-
-*** TODO [[#h-81b4122f-f725-45ec-8c4a-437688cbcc2a][Colorwheel rotations]]
+*** [[#h-81b4122f-f725-45ec-8c4a-437688cbcc2a][Colorwheel rotations]]
 :PROPERTIES:
 :CUSTOM_ID: h-81b4122f-f725-45ec-8c4a-437688cbcc2a
 :END:
 
-talk about hue rotations, visualize some in different spaces
-
 Colorwheel rotations are all about hue. The circle that hue forms is the colorwheel for that colorspace. Colors that are opposed here (180° away from each other) are complementary colors. One way to attempt to generate color palettes  is to do "colorwheel rotations" where you take colors around equidistant points around the colorwheel. The hue values we've been showing are examples of a colorwheel rotation (6 points around 60°)
 
-Let's say we have some
+Let's say we we've played around in the LAB space to find a warm looking light background {{{color(#ffffd53ed101, LAB(90\,20\,10))}}}, and then we darken it until we hit some minimal contrast (say, 2.0) for a starting color {{{color(#822f65745784)}}}, which has a hue of 3.8. Let's see what doing hue rotations on this color look like:
 
+#+begin_src elisp :results raw :exports results
+(apply
+ 'ns/blog-make-color-strip
+ (-unzip
+  (let ((rot 3))
+    (-map
+     (fn
+      (list
+       (ns/color-make-hsl
+	(+ 19.6 (* <> (/ 360 rot)))
+	19.59832834874923 42.52063782711528)
+
+       (format "%s"
+	       (+ 19.6 (* <> (/ 360 rot))))
+	       ;; 19.59832834874923 42.52063782711528
+       ))
+     (range rot)))))
+#+end_src
+{{{detail(HSL: 120° rotation (hue value shown))}}}
+
+#+begin_src elisp :results raw :exports results
+(apply
+ 'ns/blog-make-color-strip
+ (-unzip
+  (let ((rot 4))
+    (-map
+     (fn
+      (list
+       (ns/color-make-hsl
+	(+ 19.6 (* <> (/ 360 rot)))
+	19.59832834874923 42.52063782711528)
+
+       (format "%s"
+	       (+ 19.6 (* <> (/ 360 rot))))
+	       ;; 19.59832834874923 42.52063782711528
+       ))
+     (range rot)))))
+#+end_src
+{{{detail(HSL: 90° rotation (hue value shown))}}}
+
+#+begin_src elisp :results raw :exports results
+(apply
+ 'ns/blog-make-color-strip
+ (-unzip
+  (let ((rot 5))
+    (-map
+     (fn
+      (list
+       (ns/color-make-hsl
+	(+ 19.6 (* <> (/ 360 rot)))
+	19.59832834874923 42.52063782711528)
+
+       (format "%s"
+	       (+ 19.6 (* <> (/ 360 rot))))
+	       ;; 19.59832834874923 42.52063782711528
+       ))
+     (range rot)))))
+#+end_src
+{{{detail(HSL: 72° rotation (hue value shown))}}}
+
+#+begin_src elisp :results raw :exports results
+(apply
+ 'ns/blog-make-color-strip
+ (-unzip
+  (let ((rot 6))
+    (-map
+     (fn
+      (list
+       (ns/color-make-hsl
+	(+ 19.6 (* <> (/ 360 rot)))
+	19.59832834874923 42.52063782711528)
+
+       (format "%s"
+	       (+ 19.6 (* <> (/ 360 rot))))
+	       ;; 19.59832834874923 42.52063782711528
+       ))
+     (range rot)))))
+#+end_src
+{{{detail(HSL: 60° rotation (hue value shown))}}}
+
+#+begin_src elisp :results raw :exports results
+(apply
+ 'ns/blog-make-color-strip
+ (-unzip
+ (-take 6
+  (let ((rot 8))
+    (-map
+     (fn
+      (list
+       (ns/color-make-hsl
+	(+ 19.6 (* <> (/ 360 rot)))
+	19.59832834874923 42.52063782711528)
+
+       (format "%s" (+ 19.6 (* <> (/ 360 rot))))
+       ))
+     (range rot))))))
+#+end_src
+{{{detail(HSL: 45° rotation (take 6) (hue value shown))}}}
+
+Rotations around hue in different color spaces will yield different results. This can be a way to derive accent colors for use in a color-scheme.
 
 *** TODO [[#h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532][white-point adjustment]]
 :PROPERTIES:
@@ -600,8 +696,7 @@ A neat trick you can do with this is decide whether or not to use a dark or ligh
 	 (lambda (c)
 	   (list
 	    c (if (ns/color-is-light-p c) "light" "dark")))
-	 '(
-	   "#006d77"
+	 '("#006d77"
 	   "#83c5be"
 	   "#429958"
 	   "#edf6f9"
@@ -637,26 +732,59 @@ These pieces (transformers and comparison functions) can be combined to do thing
 :CUSTOM_ID: h-0942db07-512b-45d6-8fd2-f3a641379b66
 :END:
 
-Alright, we've gone through a fair amount of ways you can play with individual colors.
+Alright, we've gone through a fair amount of ways you can play with individual colors. How could we use this?? What I ended up doing was coming up with a list of color types that I wanted to use in different situations. After some tinkering and considering I arrived at this list:
 
-> wants
+| label         | meaning                     | example               |
+|---------------+-----------------------------+-----------------------|
+| :foreground   | default foreground          |                       |
+| :foreground_  | faded foreground            | comments              |
+| :foreground+  | emphasized foreground       | urgent notification   |
+| :background   | default background          |                       |
+| :background_  | faded background            | modeline              |
+| :background__ | alternate background        | code block background |
+| :background+  | emphasized background       | urgent notification   |
+| :accent1      | identity                    | functions, variables  |
+| :accent1_     | assumptions (faded accent1) | builtins              |
+| :accent2      | accent2                     | types                 |
+| :accent2_     | strings                     | strings               |
 
-Create a map of colors meant to be used for different purposes and emphasis:.....
-list the properties here
-
-> method
+*** TODO [[#h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20][Methods]]
+:PROPERTIES:
+:CUSTOM_ID: h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20
+:END:
 
 proceed to experiment a bunch within colorspaces used above -- note some things you've played with:
-colorwheel rotations
-complementary colors
-contrast iteration
-cielab distance with "pastel" effect for fading
-color mixing to a certain distance
-note color-iterate usage here and what this all looks like
+- colorwheel rotations
+- complementary colors
+- contrast iteration
+- cielab distance with "pastel" effect for fading
+- color mixing to a certain distance
 
-> bootstrapping
+*** [[#h-9ba33a22-a924-4f8d-b27b-0e86b582b418][Bootstrapping]]
+:PROPERTIES:
+:CUSTOM_ID: h-9ba33a22-a924-4f8d-b27b-0e86b582b418
+:END:
 
-find some relation between that and base16 standards and what you want:.....
+Here is my mapping to the base16 bases from the system outlined above
+
+| base16 label | system label | base16 standard meaning                                           |
+|--------------+--------------+-------------------------------------------------------------------|
+| :base00      | :background  | Default Background                                                |
+| :base01      | :background+ | Lighter Background (Used for status bars)                         |
+| :base02      | :background+ | Selection Background                                              |
+| :base03      | :foreground_ | Comments, Invisibles, Line Highlighting                           |
+| :base04      | :foreground_ | Dark Foreground (Used for status bars)                            |
+| :base05      | :foreground  | Default Foreground, Caret, Delimiters, Operators                  |
+| :base06      | :foreground_ | Light Foreground (Not often used)                                 |
+| :base07      | :foreground_ | Light Background (Not often used)                                 |
+| :base08      | :accent2     | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted |
+| :base09      | :foreground  | Integers, Boolean, Constants, XML Attributes, Markup Link Url     |
+| :base0A      | :accent2     | Classes, Markup Bold, Search Text Background                      |
+| :base0B      | :accent2_    | Strings, Inherited Class, Markup Code, Diff Inserted              |
+| :base0C      | :accent1_    | Support, Regular Expressions, Escape Characters, Markup Quotes    |
+| :base0D      | :accent1     | Functions, Methods, Attribute IDs, Headings                       |
+| :base0E      | :accent1_    | Keywords, Storage, Selector, Markup Italic, Diff Changed          |
+| :base0F      | :foreground_ | Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> |
 
 note your tweaks specifically to the base16 stuff:
 
