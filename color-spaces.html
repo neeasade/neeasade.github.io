@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-23 Mon 21:18 -->
+<!-- 2020-11-24 Tue 13:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reasoning about colors</title>
@@ -70,7 +70,7 @@ for the JavaScript code in this tag.
 <h1 class="title">reasoning about colors</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2020-11-23</a> • 2020-08-13
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2020-11-24</a> • 2020-08-13
 </p>
 </div>
 
@@ -94,9 +94,9 @@ for the JavaScript code in this tag.
 In July 2020 I went on a color-scheme vision quest. This led to some research on various <a href="https://en.wikipedia.org/wiki/Color_space">color spaces</a> and their utility, some investigation into the <a href="http://chriskempson.com/projects/base16/#styling-guidelines">styling guidelines</a> outlined by the base16 project, and the <a href="https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el">color utilities</a> that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
 </p>
 
-<div id="outline-container-orgf8b11e4" class="outline-3">
-<h3 id="h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620"><span class="section-number-3">0.1</span> <a href="#h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620">Motivation</a></h3>
-<div class="outline-text-3" id="text-h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620">
+<div id="outline-container-orgc5606a7" class="outline-2">
+<h2 id="h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620"><span class="section-number-2">1</span> <a href="#h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620">Motivation</a></h2>
+<div class="outline-text-2" id="text-h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620">
 <p>
 I've been a part of several Linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts &#x2013; for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way &#x2013; know what I can do to individual colors when making a "color framework" helps immensely.
 </p>
@@ -115,26 +115,26 @@ Plus, I just find this sort of thing really fun. Visual feedback is pleasing. Fi
 </div>
 </div>
 
-<div id="outline-container-org83f2c4d" class="outline-3">
-<h3 id="h-3820d027-5602-4691-b9ca-b36aadd3871a"><span class="section-number-3">0.2</span> <a href="#h-3820d027-5602-4691-b9ca-b36aadd3871a">Side note: The Canvas</a></h3>
-<div class="outline-text-3" id="text-h-3820d027-5602-4691-b9ca-b36aadd3871a">
+<div id="outline-container-org9ddc041" class="outline-2">
+<h2 id="h-3820d027-5602-4691-b9ca-b36aadd3871a"><span class="section-number-2">2</span> <a href="#h-3820d027-5602-4691-b9ca-b36aadd3871a">Side note: The Canvas</a></h2>
+<div class="outline-text-2" id="text-h-3820d027-5602-4691-b9ca-b36aadd3871a">
 <p>
 This will be the focal point of inconsistency. The level of brightness, quality of screen, and ambient lighting level are all things that affect the value of the screen's <a href="https://en.wikipedia.org/wiki/White_point">white point</a>, which is what everything else is relative too. Luckily you can (attempt to) account for this as well.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org98f8633" class="outline-3">
-<h3 id="h-a71813d2-7e36-4f52-b22c-87e22d4a2620"><span class="section-number-3">0.3</span> <a href="#h-a71813d2-7e36-4f52-b22c-87e22d4a2620">Color Spaces</a></h3>
-<div class="outline-text-3" id="text-h-a71813d2-7e36-4f52-b22c-87e22d4a2620">
+<div id="outline-container-org87f5850" class="outline-2">
+<h2 id="h-a71813d2-7e36-4f52-b22c-87e22d4a2620"><span class="section-number-2">3</span> <a href="#h-a71813d2-7e36-4f52-b22c-87e22d4a2620">Color Spaces</a></h2>
+<div class="outline-text-2" id="text-h-a71813d2-7e36-4f52-b22c-87e22d4a2620">
 <p>
 Color spaces are ways of defining colors in different sets of properties. They are the main tool you will have for reasoning about tweaking <i>individual</i> colors. You can then mess with these and convert them back into a format you can render (typically RGB) within a <a href="https://en.wikipedia.org/wiki/Gamut">color gamut</a> (a range of supported colors). Here I will be pretty high level, focusing on some visuals for what sorts of things these properties look like. When I define the valid values for ranges, I will be using the scale I've implemented in my <a href="#h-cb3c6479-7d62-4028-8942-2b033bb1247a">helpers</a>.
 </p>
 </div>
 
-<div id="outline-container-org4318982" class="outline-4">
-<h4 id="h-99356355-d54c-41d8-bc1a-6e14e29f42c8"><span class="section-number-4">0.3.1</span> <a href="#h-99356355-d54c-41d8-bc1a-6e14e29f42c8">RGB</a></h4>
-<div class="outline-text-4" id="text-h-99356355-d54c-41d8-bc1a-6e14e29f42c8">
+<div id="outline-container-orga9715ad" class="outline-3">
+<h3 id="h-99356355-d54c-41d8-bc1a-6e14e29f42c8"><span class="section-number-3">3.1</span> <a href="#h-99356355-d54c-41d8-bc1a-6e14e29f42c8">RGB</a></h3>
+<div class="outline-text-3" id="text-h-99356355-d54c-41d8-bc1a-6e14e29f42c8">
 <p>
 The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach <code style="background: #ffffff;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#ffffff</code> (and down, -&gt; <code style="background: #000000;color: #e5e7ea; padding: 2px; border: 1px solid #000000">#000000</code>). This isn't particularly flexible in "ways you can think about colors".
 </p>
@@ -217,9 +217,9 @@ To show the lighting effect, let's repeat the above gradient, but instead of usi
 </div>
 </div>
 
-<div id="outline-container-orgc32507a" class="outline-4">
-<h4 id="h-43869bc7-a7d1-410f-9341-521974751dac"><span class="section-number-4">0.3.2</span> <a href="#h-43869bc7-a7d1-410f-9341-521974751dac">HSL</a></h4>
-<div class="outline-text-4" id="text-h-43869bc7-a7d1-410f-9341-521974751dac">
+<div id="outline-container-orgb36c33b" class="outline-3">
+<h3 id="h-43869bc7-a7d1-410f-9341-521974751dac"><span class="section-number-3">3.2</span> <a href="#h-43869bc7-a7d1-410f-9341-521974751dac">HSL</a></h3>
+<div class="outline-text-3" id="text-h-43869bc7-a7d1-410f-9341-521974751dac">
 <p>
 <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">wikipedia: HSL and HSV</a>
 </p>
@@ -334,9 +334,9 @@ And lightness:
 </div>
 </div>
 
-<div id="outline-container-org7b16981" class="outline-4">
-<h4 id="h-c147b84d-d95b-4d2d-8426-2f96529a8428"><span class="section-number-4">0.3.3</span> <a href="#h-c147b84d-d95b-4d2d-8426-2f96529a8428">HSLuv</a></h4>
-<div class="outline-text-4" id="text-h-c147b84d-d95b-4d2d-8426-2f96529a8428">
+<div id="outline-container-org78f8ad7" class="outline-3">
+<h3 id="h-c147b84d-d95b-4d2d-8426-2f96529a8428"><span class="section-number-3">3.3</span> <a href="#h-c147b84d-d95b-4d2d-8426-2f96529a8428">HSLuv</a></h3>
+<div class="outline-text-3" id="text-h-c147b84d-d95b-4d2d-8426-2f96529a8428">
 <p>
 <a href="https://www.hsluv.org/comparison/">hsluv</a> is an altered version of HSL that tries to be perceptually uniform with regards to lightness. HSL lightness by comparison is hard to make contrast comparisons in.
 </p>
@@ -409,14 +409,14 @@ Lightness:
 </p>
 
 <p>
-TODO: expound on hsluv here?
+These scales definitely look more consistent when reasoning about lightness values. HSL's hue feels all over the place by comparison &#x2013; though at the same time that might be a more natural color mixing feel.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2d8d551" class="outline-4">
-<h4 id="h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e"><span class="section-number-4">0.3.4</span> <a href="#h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e">CIELAB</a></h4>
-<div class="outline-text-4" id="text-h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e">
+<div id="outline-container-org16857f4" class="outline-3">
+<h3 id="h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e"><span class="section-number-3">3.4</span> <a href="#h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e">CIELAB</a></h3>
+<div class="outline-text-3" id="text-h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e">
 <p>
 <a href="https://en.wikipedia.org/wiki/CIELAB_color_space">wikipedia link</a>
 </p>
@@ -562,9 +562,9 @@ Let's look at some LAB colors. The labels below will have the values of  <code>(
 </div>
 </div>
 
-<div id="outline-container-org07c5709" class="outline-4">
-<h4 id="h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413"><span class="section-number-4">0.3.5</span> <a href="#h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413">LCh</a></h4>
-<div class="outline-text-4" id="text-h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413">
+<div id="outline-container-org7abf0b5" class="outline-3">
+<h3 id="h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413"><span class="section-number-3">3.5</span> <a href="#h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413">LCH</a></h3>
+<div class="outline-text-3" id="text-h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -589,7 +589,7 @@ Let's look at some LAB colors. The labels below will have the values of  <code>(
 </tr>
 
 <tr>
-<td class="org-left">[h]ue</td>
+<td class="org-left">[H]ue</td>
 <td class="org-right">0-360</td>
 <td class="org-left">Color "direction"</td>
 </tr>
@@ -597,7 +597,7 @@ Let's look at some LAB colors. The labels below will have the values of  <code>(
 </table>
 
 <p>
-LCh is a "cylindrical" version of cieLAB. What that means for us is that Hue is different. Instead of 6 defined islands to sail to with our color compass, there are 4:
+LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is different. Instead of 6 defined islands to sail to with our color compass, there are 4:
 </p>
 
 <p>
@@ -610,7 +610,30 @@ LCh is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 </p>
 
 <p>
- <div class="detail"> LCh: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50% </div> 
+ <div class="detail"> LCH: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50% </div> 
+</p>
+
+<p>
+LCH lightness:
+</p>
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #000849;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #002161;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #00357a;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #004b95;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #0063b0;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #007bcc;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3195e8;color: #e5e7ea; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #58afff;color: #393a3c; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7acbff;color: #393a3c; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99e7ff;color: #393a3c; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b8ffff;color: #393a3c; width: 9.090909090909092%;"></div>
+ </div> 
+</p>
+
+<p>
+ <div class="detail"> LCH: lightness scale 0-100% (step 10%), chromacity 50%, hue 270° (blue) </div> 
 </p>
 
 <p>
@@ -634,7 +657,7 @@ Chromacity, "distance from gray" - very similar to Saturation (which I've seen c
 </p>
 
 <p>
- <div class="detail"> LCh: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue) </div> 
+ <div class="detail"> LCH: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue) </div> 
 </p>
 
 <p>
@@ -814,69 +837,20 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 </p>
 
 <p>
- <div class="detail"> 3 branches off of the above: lCH maximize C, HSL maximize S, HSLuv maximize S </div> 
-</p>
-
-
-
-<p>
- <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #eb0019;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #e6000e;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #e10000;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #d90f00;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #cb3a00;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b35900;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #937200;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #708400;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #509200;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #339d00;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #14a700;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b100;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ba00;color: #393a3c; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c400;color: #393a3c; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ce19;color: #393a3c; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c414;color: #393a3c; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00bc15;color: #393a3c; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b31d;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ab2b;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00a340;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #009b63;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0094a3;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #008af4;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0077ff;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0062ff;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0051f5;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0043e7;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0038dd;color: #e5e7ea; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #2530d6;color: #e5e7ea; width: 3.4482758620689653%;"></div>
- </div> 
-</p>
-
-<p>
-{{{detail: lCH, C maximized}}}
-</p>
-
-<p>
-{{{detail: HSL, S maximized}}}
-</p>
-
-<p>
-{{{detail: HSLuv, S maximized}}}
+ <div class="detail"> 3 branches off of the above: LCH maximize C, HSL maximize S, HSLuv maximize S </div> 
 </p>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-org9bc5a3e" class="outline-3">
-<h3 id="h-e1c795a7-b3d9-4be3-9874-1b98a2069520"><span class="section-number-3">0.4</span> <span class="todo TODO">TODO</span> <a href="#h-e1c795a7-b3d9-4be3-9874-1b98a2069520">Other stuff</a></h3>
-<div class="outline-text-3" id="text-h-e1c795a7-b3d9-4be3-9874-1b98a2069520">
+<div id="outline-container-orga0cb922" class="outline-2">
+<h2 id="h-e1c795a7-b3d9-4be3-9874-1b98a2069520"><span class="section-number-2">4</span> <a href="#h-e1c795a7-b3d9-4be3-9874-1b98a2069520">Other stuff</a></h2>
+<div class="outline-text-2" id="text-h-e1c795a7-b3d9-4be3-9874-1b98a2069520">
 </div>
 
-<div id="outline-container-orgff52bb9" class="outline-4">
-<h4 id="h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51"><span class="section-number-4">0.4.1</span> <a href="#h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">Contrast</a></h4>
-<div class="outline-text-4" id="text-h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">
+<div id="outline-container-org188681d" class="outline-3">
+<h3 id="h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51"><span class="section-number-3">4.1</span> <a href="#h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">Contrast</a></h3>
+<div class="outline-text-3" id="text-h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">
 <p>
 For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#f7f7f7</code> and <code style="background: #101010;color: #e5e7ea; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #e5e7ea; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#ffffff</code> is 21.0
 </p>
@@ -887,8 +861,8 @@ Dark:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorpadding" style="background: #101010;color: #2c2c2c; width: 33.333333333333336%;">2.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #101010;color: #3b3b3b; width: 33.333333333333336%;">2.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #494949; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #101010;color: #585757; width: 33.333333333333336%;">3.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #101010;color: #666666; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #101010;color: #747474; width: 33.333333333333336%;">4.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
@@ -906,8 +880,8 @@ Light:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #757475; width: 33.333333333333336%;">2.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #f7f7f7;color: #5b5a5b; width: 33.333333333333336%;">2.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #4a4949; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #f7f7f7;color: #3d3c3d; width: 33.333333333333336%;">3.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #f7f7f7;color: #343334; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
 <div class="colorblock colorpadding" style="background: #f7f7f7;color: #2d2c2c; width: 33.333333333333336%;">4.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
@@ -925,28 +899,50 @@ I think it's pretty clear from these examples that higher contrast goes a long w
 </div>
 </div>
 
-<div id="outline-container-orge811351" class="outline-4">
-<h4 id="h-e260bdea-3408-47e6-a195-f5a62ed979bc"><span class="section-number-4">0.4.2</span> <span class="todo TODO">TODO</span> <a href="#h-e260bdea-3408-47e6-a195-f5a62ed979bc">Distance</a></h4>
-<div class="outline-text-4" id="text-h-e260bdea-3408-47e6-a195-f5a62ed979bc">
+<div id="outline-container-orgafbf4a1" class="outline-3">
+<h3 id="h-e260bdea-3408-47e6-a195-f5a62ed979bc"><span class="section-number-3">4.2</span> <a href="#h-e260bdea-3408-47e6-a195-f5a62ed979bc">Distance</a></h3>
+<div class="outline-text-3" id="text-h-e260bdea-3408-47e6-a195-f5a62ed979bc">
 <p>
-Color distance is a measure of how far apart colors are by properties
+Color distance is a measure of how far apart colors are by properties in spaces. For example, let's take the 'magenta' color from above, and increase it's brightness and hue until we're some minimal distance away. We'll aim for 33(out of 100) measured in the CIELAB space:
+</p>
+
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #a05dac;color: #e5e7ea; width: 10.0%;">0</div>
+<div class="colorblock colorcenter" style="background: #ae60aa;color: #e5e7ea; width: 10.0%;">3</div>
+<div class="colorblock colorcenter" style="background: #bc63a9;color: #e5e7ea; width: 10.0%;">7</div>
+<div class="colorblock colorcenter" style="background: #ca67a7;color: #e5e7ea; width: 10.0%;">10</div>
+<div class="colorblock colorcenter" style="background: #cf72a1;color: #e5e7ea; width: 10.0%;">14</div>
+<div class="colorblock colorcenter" style="background: #d37e9c;color: #e5e7ea; width: 10.0%;">18</div>
+<div class="colorblock colorcenter" style="background: #d68a99;color: #393a3c; width: 10.0%;">22</div>
+<div class="colorblock colorcenter" style="background: #d99698;color: #393a3c; width: 10.0%;">26</div>
+<div class="colorblock colorcenter" style="background: #dca299;color: #393a3c; width: 10.0%;">31</div>
+<div class="colorblock colorcenter" style="background: #e0ae9c;color: #393a3c; width: 10.0%;">35</div>
+ </div> 
+</p>
+
+<p>
+ <div class="detail"> CIELAB distance from the start color is shown </div> 
+</p>
+
+<p>
+Color distance is useful because it lets us measure a kind of similarity between colors. You can use this to control where you stop transformations (color space property tweaks).
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org4671faf" class="outline-4">
-<h4 id="h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01"><span class="section-number-4">0.4.3</span> <span class="todo TODO">TODO</span> <a href="#h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01">Gradients</a></h4>
-<div class="outline-text-4" id="text-h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01">
+<div id="outline-container-org167ff43" class="outline-3">
+<h3 id="h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01"><span class="section-number-3">4.3</span> <a href="#h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01">Gradients</a></h3>
+<div class="outline-text-3" id="text-h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01">
 <p>
 A gradient is where you travel from one color's initial property values to some other color's property values, collecting the intermediate steps.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1d24b5d" class="outline-4">
-<h4 id="h-1ed7ea90-395e-4486-a11c-6f3c9054dd15"><span class="section-number-4">0.4.4</span> <a href="#h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">Pastel</a></h4>
-<div class="outline-text-4" id="text-h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">
+<div id="outline-container-org6de0f75" class="outline-3">
+<h3 id="h-1ed7ea90-395e-4486-a11c-6f3c9054dd15"><span class="section-number-3">4.4</span> <a href="#h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">Pastel</a></h3>
+<div class="outline-text-3" id="text-h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">
 <p>
 "Pastel Colors" when described in HSL have high lightness and low saturation. This means we can invent a function to "pastelize" a color, bit by bit (increasing lightness and lowering saturation). Let's take a rather dark defined color <code style="background: #2d249f;color: #e5e7ea; padding: 2px; border: 1px solid #2d249f">#2d249f</code>, and run it through with the same effect we have at the top of this page, making it more pastel until it's pretty bright:
 </p>
@@ -968,11 +964,11 @@ A gradient is where you travel from one color's initial property values to some 
 </div>
 </div>
 
-<div id="outline-container-org9619d05" class="outline-4">
-<h4 id="h-81b4122f-f725-45ec-8c4a-437688cbcc2a"><span class="section-number-4">0.4.5</span> <a href="#h-81b4122f-f725-45ec-8c4a-437688cbcc2a">Colorwheel rotations</a></h4>
-<div class="outline-text-4" id="text-h-81b4122f-f725-45ec-8c4a-437688cbcc2a">
+<div id="outline-container-org4f24d09" class="outline-3">
+<h3 id="h-81b4122f-f725-45ec-8c4a-437688cbcc2a"><span class="section-number-3">4.5</span> <a href="#h-81b4122f-f725-45ec-8c4a-437688cbcc2a">Colorwheel rotations</a></h3>
+<div class="outline-text-3" id="text-h-81b4122f-f725-45ec-8c4a-437688cbcc2a">
 <p>
-Colorwheel rotations are all about hue. The circle that hue forms is the colorwheel for that colorspace. Colors that are opposed here (180° away from each other) are complementary colors. One way to attempt to generate color palettes  is to do "colorwheel rotations" where you take colors around equidistant points around the colorwheel. The hue values we've been showing are examples of a colorwheel rotation (6 points around 60°)
+Color wheel rotations are all about hue. The circle that hue forms is the color wheel for that color space. Colors that are opposed here (180° away from each other) are complementary colors. One way to attempt to generate color palettes  is to do "color wheel rotations" where you take colors around equidistant points around the color wheel. The hue values we've been showing are examples of a color wheel rotation (6 points around 60°)
 </p>
 
 <p>
@@ -1054,19 +1050,61 @@ Rotations around hue in different color spaces will yield different results. Thi
 </div>
 </div>
 
-<div id="outline-container-org964b74c" class="outline-4">
-<h4 id="h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532"><span class="section-number-4">0.4.6</span> <span class="todo TODO">TODO</span> <a href="#h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532">white-point adjustment</a></h4>
-<div class="outline-text-4" id="text-h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532">
+<div id="outline-container-org09fc765" class="outline-3">
+<h3 id="h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532"><span class="section-number-3">4.6</span> <a href="#h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532">white-point adjustment</a></h3>
+<div class="outline-text-3" id="text-h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532">
 <p>
-cielab relative white point adjustment
+CIELAB has a white point component used when entering and leaving the space. You can adjust the white point value that you use going into and then coming out of the space, allowing you to "adjust colors by white point". This is kind of a weird concept. Let's take the gradient at the top of this page and pass it into LAB with d65 (the standard assumption, sRGB) but pull it out using d50 ("Horizon Light, ICC profile PCS"). (This effect is mostly visible on grayscale colors, and esp on the lighter end):
+</p>
+
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #393a3c;color: #e5e7ea; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #4c4d4f;color: #e5e7ea; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #5f6062;color: #e5e7ea; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #727376;color: #e5e7ea; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #858689;color: #e5e7ea; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #989a9c;color: #e5e7ea; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #abadb0;color: #393a3c; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #bec0c3;color: #393a3c; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #d1d3d6;color: #393a3c; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #e5e7ea;color: #393a3c; width: 10.0%;">Ｓ</div>
+ </div> 
+</p>
+
+<p>
+ <div class="detail"> original </div> 
+</p>
+
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #3e3932;color: #e5e7ea; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #524c43;color: #e5e7ea; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #665e53;color: #e5e7ea; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #7b7165;color: #e5e7ea; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #8f8475;color: #e5e7ea; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #a49886;color: #e5e7ea; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #b8ab97;color: #393a3c; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #ccbda8;color: #393a3c; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #e1d0b9;color: #393a3c; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #f6e4ca;color: #393a3c; width: 10.0%;">Ｓ</div>
+ </div> 
+</p>
+
+<p>
+ <div class="detail"> transformed </div> 
+</p>
+
+<p>
+Mapping color palettes through this transform could presumably get you better results in different lighting conditions. I've not played with it too much.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9cabd1f" class="outline-3">
-<h3 id="h-cb3c6479-7d62-4028-8942-2b033bb1247a"><span class="section-number-3">0.5</span> <a href="#h-cb3c6479-7d62-4028-8942-2b033bb1247a">Implementing helpers</a></h3>
-<div class="outline-text-3" id="text-h-cb3c6479-7d62-4028-8942-2b033bb1247a">
+<div id="outline-container-orgdc580bc" class="outline-2">
+<h2 id="h-cb3c6479-7d62-4028-8942-2b033bb1247a"><span class="section-number-2">5</span> <a href="#h-cb3c6479-7d62-4028-8942-2b033bb1247a">Implementing helpers</a></h2>
+<div class="outline-text-2" id="text-h-cb3c6479-7d62-4028-8942-2b033bb1247a">
 <p>
 This section is about the tools I implemented and use to actually do the thing™.
 </p>
@@ -1160,9 +1198,9 @@ These pieces (transformers and comparison functions) can be combined to do thing
 </div>
 </div>
 
-<div id="outline-container-orgdd9b38e" class="outline-3">
-<h3 id="h-0942db07-512b-45d6-8fd2-f3a641379b66"><span class="section-number-3">0.6</span> <a href="#h-0942db07-512b-45d6-8fd2-f3a641379b66">Vision quest</a></h3>
-<div class="outline-text-3" id="text-h-0942db07-512b-45d6-8fd2-f3a641379b66">
+<div id="outline-container-org436ea59" class="outline-2">
+<h2 id="h-0942db07-512b-45d6-8fd2-f3a641379b66"><span class="section-number-2">6</span> <a href="#h-0942db07-512b-45d6-8fd2-f3a641379b66">Vision quest</a></h2>
+<div class="outline-text-2" id="text-h-0942db07-512b-45d6-8fd2-f3a641379b66">
 <p>
 Alright, we've gone through a fair amount of ways you can play with individual colors. How could we use this?? What I ended up doing was coming up with a list of color types that I wanted to use in different situations. After some tinkering and considering I arrived at this list:
 </p>
@@ -1224,57 +1262,94 @@ Alright, we've gone through a fair amount of ways you can play with individual c
 <tr>
 <td class="org-left">:background+</td>
 <td class="org-left">emphasized background</td>
-<td class="org-left">urgent notification</td>
+<td class="org-left">highlighted text</td>
 </tr>
 
 <tr>
 <td class="org-left">:accent1</td>
-<td class="org-left">identity</td>
+<td class="org-left">(foreground) identity</td>
 <td class="org-left">functions, variables</td>
 </tr>
 
 <tr>
 <td class="org-left">:accent1_</td>
-<td class="org-left">assumptions (faded accent1)</td>
+<td class="org-left">(foreground) assumptions (faded accent1)</td>
 <td class="org-left">builtins</td>
 </tr>
 
 <tr>
 <td class="org-left">:accent2</td>
-<td class="org-left">accent2</td>
+<td class="org-left">(foreground) accent2</td>
 <td class="org-left">types</td>
 </tr>
 
 <tr>
 <td class="org-left">:accent2_</td>
-<td class="org-left">strings</td>
+<td class="org-left">(foreground) strings</td>
 <td class="org-left">strings</td>
 </tr>
 </tbody>
 </table>
-</div>
 
-<div id="outline-container-org765f865" class="outline-4">
-<h4 id="h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20"><span class="section-number-4">0.6.1</span> <span class="todo TODO">TODO</span> <a href="#h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20">Methods</a></h4>
-<div class="outline-text-4" id="text-h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20">
 <p>
-proceed to experiment a bunch within colorspaces used above &#x2013; note some things you've played with:
+The pair of accent2 colors turned out to be the most awkward here. I personally believe strings are important enough to get a standalone color, which is what accent2_ turned into. The accent1 idea of "lesser and greater" pairings cover a lot of ground, meaning that accent2 turned into a rarely used color &#x2013; as I'm writing this I'm realizing maybe I could use accent2 to color scalar types in general (or expand the accent2_ definition to all scalar types).
 </p>
+</div>
+
+<div id="outline-container-org3bcfa5c" class="outline-3">
+<h3 id="h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20"><span class="section-number-3">6.1</span> <a href="#h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20">Methods</a></h3>
+<div class="outline-text-3" id="text-h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20">
+<p>
+Now that I'd derived types of things I wanted, it was time to try out the techniques above to create colors fitting the slots:
+</p>
+
 <ul class="org-ul">
-<li>colorwheel rotations</li>
+<li>color wheel rotations</li>
 <li>complementary colors</li>
-<li>contrast iteration</li>
-<li>cielab distance with "pastel" effect for fading</li>
-<li>color mixing to a certain distance</li>
+<li>contrast levels through iteration</li>
+<li>"pastelize" until a minimum distance is reached</li>
+<li>using L[C]H for emphasis</li>
 </ul>
+
+<p>
+At the time of this writing, I'm using a color rotation of 45° in the LCH space (starting from my <code>foreground_</code>, which is a darkened version of <code>background</code>) focusing on the bluish side of things for the accent colors. I get my <code>background+</code> by graying out my <code>accent2</code> (lowering C in LCH), and then lightening it until there's a very low contrast between it and my background. For posterity, I will share this theme here:
+</p>
+
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #e5e7ea;color: #393a3c; width: 25.0%;">:background</div>
+<div class="colorblock colorcenter" style="background: #e0dadb;color: #393a3c; width: 25.0%;">:background_</div>
+<div class="colorblock colorcenter" style="background: #d1c8ca;color: #393a3c; width: 25.0%;">:background__</div>
+<div class="colorblock colorcenter" style="background: #aacde6;color: #393a3c; width: 25.0%;">:background+</div>
+ </div> 
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #393a3c;color: #e5e7ea; width: 33.333333333333336%;">:foreground</div>
+<div class="colorblock colorcenter" style="background: #656669;color: #e5e7ea; width: 33.333333333333336%;">:foreground_</div>
+<div class="colorblock colorcenter" style="background: #393a3c;color: #e5e7ea; width: 33.333333333333336%;">:foreground+</div>
+ </div> 
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #2d249f;color: #e5e7ea; width: 25.0%;">:accent1</div>
+<div class="colorblock colorcenter" style="background: #0061c4;color: #e5e7ea; width: 25.0%;">:accent1_</div>
+<div class="colorblock colorcenter" style="background: #006e96;color: #e5e7ea; width: 25.0%;">:accent2</div>
+<div class="colorblock colorcenter" style="background: #2c7600;color: #e5e7ea; width: 25.0%;">:accent2_</div>
+ </div> 
+</p>
+
+<p>
+I store these in a hash table in emacs, so that I can always query the current theme from anywhere (eg <code>elisp -r '(ht-get ns/theme :accent1)</code>), allowing me to use my intended color preferences across many contexts.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgac838e8" class="outline-4">
-<h4 id="h-9ba33a22-a924-4f8d-b27b-0e86b582b418"><span class="section-number-4">0.6.2</span> <a href="#h-9ba33a22-a924-4f8d-b27b-0e86b582b418">Bootstrapping</a></h4>
-<div class="outline-text-4" id="text-h-9ba33a22-a924-4f8d-b27b-0e86b582b418">
+<div id="outline-container-org64f7a9c" class="outline-3">
+<h3 id="h-9ba33a22-a924-4f8d-b27b-0e86b582b418"><span class="section-number-3">6.2</span> <a href="#h-9ba33a22-a924-4f8d-b27b-0e86b582b418">Bootstrapping</a></h3>
+<div class="outline-text-3" id="text-h-9ba33a22-a924-4f8d-b27b-0e86b582b418">
 <p>
-Here is my mapping to the base16 bases from the system outlined above
+I like free things. There are many base16 builders, including one for emacs &#x2013; if I can map my palette to it, I can get free support for a wide array of emacs plugins and builtin packages!
+</p>
+
+<p>
+Much playing around with the base16 emacs theme builder led me to this mapping:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1394,31 +1469,65 @@ Here is my mapping to the base16 bases from the system outlined above
 </table>
 
 <p>
-note your tweaks specifically to the base16 stuff:
+This might look fairly comprehensive, but there's SO much room for ambiguity in editor specific situations &#x2013; base16 builders are forced to make stylistic decisions that you might not agree with. At least with the emacs base16 builder I found myself making <a href="https://github.com/neeasade/emacs.d/blob/08526e0c49be60e8241005d39c8e4303ab4e6fd8/lisp/trees/style.el#L60-L129">some tweaks</a> after the fact.
 </p>
 
 <p>
-&gt; profit
+Now that the mapping has been created, with some glue I can use any of the <a href="https://github.com/chriskempson/base16#builder-repositories">base16 builders</a>, giving me access to a wide array of templates and outputs for use with my color palette! Having room to "echo" your color decisions across many different applications is very satisfying.
 </p>
 
 <p>
-use your base16 boostrap everywhere, but ALSO your colormap, as used in some properties of this site right now(link to colors.css)
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #e5e7ea;color: #393a3c; width: 6.666666666666667%;">H</div>
+<div class="colorblock colorcenter" style="background: #d8dadd;color: #393a3c; width: 6.666666666666667%;">a</div>
+<div class="colorblock colorcenter" style="background: #ccced1;color: #393a3c; width: 6.666666666666667%;">p</div>
+<div class="colorblock colorcenter" style="background: #c0c1c4;color: #393a3c; width: 6.666666666666667%;">p</div>
+<div class="colorblock colorcenter" style="background: #b3b5b8;color: #393a3c; width: 6.666666666666667%;">y</div>
+<div class="colorblock colorcenter" style="background: #a7a9ab;color: #393a3c; width: 6.666666666666667%;"> </div>
+<div class="colorblock colorcenter" style="background: #9b9c9f;color: #e5e7ea; width: 6.666666666666667%;">C</div>
+<div class="colorblock colorcenter" style="background: #8e9092;color: #e5e7ea; width: 6.666666666666667%;">o</div>
+<div class="colorblock colorcenter" style="background: #828486;color: #e5e7ea; width: 6.666666666666667%;">l</div>
+<div class="colorblock colorcenter" style="background: #76777a;color: #e5e7ea; width: 6.666666666666667%;">o</div>
+<div class="colorblock colorcenter" style="background: #6a6b6d;color: #e5e7ea; width: 6.666666666666667%;">r</div>
+<div class="colorblock colorcenter" style="background: #5d5f61;color: #e5e7ea; width: 6.666666666666667%;">i</div>
+<div class="colorblock colorcenter" style="background: #515254;color: #e5e7ea; width: 6.666666666666667%;">n</div>
+<div class="colorblock colorcenter" style="background: #454648;color: #e5e7ea; width: 6.666666666666667%;">g</div>
+<div class="colorblock colorcenter" style="background: #393a3c;color: #e5e7ea; width: 6.666666666666667%;">!</div>
+ </div> 
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgd29e95c" class="outline-2">
-<h2 id="h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe"><span class="section-number-2">1</span> <a href="#h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe">links and references:</a></h2>
-<div class="outline-text-2" id="text-h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe">
+<div id="outline-container-org5a2f7f4" class="outline-3">
+<h3 id="h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe"><span class="section-number-3">6.3</span> <a href="#h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe">References and further reading</a></h3>
+<div class="outline-text-3" id="text-h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe">
 <ul class="org-ul">
-<li><a href="https://peteroupc.github.io/colorgen.html">https://peteroupc.github.io/colorgen.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/CIELAB_color_space">https://en.wikipedia.org/wiki/CIELAB_color_space</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Standard_illuminant#White_points_of_standard_illuminants">https://en.wikipedia.org/wiki/Standard_illuminant#White_points_of_standard_illuminants</a></li>
-<li><a href="http://colorizer.org/">http://colorizer.org/</a></li>
-<li><a href="https://www.w3.org/TR/WCAG20/#relativeluminancedef">https://www.w3.org/TR/WCAG20/#relativeluminancedef</a></li>
-<li><a href="https://www.24a11y.com/2019/color-theory-and-contrast-ratios/">https://www.24a11y.com/2019/color-theory-and-contrast-ratios/</a></li>
+<li><a href="http://colorizer.org/">colorizer, an interactive color tool</a></li>
+<li><a href="https://peteroupc.github.io/colorgen.html">Peter Occil's "Color Topics for Programmers"</a></li>
+<li><a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el">colors.el, my color utilities</a></li>
+<li><a href="https://github.com/neeasade/emacs.d/blob/master/lisp/themes/neea-theme.el">neeatheme, my base16 bootstrapping emacs theme</a></li>
+<li><a href="https://www.w3.org/TR/WCAG20/#relativeluminancedef">WCAG: Luminance</a></li>
+<li><a href="https://www.24a11y.com/2019/color-theory-and-contrast-ratios/">color theory and contrast ratios</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CIELAB_color_space">wiki: CIELAB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SRGB">wiki: sRGB</a></li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-org2656a1f" class="outline-3">
+<h3 id="org2656a1f"><span class="section-number-3">6.4</span> Thanks</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+<a href="http://chriskempson.com/">Chris Kempson</a> for the base16 project
+</p>
+
+<p>
+Shoutout to <a href="https://github.com/belak">belak</a> for work on the the base16 emacs theme builder
+</p>
+
+<p>
+Thanks to the <a href="https://github.com/gnotclub/">Axis of Eval</a>, <a href="https://catgirl.sh/">camille</a>, and <a href="http://xero.nu/">xero</a> for all their feedback when I was posting way too many pictures of colors.
+</p>
 
 <hr />
 
@@ -1434,6 +1543,7 @@ use your base16 boostrap everywhere, but ALSO your colormap, as used in some pro
 <a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
+</div>
 </div>
 </div>
 </div>
