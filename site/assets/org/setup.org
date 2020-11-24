@@ -2,23 +2,11 @@
 
 #+OPTIONS: html-style:nil
 
-#+HTML_HEAD: <link rel="stylesheet" href="/assets/css/org.css">
-#+HTML_HEAD: <link rel="stylesheet" href="./assets/css/org.css">
-
-#+HTML_HEAD: <link rel="stylesheet" href="/assets/css/colors.css">
-#+HTML_HEAD: <link rel="stylesheet" href="./assets/css/colors.css">
-
-#+HTML_HEAD: <link rel="stylesheet" href="/assets/css/notes.css">
-#+HTML_HEAD: <link rel="stylesheet" href="./assets/css/notes.css">
-
-#+HTML_HEAD: <link rel="stylesheet" href="/assets/css/new.css">
-#+HTML_HEAD: <link rel="stylesheet" href="./assets/css/new.css">
-
 #+HTML_HEAD: <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 # cf https://orgmode.org/manual/Macro-Replacement.html
 
-# link images from the post assets folder fo the site:
+# link images from the post assets folder for the site:
 #+MACRO:  image [[file:./assets/posts/$1][file:./assets/posts/$1]]
 
 # eval macro example:
