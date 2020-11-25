@@ -90,3 +90,5 @@ babashka = stdenv.mkDerivation rec {
 And bam! now we can integrate our sins into our package definitions.
 
 <2020-08-07 Fri> There is also the very cool looking [[https://github.com/svanderburg/nix-patchtools][autopatchelf]], which appears to try and do our first attempt automatically.
+
+<2020-11-25 Wed> Another solution has come up: [[https://fzakaria.com/2020/11/17/on-demand-linked-libraries-for-nix.html][on demand linked libraries for nix]]
