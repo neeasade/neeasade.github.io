@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-25 Wed 18:46 -->
+<!-- 2020-11-26 Thu 09:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -89,7 +89,7 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
-<div id="outline-container-orgbc1265c" class="outline-2">
+<div id="outline-container-orgb3324fe" class="outline-2">
 <h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1</span> <a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code></a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <pre class="example">
@@ -102,24 +102,24 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 
-<div id="outline-container-orgbfaaf1f" class="outline-2">
+<div id="outline-container-orgd0a796d" class="outline-2">
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2</span> <a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code></a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #656669;"># </span><span style="color: #656669;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><span style="color: #545558;"># </span><span style="color: #545558;">to access home after ssh'ing into vps:</span>
 ssh localhost -p 22222
 
-<span style="color: #656669;"># </span><span style="color: #656669;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #2c7600;">'ssh localhost -p 22222'</span>
+<span style="color: #545558;"># </span><span style="color: #545558;">to access home in one go from laptop:</span>
+ssh -t vps <span style="color: #006500;">'ssh localhost -p 22222'</span>
 
-<span style="color: #656669;"># </span><span style="color: #656669;">to Jump from the laptop (-J is the jumpbox target):</span>
+<span style="color: #545558;"># </span><span style="color: #545558;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgefa69e8" class="outline-2">
+<div id="outline-container-org8786c99" class="outline-2">
 <h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3</span> <a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">TRAMP syntax</a></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
@@ -135,16 +135,16 @@ and then here's a cool trick for providing the connection info to a remote shell
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #0061c4;">let*</span> ((tramp-connection-path <span style="color: #2c7600;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #2c7600;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #2c7600;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #0065df;">let*</span> ((tramp-connection-path <span style="color: #006500;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #006500;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #006500;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3b1de4a" class="outline-2">
+<div id="outline-container-org898e09c" class="outline-2">
 <h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4</span> <a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">Other</a></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>

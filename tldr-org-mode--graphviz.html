@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-25 Wed 18:46 -->
+<!-- 2020-11-26 Thu 09:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLDR org mode + graphviz</title>
@@ -79,8 +79,8 @@ for the JavaScript code in this tag.
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-org27a6103" class="outline-2">
-<h2 id="org27a6103"><span class="section-number-2">1</span> Org mode</h2>
+<div id="outline-container-org9dee769" class="outline-2">
+<h2 id="org9dee769"><span class="section-number-2">1</span> Org mode</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
@@ -88,11 +88,11 @@ mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #656669;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #0061c4;">digraph</span><span style="color: #393a3c;"> {</span>
-<span style="color: #393a3c;">    a -&gt; b</span>
-<span style="color: #393a3c;">}</span>
-<span style="color: #656669;">#+END_SRC</span>
+<pre class="src src-org"><span style="color: #545558;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #0065df;">digraph</span><span style="color: #424345;"> {</span>
+<span style="color: #424345;">    a -&gt; b</span>
+<span style="color: #424345;">}</span>
+<span style="color: #545558;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -113,8 +113,8 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </div>
 </div>
 
-<div id="outline-container-orge4b89ea" class="outline-2">
-<h2 id="orge4b89ea"><span class="section-number-2">2</span> The Dot language</h2>
+<div id="outline-container-org0a1fa75" class="outline-2">
+<h2 id="org0a1fa75"><span class="section-number-2">2</span> The Dot language</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
@@ -145,32 +145,32 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #656669;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #0061c4;">digraph</span><span style="color: #393a3c;"> {</span>
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">config:</span>
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">TBLR, top bottom left right, the direction of the graph.</span>
-<span style="color: #393a3c;">    </span><span style="color: #0061c4;">graph</span><span style="color: #393a3c;"> [</span><span style="color: #2d249f;">rankdir=</span><span style="color: #393a3c;">TB];</span>
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">you can have multiple attrs per statement</span>
-<span style="color: #393a3c;">    </span><span style="color: #0061c4;">graph</span><span style="color: #393a3c;"> [dpi=150 </span><span style="color: #2d249f;">splines=</span><span style="color: #393a3c;">ortho];</span>
-<span style="color: #393a3c;">    </span><span style="color: #0061c4;">edge</span><span style="color: #393a3c;">[</span><span style="color: #2d249f;">decorate=</span><span style="color: #393a3c;">true</span><span style="color: #393a3c;">];</span>
-<span style="color: #393a3c;">    </span><span style="color: #0061c4;">node</span><span style="color: #393a3c;"> [</span><span style="color: #2d249f;">shape=</span><span style="color: #393a3c;">box</span><span style="color: #393a3c;">];</span>
+<pre class="src src-org"><span style="color: #545558;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #0065df;">digraph</span><span style="color: #424345;"> {</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">config:</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">TBLR, top bottom left right, the direction of the graph.</span>
+<span style="color: #424345;">    </span><span style="color: #0065df;">graph</span><span style="color: #424345;"> [</span><span style="color: #5639c7;">rankdir=</span><span style="color: #424345;">TB];</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">you can have multiple attrs per statement</span>
+<span style="color: #424345;">    </span><span style="color: #0065df;">graph</span><span style="color: #424345;"> [dpi=150 </span><span style="color: #5639c7;">splines=</span><span style="color: #424345;">ortho];</span>
+<span style="color: #424345;">    </span><span style="color: #0065df;">edge</span><span style="color: #424345;">[</span><span style="color: #5639c7;">decorate=</span><span style="color: #424345;">true</span><span style="color: #424345;">];</span>
+<span style="color: #424345;">    </span><span style="color: #0065df;">node</span><span style="color: #424345;"> [</span><span style="color: #5639c7;">shape=</span><span style="color: #424345;">box</span><span style="color: #424345;">];</span>
 
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">definitions:</span>
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">nb: setting definitions on their own is useful in larger graphs</span>
-<span style="color: #393a3c;">    computer [</span><span style="color: #2d249f;">label=</span><span style="color: #393a3c;">computer];</span>
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">quotes are optional, I'm using them when there are spaces</span>
-<span style="color: #393a3c;">    phone [</span><span style="color: #2d249f;">label=</span><span style="color: #2c7600;">"android phone"</span><span style="color: #393a3c;">];</span>
-<span style="color: #393a3c;">    router [</span><span style="color: #2d249f;">label=</span><span style="color: #393a3c;">router];</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">definitions:</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">nb: setting definitions on their own is useful in larger graphs</span>
+<span style="color: #424345;">    computer [</span><span style="color: #5639c7;">label=</span><span style="color: #424345;">computer];</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">quotes are optional, I'm using them when there are spaces</span>
+<span style="color: #424345;">    phone [</span><span style="color: #5639c7;">label=</span><span style="color: #006500;">"android phone"</span><span style="color: #424345;">];</span>
+<span style="color: #424345;">    router [</span><span style="color: #5639c7;">label=</span><span style="color: #424345;">router];</span>
 
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">record syntax: | for horizontal, {|} for vert</span>
-<span style="color: #393a3c;">    internet [</span><span style="color: #2d249f;">shape=</span><span style="color: #393a3c;">record</span><span style="color: #393a3c;"> </span><span style="color: #2d249f;">label=</span><span style="color: #2c7600;">"{internet|cat pictures}"</span><span style="color: #393a3c;">]</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">record syntax: | for horizontal, {|} for vert</span>
+<span style="color: #424345;">    internet [</span><span style="color: #5639c7;">shape=</span><span style="color: #424345;">record</span><span style="color: #424345;"> </span><span style="color: #5639c7;">label=</span><span style="color: #006500;">"{internet|cat pictures}"</span><span style="color: #424345;">]</span>
 
-<span style="color: #393a3c;">    </span><span style="color: #656669;">// </span><span style="color: #656669;">relations:</span>
-<span style="color: #393a3c;">    computer -&gt; router;</span>
-<span style="color: #393a3c;">    phone -&gt; router [</span><span style="color: #2d249f;">label=</span><span style="color: #2c7600;">"wifi"</span><span style="color: #393a3c;">];</span>
-<span style="color: #393a3c;">    router -&gt; internet [</span><span style="color: #2d249f;">dir=</span><span style="color: #393a3c;">both</span><span style="color: #393a3c;">];</span>
-<span style="color: #393a3c;">}</span>
-<span style="color: #656669;">#+END_SRC</span>
+<span style="color: #424345;">    </span><span style="color: #545558;">// </span><span style="color: #545558;">relations:</span>
+<span style="color: #424345;">    computer -&gt; router;</span>
+<span style="color: #424345;">    phone -&gt; router [</span><span style="color: #5639c7;">label=</span><span style="color: #006500;">"wifi"</span><span style="color: #424345;">];</span>
+<span style="color: #424345;">    router -&gt; internet [</span><span style="color: #5639c7;">dir=</span><span style="color: #424345;">both</span><span style="color: #424345;">];</span>
+<span style="color: #424345;">}</span>
+<span style="color: #545558;">#+END_SRC</span>
 </pre>
 </div>
 

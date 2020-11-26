@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-25 Wed 18:46 -->
+<!-- 2020-11-26 Thu 09:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -119,7 +119,7 @@ hazel :blobcatcomfy: @hazel@is.nota.live now follows you
 Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I'd like to preserve that.
 </p>
 
-<div id="outline-container-orge024dbf" class="outline-2">
+<div id="outline-container-org58048e0" class="outline-2">
 <h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1</span> <a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
@@ -127,7 +127,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #2c7600;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #006500;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -136,17 +136,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #656669;">#</span><span style="color: #656669;">!/usr/bin/</span><span style="color: #0061c4;">env</span><span style="color: #656669;"> bash</span>
-<span style="color: #656669;"># </span><span style="color: #656669;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #656669;"># </span><span style="color: #656669;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #545558;">#</span><span style="color: #545558;">!/usr/bin/</span><span style="color: #0065df;">env</span><span style="color: #545558;"> bash</span>
+<span style="color: #545558;"># </span><span style="color: #545558;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #545558;"># </span><span style="color: #545558;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #2d249f;">count</span>=0
-<span style="color: #0061c4;">if</span> <span style="color: #2c7600;">!</span> <span style="color: #2d249f;">diff</span>=$(<span style="color: #2d249f;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #0061c4;">then</span>
-    <span style="color: #2d249f;">new_content</span>=$(<span style="color: #2d249f;">echo</span> <span style="color: #2c7600;">"$diff"</span> | grep <span style="color: #2c7600;">'^&lt;'</span> | sed <span style="color: #2c7600;">'s/&lt; //'</span>)
-    <span style="color: #2d249f;">count</span>=$(<span style="color: #2d249f;">echo</span> <span style="color: #2c7600;">"$new_content"</span> | awk <span style="color: #2c7600;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #0061c4;">fi</span>
+<span style="color: #5639c7;">count</span>=0
+<span style="color: #0065df;">if</span> <span style="color: #006500;">!</span> <span style="color: #5639c7;">diff</span>=$(<span style="color: #5639c7;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #0065df;">then</span>
+    <span style="color: #5639c7;">new_content</span>=$(<span style="color: #5639c7;">echo</span> <span style="color: #006500;">"$diff"</span> | grep <span style="color: #006500;">'^&lt;'</span> | sed <span style="color: #006500;">'s/&lt; //'</span>)
+    <span style="color: #5639c7;">count</span>=$(<span style="color: #5639c7;">echo</span> <span style="color: #006500;">"$new_content"</span> | awk <span style="color: #006500;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #0065df;">fi</span>
 
-<span style="color: #0061c4;">echo</span> <span style="color: #2c7600;">"toot mentions: $count"</span>
+<span style="color: #0065df;">echo</span> <span style="color: #006500;">"toot mentions: $count"</span>
 </pre>
 </div>
 

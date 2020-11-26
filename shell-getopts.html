@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-25 Wed 18:46 -->
+<!-- 2020-11-26 Thu 09:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -76,19 +76,19 @@ for the JavaScript code in this tag.
 
 <hr />
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #656669;"># </span><span style="color: #656669;">the ':' in front means the flag takes an arg</span>
-<span style="color: #0061c4;">while </span><span style="color: #0061c4;">getopts</span> w:reh flag; <span style="color: #0061c4;">do</span>
-    <span style="color: #0061c4;">case</span> $<span style="color: #2d249f;">flag</span><span style="color: #0061c4;"> in</span>
-        w) <span style="color: #2d249f;">wid</span>=$<span style="color: #2d249f;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #545558;"># </span><span style="color: #545558;">the ':' in front means the flag takes an arg</span>
+<span style="color: #0065df;">while </span><span style="color: #0065df;">getopts</span> w:reh flag; <span style="color: #0065df;">do</span>
+    <span style="color: #0065df;">case</span> $<span style="color: #5639c7;">flag</span><span style="color: #0065df;"> in</span>
+        w) <span style="color: #5639c7;">wid</span>=$<span style="color: #5639c7;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #0061c4;">esac</span>
-<span style="color: #0061c4;">done</span>
+    <span style="color: #0065df;">esac</span>
+<span style="color: #0065df;">done</span>
 
-<span style="color: #656669;"># </span><span style="color: #656669;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #0061c4;">shift</span> $((OPTIND-1))
+<span style="color: #545558;"># </span><span style="color: #545558;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #0065df;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 

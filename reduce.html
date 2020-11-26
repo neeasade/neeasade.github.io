@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-25 Wed 18:46 -->
+<!-- 2020-11-26 Thu 09:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(reduce)</title>
@@ -117,11 +117,11 @@ then it's a question of learning what the various collection functions are usefu
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reduce
- (<span style="color: #0061c4;">fn</span> [acc i]
-   (<span style="color: #0061c4;">let</span> [res (+ acc i)]
-     (<span style="color: #0061c4;">if</span> (&gt; res 100) (reduced res) res)))
+ (<span style="color: #0065df;">fn</span> [acc i]
+   (<span style="color: #0065df;">let</span> [res (+ acc i)]
+     (<span style="color: #0065df;">if</span> (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #656669;">;; </span><span style="color: #656669;">=&gt; 105</span>
+<span style="color: #545558;">;; </span><span style="color: #545558;">=&gt; 105</span>
 </pre>
 </div>
 
@@ -130,11 +130,11 @@ then it's a question of learning what the various collection functions are usefu
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reductions
- (<span style="color: #0061c4;">fn</span> [acc i]
-   (<span style="color: #0061c4;">let</span> [res (+ acc i)]
-     (<span style="color: #0061c4;">if</span> (&gt; res 100) (reduced res) res)))
+ (<span style="color: #0065df;">fn</span> [acc i]
+   (<span style="color: #0065df;">let</span> [res (+ acc i)]
+     (<span style="color: #0065df;">if</span> (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #656669;">;; </span><span style="color: #656669;">=&gt; (0 0 1 3 6 ...)</span>
+<span style="color: #545558;">;; </span><span style="color: #545558;">=&gt; (0 0 1 3 6 ...)</span>
 </pre>
 </div>
 
@@ -157,10 +157,10 @@ Write a function which separates the items of a sequence by an arbitrary value.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure"><span style="color: #656669;">;; </span><span style="color: #656669;">replace the '__'</span>
+<pre class="src src-clojure"><span style="color: #545558;">;; </span><span style="color: #545558;">replace the '__'</span>
 (= (__ 0 [1 2 3]) [1 0 2 0 3])
-(= (apply str (__ <span style="color: #2c7600;">", "</span> [<span style="color: #2c7600;">"one"</span> <span style="color: #2c7600;">"two"</span> <span style="color: #2c7600;">"three"</span>])) <span style="color: #2c7600;">"one, two, three"</span>)
-(= (__ <span style="color: #0061c4;">:z</span> [<span style="color: #0061c4;">:a</span> <span style="color: #0061c4;">:b</span> <span style="color: #0061c4;">:c</span> <span style="color: #0061c4;">:d</span>]) [<span style="color: #0061c4;">:a</span> <span style="color: #0061c4;">:z</span> <span style="color: #0061c4;">:b</span> <span style="color: #0061c4;">:z</span> <span style="color: #0061c4;">:c</span> <span style="color: #0061c4;">:z</span> <span style="color: #0061c4;">:d</span>])
+(= (apply str (__ <span style="color: #006500;">", "</span> [<span style="color: #006500;">"one"</span> <span style="color: #006500;">"two"</span> <span style="color: #006500;">"three"</span>])) <span style="color: #006500;">"one, two, three"</span>)
+(= (__ <span style="color: #0065df;">:z</span> [<span style="color: #0065df;">:a</span> <span style="color: #0065df;">:b</span> <span style="color: #0065df;">:c</span> <span style="color: #0065df;">:d</span>]) [<span style="color: #0065df;">:a</span> <span style="color: #0065df;">:z</span> <span style="color: #0065df;">:b</span> <span style="color: #0065df;">:z</span> <span style="color: #0065df;">:c</span> <span style="color: #0065df;">:z</span> <span style="color: #0065df;">:d</span>])
 </pre>
 </div>
 
@@ -169,11 +169,11 @@ Before (bad habits):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #0061c4;">fn</span> [sep coll &amp; state]
-   (<span style="color: #0061c4;">if</span> (= 1 (count coll))
+<pre class="src src-clojure">(<span style="color: #0065df;">fn</span> [sep coll &amp; state]
+   (<span style="color: #0065df;">if</span> (= 1 (count coll))
      (conj state (first coll))
-     (<span style="color: #0061c4;">recur</span> sep (rest coll)
-            (conj (<span style="color: #0061c4;">or</span> state [])
+     (<span style="color: #0065df;">recur</span> sep (rest coll)
+            (conj (<span style="color: #0065df;">or</span> state [])
                   (first coll)
                   sep))))
 </pre>
@@ -188,9 +188,9 @@ After:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #0061c4;">fn</span> [sep coll]
+<pre class="src src-clojure">(<span style="color: #0065df;">fn</span> [sep coll]
    (butlast
-    (reduce (<span style="color: #0061c4;">fn</span> [state next]
+    (reduce (<span style="color: #0065df;">fn</span> [state next]
               (conj state next sep))
             [] coll)))
 </pre>
