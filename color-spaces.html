@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-24 Tue 13:49 -->
+<!-- 2020-11-25 Wed 18:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reasoning about colors</title>
@@ -70,7 +70,7 @@ for the JavaScript code in this tag.
 <h1 class="title">reasoning about colors</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2020-11-24</a> • 2020-08-13
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2020-11-25</a> • 2020-11-24
 </p>
 </div>
 
@@ -94,7 +94,7 @@ for the JavaScript code in this tag.
 In July 2020 I went on a color-scheme vision quest. This led to some research on various <a href="https://en.wikipedia.org/wiki/Color_space">color spaces</a> and their utility, some investigation into the <a href="http://chriskempson.com/projects/base16/#styling-guidelines">styling guidelines</a> outlined by the base16 project, and the <a href="https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el">color utilities</a> that ship within the GNU Emacs text editor. This article will be a whirlwind tour of things you can do to individual colors, and at the end how I put these blocks together.
 </p>
 
-<div id="outline-container-orgc5606a7" class="outline-2">
+<div id="outline-container-org279f0c6" class="outline-2">
 <h2 id="h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620"><span class="section-number-2">1</span> <a href="#h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620">Motivation</a></h2>
 <div class="outline-text-2" id="text-h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620">
 <p>
@@ -115,7 +115,7 @@ Plus, I just find this sort of thing really fun. Visual feedback is pleasing. Fi
 </div>
 </div>
 
-<div id="outline-container-org9ddc041" class="outline-2">
+<div id="outline-container-org39687d6" class="outline-2">
 <h2 id="h-3820d027-5602-4691-b9ca-b36aadd3871a"><span class="section-number-2">2</span> <a href="#h-3820d027-5602-4691-b9ca-b36aadd3871a">Side note: The Canvas</a></h2>
 <div class="outline-text-2" id="text-h-3820d027-5602-4691-b9ca-b36aadd3871a">
 <p>
@@ -124,7 +124,7 @@ This will be the focal point of inconsistency. The level of brightness, quality 
 </div>
 </div>
 
-<div id="outline-container-org87f5850" class="outline-2">
+<div id="outline-container-org55f0f49" class="outline-2">
 <h2 id="h-a71813d2-7e36-4f52-b22c-87e22d4a2620"><span class="section-number-2">3</span> <a href="#h-a71813d2-7e36-4f52-b22c-87e22d4a2620">Color Spaces</a></h2>
 <div class="outline-text-2" id="text-h-a71813d2-7e36-4f52-b22c-87e22d4a2620">
 <p>
@@ -132,7 +132,7 @@ Color spaces are ways of defining colors in different sets of properties. They a
 </p>
 </div>
 
-<div id="outline-container-orga9715ad" class="outline-3">
+<div id="outline-container-org33a4801" class="outline-3">
 <h3 id="h-99356355-d54c-41d8-bc1a-6e14e29f42c8"><span class="section-number-3">3.1</span> <a href="#h-99356355-d54c-41d8-bc1a-6e14e29f42c8">RGB</a></h3>
 <div class="outline-text-3" id="text-h-99356355-d54c-41d8-bc1a-6e14e29f42c8">
 <p>
@@ -217,7 +217,7 @@ To show the lighting effect, let's repeat the above gradient, but instead of usi
 </div>
 </div>
 
-<div id="outline-container-orgb36c33b" class="outline-3">
+<div id="outline-container-org84f1544" class="outline-3">
 <h3 id="h-43869bc7-a7d1-410f-9341-521974751dac"><span class="section-number-3">3.2</span> <a href="#h-43869bc7-a7d1-410f-9341-521974751dac">HSL</a></h3>
 <div class="outline-text-3" id="text-h-43869bc7-a7d1-410f-9341-521974751dac">
 <p>
@@ -334,7 +334,7 @@ And lightness:
 </div>
 </div>
 
-<div id="outline-container-org78f8ad7" class="outline-3">
+<div id="outline-container-org00df116" class="outline-3">
 <h3 id="h-c147b84d-d95b-4d2d-8426-2f96529a8428"><span class="section-number-3">3.3</span> <a href="#h-c147b84d-d95b-4d2d-8426-2f96529a8428">HSLuv</a></h3>
 <div class="outline-text-3" id="text-h-c147b84d-d95b-4d2d-8426-2f96529a8428">
 <p>
@@ -414,7 +414,7 @@ These scales definitely look more consistent when reasoning about lightness valu
 </div>
 </div>
 
-<div id="outline-container-org16857f4" class="outline-3">
+<div id="outline-container-org2890bcb" class="outline-3">
 <h3 id="h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e"><span class="section-number-3">3.4</span> <a href="#h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e">CIELAB</a></h3>
 <div class="outline-text-3" id="text-h-9d5a1a9a-75d3-48f5-bf00-85332d9b023e">
 <p>
@@ -562,7 +562,7 @@ Let's look at some LAB colors. The labels below will have the values of  <code>(
 </div>
 </div>
 
-<div id="outline-container-org7abf0b5" class="outline-3">
+<div id="outline-container-org70e77c3" class="outline-3">
 <h3 id="h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413"><span class="section-number-3">3.5</span> <a href="#h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413">LCH</a></h3>
 <div class="outline-text-3" id="text-h-c4f93e1f-4fa6-4ebc-99c1-18b6de0ef413">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -843,16 +843,16 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 </div>
 </div>
 
-<div id="outline-container-orga0cb922" class="outline-2">
+<div id="outline-container-org4ecc85b" class="outline-2">
 <h2 id="h-e1c795a7-b3d9-4be3-9874-1b98a2069520"><span class="section-number-2">4</span> <a href="#h-e1c795a7-b3d9-4be3-9874-1b98a2069520">Other stuff</a></h2>
 <div class="outline-text-2" id="text-h-e1c795a7-b3d9-4be3-9874-1b98a2069520">
 </div>
 
-<div id="outline-container-org188681d" class="outline-3">
+<div id="outline-container-orgbd3bae4" class="outline-3">
 <h3 id="h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51"><span class="section-number-3">4.1</span> <a href="#h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">Contrast</a></h3>
 <div class="outline-text-3" id="text-h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">
 <p>
-For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#f7f7f7</code> and <code style="background: #101010;color: #e5e7ea; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #e5e7ea; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#ffffff</code> is 21.0
+For text, the Web Content Assembly Guidelines (WCAG) recommend at least a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#f7f7f7</code> and <code style="background: #101010;color: #e5e7ea; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #e5e7ea; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #393a3c; padding: 2px; border: 1px solid #393a3c">#ffffff</code> is 21.0
 </p>
 
 <p>
@@ -861,17 +861,17 @@ Dark:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorpadding" style="background: #101010;color: #3b3b3b; width: 33.333333333333336%;">2.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #494949; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #585757; width: 33.333333333333336%;">3.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #666666; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #747474; width: 33.333333333333336%;">4.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #838383; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #5f5f5f; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #737272; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #838282; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #919090; width: 33.333333333333336%;">6.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #9d9c9d; width: 33.333333333333336%;">7.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #a8a7a8; width: 33.333333333333336%;">8.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
  </div> 
 </p>
 
 <p>
- <div class="detail"> dark contrast ratios, 2.0 - 5.0, step .5 </div> 
+ <div class="detail"> dark contrast ratios, 3.0 - 9.0, step 1.0 </div> 
 </p>
 
 <p>
@@ -880,17 +880,17 @@ Light:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #5b5a5b; width: 33.333333333333336%;">2.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #4a4949; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #3d3c3d; width: 33.333333333333336%;">3.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #343334; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #2d2c2c; width: 33.333333333333336%;">4.5: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #272627; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #8f8f8f; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #7a797a; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #6b6a6a; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #5f5e5e; width: 33.333333333333336%;">6.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #545454; width: 33.333333333333336%;">7.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #4c4b4c; width: 33.333333333333336%;">8.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
  </div> 
 </p>
 
 <p>
- <div class="detail"> light contrast ratios, 2.0 - 5.0, step .5 </div> 
+ <div class="detail"> light contrast ratios, 3.0 - 9.0, step 1.0 </div> 
 </p>
 
 <p>
@@ -899,7 +899,7 @@ I think it's pretty clear from these examples that higher contrast goes a long w
 </div>
 </div>
 
-<div id="outline-container-orgafbf4a1" class="outline-3">
+<div id="outline-container-org90368dc" class="outline-3">
 <h3 id="h-e260bdea-3408-47e6-a195-f5a62ed979bc"><span class="section-number-3">4.2</span> <a href="#h-e260bdea-3408-47e6-a195-f5a62ed979bc">Distance</a></h3>
 <div class="outline-text-3" id="text-h-e260bdea-3408-47e6-a195-f5a62ed979bc">
 <p>
@@ -931,7 +931,7 @@ Color distance is useful because it lets us measure a kind of similarity between
 </div>
 </div>
 
-<div id="outline-container-org167ff43" class="outline-3">
+<div id="outline-container-orgce8d2ea" class="outline-3">
 <h3 id="h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01"><span class="section-number-3">4.3</span> <a href="#h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01">Gradients</a></h3>
 <div class="outline-text-3" id="text-h-91fbcdc5-10ac-40ab-93d8-0d64cb1c7d01">
 <p>
@@ -940,7 +940,7 @@ A gradient is where you travel from one color's initial property values to some 
 </div>
 </div>
 
-<div id="outline-container-org6de0f75" class="outline-3">
+<div id="outline-container-orgade5364" class="outline-3">
 <h3 id="h-1ed7ea90-395e-4486-a11c-6f3c9054dd15"><span class="section-number-3">4.4</span> <a href="#h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">Pastel</a></h3>
 <div class="outline-text-3" id="text-h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">
 <p>
@@ -964,7 +964,7 @@ A gradient is where you travel from one color's initial property values to some 
 </div>
 </div>
 
-<div id="outline-container-org4f24d09" class="outline-3">
+<div id="outline-container-org074db3e" class="outline-3">
 <h3 id="h-81b4122f-f725-45ec-8c4a-437688cbcc2a"><span class="section-number-3">4.5</span> <a href="#h-81b4122f-f725-45ec-8c4a-437688cbcc2a">Colorwheel rotations</a></h3>
 <div class="outline-text-3" id="text-h-81b4122f-f725-45ec-8c4a-437688cbcc2a">
 <p>
@@ -1050,7 +1050,7 @@ Rotations around hue in different color spaces will yield different results. Thi
 </div>
 </div>
 
-<div id="outline-container-org09fc765" class="outline-3">
+<div id="outline-container-orgbcfdecc" class="outline-3">
 <h3 id="h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532"><span class="section-number-3">4.6</span> <a href="#h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532">white-point adjustment</a></h3>
 <div class="outline-text-3" id="text-h-f23b8fe5-37a3-4ead-9d9d-a7139f76d532">
 <p>
@@ -1102,7 +1102,7 @@ Mapping color palettes through this transform could presumably get you better re
 </div>
 </div>
 
-<div id="outline-container-orgdc580bc" class="outline-2">
+<div id="outline-container-orgc76b4c5" class="outline-2">
 <h2 id="h-cb3c6479-7d62-4028-8942-2b033bb1247a"><span class="section-number-2">5</span> <a href="#h-cb3c6479-7d62-4028-8942-2b033bb1247a">Implementing helpers</a></h2>
 <div class="outline-text-2" id="text-h-cb3c6479-7d62-4028-8942-2b033bb1247a">
 <p>
@@ -1198,7 +1198,7 @@ These pieces (transformers and comparison functions) can be combined to do thing
 </div>
 </div>
 
-<div id="outline-container-org436ea59" class="outline-2">
+<div id="outline-container-org34c1402" class="outline-2">
 <h2 id="h-0942db07-512b-45d6-8fd2-f3a641379b66"><span class="section-number-2">6</span> <a href="#h-0942db07-512b-45d6-8fd2-f3a641379b66">Vision quest</a></h2>
 <div class="outline-text-2" id="text-h-0942db07-512b-45d6-8fd2-f3a641379b66">
 <p>
@@ -1296,7 +1296,7 @@ The pair of accent2 colors turned out to be the most awkward here. I personally 
 </p>
 </div>
 
-<div id="outline-container-org3bcfa5c" class="outline-3">
+<div id="outline-container-org6b2526a" class="outline-3">
 <h3 id="h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20"><span class="section-number-3">6.1</span> <a href="#h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20">Methods</a></h3>
 <div class="outline-text-3" id="text-h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20">
 <p>
@@ -1336,12 +1336,22 @@ At the time of this writing, I'm using a color rotation of 45° in the LCH space
 </p>
 
 <p>
+Which in action looks like (click to see full size):
+</p>
+
+
+<div class="figure">
+<p><a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png" /></a>
+</p>
+</div>
+
+<p>
 I store these in a hash table in emacs, so that I can always query the current theme from anywhere (eg <code>elisp -r '(ht-get ns/theme :accent1)</code>), allowing me to use my intended color preferences across many contexts.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org64f7a9c" class="outline-3">
+<div id="outline-container-org3a337ef" class="outline-3">
 <h3 id="h-9ba33a22-a924-4f8d-b27b-0e86b582b418"><span class="section-number-3">6.2</span> <a href="#h-9ba33a22-a924-4f8d-b27b-0e86b582b418">Bootstrapping</a></h3>
 <div class="outline-text-3" id="text-h-9ba33a22-a924-4f8d-b27b-0e86b582b418">
 <p>
@@ -1498,7 +1508,7 @@ Now that the mapping has been created, with some glue I can use any of the <a hr
 </div>
 </div>
 
-<div id="outline-container-org5a2f7f4" class="outline-3">
+<div id="outline-container-orgad9d77a" class="outline-3">
 <h3 id="h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe"><span class="section-number-3">6.3</span> <a href="#h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe">References and further reading</a></h3>
 <div class="outline-text-3" id="text-h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe">
 <ul class="org-ul">
@@ -1514,8 +1524,8 @@ Now that the mapping has been created, with some glue I can use any of the <a hr
 </div>
 </div>
 
-<div id="outline-container-org2656a1f" class="outline-3">
-<h3 id="org2656a1f"><span class="section-number-3">6.4</span> Thanks</h3>
+<div id="outline-container-org0a4aec9" class="outline-3">
+<h3 id="org0a4aec9"><span class="section-number-3">6.4</span> Thanks</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 <a href="http://chriskempson.com/">Chris Kempson</a> for the base16 project

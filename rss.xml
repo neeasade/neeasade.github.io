@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes]]></description>
   <language>en</language>
-  <pubDate>Tue, 24 Nov 2020 13:50:20 -0600</pubDate>
-  <lastBuildDate>Tue, 24 Nov 2020 13:50:20 -0600</lastBuildDate>
+  <pubDate>Wed, 25 Nov 2020 18:46:29 -0600</pubDate>
+  <lastBuildDate>Wed, 25 Nov 2020 18:46:29 -0600</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3.1</generator>
   <webMaster>neeasade@geloof (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>reasoning about colors</title>
+    <link>https://notes.neeasade.net/color-spaces.html</link>
+    <author>neeasade@geloof (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/color-spaces.html</guid>
+    <pubDate>Tue, 24 Nov 2020 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>my shell prompt</title>
     <link>https://notes.neeasade.net/my-shell-prompt.html</link>

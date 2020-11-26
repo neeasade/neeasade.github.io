@@ -6,7 +6,7 @@
 <!-- 2020-11-25 Wed 18:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>my shell prompt</title>
+<title>Task Management</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -67,103 +67,32 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">my shell prompt</h1>
+<h1 class="title">Task Management</h1>
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-09-my-shell-prompt.org">2020-11-15</a> • 2020-11-09
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-25-time.org">nil</a> • 2020-11-25
 </p>
 </div>
 
 <hr />
 <p>
-A <a href="https://nixers.net/Thread-Your-PROMPT">thread</a> was recently promoted on nixers to show your shell prompt, so I'll share some features of mine. I usually use bash with Emacs shell-mode, so I get vim bindings for free via evil, with the mode indicator being the cursor ('|' vs '█'). I usually use '♥'  as a prompt character, but for the sake of this post I'll use '$', as the heart can look wildly different depending on your font setup.
+There are 3 books that influenced about how I think about a) how I affect my environment and b) how my environment affects me:
 </p>
 
-<p>
-Errors and background processes:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-text">$ false
-! vim temp.txt
-[1]+  Stopped                 vim temp.txt
-$! true
-$$ fg
-vim temp
-$
-</pre>
-</div>
-
-<p>
-git stuff:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-text">$ cd $(mktemp -d)
-$ git init
-Initialized empty Git repository in /tmp/tmp.enlQwywyEv/.git/
-$ touch readme.md
-? $ git checkout -b new_branch
-Switched to a new branch 'new_branch'
-(new_branch|?) $ git add readme.md
-(new_branch|+) $ echo 'edit' &gt;&gt; readme.md
-(new_branch|+*) $ git commit -m "initial"
-[new_branch (root-commit) 3ff638e] initial
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 readme.md
-(new_branch) $ git checkout -b master; git reset --hard
-Switched to a new branch 'master'
-HEAD is now at 3ff638e initial
-$
-</pre>
-</div>
-
-<p>
-non-standard environment detection (checks capital variables):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-text">$ PYTHONPATH="$HOME/something/stateful"
-E $ envv
-PYTHONPATH=/home/neeasade/something/stateful
-E $ unset PYTHONPATH
-$
-</pre>
-</div>
-
-<p>
-ssh hostname:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-text">$ ssh super.cool.vps
-trouw $ logout
-$
-</pre>
-</div>
-
-<p>
-and a hack that tells Emacs where the shell is (including tramp information &#x2013; this is normally used in the prompt, I'm just showing it out here):
-</p>
-
-<div class="org-src-container">
-<pre class="src src-text">$ ssh super.cool.vps
-trouw $ tell_emacs_shell_location
-+Pr0mPT+/ssh:neeasade@192.0.2.0:/home/neeasade+
-trouw $ logout
-$
-</pre>
-</div>
-
-<p>
-Source is here: <a href="https://github.com/neeasade/dotfiles/blob/083d2996df4a2fff6b7ebfbc237a6a27babcf4b9/shell/.sh.d/style#L109">~/.sh.d/style</a>
-</p>
+<div id="outline-container-org427f327" class="outline-2">
+<h2 id="org427f327"><span class="section-number-2">1</span> Getting Things Done</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Getting Things Done</li>
+<li>The Design of Everyday Things</li>
+<li>The Power of Habit</li>
+</ul>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-09-my-shell-prompt.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-25-time.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 
@@ -173,6 +102,8 @@ Source is here: <a href="https://github.com/neeasade/dotfiles/blob/083d2996df4a2
 <a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
 </p>
+</div>
+</div>
 </div>
 </div>
 </body>
