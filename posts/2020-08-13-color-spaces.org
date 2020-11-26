@@ -218,7 +218,7 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
        (lambda (props)
 	 (list
 	  (apply 'ns/color-make-lab props)
-	  (format "(%s, %s, %s)" (nth 0 props) (nth 1 props) (nth 2 props))))
+	  (format "(%s,%s,%s)" (nth 0 props) (nth 1 props) (nth 2 props))))
        colors))))
   '(
     ((50 -80 0)
@@ -245,7 +245,7 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
 	    (lambda (props)
 	      (list
 	       (apply 'ns/color-make-lab props)
-	       (format "(%s, %s, %s)" (nth 0 props) (nth 1 props) (nth 2 props))))
+	       (format "(%s,%s,%s)" (nth 0 props) (nth 1 props) (nth 2 props))))
 	    colors))))
        '(((50 0 -80)
 	  (50 0 -60)
@@ -271,7 +271,7 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
        (lambda (props)
 	 (list
 	  (apply 'ns/color-make-lab props)
-	  (format "(%s, %s, %s)" (nth 0 props) (nth 1 props) (nth 2 props))))
+	  (format "(%s,%s,%s)" (nth 0 props) (nth 1 props) (nth 2 props))))
        colors))))
   '(((50 -80 -80)
      (50 -60 -60)
@@ -549,7 +549,7 @@ A gradient is where you travel from one color's initial property values to some 
 
 Color wheel rotations are all about hue. The circle that hue forms is the color wheel for that color space. Colors that are opposed here (180° away from each other) are complementary colors. One way to attempt to generate color palettes  is to do "color wheel rotations" where you take colors around equidistant points around the color wheel. The hue values we've been showing are examples of a color wheel rotation (6 points around 60°)
 
-Let's say we we've played around in the LAB space to find a warm looking light background {{{color(#ffffd53ed101, LAB(90\,20\,10))}}}, and then we darken it until we hit some minimal contrast (say, 2.0) for a starting color {{{color(#822f65745784)}}}, which has a hue of 3.8. Let's see what doing hue rotations on this color look like:
+Let's say we we've played around in the LAB space to find a warm looking light background {{{color(#ffffd53ed101, LAB(90\,90\,10))}}}, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color {{{color(#822f65745784)}}}, which has a hue of 3.8°. Let's see what doing hue rotations on this color look like:
 
 #+begin_src elisp :results raw :exports results
 (apply
