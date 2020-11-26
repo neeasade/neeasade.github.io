@@ -1,6 +1,6 @@
 #+title: reasoning about colors
-#+pubdate: <2020-08-13>
-#+draft: t
+#+pubdate: <2020-11-24>
+#+rss_title: reasoning about colors
 
 #+BEGIN_SRC elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
@@ -418,7 +418,7 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 :CUSTOM_ID: h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51
 :END:
 
-For text, the Web Content Assembly Guidelines (WCAG) recommend a 4.5:1 contrast ratio: [[https://www.w3.org/TR/WCAG/#contrast-minimum][link]]. I find I can get away with 2.2, but that's also in a light colorscheme context and down to personal preference/viewing conditions. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: {{{color(#f7f7f7)}}} and {{{color(#101010)}}}. For reference, the contrast ratio between {{{color(#000000)}}} and {{{color(#ffffff)}}} is 21.0
+For text, the Web Content Assembly Guidelines (WCAG) recommend at least a 4.5:1 contrast ratio: [[https://www.w3.org/TR/WCAG/#contrast-minimum][link]]. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: {{{color(#f7f7f7)}}} and {{{color(#101010)}}}. For reference, the contrast ratio between {{{color(#000000)}}} and {{{color(#ffffff)}}} is 21.0
 
 Dark:
 
@@ -445,14 +445,15 @@ Dark:
 	       (lambda (acc new)
 		 (list (ns/color-tint-ratio
 			(first acc)
-			"#101010" new) new))
+			"#101010"
+			new
+			) new))
 	       '("#101010")
-	       '(2.5 3.0 3.5 4.0 4.5 5.0)
-	       )))
+	       (-map 'float (range 3 9)))))
 	  "@@html: </div> @@"
 	  ))
 #+end_src
-{{{detail(dark contrast ratios, 2.0 - 5.0, step .5)}}}
+{{{detail(dark contrast ratios, 3.0 - 9.0, step 1.0)}}}
 
 Light:
 
@@ -479,12 +480,11 @@ Light:
 			(first acc)
 			"#f7f7f7" new) new))
 	       '("#f7f7f7")
-	       '(2.5 3.0 3.5 4.0 4.5 5.0)
-	       )))
+	       (-map 'float (range 3 9)))))
 	  "@@html: </div> @@"
 	  ))
 #+end_src
-{{{detail(light contrast ratios, 2.0 - 5.0, step .5)}}}
+{{{detail(light contrast ratios, 3.0 - 9.0, step 1.0)}}}
 
 I think it's pretty clear from these examples that higher contrast goes a long way in dark color schemes.
 
@@ -826,6 +826,10 @@ At the time of this writing, I'm using a color rotation of 45° in the LCH space
 	    ("#006e96" ":accent2")
 	    ("#2c7600" ":accent2_")))))
 #+end_src
+
+Which in action looks like (click to see full size):
+
+{{{image(colors.png)}}}
 
 I store these in a hash table in emacs, so that I can always query the current theme from anywhere (eg ~elisp -r '(ht-get ns/theme :accent1)~), allowing me to use my intended color preferences across many contexts.
 
