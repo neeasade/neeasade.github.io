@@ -1,0 +1,47 @@
+#+title: Monday
+#+pubdate: <2020-11-30>
+
+"reasoning about colors" made the front page of the orange site for thanksgiving evening. I was not expecting this! Life is still the same though. A brief clout cloud came and went over my head >:)
+
+I have a daily reminder to write, and most times that ends up going into a letter or journal somewhere. But I think this blog could use more "useless" posts.
+
+I was in away from home for a week for thanksgiving. I've come to associate thanksgiving with the dramatic tones and ego that emerges from putting people who formed an identity together back in the same room.
+
+That might sound depressing, but it's really not. I think you need a kind of "bumpy" feeling for {conflict,discussion,growth}. In online communities this is especially important  --  You need people who will put their imperfect selves out there to generate a direction, some involvement, some thread to get attached too or annoyed at.
+
+-----
+
+OK, I'm just gonna type about something and see what pours out. WAIT, I've got it. I'll talk about the meta. It's really easy for me to get too meta (a plight I'm sure many programmers share). Recently there was even big discussion across the link aggregator sites about writing vs spending too much time making your own blog generator. I'm def guilty of that, this site has gone through many transformations. re-styling aside, let me see if I can recall the static site methods this site has known(all hosted on github pages):
+
+- Jekyll with Hyde
+- vanilla Jekyll
+- custom angular thingy
+- pelican
+- org-static-blog
+- custom org mode export from emacs
+
+This works out to almost a once a year change per blogging stack. The most entertaining thing is that some years there have been one or no posts, but the change occurs nonetheless. And inbetween stages here there was for sure some css evolutions. In the past few years I've become enamored with "classless" css kits, but finding the right line for me is hard (there is no shortage of these). I'm currently using new.css but with some mappings of my own preferences on top of it (colors, serifs, spacing). Basically it's a never ending hole of "hm how does this look" and "oh I'm gonna get picky about headings today" if I choose to go down it.
+
+I've had two pots of coffee today. I don't think that's very sustainable, but I occasionally do so anyway.
+
+I'm going to list some blog post ideas I have out here:
+
+- an overview of stoicism
+- search based mpc playlists (a port of a talk I gave)
+- systemd user services (another talk port)
+- my personal information management system
+- places to search for clojure jobs
+- books that influenced how I think about programming and task management
+- an obligatory "lisp good" post
+
+super cool.
+
+-----
+
+Deciding to do is harder than doing. No, that's not quite right. Don't count your chickens before they hatch? Maybe that's more like it. I can get impatient when the IDEA of a thing is formed, because then it sometimes feels done, even though it is not.
+
+Minimalism as an aesthetic is appealing because of the promise of potential. I see a blank sheet of paper, a clean counter, a new file, it feels so nice and clean because the message my brain screams is "think of all the nice things we could make here". Conversely, clutter across any of those interfaces makes it feel like I have to drag myself out of molasses to make progress. That's sort of a trap though, it's easy to stay in the zone where you are "just getting ready" to rise from the slow sludge -- Heck, see the sentiments at the bottom of [[./Aug-2020.org][this post]], just a few months ago.
+
+This is not how I feel all the time -- when programming with a goal in mind, I feel I have mastered "good is the enemy of perfect" and have no qualms making in the now trade-offs to do what I set out to do.
+
+The sun is rising. I must answer.
