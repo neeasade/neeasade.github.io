@@ -3,71 +3,50 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-26 Thu 09:30 -->
+<!-- 2020-11-30 Mon 11:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Archiving CD's on linux</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=c778a8b83695ce54e07a8c17897d8d97'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=c778a8b83695ce54e07a8c17897d8d97'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=6e2641f07cc9eb603059c74c07b87f33'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=6e2641f07cc9eb603059c74c07b87f33'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=ba2db03f57aa0920a9cb87cc977c0778'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=ba2db03f57aa0920a9cb87cc977c0778'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Archiving CD's on linux</h1>
+<p>
+<h1 class=title><a href="/index.html">Archiving CD's on linux</a> </h1>
+</p>
+
 <div class="org-center">
 <p>
 <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-05-Archiving-CD's-on-linux.org">2020-08-11</a> • 2020-05-05
@@ -76,7 +55,7 @@ for the JavaScript code in this tag.
 
 <hr />
 
-<div id="outline-container-orge7643db" class="outline-2">
+<div id="outline-container-h-c2430d47-065c-438b-9ffe-3856b927a6ce" class="outline-2">
 <h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><span class="section-number-2">1</span> <a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">Mounting data CD's/DVD's</a></h2>
 <div class="outline-text-2" id="text-h-c2430d47-065c-438b-9ffe-3856b927a6ce">
 <p>
@@ -107,7 +86,7 @@ or, more explicitly:
 </div>
 </div>
 
-<div id="outline-container-org68879e9" class="outline-2">
+<div id="outline-container-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895" class="outline-2">
 <h2 id="h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895"><span class="section-number-2">2</span> <a href="#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">Getting the content from a Music CD/DVD</a></h2>
 <div class="outline-text-2" id="text-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">
 <p>
@@ -115,24 +94,24 @@ With cdparanoia:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #0065df;">cd</span> /place/to/store/tracks
+<pre class="src src-sh"><span style="color: #006ae3;">cd</span> /place/to/store/tracks
 cdparanoia -d &lt;dev&gt; -B
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org75b643a" class="outline-2">
+<div id="outline-container-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf" class="outline-2">
 <h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3</span> <a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">Backing up to an ISO</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
 <div class="org-src-container">
-<pre class="src src-sh">dd <span style="color: #5639c7;">if</span>=&lt;dev&gt; <span style="color: #5639c7;">of</span>=/path/to/label.iso <span style="color: #5639c7;">bs</span>=128k
+<pre class="src src-sh">dd <span style="color: #5b3fcc;">if</span>=&lt;dev&gt; <span style="color: #5b3fcc;">of</span>=/path/to/label.iso <span style="color: #5b3fcc;">bs</span>=128k
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgf8346f1" class="outline-2">
+<div id="outline-container-h-8052e45f-f714-4bd1-b2ed-39ed0175a499" class="outline-2">
 <h2 id="h-8052e45f-f714-4bd1-b2ed-39ed0175a499"><span class="section-number-2">4</span> <a href="#h-8052e45f-f714-4bd1-b2ed-39ed0175a499">Mounting an ISO</a></h2>
 <div class="outline-text-2" id="text-h-8052e45f-f714-4bd1-b2ed-39ed0175a499">
 <pre class="example">
@@ -148,11 +127,9 @@ mount /path/to/image.iso /path/to/mountpoint/ -o loop
 </div>
 
 <div class="org-center">
-<p>
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
-</p>
 </div>
 </div>
 </div>

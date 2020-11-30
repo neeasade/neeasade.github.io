@@ -3,71 +3,49 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-26 Thu 09:30 -->
+<!-- 2020-11-30 Mon 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Test page</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=c778a8b83695ce54e07a8c17897d8d97'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=c778a8b83695ce54e07a8c17897d8d97'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=6e2641f07cc9eb603059c74c07b87f33'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=6e2641f07cc9eb603059c74c07b87f33'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=ba2db03f57aa0920a9cb87cc977c0778'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=ba2db03f57aa0920a9cb87cc977c0778'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Test page</h1>
+<p>
+<h1 class=title><a href="/index.html">Test page</a> </h1>
+</p>
 <hr />
 <p>
 This is a test file to test formatting things
@@ -82,7 +60,7 @@ Inline image:
 </p>
 
 
-<div class="figure">
+<div id="org6e95107" class="figure">
 <p><img src="./assets/posts/test.png" alt="test.png" />
 </p>
 </div>
@@ -92,10 +70,10 @@ code:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(<span style="color: #0065df;">if</span> t
-    (<span style="color: #0065df;">progn</span> 'wow)
-  <span style="color: #545558;">;; </span><span style="color: #545558;">do the thing:</span>
-  <span style="color: #006500;">"um ok"</span>
+<pre class="src src-elisp">(<span style="color: #006ae3;">if</span> t
+    (<span style="color: #006ae3;">progn</span> 'wow)
+  <span style="color: #595a5d;">;; </span><span style="color: #595a5d;">do the thing:</span>
+  <span style="color: #036a00;">"um ok"</span>
   )
 </pre>
 </div>
@@ -119,12 +97,12 @@ some more examples: <a href="https://renenyffenegger.ch/notes/tools/Graphviz/exa
 </p>
 
 
-<div class="figure">
+<div id="orgb83d6e2" class="figure">
 <p><img src="./assets/posts/test-dot.png" alt="test-dot.png" />
 </p>
 </div>
 
-<div id="outline-container-orgf8fd1d2" class="outline-2">
+<div id="outline-container-h-430694fe-e684-4e5a-9173-8806a206775c" class="outline-2">
 <h2 id="h-430694fe-e684-4e5a-9173-8806a206775c"><span class="section-number-2">1</span> <a href="#h-430694fe-e684-4e5a-9173-8806a206775c">here is a headline!</a></h2>
 <div class="outline-text-2" id="text-h-430694fe-e684-4e5a-9173-8806a206775c">
 <p>
@@ -136,7 +114,7 @@ Mauris id efficitur felis. Duis luctus ante faucibus eros consectetur, eu placer
 </p>
 </div>
 
-<div id="outline-container-org08b0850" class="outline-3">
+<div id="outline-container-h-f00dcb3a-389f-4e9b-83de-c5231d9657e9" class="outline-3">
 <h3 id="h-f00dcb3a-389f-4e9b-83de-c5231d9657e9"><span class="section-number-3">1.1</span> <a href="#h-f00dcb3a-389f-4e9b-83de-c5231d9657e9">subheading</a></h3>
 <div class="outline-text-3" id="text-h-f00dcb3a-389f-4e9b-83de-c5231d9657e9">
 <ul class="org-ul">
@@ -150,7 +128,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo 
 </p>
 </div>
 
-<div id="outline-container-org3714b3f" class="outline-4">
+<div id="outline-container-h-67749138-1184-4363-a60f-90d5ccc5ba13" class="outline-4">
 <h4 id="h-67749138-1184-4363-a60f-90d5ccc5ba13"><span class="section-number-4">1.1.1</span> <a href="#h-67749138-1184-4363-a60f-90d5ccc5ba13">another one</a></h4>
 <div class="outline-text-4" id="text-h-67749138-1184-4363-a60f-90d5ccc5ba13">
 </div>
@@ -158,7 +136,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo 
 </div>
 </div>
 
-<div id="outline-container-org40e3ce2" class="outline-2">
+<div id="outline-container-h-235b399a-d62d-49ec-959e-3288f7383eba" class="outline-2">
 <h2 id="h-235b399a-d62d-49ec-959e-3288f7383eba"><span class="section-number-2">2</span> <a href="#h-235b399a-d62d-49ec-959e-3288f7383eba">next heading</a></h2>
 <div class="outline-text-2" id="text-h-235b399a-d62d-49ec-959e-3288f7383eba">
 <hr />
@@ -170,11 +148,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo 
 </div>
 
 <div class="org-center">
-<p>
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
-</p>
 </div>
 </div>
 </div>

@@ -3,71 +3,50 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-26 Thu 09:30 -->
+<!-- 2020-11-30 Mon 11:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=c778a8b83695ce54e07a8c17897d8d97'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=c778a8b83695ce54e07a8c17897d8d97'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=6e2641f07cc9eb603059c74c07b87f33'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=6e2641f07cc9eb603059c74c07b87f33'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=ba2db03f57aa0920a9cb87cc977c0778'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=ba2db03f57aa0920a9cb87cc977c0778'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">tickling bash, the quest for the perfect menu</h1>
+<p>
+<h1 class=title><a href="/index.html">tickling bash, the quest for the perfect menu</a> </h1>
+</p>
+
 <div class="org-center">
 <p>
 <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2020-06-19</a> • 2020-05-10
@@ -86,7 +65,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #006500;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0065df;">read</span> pid; <span style="color: #0065df;">read</span> line; <span style="color: #0065df;">echo</span> <span style="color: #006500;">"$line"</span>; <span style="color: #0065df;">kill</span> $<span style="color: #5639c7;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #036a00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #006ae3;">read</span> pid; <span style="color: #006ae3;">read</span> line; <span style="color: #006ae3;">echo</span> <span style="color: #036a00;">"$line"</span>; <span style="color: #006ae3;">kill</span> $<span style="color: #5b3fcc;">pid</span>)
 </pre>
 </div>
 
@@ -97,8 +76,8 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-orgfc328bc" class="outline-2">
-<h2 id="orgfc328bc"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-org96eaf34" class="outline-2">
+<h2 id="org96eaf34"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
@@ -141,7 +120,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍍
+🍓
 </p>
 </div>
 
@@ -151,8 +130,8 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-orgaa2ec99" class="outline-2">
-<h2 id="orgaa2ec99"><span class="section-number-2">2</span> Rofi</h2>
+<div id="outline-container-org4b5cc4c" class="outline-2">
+<h2 id="org4b5cc4c"><span class="section-number-2">2</span> Rofi</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -164,15 +143,15 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-orge34778b" class="outline-2">
-<h2 id="orge34778b"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
+<div id="outline-container-orgc120926" class="outline-2">
+<h2 id="orgc120926"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #0065df;">echo</span> a; sleep 10; <span style="color: #0065df;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #006ae3;">echo</span> a; sleep 10; <span style="color: #006ae3;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
@@ -198,11 +177,9 @@ So the way I cheated was to run the 'candidate maker' in a subshell, pass it's p
 </div>
 
 <div class="org-center">
-<p>
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a> 
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a> 
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
-</p>
 </div>
 </div>
 </div>
