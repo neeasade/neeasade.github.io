@@ -1,0 +1,46 @@
+#+title: site colors
+#+pubdate: <2020-12-01>
+
+This will be a swatch of the current colors used on the site. They are all defined in a generated css file from my current emacs theme. Actually, this pages export will always be the current emacs theme, rather than the site theme. Let's hope they don't get out of sync! 😬
+
+#+BEGIN_SRC elisp :results raw :exports results
+(s-join "\n"
+	(-map
+	 (lambda (items)
+	   (apply 'ns/blog-make-color-strip
+		  (-unzip items)))
+	 `(((,(ht-get ns/theme :background) ":background")
+	    (,(ht-get ns/theme :background_) ":background_")
+	    (,(ht-get ns/theme :background__) ":background__")
+	    (,(ht-get ns/theme :background+) ":background+"))
+
+	   ((,(ht-get ns/theme :foreground) ":foreground")
+	    (,(ht-get ns/theme :foreground_) ":foreground_")
+	    (,(ht-get ns/theme :foreground+) ":foreground+"))
+
+	   ((,(ht-get ns/theme :accent1) ":accent1")
+	    (,(ht-get ns/theme :accent1_) ":accent1_")
+	    (,(ht-get ns/theme :accent2) ":accent2")
+	    (,(ht-get ns/theme :accent2_) ":accent2_")))))
+#+end_src
+
+And a syntax sample for better visual:
+
+#+begin_src shell
+mount_diskfile() {
+  if [ -z "$*" ]; then
+    echo "mount_diskfile <iso/disk file> <mountpath (optional)>"
+    return
+  fi
+
+  diskfile=$1
+  # mountpath=${2:-./$(basename "$diskfile" | sed 's/\..*//')}
+  mountpath=${2:-/media/filemount/$(basename "$diskfile" | sed 's/\..*//')}
+
+  mkdir -p "$mountpath"
+
+  echo sudo mount "$diskfile" "$mountpath" -o loop
+  sudo mount "$diskfile" "$mountpath" -o loop
+  echo "$mountpath"
+}
+#+end_src
