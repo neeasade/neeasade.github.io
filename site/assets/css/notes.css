@@ -17,6 +17,11 @@ body {
 
 .title a {
     text-decoration: none ;
+    color: var(--foreground);
+}
+
+.title a:visited {
+    color: var(--foreground);
 }
 
 table {
