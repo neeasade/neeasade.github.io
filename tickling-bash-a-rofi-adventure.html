@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-30 Mon 11:42 -->
+<!-- 2020-12-01 Tue 11:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -12,8 +12,8 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cca8140aeba7b09ba1978aec3564b5d5'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=a4d2f13eee300a16266facc6aab2fc77'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
@@ -65,7 +65,7 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #036a00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #006ae3;">read</span> pid; <span style="color: #006ae3;">read</span> line; <span style="color: #006ae3;">echo</span> <span style="color: #036a00;">"$line"</span>; <span style="color: #006ae3;">kill</span> $<span style="color: #5b3fcc;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #007800;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0061d8;">read</span> pid; <span style="color: #0061d8;">read</span> line; <span style="color: #0061d8;">echo</span> <span style="color: #007800;">"$line"</span>; <span style="color: #0061d8;">kill</span> $<span style="color: #c80074;">pid</span>)
 </pre>
 </div>
 
@@ -76,8 +76,8 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-org96eaf34" class="outline-2">
-<h2 id="org96eaf34"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-org8fe0794" class="outline-2">
+<h2 id="org8fe0794"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
@@ -120,7 +120,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍓
+🍄
 </p>
 </div>
 
@@ -130,8 +130,8 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-org4b5cc4c" class="outline-2">
-<h2 id="org4b5cc4c"><span class="section-number-2">2</span> Rofi</h2>
+<div id="outline-container-org9de9eda" class="outline-2">
+<h2 id="org9de9eda"><span class="section-number-2">2</span> Rofi</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -143,15 +143,15 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-orgc120926" class="outline-2">
-<h2 id="orgc120926"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
+<div id="outline-container-orgdca47b6" class="outline-2">
+<h2 id="orgdca47b6"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #006ae3;">echo</span> a; sleep 10; <span style="color: #006ae3;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #0061d8;">echo</span> a; sleep 10; <span style="color: #0061d8;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
