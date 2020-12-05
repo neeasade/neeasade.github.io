@@ -1,13 +1,13 @@
 :root {
 --accent2_    : #007800;
---accent2     : #006ca2;
---accent1_    : #0061d8;
---accent1     : #c80074;
---background_plus : #bdd9f8;
---background__: #d4cbcc;
---background_ : #e3ddde;
---background  : #e8eaed;
+--accent2     : #006da1;
+--accent1_    : #0061d6;
+--accent1     : #c70074;
+--background_plus : #bedaf9;
+--background__: #d2d3d5;
+--background_ : #dfdfe2;
+--background  : #e8ebec;
 --foreground_plus : #353638;
---foreground_ : #555659;
+--foreground_ : #656769;
 --foreground  : #353638;
 }
