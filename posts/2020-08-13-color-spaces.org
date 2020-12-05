@@ -189,9 +189,9 @@ These scales definitely look more consistent when reasoning about lightness valu
 
 [[https://en.wikipedia.org/wiki/CIELAB_color_space][wikipedia link]]
 
-| [L]ightness |                 0-100 | Light level                                                                                         |
-| [A] toggle  |              -100-100 | green <--> red                                                                                      |
-| [B] toggle  |              -100-100 | blue <--> yellow                                                                                    |
+| [L]ightness |                 0-100 | Light level                                                                                                                                                 |
+| [A] toggle  |              -100-100 | green <--> red                                                                                                                                              |
+| [B] toggle  |              -100-100 | blue <--> yellow                                                                                                                                            |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
 
 The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to functions when converting into and out of the CIELAB colorspace.
@@ -325,7 +325,6 @@ LCH lightness:
  (-map 'ns/color-shorten
        (-map
 	(fn
-	 ;; (message (format "%s %s %s" (* 10 <>) 50 270))
 	 (ns/color-make-lch (* 10 <>) 50 270))
 	(range 11))))
 #+end_src
@@ -350,6 +349,11 @@ Chromacity, "distance from gray" - very similar to Saturation (which I've seen c
 	(range 10))))
 #+end_src
 {{{detail(LCH: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue))}}}
+
+*** [[#h-836f1aa2-fddd-4a5f-b192-6675e463a1d9][Property comparison]]
+:PROPERTIES:
+:CUSTOM_ID: h-836f1aa2-fddd-4a5f-b192-6675e463a1d9
+:END:
 
 Let's compare some spaces. We'll take some the RGB gradient from above, normalize the lightness in HSLuv and then maximize l[C]h, H[S]L, and H[S]Luv:
 
@@ -549,7 +553,7 @@ A gradient is where you travel from one color's initial property values to some 
 
 Color wheel rotations are all about hue. The circle that hue forms is the color wheel for that color space. Colors that are opposed here (180° away from each other) are complementary colors. One way to attempt to generate color palettes  is to do "color wheel rotations" where you take colors around equidistant points around the color wheel. The hue values we've been showing are examples of a color wheel rotation (6 points around 60°)
 
-Let's say we we've played around in the LAB space to find a warm looking light background {{{color(#ffffd53ed101, LAB(90\,90\,10))}}}, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color {{{color(#822f65745784)}}}, which has a hue of 3.8°. Let's see what doing hue rotations on this color look like:
+Let's say we we've played around in the LAB space to find a warm looking light background {{{color(#ffffd53ed101, LAB(90\,90\,10))}}}, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color {{{color(#816557)}}}, which has a hue of 19.6°. Let's see what doing hue rotations on this color look like:
 
 #+begin_src elisp :results raw :exports results
 (apply
@@ -659,7 +663,7 @@ Rotations around hue in different color spaces will yield different results. Thi
 
 CIELAB has a white point component used when entering and leaving the space. You can adjust the white point value that you use going into and then coming out of the space, allowing you to "adjust colors by white point". This is kind of a weird concept. Let's take the gradient at the top of this page and pass it into LAB with d65 (the standard assumption, sRGB) but pull it out using d50 ("Horizon Light, ICC profile PCS"). (This effect is mostly visible on grayscale colors, and esp on the lighter end):
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
 	(ns/color-gradient (length word)
@@ -667,10 +671,10 @@ CIELAB has a white point component used when entering and leaving the space. You
 			   (ht-get ns/theme :background)
 			   t)))
   (ns/blog-make-color-strip colors (-map 'string word)))
-#+end_SRC
+#+end_src
 {{{detail(original)}}}
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
 	(-map
@@ -682,7 +686,7 @@ CIELAB has a white point component used when entering and leaving the space. You
 			    t)
 	 )))
   (ns/blog-make-color-strip colors (-map 'string word)))
-#+end_SRC
+#+end_src
 {{{detail(transformed)}}}
 
 Mapping color palettes through this transform could presumably get you better results in different lighting conditions. I've not played with it too much.
@@ -805,7 +809,7 @@ Now that I'd derived types of things I wanted, it was time to try out the techni
 
 At the time of this writing, I'm using a color rotation of 45° in the LCH space (starting from my ~foreground_~, which is a darkened version of ~background~) focusing on the bluish side of things for the accent colors. I get my ~background+~ by graying out my ~accent2~ (lowering C in LCH), and then lightening it until there's a very low contrast between it and my background. For posterity, I will share this theme here:
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (s-join "\n"
 	(-map
 	 (lambda (items)
@@ -865,7 +869,7 @@ This might look fairly comprehensive, but there's SO much room for ambiguity in 
 
 Now that the mapping has been created, with some glue I can use any of the [[https://github.com/chriskempson/base16#builder-repositories][base16 builders]], giving me access to a wide array of templates and outputs for use with my color palette! Having room to "echo" your color decisions across many different applications is very satisfying.
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+begin_src elisp :results raw :exports results
 (let* ((word "Happy Coloring!")
        (colors
 	(ns/color-gradient (length word)
@@ -873,9 +877,7 @@ Now that the mapping has been created, with some glue I can use any of the [[htt
 			   (ht-get ns/theme :foreground)
 			   t)))
   (ns/blog-make-color-strip colors (-map 'string word)))
-#+end_SRC
-
-# Happy coloring!
+#+end_src
 
 *** [[#h-8f501cbc-6314-41f5-8cc1-054bd2b2fcfe][References and further reading]]
 :PROPERTIES:
@@ -891,7 +893,10 @@ Now that the mapping has been created, with some glue I can use any of the [[htt
 - [[https://en.wikipedia.org/wiki/CIELAB_color_space][wiki: CIELAB]]
 - [[https://en.wikipedia.org/wiki/SRGB][wiki: sRGB]]
 
-*** Thanks
+*** [[#h-faae9227-91c4-4c1c-a14a-5876d76c0a07][Thanks]]
+:PROPERTIES:
+:CUSTOM_ID: h-faae9227-91c4-4c1c-a14a-5876d76c0a07
+:END:
 
 [[http://chriskempson.com/][Chris Kempson]] for the base16 project
 

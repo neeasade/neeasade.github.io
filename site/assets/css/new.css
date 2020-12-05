@@ -131,19 +131,17 @@ h6 { font-size: .75em; }
 
 a {
 	color: var(--foreground);
-	text-decoration: underline;
 }
 
 a:visited {
-	color: var(--foreground_);
+	color: var(--accent1);
 	text-decoration: underline;
 }
 
 a:hover {
 	color: var(--foreground);
-	/* color: var(--foreground_); */
-	text-decoration: underline;
-	background-color: var(--background_);
+	text-decoration: none;
+	background-color: var(--background_plus);
 }
 
 abbr:hover {
