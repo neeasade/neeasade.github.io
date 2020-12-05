@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-04 Fri 21:38 -->
+<!-- 2020-12-04 Fri 21:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ImageMagick notes</title>
+<title>Nathan's Notes</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -44,44 +44,34 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">ImageMagick notes</a> </h1>
+<h1 class=title><a href="/index.html">Nathan's Notes</a> </h1>
 </p>
-
-<div class="org-center">
-<p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org">2020-08-04</a> • 2020-08-03
-</p>
-</div>
-
 <hr />
-
-<div id="outline-container-h-311d42c6-cd20-4f19-922e-8df55e7fee07" class="outline-2">
-<h2 id="h-311d42c6-cd20-4f19-922e-8df55e7fee07"><span class="section-number-2">1</span> <a href="#h-311d42c6-cd20-4f19-922e-8df55e7fee07">Rotate a tiled image 45 degrees</a></h2>
-<div class="outline-text-2" id="text-h-311d42c6-cd20-4f19-922e-8df55e7fee07">
 <p>
-Better results with square images, of course. The <code>45</code> is the degree amount.
+This is a curated subset of posts on this site, sorted by publish date.
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sh">convert in.png  -matte -virtual-pixel tile +distort  ScaleRotateTranslate  <span style="color: #007800;">'1  1  45'</span> out.png
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-h-ac358ddb-6701-4782-8641-22946fc54b18" class="outline-2">
-<h2 id="h-ac358ddb-6701-4782-8641-22946fc54b18"><span class="section-number-2">2</span> <a href="#h-ac358ddb-6701-4782-8641-22946fc54b18">Stack images vertically</a></h2>
-<div class="outline-text-2" id="text-h-ac358ddb-6701-4782-8641-22946fc54b18">
-<div class="org-src-container">
-<pre class="src src-sh">convert 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
-</pre>
-</div>
+<ul class="org-ul">
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-11-26]</span></span> <a href="./color-spaces.html">reasoning about colors</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-11-25]</span></span> <a href="./adhoc-executable-patching-on-nix.html">adhoc executable patching on nixos</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-11-15]</span></span> <a href="./my-shell-prompt.html">my shell prompt</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-10-31]</span></span> <a href="./blog-meta.html">May Days</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-08-14]</span></span> <a href="./Automata-tiling-backgrounds-2.html">Automata tiling backgrounds 2</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-08-14]</span></span> <a href="./Automata-tiling-backgrounds.html">Automata tiling backgrounds</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-08-07]</span></span> <a href="./Aug-2020.html">8 Months Adrift</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-08-04]</span></span> <a href="./reverse-ssh-tunnels.html">reverse ssh tunnels</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-06-19]</span></span> <a href="./tickling-bash-a-rofi-adventure.html">tickling bash, the quest for the perfect menu</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-06-09]</span></span> <a href="./Pinebook-Pro.html">Pinebook Pro</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-05-03]</span></span> <a href="./checking-for-toots.html">checking for toots</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-05-03]</span></span> <a href="./xeros-irc-ref.html">xero's irc ref</a></li>
+<li><span class="timestamp-wrapper"><span class="timestamp">[2020-05-03]</span></span> <a href="./On-Emacs.html">On Emacs</a></li>
+</ul>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-03-ImageMagick-notes.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/pages/index_curated.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a> • <a href="https://github.com/neeasade/neeasade.github.io/commits/source/pages/index_curated.org">History</a>
 </p>
 </div>
 
@@ -89,8 +79,6 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
 <a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
-</div>
-</div>
 </div>
 </div>
 </body>

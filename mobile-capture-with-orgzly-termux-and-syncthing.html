@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-01 Tue 11:24 -->
+<!-- 2020-12-04 Fri 21:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
@@ -16,8 +16,8 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=3fa3a394719ae7dcf19d8addaf916282'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -79,7 +79,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<div id="orgd33a485" class="figure">
+<div id="org9b8c7e3" class="figure">
 <p><a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png" /></a>
 </p>
 </div>
@@ -91,7 +91,7 @@ turns into:
 </div>
 
 
-<div id="org18e2c4d" class="figure">
+<div id="orga0a3e1b" class="figure">
 <p><a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png" /></a>
 </p>
 </div>
@@ -106,19 +106,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #555659;"># </span><span style="color: #555659;">200mb</span>
-  <span style="color: #c80074;">size_limit</span>=200000
-  <span style="color: #c80074;">sync_music_dir</span>=<span style="color: #007800;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #c80074;">music_dir</span>=<span style="color: #007800;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #656769;"># </span><span style="color: #656769;">200mb</span>
+  <span style="color: #c70074;">size_limit</span>=200000
+  <span style="color: #c70074;">sync_music_dir</span>=<span style="color: #007800;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #c70074;">music_dir</span>=<span style="color: #007800;">"$HOME/Music"</span>
 
-  <span style="color: #c80074;">IFS</span>=$<span style="color: #007800;">'\n'</span>
-  <span style="color: #0061d8;">while </span><span style="color: #0061d8;">read</span> -r f; <span style="color: #0061d8;">do</span>
-      <span style="color: #c80074;">collection_size</span>=$(<span style="color: #c80074;">du</span> <span style="color: #007800;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #007800;">'s/\t.*//'</span>)
-      <span style="color: #0061d8;">if</span> [ $<span style="color: #c80074;">collection_size</span> -lt $<span style="color: #c80074;">size_limit</span> ]; <span style="color: #0061d8;">then</span>
-          <span style="color: #0061d8;">echo</span> cp <span style="color: #007800;">"${music_dir}/$f"</span> <span style="color: #007800;">"$sync_music_dir"</span>
+  <span style="color: #c70074;">IFS</span>=$<span style="color: #007800;">'\n'</span>
+  <span style="color: #0061d6;">while </span><span style="color: #0061d6;">read</span> -r f; <span style="color: #0061d6;">do</span>
+      <span style="color: #c70074;">collection_size</span>=$(<span style="color: #c70074;">du</span> <span style="color: #007800;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #007800;">'s/\t.*//'</span>)
+      <span style="color: #0061d6;">if</span> [ $<span style="color: #c70074;">collection_size</span> -lt $<span style="color: #c70074;">size_limit</span> ]; <span style="color: #0061d6;">then</span>
+          <span style="color: #0061d6;">echo</span> cp <span style="color: #007800;">"${music_dir}/$f"</span> <span style="color: #007800;">"$sync_music_dir"</span>
           cp <span style="color: #007800;">"${music_dir}/$f"</span> <span style="color: #007800;">"$sync_music_dir"</span>
-      <span style="color: #0061d8;">fi</span>
-  <span style="color: #0061d8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007800;">'%file%'</span> | shuf)
+      <span style="color: #0061d6;">fi</span>
+  <span style="color: #0061d6;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007800;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
@@ -161,7 +161,7 @@ Here's a UX example showing url capture for <a href="https://github.com/rxi/fe">
 </p>
 
 
-<div id="org2c64f5f" class="figure">
+<div id="org07cbc08" class="figure">
 <p><a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png" /></a>
 </p>
 </div>
@@ -171,7 +171,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<div id="orgd491022" class="figure">
+<div id="orgeb6d92e" class="figure">
 <p><a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png" /></a>
 </p>
 </div>
