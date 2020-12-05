@@ -1,5 +1,6 @@
 #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 #+OPTIONS: html-style:nil
 
 #+HTML_HEAD: <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -17,6 +18,8 @@
 #+MACRO:  color (eval (ns/blog-make-color-preview $1 $2))
 
 #+MACRO:  detail (eval (ns/blog-make-detail $1 $2 $3 $4 $5 $6 $7 $8 $9))
+
+#+MACRO:  colorblock (eval (ns/blog-make-color-block $1 $2 $3 $4 $5))
 
 # cf: https://emacs.stackexchange.com/questions/7792/can-i-make-links-in-org-mode-that-contain-brackets-or/7793#7793
 # Square Bracket Open [
