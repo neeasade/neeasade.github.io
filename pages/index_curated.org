@@ -1,6 +1,6 @@
-#+title: Nathan's Notes
+#+title: Nathan's Notes (curated)
 
-This is a curated subset of posts on this site, sorted by publish date.
+This is a curated subset of posts on this site, sorted by edit date.
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->>
