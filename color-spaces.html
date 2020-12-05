@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-04 Fri 21:38 -->
+<!-- 2020-12-05 Sat 11:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reasoning about colors</title>
@@ -12,8 +12,8 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
@@ -239,7 +239,7 @@ Saturation in HSL is a controlled version of chromacity ("distance from gray"). 
 </p>
 
 
-<div id="orge38c3ad" class="figure">
+<div id="org1fdc846" class="figure">
 <p><a href="./assets/posts/color_cylinder.png"><img src="./assets/posts/color_cylinder.png" alt="color_cylinder.png" /></a>
 </p>
 </div>
@@ -638,7 +638,12 @@ Chromacity, "distance from gray" - very similar to Saturation (which I've seen c
 <p>
  <div class="detail"> LCH: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue) </div> 
 </p>
+</div>
+</div>
 
+<div id="outline-container-h-836f1aa2-fddd-4a5f-b192-6675e463a1d9" class="outline-3">
+<h3 id="h-836f1aa2-fddd-4a5f-b192-6675e463a1d9"><span class="section-number-3">3.6</span> <a href="#h-836f1aa2-fddd-4a5f-b192-6675e463a1d9">Property comparison</a></h3>
+<div class="outline-text-3" id="text-h-836f1aa2-fddd-4a5f-b192-6675e463a1d9">
 <p>
 Let's compare some spaces. We'll take some the RGB gradient from above, normalize the lightness in HSLuv and then maximize l[C]h, H[S]L, and H[S]Luv:
 </p>
@@ -951,7 +956,7 @@ Color wheel rotations are all about hue. The circle that hue forms is the color 
 </p>
 
 <p>
-Let's say we we've played around in the LAB space to find a warm looking light background <code style="background: #ffd4d0;color: #353638; padding: 2px; border: 1px solid #353638"> LAB(90,90,10)</code>, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color <code style="background: #816557;color: #e8ebec; padding: 2px; border: 1px solid #822f65745784">#822f65745784</code>, which has a hue of 3.8°. Let's see what doing hue rotations on this color look like:
+Let's say we we've played around in the LAB space to find a warm looking light background <code style="background: #ffd4d0;color: #353638; padding: 2px; border: 1px solid #353638"> LAB(90,90,10)</code>, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color <code style="background: #816557;color: #e8ebec; padding: 2px; border: 1px solid #816557">#816557</code>, which has a hue of 19.6°. Let's see what doing hue rotations on this color look like:
 </p>
 
 <p>
@@ -1319,7 +1324,7 @@ Which in action looks like (click to see full size):
 </p>
 
 
-<div id="org3372a95" class="figure">
+<div id="org7f466da" class="figure">
 <p><a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png" /></a>
 </p>
 </div>
@@ -1503,9 +1508,9 @@ Now that the mapping has been created, with some glue I can use any of the <a hr
 </div>
 </div>
 
-<div id="outline-container-org0c2f9d6" class="outline-3">
-<h3 id="org0c2f9d6"><span class="section-number-3">6.4</span> Thanks</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-h-faae9227-91c4-4c1c-a14a-5876d76c0a07" class="outline-3">
+<h3 id="h-faae9227-91c4-4c1c-a14a-5876d76c0a07"><span class="section-number-3">6.4</span> <a href="#h-faae9227-91c4-4c1c-a14a-5876d76c0a07">Thanks</a></h3>
+<div class="outline-text-3" id="text-h-faae9227-91c4-4c1c-a14a-5876d76c0a07">
 <p>
 <a href="http://chriskempson.com/">Chris Kempson</a> for the base16 project
 </p>

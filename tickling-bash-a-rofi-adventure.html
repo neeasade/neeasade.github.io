@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-04 Fri 21:38 -->
+<!-- 2020-12-05 Sat 10:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -12,8 +12,8 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=8d8440d3fdccd8a08ffaec94ffb1dd88'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
@@ -76,8 +76,8 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-orgef70277" class="outline-2">
-<h2 id="orgef70277"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-org86363f6" class="outline-2">
+<h2 id="org86363f6"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
@@ -120,7 +120,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍈
+🍄
 </p>
 </div>
 
@@ -130,8 +130,8 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-org682e498" class="outline-2">
-<h2 id="org682e498"><span class="section-number-2">2</span> Rofi</h2>
+<div id="outline-container-orgc6e1dea" class="outline-2">
+<h2 id="orgc6e1dea"><span class="section-number-2">2</span> Rofi</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -143,8 +143,8 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-org6bc6493" class="outline-2">
-<h2 id="org6bc6493"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
+<div id="outline-container-org9ca9a4b" class="outline-2">
+<h2 id="org9ca9a4b"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
