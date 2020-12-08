@@ -17,7 +17,7 @@
 	 (reverse)
 	 ;; todo: should maybe be a full html decode
 	 (mapcar (fn (s-replace " " "%20" (f-filename <>))))
-	 (mapcar (fn (format "\n#+BEGIN_CENTER\n _%s_ [[file:%s%s][file:%s%s]] \n#+END_CENTER\n" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>)))
+	 (mapcar (fn (format "\n#+BEGIN_CENTER\n - _%s_  :\n[[file:%s%s][file:%s%s]] \n#+END_CENTER\n" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>)))
 	 (s-join "\n")
 	 ))
 #+END_SRC

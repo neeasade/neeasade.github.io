@@ -12,6 +12,10 @@ body {
     display: none;
 }
 
+.org-center ul {
+    list-style-type: none;
+}
+
 .timestamp {
     color: var(--accent1_);
 }
