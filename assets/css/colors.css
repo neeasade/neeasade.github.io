@@ -1,13 +1,13 @@
 :root {
---accent2_    : #007800;
---accent2     : #006da1;
---accent1_    : #0061d6;
---accent1     : #c70074;
---background_plus : #bedaf9;
---background__: #d2d3d5;
---background_ : #dfdfe2;
---background  : #e8ebec;
---foreground_plus : #353638;
---foreground_ : #656769;
---foreground  : #353638;
+--foreground  : #473f3b;
+--foreground_ : #a55238;
+--foreground_plus : #473f3b;
+--background  : #f2e9e3;
+--background_ : #ded4cf;
+--background__: #cfc4bf;
+--background_plus : #e9c1b5;
+--accent1     : #92407b;
+--accent1_    : #3c646a;
+--accent2     : #8b4d39;
+--accent2_    : #4f6700;
 }

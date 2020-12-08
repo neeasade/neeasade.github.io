@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-05 Sat 10:42 -->
+<!-- 2020-12-08 Tue 16:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -12,12 +12,12 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=e45b2ac881b2fa4b9f7b16aa16c0ea5d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=e45b2ac881b2fa4b9f7b16aa16c0ea5d'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -59,7 +59,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin'. If I want 
 </p>
 
 
-<div id="orgf6b9e79" class="figure">
+<div id="org8e58e5d" class="figure">
 <p><a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png" /></a>
 </p>
 </div>
@@ -106,7 +106,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #007800;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #4f6700;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -115,17 +115,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #656769;">#</span><span style="color: #656769;">!/usr/bin/</span><span style="color: #0061d6;">env</span><span style="color: #656769;"> bash</span>
-<span style="color: #656769;"># </span><span style="color: #656769;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #656769;"># </span><span style="color: #656769;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #a55238;">#</span><span style="color: #a55238;">!/usr/bin/</span><span style="color: #3c646a;">env</span><span style="color: #a55238;"> bash</span>
+<span style="color: #a55238;"># </span><span style="color: #a55238;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #a55238;"># </span><span style="color: #a55238;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #c70074;">count</span>=0
-<span style="color: #0061d6;">if</span> <span style="color: #007800;">!</span> <span style="color: #c70074;">diff</span>=$(<span style="color: #c70074;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #0061d6;">then</span>
-    <span style="color: #c70074;">new_content</span>=$(<span style="color: #c70074;">echo</span> <span style="color: #007800;">"$diff"</span> | grep <span style="color: #007800;">'^&lt;'</span> | sed <span style="color: #007800;">'s/&lt; //'</span>)
-    <span style="color: #c70074;">count</span>=$(<span style="color: #c70074;">echo</span> <span style="color: #007800;">"$new_content"</span> | awk <span style="color: #007800;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #0061d6;">fi</span>
+<span style="color: #92407b;">count</span>=0
+<span style="color: #3c646a;">if</span> <span style="color: #4f6700;">!</span> <span style="color: #92407b;">diff</span>=$(<span style="color: #92407b;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #3c646a;">then</span>
+    <span style="color: #92407b;">new_content</span>=$(<span style="color: #92407b;">echo</span> <span style="color: #4f6700;">"$diff"</span> | grep <span style="color: #4f6700;">'^&lt;'</span> | sed <span style="color: #4f6700;">'s/&lt; //'</span>)
+    <span style="color: #92407b;">count</span>=$(<span style="color: #92407b;">echo</span> <span style="color: #4f6700;">"$new_content"</span> | awk <span style="color: #4f6700;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #3c646a;">fi</span>
 
-<span style="color: #0061d6;">echo</span> <span style="color: #007800;">"toot mentions: $count"</span>
+<span style="color: #3c646a;">echo</span> <span style="color: #4f6700;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -134,7 +134,7 @@ From there it's a short trip to have a panel button, you just call the script!
 </p>
 
 
-<div id="org638c636" class="figure">
+<div id="org8e130be" class="figure">
 <p><a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png" /></a>
 </p>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-05 Sat 10:42 -->
+<!-- 2020-12-08 Tue 16:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
@@ -12,12 +12,12 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=67f00a80f9314828d8f6dcdb65dd6c84'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f74217dc6dc1bbbcf8adbd5cac080883'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=42a027c404faf1a4a34428ff8bfdbc23'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=e45b2ac881b2fa4b9f7b16aa16c0ea5d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=e45b2ac881b2fa4b9f7b16aa16c0ea5d'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -79,7 +79,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<div id="org3f8b63b" class="figure">
+<div id="org26186c9" class="figure">
 <p><a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png" /></a>
 </p>
 </div>
@@ -91,7 +91,7 @@ turns into:
 </div>
 
 
-<div id="org40cdb24" class="figure">
+<div id="org37a7491" class="figure">
 <p><a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png" /></a>
 </p>
 </div>
@@ -106,19 +106,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #656769;"># </span><span style="color: #656769;">200mb</span>
-  <span style="color: #c70074;">size_limit</span>=200000
-  <span style="color: #c70074;">sync_music_dir</span>=<span style="color: #007800;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #c70074;">music_dir</span>=<span style="color: #007800;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #a55238;"># </span><span style="color: #a55238;">200mb</span>
+  <span style="color: #92407b;">size_limit</span>=200000
+  <span style="color: #92407b;">sync_music_dir</span>=<span style="color: #4f6700;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #92407b;">music_dir</span>=<span style="color: #4f6700;">"$HOME/Music"</span>
 
-  <span style="color: #c70074;">IFS</span>=$<span style="color: #007800;">'\n'</span>
-  <span style="color: #0061d6;">while </span><span style="color: #0061d6;">read</span> -r f; <span style="color: #0061d6;">do</span>
-      <span style="color: #c70074;">collection_size</span>=$(<span style="color: #c70074;">du</span> <span style="color: #007800;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #007800;">'s/\t.*//'</span>)
-      <span style="color: #0061d6;">if</span> [ $<span style="color: #c70074;">collection_size</span> -lt $<span style="color: #c70074;">size_limit</span> ]; <span style="color: #0061d6;">then</span>
-          <span style="color: #0061d6;">echo</span> cp <span style="color: #007800;">"${music_dir}/$f"</span> <span style="color: #007800;">"$sync_music_dir"</span>
-          cp <span style="color: #007800;">"${music_dir}/$f"</span> <span style="color: #007800;">"$sync_music_dir"</span>
-      <span style="color: #0061d6;">fi</span>
-  <span style="color: #0061d6;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007800;">'%file%'</span> | shuf)
+  <span style="color: #92407b;">IFS</span>=$<span style="color: #4f6700;">'\n'</span>
+  <span style="color: #3c646a;">while </span><span style="color: #3c646a;">read</span> -r f; <span style="color: #3c646a;">do</span>
+      <span style="color: #92407b;">collection_size</span>=$(<span style="color: #92407b;">du</span> <span style="color: #4f6700;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #4f6700;">'s/\t.*//'</span>)
+      <span style="color: #3c646a;">if</span> [ $<span style="color: #92407b;">collection_size</span> -lt $<span style="color: #92407b;">size_limit</span> ]; <span style="color: #3c646a;">then</span>
+          <span style="color: #3c646a;">echo</span> cp <span style="color: #4f6700;">"${music_dir}/$f"</span> <span style="color: #4f6700;">"$sync_music_dir"</span>
+          cp <span style="color: #4f6700;">"${music_dir}/$f"</span> <span style="color: #4f6700;">"$sync_music_dir"</span>
+      <span style="color: #3c646a;">fi</span>
+  <span style="color: #3c646a;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #4f6700;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
@@ -161,7 +161,7 @@ Here's a UX example showing url capture for <a href="https://github.com/rxi/fe">
 </p>
 
 
-<div id="org0e50e6b" class="figure">
+<div id="org3c615bd" class="figure">
 <p><a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png" /></a>
 </p>
 </div>
@@ -171,7 +171,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<div id="orge6780c6" class="figure">
+<div id="org2ad987e" class="figure">
 <p><a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png" /></a>
 </p>
 </div>
