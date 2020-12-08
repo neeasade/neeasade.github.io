@@ -1,9 +1,10 @@
 body {
-    /* background-image: url("../img/backgrounds/newfeather.png"); */
-    /* background-repeat: repeat; */
-    background-color: var(--background_plus);
+    background-image: url("../img/backgrounds/nice.png");
+    background-repeat: repeat;
+
+    /* background-color: var(--background_plus); */
     /* background-color: #a7cae3; */
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
 }
 
 /* hide org mode figure notes on image captions */
