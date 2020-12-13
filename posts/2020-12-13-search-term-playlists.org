@@ -1,4 +1,5 @@
 #+title: search term playlists
+#+rss_title: search term playlists
 #+pubdate: <2020-12-13>
 #+OPTIONS: ^:nil
 
