@@ -1,0 +1,39 @@
+#+title: o7
+#+pubdate: <2020-12-12>
+
+crockeo was one of today's [[https://xkcd.com/1053/][lucky 10,000]].
+
+*neeasade* o7
+
+*crockeo* TIL what o7 means, fun
+
+#+begin_example
+ o7
+/|
+/\
+#+end_example
+
+that more looks like someone looking up at the sun or something
+
+#+begin_example
+              \ | /
+              ~ O ~
+              / | \
+
+ o7
+/|
+/\
+#+end_example
+
+
+#+begin_example
+     o
+    / \
+   /ov\       Ho ho ho,
+  /vvo\      merry Christmas!
+ /ovvv\
+VvvovV
+    | |
+    | |
+   /__\
+#+end_example
