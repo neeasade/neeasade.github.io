@@ -2,7 +2,7 @@
 #+pubdate: <2020-12-13>
 #+OPTIONS: ^:nil
 
-This is a breif overview of how I manage a local music collection in ~$current_year~. I use Music Player Daemon (MPD) and youtube-dl to index and add music to big "local music" folder. Over the years structure is totally scattered, but at least for the import folder (youtube-dl) things always look like this: ~${musicdir}/import/<channel>/<title>~. MPD has many clients, but now I use a script that operates atop the mpc client.
+This is a brief overview of how I manage a local music collection in ~$current_year~. I use Music Player Daemon (MPD) and youtube-dl to index and add music to big "local music" folder. Over the years structure is totally scattered, but at least for the import folder (youtube-dl) things always look like this: ~${musicdir}/import/<channel>/<title>~. MPD has many clients, but now I use a script that operates atop the mpc client.
 
 For quite sometime, my music playing looked like this:
 
@@ -13,7 +13,7 @@ mpc listall | sort -R | head -n 1000 | mpc add
 
 As you might imagine, this can lead to some jarring transitions and inconsistency with the 𝓜𝓞𝓞𝓓.
 
-MPD has a notion of saving and loading playlists, but you have to add files individually to them/it's a very tedius experience if you want to incorporate many kinds of vibes.
+MPD has a notion of saving and loading playlists, but you have to add files individually to them/it's a very tedious experience if you want to incorporate many kinds of vibes.
 
 Enter my version of playlist files.
 
@@ -53,7 +53,7 @@ Playlist files are files where every line is a comment, except for lines startin
 -Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a
 #+end_src
 
-Lines that start with a ~+~ are search terms against the current music collection (with a lenient grep against ~mpc listall~) and lines that start with ~-~ are to remove search matches from the current ~mpc playlist~. Removal is necessary because some search terms are so generic (here, piano). I then give ~music~ a function to process all the search matches. The advantage to this approach is whenever I add new stuff from an above artist or youtube channel, it will automatically get added to the playlist!
+Lines that start with a ~+~ are search terms against the current music collection (with a lenient grep against ~mpc listall~) and lines that start with ~-~ are to remove search matches from the current ~mpc playlist~. Removal is necessary because some search terms are so generic (here, piano). I then give ~music~ a function to process all the search matches. The advantage to this approach is whenever I add new stuff from an above artist or YouTube channel, it will automatically get added to the playlist!
 
 The script may be found [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/music][here]]. Here are it's current options:
 #+begin_example
