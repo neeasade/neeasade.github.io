@@ -76,6 +76,7 @@ shuffle    : reshuffle current selection from all
 
 And an example of a fetch-like status (bar created with [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/panel/tools/mkb][mkb]]):
 #+begin_example
+$ music info
 Hiromi Uehara 2006 Love and Laughter
 ◈◈◈◈◈◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
 playlist: jazz_piano | 60h 35m 13s
