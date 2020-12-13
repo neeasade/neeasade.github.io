@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-08 Tue 17:44 -->
+<!-- 2020-12-13 Sun 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -89,7 +89,7 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 ssh localhost -p 22222
 
 <span style="color: #a55238;"># </span><span style="color: #a55238;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #4f6700;">'ssh localhost -p 22222'</span>
+ssh -t vps <span style="color: #4e6600;">'ssh localhost -p 22222'</span>
 
 <span style="color: #a55238;"># </span><span style="color: #a55238;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
@@ -114,9 +114,9 @@ and then here's a cool trick for providing the connection info to a remote shell
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #3c646a;">let*</span> ((tramp-connection-path <span style="color: #4f6700;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #4f6700;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #4f6700;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #3c6369;">let*</span> ((tramp-connection-path <span style="color: #4e6600;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #4e6600;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #4e6600;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>

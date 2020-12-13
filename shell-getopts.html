@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-08 Tue 17:44 -->
+<!-- 2020-12-13 Sun 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -56,18 +56,18 @@
 <hr />
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #a55238;"># </span><span style="color: #a55238;">the ':' in front means the flag takes an arg</span>
-<span style="color: #3c646a;">while </span><span style="color: #3c646a;">getopts</span> w:reh flag; <span style="color: #3c646a;">do</span>
-    <span style="color: #3c646a;">case</span> $<span style="color: #92407b;">flag</span><span style="color: #3c646a;"> in</span>
-        w) <span style="color: #92407b;">wid</span>=$<span style="color: #92407b;">OPTARG</span>;;
+<span style="color: #3c6369;">while </span><span style="color: #3c6369;">getopts</span> w:reh flag; <span style="color: #3c6369;">do</span>
+    <span style="color: #3c6369;">case</span> $<span style="color: #903f7a;">flag</span><span style="color: #3c6369;"> in</span>
+        w) <span style="color: #903f7a;">wid</span>=$<span style="color: #903f7a;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #3c646a;">esac</span>
-<span style="color: #3c646a;">done</span>
+    <span style="color: #3c6369;">esac</span>
+<span style="color: #3c6369;">done</span>
 
 <span style="color: #a55238;"># </span><span style="color: #a55238;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #3c646a;">shift</span> $((OPTIND-1))
+<span style="color: #3c6369;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 
