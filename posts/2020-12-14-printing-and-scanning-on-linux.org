@@ -1,13 +1,19 @@
 #+title: printing and scanning on linux
 #+pubdate: <2020-12-14>
 
-** printing
+** [[#h-6c57cb88-f33f-4a04-8556-fec4dbf4b574][printing]]
+:PROPERTIES:
+:CUSTOM_ID: h-6c57cb88-f33f-4a04-8556-fec4dbf4b574
+:END:
 
 - Install CUPS, enable the service
 - Install the gutenprint printer drivers
 - Configure your printer in the CUPS interface, http://localhost:631/, and select the gutenprint drivers
 
-** scanning
+** [[#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39][scanning]]
+:PROPERTIES:
+:CUSTOM_ID: h-f7fe536a-882a-4ed7-9b9f-96e4638dac39
+:END:
 
 I've never gotten xsane to work.
 
@@ -20,7 +26,10 @@ $ # create a PDF with graphicsmagic
 $ gm convert result.pnm result.pdf
 #+end_src
 
-** pdf stuff
+** [[#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a][pdf stuff]]
+:PROPERTIES:
+:CUSTOM_ID: h-addd5bf0-e140-409b-b5aa-d8f40c3c027a
+:END:
 
 If you have a poppler utils package on your distro, you get ~pdfseparate~ and ~pdfunite~. Be careful with the latter! If you don't include a target output, you will squash yourself!
 
