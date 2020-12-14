@@ -26,7 +26,7 @@ $ # create a PDF with graphicsmagic
 $ gm convert result.pnm result.pdf
 #+end_src
 
-After posting this, tan reached out to me and mentioned to checkout ~simple-scan~ as another gui opiton.
+After posting this, tan reached out to me and mentioned to checkout ~simple-scan~ as another gui option.
 
 ** [[#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a][pdf stuff]]
 :PROPERTIES:
