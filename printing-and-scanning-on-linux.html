@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-12-14 Mon 15:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>printing and scanning on linux</title>
+<meta name="generator" content="Org mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<p>
+<h1 class=title><a href="/index.html">printing and scanning on linux</a> </h1>
+</p>
+
+<div class="org-center">
+<p>
+<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-14-printing-and-scanning-on-linux.org">2020-12-14</a> • 2020-12-14
+</p>
+</div>
+
+<hr />
+
+<div id="outline-container-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574" class="outline-2">
+<h2 id="h-6c57cb88-f33f-4a04-8556-fec4dbf4b574"><span class="section-number-2">1</span> <a href="#h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">printing</a></h2>
+<div class="outline-text-2" id="text-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">
+<ul class="org-ul">
+<li>Install CUPS, enable the service</li>
+<li>Install the gutenprint printer drivers</li>
+<li>Configure your printer in the CUPS interface, <a href="http://localhost:631/">http://localhost:631/</a>, and select the gutenprint drivers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39" class="outline-2">
+<h2 id="h-f7fe536a-882a-4ed7-9b9f-96e4638dac39"><span class="section-number-2">2</span> <a href="#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">scanning</a></h2>
+<div class="outline-text-2" id="text-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">
+<p>
+I've never gotten xsane to work.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ <span style="color: #a55238;"># </span><span style="color: #a55238;">nb: might need sudo on scanimage</span>
+$ <span style="color: #a55238;"># </span><span style="color: #a55238;">list devices:</span>
+$ scanimage -L
+$ scanimage -d <span style="color: #4e6600;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #a55238;"># </span><span style="color: #a55238;">create a PDF with graphicsmagic</span>
+$ gm convert result.pnm result.pdf
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a" class="outline-2">
+<h2 id="h-addd5bf0-e140-409b-b5aa-d8f40c3c027a"><span class="section-number-2">3</span> <a href="#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">pdf stuff</a></h2>
+<div class="outline-text-2" id="text-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">
+<p>
+If you have a poppler utils package on your distro, you get <code>pdfseparate</code> and <code>pdfunite</code>. Be careful with the latter! If you don't include a target output, you will squash yourself!
+</p>
+
+<p>
+<code>pdfseparate</code> is rather odd, after specifying a pattern and range of pages, you get range n PDFs, with %d being swapped for the index in the pattern.
+</p>
+
+<p>
+This is an example to swap out page 6 of 10 with the scanned result.pdf into an existing pdf:
+</p>
+
+<pre class="example">
+$ cd $(mktemp -d)
+$ pdfseparate -f 3 -l 6 in.pdf front.pdf
+$ ls
+in-0001.pdf  in-0004.pdf  in-0007.pdf  in-0010.pdf
+in-0002.pdf  in-0005.pdf  in-0008.pdf  in.pdf
+in-0003.pdf  in-0006.pdf  in-0009.pdf
+$ cp /path/to/result.pdf in-0006.pdf
+$ pdfunite in-0*.pdf out.pdf
+</pre>
+
+<hr />
+
+<div class="org-center">
+<p>
+<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-14-printing-and-scanning-on-linux.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
+<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

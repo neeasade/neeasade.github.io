@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Sun, 13 Dec 2020 16:14:37 -0600</pubDate>
-  <lastBuildDate>Sun, 13 Dec 2020 16:14:37 -0600</lastBuildDate>
+  <pubDate>Mon, 14 Dec 2020 15:47:45 -0600</pubDate>
+  <lastBuildDate>Mon, 14 Dec 2020 15:47:45 -0600</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.4</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>printing and scanning on linux</title>
+    <link>https://notes.neeasade.net/printing-and-scanning-on-linux.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/printing-and-scanning-on-linux.html</guid>
+    <pubDate>Mon, 14 Dec 2020 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>search term playlists</title>
     <link>https://notes.neeasade.net/search-term-playlists.html</link>
