@@ -39,7 +39,7 @@ This is an example to swap out page 6 of 10 with the scanned result.pdf into an 
 
 #+begin_src
 $ cd $(mktemp -d)
-$ pdfseparate -f 3 -l 6 in.pdf front.pdf
+$ pdfseparate -f 1 -l 10 'in-%04d.pdf'
 $ ls
 in-0001.pdf  in-0004.pdf  in-0007.pdf  in-0010.pdf
 in-0002.pdf  in-0005.pdf  in-0008.pdf  in.pdf
