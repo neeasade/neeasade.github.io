@@ -1,0 +1,40 @@
+#+title: printing and scanning on linux
+#+pubdate: <2020-12-14>
+
+** printing
+
+- Install CUPS, enable the service
+- Install the gutenprint printer drivers
+- Configure your printer in the CUPS interface, http://localhost:631/, and select the gutenprint drivers
+
+** scanning
+
+I've never gotten xsane to work.
+
+#+begin_src sh
+$ # nb: might need sudo on scanimage
+$ # list devices:
+$ scanimage -L
+$ scanimage -d '<device>' > result.pnm
+$ # create a PDF with graphicsmagic
+$ gm convert result.pnm result.pdf
+#+end_src
+
+** pdf stuff
+
+If you have a poppler utils package on your distro, you get ~pdfseparate~ and ~pdfunite~. Be careful with the latter! If you don't include a target output, you will squash yourself!
+
+~pdfseparate~ is rather odd, after specifying a pattern and range of pages, you get range n PDFs, with %d being swapped for the index in the pattern.
+
+This is an example to swap out page 6 of 10 with the scanned result.pdf into an existing pdf:
+
+#+begin_src
+$ cd $(mktemp -d)
+$ pdfseparate -f 3 -l 6 in.pdf front.pdf
+$ ls
+in-0001.pdf  in-0004.pdf  in-0007.pdf  in-0010.pdf
+in-0002.pdf  in-0005.pdf  in-0008.pdf  in.pdf
+in-0003.pdf  in-0006.pdf  in-0009.pdf
+$ cp /path/to/result.pdf in-0006.pdf
+$ pdfunite in-0*.pdf out.pdf
+#+end_src
