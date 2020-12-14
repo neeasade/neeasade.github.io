@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-14 Mon 15:51 -->
+<!-- 2020-12-14 Mon 16:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>printing and scanning on linux</title>
@@ -70,7 +70,7 @@
 <h2 id="h-f7fe536a-882a-4ed7-9b9f-96e4638dac39"><span class="section-number-2">2</span> <a href="#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">scanning</a></h2>
 <div class="outline-text-2" id="text-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">
 <p>
-I've never gotten xsane to work.
+I've never gotten xsane to work. <code>scanimage</code> did me good though:
 </p>
 
 <div class="org-src-container">
@@ -82,6 +82,10 @@ $ <span style="color: #a55238;"># </span><span style="color: #a55238;">create a 
 $ gm convert result.pnm result.pdf
 </pre>
 </div>
+
+<p>
+After posting this, tan reached out to me and mentioned to checkout <code>simple-scan</code> as another gui opiton.
+</p>
 </div>
 </div>
 
