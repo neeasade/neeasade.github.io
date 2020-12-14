@@ -15,7 +15,7 @@
 :CUSTOM_ID: h-f7fe536a-882a-4ed7-9b9f-96e4638dac39
 :END:
 
-I've never gotten xsane to work.
+I've never gotten xsane to work. ~scanimage~ did me good though:
 
 #+begin_src sh
 $ # nb: might need sudo on scanimage
@@ -25,6 +25,8 @@ $ scanimage -d '<device>' > result.pnm
 $ # create a PDF with graphicsmagic
 $ gm convert result.pnm result.pdf
 #+end_src
+
+After posting this, tan reached out to me and mentioned to checkout ~simple-scan~ as another gui opiton.
 
 ** [[#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a][pdf stuff]]
 :PROPERTIES:
