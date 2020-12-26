@@ -15,7 +15,3 @@ A collection of [[https://notes.neeasade.net/color-spaces.html][colorspace]] uti
 * [[https://github.com/neeasade/bspwwm][bspwwm]]
 
 A *vaporware* Wayland compositor built on top of wlroots using Nix and Clojure. Mostly a playground to experiment with Clojure FFI to the Wlroots libraries.
-
-* [[https://github.com/neeasade/passage][passage]]
-
-A password store built on top of the [[https://github.com/FiloSottile/age][age]] encryption tool.
