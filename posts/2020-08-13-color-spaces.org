@@ -5,7 +5,7 @@
 #+BEGIN_SRC elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
-	(ns/color-gradient (length word)
+	(ct/gradient (length word)
 			   (ht-get ns/theme :foreground)
 			   (ht-get ns/theme :background)
 			   t)))
@@ -53,8 +53,8 @@ Here is a gradient from {{{color(#cc3333)}}} to {{{color(#33cc33)}}} to {{{color
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
-  (ns/color-gradient 15 "#cc3333" "#33cc33" t)
-  (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t))))
+  (ct/gradient 15 "#cc3333" "#33cc33" t)
+  (cdr (ct/gradient 15 "#33cc33" "#3333cc" t))))
 #+end_src
 
 To show the lighting effect, let's repeat the above gradient, but instead of using ~33~ for filler, we'll use ~99~ -- that's triple(!) the secondary color amounts:
@@ -62,8 +62,8 @@ To show the lighting effect, let's repeat the above gradient, but instead of usi
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
-  (ns/color-gradient 15 "#cc9999" "#99cc99" t)
-  (cdr (ns/color-gradient 15 "#99cc99" "#9999cc" t))))
+  (ct/gradient 15 "#cc9999" "#99cc99" t)
+  (cdr (ct/gradient 15 "#99cc99" "#9999cc" t))))
 #+end_src
 
 *** [[#h-43869bc7-a7d1-410f-9341-521974751dac][HSL]]
@@ -85,16 +85,16 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-reductions-from
 	(lambda (acc new)
 	  ;; list
-	  (ns/color-hsl-transform acc
+	  (ct/transform-hsl acc
 				  (lambda (H S L)
 				    (list (+ 60 H) 50 50))))
 
 	;; starting with 1% saturation (0% removes our hue entirely)
-(ns/color-make-hsl 0 50 50)
+(ct/make-hsl 0 50 50)
 	(range 5)))
  '("red, 0°"
    "yellow, 60°"
@@ -109,9 +109,9 @@ Let's see the effect saturation has:
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-map
-	(fn (ns/color-make-hsl 240 (* 10 <>) 50))
+	(fn (ct/make-hsl 240 (* 10 <>) 50))
 	(range 11))))
 #+end_src
 {{{detail(HSL: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
@@ -120,9 +120,9 @@ And lightness:
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-map
-	(fn (ns/color-make-hsl 240 50 (* 10 <>)))
+	(fn (ct/make-hsl 240 50 (* 10 <>)))
 	(range 11))))
 #+end_src
 {{{detail(HSL: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
@@ -138,15 +138,15 @@ What does that mean for us? Well, let's take our above examples and recreate the
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-reductions-from
 	(lambda (acc new)
 	  ;; list
-	  (ns/color-hsluv-transform acc
+	  (ct/transform-hsluv acc
 				    (lambda (H S L)
 				      (list (+ 60 H) 50 50))))
 
-    (ns/color-make-hsluv 0 50 50)
+    (ct/make-hsluv 0 50 50)
 
 	(range 5)))
  '("red, 0°"
@@ -162,9 +162,9 @@ Saturation:
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-map
-	(fn (ns/color-make-hsluv 240 (* 10 <>) 50))
+	(fn (ct/make-hsluv 240 (* 10 <>) 50))
 	(range 11))))
 #+end_src
 {{{detail(HSLuv: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
@@ -173,9 +173,9 @@ Lightness:
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-map
-	(fn (ns/color-make-hsluv 240 50 (* 10 <>)))
+	(fn (ct/make-hsluv 240 50 (* 10 <>)))
 	(range 11))))
 #+end_src
 {{{detail(HSLuv: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
@@ -189,9 +189,9 @@ These scales definitely look more consistent when reasoning about lightness valu
 
 [[https://en.wikipedia.org/wiki/CIELAB_color_space][wikipedia link]]
 
-| [L]ightness |                 0-100 | Light level                                                                                                                                                 |
-| [A] toggle  |              -100-100 | green <--> red                                                                                                                                              |
-| [B] toggle  |              -100-100 | blue <--> yellow                                                                                                                                            |
+| [L]ightness |                 0-100 | Light level                                                                                         |
+| [A] toggle  |              -100-100 | green <--> red                                                                                      |
+| [B] toggle  |              -100-100 | blue <--> yellow                                                                                    |
 | whitepoint  | coordinates [X, Y, Z] | a point in the [[https://en.wikipedia.org/wiki/CIE_1931_color_space][CIE XYZ]] space that defines "white" from the perspective of the image being displayed |
 
 The white point is a defined [[https://en.wikipedia.org/wiki/Standard_illuminant][standard illuminate]]  not intrinsic to the value of a color. It is an additional piece of information you provide to functions when converting into and out of the CIELAB colorspace.
@@ -217,7 +217,7 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
       (-map
        (lambda (props)
 	 (list
-	  (apply 'ns/color-make-lab props)
+	  (apply 'ct/make-lab props)
 	  (format "(%s,%s,%s)" (nth 0 props) (nth 1 props) (nth 2 props))))
        colors))))
   '(
@@ -244,7 +244,7 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
 	   (-map
 	    (lambda (props)
 	      (list
-	       (apply 'ns/color-make-lab props)
+	       (apply 'ct/make-lab props)
 	       (format "(%s,%s,%s)" (nth 0 props) (nth 1 props) (nth 2 props))))
 	    colors))))
        '(((50 0 -80)
@@ -270,7 +270,7 @@ Let's look at some LAB colors. The labels below will have the values of  ~(L A B
       (-map
        (lambda (props)
 	 (list
-	  (apply 'ns/color-make-lab props)
+	  (apply 'ct/make-lab props)
 	  (format "(%s,%s,%s)" (nth 0 props) (nth 1 props) (nth 2 props))))
        colors))))
   '(((50 -80 -80)
@@ -301,15 +301,15 @@ LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-reductions-from
 	(lambda (acc new)
 	  ;; list
-	  (ns/color-lch-transform acc
+	  (ct/transform-lch acc
 				  (lambda (L C H)
 				    (list L C (+ 90 H)))))
 
-	(ns/color-make-lch 50 50 0)
+	(ct/make-lch 50 50 0)
 	(range 3)))
  '("red, 0°"
    "yellow, 90°"
@@ -322,10 +322,10 @@ LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 LCH lightness:
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-map
 	(fn
-	 (ns/color-make-lch (* 10 <>) 50 270))
+	 (ct/make-lch (* 10 <>) 50 270))
 	(range 11))))
 #+end_src
 {{{detail(LCH: lightness scale 0-100% (step 10%), chromacity 50%, hue 270° (blue))}}}
@@ -334,17 +334,17 @@ Chromacity, "distance from gray" - very similar to Saturation (which I've seen c
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ns/color-shorten
+ (-map 'ct/shorten
        (-reductions-from
 	(lambda (acc new)
 	  ;; list
-	  (ns/color-lch-transform acc
+	  (ct/transform-lch acc
 				  (lambda (L C H)
 				    (list L
 					  ;; correct for our starting position
 					  (+ 10 (* 10 (first (cl-round C 10))))
 					  H))))
-(ns/color-make-lch 50 0 270)
+(ct/make-lch 50 0 270)
 
 	(range 10))))
 #+end_src
@@ -360,8 +360,8 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
  (append
-  (ns/color-gradient 15 "#cc3333" "#33cc33" t)
-  (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t))))
+  (ct/gradient 15 "#cc3333" "#33cc33" t)
+  (cdr (ct/gradient 15 "#33cc33" "#3333cc" t))))
 #+end_src
 {{{detail(original)}}}
 
@@ -369,10 +369,10 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 (ns/blog-make-color-strip
  (-map
   (lambda (c)
-    (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50)))))
+    (-> c (ct/transform-hsluv (lambda (H S L) (list H S 50)))))
   (append
-   (ns/color-gradient 15 "#cc3333" "#33cc33" t)
-   (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+   (ct/gradient 15 "#cc3333" "#33cc33" t)
+   (cdr (ct/gradient 15 "#33cc33" "#3333cc" t)))))
 #+end_src
 {{{detail(squash lightness to 50 in HSLuv)}}}
 
@@ -383,32 +383,32 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 	 (ns/blog-make-color-strip
 	  (-map
 	   (lambda (c)
-	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50))))
-	     (-> c (ns/color-lch-transform (lambda (L C H) (list L 100 H))))
+	     (-> c (ct/transform-hsluv (lambda (H S L) (list H S 50))))
+	     (-> c (ct/transform-lch (lambda (L C H) (list L 100 H))))
 	     )
 	   (append
-	    (ns/color-gradient 15 "#cc3333" "#33cc33" t)
-	    (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+	    (ct/gradient 15 "#cc3333" "#33cc33" t)
+	    (cdr (ct/gradient 15 "#33cc33" "#3333cc" t)))))
 
 	 (ns/blog-make-color-strip
 	  (-map
 	   (lambda (c)
-	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50))))
-	     (-> c (ns/color-hsl-transform (lambda (H S L) (list H 100 L))))
+	     (-> c (ct/transform-hsluv (lambda (H S L) (list H S 50))))
+	     (-> c (ct/transform-hsl (lambda (H S L) (list H 100 L))))
 	     )
 	   (append
-	    (ns/color-gradient 15 "#cc3333" "#33cc33" t)
-	    (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))
+	    (ct/gradient 15 "#cc3333" "#33cc33" t)
+	    (cdr (ct/gradient 15 "#33cc33" "#3333cc" t)))))
 
 	 (ns/blog-make-color-strip
 	  (-map
 	   (lambda (c)
-	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H S 50))))
-	     (-> c (ns/color-hsluv-transform (lambda (H S L) (list H 100 L))))
+	     (-> c (ct/transform-hsluv (lambda (H S L) (list H S 50))))
+	     (-> c (ct/transform-hsluv (lambda (H S L) (list H 100 L))))
 	     )
 	   (append
-	    (ns/color-gradient 15 "#cc3333" "#33cc33" t)
-	    (cdr (ns/color-gradient 15 "#33cc33" "#3333cc" t)))))))
+	    (ct/gradient 15 "#cc3333" "#33cc33" t)
+	    (cdr (ct/gradient 15 "#33cc33" "#3333cc" t)))))))
 #+end_src
 {{{detail(3 branches off of the above: LCH maximize C, HSL maximize S, HSLuv maximize S)}}}
 
@@ -440,14 +440,14 @@ Dark:
 			(second fg)
 			"Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.")
 		;; (second fg)
-		(ns/color-shorten (first fg))
+		(ct/shorten (first fg))
 		"colorblock colorpadding"
 		))
 
 	     (cdr
 	      (-reductions-from
 	       (lambda (acc new)
-		 (list (ns/color-tint-ratio
+		 (list (ct/tint-ratio
 			(first acc)
 			"#101010"
 			new
@@ -473,14 +473,14 @@ Light:
 		(format "%s: %s"
 			(second fg)
 			"Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.")
-		(ns/color-shorten (first fg))
+		(ct/shorten (first fg))
 		"colorblock colorpadding"
 		))
 
 	     (cdr
 	      (-reductions-from
 	       (lambda (acc new)
-		 (list (ns/color-tint-ratio
+		 (list (ct/tint-ratio
 			(first acc)
 			"#f7f7f7" new) new))
 	       '("#f7f7f7")
@@ -505,16 +505,16 @@ Color distance is a measure of how far apart colors are by properties in spaces.
 	(-map
 	 (lambda (c)
 	   (list c
-	    (floor (ns/color-name-distance (ns/color-make-hsluv 300 50 50) c))))
-	 (ns/color-iterations
-	  (ns/color-make-hsluv 300 50 50)
+	    (floor (ct/name-distance (ct/make-hsluv 300 50 50) c))))
+	 (ct/iterations
+	  (ct/make-hsluv 300 50 50)
 	  ;; "#a0d55df5acf4"
 	  (lambda (c)
-	    (ns/color-hsluv-transform c
+	    (ct/transform-hsluv c
 				      (lambda (H S L)
 					(list (+ H 10) S (* L 1.05)))))
 	  (lambda (c)
-	    (> (ns/color-name-distance (ns/color-make-hsluv 300 50 50) c)
+	    (> (ct/name-distance (ct/make-hsluv 300 50 50) c)
 	       33.0
 	       ))))))
 #+end_src
@@ -539,7 +539,7 @@ A gradient is where you travel from one color's initial property values to some 
 #+begin_src elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors (-map (fn (-reduce-from
-			  (lambda (acc new) (ns/color-pastel acc 0.93 1.09))
+			  (lambda (acc new) (ct/pastel acc 0.93 1.09))
 			  "#2d249f"
 			  (range (+ 1 <>))))
 		     (range (length word)))))
@@ -563,7 +563,7 @@ Let's say we we've played around in the LAB space to find a warm looking light b
     (-map
      (fn
       (list
-       (ns/color-make-hsl
+       (ct/make-hsl
 	(+ 19.6 (* <> (/ 360 rot)))
 	19.59832834874923 42.52063782711528)
 
@@ -583,7 +583,7 @@ Let's say we we've played around in the LAB space to find a warm looking light b
     (-map
      (fn
       (list
-       (ns/color-make-hsl
+       (ct/make-hsl
 	(+ 19.6 (* <> (/ 360 rot)))
 	19.59832834874923 42.52063782711528)
 
@@ -603,7 +603,7 @@ Let's say we we've played around in the LAB space to find a warm looking light b
     (-map
      (fn
       (list
-       (ns/color-make-hsl
+       (ct/make-hsl
 	(+ 19.6 (* <> (/ 360 rot)))
 	19.59832834874923 42.52063782711528)
 
@@ -623,7 +623,7 @@ Let's say we we've played around in the LAB space to find a warm looking light b
     (-map
      (fn
       (list
-       (ns/color-make-hsl
+       (ct/make-hsl
 	(+ 19.6 (* <> (/ 360 rot)))
 	19.59832834874923 42.52063782711528)
 
@@ -644,7 +644,7 @@ Let's say we we've played around in the LAB space to find a warm looking light b
     (-map
      (fn
       (list
-       (ns/color-make-hsl
+       (ct/make-hsl
 	(+ 19.6 (* <> (/ 360 rot)))
 	19.59832834874923 42.52063782711528)
 
@@ -666,7 +666,7 @@ CIELAB has a white point component used when entering and leaving the space. You
 #+begin_src elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
-	(ns/color-gradient (length word)
+	(ct/gradient (length word)
 			   (ht-get ns/theme :foreground)
 			   (ht-get ns/theme :background)
 			   t)))
@@ -679,8 +679,8 @@ CIELAB has a white point component used when entering and leaving the space. You
        (colors
 	(-map
 	 (lambda (c)
-	   (ns/color-lab-change-whitepoint c color-d65-xyz color-d50-xyz))
-	 (ns/color-gradient (length word)
+	   (ct/lab-change-whitepoint c color-d65-xyz color-d50-xyz))
+	 (ct/gradient (length word)
 			    (ht-get ns/theme :foreground)
 			    (ht-get ns/theme :background)
 			    t)
@@ -701,8 +701,7 @@ This section is about the tools I implemented and use to actually do the thing�
 Emacs ships with a fair amount of [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][conversion functions]], but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue ~color-name-to-rgb~, ~color-srgb-to-lab~, ~color-lab-to-lch~, and pipe back out. To assist with this, I implemented some [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el][wrappers]] that would do the conversion to your space of choice (coming from the 'name', strings eg "{{{color(#c930e8)}}}"). Here's an example -- say you wanted to increase luminosity of that color by a multiplier ~1.5~:
 
 #+begin_src emacs-lisp
-(ns/color-hsl-transform
- "#c930e8"
+(ct/transform-hsl "#c930e8"
  (lambda (H S L)
    (list H S (* 1.5 L))))
 
@@ -719,15 +718,15 @@ I also implemented a function for comparing contrast, referencing Peter Occil's 
 
 #+begin_src emacs-lisp
 ;; order does not matter:
-(ns/color-contrast-ratio "#ffffff" "#445544")
+(ct/contrast-ratio "#ffffff" "#445544")
 
 ;; => 3.0000000000000004
 #+end_src
 
 Is a color light? just check the lightness value in LAB space (note: that 65 value is \tilde{}opinions~):
 #+begin_src emacs-lisp
-(defun ns/color-is-light-p (name)
-  (> (first (ns/color-name-to-lab name))
+(defun ct/is-light-p (name)
+  (> (first (ct/name-to-lab name))
      65))
 #+end_src
 
@@ -739,7 +738,7 @@ A neat trick you can do with this is decide whether or not to use a dark or ligh
 	(-map
 	 (lambda (c)
 	   (list
-	    c (if (ns/color-is-light-p c) "light" "dark")))
+	    c (if (ct/is-light-p c) "light" "dark")))
 	 '("#006d77"
 	   "#83c5be"
 	   "#429958"
@@ -747,16 +746,16 @@ A neat trick you can do with this is decide whether or not to use a dark or ligh
 	   "#ffddd2"))))
 #+end_src
 
-These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ns/color-iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}}!)
+These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter ~ct/iterate~ -- a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing -- you can't darken {{{color(#000000)}}}!)
 
 #+begin_src emacs-lisp
-(ns/color-iterate
+(ct/iterate
  "#eeeeee"
 
  ;; Darken the color a little at a time in LAB space:
  (lambda (c)
-   (ns/color-lab-transform
-    c
+   (ct/transform
+   -lab c
     (lambda (L A B)
       (list (- L 0.1)
 	    A B))))
@@ -764,7 +763,7 @@ These pieces (transformers and comparison functions) can be combined to do thing
  ;; check that we've reached some desired contrast ratio
  ;; 4.5, Here against a background #f7f7f7
  (lambda (c)
-   (> (ns/color-contrast-ratio "#f7f7f7" c)
+   (> (ct/contrast-ratio "#f7f7f7" c)
       4.5)))
 
 ;; => "#2d662ca72d1b"
@@ -872,7 +871,7 @@ Now that the mapping has been created, with some glue I can use any of the [[htt
 #+begin_src elisp :results raw :exports results
 (let* ((word "Happy Coloring!")
        (colors
-	(ns/color-gradient (length word)
+	(ct/gradient (length word)
 			   (ht-get ns/theme :background)
 			   (ht-get ns/theme :foreground)
 			   t)))
@@ -886,8 +885,8 @@ Now that the mapping has been created, with some glue I can use any of the [[htt
 
 - [[http://colorizer.org/][colorizer, an interactive color tool]]
 - [[https://peteroupc.github.io/colorgen.html][Peter Occil's "Color Topics for Programmers"]]
-- [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el][colors.el, my color utilities]]
-- [[https://github.com/neeasade/emacs.d/blob/master/lisp/themes/neea-theme.el][neeatheme, my base16 bootstrapping emacs theme]]
+- [[https://github.com/neeasade/color-tools.el][color-tools.el, my color utilities]]
+- [[https://github.com/neeasade/tarps][tarps, my base16 bootstrapping emacs themes]]
 - [[https://www.w3.org/TR/WCAG20/#relativeluminancedef][WCAG: Luminance]]
 - [[https://www.24a11y.com/2019/color-theory-and-contrast-ratios/][color theory and contrast ratios]]
 - [[https://en.wikipedia.org/wiki/CIELAB_color_space][wiki: CIELAB]]
