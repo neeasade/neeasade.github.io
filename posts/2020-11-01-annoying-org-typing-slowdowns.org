@@ -12,6 +12,7 @@ This is a list of things I had to turn off to not fuck with my typing speed in e
 - (rarely) font-locking
   - related: font-locking takes longer if you have a really big emacs window (ie hidpi fullscreen emacs will lag, but if you float that bad boy in the center you will have a good time).
 - (rarely) irc volume
+- blink-cursor-mode
 
 # - (rarely) having a large window (this makes the redisplay cost higher)
 # you mention this above
