@@ -698,7 +698,7 @@ Mapping color palettes through this transform could presumably get you better re
 
 This section is about the tools I implemented and use to actually do the thing™.
 
-Emacs ships with a fair amount of [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][conversion functions]], but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue ~color-name-to-rgb~, ~color-srgb-to-lab~, ~color-lab-to-lch~, and pipe back out. To assist with this, I implemented some [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el][wrappers]] that would do the conversion to your space of choice (coming from the 'name', strings eg "{{{color(#c930e8)}}}"). Here's an example -- say you wanted to increase luminosity of that color by a multiplier ~1.5~:
+Emacs ships with a fair amount of [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][conversion functions]], but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue ~color-name-to-rgb~, ~color-srgb-to-lab~, ~color-lab-to-lch~, and pipe back out. To assist with this, I implemented some [[https://github.com/neeasade/color-tools.el][wrappers]] that would do the conversion to your space of choice (coming from the 'name', strings eg "{{{color(#c930e8)}}}"). Here's an example -- say you wanted to increase luminosity of that color by a multiplier ~1.5~:
 
 #+begin_src emacs-lisp
 (ct/transform-hsl "#c930e8"
@@ -793,6 +793,8 @@ Alright, we've gone through a fair amount of ways you can play with individual c
 
 The pair of accent2 colors turned out to be the most awkward here. I personally believe strings are important enough to get a standalone color, which is what accent2_ turned into. The accent1 idea of "lesser and greater" pairings cover a lot of ground, meaning that accent2 turned into a rarely used color -- as I'm writing this I'm realizing maybe I could use accent2 to color scalar types in general (or expand the accent2_ definition to all scalar types).
 
+<2021-01-03 Sun 09:45> You can now see where I'm tracking these ideas in my [[https://github.com/neeasade/tarps#fishing][tarps]] repo.
+
 *** [[#h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20][Methods]]
 :PROPERTIES:
 :CUSTOM_ID: h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20
@@ -885,7 +887,7 @@ Now that the mapping has been created, with some glue I can use any of the [[htt
 
 - [[http://colorizer.org/][colorizer, an interactive color tool]]
 - [[https://peteroupc.github.io/colorgen.html][Peter Occil's "Color Topics for Programmers"]]
-- [[https://github.com/neeasade/color-tools.el][color-tools.el, my color utilities]]
+- [[https://github.com/neeasade/color-tools.el][color-tools.el, my color utilities for emacs]]
 - [[https://github.com/neeasade/tarps][tarps, my base16 bootstrapping emacs themes]]
 - [[https://www.w3.org/TR/WCAG20/#relativeluminancedef][WCAG: Luminance]]
 - [[https://www.24a11y.com/2019/color-theory-and-contrast-ratios/][color theory and contrast ratios]]

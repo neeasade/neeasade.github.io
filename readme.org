@@ -1,1 +1,1 @@
-Org mode blog. See site generation here: https://github.com/neeasade/emacs.d/search?q=defconfig+blog&unscoped_q=defconfig+blog
+Org mode blog. See the generation [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/blog.el][here]].
