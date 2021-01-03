@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-17 Thu 09:20 -->
+<!-- 2021-01-03 Sun 17:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reasoning about colors</title>
@@ -12,12 +12,12 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -49,23 +49,23 @@
 
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2020-12-05</a> • 2020-11-24
+2020-11-24 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2021-01-03</a>)
 </p>
 </div>
 
 <hr />
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #473f3b;color: #f2e9e3; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #5a514d;color: #f2e9e3; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #6d6460;color: #f2e9e3; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #807772;color: #f2e9e3; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #938a85;color: #f2e9e3; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #a59d98;color: #473f3b; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #b8b0aa;color: #473f3b; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #cbc3bd;color: #473f3b; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #ded6d0;color: #473f3b; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #f2e9e3;color: #473f3b; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #483f39;color: #f2e9e3; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #5a514b;color: #f2e9e3; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #6d645e;color: #f2e9e3; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #807771;color: #f2e9e3; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #938a84;color: #f2e9e3; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #a69d97;color: #483f39; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #b9b0aa;color: #483f39; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #ccc3bd;color: #483f39; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #dfd6d0;color: #483f39; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #f2e9e3;color: #483f39; width: 10.0%;">Ｓ</div>
  </div> 
 </p>
 
@@ -115,11 +115,11 @@ Color spaces are ways of defining colors in different sets of properties. They a
 <h3 id="h-99356355-d54c-41d8-bc1a-6e14e29f42c8"><span class="section-number-3">3.1</span> <a href="#h-99356355-d54c-41d8-bc1a-6e14e29f42c8">RGB</a></h3>
 <div class="outline-text-3" id="text-h-99356355-d54c-41d8-bc1a-6e14e29f42c8">
 <p>
-The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach <code style="background: #ffffff;color: #473f3b; padding: 2px; border: 1px solid #473f3b">#ffffff</code> (and down, -&gt; <code style="background: #000000;color: #f2e9e3; padding: 2px; border: 1px solid #000000">#000000</code>). This isn't particularly flexible in "ways you can think about colors".
+The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach <code style="background: #ffffff;color: #483f39; padding: 2px; border: 1px solid #483f39">#ffffff</code> (and down, -&gt; <code style="background: #000000;color: #f2e9e3; padding: 2px; border: 1px solid #000000">#000000</code>). This isn't particularly flexible in "ways you can think about colors".
 </p>
 
 <p>
-Here is a gradient from <code style="background: #cc3333;color: #f2e9e3; padding: 2px; border: 1px solid #cc3333">#cc3333</code> to <code style="background: #33cc33;color: #473f3b; padding: 2px; border: 1px solid #473f3b">#33cc33</code> to <code style="background: #3333cc;color: #f2e9e3; padding: 2px; border: 1px solid #3333cc">#3333cc</code>:
+Here is a gradient from <code style="background: #cc3333;color: #f2e9e3; padding: 2px; border: 1px solid #cc3333">#cc3333</code> to <code style="background: #33cc33;color: #483f39; padding: 2px; border: 1px solid #483f39">#33cc33</code> to <code style="background: #3333cc;color: #f2e9e3; padding: 2px; border: 1px solid #3333cc">#3333cc</code>:
 </p>
 
 <p>
@@ -136,11 +136,11 @@ Here is a gradient from <code style="background: #cc3333;color: #f2e9e3; padding
 <div class="colorblock colorcenter" style="background: #699533;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #5ea033;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #53ab33;color: #f2e9e3; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #48b633;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3dc133;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33cc33;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33c13d;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33b648;color: #473f3b; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #48b633;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3dc133;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33cc33;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33c13d;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33b648;color: #483f39; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #33ab53;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #33a05e;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #339569;color: #f2e9e3; width: 3.4482758620689653%;"></div>
@@ -162,34 +162,34 @@ To show the lighting effect, let's repeat the above gradient, but instead of usi
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #cc9999;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c89c99;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c4a099;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c1a399;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #bda799;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b9ab99;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b6ae99;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b2b299;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #aeb699;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #abb999;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a7bd99;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a3c199;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a0c499;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #9cc899;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99cc99;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99c89c;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99c4a0;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99c1a3;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99bda7;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99b9ab;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99b6ae;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99b2b2;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99aeb6;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99abb9;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99a7bd;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99a3c1;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99a0c4;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #999cc8;color: #473f3b; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #cc9999;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c89c99;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c4a099;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c1a399;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #bda799;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b9ab99;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b6ae99;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b2b299;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #aeb699;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #abb999;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a7bd99;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a3c199;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a0c499;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #9cc899;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99cc99;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99c89c;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99c4a0;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99c1a3;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99bda7;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99b9ab;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99b6ae;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99b2b2;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99aeb6;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99abb9;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99a7bd;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99a3c1;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99a0c4;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #999cc8;color: #483f39; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #9999cc;color: #f2e9e3; width: 3.4482758620689653%;"></div>
  </div> 
 </p>
@@ -239,7 +239,7 @@ Saturation in HSL is a controlled version of chromacity ("distance from gray"). 
 </p>
 
 
-<div id="org78743ff" class="figure">
+<div id="org2352d6a" class="figure">
 <p><a href="./assets/posts/color_cylinder.png"><img src="./assets/posts/color_cylinder.png" alt="color_cylinder.png" /></a>
 </p>
 </div>
@@ -251,9 +251,9 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorcenter" style="background: #bf3f3f;color: #f2e9e3; width: 16.666666666666668%;">red, 0°</div>
-<div class="colorblock colorcenter" style="background: #bfbf3f;color: #473f3b; width: 16.666666666666668%;">yellow, 60°</div>
-<div class="colorblock colorcenter" style="background: #3fbf3f;color: #473f3b; width: 16.666666666666668%;">green, 120°</div>
-<div class="colorblock colorcenter" style="background: #3fbfbf;color: #473f3b; width: 16.666666666666668%;">cyan, 180°</div>
+<div class="colorblock colorcenter" style="background: #bfbf3f;color: #483f39; width: 16.666666666666668%;">yellow, 60°</div>
+<div class="colorblock colorcenter" style="background: #3fbf3f;color: #483f39; width: 16.666666666666668%;">green, 120°</div>
+<div class="colorblock colorcenter" style="background: #3fbfbf;color: #483f39; width: 16.666666666666668%;">cyan, 180°</div>
 <div class="colorblock colorcenter" style="background: #3f3fbf;color: #f2e9e3; width: 16.666666666666668%;">blue, 240°</div>
 <div class="colorblock colorcenter" style="background: #bf3fbf;color: #f2e9e3; width: 16.666666666666668%;">magenta, 300°</div>
  </div> 
@@ -301,9 +301,9 @@ And lightness:
 <div class="colorblock colorcenter" style="background: #3f3fbf;color: #f2e9e3; width: 9.090909090909092%;"></div>
 <div class="colorblock colorcenter" style="background: #6565cc;color: #f2e9e3; width: 9.090909090909092%;"></div>
 <div class="colorblock colorcenter" style="background: #8c8cd8;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b2b2e5;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d8d8f2;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffffff;color: #473f3b; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b2b2e5;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d8d8f2;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffffff;color: #483f39; width: 9.090909090909092%;"></div>
  </div> 
 </p>
 
@@ -376,10 +376,10 @@ Lightness:
 <div class="colorblock colorcenter" style="background: #466079;color: #f2e9e3; width: 9.090909090909092%;"></div>
 <div class="colorblock colorcenter" style="background: #597a97;color: #f2e9e3; width: 9.090909090909092%;"></div>
 <div class="colorblock colorcenter" style="background: #6d94b7;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #85afd6;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b0c9e3;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d8e3f0;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feffff;color: #473f3b; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #85afd6;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b0c9e3;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d8e3f0;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feffff;color: #483f39; width: 9.090909090909092%;"></div>
  </div> 
 </p>
 
@@ -582,9 +582,9 @@ LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorcenter" style="background: #c14e78;color: #f2e9e3; width: 25.0%;">red, 0°</div>
-<div class="colorblock colorcenter" style="background: #8d7418;color: #f2e9e3; width: 25.0%;">yellow, 90°</div>
-<div class="colorblock colorcenter" style="background: #008b75;color: #f2e9e3; width: 25.0%;">green, 180°</div>
-<div class="colorblock colorcenter" style="background: #3a7fba;color: #f2e9e3; width: 25.0%;">blue, 270°</div>
+<div class="colorblock colorcenter" style="background: #8c7317;color: #f2e9e3; width: 25.0%;">yellow, 90°</div>
+<div class="colorblock colorcenter" style="background: #008973;color: #f2e9e3; width: 25.0%;">green, 180°</div>
+<div class="colorblock colorcenter" style="background: #367db7;color: #f2e9e3; width: 25.0%;">blue, 270°</div>
  </div> 
 </p>
 
@@ -604,10 +604,10 @@ LCH lightness:
 <div class="colorblock colorcenter" style="background: #0063b0;color: #f2e9e3; width: 9.090909090909092%;"></div>
 <div class="colorblock colorcenter" style="background: #007bcc;color: #f2e9e3; width: 9.090909090909092%;"></div>
 <div class="colorblock colorcenter" style="background: #3195e8;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #58afff;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7acbff;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99e7ff;color: #473f3b; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b8ffff;color: #473f3b; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #58afff;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7acbff;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99e7ff;color: #483f39; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b8ffff;color: #483f39; width: 9.090909090909092%;"></div>
  </div> 
 </p>
 
@@ -622,16 +622,16 @@ Chromacity, "distance from gray" - very similar to Saturation (which I've seen c
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorcenter" style="background: #767676;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #81727f;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #8b6d88;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #956791;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9f619b;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a85aa4;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b151ad;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b947b6;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c23abf;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ca28c8;color: #f2e9e3; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d200d1;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #797383;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7b7091;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c6d9f;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c6aad;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c67bb;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7b63c9;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #795fd7;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #765be5;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7257f3;color: #f2e9e3; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6d53ff;color: #f2e9e3; width: 9.090909090909092%;"></div>
  </div> 
 </p>
 
@@ -662,11 +662,11 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 <div class="colorblock colorcenter" style="background: #699533;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #5ea033;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #53ab33;color: #f2e9e3; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #48b633;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3dc133;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33cc33;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33c13d;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33b648;color: #473f3b; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #48b633;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3dc133;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33cc33;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33c13d;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33b648;color: #483f39; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #33ab53;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #33a05e;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #339569;color: #f2e9e3; width: 3.4482758620689653%;"></div>
@@ -738,11 +738,11 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 <div class="colorblock colorcenter" style="background: #339d00;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #14a700;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #00b100;color: #f2e9e3; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ba00;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c400;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ce19;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c414;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00bc15;color: #473f3b; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ba00;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c400;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ce19;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c414;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00bc15;color: #483f39; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #00b31d;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #00ab2b;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #00a340;color: #f2e9e3; width: 3.4482758620689653%;"></div>
@@ -764,21 +764,21 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 <div class="colorblock colorcenter" style="background: #d35300;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #c86e00;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #bd8d00;color: #f2e9e3; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b1b200;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #8dbd00;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #6ec800;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #53d300;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3bde00;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #25e900;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #11f300;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ff00;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00f311;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00e925;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00de3b;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00d353;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c86e;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00bd8d;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b1b2;color: #473f3b; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b1b200;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #8dbd00;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #6ec800;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #53d300;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3bde00;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #25e900;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #11f300;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ff00;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00f311;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00e925;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00de3b;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00d353;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c86e;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00bd8d;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00b1b2;color: #483f39; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #008dbd;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #006ec8;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #0053d3;color: #f2e9e3; width: 3.4482758620689653%;"></div>
@@ -800,11 +800,11 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 <div class="colorblock colorcenter" style="background: #639600;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #54a200;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #45ad00;color: #f2e9e3; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #34b800;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #20c300;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00cd00;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c320;color: #473f3b; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b834;color: #473f3b; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #34b800;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #20c300;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00cd00;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c320;color: #483f39; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00b834;color: #483f39; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #00ad45;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #00a254;color: #f2e9e3; width: 3.4482758620689653%;"></div>
 <div class="colorblock colorcenter" style="background: #009763;color: #f2e9e3; width: 3.4482758620689653%;"></div>
@@ -836,7 +836,7 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 <h3 id="h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51"><span class="section-number-3">4.1</span> <a href="#h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">Contrast</a></h3>
 <div class="outline-text-3" id="text-h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">
 <p>
-For text, the Web Content Assembly Guidelines (WCAG) recommend at least a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #473f3b; padding: 2px; border: 1px solid #473f3b">#f7f7f7</code> and <code style="background: #101010;color: #f2e9e3; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #f2e9e3; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #473f3b; padding: 2px; border: 1px solid #473f3b">#ffffff</code> is 21.0
+For text, the Web Content Assembly Guidelines (WCAG) recommend at least a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. Let's take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #483f39; padding: 2px; border: 1px solid #483f39">#f7f7f7</code> and <code style="background: #101010;color: #f2e9e3; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #f2e9e3; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #483f39; padding: 2px; border: 1px solid #483f39">#ffffff</code> is 21.0
 </p>
 
 <p>
@@ -845,12 +845,12 @@ Dark:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorpadding" style="background: #101010;color: #5f5f5f; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #737272; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #838282; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #919090; width: 33.333333333333336%;">6.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #9d9c9d; width: 33.333333333333336%;">7.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #101010;color: #a8a7a8; width: 33.333333333333336%;">8.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #171717; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #171717; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #171717; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #171717; width: 33.333333333333336%;">6.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #171717; width: 33.333333333333336%;">7.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #101010;color: #171717; width: 33.333333333333336%;">8.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
  </div> 
 </p>
 
@@ -865,11 +865,11 @@ Light:
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorpadding" style="background: #f7f7f7;color: #8f8f8f; width: 33.333333333333336%;">3.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #7a797a; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #6b6a6a; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #5f5e5e; width: 33.333333333333336%;">6.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #545454; width: 33.333333333333336%;">7.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
-<div class="colorblock colorpadding" style="background: #f7f7f7;color: #4c4b4c; width: 33.333333333333336%;">8.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #797979; width: 33.333333333333336%;">4.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #696969; width: 33.333333333333336%;">5.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #5d5d5d; width: 33.333333333333336%;">6.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #535353; width: 33.333333333333336%;">7.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
+<div class="colorblock colorpadding" style="background: #f7f7f7;color: #4b4b4b; width: 33.333333333333336%;">8.0: Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.</div>
  </div> 
 </p>
 
@@ -898,10 +898,10 @@ Color distance is a measure of how far apart colors are by properties in spaces.
 <div class="colorblock colorcenter" style="background: #ca67a7;color: #f2e9e3; width: 10.0%;">10</div>
 <div class="colorblock colorcenter" style="background: #cf72a1;color: #f2e9e3; width: 10.0%;">14</div>
 <div class="colorblock colorcenter" style="background: #d37e9c;color: #f2e9e3; width: 10.0%;">18</div>
-<div class="colorblock colorcenter" style="background: #d68a99;color: #473f3b; width: 10.0%;">22</div>
-<div class="colorblock colorcenter" style="background: #d99698;color: #473f3b; width: 10.0%;">26</div>
-<div class="colorblock colorcenter" style="background: #dca299;color: #473f3b; width: 10.0%;">31</div>
-<div class="colorblock colorcenter" style="background: #e0ae9c;color: #473f3b; width: 10.0%;">35</div>
+<div class="colorblock colorcenter" style="background: #d68a99;color: #483f39; width: 10.0%;">22</div>
+<div class="colorblock colorcenter" style="background: #d99698;color: #483f39; width: 10.0%;">27</div>
+<div class="colorblock colorcenter" style="background: #dca299;color: #483f39; width: 10.0%;">31</div>
+<div class="colorblock colorcenter" style="background: #e0ae9c;color: #483f39; width: 10.0%;">35</div>
  </div> 
 </p>
 
@@ -934,15 +934,15 @@ A gradient is where you travel from one color's initial property values to some 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorcenter" style="background: #352ba8;color: #f2e9e3; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #3d34b3;color: #f2e9e3; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #473ebe;color: #f2e9e3; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #5a52c1;color: #f2e9e3; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #6e67c4;color: #f2e9e3; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #837ec8;color: #f2e9e3; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #9995cf;color: #f2e9e3; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #afacd7;color: #473f3b; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #c7c5e1;color: #473f3b; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #e0dfee;color: #473f3b; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #3d33b2;color: #f2e9e3; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #463cbd;color: #f2e9e3; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #574ec1;color: #f2e9e3; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #6b63c3;color: #f2e9e3; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #7f79c7;color: #f2e9e3; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #948fcd;color: #f2e9e3; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #aaa6d4;color: #483f39; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #c0bedd;color: #483f39; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #d8d6e9;color: #483f39; width: 10.0%;">Ｓ</div>
  </div> 
 </p>
 </div>
@@ -956,7 +956,7 @@ Color wheel rotations are all about hue. The circle that hue forms is the color 
 </p>
 
 <p>
-Let's say we we've played around in the LAB space to find a warm looking light background <code style="background: #ffd4d0;color: #473f3b; padding: 2px; border: 1px solid #473f3b"> LAB(90,90,10)</code>, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color <code style="background: #816557;color: #f2e9e3; padding: 2px; border: 1px solid #816557">#816557</code>, which has a hue of 19.6°. Let's see what doing hue rotations on this color look like:
+Let's say we we've played around in the LAB space to find a warm looking light background <code style="background: #ffd4d0;color: #483f39; padding: 2px; border: 1px solid #483f39"> LAB(90,90,10)</code>, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color <code style="background: #816557;color: #f2e9e3; padding: 2px; border: 1px solid #816557">#816557</code>, which has a hue of 19.6°. Let's see what doing hue rotations on this color look like:
 </p>
 
 <p>
@@ -1043,16 +1043,16 @@ CIELAB has a white point component used when entering and leaving the space. You
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #473f3b;color: #f2e9e3; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #5a514d;color: #f2e9e3; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #6d6460;color: #f2e9e3; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #807772;color: #f2e9e3; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #938a85;color: #f2e9e3; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #a59d98;color: #473f3b; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #b8b0aa;color: #473f3b; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #cbc3bd;color: #473f3b; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #ded6d0;color: #473f3b; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #f2e9e3;color: #473f3b; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #483f39;color: #f2e9e3; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #5a514b;color: #f2e9e3; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #6d645e;color: #f2e9e3; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #807771;color: #f2e9e3; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #938a84;color: #f2e9e3; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #a69d97;color: #483f39; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #b9b0aa;color: #483f39; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #ccc3bd;color: #483f39; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #dfd6d0;color: #483f39; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #f2e9e3;color: #483f39; width: 10.0%;">Ｓ</div>
  </div> 
 </p>
 
@@ -1062,16 +1062,16 @@ CIELAB has a white point component used when entering and leaving the space. You
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #4b3e31;color: #f2e9e3; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #5f5041;color: #f2e9e3; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #736251;color: #f2e9e3; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #887561;color: #f2e9e3; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #9c8872;color: #f2e9e3; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #af9b82;color: #473f3b; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #c4ae92;color: #473f3b; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #d8c0a2;color: #473f3b; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #ecd3b3;color: #473f3b; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #ffe6c4;color: #473f3b; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #4c3e2f;color: #f2e9e3; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #5f503f;color: #f2e9e3; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #73624f;color: #f2e9e3; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #887560;color: #f2e9e3; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #9c8871;color: #f2e9e3; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #b09b81;color: #483f39; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #c5ae92;color: #483f39; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #d9c0a2;color: #483f39; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #edd3b3;color: #483f39; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #ffe6c4;color: #483f39; width: 10.0%;">Ｓ</div>
  </div> 
 </p>
 
@@ -1094,21 +1094,20 @@ This section is about the tools I implemented and use to actually do the thing�
 </p>
 
 <p>
-Emacs ships with a fair amount of <a href="https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el">conversion functions</a>, but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue <code>color-name-to-rgb</code>, <code>color-srgb-to-lab</code>, <code>color-lab-to-lch</code>, and pipe back out. To assist with this, I implemented some <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el">wrappers</a> that would do the conversion to your space of choice (coming from the 'name', strings eg "<code style="background: #c930e8;color: #f2e9e3; padding: 2px; border: 1px solid #c930e8">#c930e8</code>"). Here's an example &#x2013; say you wanted to increase luminosity of that color by a multiplier <code>1.5</code>:
+Emacs ships with a fair amount of <a href="https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el">conversion functions</a>, but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue <code>color-name-to-rgb</code>, <code>color-srgb-to-lab</code>, <code>color-lab-to-lch</code>, and pipe back out. To assist with this, I implemented some <a href="https://github.com/neeasade/color-tools.el">wrappers</a> that would do the conversion to your space of choice (coming from the 'name', strings eg "<code style="background: #c930e8;color: #f2e9e3; padding: 2px; border: 1px solid #c930e8">#c930e8</code>"). Here's an example &#x2013; say you wanted to increase luminosity of that color by a multiplier <code>1.5</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(ns/color-hsl-transform
- <span style="color: #4e6600;">"#c930e8"</span>
+<pre class="src src-emacs-lisp">(ct/transform-hsl <span style="color: #4f6600;">"#c930e8"</span>
  (<span style="color: #3c6369;">lambda</span> (H S L)
    (list H S (* 1.5 L))))
 
-<span style="color: #a55238;">;; </span><span style="color: #a55238;">=&gt; "#eb16af59f708"</span>
+<span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">=&gt; "#eb16af59f708"</span>
 </pre>
 </div>
 
 <p>
-<code style="background: #eaaef6;color: #473f3b; padding: 2px; border: 1px solid #473f3b">#eb16af59f708</code> is definitely a lighter color, nice.
+<code style="background: #eaaef6;color: #483f39; padding: 2px; border: 1px solid #483f39">#eb16af59f708</code> is definitely a lighter color, nice.
 </p>
 
 <blockquote>
@@ -1122,10 +1121,10 @@ I also implemented a function for comparing contrast, referencing Peter Occil's 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #a55238;">;; </span><span style="color: #a55238;">order does not matter:</span>
-(ns/color-contrast-ratio <span style="color: #4e6600;">"#ffffff"</span> <span style="color: #4e6600;">"#445544"</span>)
+<pre class="src src-emacs-lisp"><span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">order does not matter:</span>
+(ct/contrast-ratio <span style="color: #4f6600;">"#ffffff"</span> <span style="color: #4f6600;">"#445544"</span>)
 
-<span style="color: #a55238;">;; </span><span style="color: #a55238;">=&gt; 3.0000000000000004</span>
+<span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">=&gt; 3.0000000000000004</span>
 </pre>
 </div>
 
@@ -1133,8 +1132,8 @@ I also implemented a function for comparing contrast, referencing Peter Occil's 
 Is a color light? just check the lightness value in LAB space (note: that 65 value is ~opinions~):
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #3c6369;">defun</span> <span style="color: #903f7a;">ns/color-is-light-p</span> (name)
-  (&gt; (first (ns/color-name-to-lab name))
+<pre class="src src-emacs-lisp">(<span style="color: #3c6369;">defun</span> <span style="color: #903f7a;">ct/is-light-p</span> (name)
+  (&gt; (first (ct/name-to-lab name))
      65))
 </pre>
 </div>
@@ -1146,37 +1145,37 @@ A neat trick you can do with this is decide whether or not to use a dark or ligh
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorcenter" style="background: #006d77;color: #f2e9e3; width: 20.0%;">dark</div>
-<div class="colorblock colorcenter" style="background: #83c5be;color: #473f3b; width: 20.0%;">light</div>
+<div class="colorblock colorcenter" style="background: #83c5be;color: #483f39; width: 20.0%;">light</div>
 <div class="colorblock colorcenter" style="background: #429958;color: #f2e9e3; width: 20.0%;">dark</div>
-<div class="colorblock colorcenter" style="background: #edf6f9;color: #473f3b; width: 20.0%;">light</div>
-<div class="colorblock colorcenter" style="background: #ffddd2;color: #473f3b; width: 20.0%;">light</div>
+<div class="colorblock colorcenter" style="background: #edf6f9;color: #483f39; width: 20.0%;">light</div>
+<div class="colorblock colorcenter" style="background: #ffddd2;color: #483f39; width: 20.0%;">light</div>
  </div> 
 </p>
 
 <p>
-These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter <code>ns/color-iterate</code> &#x2013; a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing &#x2013; you can't darken <code style="background: #000000;color: #f2e9e3; padding: 2px; border: 1px solid #000000">#000000</code>!)
+These pieces (transformers and comparison functions) can be combined to do things like "darken this color until I reach a minimum contrast ratio" (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter <code>ct/iterate</code> &#x2013; a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing &#x2013; you can't darken <code style="background: #000000;color: #f2e9e3; padding: 2px; border: 1px solid #000000">#000000</code>!)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(ns/color-iterate
- <span style="color: #4e6600;">"#eeeeee"</span>
+<pre class="src src-emacs-lisp">(ct/iterate
+ <span style="color: #4f6600;">"#eeeeee"</span>
 
- <span style="color: #a55238;">;; </span><span style="color: #a55238;">Darken the color a little at a time in LAB space:</span>
+ <span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">Darken the color a little at a time in LAB space:</span>
  (<span style="color: #3c6369;">lambda</span> (c)
-   (ns/color-lab-transform
-    c
+   (ct/transform
+   -lab c
     (<span style="color: #3c6369;">lambda</span> (L A B)
       (list (- L 0.1)
             A B))))
 
- <span style="color: #a55238;">;; </span><span style="color: #a55238;">check that we've reached some desired contrast ratio</span>
- <span style="color: #a55238;">;; </span><span style="color: #a55238;">4.5, Here against a background #f7f7f7</span>
+ <span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">check that we've reached some desired contrast ratio</span>
+ <span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">4.5, Here against a background #f7f7f7</span>
  (<span style="color: #3c6369;">lambda</span> (c)
-   (&gt; (ns/color-contrast-ratio <span style="color: #4e6600;">"#f7f7f7"</span> c)
+   (&gt; (ct/contrast-ratio <span style="color: #4f6600;">"#f7f7f7"</span> c)
       4.5)))
 
-<span style="color: #a55238;">;; </span><span style="color: #a55238;">=&gt; "#2d662ca72d1b"</span>
-<span style="color: #a55238;">;; </span><span style="color: #a55238;">(converted: #2d2c2c)</span>
+<span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">=&gt; "#2d662ca72d1b"</span>
+<span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">(converted: #2d2c2c)</span>
 </pre>
 </div>
 </div>
@@ -1278,6 +1277,10 @@ Alright, we've gone through a fair amount of ways you can play with individual c
 <p>
 The pair of accent2 colors turned out to be the most awkward here. I personally believe strings are important enough to get a standalone color, which is what accent2_ turned into. The accent1 idea of "lesser and greater" pairings cover a lot of ground, meaning that accent2 turned into a rarely used color &#x2013; as I'm writing this I'm realizing maybe I could use accent2 to color scalar types in general (or expand the accent2_ definition to all scalar types).
 </p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2021-01-03 09:45 AM]</span></span> You can now see where I'm tracking these ideas in my <a href="https://github.com/neeasade/tarps#fishing">tarps</a> repo.
+</p>
 </div>
 
 <div id="outline-container-h-009a56eb-e157-4ca0-bbe2-cbc00c2e6e20" class="outline-3">
@@ -1301,10 +1304,10 @@ At the time of this writing, I'm using a color rotation of 45° in the LCH space
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #e5e7ea;color: #473f3b; width: 25.0%;">:background</div>
-<div class="colorblock colorcenter" style="background: #e0dadb;color: #473f3b; width: 25.0%;">:background_</div>
-<div class="colorblock colorcenter" style="background: #d1c8ca;color: #473f3b; width: 25.0%;">:background__</div>
-<div class="colorblock colorcenter" style="background: #aacde6;color: #473f3b; width: 25.0%;">:background+</div>
+<div class="colorblock colorcenter" style="background: #e5e7ea;color: #483f39; width: 25.0%;">:background</div>
+<div class="colorblock colorcenter" style="background: #e0dadb;color: #483f39; width: 25.0%;">:background_</div>
+<div class="colorblock colorcenter" style="background: #d1c8ca;color: #483f39; width: 25.0%;">:background__</div>
+<div class="colorblock colorcenter" style="background: #aacde6;color: #483f39; width: 25.0%;">:background+</div>
  </div> 
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
 <div class="colorblock colorcenter" style="background: #393a3c;color: #f2e9e3; width: 33.333333333333336%;">:foreground</div>
@@ -1324,7 +1327,7 @@ Which in action looks like (click to see full size):
 </p>
 
 
-<div id="org6a944bf" class="figure">
+<div id="orgdcbea10" class="figure">
 <p><a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png" /></a>
 </p>
 </div>
@@ -1472,21 +1475,21 @@ Now that the mapping has been created, with some glue I can use any of the <a hr
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #f2e9e3;color: #473f3b; width: 6.666666666666667%;">H</div>
-<div class="colorblock colorcenter" style="background: #e5dcd7;color: #473f3b; width: 6.666666666666667%;">a</div>
-<div class="colorblock colorcenter" style="background: #d9d0cb;color: #473f3b; width: 6.666666666666667%;">p</div>
-<div class="colorblock colorcenter" style="background: #cdc4bf;color: #473f3b; width: 6.666666666666667%;">p</div>
-<div class="colorblock colorcenter" style="background: #c1b8b3;color: #473f3b; width: 6.666666666666667%;">y</div>
-<div class="colorblock colorcenter" style="background: #b4aca7;color: #473f3b; width: 6.666666666666667%;"> </div>
-<div class="colorblock colorcenter" style="background: #a8a09b;color: #473f3b; width: 6.666666666666667%;">C</div>
-<div class="colorblock colorcenter" style="background: #9c938f;color: #f2e9e3; width: 6.666666666666667%;">o</div>
-<div class="colorblock colorcenter" style="background: #908783;color: #f2e9e3; width: 6.666666666666667%;">l</div>
-<div class="colorblock colorcenter" style="background: #847b77;color: #f2e9e3; width: 6.666666666666667%;">o</div>
-<div class="colorblock colorcenter" style="background: #776f6b;color: #f2e9e3; width: 6.666666666666667%;">r</div>
-<div class="colorblock colorcenter" style="background: #6b635f;color: #f2e9e3; width: 6.666666666666667%;">i</div>
-<div class="colorblock colorcenter" style="background: #5f5753;color: #f2e9e3; width: 6.666666666666667%;">n</div>
-<div class="colorblock colorcenter" style="background: #534b47;color: #f2e9e3; width: 6.666666666666667%;">g</div>
-<div class="colorblock colorcenter" style="background: #473f3b;color: #f2e9e3; width: 6.666666666666667%;">!</div>
+<div class="colorblock colorcenter" style="background: #f2e9e3;color: #483f39; width: 6.666666666666667%;">H</div>
+<div class="colorblock colorcenter" style="background: #e5dcd6;color: #483f39; width: 6.666666666666667%;">a</div>
+<div class="colorblock colorcenter" style="background: #d9d0ca;color: #483f39; width: 6.666666666666667%;">p</div>
+<div class="colorblock colorcenter" style="background: #cdc4be;color: #483f39; width: 6.666666666666667%;">p</div>
+<div class="colorblock colorcenter" style="background: #c1b8b2;color: #483f39; width: 6.666666666666667%;">y</div>
+<div class="colorblock colorcenter" style="background: #b5aca6;color: #483f39; width: 6.666666666666667%;"> </div>
+<div class="colorblock colorcenter" style="background: #a9a09a;color: #483f39; width: 6.666666666666667%;">C</div>
+<div class="colorblock colorcenter" style="background: #9c938d;color: #f2e9e3; width: 6.666666666666667%;">o</div>
+<div class="colorblock colorcenter" style="background: #908781;color: #f2e9e3; width: 6.666666666666667%;">l</div>
+<div class="colorblock colorcenter" style="background: #847b75;color: #f2e9e3; width: 6.666666666666667%;">o</div>
+<div class="colorblock colorcenter" style="background: #786f69;color: #f2e9e3; width: 6.666666666666667%;">r</div>
+<div class="colorblock colorcenter" style="background: #6c635d;color: #f2e9e3; width: 6.666666666666667%;">i</div>
+<div class="colorblock colorcenter" style="background: #605751;color: #f2e9e3; width: 6.666666666666667%;">n</div>
+<div class="colorblock colorcenter" style="background: #544b45;color: #f2e9e3; width: 6.666666666666667%;">g</div>
+<div class="colorblock colorcenter" style="background: #483f39;color: #f2e9e3; width: 6.666666666666667%;">!</div>
  </div> 
 </p>
 </div>
@@ -1498,8 +1501,8 @@ Now that the mapping has been created, with some glue I can use any of the <a hr
 <ul class="org-ul">
 <li><a href="http://colorizer.org/">colorizer, an interactive color tool</a></li>
 <li><a href="https://peteroupc.github.io/colorgen.html">Peter Occil's "Color Topics for Programmers"</a></li>
-<li><a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el">colors.el, my color utilities</a></li>
-<li><a href="https://github.com/neeasade/emacs.d/blob/master/lisp/themes/neea-theme.el">neeatheme, my base16 bootstrapping emacs theme</a></li>
+<li><a href="https://github.com/neeasade/color-tools.el">color-tools.el, my color utilities for emacs</a></li>
+<li><a href="https://github.com/neeasade/tarps">tarps, my base16 bootstrapping emacs themes</a></li>
 <li><a href="https://www.w3.org/TR/WCAG20/#relativeluminancedef">WCAG: Luminance</a></li>
 <li><a href="https://www.24a11y.com/2019/color-theory-and-contrast-ratios/">color theory and contrast ratios</a></li>
 <li><a href="https://en.wikipedia.org/wiki/CIELAB_color_space">wiki: CIELAB</a></li>
@@ -1527,7 +1530,7 @@ Thanks to the <a href="https://github.com/gnotclub/">Axis of Eval</a>, <a href="
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-13-color-spaces.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-13-color-spaces.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

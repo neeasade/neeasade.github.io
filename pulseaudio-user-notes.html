@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-17 Thu 09:20 -->
+<!-- 2021-01-03 Sun 17:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>pulseaudio user notes</title>
@@ -12,12 +12,12 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -49,7 +49,7 @@
 
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-12-pulseaudio-user-notes.org">2020-08-14</a> • 2020-08-12
+2020-08-12 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-12-pulseaudio-user-notes.org">2020-08-14</a>)
 </p>
 </div>
 
@@ -103,7 +103,7 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #4e6600;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #4f6600;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -128,8 +128,8 @@ minutes or so, which is unnoticeable and keeps it from drifting
 </div>
 
 
-<div id="outline-container-org83360ed" class="outline-2">
-<h2 id="org83360ed"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers</h2>
+<div id="outline-container-org30d1e69" class="outline-2">
+<h2 id="org30d1e69"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Some leftover notes from when I was last messing with this with <a href="https://obsproject.com/">OBS</a>.
@@ -138,9 +138,9 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">add a null sync</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #a55238;"># </span><span style="color: #a55238;">=&gt; 25</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">=&gt; 25</span>
 
 pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
@@ -150,8 +150,8 @@ pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span
 pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=25,null
 pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=25,analog-stereo
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">number is the output of the above</span>
-<span style="color: #a55238;"># </span><span style="color: #a55238;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">number is the output of the above</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 
@@ -159,7 +159,7 @@ pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-12-pulseaudio-user-notes.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-12-pulseaudio-user-notes.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

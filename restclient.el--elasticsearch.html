@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-12-17 Thu 09:20 -->
+<!-- 2021-01-03 Sun 17:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>restclient.el + elasticsearch</title>
@@ -12,12 +12,12 @@
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=d754c3d75f04006860654e254478df1c'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=809b532b13c77a3c62fee9efba827d95'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=f190e0c07c49516abd05030e26c847e2'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -49,7 +49,7 @@
 
 <div class="org-center">
 <p>
-<a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">2020-01-23</a> • 2018-04-04
+2018-04-04 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">2020-01-23</a>)
 </p>
 </div>
 
@@ -72,33 +72,33 @@ one might use it with elasticsearch:
 <div class="org-src-container">
 <pre class="src src-restclient">;; -*- mode: restclient -*-
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">local</span>
-<span style="color: #903f7a;">:target</span> = <span style="color: #4e6600;">http://localhost:9200</span>
-<span style="color: #903f7a;">:cloud-auth</span> = <span style="color: #4e6600;">""</span>
-<span style="color: #a55238;"># </span><span style="color: #a55238;">Basic http auth example:</span>
-cloud-auth := (concat <span style="color: #4e6600;">"Basic "</span> (base64-encode-string <span style="color: #4e6600;">"username:password"</span>))
-<span style="color: #903f7a;">:prefix</span> = <span style="color: #4e6600;">some_prefix</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">local</span>
+<span style="color: #903f7a;">:target</span> = <span style="color: #4f6600;">http://localhost:9200</span>
+<span style="color: #903f7a;">:cloud-auth</span> = <span style="color: #4f6600;">""</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #4f6600;">"Basic "</span> (base64-encode-string <span style="color: #4f6600;">"username:password"</span>))
+<span style="color: #903f7a;">:prefix</span> = <span style="color: #4f6600;">some_prefix</span>
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">multiline variable</span>
-<span style="color: #903f7a;">:headers</span> = <span style="color: #a55238;">&lt;&lt;</span>
-<span style="color: #903f7a;">content-type</span>: <span style="color: #4e6600;">application/json</span>
-<span style="color: #903f7a;">Authorization</span>: <span style="color: #4e6600;">:cloud-auth</span>
-<span style="color: #a55238;">#</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">multiline variable</span>
+<span style="color: #903f7a;">:headers</span> = <span style="color: #a94e2f;">&lt;&lt;</span>
+<span style="color: #903f7a;">content-type</span>: <span style="color: #4f6600;">application/json</span>
+<span style="color: #903f7a;">Authorization</span>: <span style="color: #4f6600;">:cloud-auth</span>
+<span style="color: #a94e2f;">#</span>
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">note: there must be a comment to separate request definitions.</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">note: there must be a comment to separate request definitions.</span>
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">list indices</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">list indices</span>
 <span style="color: #3c6369;">GET</span> <span style="color: #903f7a;">:target/_cat/indices</span>
 <span style="color: #903f7a;">:headers</span>
 
-<span style="color: #a55238;"># </span><span style="color: #a55238;">logs sorted by a field</span>
+<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">logs sorted by a field</span>
 <span style="color: #3c6369;">GET</span> <span style="color: #903f7a;">:target/:prefix_log/_search</span>
 <span style="color: #903f7a;">:headers</span>
 {
-  <span style="color: #4e6600;">"sort"</span>: [
+  <span style="color: #4f6600;">"sort"</span>: [
     {
-      <span style="color: #4e6600;">"timestamp"</span>: {
-        <span style="color: #4e6600;">"order"</span>: <span style="color: #4e6600;">"desc"</span>
+      <span style="color: #4f6600;">"timestamp"</span>: {
+        <span style="color: #4f6600;">"order"</span>: <span style="color: #4f6600;">"desc"</span>
       }
     }
   ]
@@ -110,7 +110,7 @@ cloud-auth := (concat <span style="color: #4e6600;">"Basic "</span> (base64-enco
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> • <a href="https://neeasade.net">Root</a> • <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">Source</a> • <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-04-restclient.el-+-elasticsearch.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

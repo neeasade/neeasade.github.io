@@ -6,7 +6,7 @@
 <!-- 2021-01-03 Sun 17:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>tl;dr shell getopts</title>
+<title>my lucky numbers</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -44,30 +44,30 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">tl;dr shell getopts</a> </h1>
+<h1 class=title><a href="/index.html">my lucky numbers</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2020-01-16 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org">2020-01-23</a>)
+2020-12-19 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-19-my-lucky-numbers.org">nil</a>)
 </p>
 </div>
 
 <hr />
-<div class="org-src-container">
-<pre class="src src-sh"><span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">the ':' in front means the flag takes an arg</span>
-<span style="color: #3c6369;">while </span><span style="color: #3c6369;">getopts</span> w:reh flag; <span style="color: #3c6369;">do</span>
-    <span style="color: #3c6369;">case</span> $<span style="color: #903f7a;">flag</span><span style="color: #3c6369;"> in</span>
-        w) <span style="color: #903f7a;">wid</span>=$<span style="color: #903f7a;">OPTARG</span>;;
-        r) some_thing;;
-        e) print_env;;
-        h) usage;;
-        *) usage;;
-    <span style="color: #3c6369;">esac</span>
-<span style="color: #3c6369;">done</span>
+<p>
+My lucky numbers are 2, 7, and combinatons of 2 and 7.
+</p>
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #3c6369;">shift</span> $((OPTIND-1))
+<div class="org-src-container">
+<pre class="src src-clojure">(<span style="color: #3c6369;">-&gt;</span>
+ (reduce #(conj <span style="color: #903f7a;">%1</span> (<span style="color: #903f7a;">%2</span> 7 2))
+         #{}
+         (list * + -))
+ (conj 2 7 27)
+ vec
+ sort)
+
+<span style="color: #a94e2f;">;; </span><span style="color: #a94e2f;">=&gt; (2 5 7 9 14 27)</span>
 </pre>
 </div>
 
@@ -75,7 +75,7 @@
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-16-shell-getopts.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-19-my-lucky-numbers.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 
