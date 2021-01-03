@@ -58,10 +58,10 @@ These are some people I've encountered and maybe even stayed in touch with over 
 #+begin_src elisp :results raw :exports results
 (defun ns/make-person-link (name &optional site dots)
   (format
-   "[%s]"
+   "%s"
    (cond
      ((and site dots)
-      (format "[[%s][%s]]|[[%s][dots]]" site name dots))
+      (format "[[%s][%s]] [[%s][dots]]" site name dots))
      (site (format "[[%s][%s]]" site name))
      (dots (format "[[%s][%s]]" dots name))
      (t name))))
@@ -83,7 +83,7 @@ These are some people I've encountered and maybe even stayed in touch with over 
    ("eti" "https://eti.tf/" "https://github.com/eti0/dots")
    ("greduan" "https://greduan.com/")
    ("halfwit" "https://halfwit.github.io/" "https://github.com/halfwit/dotfiles")
-   ("hazel" "https://qtp2t.club" "https://github.com/ralsei/etc")
+   ("hazel" "https://knightsofthelambdacalcul.us/" "https://github.com/ralsei/etc")
    ("icyphox" "https://icyphox.sh/" "https://github.com/icyphox/dotfiles")
    ("josuah" "http://josuah.net/" "http://josuah.net/git/")
    ("jschx" "https://schil.li/" "https://gitlab.com/jschx/etc")
@@ -131,6 +131,6 @@ These are some people I've encountered and maybe even stayed in touch with over 
  ((lambda (list) (sort list (fn (string< (first <1>) (first <2>))))))
 
  (mapcar (fn (apply 'ns/make-person-link <>) ))
- (s-join "\n")
+ (s-join " ⋄ ")
  )
 #+end_src
