@@ -1,8 +1,7 @@
-#+title: Nathan's Notes
+#+title: 🌳🍃🌳ＧＲＯＶＥ 🌳🍃🌳
+#+title_extra: {{{nav-strip([[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_curated.org][Curated]])}}}
 
-#+BEGIN_CENTER
-Sort by [ [[./index.html][edit date]] • published date ]
-#+END_CENTER
+A list of all posts on this site, sorted by publish date.
 
 #+BEGIN_SRC elisp :results raw :exports results
   (->> 
