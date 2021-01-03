@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Sun, 03 Jan 2021 17:01:29 -0600</pubDate>
-  <lastBuildDate>Sun, 03 Jan 2021 17:01:29 -0600</lastBuildDate>
+  <pubDate>Sun, 03 Jan 2021 17:05:11 -0600</pubDate>
+  <lastBuildDate>Sun, 03 Jan 2021 17:05:11 -0600</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.4</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>systemd user services</title>
+    <link>https://notes.neeasade.net/systemd-user-services.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/systemd-user-services.html</guid>
+    <pubDate>Sat, 02 Jan 2021 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>The Calf Path</title>
     <link>https://notes.neeasade.net/Calf-Path.html</link>
