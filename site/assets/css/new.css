@@ -24,7 +24,7 @@
 	--nc-tx-2: var(--foreground);
 	--nc-bg-1: var(--background);
 	/* --nc-bg-2: var(--background_); */
-	--nc-bg-2: var(--background);
+	--nc-bg-2: var(--background_);
 	--nc-bg-3: var(--background__);
 	--nc-lk-1: var(--accent1);
 	--nc-lk-2: var(--accent1_);
@@ -113,7 +113,7 @@ h3 {
 	color: var(--nc-tx-1);
 	padding-bottom: 2px;
 	margin-bottom: 8px;
-	border-bottom: 1px solid var(--nc-bg-2);
+	border-bottom: 1px solid var(--background__);
 }
 
 h4,
@@ -130,18 +130,44 @@ h5 { font-size: .83em; }
 h6 { font-size: .75em; }
 
 a {
-	color: var(--foreground);
+	padding: 0px 2px;
+
+	margin-top:2px;
+	margin-bottom:2px;
+	display: inline-block;
+	min-width: fit-content;
+	text-decoration: none;
+	color: var(--accent2_);
+
+	background: var(--background_);
+	border-style: solid;
+	border-color: var(--accent1_);
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
 }
 
 a:visited {
-	color: var(--accent1);
-	text-decoration: underline;
+	text-decoration: none;
+	color: var(--accent2);
+
+	background: var(--background_);
+	border-style: solid;
+	/* border-color: var(--accent1_); */
+	/* border-color: var(--accent2); */
+	border-color: var(--background__);
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
 }
 
 a:hover {
-	color: var(--foreground);
 	text-decoration: none;
-	background-color: var(--background_plus);
+	color: var(--accent2_);
+
+	background: var(--background_plus);
+	border-style: solid;
+	border-color: var(--foreground);
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
 }
 
 abbr:hover {
@@ -261,10 +287,15 @@ kbd,
 pre {
 	/* The main preformatted style. This is changed slightly across different cases. */
 	background: var(--nc-bg-2);
-	border: 1px solid var(--nc-bg-3);
-	border-radius: 1px;
-	padding: 3px 6px;
+	border-radius: 3px;
+	padding: 2px 3px;
 	font-size: 0.9rem;
+}
+
+a code {
+	    background: none;
+	    display: inline;
+	    /* background: #000000; */
 }
 
 kbd {
