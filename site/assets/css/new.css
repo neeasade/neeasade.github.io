@@ -73,6 +73,10 @@ video {
 	margin-bottom: 1rem;
 }
 
+a img {
+	margin-bottom: 0rem;
+}
+
 html,input,select,button {
 	/* Set body font family and some finicky elements */
 	font-family: var(--nc-font-sans);
