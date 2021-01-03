@@ -8,7 +8,7 @@ These repositories constitute where I turn my desktop into an interactive enviro
 
  A fork of the [[https://st.suckless.org/][st terminal]] with some patches applied, with Xresources integration and live reloading.
 
-* [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/colors.el][colors.el]]
+* [[https://github.com/neeasade/color-tools.el][colors-tools.el]]
 
 A collection of [[https://notes.neeasade.net/color-spaces.html][colorspace]] utility functions.
 
