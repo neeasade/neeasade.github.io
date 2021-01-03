@@ -1,4 +1,4 @@
-#+title: 🌳🍃🌳ＧＲＯＶＥ 🌳🍃🌳
+#+title: 🍃🌳ＧＲＯＶＥ🍃🌳
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] [[./index_published.org][Published]] [[./index_bubble.org][Bubble]] *Curated*)}}}
 
 This is a curated subset of posts on this site, sorted by edit date.

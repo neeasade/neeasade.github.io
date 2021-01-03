@@ -1,4 +1,4 @@
-#+title: 🌳🍃🌳ＧＲＯＶＥ 🌳🍃🌳
+#+title: 🍃🌳ＧＲＯＶＥ🍃🌳
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_curated.org][Curated]])}}}
 
 A list of all posts on this site, sorted by publish date.
