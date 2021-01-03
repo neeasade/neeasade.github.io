@@ -1,0 +1,117 @@
+#+title: systemd user services
+#+rss_title: systemd user services
+#+pubdate: <2021-01-02>
+
+This is a text version of a lighting talk I gave at [[https://www.recurse.com][recurse center]] Feb 2020.
+
+Back when I was first getting into Linux, I had arch installed on my laptop that I was using for schoolwork, and  was trying all the latest ｍｎｍｌ window managers, which meant there was no builtin display for how much battery I had left.
+
+Some googling showed me that you could do the following to get the charge on linux:
+
+#+begin_src sh
+$ cat /sys/class/power_supply/BAT0/capacity
+92
+#+end_src
+
+That's a pain to typeout, so I aliased it to something spamable like ~a~ and called it a day. But then... suprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
+
+Next step was to wrap the above in a script and display it in my panel. Nice! now the battery status is always a glance away. BUT! pixel real estate is precious on my 1366 x 768 resolution, so I would often hide the panel or fullscreen something like media, or my text editor. We are back where we started.
+
+** [[#h-9c426974-626d-47cf-bca6-c2b71698b392][Alerts]]
+:PROPERTIES:
+:CUSTOM_ID: h-9c426974-626d-47cf-bca6-c2b71698b392
+:END:
+
+With something like dunst, I can send notifications that appear only when I'm concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodially. I decoupled that last part into a script named [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically][~periodically~]], so ended up with a ~battery_alert~ daemon-like script that looked like ~periodically 60 check_battery~.
+
+Making this call in my ~.xinitrc~ worked out OK, but I'm sometimes at a desktop using the same set of dotfiles, and there's no battery to check there. About this point I realized I had stuffed a lot in my startup, such as ~mpd~, ~picom~, ~dunst~, you name it. I had heard of systemd user services and decided to look into them.
+
+
+** [[#h-bedee5e8-3ef1-4038-9bc8-33640146db06][The big D]]
+:PROPERTIES:
+:CUSTOM_ID: h-bedee5e8-3ef1-4038-9bc8-33640146db06
+:END:
+
+Systemd user services are regular systemd service files that live in ~$HOME/.config/systemd/user~. A service file matching the above problem might look like this:
+
+~battery_alert.service~:
+#+begin_src conf
+[Unit]
+Description=Notify when the battery is low
+
+[Service]
+ExecStart=/path/to/bin/periodically 60 check_battery
+ExecStop=/path/to/bin/kill -int $MAINPID
+
+Environment=PATH=/paths/that/contain/check_battery:...:....
+Environment=DISPLAY=":0"
+Environment=XAUTHORITY="/home/neeasade/.Xauthority"
+
+[Install]
+WantedBy=default.target
+#+end_src
+
+Some things to note:
+
+- The full path to the ~ExecStart~ and ~ExecStop~ executables
+- The inclusion of ~DISPLAY~ and ~XAUTHORITY~ -- this is so the ~notify-send~ reaches dunst
+- The setting of ~PATH~ such that "the usual suspects" are available within my daemon script
+
+With the above I get the systemd goodness but for managing my local stuff, just passing ~--user~:
+
+#+begin_src shell
+# start, stop
+systemctl --user start battery_alert
+systemctl --user stop battery_alert
+
+# logs (can also tail theme)
+systemctl --user status battery_alert
+
+# automatic startup
+systemctl --user enable battery_alert
+#+end_src
+
+So the next step in this systemd journey was to integrate [[https://github.com/neeasade/dotfiles/blob/cd6a4cd7c8207b7300bf0bf75f87aee8a7e4fbc1/wm/.wm/scripts/theming/ltheme#L379-L465][service generation]] into my dotfiles setup, generating a number of service files that contain paths to binaries and
+
+** [[#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935][The big.. T?]]
+:PROPERTIES:
+:CUSTOM_ID: h-42fac00e-07ec-4d8d-849f-eaf1a86bb935
+:END:
+
+Those of you in the know will see something very wrong with the above. Systemd has a "when to run" concept: [[https://www.freedesktop.org/software/systemd/man/systemd.timer.html][timers]]! Using timers files you can do things like:
+
+- run on boot
+- run on login
+- run once per day/once per time interval
+- run *periodically*
+
+Let's take a look at what that last one looks like. You create a file in the same directory with the same name, but extension timer:
+
+~battery_alert.timer~:
+#+begin_src conf
+[Unit]
+Description=Run check_battery every 60 seconds
+
+[Timer]
+
+# on boot
+# OnBootSec=0min
+
+# on service manager activation
+OnStartupSec=0min
+
+OnUnitActiveSec=60s
+
+[Install]
+WantedBy=timers.target
+#+end_src
+
+See the reference for timespan syntax [[https://www.freedesktop.org/software/systemd/man/systemd.time.html#][here]]
+
+And then we would change the ~ExecStart~ in our ~battery_alert.service~ file to:
+
+#+begin_src conf
+ExecStart=/path/to/check_battery
+#+end_src
+
+And bam! we have done the thing.
