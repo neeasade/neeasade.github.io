@@ -11,11 +11,13 @@
 Sometimes nice stuff comes out, sometimes not so nice stuff comes out. This page will be a random 50 fortune quotes (called with the same args) each time the site is generated:
 
 #+BEGIN_SRC elisp :results raw :exports results
-(s-join (ns/blog-make-hsep)
+(s-join
+"\n"
 	(-map
 	 (lambda (_)
 	   (format
-	    "\n#+begin_quote\n%s\n#+end_quote\n"
+	    "%s\n#+begin_quote\n%s\n#+end_quote\n"
+	    (ns/blog-make-hsep)
 	    (s-replace "\n" "\n\n"
 		       (ns/shell-exec "fortune -sn 60"))))
 	 (range 50)))
