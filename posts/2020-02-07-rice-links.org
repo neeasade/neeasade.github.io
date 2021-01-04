@@ -99,7 +99,7 @@ These are some people I've encountered and maybe even stayed in touch with over 
    ("mort" "https://mort.coffee" "https://github.com/mortie/dots")
    ("nerdypepper" "https://peppe.rs/" "https://github.com/NerdyPepper/dotfiles")
    ("nero" nil "https://github.com/nero/etc")
-   ("nil" "https://monade.li/" "https://git.monade.li/dotfiles/summary/")
+   ("nil" "https://monade.li/" "https://github.com/ncfavier/dotfiles")
    ("noctuid" "http://noctuid.github.io/" "https://github.com/noctuid/dotfiles")
    ("onodera" "https://onodera-punpun.github.io/" "https://github.com/onodera-punpun/dotfiles")
    ("quad" "https://quad.moe/" "https://gitea.quad.moe/quad/dotfiles")

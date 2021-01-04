@@ -1,0 +1,22 @@
+#+title: fortune quotes
+#+pubdate: <2021-01-04>
+
+[[https://monade.li][Naïm]] has a nice ~gitconfig~ alias that they use for all their dotfiles repo commits:
+
+#+begin_src
+[alias]
+    cf = !git commit -m \"$(fortune -sn 60)\"
+#+end_src
+
+Sometimes nice stuff comes out, sometimes not so nice stuff comes out. This page will be a random 50 fortune quotes (called with the same args) each time the site is generated:
+
+#+BEGIN_SRC elisp :results raw :exports results
+(s-join (ns/blog-make-hsep)
+	(-map
+	 (lambda (_)
+	   (format
+	    "\n#+begin_quote\n%s\n#+end_quote\n"
+	    (s-replace "\n" "\n\n"
+		       (ns/shell-exec "fortune -sn 60"))))
+	 (range 50)))
+#+end_src
