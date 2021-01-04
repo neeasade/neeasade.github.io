@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 11:17 -->
+<!-- 2021-01-04 Mon 12:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>adhoc executable patching on nixos</title>
@@ -65,14 +65,14 @@ Create a <code>shell.nix</code> file that looks like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #1c8ab0;">let</span>
-  <span style="color: #b76686;">pkgs</span> = <span style="color: #1c8ab0;">import</span> <span style="color: #4a5b42;">&lt;nixpkgs&gt;</span> {};
-<span style="color: #1c8ab0;">in</span> pkgs.mkShell {
-  <span style="color: #b76686;">nativeBuildInputs</span> =
-    (<span style="color: #1c8ab0;">with</span> pkgs; [
+<pre class="src src-nix"><span style="color: #0061d7;">let</span>
+  <span style="color: #6850d4;">pkgs</span> = <span style="color: #0061d7;">import</span> <span style="color: #343738;">&lt;nixpkgs&gt;</span> {};
+<span style="color: #0061d7;">in</span> pkgs.mkShell {
+  <span style="color: #6850d4;">nativeBuildInputs</span> =
+    (<span style="color: #0061d7;">with</span> pkgs; [
       gcc
 
-      <span style="color: #6a7b62;"># example libraries you might want:</span>
+      <span style="color: #646768;"># example libraries you might want:</span>
       zlib
       SDL2
     ]);
@@ -86,7 +86,7 @@ Launch the nix-shell, patch the linker so you can call the executable and see wh
 
 <div class="org-src-container">
 <pre class="src src-sh">; nix-shell shell.nix
-; patchelf --set-interpreter <span style="color: #668c1b;">"$(</span><span style="color: #b76686;">cat</span><span style="color: #668c1b;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
+; patchelf --set-interpreter <span style="color: #007641;">"$(</span><span style="color: #6850d4;">cat</span><span style="color: #007641;"> $NIX_CC/nix-support/dynamic-linker)"</span> /path/to/executable
 </pre>
 </div>
 
@@ -106,9 +106,9 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 
 <div class="org-src-container">
 <pre class="src src-sh">; nix-shell ./shell.nix
-; <span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
-; <span style="color: #b76686;">new_rpath</span>=$(<span style="color: #b76686;">echo</span> <span style="color: #668c1b;">"$NIX_LDFLAGS"</span> | tr <span style="color: #668c1b;">' '</span> $<span style="color: #668c1b;">'\n'</span> | grep <span style="color: #668c1b;">"^-L"</span> | sed -E <span style="color: #668c1b;">'s/^-L/:/'</span> | tr -d $<span style="color: #668c1b;">'\n'</span>)
-; patchelf --set-rpath <span style="color: #668c1b;">"$new_rpath"</span> /path/to/executable
+; <span style="color: #646768;"># </span><span style="color: #646768;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
+; <span style="color: #6850d4;">new_rpath</span>=$(<span style="color: #6850d4;">echo</span> <span style="color: #007641;">"$NIX_LDFLAGS"</span> | tr <span style="color: #007641;">' '</span> $<span style="color: #007641;">'\n'</span> | grep <span style="color: #007641;">"^-L"</span> | sed -E <span style="color: #007641;">'s/^-L/:/'</span> | tr -d $<span style="color: #007641;">'\n'</span>)
+; patchelf --set-rpath <span style="color: #007641;">"$new_rpath"</span> /path/to/executable
 </pre>
 </div>
 
@@ -118,7 +118,7 @@ Then you should be able to run the executable by calling it normally (in or out 
 
 <div class="org-center">
 <p>
-🍉
+🍈
 </p>
 </div>
 
@@ -127,38 +127,38 @@ That's all well and good for <i>right now</i>, but what if we lose the nix store
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #b76686;">babashka</span> = stdenv.mkDerivation <span style="color: #1c8ab0;">rec</span> {
-    <span style="color: #b76686;">name</span> = <span style="color: #668c1b;">"babashka"</span>;
-    <span style="color: #6a7b62;"># this is the way to coerce a string into a path</span>
-    <span style="color: #6a7b62;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
+<pre class="src src-nix"><span style="color: #6850d4;">babashka</span> = stdenv.mkDerivation <span style="color: #0061d7;">rec</span> {
+    <span style="color: #6850d4;">name</span> = <span style="color: #007641;">"babashka"</span>;
+    <span style="color: #646768;"># this is the way to coerce a string into a path</span>
+    <span style="color: #646768;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
 
-    <span style="color: #6a7b62;"># showing a few different ways:</span>
-    <span style="color: #6a7b62;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
-    <span style="color: #b76686;">src</span> = (fetchurl {
-        <span style="color: #b76686;">url</span> = <span style="color: #668c1b;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
-        <span style="color: #b76686;">sha256</span> = <span style="color: #668c1b;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
+    <span style="color: #646768;"># showing a few different ways:</span>
+    <span style="color: #646768;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
+    <span style="color: #6850d4;">src</span> = (fetchurl {
+        <span style="color: #6850d4;">url</span> = <span style="color: #007641;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
+        <span style="color: #6850d4;">sha256</span> = <span style="color: #007641;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
     });
 
-    <span style="color: #b76686;">unpackPhase</span> = <span style="color: #668c1b;">"unzip $src"</span>;
-    <span style="color: #6a7b62;"># if src is a path to the executable:</span>
-    <span style="color: #6a7b62;"># unpackPhase = "cp $src bb";</span>
+    <span style="color: #6850d4;">unpackPhase</span> = <span style="color: #007641;">"unzip $src"</span>;
+    <span style="color: #646768;"># if src is a path to the executable:</span>
+    <span style="color: #646768;"># unpackPhase = "cp $src bb";</span>
 
-    <span style="color: #6a7b62;"># note: the chmod is only needed when using direct path to local executable</span>
-    <span style="color: #b76686;">patchPhase</span> = <span style="color: #668c1b;">''</span>
-<span style="color: #668c1b;">        chmod u+w ./bb</span>
-<span style="color: #668c1b;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
-<span style="color: #668c1b;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
-<span style="color: #668c1b;">        patchelf --set-rpath "$new_rpath" ./bb</span>
-<span style="color: #668c1b;">    ''</span>;
+    <span style="color: #646768;"># note: the chmod is only needed when using direct path to local executable</span>
+    <span style="color: #6850d4;">patchPhase</span> = <span style="color: #007641;">''</span>
+<span style="color: #007641;">        chmod u+w ./bb</span>
+<span style="color: #007641;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
+<span style="color: #007641;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
+<span style="color: #007641;">        patchelf --set-rpath "$new_rpath" ./bb</span>
+<span style="color: #007641;">    ''</span>;
 
-    <span style="color: #b76686;">dontBuild</span> = <span style="color: #1c8ab0;">true</span>;
+    <span style="color: #6850d4;">dontBuild</span> = <span style="color: #0061d7;">true</span>;
 
-    <span style="color: #b76686;">installPhase</span> = <span style="color: #668c1b;">''</span>
-<span style="color: #668c1b;">        mkdir -p $out/bin</span>
-<span style="color: #668c1b;">        cp bb $out/bin</span>
-<span style="color: #668c1b;">    ''</span>;
+    <span style="color: #6850d4;">installPhase</span> = <span style="color: #007641;">''</span>
+<span style="color: #007641;">        mkdir -p $out/bin</span>
+<span style="color: #007641;">        cp bb $out/bin</span>
+<span style="color: #007641;">    ''</span>;
 
-    <span style="color: #b76686;">nativeBuildInputs</span> = (<span style="color: #1c8ab0;">with</span> pkgs; [
+    <span style="color: #6850d4;">nativeBuildInputs</span> = (<span style="color: #0061d7;">with</span> pkgs; [
         gcc-unwrapped.lib zlib unzip
     ]);
 };

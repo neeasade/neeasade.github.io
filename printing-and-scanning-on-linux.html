@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 11:17 -->
+<!-- 2021-01-04 Mon 12:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>printing and scanning on linux</title>
@@ -76,11 +76,11 @@ I've never gotten xsane to work. <code>scanimage</code> did me good though:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ <span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">nb: might need sudo on scanimage</span>
-$ <span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">list devices:</span>
+<pre class="src src-sh">$ <span style="color: #646768;"># </span><span style="color: #646768;">nb: might need sudo on scanimage</span>
+$ <span style="color: #646768;"># </span><span style="color: #646768;">list devices:</span>
 $ scanimage -L
-$ scanimage -d <span style="color: #668c1b;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">create a PDF with graphicsmagic</span>
+$ scanimage -d <span style="color: #007641;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #646768;"># </span><span style="color: #646768;">create a PDF with graphicsmagic</span>
 $ gm convert result.pnm result.pdf
 </pre>
 </div>

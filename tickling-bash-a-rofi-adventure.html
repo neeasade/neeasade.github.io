@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 11:17 -->
+<!-- 2021-01-04 Mon 12:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -67,7 +67,7 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #668c1b;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #1c8ab0;">read</span> pid; <span style="color: #1c8ab0;">read</span> line; <span style="color: #1c8ab0;">echo</span> <span style="color: #668c1b;">"$line"</span>; <span style="color: #1c8ab0;">kill</span> $<span style="color: #b76686;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #007641;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0061d7;">read</span> pid; <span style="color: #0061d7;">read</span> line; <span style="color: #0061d7;">echo</span> <span style="color: #007641;">"$line"</span>; <span style="color: #0061d7;">kill</span> $<span style="color: #6850d4;">pid</span>)
 </pre>
 </div>
 
@@ -78,8 +78,8 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-org11690bd" class="outline-2">
-<h2 id="org11690bd"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-orgf920b5b" class="outline-2">
+<h2 id="orgf920b5b"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
@@ -122,7 +122,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍍
+🍄
 </p>
 </div>
 
@@ -132,8 +132,8 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-orgb2100d9" class="outline-2">
-<h2 id="orgb2100d9"><span class="section-number-2">2</span> Rofi</h2>
+<div id="outline-container-orge15f34d" class="outline-2">
+<h2 id="orge15f34d"><span class="section-number-2">2</span> Rofi</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -145,15 +145,15 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-org47bc58a" class="outline-2">
-<h2 id="org47bc58a"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
+<div id="outline-container-org8d92a96" class="outline-2">
+<h2 id="org8d92a96"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #1c8ab0;">echo</span> a; sleep 10; <span style="color: #1c8ab0;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #0061d7;">echo</span> a; sleep 10; <span style="color: #0061d7;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
