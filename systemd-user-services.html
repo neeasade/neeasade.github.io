@@ -3,13 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-03 Sun 17:36 -->
+<!-- 2021-01-04 Mon 11:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>systemd user services</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
@@ -105,19 +107,19 @@ Systemd user services are regular systemd service files that live in <code>$HOME
 <code>battery_alert.service</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf">[<span style="color: #8a4d38;">Unit</span>]
-<span style="color: #903f7a;">Description</span>=Notify when the battery is low
+<pre class="src src-conf">[<span style="color: #af742e;">Unit</span>]
+<span style="color: #b76686;">Description</span>=Notify when the battery is low
 
-[<span style="color: #8a4d38;">Service</span>]
-<span style="color: #903f7a;">ExecStart</span>=/path/to/bin/periodically 60 check_battery
-<span style="color: #903f7a;">ExecStop</span>=/path/to/bin/kill -int $MAINPID
+[<span style="color: #af742e;">Service</span>]
+<span style="color: #b76686;">ExecStart</span>=/path/to/bin/periodically 60 check_battery
+<span style="color: #b76686;">ExecStop</span>=/path/to/bin/kill -int $MAINPID
 
-<span style="color: #903f7a;">Environment</span>=PATH=/paths/that/contain/check_battery:...:....
-<span style="color: #903f7a;">Environment</span>=DISPLAY=<span style="color: #4f6600;">":0"</span>
-<span style="color: #903f7a;">Environment</span>=XAUTHORITY=<span style="color: #4f6600;">"/home/neeasade/.Xauthority"</span>
+<span style="color: #b76686;">Environment</span>=PATH=/paths/that/contain/check_battery:...:....
+<span style="color: #b76686;">Environment</span>=DISPLAY=<span style="color: #668c1b;">":0"</span>
+<span style="color: #b76686;">Environment</span>=XAUTHORITY=<span style="color: #668c1b;">"/home/neeasade/.Xauthority"</span>
 
-[<span style="color: #8a4d38;">Install</span>]
-<span style="color: #903f7a;">WantedBy</span>=default.target
+[<span style="color: #af742e;">Install</span>]
+<span style="color: #b76686;">WantedBy</span>=default.target
 </pre>
 </div>
 
@@ -136,14 +138,14 @@ With the above I get the systemd goodness but for managing my local stuff, just 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">start, stop</span>
+<pre class="src src-shell"><span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">start, stop</span>
 systemctl --user start battery_alert
 systemctl --user stop battery_alert
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">logs (can also tail theme)</span>
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">logs (can also tail theme)</span>
 systemctl --user status battery_alert
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">automatic startup</span>
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">automatic startup</span>
 systemctl --user enable battery_alert
 </pre>
 </div>
@@ -176,21 +178,21 @@ Let's take a look at what that last one looks like. You create a file in the sam
 <code>battery_alert.timer</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf">[<span style="color: #8a4d38;">Unit</span>]
-<span style="color: #903f7a;">Description</span>=Run check_battery every 60 seconds
+<pre class="src src-conf">[<span style="color: #af742e;">Unit</span>]
+<span style="color: #b76686;">Description</span>=Run check_battery every 60 seconds
 
-[<span style="color: #8a4d38;">Timer</span>]
+[<span style="color: #af742e;">Timer</span>]
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">on boot</span>
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">OnBootSec=0min</span>
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">on boot</span>
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">OnBootSec=0min</span>
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">on service manager activation</span>
-<span style="color: #903f7a;">OnStartupSec</span>=0min
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">on service manager activation</span>
+<span style="color: #b76686;">OnStartupSec</span>=0min
 
-<span style="color: #903f7a;">OnUnitActiveSec</span>=60s
+<span style="color: #b76686;">OnUnitActiveSec</span>=60s
 
-[<span style="color: #8a4d38;">Install</span>]
-<span style="color: #903f7a;">WantedBy</span>=timers.target
+[<span style="color: #af742e;">Install</span>]
+<span style="color: #b76686;">WantedBy</span>=timers.target
 </pre>
 </div>
 
@@ -203,7 +205,7 @@ And then we would change the <code>ExecStart</code> in our <code>battery_alert.s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf"><span style="color: #903f7a;">ExecStart</span>=/path/to/check_battery
+<pre class="src src-conf"><span style="color: #b76686;">ExecStart</span>=/path/to/check_battery
 </pre>
 </div>
 

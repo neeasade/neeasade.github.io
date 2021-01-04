@@ -3,13 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-03 Sun 17:36 -->
+<!-- 2021-01-04 Mon 11:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>i3-like multihead in bspwm</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
@@ -100,7 +102,7 @@ is empty:
 </p>
 
 
-<div id="orgb112e7b" class="figure">
+<div id="org30eddef" class="figure">
 <p><img src="http://i.imgur.com/5VBlIjn.png" alt="5VBlIjn.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>img</p>
@@ -122,13 +124,13 @@ middle of the right monitor as well as focus on that monitor.
 
 <div class="org-src-container">
 <pre class="src src-bash">super + {h,j,k,l}
-    bspc config pointer_follows_monitor true; <span style="color: #4f6600;">\</span>
-    bspc config pointer_follows_focus true; <span style="color: #4f6600;">\</span>
-    <span style="color: #903f7a;">dir</span>={west,south,north,east}; <span style="color: #4f6600;">\</span>
-        <span style="color: #3c6369;">if</span> <span style="color: #4f6600;">!</span> bspc node -f $<span style="color: #903f7a;">dir</span>; <span style="color: #3c6369;">then</span> <span style="color: #4f6600;">\</span>
-    bspc monitor -f $<span style="color: #903f7a;">dir</span>; <span style="color: #4f6600;">\</span>
-    <span style="color: #3c6369;">fi</span>; <span style="color: #4f6600;">\</span>
-    bspc config pointer_follows_monitor false; <span style="color: #4f6600;">\</span>
+    bspc config pointer_follows_monitor true; <span style="color: #668c1b;">\</span>
+    bspc config pointer_follows_focus true; <span style="color: #668c1b;">\</span>
+    <span style="color: #b76686;">dir</span>={west,south,north,east}; <span style="color: #668c1b;">\</span>
+        <span style="color: #1c8ab0;">if</span> <span style="color: #668c1b;">!</span> bspc node -f $<span style="color: #b76686;">dir</span>; <span style="color: #1c8ab0;">then</span> <span style="color: #668c1b;">\</span>
+    bspc monitor -f $<span style="color: #b76686;">dir</span>; <span style="color: #668c1b;">\</span>
+    <span style="color: #1c8ab0;">fi</span>; <span style="color: #668c1b;">\</span>
+    bspc config pointer_follows_monitor false; <span style="color: #668c1b;">\</span>
     bspc config pointer_follows_focus false
 </pre>
 </div>
@@ -201,22 +203,22 @@ Here is an implementation:
 
 <div class="org-src-container">
 <pre class="src src-bash">super + shift + {h,j,k,l}
-    bspc config pointer_follows_focus true; <span style="color: #4f6600;">\</span>
-    <span style="color: #903f7a;">cur_win</span>=$(<span style="color: #903f7a;">bspc</span> query -W -w) <span style="color: #4f6600;">\</span>
-    <span style="color: #903f7a;">cur_mon</span>=$(<span style="color: #903f7a;">bspc</span> query -M -m); <span style="color: #4f6600;">\</span>
-    <span style="color: #903f7a;">dir</span>={west,south,north,east}; <span style="color: #4f6600;">\</span>
-    <span style="color: #3c6369;">if</span> <span style="color: #4f6600;">!</span> bspc node -f $<span style="color: #903f7a;">dir</span>; <span style="color: #3c6369;">then</span> <span style="color: #4f6600;">\</span>
-        bspc node -m $<span style="color: #903f7a;">dir</span>; <span style="color: #4f6600;">\</span>
-        bspc monitor -f $<span style="color: #903f7a;">dir</span>; <span style="color: #4f6600;">\</span>
-    <span style="color: #3c6369;">else</span> <span style="color: #4f6600;">\</span>
-        <span style="color: #903f7a;">new_mon</span>=$(<span style="color: #903f7a;">bspc</span> query -M -m); <span style="color: #4f6600;">\</span>
-        <span style="color: #3c6369;">if</span> [ $<span style="color: #903f7a;">new_mon</span> -eq $<span style="color: #903f7a;">cur_mon</span> ]; <span style="color: #3c6369;">then</span> <span style="color: #4f6600;">\</span>
-            bspc node -s $<span style="color: #903f7a;">cur_win</span>; <span style="color: #4f6600;">\</span>
-        <span style="color: #3c6369;">else</span> <span style="color: #4f6600;">\</span>
-            bspc node $<span style="color: #903f7a;">cur_win</span> -m ^$<span style="color: #903f7a;">new_mon</span>; <span style="color: #4f6600;">\</span>
-        <span style="color: #3c6369;">fi</span>; <span style="color: #4f6600;">\</span>
-    bspc node -f $<span style="color: #903f7a;">cur_win</span>; <span style="color: #4f6600;">\</span>
-    <span style="color: #3c6369;">fi</span>; <span style="color: #4f6600;">\</span>
+    bspc config pointer_follows_focus true; <span style="color: #668c1b;">\</span>
+    <span style="color: #b76686;">cur_win</span>=$(<span style="color: #b76686;">bspc</span> query -W -w) <span style="color: #668c1b;">\</span>
+    <span style="color: #b76686;">cur_mon</span>=$(<span style="color: #b76686;">bspc</span> query -M -m); <span style="color: #668c1b;">\</span>
+    <span style="color: #b76686;">dir</span>={west,south,north,east}; <span style="color: #668c1b;">\</span>
+    <span style="color: #1c8ab0;">if</span> <span style="color: #668c1b;">!</span> bspc node -f $<span style="color: #b76686;">dir</span>; <span style="color: #1c8ab0;">then</span> <span style="color: #668c1b;">\</span>
+        bspc node -m $<span style="color: #b76686;">dir</span>; <span style="color: #668c1b;">\</span>
+        bspc monitor -f $<span style="color: #b76686;">dir</span>; <span style="color: #668c1b;">\</span>
+    <span style="color: #1c8ab0;">else</span> <span style="color: #668c1b;">\</span>
+        <span style="color: #b76686;">new_mon</span>=$(<span style="color: #b76686;">bspc</span> query -M -m); <span style="color: #668c1b;">\</span>
+        <span style="color: #1c8ab0;">if</span> [ $<span style="color: #b76686;">new_mon</span> -eq $<span style="color: #b76686;">cur_mon</span> ]; <span style="color: #1c8ab0;">then</span> <span style="color: #668c1b;">\</span>
+            bspc node -s $<span style="color: #b76686;">cur_win</span>; <span style="color: #668c1b;">\</span>
+        <span style="color: #1c8ab0;">else</span> <span style="color: #668c1b;">\</span>
+            bspc node $<span style="color: #b76686;">cur_win</span> -m ^$<span style="color: #b76686;">new_mon</span>; <span style="color: #668c1b;">\</span>
+        <span style="color: #1c8ab0;">fi</span>; <span style="color: #668c1b;">\</span>
+    bspc node -f $<span style="color: #b76686;">cur_win</span>; <span style="color: #668c1b;">\</span>
+    <span style="color: #1c8ab0;">fi</span>; <span style="color: #668c1b;">\</span>
     bspc config pointer_follows_focus false
 </pre>
 </div>

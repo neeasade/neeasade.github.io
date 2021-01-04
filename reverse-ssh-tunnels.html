@@ -3,13 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-03 Sun 17:36 -->
+<!-- 2021-01-04 Mon 11:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
@@ -85,13 +87,13 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2</span> <a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code></a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">to access home after ssh'ing into vps:</span>
 ssh localhost -p 22222
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #4f6600;">'ssh localhost -p 22222'</span>
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">to access home in one go from laptop:</span>
+ssh -t vps <span style="color: #668c1b;">'ssh localhost -p 22222'</span>
 
-<span style="color: #a94e2f;"># </span><span style="color: #a94e2f;">to Jump from the laptop (-J is the jumpbox target):</span>
+<span style="color: #6a7b62;"># </span><span style="color: #6a7b62;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
 </pre>
 </div>
@@ -114,9 +116,9 @@ and then here's a cool trick for providing the connection info to a remote shell
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #3c6369;">let*</span> ((tramp-connection-path <span style="color: #4f6600;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #4f6600;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #4f6600;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #1c8ab0;">let*</span> ((tramp-connection-path <span style="color: #668c1b;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #668c1b;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #668c1b;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
