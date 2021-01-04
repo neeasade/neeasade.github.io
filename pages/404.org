@@ -1,6 +1,25 @@
 #+title: 404
 
-#+BEGIN_CENTER
-There is nothing here.
-#+END_CENTER
+#+begin_export html
+<style>
+#content {
+    text-align: center;
+}
+</style>
+#+end_export
 
+#+BEGIN_SRC elisp :results raw :exports results
+(let* ((word "WRONG DOOR MOTHERFUCKER")
+       (colors
+	(ct/gradient (length word)
+			   (ht-get ns/theme :foreground)
+			   (ht-get ns/theme :accent1_)
+			   t)))
+  (ns/blog-make-color-strip colors (-map 'string word)))
+#+end_src
+
+|   |    |    |    |   |   |    |    |    |   |   |    |    |    |   |   |    |    |    |   |
+|   |    | [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/panel/lemonade][🌔]] |    |   |   | [[https://github.com/neeasade/AdventOfCode/blob/master/src/aoc/2020.clj][🌕]] |    | [[https://github.com/neeasade/dotfiles/blob/master/shell/.sh.d/style][🌖]] |   |   |    |    | [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/fullscreen_toggle.sh][🌗]] |   |   | [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/visual/xpad][🌘]] |    |    |   |
+|   |    |    | [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu][🌑]] |   |   |    | [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/player.sh][🌒]] | [[https://notes.neeasade.net/adhoc-executable-patching-on-nix.html][🌓]] |   |   | [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/follow.el][🌔]] |    | [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/visual/2bspwm][🌕]] |   |   |    | [[https://notes.neeasade.net/xeros-irc-ref.html][🌖]] | [[https://notes.neeasade.net/color-spaces.html][🌗]] |   |
+|   | [[https://notes.neeasade.net/Automata-tiling-backgrounds.html][🌘]] | [[https://notes.neeasade.net/o7.html][🌑]] | [[https://notes.neeasade.net/Calf-Path.html][🌒]] |   |   |    | [[https://github.com/neeasade/tarps][🌓]] |    |   |   |    | [[https://github.com/neeasade/emacs.d/blob/master/lisp/dirt.el][🌔]] | [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/mpv][🌕]] |   |   | [[https://notes.neeasade.net/shell-getopts.html][🌖]] | [[https://github.com/neeasade/dotfiles/blob/master/shell/.sh.d/environment_emacs][🌗]] |    |   |
+|   |    |    |    |   |   |    |    |    |   |   |    |    |    |   |   |    |    |    |   |
