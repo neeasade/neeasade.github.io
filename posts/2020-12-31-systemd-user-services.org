@@ -6,23 +6,23 @@ This is a text version of a lighting talk I gave at [[https://www.recurse.com][r
 
 Back when I was first getting into Linux, I had arch installed on my laptop that I was using for schoolwork, and  was trying all the latest ｍｎｍｌ window managers, which meant there was no builtin display for how much battery I had left.
 
-Some googling showed me that you could do the following to get the charge on linux:
+Some googling showed me that you could do the following to get the charge on Linux:
 
 #+begin_src sh
 $ cat /sys/class/power_supply/BAT0/capacity
 92
 #+end_src
 
-That's a pain to typeout, so I aliased it to something spamable like ~a~ and called it a day. But then... suprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
+That's a pain to type out, so I aliased it to something spam-able like ~a~ and called it a day. But then... surprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
 
-Next step was to wrap the above in a script and display it in my panel. Nice! now the battery status is always a glance away. BUT! pixel real estate is precious on my 1366 x 768 resolution, so I would often hide the panel or fullscreen something like media, or my text editor. We are back where we started.
+Next step was to wrap the above in a script and display it in my panel. Nice! now the battery status is always a glance away. BUT! pixel real estate is precious on my 1366 x 768 resolution, so I would often hide the panel or full-screen something like media, or my text editor. We are back where we started.
 
 ** [[#h-9c426974-626d-47cf-bca6-c2b71698b392][Alerts]]
 :PROPERTIES:
 :CUSTOM_ID: h-9c426974-626d-47cf-bca6-c2b71698b392
 :END:
 
-With something like dunst, I can send notifications that appear only when I'm concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodially. I decoupled that last part into a script named [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically][~periodically~]], so ended up with a ~battery_alert~ daemon-like script that looked like ~periodically 60 check_battery~.
+With something like [[https://github.com/dunst-project/dunst][dunst]], I can send notifications that appear only when I'm concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named [[https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically][~periodically~]], so ended up with a ~battery_alert~ daemon-like script that looked like ~periodically 60 check_battery~.
 
 Making this call in my ~.xinitrc~ worked out OK, but I'm sometimes at a desktop using the same set of dotfiles, and there's no battery to check there. About this point I realized I had stuffed a lot in my startup, such as ~mpd~, ~picom~, ~dunst~, you name it. I had heard of systemd user services and decided to look into them.
 
@@ -53,7 +53,7 @@ WantedBy=default.target
 
 Some things to note:
 
-- The full path to the ~ExecStart~ and ~ExecStop~ executables
+- The full path to the ~ExecStart~ and ~ExecStop~ executable
 - The inclusion of ~DISPLAY~ and ~XAUTHORITY~ -- this is so the ~notify-send~ reaches dunst
 - The setting of ~PATH~ such that "the usual suspects" are available within my daemon script
 
@@ -71,7 +71,7 @@ systemctl --user status battery_alert
 systemctl --user enable battery_alert
 #+end_src
 
-So the next step in this systemd journey was to integrate [[https://github.com/neeasade/dotfiles/blob/cd6a4cd7c8207b7300bf0bf75f87aee8a7e4fbc1/wm/.wm/scripts/theming/ltheme#L379-L465][service generation]] into my dotfiles setup, generating a number of service files that contain paths to binaries and
+So the next step in this systemd journey was to integrate [[https://github.com/neeasade/dotfiles/blob/cd6a4cd7c8207b7300bf0bf75f87aee8a7e4fbc1/wm/.wm/scripts/theming/ltheme#L379-L465][service generation]] into my dotfiles setup, generating a number of service files that contain full paths to binaries with intended arguments for a range of daemons.
 
 ** [[#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935][The big.. T?]]
 :PROPERTIES:
@@ -106,7 +106,7 @@ OnUnitActiveSec=60s
 WantedBy=timers.target
 #+end_src
 
-See the reference for timespan syntax [[https://www.freedesktop.org/software/systemd/man/systemd.time.html#][here]]
+See the reference for time-span syntax [[https://www.freedesktop.org/software/systemd/man/systemd.time.html#][here]]
 
 And then we would change the ~ExecStart~ in our ~battery_alert.service~ file to:
 
