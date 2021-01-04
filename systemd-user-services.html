@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 12:20 -->
+<!-- 2021-01-04 Mon 13:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>systemd user services</title>
@@ -51,7 +51,7 @@
 
 <div class="org-center">
 <p>
-2021-01-02 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-31-systemd-user-services.org">2021-01-03</a>)
+2021-01-02 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-31-systemd-user-services.org">2021-01-04</a>)
 </p>
 </div>
 
@@ -65,7 +65,7 @@ Back when I was first getting into Linux, I had arch installed on my laptop that
 </p>
 
 <p>
-Some googling showed me that you could do the following to get the charge on linux:
+Some googling showed me that you could do the following to get the charge on Linux:
 </p>
 
 <div class="org-src-container">
@@ -75,18 +75,18 @@ Some googling showed me that you could do the following to get the charge on lin
 </div>
 
 <p>
-That's a pain to typeout, so I aliased it to something spamable like <code>a</code> and called it a day. But then&#x2026; suprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
+That's a pain to type out, so I aliased it to something spam-able like <code>a</code> and called it a day. But then&#x2026; surprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
 </p>
 
 <p>
-Next step was to wrap the above in a script and display it in my panel. Nice! now the battery status is always a glance away. BUT! pixel real estate is precious on my 1366 x 768 resolution, so I would often hide the panel or fullscreen something like media, or my text editor. We are back where we started.
+Next step was to wrap the above in a script and display it in my panel. Nice! now the battery status is always a glance away. BUT! pixel real estate is precious on my 1366 x 768 resolution, so I would often hide the panel or full-screen something like media, or my text editor. We are back where we started.
 </p>
 
 <div id="outline-container-h-9c426974-626d-47cf-bca6-c2b71698b392" class="outline-2">
 <h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1</span> <a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">Alerts</a></h2>
 <div class="outline-text-2" id="text-h-9c426974-626d-47cf-bca6-c2b71698b392">
 <p>
-With something like dunst, I can send notifications that appear only when I'm concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodially. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
+With something like <a href="https://github.com/dunst-project/dunst">dunst</a>, I can send notifications that appear only when I'm concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
 </p>
 
 <p>
@@ -128,7 +128,7 @@ Some things to note:
 </p>
 
 <ul class="org-ul">
-<li>The full path to the <code>ExecStart</code> and <code>ExecStop</code> executables</li>
+<li>The full path to the <code>ExecStart</code> and <code>ExecStop</code> executable</li>
 <li>The inclusion of <code>DISPLAY</code> and <code>XAUTHORITY</code> &#x2013; this is so the <code>notify-send</code> reaches dunst</li>
 <li>The setting of <code>PATH</code> such that "the usual suspects" are available within my daemon script</li>
 </ul>
@@ -151,7 +151,7 @@ systemctl --user enable battery_alert
 </div>
 
 <p>
-So the next step in this systemd journey was to integrate <a href="https://github.com/neeasade/dotfiles/blob/cd6a4cd7c8207b7300bf0bf75f87aee8a7e4fbc1/wm/.wm/scripts/theming/ltheme#L379-L465">service generation</a> into my dotfiles setup, generating a number of service files that contain paths to binaries and
+So the next step in this systemd journey was to integrate <a href="https://github.com/neeasade/dotfiles/blob/cd6a4cd7c8207b7300bf0bf75f87aee8a7e4fbc1/wm/.wm/scripts/theming/ltheme#L379-L465">service generation</a> into my dotfiles setup, generating a number of service files that contain full paths to binaries with intended arguments for a range of daemons.
 </p>
 </div>
 </div>
@@ -197,7 +197,7 @@ Let's take a look at what that last one looks like. You create a file in the sam
 </div>
 
 <p>
-See the reference for timespan syntax <a href="https://www.freedesktop.org/software/systemd/man/systemd.time.html#">here</a>
+See the reference for time-span syntax <a href="https://www.freedesktop.org/software/systemd/man/systemd.time.html#">here</a>
 </p>
 
 <p>

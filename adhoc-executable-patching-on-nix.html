@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 12:20 -->
+<!-- 2021-01-04 Mon 13:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>adhoc executable patching on nixos</title>
@@ -116,11 +116,13 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 Then you should be able to run the executable by calling it normally (in or out of a nix-shell context).
 </p>
 
+
 <div class="org-center">
 <p>
-🍈
+🍅
 </p>
 </div>
+
 
 <p>
 That's all well and good for <i>right now</i>, but what if we lose the nix store references we just patched in! Plus, we can't exactly carry this around. Let's note how to do the above as a build definition (the example here is a dynamically-linked release of  <a href="https://github.com/borkdude/babashka/releases/tag/v0.1.3">babashka</a>):

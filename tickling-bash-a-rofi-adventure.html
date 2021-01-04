@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 12:20 -->
+<!-- 2021-01-04 Mon 13:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, the quest for the perfect menu</title>
@@ -78,8 +78,8 @@ lots of really cool generic "select thing from list" programs out there. As time
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-orgf920b5b" class="outline-2">
-<h2 id="orgf920b5b"><span class="section-number-2">1</span> Setup</h2>
+<div id="outline-container-org04c3b9a" class="outline-2">
+<h2 id="org04c3b9a"><span class="section-number-2">1</span> Setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Let's go through some history first. dmenu2 was my goto 'selector' for years, because it has some
@@ -120,11 +120,13 @@ a script in my path also named dmenu pointing at <a href="https://github.com/nee
 Such is the state of things for a few months.
 </p>
 
+
 <div class="org-center">
 <p>
-🍄
+🍇
 </p>
 </div>
+
 
 <p>
 In the past few weeks, I've been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it's like I'm typing through the mud (tangent: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my <code>emacs_dmenu</code> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. A 200ms bump is quite noticable in the "flow" of things (you have an action in mind, you mash the keybind and start typing then OOPS I just sent gibberish to my text editor).
@@ -132,8 +134,8 @@ In the past few weeks, I've been practicing my touch typing. As you get a little
 </div>
 </div>
 
-<div id="outline-container-orge15f34d" class="outline-2">
-<h2 id="orge15f34d"><span class="section-number-2">2</span> Rofi</h2>
+<div id="outline-container-org6a32b94" class="outline-2">
+<h2 id="org6a32b94"><span class="section-number-2">2</span> Rofi</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -145,8 +147,8 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-org8d92a96" class="outline-2">
-<h2 id="org8d92a96"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
+<div id="outline-container-orgf1236f8" class="outline-2">
+<h2 id="orgf1236f8"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 So, I'm using rofi in dmenu mode, because I'm using it as a dmenu replacement. This means I'm at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the 'a' option before 'b' is ready, you are stuck):
