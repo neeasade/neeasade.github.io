@@ -3,8 +3,7 @@
 
 #+begin_quote
 The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
-
-    -- Eric Hoffer, The Passionate State of Mind
+{{{detail(-- Eric Hoffer, The Passionate State of Mind)}}}
 #+end_quote
 
 [[https://news.ycombinator.com/item?id=25607431][cite]]
