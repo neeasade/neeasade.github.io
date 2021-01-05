@@ -2,7 +2,7 @@
 #+rss_title: Automata tiling backgrounds 2
 #+pubdate: <2020-08-14>
 
-#+HTML_HEAD: <style> img { max-width: 19%;} </style>
+#+HTML_HEAD: <style> p > img { max-width: 19%;} </style>
 
 Some context: [[./Automata-tiling-backgrounds.org][part 1]]
 
