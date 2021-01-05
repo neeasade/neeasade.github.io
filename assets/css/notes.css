@@ -91,13 +91,6 @@ img {
     font-size: 0.9rem;
 }
 
-blockquote .detail {
-    text-align: left;
-    margin-left: 1rem;
-    font-size: 1rem;
-}
-
-
 a[href$=".png"],
 a[href$=".png"]:hover,
 a[href$=".png"]:visited

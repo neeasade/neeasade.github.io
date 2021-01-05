@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-04 Mon 15:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>site colors</title>
+<meta name="generator" content="Org mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<p>
+<h1 class=title><a href="/index.html">site colors</a> </h1>
+</p>
+
+<div class="org-center">
+<p>
+2020-12-01
+</p>
+</div>
+
+<hr />
+<p>
+This will be a swatch of the current colors used on the site. They are all defined in a generated css file from my current emacs theme. Actually, this pages export will always be the current emacs theme, rather than the site theme. Let's hope they don't get out of sync! 😬
+</p>
+
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #e8ebec;color: #343738; width: 25.0%;">:background</div>
+<div class="colorblock colorcenter" style="background: #dcdfe0;color: #343738; width: 25.0%;">:background_</div>
+<div class="colorblock colorcenter" style="background: #d0d3d4;color: #343738; width: 25.0%;">:background__</div>
+<div class="colorblock colorcenter" style="background: #bfdbff;color: #343738; width: 25.0%;">:background+</div>
+ </div> 
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #343738;color: #e8ebec; width: 33.333333333333336%;">:foreground</div>
+<div class="colorblock colorcenter" style="background: #646768;color: #e8ebec; width: 33.333333333333336%;">:foreground_</div>
+<div class="colorblock colorcenter" style="background: #343738;color: #e8ebec; width: 33.333333333333336%;">:foreground+</div>
+ </div> 
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #6850d4;color: #e8ebec; width: 25.0%;">:accent1</div>
+<div class="colorblock colorcenter" style="background: #0061d7;color: #e8ebec; width: 25.0%;">:accent1_</div>
+<div class="colorblock colorcenter" style="background: #006da2;color: #e8ebec; width: 25.0%;">:accent2</div>
+<div class="colorblock colorcenter" style="background: #007641;color: #e8ebec; width: 25.0%;">:accent2_</div>
+ </div> 
+</p>
+
+<p>
+And a syntax sample for better visual:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #6850d4;">mount_diskfile</span>() {
+  <span style="color: #0061d7;">if</span> [ -z <span style="color: #007641;">"$*"</span> ]; <span style="color: #0061d7;">then</span>
+    <span style="color: #0061d7;">echo</span> <span style="color: #007641;">"mount_diskfile &lt;iso/disk file&gt; &lt;mountpath (optional)&gt;"</span>
+    <span style="color: #0061d7;">return</span>
+  <span style="color: #0061d7;">fi</span>
+
+  <span style="color: #6850d4;">diskfile</span>=$<span style="color: #6850d4;">1</span>
+  <span style="color: #646768;"># </span><span style="color: #646768;">mountpath=${2:-./$(</span><span style="color: #6850d4;">basename</span><span style="color: #646768;"> "$diskfile" | sed 's/\..*//')}</span>
+  <span style="color: #6850d4;">mountpath</span>=${<span style="color: #6850d4;">2</span>:-/media/filemount/$(<span style="color: #6850d4;">basename</span> <span style="color: #007641;">"$diskfile"</span> | sed <span style="color: #007641;">'s/\..*//'</span>)}
+
+  mkdir -p <span style="color: #007641;">"$mountpath"</span>
+
+  <span style="color: #0061d7;">echo</span> sudo mount <span style="color: #007641;">"$diskfile"</span> <span style="color: #007641;">"$mountpath"</span> -o loop
+  sudo mount <span style="color: #007641;">"$diskfile"</span> <span style="color: #007641;">"$mountpath"</span> -o loop
+  <span style="color: #0061d7;">echo</span> <span style="color: #007641;">"$mountpath"</span>
+}
+</pre>
+</div>
+
+<hr />
+
+<div class="org-center">
+<p>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-01-site-colors.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
+<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+</div>
+</div>
+</body>
+</html>

@@ -6,7 +6,7 @@
 <!-- 2021-01-04 Mon 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>passionate state of mind</title>
+<title>git svn workflow</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -46,35 +46,90 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">passionate state of mind</a> </h1>
+<h1 class=title><a href="/index.html">git svn workflow</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2021-01-04
+2018-05-07 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-05-07-git-svn-reference.org">2019-02-19</a>)
 </p>
 </div>
 
 <hr />
-<blockquote>
+
+
+
+
+
+
 <p>
-The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
+Git provides an <a href="https://git-scm.com/docs/git-svn">svn-wrapper</a>,
+allowing you to use git tools and keep your decentralized workflow even
+when you aren't.
 </p>
 
 <p>
-&#x2013; Eric Hoffer, The Passionate State of Mind
+The following commands are effected:
 </p>
-</blockquote>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">git</th>
+<th scope="col" class="org-left">git svn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">git pull</td>
+<td class="org-left">git svn fetch git svn merge</td>
+</tr>
+
+<tr>
+<td class="org-left">git push</td>
+<td class="org-left">git svn dcommit</td>
+</tr>
+
+<tr>
+<td class="org-left">git clone</td>
+<td class="org-left">git svn clone</td>
+</tr>
+</tbody>
+</table>
 
 <p>
-<a href="https://news.ycombinator.com/item?id=25607431">cite</a>
+If you are a <a href="https://magit.vc/">magit</a> user, you can install
+<a href="https://github.com/magit/magit-svn">magit-svn</a>. To enable magit-svn
+globally (magit will still work find with git repos):
 </p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'magit-mode-hook 'magit-svn-mode) 
+</pre>
+</div>
+
+<p>
+To enable magit-svn on a per-repo basis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #0061d7;">cd</span> /path/to/repository git config --add
+magit.extension svn
+</pre>
+</div>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-04-passionate-state-of-mind.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-05-07-git-svn-reference.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

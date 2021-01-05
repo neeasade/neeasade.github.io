@@ -6,7 +6,7 @@
 <!-- 2021-01-04 Mon 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>passionate state of mind</title>
+<title>annoying org typing slowdowns</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -46,35 +46,56 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">passionate state of mind</a> </h1>
+<h1 class=title><a href="/index.html">annoying org typing slowdowns</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2021-01-04
+2020-11-01 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-01-annoying-org-typing-slowdowns.org">2020-12-30</a>)
 </p>
 </div>
 
 <hr />
-<blockquote>
 <p>
-The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
+This is a list of things I had to turn off to not fuck with my typing speed in emacs org-mode buffers (sometimes I am really sensitive to latency/breaks in typing). For context, I usually run things in one really big notes file.
+</p>
+
+<ul class="org-ul">
+<li>smartparens mode</li>
+<li>modeline</li>
+<li>git-gutter mode</li>
+<li>timers that query the current buffer I'm typing in</li>
+<li>emojify-mode</li>
+<li>flyspell-mode (switched to a keybind to flyspell the buffer)</li>
+<li>(rarely) font-locking
+<ul class="org-ul">
+<li>related: font-locking takes longer if you have a really big emacs window (ie hidpi fullscreen emacs will lag, but if you float that bad boy in the center you will have a good time).</li>
+</ul></li>
+<li>(rarely) irc volume</li>
+<li>blink-cursor-mode</li>
+</ul>
+
+<p>
+You can see how I'm doing this <a href="https://github.com/neeasade/emacs.d/blob/3f99869ec8ebabf5caf49a3c601092a4702c1342/lisp/trees/org.el#L425-L446">here</a> and <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/editing.el#L11">here</a>.
 </p>
 
 <p>
-&#x2013; Eric Hoffer, The Passionate State of Mind
+These were all super annoying to track down because I would have to wait until I was caffienated enough to be "sensitive" to the speed and then profile everything. But now the feeling is SUPER COMFY.
 </p>
-</blockquote>
 
 <p>
-<a href="https://news.ycombinator.com/item?id=25607431">cite</a>
+Related: <a href="https://github.com/rnkn/olivetti">olivetti-mode</a> has some nice display settings that don't takeover everything, for the pretty.
+</p>
+
+<p>
+Related pain: <a href="https://emacshorrors.com/posts/self-insert-command.html">https://emacshorrors.com/posts/self-insert-command.html</a>
 </p>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-04-passionate-state-of-mind.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-01-annoying-org-typing-slowdowns.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

@@ -6,7 +6,7 @@
 <!-- 2021-01-04 Mon 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>passionate state of mind</title>
+<title>my shell prompt</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -46,35 +46,105 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">passionate state of mind</a> </h1>
+<h1 class=title><a href="/index.html">my shell prompt</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2021-01-04
+2020-11-09 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-09-my-shell-prompt.org">2020-11-15</a>)
 </p>
 </div>
 
 <hr />
-<blockquote>
 <p>
-The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
+A <a href="https://nixers.net/Thread-Your-PROMPT">thread</a> was recently promoted on nixers to show your shell prompt, so I'll share some features of mine. I usually use bash with Emacs shell-mode, so I get vim bindings for free via evil, with the mode indicator being the cursor ('|' vs '█'). I usually use '♥'  as a prompt character, but for the sake of this post I'll use '$', as the heart can look wildly different depending on your font setup.
 </p>
 
 <p>
-&#x2013; Eric Hoffer, The Passionate State of Mind
+Errors and background processes:
 </p>
-</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-text">$ false
+! vim temp.txt
+[1]+  Stopped                 vim temp.txt
+$! true
+$$ fg
+vim temp
+$
+</pre>
+</div>
 
 <p>
-<a href="https://news.ycombinator.com/item?id=25607431">cite</a>
+git stuff:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ cd $(mktemp -d)
+$ git init
+Initialized empty Git repository in /tmp/tmp.enlQwywyEv/.git/
+$ touch readme.md
+? $ git checkout -b new_branch
+Switched to a new branch 'new_branch'
+(new_branch|?) $ git add readme.md
+(new_branch|+) $ echo 'edit' &gt;&gt; readme.md
+(new_branch|+*) $ git commit -m "initial"
+[new_branch (root-commit) 3ff638e] initial
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.md
+(new_branch) $ git checkout -b master; git reset --hard
+Switched to a new branch 'master'
+HEAD is now at 3ff638e initial
+$
+</pre>
+</div>
+
+<p>
+non-standard environment detection (checks capital variables):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ PYTHONPATH="$HOME/something/stateful"
+E $ envv
+PYTHONPATH=/home/neeasade/something/stateful
+E $ unset PYTHONPATH
+$
+</pre>
+</div>
+
+<p>
+ssh hostname:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ ssh super.cool.vps
+trouw $ logout
+$
+</pre>
+</div>
+
+<p>
+and a hack that tells Emacs where the shell is (including tramp information &#x2013; this is normally used in the prompt, I'm just showing it out here):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">$ ssh super.cool.vps
+trouw $ tell_emacs_shell_location
++Pr0mPT+/ssh:neeasade@192.0.2.0:/home/neeasade+
+trouw $ logout
+$
+</pre>
+</div>
+
+<p>
+Source is here: <a href="https://github.com/neeasade/dotfiles/blob/083d2996df4a2fff6b7ebfbc237a6a27babcf4b9/shell/.sh.d/style#L109">~/.sh.d/style</a>
 </p>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-04-passionate-state-of-mind.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-09-my-shell-prompt.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

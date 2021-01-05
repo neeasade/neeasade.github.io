@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-04 Mon 15:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>i3-like multihead in bspwm</title>
+<meta name="generator" content="Org mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<p>
+<h1 class=title><a href="/index.html">i3-like multihead in bspwm</a> </h1>
+</p>
+
+<div class="org-center">
+<p>
+2015-04-28 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-04-28-BSPWM-Multihead.org">2020-05-03</a>)
+</p>
+</div>
+
+<hr />
+<p>
+i3 has fantastic focus and window handling for multiple monitors out of
+the box in my opinion. I didn't realize that I missed this until I was
+on campus and used i3 on a multihead setup there, so I set out to make
+my bspwm setup act the same.
+</p>
+
+<div id="outline-container-h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4" class="outline-2">
+<h2 id="h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4"><span class="section-number-2">1</span> <a href="#h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">Initial</a></h2>
+<div class="outline-text-2" id="text-h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">
+<p>
+In the example sxhkd in the bspwm repo, the main window focus keybind is
+set up as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + {_,shift + }{h,j,k,l} bspc node -{f,s}
+    {west,south,north,east}
+</pre>
+</div>
+
+<p>
+I'm going to separate this into 2 parts, a focus part and a movement
+part.
+</p>
+</div>
+</div>
+
+<div id="outline-container-h-0469c988-ab08-4684-afb2-708743a574aa" class="outline-2">
+<h2 id="h-0469c988-ab08-4684-afb2-708743a574aa"><span class="section-number-2">2</span> <a href="#h-0469c988-ab08-4684-afb2-708743a574aa">Focus</a></h2>
+<div class="outline-text-2" id="text-h-0469c988-ab08-4684-afb2-708743a574aa">
+<p>
+So taking the focus part out of the above we get:
+</p>
+<pre class="example">
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+</pre>
+
+<p>
+So, This will focus on a window in a direction determined by keypress,
+which are vi-like here. However, lets say you have 2 monitors, and one
+is empty:
+</p>
+
+
+<div id="orgf1cab56" class="figure">
+<p><img src="http://i.imgur.com/5VBlIjn.png" alt="5VBlIjn.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>img</p>
+</div>
+
+<p>
+the command <code>bspc node -f east</code> will fail, as there is no window to the
+right, and no action occurs as a result.
+</p>
+</div>
+
+<div id="outline-container-h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b" class="outline-3">
+<h3 id="h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b"><span class="section-number-3">2.1</span> <a href="#h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">Desired behavior</a></h3>
+<div class="outline-text-3" id="text-h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">
+<p>
+In the above, on a focus right, I want the cursor to appear in the
+middle of the right monitor as well as focus on that monitor.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + {h,j,k,l}
+    bspc config pointer_follows_monitor true; <span style="color: #007641;">\</span>
+    bspc config pointer_follows_focus true; <span style="color: #007641;">\</span>
+    <span style="color: #6850d4;">dir</span>={west,south,north,east}; <span style="color: #007641;">\</span>
+        <span style="color: #0061d7;">if</span> <span style="color: #007641;">!</span> bspc node -f $<span style="color: #6850d4;">dir</span>; <span style="color: #0061d7;">then</span> <span style="color: #007641;">\</span>
+    bspc monitor -f $<span style="color: #6850d4;">dir</span>; <span style="color: #007641;">\</span>
+    <span style="color: #0061d7;">fi</span>; <span style="color: #007641;">\</span>
+    bspc config pointer_follows_monitor false; <span style="color: #007641;">\</span>
+    bspc config pointer_follows_focus false
+</pre>
+</div>
+
+<p>
+When the node right command fails in the above scenario, the monitor to
+the right will be focused, and the pointer will be there.
+</p>
+
+<blockquote>
+<p>
+Why is half of this function setting pointer_follows_* values?
+</p>
+</blockquote>
+
+<p>
+So let's say you are moving a floating window with your mouse across the
+2 screens - with either of the two pointer options above enabled, when
+you cross the border the cursor will move, and the window with it. This
+window snapping out from under you can be quite annoying.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h-cc243055-0839-4d72-8471-2319a4d41e20" class="outline-2">
+<h2 id="h-cc243055-0839-4d72-8471-2319a4d41e20"><span class="section-number-2">3</span> <a href="#h-cc243055-0839-4d72-8471-2319a4d41e20">Movement</a></h2>
+<div class="outline-text-2" id="text-h-cc243055-0839-4d72-8471-2319a4d41e20">
+<p>
+Movement part of the example sxhkd:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+</pre>
+</div>
+
+<p>
+Alright, so what this does is switch the currently focused window with
+another window by direction, although the focus remains on the original
+window spot, which I've found to be quite annoying. It feels more
+natural to keep focus on the same window and 'carry' it around your
+workspaces/monitors.
+</p>
+</div>
+
+<div id="outline-container-h-1915bc68-2afc-4d9f-ba88-c00ad1915867" class="outline-3">
+<h3 id="h-1915bc68-2afc-4d9f-ba88-c00ad1915867"><span class="section-number-3">3.1</span> <a href="#h-1915bc68-2afc-4d9f-ba88-c00ad1915867">Desired behavior</a></h3>
+<div class="outline-text-3" id="text-h-1915bc68-2afc-4d9f-ba88-c00ad1915867">
+<p>
+When a window is switched, retain focus on the original window that was
+moved. If switching to an empty monitor, move the window to that
+monitor. If switching to an occupied monitor, move the window to that
+monitor instead of switching windows.
+</p>
+
+<p>
+Under this behavior, the keypress <code>super + shift + l</code> would yield the
+following results:
+</p>
+
+<p>
+<img src="http://i.imgur.com/ofjhFSP.png" alt="ofjhFSP.png" /> <img src="http://i.imgur.com/HyahZTU.png" alt="HyahZTU.png" />
+</p>
+
+<p>
+Here is an implementation:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">super + shift + {h,j,k,l}
+    bspc config pointer_follows_focus true; <span style="color: #007641;">\</span>
+    <span style="color: #6850d4;">cur_win</span>=$(<span style="color: #6850d4;">bspc</span> query -W -w) <span style="color: #007641;">\</span>
+    <span style="color: #6850d4;">cur_mon</span>=$(<span style="color: #6850d4;">bspc</span> query -M -m); <span style="color: #007641;">\</span>
+    <span style="color: #6850d4;">dir</span>={west,south,north,east}; <span style="color: #007641;">\</span>
+    <span style="color: #0061d7;">if</span> <span style="color: #007641;">!</span> bspc node -f $<span style="color: #6850d4;">dir</span>; <span style="color: #0061d7;">then</span> <span style="color: #007641;">\</span>
+        bspc node -m $<span style="color: #6850d4;">dir</span>; <span style="color: #007641;">\</span>
+        bspc monitor -f $<span style="color: #6850d4;">dir</span>; <span style="color: #007641;">\</span>
+    <span style="color: #0061d7;">else</span> <span style="color: #007641;">\</span>
+        <span style="color: #6850d4;">new_mon</span>=$(<span style="color: #6850d4;">bspc</span> query -M -m); <span style="color: #007641;">\</span>
+        <span style="color: #0061d7;">if</span> [ $<span style="color: #6850d4;">new_mon</span> -eq $<span style="color: #6850d4;">cur_mon</span> ]; <span style="color: #0061d7;">then</span> <span style="color: #007641;">\</span>
+            bspc node -s $<span style="color: #6850d4;">cur_win</span>; <span style="color: #007641;">\</span>
+        <span style="color: #0061d7;">else</span> <span style="color: #007641;">\</span>
+            bspc node $<span style="color: #6850d4;">cur_win</span> -m ^$<span style="color: #6850d4;">new_mon</span>; <span style="color: #007641;">\</span>
+        <span style="color: #0061d7;">fi</span>; <span style="color: #007641;">\</span>
+    bspc node -f $<span style="color: #6850d4;">cur_win</span>; <span style="color: #007641;">\</span>
+    <span style="color: #0061d7;">fi</span>; <span style="color: #007641;">\</span>
+    bspc config pointer_follows_focus false
+</pre>
+</div>
+
+<p>
+You can see from this I used the same strategy as above - check if the
+window focus command failed and act accordingly - if it does not fail,
+then check if we are on a new monitor - if so, move the original window
+to the new monitor.
+</p>
+
+<p>
+wooo.
+</p>
+
+<hr />
+
+<div class="org-center">
+<p>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2015-04-28-BSPWM-Multihead.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
+<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

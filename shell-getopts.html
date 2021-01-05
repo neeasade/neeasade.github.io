@@ -6,7 +6,7 @@
 <!-- 2021-01-04 Mon 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>passionate state of mind</title>
+<title>tl;dr shell getopts</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -46,35 +46,38 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">passionate state of mind</a> </h1>
+<h1 class=title><a href="/index.html">tl;dr shell getopts</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2021-01-04
+2020-01-16 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org">2020-01-23</a>)
 </p>
 </div>
 
 <hr />
-<blockquote>
-<p>
-The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
-</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #646768;"># </span><span style="color: #646768;">the ':' in front means the flag takes an arg</span>
+<span style="color: #0061d7;">while </span><span style="color: #0061d7;">getopts</span> w:reh flag; <span style="color: #0061d7;">do</span>
+    <span style="color: #0061d7;">case</span> $<span style="color: #6850d4;">flag</span><span style="color: #0061d7;"> in</span>
+        w) <span style="color: #6850d4;">wid</span>=$<span style="color: #6850d4;">OPTARG</span>;;
+        r) some_thing;;
+        e) print_env;;
+        h) usage;;
+        *) usage;;
+    <span style="color: #0061d7;">esac</span>
+<span style="color: #0061d7;">done</span>
 
-<p>
-&#x2013; Eric Hoffer, The Passionate State of Mind
-</p>
-</blockquote>
-
-<p>
-<a href="https://news.ycombinator.com/item?id=25607431">cite</a>
-</p>
+<span style="color: #646768;"># </span><span style="color: #646768;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #0061d7;">shift</span> $((OPTIND-1))
+</pre>
+</div>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-04-passionate-state-of-mind.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-16-shell-getopts.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 

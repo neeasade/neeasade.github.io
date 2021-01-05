@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-04 Mon 15:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GDB Registers</title>
+<meta name="generator" content="Org mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<p>
+<h1 class=title><a href="/index.html">GDB Registers</a> </h1>
+</p>
+
+<div class="org-center">
+<p>
+2015-02-20 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-02-20-Registers-with-GDB.org">2020-05-03</a>)
+</p>
+</div>
+
+<hr />
+<p>
+This will serve as a brief guide on setting up GDB to step through
+assembly code and witness register changes on the fly.
+</p>
+
+<div id="outline-container-h-adac1e41-906a-43a7-9f03-1237daaabf01" class="outline-2">
+<h2 id="h-adac1e41-906a-43a7-9f03-1237daaabf01"><span class="section-number-2">1</span> Compile the program to debug</h2>
+<div class="outline-text-2" id="text-h-adac1e41-906a-43a7-9f03-1237daaabf01">
+<p>
+I'm assuming here that you have the source of the C file that you wish
+to step through(this post assumes you are trying to learn about
+registers for educational purposes).
+</p>
+
+<p>
+Create a Makefile for your architecture(s) of choice. Here is an example
+of a Makefile for 3 of them:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-makefile"><span style="color: #6850d4;">all</span>: 32bit 64bit 64bitInLine
+
+<span style="color: #6850d4;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+MyProgram.c -o MyProgram
+
+<span style="color: #6850d4;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+
+<span style="color: #6850d4;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
+</pre>
+</div>
+
+<p>
+This should result in 3 output files with different assembly associated
+with each.
+</p>
+</div>
+</div>
+
+<div id="outline-container-h-5fc9a60c-09e9-422a-8f37-df6437afc10c" class="outline-2">
+<h2 id="h-5fc9a60c-09e9-422a-8f37-df6437afc10c"><span class="section-number-2">2</span> GDB</h2>
+<div class="outline-text-2" id="text-h-5fc9a60c-09e9-422a-8f37-df6437afc10c">
+<p>
+The GNU Project Debugger(GDB) is a fantastic tool that I am still
+learning about. If you have no idea what it is, it is a fairly powerful
+utility for debugging primarily c/c++ as I currently understand it. I
+recommend this <a href="http://beej.us/guide/bggdb/">crash course guide</a> for a
+quick intro. One of it's many features is the ability to step through
+and view registers as they change(the purpose of this post).
+</p>
+
+<p>
+So, to run GDB on a program made for this purpose you can use: {%
+highlight bash linenos %} $gdb MyProgram
+#+end<sub>src</sub>
+</p>
+
+<p>
+once at the GDB prompt, set a breakpoint at the main() function and then
+run the program - this will cause the breakpoint to instantly be hit.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">(gdb)<span style="color: #0061d7;">break</span> main
+(gdb)run
+</pre>
+</div>
+
+<p>
+The command we can use from here to step through the program by assembly
+line is 'si'(step instruction). However, we would not be able to see the
+values of registers as they change on the fly - this is accomplished
+with a tui view. You can activate the register tui layout with the
+command <code>layout reg</code>, which will result in something like this:
+</p>
+
+
+<div id="org0aa0d82" class="figure">
+<p><img src="http://i.imgur.com/SZkGALi.png" alt="SZkGALi.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>GDB</p>
+</div>
+
+<p>
+And now you can step through each instruction using 'si'. As registers
+change value, they will be highlighted in the top window. Have fun!
+</p>
+
+<hr />
+
+<div class="org-center">
+<p>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2015-02-20-Registers-with-GDB.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+</p>
+</div>
+
+<div class="org-center">
+<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
+<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
+<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

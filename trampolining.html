@@ -6,7 +6,7 @@
 <!-- 2021-01-04 Mon 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>passionate state of mind</title>
+<title>trampolining</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -46,35 +46,65 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">passionate state of mind</a> </h1>
+<h1 class=title><a href="/index.html">trampolining</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2021-01-04
+2020-05-16 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-16-trampolining.org">2020-06-30</a>)
 </p>
 </div>
 
 <hr />
-<blockquote>
 <p>
-The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
+Most executable text files in Linux start with a shebang (<code>#!</code>) to tell the OS what program to run
+the file with. What happens is a process is spawned with the program in the shebang, with the file
+as the first argument. IE, when you call some file <code>/path/to/some/hello.sh</code>:
+</p>
+
+<pre class="example">
+#!/usr/bin/bash
+echo "hello world!"
+</pre>
+
+<p>
+A process is created with the call structure <code>["/usr/bin/bash", "/path/to/some/hello.sh"]</code>
 </p>
 
 <p>
-&#x2013; Eric Hoffer, The Passionate State of Mind
+Notice I use the full path to bash here &#x2013; that is because this method needs the full path to the
+program to run the script with. (that is <code>#!bash</code> doesn't work).
 </p>
-</blockquote>
 
 <p>
-<a href="https://news.ycombinator.com/item?id=25607431">cite</a>
+todo here: talk about limitation/only one argument can be passed to initial interpreter
+mention /usr/bin/env &lt;thing&gt; for finding thing in path
+mention it's easy to create your own interpreters (link to elisp and example script?)
+</p>
+
+
+<div id="outline-container-org684c010" class="outline-2">
+<h2 id="org684c010"><span class="section-number-2">1</span> nix-shell multiline shebangs</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+todo
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbca5e97" class="outline-2">
+<h2 id="orgbca5e97"><span class="section-number-2">2</span> nix auto trampolining</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I mentioned in my last post that an internet friend is trying to get the "most portable" $HOME. One
+hack involved in this meant using the host libc so that openGL is feasible. todo tudu todo&#x2026;..
 </p>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-04-passionate-state-of-mind.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-16-trampolining.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 
@@ -82,6 +112,8 @@ The passionate state of mind is often indicative of a lack of skill, talent or p
 <a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
 <a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
 <a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+</div>
+</div>
 </div>
 </div>
 </body>

@@ -6,7 +6,7 @@
 <!-- 2021-01-04 Mon 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>passionate state of mind</title>
+<title>Updating nix channels</title>
 <meta name="generator" content="Org mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -46,35 +46,60 @@
 <body>
 <div id="content">
 <p>
-<h1 class=title><a href="/index.html">passionate state of mind</a> </h1>
+<h1 class=title><a href="/index.html">Updating nix channels</a> </h1>
 </p>
 
 <div class="org-center">
 <p>
-2021-01-04
+2020-01-15 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-15-Updating-nix-channels.org">2020-05-03</a>)
 </p>
 </div>
 
 <hr />
-<blockquote>
 <p>
-The passionate state of mind is often indicative of a lack of skill, talent or power. Moreover, passionate intensity can serve as a substitute for the confidence born of proficiency and the possession of power. A workingman sure of his skill goes leisurely about his job, and accomplishes much though he works as if at play. On the other hand, the workingman who is without confidence attacks his work as if he were saving the world, and he must do so if he is to get anything done.
+I'm always forgetting this:
 </p>
 
 <p>
-&#x2013; Eric Hoffer, The Passionate State of Mind
+The command <code>nix-channel</code> is used to create aliases which can be referenced in <code>configuration.nix</code>
+on nixos. The most important alias is <code>nixos</code>, which is used for the default <code>pkgs</code> reference in
+your config. Channels are neat but I personally am not really a fan because it is state that exists
+outside of your config. To change the default nix-channel reference:
 </p>
-</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #646768;"># </span><span style="color: #646768;">nix-channel --list</span>
+nixos https://nixos.org/channels/nixos-19.09
+
+<span style="color: #646768;"># </span><span style="color: #646768;">nix-channel --remove nixos</span>
+uninstalling <span style="color: #007641;">'nixos-19.09.1861.eb65d1dae62'</span>
+building <span style="color: #007641;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
+created 0 symlinks<span style="color: #0061d7;"> in</span> user environment
+
+<span style="color: #646768;"># </span><span style="color: #646768;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos</span>
+
+<span style="color: #646768;"># </span><span style="color: #646768;">nix-channel --list</span>
+nixos https://nixos.org/channels/nixos-19.09
+
+<span style="color: #646768;"># </span><span style="color: #646768;">nix-channel --update</span>
+nixos https://nixos.org/channels/nixos-19.09
+</pre>
+</div>
 
 <p>
-<a href="https://news.ycombinator.com/item?id=25607431">cite</a>
+And then updating the nix-channels can be done with:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #646768;"># </span><span style="color: #646768;">nix-channel --update</span>
+</pre>
+</div>
 
 <hr />
 
 <div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-04-passionate-state-of-mind.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-15-Updating-nix-channels.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
 </p>
 </div>
 
