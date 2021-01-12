@@ -106,3 +106,46 @@ a[href$=".png"]:visited
     border: 0 none;
     background: var(--background);
 }
+
+
+a[href^$="https://notes.neeasade.net"],
+a[href^$="file://"] {
+	padding: 10px 2px;
+
+	margin-top:2px;
+	margin-bottom:2px;
+	display: inline-block;
+	min-width: fit-content;
+	text-decoration: none;
+	color: var(--accent2_);
+
+	background: var(--background_);
+	border-style: solid;
+	border-color: var(--accent1_);
+	border-radius: 3px;
+	border-width: 2px 2px 2px 2px;
+}
+
+a:visited {
+	text-decoration: none;
+	color: var(--accent2);
+
+	background: var(--background_);
+	border-style: solid;
+	/* border-color: var(--accent1_); */
+	/* border-color: var(--accent2); */
+	border-color: var(--background__);
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
+}
+
+a:hover {
+	text-decoration: none;
+	color: var(--accent2_);
+
+	background: var(--background_plus);
+	border-style: solid;
+	border-color: var(--foreground);
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
+}

@@ -124,7 +124,7 @@ These are some people I've encountered and maybe even stayed in touch with over 
    ("fyr" nil "https://github.com/lwilletts/dots")
    ("jiaxsun" nil "https://github.com/Suhmedoh/dotfiles/")
    ("sulami" "https://blog.sulami.xyz/" "https://github.com/sulami/dotfiles")
-
+   ("kiedtl" "https://tilde.team/~kiedtl/" "https://github.com/kiedtl/dotfiles")
    )
 
  ;; sort by name

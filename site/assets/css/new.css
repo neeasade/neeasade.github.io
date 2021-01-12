@@ -290,7 +290,7 @@ samp,
 kbd,
 pre {
 	/* The main preformatted style. This is changed slightly across different cases. */
-	background: var(--nc-bg-2);
+	/* background: var(--nc-bg-2); */
 	border-radius: 3px;
 	padding: 2px 3px;
 	font-size: 0.9rem;

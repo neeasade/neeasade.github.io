@@ -2,6 +2,10 @@
 #+pubdate: <2020-11-24>
 #+rss_title: reasoning about colors
 
+# TODO
+# harmonizing colors meaning
+# https://www.incolororder.com/2011/11/art-of-choosing-harmonizing-color.html
+
 #+BEGIN_SRC elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
@@ -825,6 +829,7 @@ At the time of this writing, I'm using a color rotation of 45° in the LCH space
 	   (("#393a3c" ":foreground")
 	    ("#656669" ":foreground_")
 	    ("#393a3c" ":foreground+"))
+
 
 	   (("#2d249f" ":accent1")
 	    ("#0061c4" ":accent1_")
