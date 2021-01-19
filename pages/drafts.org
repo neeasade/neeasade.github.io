@@ -1,5 +1,5 @@
 #+title: Saplings
-#+title_extra: (Drafts)
+#+title_extra: {{{nav-strip((Drafts))}}}
 
 These may be in a /very/ partial state.
 
