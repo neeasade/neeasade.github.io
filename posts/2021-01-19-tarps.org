@@ -1,0 +1,8 @@
+#+title: tarps
+#+pubdate: <2021-01-19>
+
+This page hosts screenshots of my [[https://github.com/neeasade/tarps][tarps]] emacs themes.
+
+{{{image(tarp-mcfay.png)}}}
+
+{{{image(tarp-struan.png)}}}
