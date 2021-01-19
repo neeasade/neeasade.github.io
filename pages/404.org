@@ -58,13 +58,13 @@ table tr:nth-child(3) td:nth-child(3)
 #+BEGIN_SRC elisp :results raw :exports results
 (let* ((word "WRONG DOOR MOTHERFUCKER")
        (colors
-	(ct/gradient (length word)
-			   (ht-get ns/theme :foreground)
-			   (ht-get ns/theme :accent1_)
+	(ct-gradient (length word)
+			   (tarp/get :foreground)
+			   (tarp/get :primary)
 			   t)))
   (ns/blog-make-color-strip colors (-map 'string word)))
 #+end_src
 
-|     | [[./404_1.org][💀]] |     |
-|     |     | [[./404_2.org][💀]] |
+|    | [[./404_1.org][💀]] |    |
+|    |    | [[./404_2.org][💀]] |
 | [[./404_3.org][💀]] | [[./404_4.org][💀]] | [[./404_5.org][💀]] |
