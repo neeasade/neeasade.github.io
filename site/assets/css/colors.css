@@ -1,14 +1,48 @@
+/* notes
+This is a version of tarp-mcfay that was generated against a background that accounts for transparency
+
+Get the median color of a background image:
+$ convert "leaves.jpg" txt:- | awk '{print $3}' | rg -v pixel | sort | bb -i '(apply max-key val (frequencies *input*))'
+"#394400"
+
+Get the target background against that median:
+(ct-mix-opacity
+  (tarp/get :background)
+  "#394400"
+  0.95)
+
+=> "#dfe2e0"
+
+.. and then regenerate the base and emphasized themes around that opacity altered target
+*/
+
+
 :root {
---accent2_    : #4f6600;
---accent2     : #8a4d38;
---accent1_    : #3c6369;
---accent1     : #903f7a;
---background_plus : #f8bca7;
---background__: #cdc4be;
-/* --background_ : #dcd3cd; */
---background_ : #ebded5;
---background  : #f2e9e3;
---foreground_plus : #483f39;
---foreground_ : #a94e2f;
---foreground  : #483f39;
+--background_strong: #c7c4c6;
+--background_weak : #d1d1d2;
+--background_plus : #95bfd8;
+--foreground_plus : #001f38;
+--strings     : #007800;
+--alt         : #006c94;
+--assumed     : #0061c4;
+--primary     : #c00079;
+--faded       : #4f5250;
+--foreground  : #393c3a;
+--background  : rgba(232, 235, 236, 0.95);
+
+--faded_weak : #474748;
+--faded_strong : #413e40;
+--foreground_weak : #313132;
+--foreground_strong : #292628;
+
+--radius: 2px;
+
+/* compat */
+--background__: var(--background_strong);
+--background_: var(--background_weak);
+--foreground_ : #4f5250;
+--accent2_    : #007800;
+--accent2     : #006c94;
+--accent1_    : #0061c4;
+--accent1     : #c00079;
 }
