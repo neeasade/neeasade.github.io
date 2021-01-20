@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 15:04 -->
+<!-- 2021-01-19 Tue 20:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(reduce)</title>
@@ -12,14 +12,14 @@
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -45,17 +45,22 @@
 </head>
 <body>
 <div id="content">
-<p>
-<h1 class=title><a href="/index.html">(reduce)</a> </h1>
-</p>
-
-<div class="org-center">
-<p>
-2020-11-04
-</p>
+<h1 class="title">(reduce)</h1>
+<div style="float: left">
+    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
 
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-04-reduce.org">Last edit: <2020-11-04></a>
+</div>
+
+<p>
+<h1 class=title>(reduce)</h1>
+</p>
+
+
 <hr />
+
 <p>
 One habit I had to initially overcome coming to Clojure was a tendency to loop recur all the time instead of reducing. Here's a snippet from #clojure where I came to ask about the habit that I saved from that time:
 </p>
@@ -98,11 +103,11 @@ then it's a question of learning what the various collection functions are usefu
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reduce
- (<span style="color: #0061d7;">fn</span> [acc i]
-   (<span style="color: #0061d7;">let</span> [res (+ acc i)]
-     (<span style="color: #0061d7;">if</span> (&gt; res 100) (reduced res) res)))
+ (<span style="color: #0065c8;">fn</span> [acc i]
+   (<span style="color: #0065c8;">let</span> [res (+ acc i)]
+     (<span style="color: #0065c8;">if</span> (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #646768;">;; </span><span style="color: #646768;">=&gt; 105</span>
+<span style="color: #545758;">;; </span><span style="color: #545758;">=&gt; 105</span>
 </pre>
 </div>
 
@@ -111,11 +116,11 @@ then it's a question of learning what the various collection functions are usefu
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reductions
- (<span style="color: #0061d7;">fn</span> [acc i]
-   (<span style="color: #0061d7;">let</span> [res (+ acc i)]
-     (<span style="color: #0061d7;">if</span> (&gt; res 100) (reduced res) res)))
+ (<span style="color: #0065c8;">fn</span> [acc i]
+   (<span style="color: #0065c8;">let</span> [res (+ acc i)]
+     (<span style="color: #0065c8;">if</span> (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #646768;">;; </span><span style="color: #646768;">=&gt; (0 0 1 3 6 ...)</span>
+<span style="color: #545758;">;; </span><span style="color: #545758;">=&gt; (0 0 1 3 6 ...)</span>
 </pre>
 </div>
 
@@ -126,7 +131,7 @@ then it's a question of learning what the various collection functions are usefu
 
 <div class="org-center">
 <p>
-🍍
+🍀 🍀 🍀
 </p>
 </div>
 
@@ -140,10 +145,10 @@ Write a function which separates the items of a sequence by an arbitrary value.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure"><span style="color: #646768;">;; </span><span style="color: #646768;">replace the '__'</span>
+<pre class="src src-clojure"><span style="color: #545758;">;; </span><span style="color: #545758;">replace the '__'</span>
 (= (__ 0 [1 2 3]) [1 0 2 0 3])
-(= (apply str (__ <span style="color: #007641;">", "</span> [<span style="color: #007641;">"one"</span> <span style="color: #007641;">"two"</span> <span style="color: #007641;">"three"</span>])) <span style="color: #007641;">"one, two, three"</span>)
-(= (__ <span style="color: #0061d7;">:z</span> [<span style="color: #0061d7;">:a</span> <span style="color: #0061d7;">:b</span> <span style="color: #0061d7;">:c</span> <span style="color: #0061d7;">:d</span>]) [<span style="color: #0061d7;">:a</span> <span style="color: #0061d7;">:z</span> <span style="color: #0061d7;">:b</span> <span style="color: #0061d7;">:z</span> <span style="color: #0061d7;">:c</span> <span style="color: #0061d7;">:z</span> <span style="color: #0061d7;">:d</span>])
+(= (apply str (__ <span style="color: #007c00;">", "</span> [<span style="color: #007c00;">"one"</span> <span style="color: #007c00;">"two"</span> <span style="color: #007c00;">"three"</span>])) <span style="color: #007c00;">"one, two, three"</span>)
+(= (__ <span style="color: #0065c8;">:z</span> [<span style="color: #0065c8;">:a</span> <span style="color: #0065c8;">:b</span> <span style="color: #0065c8;">:c</span> <span style="color: #0065c8;">:d</span>]) [<span style="color: #0065c8;">:a</span> <span style="color: #0065c8;">:z</span> <span style="color: #0065c8;">:b</span> <span style="color: #0065c8;">:z</span> <span style="color: #0065c8;">:c</span> <span style="color: #0065c8;">:z</span> <span style="color: #0065c8;">:d</span>])
 </pre>
 </div>
 
@@ -152,11 +157,11 @@ Before (bad habits):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #0061d7;">fn</span> [sep coll &amp; state]
-   (<span style="color: #0061d7;">if</span> (= 1 (count coll))
+<pre class="src src-clojure">(<span style="color: #0065c8;">fn</span> [sep coll &amp; state]
+   (<span style="color: #0065c8;">if</span> (= 1 (count coll))
      (conj state (first coll))
-     (<span style="color: #0061d7;">recur</span> sep (rest coll)
-            (conj (<span style="color: #0061d7;">or</span> state [])
+     (<span style="color: #0065c8;">recur</span> sep (rest coll)
+            (conj (<span style="color: #0065c8;">or</span> state [])
                   (first coll)
                   sep))))
 </pre>
@@ -171,9 +176,9 @@ After:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #0061d7;">fn</span> [sep coll]
+<pre class="src src-clojure">(<span style="color: #0065c8;">fn</span> [sep coll]
    (butlast
-    (reduce (<span style="color: #0061d7;">fn</span> [state next]
+    (reduce (<span style="color: #0065c8;">fn</span> [state next]
               (conj state next sep))
             [] coll)))
 </pre>
@@ -189,18 +194,19 @@ Just gotta remember to embrace reducin', and the implicit carrying of state it g
 </p>
 </div>
 
-<hr />
 
-<div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-04-reduce.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
 </p>
+
+<div class='footer-left'>
+    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
 </div>
 
-<div class="org-center">
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
-<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-04-reduce.org">Page Markup</a>
 </div>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 15:04 -->
+<!-- 2021-01-19 Tue 20:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>printing and scanning on linux</title>
@@ -12,14 +12,14 @@
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -45,20 +45,24 @@
 </head>
 <body>
 <div id="content">
+<h1 class="title">printing and scanning on linux</h1>
+<div style="float: left">
+    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
+</div>
+
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-14-printing-and-scanning-on-linux.org">Last edit: <2020-12-14></a>
+</div>
+
 <p>
-<h1 class=title><a href="/index.html">printing and scanning on linux</a> </h1>
+<h1 class=title>printing and scanning on linux</h1>
 </p>
 
-<div class="org-center">
-<p>
-2020-12-14
-</p>
-</div>
 
 <hr />
 
 <div id="outline-container-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574" class="outline-2">
-<h2 id="h-6c57cb88-f33f-4a04-8556-fec4dbf4b574"><span class="section-number-2">1</span> <a href="#h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">printing</a></h2>
+<h2 id="h-6c57cb88-f33f-4a04-8556-fec4dbf4b574"><a href="#h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">printing</a></h2>
 <div class="outline-text-2" id="text-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">
 <ul class="org-ul">
 <li>Install CUPS, enable the service</li>
@@ -69,18 +73,18 @@
 </div>
 
 <div id="outline-container-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39" class="outline-2">
-<h2 id="h-f7fe536a-882a-4ed7-9b9f-96e4638dac39"><span class="section-number-2">2</span> <a href="#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">scanning</a></h2>
+<h2 id="h-f7fe536a-882a-4ed7-9b9f-96e4638dac39"><a href="#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">scanning</a></h2>
 <div class="outline-text-2" id="text-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">
 <p>
 I've never gotten xsane to work. <code>scanimage</code> did me good though:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ <span style="color: #646768;"># </span><span style="color: #646768;">nb: might need sudo on scanimage</span>
-$ <span style="color: #646768;"># </span><span style="color: #646768;">list devices:</span>
+<pre class="src src-sh">$ <span style="color: #545758;"># </span><span style="color: #545758;">nb: might need sudo on scanimage</span>
+$ <span style="color: #545758;"># </span><span style="color: #545758;">list devices:</span>
 $ scanimage -L
-$ scanimage -d <span style="color: #007641;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #646768;"># </span><span style="color: #646768;">create a PDF with graphicsmagic</span>
+$ scanimage -d <span style="color: #007c00;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #545758;"># </span><span style="color: #545758;">create a PDF with graphicsmagic</span>
 $ gm convert result.pnm result.pdf
 </pre>
 </div>
@@ -92,7 +96,7 @@ After posting this, tan reached out to me and mentioned to checkout <code>simple
 </div>
 
 <div id="outline-container-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a" class="outline-2">
-<h2 id="h-addd5bf0-e140-409b-b5aa-d8f40c3c027a"><span class="section-number-2">3</span> <a href="#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">pdf stuff</a></h2>
+<h2 id="h-addd5bf0-e140-409b-b5aa-d8f40c3c027a"><a href="#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">pdf stuff</a></h2>
 <div class="outline-text-2" id="text-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">
 <p>
 If you have a poppler utils package on your distro, you get <code>pdfseparate</code> and <code>pdfunite</code>. Be careful with the latter! If you don't include a target output, you will squash yourself!
@@ -117,18 +121,19 @@ $ cp /path/to/result.pdf in-0006.pdf
 $ pdfunite in-0*.pdf out.pdf
 </pre>
 
-<hr />
 
-<div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-14-printing-and-scanning-on-linux.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
 </p>
+
+<div class='footer-left'>
+    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
 </div>
 
-<div class="org-center">
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
-<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-14-printing-and-scanning-on-linux.org">Page Markup</a>
 </div>
 </div>
 </div>

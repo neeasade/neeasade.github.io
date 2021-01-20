@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Mon, 04 Jan 2021 15:04:37 -0600</pubDate>
-  <lastBuildDate>Mon, 04 Jan 2021 15:04:37 -0600</lastBuildDate>
+  <pubDate>Tue, 19 Jan 2021 20:25:28 -0600</pubDate>
+  <lastBuildDate>Tue, 19 Jan 2021 20:25:28 -0600</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.4</generator>
   <webMaster>neeasade@erasmus (nil)</webMaster>
   <image>
@@ -24,6 +24,15 @@
     <link>https://notes.neeasade.net/</link>
   </image>
 
+  <item>
+    <title>tarps</title>
+    <link>https://notes.neeasade.net/tarps.html</link>
+    <author>neeasade@erasmus (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/tarps.html</guid>
+    <pubDate>Tue, 19 Jan 2021 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>passionate state of mind</title>
     <link>https://notes.neeasade.net/passionate-state-of-mind.html</link>
@@ -242,9 +251,9 @@
   </item>
   <item>
     <title>Archiving CD's on linux</title>
-    <link>https://notes.neeasade.net/Archiving-CD's-on-linux.html</link>
+    <link>https://notes.neeasade.net/Archiving-CDs-on-linux.html</link>
     <author>neeasade@erasmus (nil)</author>
-    <guid isPermaLink="false">https://notes.neeasade.net/Archiving-CD's-on-linux.html</guid>
+    <guid isPermaLink="false">https://notes.neeasade.net/Archiving-CDs-on-linux.html</guid>
     <pubDate>Tue, 05 May 2020 00:00:00 -0500</pubDate>
 
     <description><![CDATA[]]></description>

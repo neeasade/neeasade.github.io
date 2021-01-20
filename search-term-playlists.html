@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 15:04 -->
+<!-- 2021-01-19 Tue 20:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>search term playlists</title>
@@ -12,14 +12,14 @@
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -45,17 +45,22 @@
 </head>
 <body>
 <div id="content">
-<p>
-<h1 class=title><a href="/index.html">search term playlists</a> </h1>
-</p>
-
-<div class="org-center">
-<p>
-2020-12-13
-</p>
+<h1 class="title">search term playlists</h1>
+<div style="float: left">
+    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
 
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-13-search-term-playlists.org">Last edit: <2020-12-13></a>
+</div>
+
+<p>
+<h1 class=title>search term playlists</h1>
+</p>
+
+
 <hr />
+
 <p>
 This is a brief overview of how I manage a local music collection in <code>$current_year</code>. I use Music Player Daemon (MPD) and youtube-dl to index and add music to big "local music" folder. Over the years structure is totally scattered, but at least for the import folder (youtube-dl) things always look like this: <code>${musicdir}/import/&lt;channel&gt;/&lt;title&gt;</code>. MPD has many clients, but now I use a script that operates atop the mpc client.
 </p>
@@ -87,7 +92,7 @@ Playlist files are files where every line is a comment, except for lines startin
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf"><span style="color: #646768;"># </span><span style="color: #646768;">artists</span>
+<pre class="src src-conf"><span style="color: #545758;"># </span><span style="color: #545758;">artists</span>
 +ryo fukui
 +hiromi
 +gabor szabo
@@ -96,28 +101,28 @@ Playlist files are files where every line is a comment, except for lines startin
 +Minoru Muraoka
 +alice coltrane
 
-<span style="color: #646768;"># </span><span style="color: #646768;">albums</span>
+<span style="color: #545758;"># </span><span style="color: #545758;">albums</span>
 +flight to brazil
 
-<span style="color: #646768;"># </span><span style="color: #646768;">generic</span>
+<span style="color: #545758;"># </span><span style="color: #545758;">generic</span>
 +piano
 +jazz
 +koto
 
-<span style="color: #646768;"># </span><span style="color: #646768;">channel</span>
+<span style="color: #545758;"># </span><span style="color: #545758;">channel</span>
 +mogurin3131
 +mogurin313131
 +marcel the drunkard
 
-<span style="color: #646768;"># </span><span style="color: #646768;">edd ed eddy is actually pretty jazzy</span>
+<span style="color: #545758;"># </span><span style="color: #545758;">edd ed eddy is actually pretty jazzy</span>
 +ed, edd
 
-<span style="color: #646768;"># </span><span style="color: #646768;">random</span>
+<span style="color: #545758;"># </span><span style="color: #545758;">random</span>
 +touhou
 
 -05 My Sick Piano.m4a
--Mario Basanov &amp; Vidis  - I<span style="color: #007641;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
-<span style="color: #007641;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
+-Mario Basanov &amp; Vidis  - I<span style="color: #007c00;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
+<span style="color: #007c00;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
 </pre>
 </div>
 
@@ -128,7 +133,7 @@ Lines that start with a <code>+</code> are search terms against the current musi
 <p>
 The script may be found <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/music">here</a>. Here are it's current options:
 </p>
-<pre class="example" id="org3fcf108">
+<pre class="example" id="orgb15f8c5">
 $ music
 music options:
 add        : add a url to library, fallback on clipboard content
@@ -149,25 +154,26 @@ shuffle    : reshuffle current selection from all
 <p>
 And an example of a fetch-like status (bar created with <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/panel/tools/mkb">mkb</a>):
 </p>
-<pre class="example" id="orgb81a78f">
+<pre class="example" id="org40c7807">
 $ music info
 Hiromi Uehara 2006 Love and Laughter
 ◈◈◈◈◈◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
 playlist: jazz_piano | 60h 35m 13s
 </pre>
 
-<hr />
 
-<div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-13-search-term-playlists.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
 </p>
+
+<div class='footer-left'>
+    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
 </div>
 
-<div class="org-center">
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
-<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-13-search-term-playlists.org">Page Markup</a>
 </div>
 </div>
 </body>

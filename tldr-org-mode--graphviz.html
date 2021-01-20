@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-04 Mon 15:04 -->
+<!-- 2021-01-19 Tue 20:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TLDR org mode + graphviz</title>
@@ -12,14 +12,14 @@
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=e359ca908a861b1cdcc3e0394ed5bce6'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=97206a021034a32931377f372160a4ae'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=31a320c058456258f196266b94ee5dea'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=6005176a5b1e4f006c15ae303d1f2c3b'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=671b6c34013f077bae7ec53501651007'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -45,35 +45,40 @@
 </head>
 <body>
 <div id="content">
-<p>
-<h1 class=title><a href="/index.html">TLDR org mode + graphviz</a> </h1>
-</p>
-
-<div class="org-center">
-<p>
-2019-05-21 (edited <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">2020-01-15</a>)
-</p>
+<h1 class="title">TLDR org mode + graphviz</h1>
+<div style="float: left">
+    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
 
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">Last edit: <2020-01-15></a>
+</div>
+
+<p>
+<h1 class=title>TLDR org mode + graphviz</h1>
+</p>
+
+
 <hr />
+
 <p>
 Org mode is pretty cool. Directed graphs are pretty cool. Let's see how they go together.
 </p>
 
-<div id="outline-container-orga2abb40" class="outline-2">
-<h2 id="orga2abb40"><span class="section-number-2">1</span> Org mode</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org8f49089" class="outline-2">
+<h2 id="org8f49089">Org mode</h2>
+<div class="outline-text-2" id="text-org8f49089">
 <p>
 After installing the graphviz package, you will have the <code>dot</code> command. If you use it in with an org
 mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #646768;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #0061d7;">digraph</span><span style="color: #343738;"> {</span>
-<span style="color: #343738;">    a -&gt; b</span>
-<span style="color: #343738;">}</span>
-<span style="color: #646768;">#+END_SRC</span>
+<pre class="src src-org"><span style="color: #545758;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #0065c8;">digraph</span><span style="color: #3e4142;"> {</span>
+<span style="color: #3e4142;">    a -&gt; b</span>
+<span style="color: #3e4142;">}</span>
+<span style="color: #545758;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -87,16 +92,16 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </p>
 
 
-<div id="org4609f6f" class="figure">
+<div id="orgd73f161" class="figure">
 <p><img src="./assets/posts/dot-example.png" alt="dot-example.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgad5b93b" class="outline-2">
-<h2 id="orgad5b93b"><span class="section-number-2">2</span> The Dot language</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org96e575b" class="outline-2">
+<h2 id="org96e575b">The Dot language</h2>
+<div class="outline-text-2" id="text-org96e575b">
 <p>
 The dot language spec can be found <a href="https://www.graphviz.org/doc/info/lang.html">here</a>. I don't
 find that too helpful on it's own, so here are some notes:
@@ -126,54 +131,55 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #646768;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #0061d7;">digraph</span><span style="color: #343738;"> {</span>
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">config:</span>
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">TBLR, top bottom left right, the direction of the graph.</span>
-<span style="color: #343738;">    </span><span style="color: #0061d7;">graph</span><span style="color: #343738;"> [</span><span style="color: #6850d4;">rankdir=</span><span style="color: #343738;">TB];</span>
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">you can have multiple attrs per statement</span>
-<span style="color: #343738;">    </span><span style="color: #0061d7;">graph</span><span style="color: #343738;"> [dpi=150 </span><span style="color: #6850d4;">splines=</span><span style="color: #343738;">ortho];</span>
-<span style="color: #343738;">    </span><span style="color: #0061d7;">edge</span><span style="color: #343738;">[</span><span style="color: #6850d4;">decorate=</span><span style="color: #343738;">true</span><span style="color: #343738;">];</span>
-<span style="color: #343738;">    </span><span style="color: #0061d7;">node</span><span style="color: #343738;"> [</span><span style="color: #6850d4;">shape=</span><span style="color: #343738;">box</span><span style="color: #343738;">];</span>
+<pre class="src src-org"><span style="color: #545758;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #0065c8;">digraph</span><span style="color: #3e4142;"> {</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">config:</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">TBLR, top bottom left right, the direction of the graph.</span>
+<span style="color: #3e4142;">    </span><span style="color: #0065c8;">graph</span><span style="color: #3e4142;"> [</span><span style="color: #c6007f;">rankdir=</span><span style="color: #3e4142;">TB];</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">you can have multiple attrs per statement</span>
+<span style="color: #3e4142;">    </span><span style="color: #0065c8;">graph</span><span style="color: #3e4142;"> [dpi=150 </span><span style="color: #c6007f;">splines=</span><span style="color: #3e4142;">ortho];</span>
+<span style="color: #3e4142;">    </span><span style="color: #0065c8;">edge</span><span style="color: #3e4142;">[</span><span style="color: #c6007f;">decorate=</span><span style="color: #3e4142;">true</span><span style="color: #3e4142;">];</span>
+<span style="color: #3e4142;">    </span><span style="color: #0065c8;">node</span><span style="color: #3e4142;"> [</span><span style="color: #c6007f;">shape=</span><span style="color: #3e4142;">box</span><span style="color: #3e4142;">];</span>
 
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">definitions:</span>
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">nb: setting definitions on their own is useful in larger graphs</span>
-<span style="color: #343738;">    computer [</span><span style="color: #6850d4;">label=</span><span style="color: #343738;">computer];</span>
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">quotes are optional, I'm using them when there are spaces</span>
-<span style="color: #343738;">    phone [</span><span style="color: #6850d4;">label=</span><span style="color: #007641;">"android phone"</span><span style="color: #343738;">];</span>
-<span style="color: #343738;">    router [</span><span style="color: #6850d4;">label=</span><span style="color: #343738;">router];</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">definitions:</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">nb: setting definitions on their own is useful in larger graphs</span>
+<span style="color: #3e4142;">    computer [</span><span style="color: #c6007f;">label=</span><span style="color: #3e4142;">computer];</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">quotes are optional, I'm using them when there are spaces</span>
+<span style="color: #3e4142;">    phone [</span><span style="color: #c6007f;">label=</span><span style="color: #007c00;">"android phone"</span><span style="color: #3e4142;">];</span>
+<span style="color: #3e4142;">    router [</span><span style="color: #c6007f;">label=</span><span style="color: #3e4142;">router];</span>
 
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">record syntax: | for horizontal, {|} for vert</span>
-<span style="color: #343738;">    internet [</span><span style="color: #6850d4;">shape=</span><span style="color: #343738;">record</span><span style="color: #343738;"> </span><span style="color: #6850d4;">label=</span><span style="color: #007641;">"{internet|cat pictures}"</span><span style="color: #343738;">]</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">record syntax: | for horizontal, {|} for vert</span>
+<span style="color: #3e4142;">    internet [</span><span style="color: #c6007f;">shape=</span><span style="color: #3e4142;">record</span><span style="color: #3e4142;"> </span><span style="color: #c6007f;">label=</span><span style="color: #007c00;">"{internet|cat pictures}"</span><span style="color: #3e4142;">]</span>
 
-<span style="color: #343738;">    </span><span style="color: #646768;">// </span><span style="color: #646768;">relations:</span>
-<span style="color: #343738;">    computer -&gt; router;</span>
-<span style="color: #343738;">    phone -&gt; router [</span><span style="color: #6850d4;">label=</span><span style="color: #007641;">"wifi"</span><span style="color: #343738;">];</span>
-<span style="color: #343738;">    router -&gt; internet [</span><span style="color: #6850d4;">dir=</span><span style="color: #343738;">both</span><span style="color: #343738;">];</span>
-<span style="color: #343738;">}</span>
-<span style="color: #646768;">#+END_SRC</span>
+<span style="color: #3e4142;">    </span><span style="color: #545758;">// </span><span style="color: #545758;">relations:</span>
+<span style="color: #3e4142;">    computer -&gt; router;</span>
+<span style="color: #3e4142;">    phone -&gt; router [</span><span style="color: #c6007f;">label=</span><span style="color: #007c00;">"wifi"</span><span style="color: #3e4142;">];</span>
+<span style="color: #3e4142;">    router -&gt; internet [</span><span style="color: #c6007f;">dir=</span><span style="color: #3e4142;">both</span><span style="color: #3e4142;">];</span>
+<span style="color: #3e4142;">}</span>
+<span style="color: #545758;">#+END_SRC</span>
 </pre>
 </div>
 
 
 
-<div id="org01ef0b0" class="figure">
+<div id="org5ab4b53" class="figure">
 <p><img src="./assets/posts/dot-internet.png" alt="dot-internet.png" />
 </p>
 </div>
 
-<hr />
 
-<div class="org-center">
 <p>
-<a href="./index.html">Index</a> <a href="https://neeasade.net">Root</a> <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">Source</a> <a href="https://notes.neeasade.net/sitemap.html">Sitemap</a>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
 </p>
+
+<div class='footer-left'>
+    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
 </div>
 
-<div class="org-center">
-<a href='https://webring.xxiivv.com/#random' target='_blank'><img style='width:40px;height:40px' src='https://webring.xxiivv.com/icon.black.svg'/></a>
-<a href='https://github.com/nixers-projects/sites/wiki/List-of-nixers.net-user-sites' target='_blank'><img style='width:35px;height:40px' src='https://i.imgur.com/cttKKiq.png'/></a>
-<a href='https://webring.recurse.com'><img alt='Recurse Center Logo' src='https://resevoir.net/webring/icon.png' style='height:40px;width:40px;'></a>
+
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">Page Markup</a>
 </div>
 </div>
 </div>

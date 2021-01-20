@@ -84,26 +84,23 @@ html,input,select,button {
 
 body {
 	/* Center body in page */
-
 	margin: 0 auto;
 	max-width: 750px;
-	/* padding: 2rem; */
-	border-radius: 6px;
+
 	overflow-x: hidden;
 	word-break: break-word;
 	overflow-wrap: break-word;
-	/* background: var(--nc-bg-1); */
 
 	/* Main body text */
 	color: var(--nc-tx-2);
 	font-size: 1 rem;
-	line-height: 1.5;
+	line-height: 1.3;
 }
 
 ::selection {
 	/* Set background color for selected text */
-	background: var(--nc-ac-1);
-	color: var(--nc-ac-tx);
+	background: var(--background_plus);
+	color: var(--foreground_plus);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -132,48 +129,6 @@ h3 { font-size: 1.17em; }
 h4 { font-size: 1.12em; }
 h5 { font-size: .83em; }
 h6 { font-size: .75em; }
-
-a {
-	padding: 0px 2px;
-
-	margin-top:2px;
-	margin-bottom:2px;
-	display: inline-block;
-	min-width: fit-content;
-	text-decoration: none;
-	color: var(--accent2_);
-
-	background: var(--background_);
-	border-style: solid;
-	border-color: var(--accent1_);
-	border-radius: 3px;
-	border-width: 1px 1px 2px 1px;
-}
-
-a:visited {
-	text-decoration: none;
-	color: var(--accent2);
-
-	background: var(--background_);
-	border-style: solid;
-	/* border-color: var(--accent1_); */
-	/* border-color: var(--accent2); */
-	border-color: var(--background__);
-	border-radius: 3px;
-	border-width: 1px 1px 2px 1px;
-}
-
-a:hover {
-	text-decoration: none;
-	color: var(--accent2_);
-
-	background: var(--background_plus);
-	border-style: solid;
-	border-color: var(--foreground);
-	border-radius: 3px;
-	border-width: 1px 1px 2px 1px;
-}
-
 abbr:hover {
 	/* Set the '?' cursor while hovering an abbreviation */
 	cursor: help;
@@ -181,8 +136,10 @@ abbr:hover {
 
 blockquote {
 	padding: 0.8rem;
-	background: var(--nc-bg-2);
-	border-left: 5px solid var(--nc-bg-3);
+	background: var(--background_weak);
+	color: var(--foreground_weak);
+	border-left: 4px solid var(--nc-bg-3);
+	border-radius: var(--radius);
 }
 
 abbr {
@@ -245,7 +202,7 @@ input[type="button"] {
 	background: var(--nc-lk-1);
 	color: var(--nc-lk-tx);
 	border: 0;
-	border-radius: 4px;
+	border-radius: var(--radius);
 	box-sizing: border-box;
 	cursor: pointer;
 	color: var(--nc-lk-tx);
@@ -291,8 +248,9 @@ kbd,
 pre {
 	/* The main preformatted style. This is changed slightly across different cases. */
 	background: var(--nc-bg-2);
-	border-radius: 3px;
-	padding: 2px 3px;
+	color: var(--foreground_weak);
+	border-radius: var(--radius);
+	padding: 1px 2px;
 	font-size: 0.9rem;
 }
 
@@ -339,7 +297,7 @@ details {
 	padding: .6rem 1rem;
 	background: var(--nc-bg-2);
 	border: 1px solid var(--nc-bg-3);
-	border-radius: 4px;
+	border-radius: var(--radius);
 }
 
 summary {
@@ -383,7 +341,7 @@ fieldset {
 	margin-top: 1rem;
 	padding: 2rem;
 	border: 1px solid var(--nc-bg-3);
-	border-radius: 4px;
+	border-radius: var(--radius);
 }
 
 legend {
@@ -392,9 +350,12 @@ legend {
 
 table {
 	    /* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
-	    border-collapse: collapse;
+	    border-collapse: collapse !important;
+	    border-radius: var(--radius);
+
 	    max-width: 90%;
 	    border: 1px solid var(--nc-bg-3);
+	    border-spacing: 0px;
 }
 
 td,
@@ -450,7 +411,7 @@ input {
 	background: var(--nc-bg-2);
 	color: var(--nc-tx-2);
 	border: 1px solid var(--nc-bg-3);
-	border-radius: 4px;
+	border-radius: var(--radius);
 	box-shadow: none;
 	box-sizing: border-box;
 }

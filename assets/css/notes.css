@@ -1,9 +1,27 @@
+html,
 body {
-    background-image: url("../img/backgrounds/nice.png");
+  margin-top: 0;
+  padding: 0;
+}
+
+html {
+    height: 100% !important;
+}
+
+/* include border and padding in element width and height */
+* {
+  box-sizing: border-box;
+}
+
+body {
+    /* height: 100vh; */
+    min-height: 100%;
+    /* min-height: 100vh; */
+    width: 100vw;
+
+    background-image: url("../img/backgrounds/leaves.jpg");
     background-repeat: repeat;
 
-    /* background-color: var(--background_plus); */
-    /* background-color: #a7cae3; */
     background-attachment: fixed;
 }
 
@@ -18,15 +36,6 @@ body {
 
 .timestamp {
     color: var(--accent1_);
-}
-
-.title a {
-    text-decoration: none ;
-    color: var(--foreground);
-}
-
-.title a:visited {
-    color: var(--foreground);
 }
 
 table {
@@ -48,8 +57,13 @@ img {
 }
 
 #content, #postamble, #preamble {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
     padding: 14px;
+    /* background: rgba(232, 235, 236, 0.95); */
     background: var(--background);
+
 
     /* border-left: 1px solid var(--nc-bg-2); */
     /* border-right: 1px solid var(--nc-bg-2); */
@@ -91,6 +105,13 @@ img {
     font-size: 0.9rem;
 }
 
+blockquote .detail {
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+
 a[href$=".png"],
 a[href$=".png"]:hover,
 a[href$=".png"]:visited
@@ -98,4 +119,87 @@ a[href$=".png"]:visited
     text-decoration: none;
     border: 0 none;
     background: var(--background);
+}
+
+
+a {
+	padding: 2px 1px 2px 1px;
+
+	margin-bottom:2px;
+
+	display: inline-block;
+	min-width: fit-content;
+
+	text-decoration: none;
+
+	background: var(--background_weak);
+	color: var(--foreground_weak);
+
+	border-style: solid;
+
+	border-color: var(--faded);
+
+	border-radius: var(--radius);
+	border-width: 1px 1px 2px 1px;
+}
+
+a:visited {
+	text-decoration: none;
+	border-color: #a0a3a4;
+	color: var(--faded_weak);
+}
+
+a:hover {
+	color: var(--foreground_plus);
+	background: var(--background_plus);
+	border-color: var(--foreground_plus);
+}
+
+a[href^="https://notes.neeasade.net"],
+a[href^="/"],
+a[href^="#"] {
+    background: var(--background_strong);
+    color: var(--foreground_strong);
+}
+
+a[href^="https://notes.neeasade.net"]:hover,
+a[href^="/"]:hover,
+a[href^="#"]:hover {
+    background: var(--background_plus);
+    color: var(--foreground_plus);
+}
+
+.footer-right {
+    position:absolute;
+    /* from content padding value */
+    bottom: 14px;
+    right: 14px;
+}
+
+.footer-center {
+    text-align: center;
+    left: 0;
+    right: 0;
+    position:absolute;
+    bottom: 14px;
+}
+
+.footer-left {
+    /* fixme: this is going vertical. */
+    display: none;
+    position:absolute;
+    bottom: 14px;
+    left: 14px;
+}
+
+.flair img {
+    margin-top: 2em;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 60%;
+    border-width: 8px;
+    /* border-color: var(--assumed) var(--alt) var(--primary) var(--alt) ; */
+    /* border-color: var(--alt) var(--primary) var(--alt) var(--assumed) ; */
+    border-color: var(--strings);
+    border-style: ridge double ridge double ;
 }
