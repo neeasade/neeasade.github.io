@@ -152,7 +152,7 @@ a:hover {
 
 a[href^="https://notes.neeasade.net"],
 a[href^="/"],
-a[href^="./"]:hover,
+a[href^="./"],
 a[href^="#"] {
     background: var(--background_strong);
     color: var(--foreground_strong);
