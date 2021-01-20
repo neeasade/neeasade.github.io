@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-19 Tue 20:25 -->
+<!-- 2021-01-19 Tue 20:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -45,7 +45,6 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">checking for toots</h1>
 <div style="float: left">
     <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
@@ -66,7 +65,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin'. If I want 
 </p>
 
 
-<div id="org435f49f" class="figure">
+<div id="orgc9c857e" class="figure">
 <p><a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png" /></a>
 </p>
 </div>
@@ -106,7 +105,7 @@ Note: There is the ability to clear all notifications, but then you also lose up
 </p>
 
 <div id="outline-container-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28" class="outline-2">
-<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
+<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1</span> <a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
 Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
@@ -141,7 +140,7 @@ From there it's a short trip to have a panel button, you just call the script!
 </p>
 
 
-<div id="org094dde4" class="figure">
+<div id="org41c6c23" class="figure">
 <p><a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png" /></a>
 </p>
 </div>

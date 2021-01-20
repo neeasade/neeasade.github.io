@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-19 Tue 20:25 -->
+<!-- 2021-01-19 Tue 20:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Archiving CD's on linux</title>
@@ -45,7 +45,6 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Archiving CD's on linux</h1>
 <div style="float: left">
     <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
@@ -62,7 +61,7 @@
 <hr />
 
 <div id="outline-container-h-c2430d47-065c-438b-9ffe-3856b927a6ce" class="outline-2">
-<h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">Mounting data CD's/DVD's</a></h2>
+<h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><span class="section-number-2">1</span> <a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">Mounting data CD's/DVD's</a></h2>
 <div class="outline-text-2" id="text-h-c2430d47-065c-438b-9ffe-3856b927a6ce">
 <p>
 You might have to install one or both of these packages: <code>cdrecord cdrkit</code> to get the <code>iso9660</code> mount type (you can check if you have support with <code>cat /proc/filesystems | grep iso9660</code>)
@@ -93,7 +92,7 @@ or, more explicitly:
 </div>
 
 <div id="outline-container-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895" class="outline-2">
-<h2 id="h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895"><a href="#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">Getting the content from a Music CD/DVD</a></h2>
+<h2 id="h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895"><span class="section-number-2">2</span> <a href="#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">Getting the content from a Music CD/DVD</a></h2>
 <div class="outline-text-2" id="text-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">
 <p>
 With cdparanoia:
@@ -108,7 +107,7 @@ cdparanoia -d &lt;dev&gt; -B
 </div>
 
 <div id="outline-container-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf" class="outline-2">
-<h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">Backing up to an ISO</a></h2>
+<h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3</span> <a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">Backing up to an ISO</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
 <div class="org-src-container">
 <pre class="src src-sh">dd <span style="color: #c6007f;">if</span>=&lt;dev&gt; <span style="color: #c6007f;">of</span>=/path/to/label.iso <span style="color: #c6007f;">bs</span>=128k
@@ -118,7 +117,7 @@ cdparanoia -d &lt;dev&gt; -B
 </div>
 
 <div id="outline-container-h-8052e45f-f714-4bd1-b2ed-39ed0175a499" class="outline-2">
-<h2 id="h-8052e45f-f714-4bd1-b2ed-39ed0175a499"><a href="#h-8052e45f-f714-4bd1-b2ed-39ed0175a499">Mounting an ISO</a></h2>
+<h2 id="h-8052e45f-f714-4bd1-b2ed-39ed0175a499"><span class="section-number-2">4</span> <a href="#h-8052e45f-f714-4bd1-b2ed-39ed0175a499">Mounting an ISO</a></h2>
 <div class="outline-text-2" id="text-h-8052e45f-f714-4bd1-b2ed-39ed0175a499">
 <pre class="example">
 mount /path/to/image.iso /path/to/mountpoint/ -o loop
