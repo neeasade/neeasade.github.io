@@ -3,7 +3,7 @@
 #+BEGIN_SRC elisp :results raw :exports results
 (ns/blog-make-nav-strip
     "[[https://github.com/neeasade/dotfiles][dots]]"
-    "[[http://notes.neeasade.net/rice-links.html][rice links]]"
+    "[[https://notes.neeasade.net/rice-links.html][rice links]]"
     )
 #+END_SRC
 
