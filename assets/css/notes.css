@@ -61,7 +61,12 @@ img {
     height: 100%;
     min-height: 100vh;
     padding: 14px;
+    /* background: rgba(232, 235, 236, 0.95); */
     background: var(--background);
+
+
+    /* border-left: 1px solid var(--nc-bg-2); */
+    /* border-right: 1px solid var(--nc-bg-2); */
 }
 
 .section-number-1,
@@ -152,10 +157,16 @@ a:hover {
 
 a[href^="https://notes.neeasade.net"],
 a[href^="/"],
-a[href^="./"],
 a[href^="#"] {
     background: var(--background_strong);
     color: var(--foreground_strong);
+}
+
+a[href^="https://notes.neeasade.net"]:hover,
+a[href^="/"]:hover,
+a[href^="#"]:hover {
+    background: var(--background_plus);
+    color: var(--foreground_plus);
 }
 
 .footer-right {
