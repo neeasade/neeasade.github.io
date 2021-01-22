@@ -25,7 +25,7 @@ In July 2020 I went on a color-scheme vision quest. This led to some research on
 :CUSTOM_ID: h-3fe0b0c6-76a6-4e9e-a061-66bd3ba54620
 :END:
 
-I've been a part of several Linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way -- know what I can do to individual colors when making a "color framework" helps immensely.
+I've been a part of several Linux desktop customization communities since circa 2013. One big aspect of that is the colors used across various contexts -- for me, it follows that part of the game is trying to make a cohesive system of colors that relate to each other in an understandable (and thus tweakable) way -- knowing what I can do to individual colors when making a "color framework" helps immensely.
 
 I'm colorblind. This means I might be really picky about some colors. For example, I don't like the color red used for emphasis in text -- thin red lines look the same as thin black lines to me (and so, red text doesn't typically >POP< for me, unless it's bold or has some other emphasis included).
 
@@ -102,12 +102,12 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 	;; starting with 1% saturation (0% removes our hue entirely)
 (ct-make-hsl 0 50 50)
 	(range 5)))
- '("red, 0°"
-   "yellow, 60°"
-   "green, 120°"
-   "cyan, 180°"
-   "blue, 240°"
-   "magenta, 300°"))
+ '("red,0°"
+   "yellow,60°"
+   "green,120°"
+   "cyan,180°"
+   "blue,240°"
+   "magenta,300°"))
 #+end_src
 {{{detail(HSL: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%)}}}
 
@@ -155,12 +155,12 @@ What does that mean for us? Well, let's take our above examples and recreate the
     (ct-make-hsluv 0 50 50)
 
 	(range 5)))
- '("red, 0°"
-   "yellow, 60°"
-   "green, 120°"
-   "cyan, 180°"
-   "blue, 240°"
-   "magenta, 300°"))
+ '("red,0°"
+   "yellow,60°"
+   "green,120°"
+   "cyan,180°"
+   "blue,240°"
+   "magenta,300°"))
 #+end_src
 {{{detail(HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%)}}}
 
@@ -703,6 +703,8 @@ Mapping color palettes through this transform could presumably get you better re
 :END:
 
 This section is about the tools I implemented and use to actually do the thing™.
+
+Update <2021-01-22> I have packaged my helpers into an emacs package: [[https://github.com/neeasade/ct.el][ct.el]]
 
 Emacs ships with a fair amount of [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][conversion functions]], but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue ~color-name-to-rgb~, ~color-srgb-to-lab~, ~color-lab-to-lch~, and pipe back out. To assist with this, I implemented some [[https://github.com/neeasade/color-tools.el][wrappers]] that would do the conversion to your space of choice (coming from the 'name', strings eg "{{{color(#c930e8)}}}"). Here's an example -- say you wanted to increase luminosity of that color by a multiplier ~1.5~:
 
