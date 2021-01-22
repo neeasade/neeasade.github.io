@@ -19,6 +19,11 @@ body {
     /* min-height: 100vh; */
     width: 100vw;
 
+    text-rendering: optimizeLegibility;
+
+    text-align: justify;
+    text-justify: inter-word;
+
     background-image: url("../img/backgrounds/leaves.jpg");
     background-repeat: repeat;
 

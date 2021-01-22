@@ -1,16 +1,13 @@
 #+title: 🍃🌳ＧＲＯＶＥ🍃🌳
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] [[./index_published.org][Published]] *Bubble* [[./index_curated.org][Curated]])}}}
 
-
-#+HTML_HEAD: <style></style>
-
 #+begin_export html
 <style>
 #content {
     text-align: center;
 }
 a {
-    margin: 4px 3px 0px 0px;
+    margin: 5px 3px 0px 0px;
 }
 </style>
 #+end_export

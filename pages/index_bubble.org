@@ -7,7 +7,7 @@
     text-align: center;
 }
 a {
-    margin: 4px 3px 0px 0px;
+    margin: 5px 3px 0px 0px;
 }
 </style>
 #+end_export
