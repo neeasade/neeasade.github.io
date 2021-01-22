@@ -1,10 +1,16 @@
 #+title: 🍃🌳ＧＲＯＶＥ🍃🌳
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] [[./index_published.org][Published]] *Bubble* [[./index_curated.org][Curated]])}}}
 
+
+#+HTML_HEAD: <style></style>
+
 #+begin_export html
 <style>
 #content {
     text-align: center;
+}
+a {
+    margin: 4px 3px 0px 0px;
 }
 </style>
 #+end_export
@@ -13,7 +19,7 @@
 (->>
  (if (boundp 'org-post-metas)
      org-post-metas
-   (mapcar 'ns/blog-file-to-meta (f-entries ns/blog-posts-dir (fn (s-ends-with-p ".org" <>)))))
+   (-map 'ns/blog-file-to-meta (ns/blog-get-org "posts")))
  (-filter (fn (not (ht-get <> :is-draft))))
  (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
 
