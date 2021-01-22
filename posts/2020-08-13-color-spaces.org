@@ -2,6 +2,8 @@
 #+pubdate: <2020-11-24>
 #+rss_title: reasoning about colors
 
+#+html_head: <style> detail {margin-top: -0.9rem;} </style>
+
 # TODO
 # harmonizing colors meaning
 # https://www.incolororder.com/2011/11/art-of-choosing-harmonizing-color.html

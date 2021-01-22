@@ -80,6 +80,8 @@ a img {
 html,input,select,button {
 	/* Set body font family and some finicky elements */
 	font-family: var(--nc-font-sans);
+	/* font-size: 100%; */
+	font-size: 18px;
 }
 
 body {
@@ -93,8 +95,8 @@ body {
 
 	/* Main body text */
 	color: var(--nc-tx-2);
-	font-size: 1 rem;
-	line-height: 1.3;
+	font-size: 1rem;
+	line-height: 1.4;
 }
 
 ::selection {

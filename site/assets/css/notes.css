@@ -44,6 +44,7 @@ table {
 
 a img {
     border: none !important;
+    background: none !important;
 }
 
 img {
@@ -61,6 +62,8 @@ img {
     height: 100%;
     min-height: 100vh;
     padding: 14px;
+    /* leave room for the footer */
+    padding-bottom: 64px;
     background: var(--background);
 }
 
@@ -93,14 +96,14 @@ img {
     line-height: 50px;
 }
 
-.detail {
+detail {
     text-align: center;
-    margin-top: -0.9rem;
     padding-top: 0px;
     font-size: 0.9rem;
+    display: block;
 }
 
-blockquote .detail {
+blockquote detail {
     text-align: left;
     margin-left: 1rem;
     font-size: 1rem;
@@ -118,24 +121,23 @@ a[href$=".png"]:visited
 
 
 a {
-	padding: 2px 1px 2px 1px;
+	padding: 0px 2px;
 
-	margin-bottom:2px;
+	/* margin-bottom:2px; */
 
 	display: inline-block;
 	min-width: fit-content;
-
 	text-decoration: none;
 
 	background: var(--background_weak);
 	color: var(--foreground_weak);
 
 	border-style: solid;
-
 	border-color: var(--faded);
-
 	border-radius: var(--radius);
 	border-width: 1px 1px 2px 1px;
+	margin: -1px -1px -2px -1px;
+	/* margin: -1px; */
 }
 
 a:visited {
@@ -171,6 +173,7 @@ a[href^="#"]:hover {
     /* from content padding value */
     bottom: 14px;
     right: 14px;
+    z-index: 1;
 }
 
 .footer-center {
@@ -182,8 +185,9 @@ a[href^="#"]:hover {
 }
 
 .footer-left {
+    z-index: 1;
     /* fixme: this is going vertical. */
-    display: none;
+    /* display: none; */
     position:absolute;
     bottom: 14px;
     left: 14px;
