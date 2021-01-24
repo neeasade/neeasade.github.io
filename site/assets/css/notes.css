@@ -24,6 +24,18 @@ body {
     text-align: justify;
     text-justify: inter-word;
 
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+
+    /* Main body text */
+    color: var(--foreground);
+    font-size: 1rem;
+    line-height: 1.4;
+
+
     background-image: url("../img/backgrounds/leaves.jpg");
     background-repeat: repeat;
 
@@ -128,9 +140,6 @@ a[href$=".png"]:visited
 a {
 	padding: 0px 2px;
 
-	/* margin-bottom:2px; */
-
-	display: inline-block;
 	min-width: fit-content;
 	text-decoration: none;
 

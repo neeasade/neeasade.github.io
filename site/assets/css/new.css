@@ -88,15 +88,7 @@ body {
 	/* Center body in page */
 	margin: 0 auto;
 	max-width: 750px;
-
 	overflow-x: hidden;
-	word-break: break-word;
-	overflow-wrap: break-word;
-
-	/* Main body text */
-	color: var(--nc-tx-2);
-	font-size: 1rem;
-	line-height: 1.4;
 }
 
 ::selection {
