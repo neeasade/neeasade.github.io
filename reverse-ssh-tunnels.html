@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2021-01-19 Tue 22:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2021-01-24 Sun 13:31 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>reverse ssh tunnels</title>
-<meta name="generator" content="Org mode" />
+<meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -16,10 +14,10 @@
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -58,7 +56,7 @@
 </p>
 
 
-<hr />
+<hr>
 
 <p>
 You have 3 machines:
@@ -71,7 +69,7 @@ You have 3 machines:
 </ul>
 
 <p>
-The problem is that <code>home</code> is behind some network you don't control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
+The problem is that <code>home</code> is behind some network you don&rsquo;t control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 
 <div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
@@ -116,7 +114,7 @@ find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
 </pre>
 
 <p>
-and then here's a cool trick for providing the connection info to a remote shell through the environment with <code>$TRAMP_INFO</code>: (this will also do the jumping for you!)
+and then here&rsquo;s a cool trick for providing the connection info to a remote shell through the environment with <code>$TRAMP_INFO</code>: (this will also do the jumping for you!)
 </p>
 
 <div class="org-src-container">
@@ -142,7 +140,7 @@ and then here's a cool trick for providing the connection info to a remote shell
 </p>
 
 <div class='footer-left'>
-    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
+    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
 </div>
 
 

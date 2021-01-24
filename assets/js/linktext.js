@@ -1,6 +1,7 @@
 // cf https://github.com/WesleyAC/notebook/blob/master/parts/linktext.js
 // MIT
 // <2021-01-03 Sun 21:22> 
+// edited to add a scroll offset, and debounce when link changing happens
 
 // https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
 const cyrb53 = function(str, seed = 0) {
@@ -100,10 +101,30 @@ function hashnode(n) {
 	return Base64.fromNumber(cyrb53(n.wholeText));
 }
 
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+// cf https://davidwalsh.name/javascript-debounce-function
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
 // TODO: deal with multiple elements having the same hash
 
 if (!!(window.history && history.replaceState) && typeof(Range) != "undefined") {
-	document.onselectionchange = () => {
+	document.onselectionchange = debounce(() => {
 		const selection = window.getSelection();
 		if (!selection.isCollapsed) {
 			const nodes = getRangeSelectedNodes(selection.getRangeAt(0)).filter((n) => { return n.nodeType == 3 });
@@ -134,7 +155,7 @@ if (!!(window.history && history.replaceState) && typeof(Range) != "undefined") 
 			} 
 		}
 		history.replaceState(null, null, window.location.pathname);
-	};
+	}, 250);
 
 	if (window.location.hash.length > 0) {
 		let [version, start_hash_full, end_hash_full] = window.location.hash.slice(1).split(".");

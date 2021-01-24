@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2021-01-19 Tue 22:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2021-01-24 Sun 13:31 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BSPWM Experiences</title>
-<meta name="generator" content="Org mode" />
+<meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -16,10 +14,10 @@
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -58,10 +56,10 @@
 </p>
 
 
-<hr />
+<hr>
 
 <p>
-So, I've been using BSPWM as my main WM for about 5 months now, after
+So, I&rsquo;ve been using BSPWM as my main WM for about 5 months now, after
 transitioning from i3, so I thought I would write about my experience.
 </p>
 
@@ -82,7 +80,7 @@ large fan of the focus-follows-mouse setting and layout togglability
 i3-wm presented itself with. The hardware layout limitation I mentioned
 earlier led to me maintaining two i3 config files for a brief time, one
 for my laptop and one for my home setup. This in combination with a want
-to drive 'deeper' led me to seek what I considered a more advanced WM.
+to drive &rsquo;deeper&rsquo; led me to seek what I considered a more advanced WM.
 </p>
 </div>
 </div>
@@ -97,7 +95,7 @@ considered something along the likes of dwm/swm/monsterWM, but those all
 felt like too large a leap. bspwm/herbsluftwm were to my understanding
 both configured with shell scripts! something that feels malleable and
 fun in my mind. I enjoy and hate scripting languages because they feel
-'finnicky', and in my experience lead to alot of
+&rsquo;finnicky&rsquo;, and in my experience lead to alot of
 change-&gt;test-&gt;adjust-&gt;retest cycles. Overall I typically find this type
 of problem solving very relaxing, as you slowly work your way toward a
 goal over possibly many iterations. I continued looking into both WMs
@@ -113,8 +111,8 @@ lot more effort to get set up to ones liking. So I picked bspwm.
 <h2 id="h-cd9143b3-bd45-4204-b760-a04033881a1b"><span class="section-number-2">3</span> <a href="#h-cd9143b3-bd45-4204-b760-a04033881a1b">The First Attempts</a></h2>
 <div class="outline-text-2" id="text-h-cd9143b3-bd45-4204-b760-a04033881a1b">
 <p>
-It actually took 3 times before I fully told myself 'Okay this is my WM
-now'. And what I mean by that is I would setup bspwm and try to
+It actually took 3 times before I fully told myself &rsquo;Okay this is my WM
+now&rsquo;. And what I mean by that is I would setup bspwm and try to
 understand exactly what was happening in the examples and configure
 things correctly, usually get it to start but be faced with problems(no
 panel, keybinds not seeming to work, general lack of understanding about
@@ -122,7 +120,7 @@ how to fix problems with it on my end). One prospect that is
 exciting/intimidating is the panel situation - bspwm is EMWH compliant,
 meaning you can use it with a variety of panels(tint2, bmpanel, and many
 others), but the preferred one in the bspwm community seems to be
-lemonbar(formerly known as bar-aint-recursive). What's special about
+lemonbar(formerly known as bar-aint-recursive). What&rsquo;s special about
 lemonbar is that the information displayed on it is very explicity
 specified by the user. That is, you can have multiple scripts and
 programs that gather information and pipe the in a specific format to
@@ -139,7 +137,7 @@ script, it becomes really easy to take output about the current status
 of the WM and manipulate it just the way you want, which you can then
 use to either alter the behavior of BSPWM or send to lemonbar or do
 WHATEVER YOU LIKE WITH IT :D. Again, this is both very awesome and very
-intimidating, because if you can't find an example of what you want to
+intimidating, because if you can&rsquo;t find an example of what you want to
 do when starting out, it can be very discouraging.
 </p>
 </div>
@@ -154,9 +152,9 @@ click(that the BSPWMRC file was a bash script, that the output of bspc
 was easily manipulated with grep and regex).
 <a href="http://imgur.com/a/hYQkg">here is an album from around that time</a>,
 just starting with bar and had it running well on my laptop. I was still
-feeling stuck on 'flexible' configuration of monitors and workspaces,
+feeling stuck on &rsquo;flexible&rsquo; configuration of monitors and workspaces,
 until I saw a config that renamed all monitors on startup in a loop. I
-didn't even realize I could do that! Taking that as a base, I was able
+didn&rsquo;t even realize I could do that! Taking that as a base, I was able
 to get things to the point they are now in terms of multihead
 management.
 </p>
@@ -170,12 +168,12 @@ management.
 After I got a basic-ish bspwmrc set, I was determined to get a decent
 panel setup. This proved harder than I thought it would be. There are
 many styles to take inspiration from on the internet. Most bar scripts I
-saw didn't seem to handle multihead well though. This led to my current
+saw didn&rsquo;t seem to handle multihead well though. This led to my current
 panel start script - taking the idea from the startup loop above, I
 looped through all the monitors displayed by bspwm and gather
-information about the current loop-monitor to explicitly set a panel's
+information about the current loop-monitor to explicitly set a panel&rsquo;s
 geometry, allowing for correctly sized bars regardless of differing
-resolutions. Once I got that set, I used z3bra's excellent
+resolutions. Once I got that set, I used z3bra&rsquo;s excellent
 <a href="http://blog.z3bra.org/2014/04/meeting-at-the-bar.html">blog post</a> as
 code to gather information to pipe to lemonbar. However, I did have one
 problem - then the currently playing song from mpc was too long, it
@@ -213,7 +211,7 @@ Soon after this, there was a
 on /r/unixporn</a> where someone was asking why bspwm was so popular. In
 the comments, someone was talking about how one feature they were
 disappointed in bspwm not having was a tabbed layout. I saw that and
-thought it would be a good opportunity to test bspwm's flexibility. At
+thought it would be a good opportunity to test bspwm&rsquo;s flexibility. At
 this point the title displayed in my panel was simply the current active
 window title. So, thinking about how I wanted this to act, I came up
 with
@@ -221,7 +219,7 @@ with
 a script which outputs window title and id information about the current
 bspc desktop on a monitor in a <code>bspc control --subscribe</code> fashion. I
 still wanted only the active window title displayed if I was in tiling
-mode or focused on a floating window. bspwm's other window mode,
+mode or focused on a floating window. bspwm&rsquo;s other window mode,
 monocle, consists of the active window taking up the full desktop space,
 with other windows not visible. If a monitor was in monocle mode, I had
 title.sh spit out pairs of window titles and window IDs - which I then
@@ -240,7 +238,7 @@ Once things were to a point where it felt pleasant to be using bspwm,
 configuration effort went into cleaning up the scripts and trying to
 modularize as much as possible. I really like the ability to toggle
 different options and reload them at will, so I have all the bar display
-options in one 'profile' shell script which all the other panel scripts
+options in one &rsquo;profile&rsquo; shell script which all the other panel scripts
 reference. The bspwmrc is at a point where options are organized and
 labeled, and you can run the script again to reload settings and reset
 desktops. Now configuration can go into refining WM options until I hit
@@ -258,7 +256,7 @@ tl;dr you get out of it what you put into it
 </p>
 
 <div class='footer-left'>
-    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
+    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
 </div>
 
 

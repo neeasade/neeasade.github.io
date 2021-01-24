@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2021-01-19 Tue 22:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2021-01-24 Sun 13:31 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>systemd user services</title>
-<meta name="generator" content="Org mode" />
+<meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -16,10 +14,10 @@
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -58,7 +56,7 @@
 </p>
 
 
-<hr />
+<hr>
 
 <p>
 This is a text version of a lighting talk I gave at <a href="https://www.recurse.com">recurse center</a> Feb 2020.
@@ -79,7 +77,7 @@ Some googling showed me that you could do the following to get the charge on Lin
 </div>
 
 <p>
-That's a pain to type out, so I aliased it to something spam-able like <code>a</code> and called it a day. But then&#x2026; surprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
+That&rsquo;s a pain to type out, so I aliased it to something spam-able like <code>a</code> and called it a day. But then&#x2026; surprise shutdowns still happened on occasion. So I just got into the habit of spamming checking all the time due to laptop FOMO. This is not ideal.
 </p>
 
 <p>
@@ -90,11 +88,11 @@ Next step was to wrap the above in a script and display it in my panel. Nice! no
 <h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1</span> <a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">Alerts</a></h2>
 <div class="outline-text-2" id="text-h-9c426974-626d-47cf-bca6-c2b71698b392">
 <p>
-With something like <a href="https://github.com/dunst-project/dunst">dunst</a>, I can send notifications that appear only when I'm concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
+With something like <a href="https://github.com/dunst-project/dunst">dunst</a>, I can send notifications that appear only when I&rsquo;m concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
 </p>
 
 <p>
-Making this call in my <code>.xinitrc</code> worked out OK, but I'm sometimes at a desktop using the same set of dotfiles, and there's no battery to check there. About this point I realized I had stuffed a lot in my startup, such as <code>mpd</code>, <code>picom</code>, <code>dunst</code>, you name it. I had heard of systemd user services and decided to look into them.
+Making this call in my <code>.xinitrc</code> worked out OK, but I&rsquo;m sometimes at a desktop using the same set of dotfiles, and there&rsquo;s no battery to check there. About this point I realized I had stuffed a lot in my startup, such as <code>mpd</code>, <code>picom</code>, <code>dunst</code>, you name it. I had heard of systemd user services and decided to look into them.
 </p>
 </div>
 </div>
@@ -134,7 +132,7 @@ Some things to note:
 <ul class="org-ul">
 <li>The full path to the <code>ExecStart</code> and <code>ExecStop</code> executable</li>
 <li>The inclusion of <code>DISPLAY</code> and <code>XAUTHORITY</code> &#x2013; this is so the <code>notify-send</code> reaches dunst</li>
-<li>The setting of <code>PATH</code> such that "the usual suspects" are available within my daemon script</li>
+<li>The setting of <code>PATH</code> such that &ldquo;the usual suspects&rdquo; are available within my daemon script</li>
 </ul>
 
 <p>
@@ -164,7 +162,7 @@ So the next step in this systemd journey was to integrate <a href="https://githu
 <h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935"><span class="section-number-2">3</span> <a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">The big.. T?</a></h2>
 <div class="outline-text-2" id="text-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">
 <p>
-Those of you in the know will see something very wrong with the above. Systemd has a "when to run" concept: <a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html">timers</a>! Using timers files you can do things like:
+Those of you in the know will see something very wrong with the above. Systemd has a &ldquo;when to run&rdquo; concept: <a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html">timers</a>! Using timers files you can do things like:
 </p>
 
 <ul class="org-ul">
@@ -175,7 +173,7 @@ Those of you in the know will see something very wrong with the above. Systemd h
 </ul>
 
 <p>
-Let's take a look at what that last one looks like. You create a file in the same directory with the same name, but extension timer:
+Let&rsquo;s take a look at what that last one looks like. You create a file in the same directory with the same name, but extension timer:
 </p>
 
 <p>
@@ -223,7 +221,7 @@ And bam! we have done the thing.
 </p>
 
 <div class='footer-left'>
-    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
+    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
 </div>
 
 

@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2021-01-19 Tue 22:09 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2021-01-24 Sun 13:31 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>checking for toots</title>
-<meta name="generator" content="Org mode" />
+<meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -16,10 +14,10 @@
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e6e2634ec4bab61ca05ba5ec355ee6ed'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=ad230bd9cd17f516c2cd5e6cf0ffa898'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7a7a1e83fc42fff68f54d9807333b1b'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -58,20 +56,20 @@
 </p>
 
 
-<hr />
+<hr>
 
 <p>
-The mastodon cli client <code>toot</code> is pretty nice for tootin'. If I want to post something I can just <code>toot post "some really unique thought"</code> and BAM it's out there on the internet forever. It even supports media &#x2013; EG <code>echo 'can I pipe stuff into toot?' | toot post -m $(shot)</code> and I can put adhoc screenshots in there:
+The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I want to post something I can just <code>toot post "some really unique thought"</code> and BAM it&rsquo;s out there on the internet forever. It even supports media &#x2013; EG <code>echo 'can I pipe stuff into toot?' | toot post -m $(shot)</code> and I can put adhoc screenshots in there:
 </p>
 
 
-<div id="org6b33d64" class="figure">
-<p><a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png" /></a>
-</p>
-</div>
+<figure id="org64fc1c8">
+<a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
+
+</figure>
 
 <p>
-This is all well and good, but then I'm blind to when replies to toots happen (and with FOMO, I end up checking more often than I have too). Luckily, the toot cli client has a way to check for notifications. Unluckily, the toot nofications don't come through in a very structured way, and there's no way to get "unseen" notifications, it just sends everything (or well, some last N notifications):
+This is all well and good, but then I&rsquo;m blind to when replies to toots happen (and with FOMO, I end up checking more often than I have too). Luckily, the toot cli client has a way to check for notifications. Unluckily, the toot nofications don&rsquo;t come through in a very structured way, and there&rsquo;s no way to get &ldquo;unseen&rdquo; notifications, it just sends everything (or well, some last N notifications):
 </p>
 
 <pre class="example">
@@ -101,14 +99,14 @@ hazel :blobcatcomfy: @hazel@is.nota.live now follows you
 </pre>
 
 <p>
-Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I'd like to preserve that.
+Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I&rsquo;d like to preserve that.
 </p>
 
 <div id="outline-container-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28" class="outline-2">
 <h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1</span> <a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">Rolling my own</a></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
-Alright, I need 2 things &#x2013; a way to mark the current set of notifications as 'seen' and a way to check the content of 'unseen' notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don't quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
+Alright, I need 2 things &#x2013; a way to mark the current set of notifications as &rsquo;seen&rsquo; and a way to check the content of &rsquo;unseen&rsquo; notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don&rsquo;t quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 </p>
 
 <div class="org-src-container">
@@ -117,7 +115,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </div>
 
 <p>
-And with diff, I can check if anything has changed (provided I save the seen notifications output somewhere). First I isolate to just the new content, and then I count how many of the new notifications contain "mentioned you" (I only have FOMO about conversation):
+And with diff, I can check if anything has changed (provided I save the seen notifications output somewhere). First I isolate to just the new content, and then I count how many of the new notifications contain &ldquo;mentioned you&rdquo; (I only have FOMO about conversation):
 </p>
 
 <div class="org-src-container">
@@ -136,17 +134,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </div>
 
 <p>
-From there it's a short trip to have a panel button, you just call the script!
+From there it&rsquo;s a short trip to have a panel button, you just call the script!
 </p>
 
 
-<div id="org7a19cdb" class="figure">
-<p><a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png" /></a>
-</p>
-</div>
+<figure id="org90d73fa">
+<a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
+
+</figure>
 
 <p>
-With a click action to "Mark toots as seen"(just updating the temp file) and open up mastodon, I'm all set for some distration free tootin' without the FOMO of mentions.
+With a click action to &ldquo;Mark toots as seen&rdquo;(just updating the temp file) and open up mastodon, I&rsquo;m all set for some distration free tootin&rsquo; without the FOMO of mentions.
 </p>
 
 
@@ -155,7 +153,7 @@ With a click action to "Mark toots as seen"(just updating the temp file) and ope
 </p>
 
 <div class='footer-left'>
-    <div class='footer-left'><a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a></div>
+    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
 </div>
 
 
