@@ -1,8 +1,8 @@
 #+title: xero's irc ref
+#+title_extra: {{{detail(Scraped from [[https://gist.github.com/xero/2d6e4b061b4ecbeb9f99][this gist]])}}}
 #+rss_title: xero's irc ref
 #+pubdate: <2020-04-04 Sat>
 
-This is a scraping of xero's irc ref from https://gist.github.com/xero/2d6e4b061b4ecbeb9f99
 
 ** [[#h-af9b727a-fe44-40f2-8ba6-e18272277397][The Basics]]
 :PROPERTIES:
