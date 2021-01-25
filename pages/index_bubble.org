@@ -8,6 +8,7 @@
 }
 a {
     margin: 5px 3px 0px 0px;
+    display: inline-block;
 }
 </style>
 #+end_export

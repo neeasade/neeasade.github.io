@@ -198,6 +198,10 @@ a[href^="#"]:hover {
     bottom: 14px;
 }
 
+.footer-center a {
+    display: inline-block;
+}
+
 .footer-left {
     z-index: 1;
     /* fixme: this is going vertical. */
