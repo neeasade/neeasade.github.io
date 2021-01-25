@@ -8,6 +8,11 @@ html {
     height: 100% !important;
 }
 
+.anchor {
+    font-size: 1rem;
+    vertical-align: 10%;
+}
+
 /* include border and padding in element width and height */
 * {
   box-sizing: border-box;
