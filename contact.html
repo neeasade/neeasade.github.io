@@ -4,7 +4,7 @@
 <!-- 2021-01-24 Sun 21:09 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Configuring constant LANG variable</title>
+<title>Contact</title>
 <meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/assets/js/linktext.js" defer></script>
@@ -48,69 +48,24 @@
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-02-21-configuring-constant-lang-variable.org">Last edit: <2019-02-24></a>
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/pages/contact.org">Last edit: <2021-01-24></a>
 </div>
 
 <p>
-<h1 class=title>Configuring constant LANG variable</h1>
+<h1 class=title>Contact</h1>
 </p>
 
 
 <hr>
 
+<div class="org-center">
 <p>
-After setting your correct locale in the etc/locale.gen file and running
-locale-gen, your system wide language gets set in Linux. Some
-applications, however, reference the LANG variable in order to determine
-language type. One in particular that I am fond of is sublime text. This
-isn&rsquo;t an issue until you install the package manager - which you will
-probably want to do eventually.
+<code>handle</code> at the google one.
 </p>
-
-<p>
-A temporary fix, as the error logged will inform you, is to set the LANG
-variable either before or with the startup of sublime text.
-</p>
-
-<p>
-However, this may not always be viable, and can be annoying. There are
-two solutions to set this variable upon system startup.
-</p>
-
-<p>
-A &ldquo;hacky&rdquo; way to get around this problem would be to set the LANG
-variable within your .bashrc file, as such:
-</p>
-
-<blockquote>
-<p>
-export LANG =&ldquo;en\<sub>US.UTF</sub>-8&rdquo;
-</p>
-</blockquote>
-
-<p>
-However, the above only sets the variable for your user/login session.
-</p>
-
-<p>
-To set the LANG variable system wide(the prefferred method), edit or
-create the file /etc/locale.conf to contain:
-</p>
-
-<blockquote>
-<p>
-LANG =&ldquo;en\<sub>US.UTF</sub>-8&rdquo;
-</p>
-</blockquote>
-
-<p>
-And upon restart your LANG variable will be set correctly.
-</p>
+</div>
 
 
-<p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
-</p>
+
 
 <div class='footer-left'>
     <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
@@ -119,7 +74,7 @@ And upon restart your LANG variable will be set correctly.
 
 
 <div class="footer-right">
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-02-21-configuring-constant-lang-variable.org">Page Markup</a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/pages/contact.org">Page Markup</a>
 </div>
 </div>
 </body>
