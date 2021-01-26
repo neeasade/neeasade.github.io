@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-25 Mon 07:03 -->
+<!-- 2021-01-26 Tue 15:06 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tickling bash, quest for the perfect menu</title>
@@ -14,8 +14,8 @@
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=c3cda81516f39387cfbdc4376d91123f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=c3cda81516f39387cfbdc4376d91123f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=5f2fe828b2d726426af1a33254e0cf2d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5f2fe828b2d726426af1a33254e0cf2d'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <script type="text/javascript">
@@ -80,9 +80,9 @@ lots of really cool generic &ldquo;select thing from list&rdquo; programs out th
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 
-<div id="outline-container-org59dcf36" class="outline-2">
-<h2 id="org59dcf36"><span class="section-number-2">1</span> Setup</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-Setup" class="outline-2">
+<h2 id="Setup"><span class="section-number-2">1</span> Setup <span class=anchor><a href="#Setup">⚓</a></span></h2>
+<div class="outline-text-2" id="text-Setup">
 <p>
 Let&rsquo;s go through some history first. dmenu2 was my goto &rsquo;selector&rsquo; for years, because it has some
 neat features like positional arguments and the ability to specify the colorscheme from Xresources.
@@ -125,7 +125,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍂 🍂 🍂
+🌱 🌱 🌱
 </p>
 </div>
 
@@ -136,9 +136,9 @@ In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a 
 </div>
 </div>
 
-<div id="outline-container-org4ad3861" class="outline-2">
-<h2 id="org4ad3861"><span class="section-number-2">2</span> Rofi</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-Rofi" class="outline-2">
+<h2 id="Rofi"><span class="section-number-2">2</span> Rofi <span class=anchor><a href="#Rofi">⚓</a></span></h2>
+<div class="outline-text-2" id="text-Rofi">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
 flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
@@ -149,9 +149,9 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 
-<div id="outline-container-org4fef879" class="outline-2">
-<h2 id="org4fef879"><span class="section-number-2">3</span> Tickling bash (cheating)</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-Tickling-bash-(cheating)" class="outline-2">
+<h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3</span> Tickling bash (cheating) <span class=anchor><a href="#Tickling-bash-(cheating)">⚓</a></span></h2>
+<div class="outline-text-2" id="text-Tickling-bash-(cheating)">
 <p>
 So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu replacement. This means I&rsquo;m at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the &rsquo;a&rsquo; option before &rsquo;b&rsquo; is ready, you are stuck):
 </p>
