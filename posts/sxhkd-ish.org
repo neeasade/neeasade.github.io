@@ -1,0 +1,109 @@
+#+title: sxhkd-ish
+#+title_extra: {{{center(another place the shell lives forever)}}}
+#+filetags: :shell:wayland:
+#+pubdate: <2021-01-26>
+#+post_type: post
+
+For years now, I've used bspwm as my daily driver window manager. It does not ship with a builtin way to set keybindings -- instead, the recommended path is to use another program by it's author, [[https://github.com/baskerville/sxhkd/][sxhkd]], to bind key presses to process calls. Such calls are launched with ~SHELL -c COMMAND~, where ~SHELL~ is set by ~$SXHKD_SHELL~  or ~$SHELL~. Here's a pair of bindings from my [[https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/sxhkd/.config/sxhkd/sxhkdrc#L1][sxhkdrc]]:
+
+#+begin_src conf
+super + Escape
+    notify-send "reloading sxhkd!"; pkill -USR1 -x sxhkd
+
+super + {_,shift,alt,ctrl} + {h,n,e,l}
+    {focus,move,resize,presel}.sh {west,south,north,east}
+#+end_src
+
+One of sxhkd's most attractive features for me is the slick templating you can have. That second example assigns my preferred directional keys ([[./colemak-dh-mod.org][colemak-dhk]]) to call scripts assigned to do different actions. The full expansion is as follows:
+
+#+begin_src conf
+super + h
+    focus.sh west
+super + n
+    focus.sh south
+super + e
+    focus.sh north
+super + l
+    focus.sh east
+super + shift + h
+    move.sh west
+super + shift + n
+    move.sh south
+super + shift + e
+    move.sh north
+super + shift + l
+    move.sh east
+super + alt + h
+    resize.sh west
+super + alt + n
+    resize.sh south
+super + alt + e
+    resize.sh north
+super + alt + l
+    resize.sh east
+super + ctrl + h
+    presel.sh west
+super + ctrl + n
+    presel.sh south
+super + ctrl + e
+    presel.sh north
+super + ctrl + l
+    presel.sh east
+#+end_src
+
+WEW that's a lot. Thanks Baskerbae.
+
+-----
+
+Many of the newer wayland window managers have you assign keys individually via a client, mostly in a shape that sort of hails from the i3 config format. I'll cherrypick [[https://github.com/swaywm/sway/blob/4d43f1dd996e61e38d89adf0ad1435dac32e38a5/config.in#L90][sway]]'s, but you can see comparable formats in example configs for [[https://gitlab.com/cardboardwm/cardboard/-/blob/f2ef2ff076ddbbd23994553b8eff131f9bd0207f/README.md][cardboard]], [[https://github.com/ifreund/river/blob/afe1f197aa8f80f5fb0069aeaf851240189f9dcc/example/init][river]], and [[https://github.com/ifreund/river/blob/afe1f197aa8f80f5fb0069aeaf851240189f9dcc/example/init][wayfire]] as well:
+
+#+begin_src conf
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+#+end_src
+
+This snippet comes from the example config, but if you prepend the lines with ~swaymsg~ you get something you can run in a script. In the week or so I gave sway a drive, most of my configuring was done this way -- with a ~swayrc~ file containing ~swaymsg~ client calls -- the prospect of porting my comparably compact sxhkdrc file was annoying though. So, like the lazy programmer I am, I squinted at it a little bit and realized the sxhkd templating format looked a little... /familiar/. It's supremely similar to shell templating!:
+
+#+begin_src sh
+$ echo foo{bar,baz}
+foobar foobaz
+
+$ echo {,fae}{bar,baz}
+foobar foobaz faebar faebaz
+
+$ echo super+{_,shift,alt,ctrl}+{h,n,e,l}
+super+_+h super+_+n super+_+e super+_+l super+shift+h super+shift+n super+shift+e super+shift+l super+alt+h super+alt+n super+alt+e super+alt+l super+ctrl+h super+ctrl+n super+ctrl+e super+ctrl+l
+#+end_src
+
+Armed with this knowledge, I glued together something terrible for my ~swayrc~ file:
+
+#+begin_src bash
+bind() {
+    args=("$@")
+    for i in $(seq 0 "$(( (${#args[@]} / 2) - 1 ))"); do
+	key=$(echo "${args[$i]}" | sed 's/super/Mod4/' )
+
+	val_index=$(( i + (${#args[@]} / 2) ))
+	val=${args[$val_index]}
+
+	echo swaymsg bindsym "$key" "$bindprefix$val"
+	swaymsg bindsym "$key" "$bindprefix$val"
+    done
+}
+
+# bind exec
+binde() {
+    bindprefix='exec ' bind "$@"
+}
+#+end_src
+
+And then, as long as I escaped the spaces to connect the terms, I could get away with this as my config:
+
+#+begin_src sh
+binde super+{,shift+,alt+,ctrl+}{h,n,e,l} \
+    {focus,move,resize,presel}.sh\ {west,south,north,east}
+#+end_src
+
+Hooray!
