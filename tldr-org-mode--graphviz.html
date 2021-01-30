@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-30 Sat 15:28 -->
+<!-- 2021-01-30 Sat 15:29 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TLDR org mode + graphviz</title>
@@ -71,11 +71,11 @@ mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #b22222;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #a020f0;">digraph</span><span style="color: #7f7f7f;"> {</span>
-<span style="color: #7f7f7f;">    a -&gt; b</span>
-<span style="color: #7f7f7f;">}</span>
-<span style="color: #b22222;">#+END_SRC</span>
+<pre class="src src-org"><span style="color: #545758;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #005dc0;">digraph</span><span style="color: #373739;"> {</span>
+<span style="color: #373739;">    a -&gt; b</span>
+<span style="color: #373739;">}</span>
+<span style="color: #545758;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -89,7 +89,7 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </p>
 
 
-<figure id="org358af39">
+<figure id="org4e45c61">
 <img src="./assets/posts/dot-example.png" alt="dot-example.png">
 
 </figure>
@@ -128,38 +128,38 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #b22222;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #a020f0;">digraph</span><span style="color: #7f7f7f;"> {</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">config:</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">TBLR, top bottom left right, the direction of the graph.</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #a020f0;">graph</span><span style="color: #7f7f7f;"> [</span><span style="color: #a0522d;">rankdir=</span><span style="color: #7f7f7f;">TB];</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">you can have multiple attrs per statement</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #a020f0;">graph</span><span style="color: #7f7f7f;"> [dpi=150 </span><span style="color: #a0522d;">splines=</span><span style="color: #7f7f7f;">ortho];</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #a020f0;">edge</span><span style="color: #7f7f7f;">[</span><span style="color: #a0522d;">decorate=</span><span style="color: #008b8b;">true</span><span style="color: #7f7f7f;">];</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #a020f0;">node</span><span style="color: #7f7f7f;"> [</span><span style="color: #a0522d;">shape=</span><span style="color: #008b8b;">box</span><span style="color: #7f7f7f;">];</span>
+<pre class="src src-org"><span style="color: #545758;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<span style="color: #005dc0;">digraph</span><span style="color: #373739;"> {</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">config:</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">TBLR, top bottom left right, the direction of the graph.</span>
+<span style="color: #373739;">    </span><span style="color: #005dc0;">graph</span><span style="color: #373739;"> [</span><span style="color: #ba0073;">rankdir=</span><span style="color: #373739;">TB];</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">you can have multiple attrs per statement</span>
+<span style="color: #373739;">    </span><span style="color: #005dc0;">graph</span><span style="color: #373739;"> [dpi=150 </span><span style="color: #ba0073;">splines=</span><span style="color: #373739;">ortho];</span>
+<span style="color: #373739;">    </span><span style="color: #005dc0;">edge</span><span style="color: #373739;">[</span><span style="color: #ba0073;">decorate=</span><span style="color: #373739;">true</span><span style="color: #373739;">];</span>
+<span style="color: #373739;">    </span><span style="color: #005dc0;">node</span><span style="color: #373739;"> [</span><span style="color: #ba0073;">shape=</span><span style="color: #373739;">box</span><span style="color: #373739;">];</span>
 
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">definitions:</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">nb: setting definitions on their own is useful in larger graphs</span>
-<span style="color: #7f7f7f;">    computer [</span><span style="color: #a0522d;">label=</span><span style="color: #7f7f7f;">computer];</span>
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">quotes are optional, I'm using them when there are spaces</span>
-<span style="color: #7f7f7f;">    phone [</span><span style="color: #a0522d;">label=</span><span style="color: #8b2252;">"android phone"</span><span style="color: #7f7f7f;">];</span>
-<span style="color: #7f7f7f;">    router [</span><span style="color: #a0522d;">label=</span><span style="color: #7f7f7f;">router];</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">definitions:</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">nb: setting definitions on their own is useful in larger graphs</span>
+<span style="color: #373739;">    computer [</span><span style="color: #ba0073;">label=</span><span style="color: #373739;">computer];</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">quotes are optional, I'm using them when there are spaces</span>
+<span style="color: #373739;">    phone [</span><span style="color: #ba0073;">label=</span><span style="color: #007400;">"android phone"</span><span style="color: #373739;">];</span>
+<span style="color: #373739;">    router [</span><span style="color: #ba0073;">label=</span><span style="color: #373739;">router];</span>
 
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">record syntax: | for horizontal, {|} for vert</span>
-<span style="color: #7f7f7f;">    internet [</span><span style="color: #a0522d;">shape=</span><span style="color: #008b8b;">record</span><span style="color: #7f7f7f;"> </span><span style="color: #a0522d;">label=</span><span style="color: #8b2252;">"{internet|cat pictures}"</span><span style="color: #7f7f7f;">]</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">record syntax: | for horizontal, {|} for vert</span>
+<span style="color: #373739;">    internet [</span><span style="color: #ba0073;">shape=</span><span style="color: #373739;">record</span><span style="color: #373739;"> </span><span style="color: #ba0073;">label=</span><span style="color: #007400;">"{internet|cat pictures}"</span><span style="color: #373739;">]</span>
 
-<span style="color: #7f7f7f;">    </span><span style="color: #b22222;">// </span><span style="color: #b22222;">relations:</span>
-<span style="color: #7f7f7f;">    computer -&gt; router;</span>
-<span style="color: #7f7f7f;">    phone -&gt; router [</span><span style="color: #a0522d;">label=</span><span style="color: #8b2252;">"wifi"</span><span style="color: #7f7f7f;">];</span>
-<span style="color: #7f7f7f;">    router -&gt; internet [</span><span style="color: #a0522d;">dir=</span><span style="color: #008b8b;">both</span><span style="color: #7f7f7f;">];</span>
-<span style="color: #7f7f7f;">}</span>
-<span style="color: #b22222;">#+END_SRC</span>
+<span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">relations:</span>
+<span style="color: #373739;">    computer -&gt; router;</span>
+<span style="color: #373739;">    phone -&gt; router [</span><span style="color: #ba0073;">label=</span><span style="color: #007400;">"wifi"</span><span style="color: #373739;">];</span>
+<span style="color: #373739;">    router -&gt; internet [</span><span style="color: #ba0073;">dir=</span><span style="color: #373739;">both</span><span style="color: #373739;">];</span>
+<span style="color: #373739;">}</span>
+<span style="color: #545758;">#+END_SRC</span>
 </pre>
 </div>
 
 
 
-<figure id="org71ee302">
+<figure id="org12618e5">
 <img src="./assets/posts/dot-internet.png" alt="dot-internet.png">
 
 </figure>

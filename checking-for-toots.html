@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-30 Sat 15:28 -->
+<!-- 2021-01-30 Sat 15:29 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>checking for toots</title>
@@ -63,7 +63,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I
 </p>
 
 
-<figure id="org6dc1465">
+<figure id="orgcf1e51d">
 <a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
 
 </figure>
@@ -110,7 +110,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #8b2252;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #007400;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -119,17 +119,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/usr/bin/</span><span style="color: #a020f0;">env</span><span style="color: #b22222;"> bash</span>
-<span style="color: #b22222;"># </span><span style="color: #b22222;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #b22222;"># </span><span style="color: #b22222;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #4d4d4f;">#</span><span style="color: #4d4d4f;">!/usr/bin/</span><span style="color: #005dc0;">env</span><span style="color: #4d4d4f;"> bash</span>
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #a0522d;">count</span>=0
-<span style="color: #a020f0;">if</span> ! <span style="color: #a0522d;">diff</span>=$(<span style="color: #ff00ff;">diff</span> &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #a020f0;">then</span>
-    <span style="color: #a0522d;">new_content</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #8b2252;">"$diff"</span> | grep <span style="color: #8b2252;">'^&lt;'</span> | sed <span style="color: #8b2252;">'s/&lt; //'</span>)
-    <span style="color: #a0522d;">count</span>=$(<span style="color: #ff00ff;">echo</span> <span style="color: #8b2252;">"$new_content"</span> | awk <span style="color: #8b2252;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #a020f0;">fi</span>
+<span style="color: #ba0073;">count</span>=0
+<span style="color: #005dc0;">if</span> <span style="color: #007400;">!</span> <span style="color: #ba0073;">diff</span>=$(diff &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #005dc0;">then</span>
+    <span style="color: #ba0073;">new_content</span>=$(echo <span style="color: #007400;">"$diff"</span> | grep <span style="color: #007400;">'^&lt;'</span> | sed <span style="color: #007400;">'s/&lt; //'</span>)
+    <span style="color: #ba0073;">count</span>=$(echo <span style="color: #007400;">"$new_content"</span> | awk <span style="color: #007400;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
+<span style="color: #005dc0;">fi</span>
 
-<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"toot mentions: $count"</span>
+<span style="color: #005dc0;">echo</span> <span style="color: #007400;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -138,7 +138,7 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 </p>
 
 
-<figure id="org06fb2b6">
+<figure id="orgd83ded7">
 <a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
 
 </figure>

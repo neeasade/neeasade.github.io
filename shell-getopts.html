@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-30 Sat 15:28 -->
+<!-- 2021-01-30 Sat 15:29 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tl;dr shell getopts</title>
@@ -59,19 +59,19 @@
 <hr>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">the ':' in front means the flag takes an arg</span>
-<span style="color: #a020f0;">while </span><span style="color: #483d8b;">getopts</span> w:reh flag; <span style="color: #a020f0;">do</span>
-    <span style="color: #a020f0;">case</span> $<span style="color: #a0522d;">flag</span><span style="color: #a020f0;"> in</span>
-        w) <span style="color: #a0522d;">wid</span>=$<span style="color: #a0522d;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">the ':' in front means the flag takes an arg</span>
+<span style="color: #005dc0;">while </span><span style="color: #005dc0;">getopts</span> w:reh flag; <span style="color: #005dc0;">do</span>
+    <span style="color: #005dc0;">case</span> $<span style="color: #ba0073;">flag</span><span style="color: #005dc0;"> in</span>
+        w) <span style="color: #ba0073;">wid</span>=$<span style="color: #ba0073;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #a020f0;">esac</span>
-<span style="color: #a020f0;">done</span>
+    <span style="color: #005dc0;">esac</span>
+<span style="color: #005dc0;">done</span>
 
-<span style="color: #b22222;"># </span><span style="color: #b22222;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #483d8b;">shift</span> $((OPTIND-1))
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #005dc0;">shift</span> $((OPTIND-1))
 </pre>
 </div>
 

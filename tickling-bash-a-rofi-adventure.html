@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-30 Sat 15:28 -->
+<!-- 2021-01-30 Sat 15:29 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tickling bash, quest for the perfect menu</title>
@@ -69,7 +69,7 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #8b2252;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #483d8b;">read</span> pid; <span style="color: #483d8b;">read</span> line; <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"$line"</span>; <span style="color: #483d8b;">kill</span> $<span style="color: #a0522d;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #007400;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #005dc0;">read</span> pid; <span style="color: #005dc0;">read</span> line; <span style="color: #005dc0;">echo</span> <span style="color: #007400;">"$line"</span>; <span style="color: #005dc0;">kill</span> $<span style="color: #ba0073;">pid</span>)
 </pre>
 </div>
 
@@ -125,7 +125,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍀 🍀 🍀
+🍂 🍂 🍂
 </p>
 </div>
 
@@ -157,7 +157,7 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #483d8b;">echo</span> a; sleep 10; <span style="color: #483d8b;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #005dc0;">echo</span> a; sleep 10; <span style="color: #005dc0;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
