@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-26 Tue 15:06 -->
+<!-- 2021-01-30 Sat 15:28 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>restclient.el + elasticsearch</title>
@@ -12,8 +12,8 @@
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=b4396db7fe8c64a17c86c8e7b4c325e2'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=b4396db7fe8c64a17c86c8e7b4c325e2'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=5f2fe828b2d726426af1a33254e0cf2d'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=5f2fe828b2d726426af1a33254e0cf2d'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
@@ -76,33 +76,33 @@ one might use it with elasticsearch:
 <div class="org-src-container">
 <pre class="src src-restclient">;; -*- mode: restclient -*-
 
-<span style="color: #545758;"># </span><span style="color: #545758;">local</span>
-<span style="color: #c6007f;">:target</span> = <span style="color: #007c00;">http://localhost:9200</span>
-<span style="color: #c6007f;">:cloud-auth</span> = <span style="color: #007c00;">""</span>
-<span style="color: #545758;"># </span><span style="color: #545758;">Basic http auth example:</span>
-cloud-auth := (concat <span style="color: #007c00;">"Basic "</span> (base64-encode-string <span style="color: #007c00;">"username:password"</span>))
-<span style="color: #c6007f;">:prefix</span> = <span style="color: #007c00;">some_prefix</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">local</span>
+<span style="color: #483d8b;">:target</span> = <span style="color: #8b2252;">http://localhost:9200</span>
+<span style="color: #483d8b;">:cloud-auth</span> = <span style="color: #8b2252;">""</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #8b2252;">"Basic "</span> (base64-encode-string <span style="color: #8b2252;">"username:password"</span>))
+<span style="color: #483d8b;">:prefix</span> = <span style="color: #8b2252;">some_prefix</span>
 
-<span style="color: #545758;"># </span><span style="color: #545758;">multiline variable</span>
-<span style="color: #c6007f;">:headers</span> = <span style="color: #545758;">&lt;&lt;</span>
-<span style="color: #c6007f;">content-type</span>: <span style="color: #007c00;">application/json</span>
-<span style="color: #c6007f;">Authorization</span>: <span style="color: #007c00;">:cloud-auth</span>
-<span style="color: #545758;">#</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">multiline variable</span>
+<span style="color: #483d8b;">:headers</span> = <span style="color: #8b2252;">&lt;&lt;</span>
+<span style="color: #a0522d;">content-type</span>: <span style="color: #8b2252;">application/json</span>
+<span style="color: #a0522d;">Authorization</span>: <span style="color: #8b2252;">:cloud-auth</span>
+<span style="color: #b22222;">#</span>
 
-<span style="color: #545758;"># </span><span style="color: #545758;">note: there must be a comment to separate request definitions.</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">note: there must be a comment to separate request definitions.</span>
 
-<span style="color: #545758;"># </span><span style="color: #545758;">list indices</span>
-<span style="color: #0065c8;">GET</span> <span style="color: #c6007f;">:target/_cat/indices</span>
-<span style="color: #c6007f;">:headers</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">list indices</span>
+<span style="color: #a020f0;">GET</span> <span style="color: #0000ff;">:target/_cat/indices</span>
+<span style="color: #483d8b;">:headers</span>
 
-<span style="color: #545758;"># </span><span style="color: #545758;">logs sorted by a field</span>
-<span style="color: #0065c8;">GET</span> <span style="color: #c6007f;">:target/:prefix_log/_search</span>
-<span style="color: #c6007f;">:headers</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">logs sorted by a field</span>
+<span style="color: #a020f0;">GET</span> <span style="color: #0000ff;">:target/:prefix_log/_search</span>
+<span style="color: #483d8b;">:headers</span>
 {
-  <span style="color: #007c00;">"sort"</span>: [
+  <span style="color: #8b2252;">"sort"</span>: [
     {
-      <span style="color: #007c00;">"timestamp"</span>: {
-        <span style="color: #007c00;">"order"</span>: <span style="color: #007c00;">"desc"</span>
+      <span style="color: #8b2252;">"timestamp"</span>: {
+        <span style="color: #8b2252;">"order"</span>: <span style="color: #8b2252;">"desc"</span>
       }
     }
   ]

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-26 Tue 15:06 -->
+<!-- 2021-01-30 Sat 15:28 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tickling bash, quest for the perfect menu</title>
@@ -12,8 +12,8 @@
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=240418263c5058930b4a990579be0d79'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=b4396db7fe8c64a17c86c8e7b4c325e2'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=b4396db7fe8c64a17c86c8e7b4c325e2'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=5f2fe828b2d726426af1a33254e0cf2d'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=5f2fe828b2d726426af1a33254e0cf2d'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
@@ -69,7 +69,7 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #007c00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0065c8;">read</span> pid; <span style="color: #0065c8;">read</span> line; <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"$line"</span>; <span style="color: #0065c8;">kill</span> $<span style="color: #c6007f;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #8b2252;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #483d8b;">read</span> pid; <span style="color: #483d8b;">read</span> line; <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"$line"</span>; <span style="color: #483d8b;">kill</span> $<span style="color: #a0522d;">pid</span>)
 </pre>
 </div>
 
@@ -125,7 +125,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🌱 🌱 🌱
+🍀 🍀 🍀
 </p>
 </div>
 
@@ -157,7 +157,7 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #0065c8;">echo</span> a; sleep 10; <span style="color: #0065c8;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #483d8b;">echo</span> a; sleep 10; <span style="color: #483d8b;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
