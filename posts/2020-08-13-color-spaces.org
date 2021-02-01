@@ -12,9 +12,9 @@
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
 	(ct-gradient (length word)
-			   (ht-get ns/theme :foreground)
-			   (ht-get ns/theme :background)
-			   t)))
+		     (ht-get ns/theme :foreground)
+		     (ht-get ns/theme :background)
+		     t)))
   (ns/blog-make-color-strip colors (-map 'string word)))
 #+end_SRC
 
@@ -540,15 +540,16 @@ A gradient is where you travel from one color's initial property values to some 
 :CUSTOM_ID: h-1ed7ea90-395e-4486-a11c-6f3c9054dd15
 :END:
 
-"Pastel Colors" when described in HSL have high lightness and low saturation. This means we can invent a function to "pastelize" a color, bit by bit (increasing lightness and lowering saturation). Let's take a rather dark defined color {{{color(#2d249f)}}}, and run it through with the same effect we have at the top of this page, making it more pastel until it's pretty bright:
+"Pastel Colors" when described in HSL have high lightness and low saturation. This means we can invent a function to "pastelize" a color, bit by bit (increasing lightness and lowering saturation). Let's take a rather dark defined color {{{color(#2d249f)}}}, and run it through with the same effect we have at the top of this page, making it more pastel until it's brighter:
 
 #+begin_src elisp :results raw :exports results
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors (-map (fn (-reduce-from
-			  (lambda (acc new) (ct-pastel acc 0.93 1.09))
+			  (lambda (acc new) (ct-pastel acc))
 			  "#2d249f"
 			  (range (+ 1 <>))))
 		     (range (length word)))))
+
   (ns/blog-make-color-strip colors (-map 'string word)))
 #+end_src
 
