@@ -1,0 +1,31 @@
+#+title: tiled wallpaper sources
+#+title_extra:
+#+post_type: post
+#+filetags: :rice:
+#+rss_title: tiled wallpaper sources
+#+draft: t
+#+pubdate: <2021-01-31>
+
+Tiled wallpapers are quirky, fun, and smol. That last property means you can do fun things to them fast, like programattically apply image filters or [[https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/bin/bin/bgtint][tint]] them so some current colorscheme.
+
+The following is mostly a scraping of this [[https://nixers.net/Thread-Tiling-Wallpapers][nixer's thread]], and also the [[https://rizonrice.club/Rice:Resources#Wallpaper_sources][#rice wiki wallpapers]] (a tiled subset). The archives are compressed collections hosted on [[https:teknik.io][teknik.io]]. This collection focuses /only/ on tiled patterns.
+
+- +http://bgrepeat.com+ [[https://u.teknik.io/FAaP8.7z][archive]]
+- +http://squidfingers.com/patterns+  [[https://u.teknik.io/QkorA.7z][archive]]
+- [[http://www.colourlovers.com/pattern][colour lovers patterns]]
+- [[http://www.heropatterns.com/][hero patterns]]
+- [[http://www.stripegenerator.com/][stripe generator]]
+- [[https://github.com/BenjaminHCCarr/PropagandaTiles][propaganda tiles]]
+- [[https://thepatternlibrary.com/][the pattern library]]
+- [[https://github.com/dkeg/bitmap-walls/][dkeg's bitmaps]]
+- [[https://github.com/wallace-aph/tiles-and-such][wallace's tiles and such]]
+- [[https://www.toptal.com/designers/subtlepatterns/][subtle patterns]]
+- http://cs.gettysburg.edu/~duncjo01/archive/patterns/
+- [[https://1-background.com/][1-background]]
+- [[http://www.tartanmaker.com/][tartan maker]]
+
+- todo: archive downloaded vain backup of tiles from thread
+
+-----
+
+For non-tiled sources, I usually go to [[https://unsplash.com][unsplash]] or [[https://wallhaven.cc][wallhaven]].
