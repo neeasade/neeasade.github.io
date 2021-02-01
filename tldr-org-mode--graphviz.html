@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-30 Sat 15:31 -->
+<!-- 2021-01-31 Sun 20:21 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TLDR org mode + graphviz</title>
 <meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="TLDR org mode + graphviz">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/tldr-org-mode--graphviz.html">
+<meta name="twitter:card" content="summary_large_image">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
@@ -52,6 +57,11 @@
 </div>
 
 <p>
+&lt;!&#x2013; # when local: &#x2013;&gt;
+&lt;!&#x2013; &lt;script src=&ldquo;./assets/js/linktext.js&rdquo; defer&gt;&lt;/script&gt; &#x2013;&gt;
+</p>
+
+<p>
 <h1 class=title>TLDR org mode + graphviz</h1>
 </p>
 
@@ -71,11 +81,11 @@ mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #545758;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<pre class="src src-org"><span style="color: #006e96; background-color: #e8ebec;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
 <span style="color: #005dc0;">digraph</span><span style="color: #373739;"> {</span>
 <span style="color: #373739;">    a -&gt; b</span>
 <span style="color: #373739;">}</span>
-<span style="color: #545758;">#+END_SRC</span>
+<span style="color: #006e96; background-color: #e8ebec;">#+END_SRC</span>
 </pre>
 </div>
 
@@ -89,7 +99,7 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </p>
 
 
-<figure id="orge6088ee">
+<figure id="orgb4d9d86">
 <img src="./assets/posts/dot-example.png" alt="dot-example.png">
 
 </figure>
@@ -128,7 +138,7 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #545758;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
+<pre class="src src-org"><span style="color: #006e96; background-color: #e8ebec;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
 <span style="color: #005dc0;">digraph</span><span style="color: #373739;"> {</span>
 <span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">config:</span>
 <span style="color: #373739;">    </span><span style="color: #4d4d4f;">// </span><span style="color: #4d4d4f;">TBLR, top bottom left right, the direction of the graph.</span>
@@ -153,13 +163,13 @@ Here is an example that shows how attributes are set and some defaults I like:
 <span style="color: #373739;">    phone -&gt; router [</span><span style="color: #ba0073;">label=</span><span style="color: #007400;">"wifi"</span><span style="color: #373739;">];</span>
 <span style="color: #373739;">    router -&gt; internet [</span><span style="color: #ba0073;">dir=</span><span style="color: #373739;">both</span><span style="color: #373739;">];</span>
 <span style="color: #373739;">}</span>
-<span style="color: #545758;">#+END_SRC</span>
+<span style="color: #006e96; background-color: #e8ebec;">#+END_SRC</span>
 </pre>
 </div>
 
 
 
-<figure id="org84c3461">
+<figure id="orgf6a51a8">
 <img src="./assets/posts/dot-internet.png" alt="dot-internet.png">
 
 </figure>
