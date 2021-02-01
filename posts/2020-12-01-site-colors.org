@@ -10,18 +10,18 @@ This will be a swatch of the current colors used on the site. They are all defin
 	   (apply 'ns/blog-make-color-strip
 		  (-unzip items)))
 	 `(((,(ht-get ns/theme :background) ":background")
-	    (,(ht-get ns/theme :background_) ":background_")
-	    (,(ht-get ns/theme :background__) ":background__")
-	    (,(ht-get ns/theme :background+) ":background+"))
+	    (,(tarp/get :background :weak) "weak background")
+	    (,(tarp/get :background :strong) "strong background")
+	    (,(tarp/get :background :focused) ":background+"))
 
 	   ((,(ht-get ns/theme :foreground) ":foreground")
-	    (,(ht-get ns/theme :foreground_) ":foreground_")
+	    (,(ht-get ns/theme :faded) ":faded")
 	    (,(ht-get ns/theme :foreground+) ":foreground+"))
 
-	   ((,(ht-get ns/theme :accent1) ":accent1")
-	    (,(ht-get ns/theme :accent1_) ":accent1_")
-	    (,(ht-get ns/theme :accent2) ":accent2")
-	    (,(ht-get ns/theme :accent2_) ":accent2_")))))
+	   ((,(ht-get ns/theme :primary) ":primary")
+	    (,(ht-get ns/theme :assumed) ":assumed")
+	    (,(ht-get ns/theme :alt) ":alt")
+	    (,(ht-get ns/theme :strings) ":strings")))))
 #+end_src
 
 And a syntax sample for better visual:
