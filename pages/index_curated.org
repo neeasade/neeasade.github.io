@@ -1,7 +1,7 @@
 #+title: 🍃🌳ＧＲＯＶＥ🍃🌳
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] [[./index_published.org][Published]] [[./index_bubble.org][Bubble]] *Curated*)}}}
 
-This is a curated subset of posts on this site, sorted by edit date.
+This is a curated subset of posts on this site, sorted by edit date. 'curated' just means I thought I might as well put a post  in my main [[https://notes.neeasade.net/rss.xml][rss feed]].
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->>
