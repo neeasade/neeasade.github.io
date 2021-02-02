@@ -1,8 +1,74 @@
 #+title: tarps
 #+pubdate: <2021-01-19>
 
-This page hosts screenshots of my [[https://github.com/neeasade/tarps][tarps]] emacs themes.
+# NB: to regen the tables, run C-c C-c over the TBLFM line with the correlated theme loaded.
+
+This page hosts screenshots of my [[https://github.com/neeasade/tarps][tarps]] emacs themes. For accuracy of the palette references, you may crosscheck the edit date of this post with the edit date on the respective theme files, linked below.
+
+These themes map a limited number of /intents/ as labeled colors in different emphasis contexts -- this allows tarp themes to keep a constant contrast ratio in different situations. The repo has more details.
+
+** mcfay
+
+source: [[https://github.com/neeasade/tarps/blob/master/tarp-mcfay-theme.el][tarp-mcfay-theme.el]]
 
 {{{image(tarp-mcfay.png)}}}
 
+#+begin_center
+palette:
+#+end_center
+
+| _           | :normal              | :weak                | :strong              | :focused             |
+| :background | {{{color(#e8ebec)}}} | {{{color(#dbdbdd)}}} | {{{color(#d0cccd)}}} | {{{color(#9bc6df)}}} |
+| :foreground | {{{color(#3e4142)}}} | {{{color(#373739)}}} | {{{color(#302c2d)}}} | {{{color(#00263f)}}} |
+| :faded      | {{{color(#545758)}}} | {{{color(#4d4d4f)}}} | {{{color(#484445)}}} | {{{color(#154059)}}} |
+| :primary    | {{{color(#c6007f)}}} | {{{color(#ba0073)}}} | {{{color(#aa0063)}}} | {{{color(#9c0055)}}} |
+| :assumed    | {{{color(#0065c8)}}} | {{{color(#005dc0)}}} | {{{color(#0053b6)}}} | {{{color(#0049ac)}}} |
+| :alt        | {{{color(#006e96)}}} | {{{color(#00668e)}}} | {{{color(#005c84)}}} | {{{color(#00547c)}}} |
+| :strings    | {{{color(#007c00)}}} | {{{color(#007400)}}} | {{{color(#006a00)}}} | {{{color(#006200)}}} |
+#+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
+
+#+begin_center
+preview:
+#+end_center
+
+| _           | :normal                                  | :weak                                    | :strong                                  | :focused                                 |
+| :foreground | {{{color-ext(#e8ebec,#3e4142,preview)}}} | {{{color-ext(#dbdbdd,#373739,preview)}}} | {{{color-ext(#d0cccd,#302c2d,preview)}}} | {{{color-ext(#9bc6df,#00263f,preview)}}} |
+| :faded      | {{{color-ext(#e8ebec,#545758,preview)}}} | {{{color-ext(#dbdbdd,#4d4d4f,preview)}}} | {{{color-ext(#d0cccd,#484445,preview)}}} | {{{color-ext(#9bc6df,#154059,preview)}}} |
+| :primary    | {{{color-ext(#e8ebec,#c6007f,preview)}}} | {{{color-ext(#dbdbdd,#ba0073,preview)}}} | {{{color-ext(#d0cccd,#aa0063,preview)}}} | {{{color-ext(#9bc6df,#9c0055,preview)}}} |
+| :assumed    | {{{color-ext(#e8ebec,#0065c8,preview)}}} | {{{color-ext(#dbdbdd,#005dc0,preview)}}} | {{{color-ext(#d0cccd,#0053b6,preview)}}} | {{{color-ext(#9bc6df,#0049ac,preview)}}} |
+| :alt        | {{{color-ext(#e8ebec,#006e96,preview)}}} | {{{color-ext(#dbdbdd,#00668e,preview)}}} | {{{color-ext(#d0cccd,#005c84,preview)}}} | {{{color-ext(#9bc6df,#00547c,preview)}}} |
+| :strings    | {{{color-ext(#e8ebec,#007c00,preview)}}} | {{{color-ext(#dbdbdd,#007400,preview)}}} | {{{color-ext(#d0cccd,#006a00,preview)}}} | {{{color-ext(#9bc6df,#006200,preview)}}} |
+#+TBLFM: @2$2..@7$5='(format "{{{color-ext(%s,%s,%s)}}}" (tarp/get :background (intern @1)) (tarp/get (intern $1) (intern @1)) "preview")'
+
+** struan
+
+source: [[https://github.com/neeasade/tarps/blob/master/tarp-struan-theme.el][tarp-struan-theme.el]]
+
 {{{image(tarp-struan.png)}}}
+
+#+begin_center
+palette:
+#+end_center
+
+| _           | :normal              | :weak                | :strong              | :focused             |
+| :background | {{{color(#f2e9e3)}}} | {{{color(#dcd3cd)}}} | {{{color(#cdc4be)}}} | {{{color(#ffc1ac)}}} |
+| :foreground | {{{color(#483f39)}}} | {{{color(#3a312b)}}} | {{{color(#2f2620)}}} | {{{color(#483f39)}}} |
+| :faded      | {{{color(#9f5625)}}} | {{{color(#914817)}}} | {{{color(#853c0b)}}} | {{{color(#9f5625)}}} |
+| :primary    | {{{color(#903f7a)}}} | {{{color(#8e3d78)}}} | {{{color(#84336e)}}} | {{{color(#903f7a)}}} |
+| :assumed    | {{{color(#3c6369)}}} | {{{color(#3a6167)}}} | {{{color(#30575d)}}} | {{{color(#3c6369)}}} |
+| :alt        | {{{color(#8a4d38)}}} | {{{color(#884b36)}}} | {{{color(#7e412c)}}} | {{{color(#8a4d38)}}} |
+| :strings    | {{{color(#4f6600)}}} | {{{color(#4d6400)}}} | {{{color(#455900)}}} | {{{color(#4f6600)}}} |
+#+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
+
+#+begin_center
+preview:
+#+end_center
+
+| _           | :normal                                  | :weak                                    | :strong                                  | :focused                                 |
+| :foreground | {{{color-ext(#f2e9e3,#483f39,preview)}}} | {{{color-ext(#dcd3cd,#3a312b,preview)}}} | {{{color-ext(#cdc4be,#2f2620,preview)}}} | {{{color-ext(#ffc1ac,#483f39,preview)}}} |
+| :faded      | {{{color-ext(#f2e9e3,#9f5625,preview)}}} | {{{color-ext(#dcd3cd,#914817,preview)}}} | {{{color-ext(#cdc4be,#853c0b,preview)}}} | {{{color-ext(#ffc1ac,#9f5625,preview)}}} |
+| :primary    | {{{color-ext(#f2e9e3,#903f7a,preview)}}} | {{{color-ext(#dcd3cd,#8e3d78,preview)}}} | {{{color-ext(#cdc4be,#84336e,preview)}}} | {{{color-ext(#ffc1ac,#903f7a,preview)}}} |
+| :assumed    | {{{color-ext(#f2e9e3,#3c6369,preview)}}} | {{{color-ext(#dcd3cd,#3a6167,preview)}}} | {{{color-ext(#cdc4be,#30575d,preview)}}} | {{{color-ext(#ffc1ac,#3c6369,preview)}}} |
+| :alt        | {{{color-ext(#f2e9e3,#8a4d38,preview)}}} | {{{color-ext(#dcd3cd,#884b36,preview)}}} | {{{color-ext(#cdc4be,#7e412c,preview)}}} | {{{color-ext(#ffc1ac,#8a4d38,preview)}}} |
+| :strings    | {{{color-ext(#f2e9e3,#4f6600,preview)}}} | {{{color-ext(#dcd3cd,#4d6400,preview)}}} | {{{color-ext(#cdc4be,#455900,preview)}}} | {{{color-ext(#ffc1ac,#4f6600,preview)}}} |
+#+TBLFM: @2$2..@7$5='(format "{{{color-ext(%s,%s,%s)}}}" (tarp/get :background (intern @1)) (tarp/get (intern $1) (intern @1)) "preview")'
