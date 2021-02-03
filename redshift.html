@@ -4,14 +4,14 @@
 <!-- 2021-02-03 Wed 13:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About</title>
+<title>redshift oneshot calls</title>
 <meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="About">
+<meta property="og:title" content="redshift oneshot calls">
 <meta property="og:description" content="">
 <meta property="description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
-<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/about.html">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/redshift.html">
 <meta name="twitter:card" content="summary_large_image">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -50,48 +50,57 @@
 <body>
 <div id="content">
 <div style="float: left">
-    <a href='/sitemap.html'>Up: Sitemap</a>
+    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/pages/about.org">Last edit: <2020-11-04></a>
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/notes/redshift.org">Last edit: <2021-02-03></a>
 </div>
 
 <p>
-<h1 class=title>About</h1>
+<h1 class=title>redshift oneshot calls</h1>
 </p>
 
 
 <hr>
 
+
 <p>
-The vibe of &ldquo;Nathan&rsquo;s Notes&rdquo; is meant to be casual. I wanted a place to put stuff and maybe share links to reference material for others, encourage myself to write and share more. The author is posting all this from Emacs, so related themes will leak in (feedback loop, expressive programming languages, workflow integrations).
+cf <a href="https://github.com/jonls/redshift">https://github.com/jonls/redshift</a>
 </p>
 
 <p>
-See <a href="https://notes.neeasade.net/blog-meta.html#h-a074491a-fbb9-48fe-80af-ec7786fa9a03">here</a> for a more complete list of things I want out of this site.
+The value is always relative to the current tempurature, with &ldquo;current&rdquo; = 6500K. Repeating calls like <code>redshift -O 5000</code> will continue to darken the screen.
 </p>
 
 <p>
-Here are some sources of inspiration I have from other blogs (for friend inspo, see the list of peeps in <a href="./rice-links.html">rice links</a>):
+at night:
 </p>
-
-<ul class="org-ul">
-<li>writing <a href="https://waitbutwhy.com/">https://waitbutwhy.com/</a></li>
-<li>writing <a href="http://ruricolist.com/">http://ruricolist.com/</a></li>
-<li>writing <a href="http://www.stilldrinking.org/">http://www.stilldrinking.org/</a></li>
-<li>writing <a href="https://doreenmichele.blogspot.com/">https://doreenmichele.blogspot.com/</a></li>
-<li>artful <a href="https://www.dreamsongs.com/">https://www.dreamsongs.com/</a></li>
-<li>artful <a href="http://thedarnedestthing.com/">http://thedarnedestthing.com/</a></li>
-<li>focused theme <a href="https://prog21.dadgum.com/">https://prog21.dadgum.com/</a></li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-sh">redshift -x
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">redshift -O 1900K</span>
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">redshift -O 3700K</span>
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">redshift -O 5000K</span>
+redshift -O 6500K
+<span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">redshift -O 8500K</span>
+</pre>
+</div>
 
 <p>
-Like any person, I&rsquo;m learning and growing and am imperfect. Part of putting stuff here is thinking things through, like writing forces you to do.
+reset:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">redshift -x
+</pre>
+</div>
+
+<p>
+Supposedly using warmer temperatures will prevent eye strain. When setting it really low, I&rsquo;ve found it only takes a  few minutes to get used to a new color tempurature.
 </p>
 
-
-
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+</p>
 
 <div class='footer-left'>
     <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
@@ -100,7 +109,7 @@ Like any person, I&rsquo;m learning and growing and am imperfect. Part of puttin
 
 
 <div class="footer-right">
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/pages/about.org">Page Markup</a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/notes/redshift.org">Page Markup</a>
 </div>
 </div>
 </body>

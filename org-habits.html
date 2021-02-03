@@ -4,14 +4,14 @@
 <!-- 2021-02-03 Wed 13:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About</title>
+<title>org habit syntax reference</title>
 <meta name="generator" content="Org mode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="About">
+<meta property="og:title" content="org habit syntax reference">
 <meta property="og:description" content="">
 <meta property="description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
-<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/about.html">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/org-habits.html">
 <meta name="twitter:card" content="summary_large_image">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -50,48 +50,59 @@
 <body>
 <div id="content">
 <div style="float: left">
-    <a href='/sitemap.html'>Up: Sitemap</a>
+    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/pages/about.org">Last edit: <2020-11-04></a>
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/notes/org-habits.org">Last edit: <2021-02-03></a>
 </div>
 
 <p>
-<h1 class=title>About</h1>
+<h1 class=title>org habit syntax reference</h1>
 </p>
 
 
 <hr>
 
-<p>
-The vibe of &ldquo;Nathan&rsquo;s Notes&rdquo; is meant to be casual. I wanted a place to put stuff and maybe share links to reference material for others, encourage myself to write and share more. The author is posting all this from Emacs, so related themes will leak in (feedback loop, expressive programming languages, workflow integrations).
-</p>
 
 <p>
-See <a href="https://notes.neeasade.net/blog-meta.html#h-a074491a-fbb9-48fe-80af-ec7786fa9a03">here</a> for a more complete list of things I want out of this site.
-</p>
-
-<p>
-Here are some sources of inspiration I have from other blogs (for friend inspo, see the list of peeps in <a href="./rice-links.html">rice links</a>):
+A habit has the following properties:
 </p>
 
 <ul class="org-ul">
-<li>writing <a href="https://waitbutwhy.com/">https://waitbutwhy.com/</a></li>
-<li>writing <a href="http://ruricolist.com/">http://ruricolist.com/</a></li>
-<li>writing <a href="http://www.stilldrinking.org/">http://www.stilldrinking.org/</a></li>
-<li>writing <a href="https://doreenmichele.blogspot.com/">https://doreenmichele.blogspot.com/</a></li>
-<li>artful <a href="https://www.dreamsongs.com/">https://www.dreamsongs.com/</a></li>
-<li>artful <a href="http://thedarnedestthing.com/">http://thedarnedestthing.com/</a></li>
-<li>focused theme <a href="https://prog21.dadgum.com/">https://prog21.dadgum.com/</a></li>
+<li>has TODO</li>
+<li>has SCHEDULED:</li>
+</ul>
+
+<pre class="example" id="org9a315ed">
+\* TODO something
+\SCHEDULED: &lt;2020-10-27 Tue ++1w&gt;
+</pre>
+
+<ul class="org-ul">
+<li>++1w meaning: increase one week after scheduled date (keep increasing by one week until in future), keep day</li>
+<li>.+1w meaning: increase one week after NOW, time when marked done</li>
 </ul>
 
 <p>
-Like any person, I&rsquo;m learning and growing and am imperfect. Part of putting stuff here is thinking things through, like writing forces you to do.
+Text from the <a href="https://orgmode.org/manual/Tracking-your-habits.html">manual</a>:
 </p>
 
+<ol class="org-ol">
+<li>The habit is a TODO item, with a TODO keyword representing an open state.</li>
+<li>The property ‘STYLE’ is set to the value ‘habit’ (see Properties and Columns).</li>
+<li>The TODO has a scheduled date, usually with a ‘.+’ style repeat interval. A ‘++’ style may be appropriate for habits with time constraints, e.g., must be done on weekends, or a ‘+’ style for an unusual habit that can have a backlog, e.g., weekly reports.</li>
+<li>The TODO may also have minimum and maximum ranges specified by using the syntax ‘.+2d/3d’, which says that you want to do the task at least every three days, but at most every two days.</li>
+<li>State logging for the DONE state is enabled (see Tracking TODO state changes), in order for historical data to be represented in the consistency graph. If it is not enabled it is not an error, but the consistency graphs are largely meaningless.</li>
+</ol>
 
+<p>
+NB: number <b>2</b> is what separates a HABIT from a repeating scheduled headline. I think there are some org-agenda implications for &ldquo;consistency feedback&rdquo; if you use that.
+</p>
 
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+</p>
 
 <div class='footer-left'>
     <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
@@ -100,7 +111,7 @@ Like any person, I&rsquo;m learning and growing and am imperfect. Part of puttin
 
 
 <div class="footer-right">
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/pages/about.org">Page Markup</a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/notes/org-habits.org">Page Markup</a>
 </div>
 </div>
 </body>

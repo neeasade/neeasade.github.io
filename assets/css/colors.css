@@ -37,7 +37,7 @@ Get the target background against that median:
 --foreground_strong : #292628;
 --foreground_plus : #001f38;
 
---radius: 2px;
+--radius: 0px;
 
 /* compat */
 --background__: var(--background_strong);

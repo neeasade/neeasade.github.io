@@ -69,6 +69,10 @@ a img {
     background: none !important;
 }
 
+figure {
+    text-align: center;
+}
+
 img {
     margin: auto;
     width: auto;
@@ -149,19 +153,20 @@ a {
 	text-decoration: none;
 
 	background: var(--background_weak);
-	color: var(--foreground_weak);
+	/* color: var(--foreground_weak); */
+	color: var(--alt);
 
 	border-style: solid;
-	border-color: var(--faded);
+
+	border-color: #a0a3a4;
 	border-radius: var(--radius);
-	border-width: 1px 1px 2px 1px;
-	margin: -1px -1px -2px -1px;
-	/* margin: -1px; */
+	border-width: 1px;
+	margin: -1px;
 }
 
 a:visited {
-	text-decoration: none;
 	border-color: #a0a3a4;
+	text-decoration: none;
 	color: var(--faded_weak);
 }
 
