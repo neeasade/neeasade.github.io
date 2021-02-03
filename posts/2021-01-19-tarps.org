@@ -1,4 +1,5 @@
 #+title: tarps
+#+title_extra: tarp emacs gui theme previews
 #+pubdate: <2021-01-19>
 
 # NB: to regen the tables, run C-c C-c over the TBLFM line with the correlated theme loaded.
@@ -25,7 +26,7 @@ palette:
 | :assumed    | {{{color(#0065c8)}}} | {{{color(#005dc0)}}} | {{{color(#0053b6)}}} | {{{color(#0049ac)}}} |
 | :alt        | {{{color(#006e96)}}} | {{{color(#00668e)}}} | {{{color(#005c84)}}} | {{{color(#00547c)}}} |
 | :strings    | {{{color(#007c00)}}} | {{{color(#007400)}}} | {{{color(#006a00)}}} | {{{color(#006200)}}} |
-#+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
+#+TBLFM: @2$2..@9$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
 
 #+begin_center
 preview:

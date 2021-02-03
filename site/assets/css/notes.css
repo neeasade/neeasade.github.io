@@ -69,6 +69,10 @@ a img {
     background: none !important;
 }
 
+figure {
+    text-align: center;
+}
+
 img {
     margin: auto;
     width: auto;

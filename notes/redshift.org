@@ -1,0 +1,28 @@
+
+#+title: redshift oneshot calls
+#+title_extra: 
+#+filetags: 
+#+pubdate: <2021-02-03>
+#+post_type: note
+
+
+cf https://github.com/jonls/redshift
+
+The value is always relative to the current tempurature, with "current" = 6500K. Repeating calls like ~redshift -O 5000~ will continue to darken the screen.
+
+at night:
+#+begin_src sh :results none
+redshift -x
+# redshift -O 1900K
+# redshift -O 3700K
+# redshift -O 5000K
+redshift -O 6500K
+# redshift -O 8500K
+#+end_src
+
+reset:
+#+begin_src sh :results none
+redshift -x
+#+end_src
+
+Supposedly using warmer temperatures will prevent eye strain. When setting it really low, I've found it only takes a  few minutes to get used to a new color tempurature.

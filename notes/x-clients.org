@@ -1,0 +1,16 @@
+
+#+title: Maximum number of clients reached on X
+#+title_extra: 
+#+filetags: 
+#+pubdate: <2021-02-03>
+#+post_type: note
+
+Find out who is hogging your clients:
+
+#+begin_src sh
+lsof -U +c 15 | cut -f1 -d' ' | sort | uniq -c | sort -rn | head -n 100
+#+end_src
+
+cf https://unix.stackexchange.com/questions/368017/cant-start-applications-due-to-maximum-number-of-clients-reached-error
+
+Some further discussion: https://nixers.net/Thread-Maximum-number-of-clients-reached-on-X

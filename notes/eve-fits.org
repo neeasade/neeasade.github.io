@@ -1,0 +1,69 @@
+
+#+title: eve fits
+#+title_extra: 
+#+filetags: 
+#+pubdate: <2021-02-03>
+#+post_type: note
+
+
+Archiving some fits from when I played Eve Online for a month
+
+The format is PLOP-style ini
+
+***** algos fit
+this is currently a mashup of these: [[https://www.thealphasguide.com/upgrading-ships/gallente/algos/][alphas guide link]]
+#+begin_src
+[Algos, boob]
+Modal Light Ion Particle Accelerator I
+Modal Light Ion Particle Accelerator I
+Modal Light Ion Particle Accelerator I
+Modal Light Ion Particle Accelerator I
+Modal Light Ion Particle Accelerator I
+Small Shield Booster II
+1MN Monopropellant Enduring Afterburner
+Cap Recharger II
+Drone Damage Amplifier II
+Drone Damage Amplifier II
+Damage Control II
+Small EM Shield Reinforcer I
+Small Capacitor Control Circuit I
+Small Capacitor Control Circuit I
+Warrior I x4
+Hobgoblin I x4
+Hammerhead I x2
+Antimatter Charge S x2600
+#+end_src
+***** pure drone tristan (without tractor beam)
+#+begin_src
+[Tristan, all drone baby]
+Damage Control I
+Drone Damage Amplifier I
+Inertial Stabilizers I
+1MN Afterburner I
+Sensor Booster I, Scan Resolution Script
+Small Shield Booster I
+Salvager I
+[Empty High slot]
+[Empty High slot]
+[Empty Rig slot]
+[Empty Rig slot]
+[Empty Rig slot]
+Hobgoblin I x5
+#+end_src
+***** pure drone tristan (with tractor beam)
+#+begin_src
+[Tristan, cock2]
+Damage Control I
+Drone Damage Amplifier I
+Inertial Stabilizers I
+1MN Afterburner I
+Sensor Booster I, Scan Resolution Script
+Small Shield Booster I
+Salvager I
+Small Tractor Beam I
+[Empty High slot]
+[Empty Rig slot]
+[Empty Rig slot]
+[Empty Rig slot]
+Hobgoblin I x5
+#+end_src
