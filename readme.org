@@ -1,1 +1,1 @@
-Org mode blog. See the generation [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/blog.el][here]].
+Org mode blog. See the generation [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/blog.el][here]]. The notes is an export from my personal notes file.
