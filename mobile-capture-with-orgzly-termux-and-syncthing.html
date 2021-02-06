@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-03 Wed 13:33 -->
+<!-- 2021-02-06 Sat 17:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Mobile Setup</title>
@@ -89,7 +89,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="org5b5632d">
+<figure id="org7fec5a7">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -101,7 +101,7 @@ turns into:
 </div>
 
 
-<figure id="orgedd4779">
+<figure id="org78d0f35">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
@@ -116,19 +116,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">200mb</span>
-  <span style="color: #ba0073;">size_limit</span>=200000
-  <span style="color: #ba0073;">sync_music_dir</span>=<span style="color: #007400;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #ba0073;">music_dir</span>=<span style="color: #007400;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #a7432d;"># </span><span style="color: #a7432d;">200mb</span>
+  <span style="color: #903f7a;">size_limit</span>=200000
+  <span style="color: #903f7a;">sync_music_dir</span>=<span style="color: #4f6600;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #903f7a;">music_dir</span>=<span style="color: #4f6600;">"$HOME/Music"</span>
 
-  <span style="color: #ba0073;">IFS</span>=$<span style="color: #007400;">'\n'</span>
-  <span style="color: #005dc0;">while </span><span style="color: #005dc0;">read</span> -r f; <span style="color: #005dc0;">do</span>
-      <span style="color: #ba0073;">collection_size</span>=$(du <span style="color: #007400;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #007400;">'s/\t.*//'</span>)
-      <span style="color: #005dc0;">if</span> [ $<span style="color: #ba0073;">collection_size</span> -lt $<span style="color: #ba0073;">size_limit</span> ]; <span style="color: #005dc0;">then</span>
-          <span style="color: #005dc0;">echo</span> cp <span style="color: #007400;">"${music_dir}/$f"</span> <span style="color: #007400;">"$sync_music_dir"</span>
-          cp <span style="color: #007400;">"${music_dir}/$f"</span> <span style="color: #007400;">"$sync_music_dir"</span>
-      <span style="color: #005dc0;">fi</span>
-  <span style="color: #005dc0;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007400;">'%file%'</span> | shuf)
+  <span style="color: #903f7a;">IFS</span>=$<span style="color: #4f6600;">'\n'</span>
+  <span style="color: #3c6369;">while </span><span style="color: #3c6369;">read</span> -r f; <span style="color: #3c6369;">do</span>
+      <span style="color: #903f7a;">collection_size</span>=$(du <span style="color: #4f6600;">"$sync_music_dir"</span> | tail -n 1 | sed <span style="color: #4f6600;">'s/\t.*//'</span>)
+      <span style="color: #3c6369;">if</span> [ $<span style="color: #903f7a;">collection_size</span> -lt $<span style="color: #903f7a;">size_limit</span> ]; <span style="color: #3c6369;">then</span>
+          <span style="color: #3c6369;">echo</span> cp <span style="color: #4f6600;">"${music_dir}/$f"</span> <span style="color: #4f6600;">"$sync_music_dir"</span>
+          cp <span style="color: #4f6600;">"${music_dir}/$f"</span> <span style="color: #4f6600;">"$sync_music_dir"</span>
+      <span style="color: #3c6369;">fi</span>
+  <span style="color: #3c6369;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #4f6600;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
@@ -171,7 +171,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="org96731d5">
+<figure id="org16dcfe3">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -181,7 +181,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="org9befaa8">
+<figure id="org87bfd4b">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>
@@ -195,7 +195,9 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
     <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
 </div>
 
-
+<p>
+<div class=footer-center>type: post</div>
+</p>
 
 <div class="footer-right">
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-07-mobile-capture-with-orgzly,-termux,-and-syncthing.org">Page Markup</a>

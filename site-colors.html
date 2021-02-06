@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-03 Wed 13:34 -->
+<!-- 2021-02-06 Sat 17:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>site colors</title>
@@ -70,21 +70,21 @@ This will be a swatch of the current colors used on the site. They are all defin
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #e8ebec;color: #3e4142; width: 25.0%;">:background</div>
-<div class="colorblock colorcenter" style="background: #dbdbdd;color: #3e4142; width: 25.0%;">weak background</div>
-<div class="colorblock colorcenter" style="background: #d0cdce;color: #3e4142; width: 25.0%;">strong background</div>
-<div class="colorblock colorcenter" style="background: #9bc6df;color: #3e4142; width: 25.0%;">:background+</div>
+<div class="colorblock colorcenter" style="background: #f2e9e3;color: #544b45; width: 25.0%;">:background</div>
+<div class="colorblock colorcenter" style="background: #e3dad8;color: #544b45; width: 25.0%;">weak background</div>
+<div class="colorblock colorcenter" style="background: #d9d0d5;color: #544b45; width: 25.0%;">strong background</div>
+<div class="colorblock colorcenter" style="background: #e9ccc4;color: #544b45; width: 25.0%;">:background+</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #3e4142;color: #e8ebec; width: 33.333333333333336%;">:foreground</div>
-<div class="colorblock colorcenter" style="background: #545758;color: #e8ebec; width: 33.333333333333336%;">:faded</div>
-<div class="colorblock colorcenter" style="background: #00263f;color: #e8ebec; width: 33.333333333333336%;">:foreground+</div>
+<div class="colorblock colorcenter" style="background: #544b45;color: #f2e9e3; width: 33.333333333333336%;">:foreground</div>
+<div class="colorblock colorcenter" style="background: #a35a29;color: #f2e9e3; width: 33.333333333333336%;">:faded</div>
+<div class="colorblock colorcenter" style="background: #544b45;color: #f2e9e3; width: 33.333333333333336%;">:foreground+</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #c6007f;color: #e8ebec; width: 25.0%;">:primary</div>
-<div class="colorblock colorcenter" style="background: #0065c8;color: #e8ebec; width: 25.0%;">:assumed</div>
-<div class="colorblock colorcenter" style="background: #006e96;color: #e8ebec; width: 25.0%;">:alt</div>
-<div class="colorblock colorcenter" style="background: #007c00;color: #e8ebec; width: 25.0%;">:strings</div>
+<div class="colorblock colorcenter" style="background: #903f7a;color: #f2e9e3; width: 25.0%;">:primary</div>
+<div class="colorblock colorcenter" style="background: #3c6369;color: #f2e9e3; width: 25.0%;">:assumed</div>
+<div class="colorblock colorcenter" style="background: #8a4d38;color: #f2e9e3; width: 25.0%;">:alt</div>
+<div class="colorblock colorcenter" style="background: #4f6600;color: #f2e9e3; width: 25.0%;">:strings</div>
  </div>
 </p>
 
@@ -93,21 +93,21 @@ And a syntax sample for better visual:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #ba0073;">mount_diskfile</span>() {
-  <span style="color: #005dc0;">if</span> [ -z <span style="color: #007400;">"$*"</span> ]; <span style="color: #005dc0;">then</span>
-    <span style="color: #005dc0;">echo</span> <span style="color: #007400;">"mount_diskfile &lt;iso/disk file&gt; &lt;mountpath (optional)&gt;"</span>
-    <span style="color: #005dc0;">return</span>
-  <span style="color: #005dc0;">fi</span>
+<pre class="src src-shell"><span style="color: #903f7a;">mount_diskfile</span>() {
+  <span style="color: #3c6369;">if</span> [ -z <span style="color: #4f6600;">"$*"</span> ]; <span style="color: #3c6369;">then</span>
+    <span style="color: #3c6369;">echo</span> <span style="color: #4f6600;">"mount_diskfile &lt;iso/disk file&gt; &lt;mountpath (optional)&gt;"</span>
+    <span style="color: #3c6369;">return</span>
+  <span style="color: #3c6369;">fi</span>
 
-  <span style="color: #ba0073;">diskfile</span>=$<span style="color: #ba0073;">1</span>
-  <span style="color: #4d4d4f;"># </span><span style="color: #4d4d4f;">mountpath=${2:-./$(</span>basename<span style="color: #4d4d4f;"> "$diskfile" | sed 's/\..*//')}</span>
-  <span style="color: #ba0073;">mountpath</span>=${<span style="color: #ba0073;">2</span>:-/media/filemount/$(basename <span style="color: #007400;">"$diskfile"</span> | sed <span style="color: #007400;">'s/\..*//'</span>)}
+  <span style="color: #903f7a;">diskfile</span>=$<span style="color: #903f7a;">1</span>
+  <span style="color: #a7432d;"># </span><span style="color: #a7432d;">mountpath=${2:-./$(</span>basename<span style="color: #a7432d;"> "$diskfile" | sed 's/\..*//')}</span>
+  <span style="color: #903f7a;">mountpath</span>=${<span style="color: #903f7a;">2</span>:-/media/filemount/$(basename <span style="color: #4f6600;">"$diskfile"</span> | sed <span style="color: #4f6600;">'s/\..*//'</span>)}
 
-  mkdir -p <span style="color: #007400;">"$mountpath"</span>
+  mkdir -p <span style="color: #4f6600;">"$mountpath"</span>
 
-  <span style="color: #005dc0;">echo</span> sudo mount <span style="color: #007400;">"$diskfile"</span> <span style="color: #007400;">"$mountpath"</span> -o loop
-  sudo mount <span style="color: #007400;">"$diskfile"</span> <span style="color: #007400;">"$mountpath"</span> -o loop
-  <span style="color: #005dc0;">echo</span> <span style="color: #007400;">"$mountpath"</span>
+  <span style="color: #3c6369;">echo</span> sudo mount <span style="color: #4f6600;">"$diskfile"</span> <span style="color: #4f6600;">"$mountpath"</span> -o loop
+  sudo mount <span style="color: #4f6600;">"$diskfile"</span> <span style="color: #4f6600;">"$mountpath"</span> -o loop
+  <span style="color: #3c6369;">echo</span> <span style="color: #4f6600;">"$mountpath"</span>
 }
 </pre>
 </div>
@@ -121,7 +121,9 @@ And a syntax sample for better visual:
     <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
 </div>
 
-
+<p>
+<div class=footer-center>type: post</div>
+</p>
 
 <div class="footer-right">
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-01-site-colors.org">Page Markup</a>
