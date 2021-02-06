@@ -1,5 +1,5 @@
 #+title: tarps
-#+title_extra: tarp emacs gui theme previews
+#+filetags: tarp emacs gui theme previews
 #+pubdate: <2021-01-19>
 
 # NB: to regen the tables, run C-c C-c over the TBLFM line with the correlated theme loaded.
