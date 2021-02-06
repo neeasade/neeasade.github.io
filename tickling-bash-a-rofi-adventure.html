@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:34 -->
+<!-- 2021-02-06 Sat 17:43 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tickling bash, quest for the perfect menu</title>
@@ -75,7 +75,7 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #4f6600;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #3c6369;">read</span> pid; <span style="color: #3c6369;">read</span> line; <span style="color: #3c6369;">echo</span> <span style="color: #4f6600;">"$line"</span>; <span style="color: #3c6369;">kill</span> $<span style="color: #903f7a;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #007800;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0061c4;">read</span> pid; <span style="color: #0061c4;">read</span> line; <span style="color: #0061c4;">echo</span> <span style="color: #007800;">"$line"</span>; <span style="color: #0061c4;">kill</span> $<span style="color: #c00079;">pid</span>)
 </pre>
 </div>
 
@@ -163,7 +163,7 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #3c6369;">echo</span> a; sleep 10; <span style="color: #3c6369;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #0061c4;">echo</span> a; sleep 10; <span style="color: #0061c4;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 

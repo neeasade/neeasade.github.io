@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:35 -->
+<!-- 2021-02-06 Sat 17:43 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maximum number of clients reached on X</title>
@@ -70,7 +70,7 @@ Find out who is hogging your clients:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">lsof -U +c 15 | cut -f1 -d<span style="color: #4f6600;">' '</span> | sort | uniq -c | sort -rn | head -n 100
+<pre class="src src-sh">lsof -U +c 15 | cut -f1 -d<span style="color: #007800;">' '</span> | sort | uniq -c | sort -rn | head -n 100
 </pre>
 </div>
 

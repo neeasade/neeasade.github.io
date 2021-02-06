@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:34 -->
+<!-- 2021-02-06 Sat 17:43 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>pulseaudio user notes</title>
@@ -113,7 +113,7 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #4f6600;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #007800;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -148,20 +148,20 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #a7432d;"># </span><span style="color: #a7432d;">add a null sync</span>
+<span style="color: #636465;"># </span><span style="color: #636465;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #a7432d;"># </span><span style="color: #a7432d;">=&gt; 25</span>
+<span style="color: #636465;"># </span><span style="color: #636465;">=&gt; 25</span>
 
-pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
  2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
 
-pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #903f7a;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=25,null
+pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=25,analog-stereo
 
-<span style="color: #a7432d;"># </span><span style="color: #a7432d;">number is the output of the above</span>
-<span style="color: #a7432d;"># </span><span style="color: #a7432d;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #636465;"># </span><span style="color: #636465;">number is the output of the above</span>
+<span style="color: #636465;"># </span><span style="color: #636465;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 

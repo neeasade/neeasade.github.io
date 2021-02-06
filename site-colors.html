@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:34 -->
+<!-- 2021-02-06 Sat 17:43 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>site colors</title>
@@ -70,21 +70,21 @@ This will be a swatch of the current colors used on the site. They are all defin
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #f2e9e3;color: #544b45; width: 25.0%;">:background</div>
-<div class="colorblock colorcenter" style="background: #e3dad8;color: #544b45; width: 25.0%;">weak background</div>
-<div class="colorblock colorcenter" style="background: #d9d0d5;color: #544b45; width: 25.0%;">strong background</div>
-<div class="colorblock colorcenter" style="background: #e9ccc4;color: #544b45; width: 25.0%;">:background+</div>
+<div class="colorblock colorcenter" style="background: #e8ebec;color: #4a4d4e; width: 25.0%;">:background</div>
+<div class="colorblock colorcenter" style="background: #dbdcdd;color: #4a4d4e; width: 25.0%;">weak background</div>
+<div class="colorblock colorcenter" style="background: #d4d1d2;color: #4a4d4e; width: 25.0%;">strong background</div>
+<div class="colorblock colorcenter" style="background: #b3d6ef;color: #4a4d4e; width: 25.0%;">:background+</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #544b45;color: #f2e9e3; width: 33.333333333333336%;">:foreground</div>
-<div class="colorblock colorcenter" style="background: #a35a29;color: #f2e9e3; width: 33.333333333333336%;">:faded</div>
-<div class="colorblock colorcenter" style="background: #544b45;color: #f2e9e3; width: 33.333333333333336%;">:foreground+</div>
+<div class="colorblock colorcenter" style="background: #4a4d4e;color: #e8ebec; width: 33.333333333333336%;">:foreground</div>
+<div class="colorblock colorcenter" style="background: #6a6d6e;color: #e8ebec; width: 33.333333333333336%;">:faded</div>
+<div class="colorblock colorcenter" style="background: #1d4059;color: #e8ebec; width: 33.333333333333336%;">:foreground+</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #903f7a;color: #f2e9e3; width: 25.0%;">:primary</div>
-<div class="colorblock colorcenter" style="background: #3c6369;color: #f2e9e3; width: 25.0%;">:assumed</div>
-<div class="colorblock colorcenter" style="background: #8a4d38;color: #f2e9e3; width: 25.0%;">:alt</div>
-<div class="colorblock colorcenter" style="background: #4f6600;color: #f2e9e3; width: 25.0%;">:strings</div>
+<div class="colorblock colorcenter" style="background: #c6007f;color: #e8ebec; width: 25.0%;">:primary</div>
+<div class="colorblock colorcenter" style="background: #0065c8;color: #e8ebec; width: 25.0%;">:assumed</div>
+<div class="colorblock colorcenter" style="background: #006e96;color: #e8ebec; width: 25.0%;">:alt</div>
+<div class="colorblock colorcenter" style="background: #007c00;color: #e8ebec; width: 25.0%;">:strings</div>
  </div>
 </p>
 
@@ -93,21 +93,21 @@ And a syntax sample for better visual:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #903f7a;">mount_diskfile</span>() {
-  <span style="color: #3c6369;">if</span> [ -z <span style="color: #4f6600;">"$*"</span> ]; <span style="color: #3c6369;">then</span>
-    <span style="color: #3c6369;">echo</span> <span style="color: #4f6600;">"mount_diskfile &lt;iso/disk file&gt; &lt;mountpath (optional)&gt;"</span>
-    <span style="color: #3c6369;">return</span>
-  <span style="color: #3c6369;">fi</span>
+<pre class="src src-shell"><span style="color: #c00079;">mount_diskfile</span>() {
+  <span style="color: #0061c4;">if</span> [ -z <span style="color: #007800;">"$*"</span> ]; <span style="color: #0061c4;">then</span>
+    <span style="color: #0061c4;">echo</span> <span style="color: #007800;">"mount_diskfile &lt;iso/disk file&gt; &lt;mountpath (optional)&gt;"</span>
+    <span style="color: #0061c4;">return</span>
+  <span style="color: #0061c4;">fi</span>
 
-  <span style="color: #903f7a;">diskfile</span>=$<span style="color: #903f7a;">1</span>
-  <span style="color: #a7432d;"># </span><span style="color: #a7432d;">mountpath=${2:-./$(</span>basename<span style="color: #a7432d;"> "$diskfile" | sed 's/\..*//')}</span>
-  <span style="color: #903f7a;">mountpath</span>=${<span style="color: #903f7a;">2</span>:-/media/filemount/$(basename <span style="color: #4f6600;">"$diskfile"</span> | sed <span style="color: #4f6600;">'s/\..*//'</span>)}
+  <span style="color: #c00079;">diskfile</span>=$<span style="color: #c00079;">1</span>
+  <span style="color: #636465;"># </span><span style="color: #636465;">mountpath=${2:-./$(</span>basename<span style="color: #636465;"> "$diskfile" | sed 's/\..*//')}</span>
+  <span style="color: #c00079;">mountpath</span>=${<span style="color: #c00079;">2</span>:-/media/filemount/$(basename <span style="color: #007800;">"$diskfile"</span> | sed <span style="color: #007800;">'s/\..*//'</span>)}
 
-  mkdir -p <span style="color: #4f6600;">"$mountpath"</span>
+  mkdir -p <span style="color: #007800;">"$mountpath"</span>
 
-  <span style="color: #3c6369;">echo</span> sudo mount <span style="color: #4f6600;">"$diskfile"</span> <span style="color: #4f6600;">"$mountpath"</span> -o loop
-  sudo mount <span style="color: #4f6600;">"$diskfile"</span> <span style="color: #4f6600;">"$mountpath"</span> -o loop
-  <span style="color: #3c6369;">echo</span> <span style="color: #4f6600;">"$mountpath"</span>
+  <span style="color: #0061c4;">echo</span> sudo mount <span style="color: #007800;">"$diskfile"</span> <span style="color: #007800;">"$mountpath"</span> -o loop
+  sudo mount <span style="color: #007800;">"$diskfile"</span> <span style="color: #007800;">"$mountpath"</span> -o loop
+  <span style="color: #0061c4;">echo</span> <span style="color: #007800;">"$mountpath"</span>
 }
 </pre>
 </div>

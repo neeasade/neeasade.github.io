@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:34 -->
+<!-- 2021-02-06 Sat 17:43 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>printing and scanning on linux</title>
@@ -83,11 +83,11 @@ I&rsquo;ve never gotten xsane to work. <code>scanimage</code> did me good though
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ <span style="color: #a7432d;"># </span><span style="color: #a7432d;">nb: might need sudo on scanimage</span>
-$ <span style="color: #a7432d;"># </span><span style="color: #a7432d;">list devices:</span>
+<pre class="src src-sh">$ <span style="color: #636465;"># </span><span style="color: #636465;">nb: might need sudo on scanimage</span>
+$ <span style="color: #636465;"># </span><span style="color: #636465;">list devices:</span>
 $ scanimage -L
-$ scanimage -d <span style="color: #4f6600;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #a7432d;"># </span><span style="color: #a7432d;">create a PDF with graphicsmagic</span>
+$ scanimage -d <span style="color: #007800;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #636465;"># </span><span style="color: #636465;">create a PDF with graphicsmagic</span>
 $ gm convert result.pnm result.pdf
 </pre>
 </div>
