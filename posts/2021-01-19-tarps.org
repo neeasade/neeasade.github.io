@@ -19,26 +19,26 @@ palette:
 #+end_center
 
 | _           | :normal              | :weak                | :strong              | :focused             |
-| :background | {{{color(#e8ebec)}}} | {{{color(#dbdbdd)}}} | {{{color(#d0cccd)}}} | {{{color(#9bc6df)}}} |
-| :foreground | {{{color(#3e4142)}}} | {{{color(#373739)}}} | {{{color(#302c2d)}}} | {{{color(#00263f)}}} |
-| :faded      | {{{color(#545758)}}} | {{{color(#4d4d4f)}}} | {{{color(#484445)}}} | {{{color(#154059)}}} |
-| :primary    | {{{color(#c6007f)}}} | {{{color(#ba0073)}}} | {{{color(#aa0063)}}} | {{{color(#9c0055)}}} |
-| :assumed    | {{{color(#0065c8)}}} | {{{color(#005dc0)}}} | {{{color(#0053b6)}}} | {{{color(#0049ac)}}} |
-| :alt        | {{{color(#006e96)}}} | {{{color(#00668e)}}} | {{{color(#005c84)}}} | {{{color(#00547c)}}} |
-| :strings    | {{{color(#007c00)}}} | {{{color(#007400)}}} | {{{color(#006a00)}}} | {{{color(#006200)}}} |
-#+TBLFM: @2$2..@9$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
+| :background | {{{color(#e8ebec)}}} | {{{color(#dbdcdd)}}} | {{{color(#d4d1d2)}}} | {{{color(#b3d6ef)}}} |
+| :foreground | {{{color(#4a4d4e)}}} | {{{color(#434445)}}} | {{{color(#403d3e)}}} | {{{color(#1d4059)}}} |
+| :faded      | {{{color(#6a6d6e)}}} | {{{color(#636465)}}} | {{{color(#5e5b5c)}}} | {{{color(#3d6079)}}} |
+| :primary    | {{{color(#c6007f)}}} | {{{color(#c00079)}}} | {{{color(#b6006f)}}} | {{{color(#b4006d)}}} |
+| :assumed    | {{{color(#0065c8)}}} | {{{color(#0061c4)}}} | {{{color(#0059bc)}}} | {{{color(#0059bc)}}} |
+| :alt        | {{{color(#006e96)}}} | {{{color(#006a92)}}} | {{{color(#00648c)}}} | {{{color(#00648c)}}} |
+| :strings    | {{{color(#007c00)}}} | {{{color(#007800)}}} | {{{color(#007200)}}} | {{{color(#007000)}}} |
+#+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
 
 #+begin_center
 preview:
 #+end_center
 
 | _           | :normal                                  | :weak                                    | :strong                                  | :focused                                 |
-| :foreground | {{{color-ext(#e8ebec,#3e4142,preview)}}} | {{{color-ext(#dbdbdd,#373739,preview)}}} | {{{color-ext(#d0cccd,#302c2d,preview)}}} | {{{color-ext(#9bc6df,#00263f,preview)}}} |
-| :faded      | {{{color-ext(#e8ebec,#545758,preview)}}} | {{{color-ext(#dbdbdd,#4d4d4f,preview)}}} | {{{color-ext(#d0cccd,#484445,preview)}}} | {{{color-ext(#9bc6df,#154059,preview)}}} |
-| :primary    | {{{color-ext(#e8ebec,#c6007f,preview)}}} | {{{color-ext(#dbdbdd,#ba0073,preview)}}} | {{{color-ext(#d0cccd,#aa0063,preview)}}} | {{{color-ext(#9bc6df,#9c0055,preview)}}} |
-| :assumed    | {{{color-ext(#e8ebec,#0065c8,preview)}}} | {{{color-ext(#dbdbdd,#005dc0,preview)}}} | {{{color-ext(#d0cccd,#0053b6,preview)}}} | {{{color-ext(#9bc6df,#0049ac,preview)}}} |
-| :alt        | {{{color-ext(#e8ebec,#006e96,preview)}}} | {{{color-ext(#dbdbdd,#00668e,preview)}}} | {{{color-ext(#d0cccd,#005c84,preview)}}} | {{{color-ext(#9bc6df,#00547c,preview)}}} |
-| :strings    | {{{color-ext(#e8ebec,#007c00,preview)}}} | {{{color-ext(#dbdbdd,#007400,preview)}}} | {{{color-ext(#d0cccd,#006a00,preview)}}} | {{{color-ext(#9bc6df,#006200,preview)}}} |
+| :foreground | {{{color-ext(#e8ebec,#4a4d4e,preview)}}} | {{{color-ext(#dbdcdd,#434445,preview)}}} | {{{color-ext(#d4d1d2,#403d3e,preview)}}} | {{{color-ext(#b3d6ef,#1d4059,preview)}}} |
+| :faded      | {{{color-ext(#e8ebec,#6a6d6e,preview)}}} | {{{color-ext(#dbdcdd,#636465,preview)}}} | {{{color-ext(#d4d1d2,#5e5b5c,preview)}}} | {{{color-ext(#b3d6ef,#3d6079,preview)}}} |
+| :primary    | {{{color-ext(#e8ebec,#c6007f,preview)}}} | {{{color-ext(#dbdcdd,#c00079,preview)}}} | {{{color-ext(#d4d1d2,#b6006f,preview)}}} | {{{color-ext(#b3d6ef,#b4006d,preview)}}} |
+| :assumed    | {{{color-ext(#e8ebec,#0065c8,preview)}}} | {{{color-ext(#dbdcdd,#0061c4,preview)}}} | {{{color-ext(#d4d1d2,#0059bc,preview)}}} | {{{color-ext(#b3d6ef,#0059bc,preview)}}} |
+| :alt        | {{{color-ext(#e8ebec,#006e96,preview)}}} | {{{color-ext(#dbdcdd,#006a92,preview)}}} | {{{color-ext(#d4d1d2,#00648c,preview)}}} | {{{color-ext(#b3d6ef,#00648c,preview)}}} |
+| :strings    | {{{color-ext(#e8ebec,#007c00,preview)}}} | {{{color-ext(#dbdcdd,#007800,preview)}}} | {{{color-ext(#d4d1d2,#007200,preview)}}} | {{{color-ext(#b3d6ef,#007000,preview)}}} |
 #+TBLFM: @2$2..@7$5='(format "{{{color-ext(%s,%s,%s)}}}" (tarp/get :background (intern @1)) (tarp/get (intern $1) (intern @1)) "preview")'
 
 ** struan
@@ -52,13 +52,13 @@ palette:
 #+end_center
 
 | _           | :normal              | :weak                | :strong              | :focused             |
-| :background | {{{color(#f2e9e3)}}} | {{{color(#dcd3cd)}}} | {{{color(#cdc4be)}}} | {{{color(#ffc1ac)}}} |
-| :foreground | {{{color(#483f39)}}} | {{{color(#3a312b)}}} | {{{color(#2f2620)}}} | {{{color(#483f39)}}} |
-| :faded      | {{{color(#9f5625)}}} | {{{color(#914817)}}} | {{{color(#853c0b)}}} | {{{color(#9f5625)}}} |
-| :primary    | {{{color(#903f7a)}}} | {{{color(#8e3d78)}}} | {{{color(#84336e)}}} | {{{color(#903f7a)}}} |
-| :assumed    | {{{color(#3c6369)}}} | {{{color(#3a6167)}}} | {{{color(#30575d)}}} | {{{color(#3c6369)}}} |
-| :alt        | {{{color(#8a4d38)}}} | {{{color(#884b36)}}} | {{{color(#7e412c)}}} | {{{color(#8a4d38)}}} |
-| :strings    | {{{color(#4f6600)}}} | {{{color(#4d6400)}}} | {{{color(#455900)}}} | {{{color(#4f6600)}}} |
+| :background | {{{color(#f2e9e3)}}} | {{{color(#e3dad8)}}} | {{{color(#d9d0d5)}}} | {{{color(#e9ccc4)}}} |
+| :foreground | {{{color(#544b45)}}} | {{{color(#4b4240)}}} | {{{color(#453c41)}}} | {{{color(#544b45)}}} |
+| :faded      | {{{color(#a35a29)}}} | {{{color(#a7432d)}}} | {{{color(#a52b6f)}}} | {{{color(#a35a29)}}} |
+| :primary    | {{{color(#903f7a)}}} | {{{color(#903f7a)}}} | {{{color(#903f7a)}}} | {{{color(#903f7a)}}} |
+| :assumed    | {{{color(#3c6369)}}} | {{{color(#3c6369)}}} | {{{color(#3c6369)}}} | {{{color(#3c6369)}}} |
+| :alt        | {{{color(#8a4d38)}}} | {{{color(#8a4d38)}}} | {{{color(#8a4d38)}}} | {{{color(#8a4d38)}}} |
+| :strings    | {{{color(#4f6600)}}} | {{{color(#4f6600)}}} | {{{color(#4f6600)}}} | {{{color(#4f6600)}}} |
 #+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
 
 #+begin_center
@@ -66,10 +66,10 @@ preview:
 #+end_center
 
 | _           | :normal                                  | :weak                                    | :strong                                  | :focused                                 |
-| :foreground | {{{color-ext(#f2e9e3,#483f39,preview)}}} | {{{color-ext(#dcd3cd,#3a312b,preview)}}} | {{{color-ext(#cdc4be,#2f2620,preview)}}} | {{{color-ext(#ffc1ac,#483f39,preview)}}} |
-| :faded      | {{{color-ext(#f2e9e3,#9f5625,preview)}}} | {{{color-ext(#dcd3cd,#914817,preview)}}} | {{{color-ext(#cdc4be,#853c0b,preview)}}} | {{{color-ext(#ffc1ac,#9f5625,preview)}}} |
-| :primary    | {{{color-ext(#f2e9e3,#903f7a,preview)}}} | {{{color-ext(#dcd3cd,#8e3d78,preview)}}} | {{{color-ext(#cdc4be,#84336e,preview)}}} | {{{color-ext(#ffc1ac,#903f7a,preview)}}} |
-| :assumed    | {{{color-ext(#f2e9e3,#3c6369,preview)}}} | {{{color-ext(#dcd3cd,#3a6167,preview)}}} | {{{color-ext(#cdc4be,#30575d,preview)}}} | {{{color-ext(#ffc1ac,#3c6369,preview)}}} |
-| :alt        | {{{color-ext(#f2e9e3,#8a4d38,preview)}}} | {{{color-ext(#dcd3cd,#884b36,preview)}}} | {{{color-ext(#cdc4be,#7e412c,preview)}}} | {{{color-ext(#ffc1ac,#8a4d38,preview)}}} |
-| :strings    | {{{color-ext(#f2e9e3,#4f6600,preview)}}} | {{{color-ext(#dcd3cd,#4d6400,preview)}}} | {{{color-ext(#cdc4be,#455900,preview)}}} | {{{color-ext(#ffc1ac,#4f6600,preview)}}} |
+| :foreground | {{{color-ext(#f2e9e3,#544b45,preview)}}} | {{{color-ext(#e3dad8,#4b4240,preview)}}} | {{{color-ext(#d9d0d5,#453c41,preview)}}} | {{{color-ext(#e9ccc4,#544b45,preview)}}} |
+| :faded      | {{{color-ext(#f2e9e3,#a35a29,preview)}}} | {{{color-ext(#e3dad8,#a7432d,preview)}}} | {{{color-ext(#d9d0d5,#a52b6f,preview)}}} | {{{color-ext(#e9ccc4,#a35a29,preview)}}} |
+| :primary    | {{{color-ext(#f2e9e3,#903f7a,preview)}}} | {{{color-ext(#e3dad8,#903f7a,preview)}}} | {{{color-ext(#d9d0d5,#903f7a,preview)}}} | {{{color-ext(#e9ccc4,#903f7a,preview)}}} |
+| :assumed    | {{{color-ext(#f2e9e3,#3c6369,preview)}}} | {{{color-ext(#e3dad8,#3c6369,preview)}}} | {{{color-ext(#d9d0d5,#3c6369,preview)}}} | {{{color-ext(#e9ccc4,#3c6369,preview)}}} |
+| :alt        | {{{color-ext(#f2e9e3,#8a4d38,preview)}}} | {{{color-ext(#e3dad8,#8a4d38,preview)}}} | {{{color-ext(#d9d0d5,#8a4d38,preview)}}} | {{{color-ext(#e9ccc4,#8a4d38,preview)}}} |
+| :strings    | {{{color-ext(#f2e9e3,#4f6600,preview)}}} | {{{color-ext(#e3dad8,#4f6600,preview)}}} | {{{color-ext(#d9d0d5,#4f6600,preview)}}} | {{{color-ext(#e9ccc4,#4f6600,preview)}}} |
 #+TBLFM: @2$2..@7$5='(format "{{{color-ext(%s,%s,%s)}}}" (tarp/get :background (intern @1)) (tarp/get (intern $1) (intern @1)) "preview")'
