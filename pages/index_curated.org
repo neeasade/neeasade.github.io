@@ -6,7 +6,7 @@ This is a curated subset of posts on this site, sorted by edit date. 'curated' j
 #+BEGIN_SRC elisp :results raw :exports results
 (->>
  (if (boundp 'org-post-metas)
-     org-post-metas
+     (append org-post-metas org-note-metas)
    (-map 'ns/blog-file-to-meta (ns/blog-get-org "posts")))
  (-filter (fn (not (ht-get <> :is-draft))))
  (-filter (fn (ht-get <> :rss-title)))
