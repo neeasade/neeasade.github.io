@@ -3,15 +3,12 @@
 #+post_type: post
 #+filetags: :rice:
 #+rss_title: tiled wallpaper sources
-#+draft: t
 #+pubdate: <2021-01-31>
 
 Tiled wallpapers are quirky, fun, and smol. That last property means you can do fun things to them fast, like programattically apply image filters or [[https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/bin/bin/bgtint][tint]] them so some current colorscheme.
 
 The following is mostly a scraping of this [[https://nixers.net/Thread-Tiling-Wallpapers][nixer's thread]], and also the [[https://rizonrice.club/Rice:Resources#Wallpaper_sources][#rice wiki wallpapers]] (a tiled subset). The archives are compressed collections hosted on [[https:teknik.io][teknik.io]]. This collection focuses /only/ on tiled patterns.
 
-- +http://bgrepeat.com+ [[https://u.teknik.io/FAaP8.7z][archive]]
-- +http://squidfingers.com/patterns+  [[https://u.teknik.io/QkorA.7z][archive]]
 - [[http://www.colourlovers.com/pattern][colour lovers patterns]]
 - [[http://www.heropatterns.com/][hero patterns]]
 - [[http://www.stripegenerator.com/][stripe generator]]
@@ -23,8 +20,9 @@ The following is mostly a scraping of this [[https://nixers.net/Thread-Tiling-Wa
 - http://cs.gettysburg.edu/~duncjo01/archive/patterns/
 - [[https://1-background.com/][1-background]]
 - [[http://www.tartanmaker.com/][tartan maker]]
-
-- todo: archive downloaded vain backup of tiles from thread
+- +http://bgrepeat.com+ [[https://u.teknik.io/FAaP8.7z][archive]]
+- +http://squidfingers.com/patterns+  [[https://u.teknik.io/QkorA.7z][archive]]
+- [[https://u.teknik.io/JPHul.zip][vain's archive]] (eclipses tiles-and-such(?) and squidfingers)
 
 -----
 
