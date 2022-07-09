@@ -63,15 +63,13 @@ music options:
 add        : add a url to library, fallback on clipboard content
 append     : append some search term to the current playlist
 artist     : play songs by an artist
-bl         : blacklist the currently playing song from the current playlist.
+bl         : blacklist the currently playing song from the current playlist
 del        : delete the currently playing song
-info       : display the current song progress bar and playlist length
+filter     : filter the current playlist by some shell function acting on music files
+info       : display the current audio progress bar and playlist length
 now        : fuzzy search for a song, play it now
-nowmpv     : fuzzy search for a song, play it now with MPV
 playlist   : select a search term based playlist to play
-recent     : play recently added songs
 remove     : remove some search match from the playlist
-rename     : rename the currently playing song file name (keep directory)
 shuffle    : reshuffle current selection from all
 #+end_example
 
@@ -82,3 +80,53 @@ Hiromi Uehara 2006 Love and Laughter
 ◈◈◈◈◈◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
 playlist: jazz_piano | 60h 35m 13s
 #+end_example
+
+-----
+
+After some times passed with the above system, I found myself sometimes wanting more flexibility in playlist composition. Did you know you that ~-~ and ~+~ are valid function names in bash? Oh yes, we're going to get dumb:
+
+#+begin_src sh
++ () { append "$@"; }
+- () { remove "$@"; }
+@ () { artist "$@"; }
+. "/path/to/playlist"
+#+end_src
+
+Sourcing the playlist means the blend between music script and playlist is total, because playlists are now just shell scripts eval'd in the `music` context. What follows is my vaporwave playlist, where you can see I'm doing something silly and effective with ｗｉｄｅｃｈａｒｓ:
+
+#+begin_src sh
+#!/bin/sh
+
+# get any song with a widechar in its name
+for x in ａ ｂ ｃ ｄ ｅ ｆ ｇ ｈ ｉ ｊ ｋ ｌ ｍ ｎ ｏ ｐ ｑ ｒ ｓ ｔ ｕ ｖ ｑ ｘ ｙ ｚ Ａ Ｂ Ｃ Ｄ Ｅ Ｆ Ｇ Ｈ Ｉ Ｊ Ｋ Ｌ Ｍ Ｎ Ｏ Ｐ Ｑ Ｒ Ｓ Ｔ Ｕ Ｖ Ｑ Ｘ Ｙ Ｚ; do
+   append $x
+done
+
+# artists
+@ HOME
+@ windows96
+@ lucien hughes
+@ Macintosh Plus
+@ haircuts for men
+@ blank banshee
+
+# search terms
++ vaporwave
++ vapor
++ E m o t i o n a l T o k y o
+
+# youtube channel
++ elfamosodemon
+
+# give us stuff longer than 15min
+filter is_long
+
+- lazerhawk
+- saint pepsi
+- lofi
+- synthwave
+#+end_src
+
+This degree of control is fun because I can do things like "make a playlist of songs not listed in any other playlists" in addition to just being selective about broad searches.
+
+Have fun with it! 🐨
