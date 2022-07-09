@@ -2,4 +2,7 @@
 
 #+begin_center
 ~handle~ at the google one.
+
+Generally my MO is to operate by [[https://www.lesswrong.com/tag/crockers-rules][Crocker's Rules]], coupled with a good-faith basis -- I try to operate at the word and give the benefit of the doubt, life is easier that way.
 #+end_center
+
