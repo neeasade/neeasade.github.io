@@ -12,8 +12,8 @@
 (let* ((word "ＡＥＳＴＨＥＴＩＣＳ")
        (colors
 	(ct-gradient (length word)
-		     (ht-get ns/theme :foreground)
-		     (ht-get ns/theme :background)
+		     (tarp/get :foreground)
+		     (tarp/get :background)
 		     t)))
   (ns/blog-make-color-strip colors (-map 'string word)))
 #+end_SRC
@@ -91,17 +91,16 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ct-transform-hsl acc
-				  (lambda (H S L)
-				    (list (+ 60 H) 50 50))))
+ (-reductions-from
+  (lambda (acc new)
+    ;; list
+    (ct-edit-hsl acc
+		 (lambda (H S L)
+		   (list (+ 60 H) 50 50))))
 
-	;; starting with 1% saturation (0% removes our hue entirely)
-(ct-make-hsl 0 50 50)
-	(range 5)))
+  ;; starting with 1% saturation (0% removes our hue entirely)
+  (ct-make-hsl 0 50 50)
+  (range 5))
  '("red,0°"
    "yellow,60°"
    "green,120°"
@@ -114,22 +113,14 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 Let's see the effect saturation has:
 
 #+begin_src elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-map
-	(fn (ct-make-hsl 240 (* 10 <>) 50))
-	(range 11))))
+(ns/blog-make-color-strip (--map (ct-make-hsl 240 (* 10 it) 50) (range 11)))
 #+end_src
 {{{detail(HSL: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
 
 And lightness:
 
 #+begin_src elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-map
-	(fn (ct-make-hsl 240 50 (* 10 <>)))
-	(range 11))))
+(ns/blog-make-color-strip (--map (ct-make-hsl 240 50 (* 10 it)) (range 11)))
 #+end_src
 {{{detail(HSL: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
@@ -144,17 +135,15 @@ What does that mean for us? Well, let's take our above examples and recreate the
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ct-transform-hsluv acc
-				    (lambda (H S L)
-				      (list (+ 60 H) 50 50))))
+ (-reductions-from
+  (lambda (acc new)
+    ;; list
+    (ct-edit-hsluv acc
+		   (lambda (H S L)
+		     (list (+ 60 H) 50 50))))
 
-    (ct-make-hsluv 0 50 50)
-
-	(range 5)))
+  (ct-make-hsluv 0 50 50)
+  (range 5))
  '("red,0°"
    "yellow,60°"
    "green,120°"
@@ -167,22 +156,14 @@ What does that mean for us? Well, let's take our above examples and recreate the
 Saturation:
 
 #+begin_src elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-map
-	(fn (ct-make-hsluv 240 (* 10 <>) 50))
-	(range 11))))
+(ns/blog-make-color-strip (--map (ct-make-hsluv 240 (* 10 it) 50) (range 11)))
 #+end_src
 {{{detail(HSLuv: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue))}}}
 
 Lightness:
 
 #+begin_src elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-map
-	(fn (ct-make-hsluv 240 50 (* 10 <>)))
-	(range 11))))
+(ns/blog-make-color-strip (--map (ct-make-hsluv 240 50 (* 10 it)) (range 11)))
 #+end_src
 {{{detail(HSLuv: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue))}}}
 
@@ -307,32 +288,26 @@ LCH is a "cylindrical" version of cieLAB. What that means for us is that Hue is 
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ct-transform-lch acc
-				  (lambda (L C H)
-				    (list L C (+ 90 H)))))
+ (-reductions-from
+  (lambda (acc new)
+    ;; list
+    (ct-edit-lch acc
+		 (lambda (L C H)
+		   (list L C (+ 90 H)))))
 
-	(ct-make-lch 50 50 0)
-	(range 3)))
- '("red, 0°"
-   "yellow, 90°"
-   "green, 180°"
-   "blue, 270°"
-   ))
+  (ct-make-lch 50 50 0)
+  (range 3))
+'("red, 0°"
+  "yellow, 90°"
+  "green, 180°"
+  "blue, 270°"
+  ))
 #+end_src
 {{{detail(LCH: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%)}}}
 
 LCH lightness:
 #+begin_src elisp :results raw :exports results
-(ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-map
-	(fn
-	 (ct-make-lch (* 10 <>) 50 270))
-	(range 11))))
+(ns/blog-make-color-strip (--map (ct-make-lch (* 10 it) 50 270) (range 11)))
 #+end_src
 {{{detail(LCH: lightness scale 0-100% (step 10%), chromacity 50%, hue 270° (blue))}}}
 
@@ -340,19 +315,18 @@ Chromacity, "distance from gray" - very similar to Saturation (which I've seen c
 
 #+begin_src elisp :results raw :exports results
 (ns/blog-make-color-strip
- (-map 'ct-shorten
-       (-reductions-from
-	(lambda (acc new)
-	  ;; list
-	  (ct-transform-lch acc
-				  (lambda (L C H)
-				    (list L
-					  ;; correct for our starting position
-					  (+ 10 (* 10 (first (cl-round C 10))))
-					  H))))
-(ct-make-lch 50 0 270)
+ (-reductions-from
+  (lambda (acc new)
+    ;; list
+    (ct-edit-lch acc
+		 (lambda (L C H)
+		   (list L
+			 ;; correct for our starting position
+			 (+ 10 (* 10 (first (cl-round C 10))))
+			 H))))
+  (ct-make-lch 50 0 270)
 
-	(range 10))))
+  (range 10)))
 #+end_src
 {{{detail(LCH: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue))}}}
 
@@ -375,7 +349,7 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 (ns/blog-make-color-strip
  (-map
   (lambda (c)
-    (-> c (ct-transform-hsluv (lambda (H S L) (list H S 50)))))
+    (-> c (ct-edit-hsluv (lambda (H S L) (list H S 50)))))
   (append
    (ct-gradient 15 "#cc3333" "#33cc33" t)
    (cdr (ct-gradient 15 "#33cc33" "#3333cc" t)))))
@@ -389,8 +363,8 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 	 (ns/blog-make-color-strip
 	  (-map
 	   (lambda (c)
-	     (-> c (ct-transform-hsluv (lambda (H S L) (list H S 50))))
-	     (-> c (ct-transform-lch (lambda (L C H) (list L 100 H))))
+	     (-> c (ct-edit-hsluv (lambda (H S L) (list H S 50))))
+	     (-> c (ct-edit-lch (lambda (L C H) (list L 100 H))))
 	     )
 	   (append
 	    (ct-gradient 15 "#cc3333" "#33cc33" t)
@@ -399,8 +373,8 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 	 (ns/blog-make-color-strip
 	  (-map
 	   (lambda (c)
-	     (-> c (ct-transform-hsluv (lambda (H S L) (list H S 50))))
-	     (-> c (ct-transform-hsl (lambda (H S L) (list H 100 L))))
+	     (-> c (ct-edit-hsluv (lambda (H S L) (list H S 50))))
+	     (-> c (ct-edit-hsl (lambda (H S L) (list H 100 L))))
 	     )
 	   (append
 	    (ct-gradient 15 "#cc3333" "#33cc33" t)
@@ -409,8 +383,8 @@ Let's compare some spaces. We'll take some the RGB gradient from above, normaliz
 	 (ns/blog-make-color-strip
 	  (-map
 	   (lambda (c)
-	     (-> c (ct-transform-hsluv (lambda (H S L) (list H S 50))))
-	     (-> c (ct-transform-hsluv (lambda (H S L) (list H 100 L))))
+	     (-> c (ct-edit-hsluv (lambda (H S L) (list H S 50))))
+	     (-> c (ct-edit-hsluv (lambda (H S L) (list H 100 L))))
 	     )
 	   (append
 	    (ct-gradient 15 "#cc3333" "#33cc33" t)
@@ -446,7 +420,7 @@ Dark:
 			(second fg)
 			"Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.")
 		;; (second fg)
-		(ct-shorten (first fg))
+		(first fg)
 		"colorblock colorpadding"
 		))
 
@@ -479,7 +453,7 @@ Light:
 		(format "%s: %s"
 			(second fg)
 			"Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt ut <br> labore et dolore magna aliqua.")
-		(ct-shorten (first fg))
+		(first fg)
 		"colorblock colorpadding"
 		))
 
@@ -516,7 +490,7 @@ Color distance is a measure of how far apart colors are by properties in spaces.
 	  (ct-make-hsluv 300 50 50)
 	  ;; "#a0d55df5acf4"
 	  (lambda (c)
-	    (ct-transform-hsluv c
+	    (ct-edit-hsluv c
 				      (lambda (H S L)
 					(list (+ H 10) S (* L 1.05)))))
 	  (lambda (c)
@@ -710,7 +684,7 @@ Update <2021-01-22> I have packaged my helpers into an emacs package: [[https://
 Emacs ships with a fair amount of [[https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el][conversion functions]], but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue ~color-name-to-rgb~, ~color-srgb-to-lab~, ~color-lab-to-lch~, and pipe back out. To assist with this, I implemented some [[https://github.com/neeasade/color-tools.el][wrappers]] that would do the conversion to your space of choice (coming from the 'name', strings eg "{{{color(#c930e8)}}}"). Here's an example -- say you wanted to increase luminosity of that color by a multiplier ~1.5~:
 
 #+begin_src emacs-lisp
-(ct-transform-hsl "#c930e8"
+(ct-edit-hsl "#c930e8"
  (lambda (H S L)
    (list H S (* 1.5 L))))
 
@@ -763,8 +737,7 @@ These pieces (transformers and comparison functions) can be combined to do thing
 
  ;; Darken the color a little at a time in LAB space:
  (lambda (c)
-   (ct-transform
-   -lab c
+   (ct-edit-lab c
     (lambda (L A B)
       (list (- L 0.1)
 	    A B))))
