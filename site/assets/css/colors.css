@@ -14,28 +14,51 @@ Get the target background against that median:
 => "#dfe2e0"
 
 .. and then regenerate the base and emphasized themes around that opacity altered target
+
+
+$ theme -p color.normal -r ./um
+
+--background  : {{background}};
+--background_weak : {{color.weak.background}};
+--background_strong: {{color.strong.background}};
+--background_plus : {{color.focused.background}};
+
+--strings     : {{strings}};
+--alt         : {{alt}};
+--assumed     : {{assumed}};
+--primary     : {{primary}};
+
+--faded       : {{faded}};
+--faded_weak : {{color.weak.faded}};
+--faded_strong : {{color.strong.faded}};
+
+--foreground  : {{foreground}};
+--foreground_weak : {{color.weak.foreground}};
+--foreground_strong : {{color.strong.foreground}};
+--foreground_plus : {{color.focused.foreground}};
+
 */
 
 
 :root {
---background  : rgba(232, 235, 236, 0.95);
---background_weak : #d1d1d2;
---background_strong: #c7c4c6;
---background_plus : #95bfd8;
+--background  : #f2e9e3;
+--background_weak : #ded5d4;
+--background_strong: #d2c9ce;
+--background_plus : #e1c5c0;
 
---strings     : #007800;
---alt         : #006c94;
---assumed     : #0061c4;
---primary     : #c00079;
+--strings     : #667400;
+--alt         : #916156;
+--assumed     : #2a7783;
+--primary     : #8f5d7f;
 
---faded       : #4f5250;
---faded_weak : #474748;
---faded_strong : #413e40;
+--faded       : #a35a29;
+--faded_weak : #a93b2f;
+--faded_strong : #a1276b;
 
---foreground  : #393c3a;
---foreground_weak : #313132;
---foreground_strong : #292628;
---foreground_plus : #001f38;
+--foreground  : #544b45;
+--foreground_weak : #483f3e;
+--foreground_strong : #40373c;
+--foreground_plus : #544b45;
 
 --radius: 0px;
 
