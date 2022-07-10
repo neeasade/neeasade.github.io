@@ -8,7 +8,8 @@
 #+OPTIONS: ^:nil
 
 
-*tl;dr*: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
+# nb: front leading space is significant
+ *tl;dr*: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
 
 #+begin_src sh
 sh -c 'echo $$; echo a; sleep 100; echo b' | (read pid; read line; echo "$line"; kill $pid)
@@ -76,3 +77,7 @@ So the way I cheated was to run the 'candidate maker' in a subshell, pass it's p
 
 - [[https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu_switcher#L196][dmenu_switcher]] (passes along pid to kill)
 - [[https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu#L21-L24][rofi wrapper]] (notes the pid and kills the feeder after rofi returns)
+
+** Followup <2022-07-10 Sun 14:29>
+
+Since posting this, I have returned to emacs as a general-purpose selector -- the auto-frecency from prescient is just too nice.
