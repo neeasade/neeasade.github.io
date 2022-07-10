@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>vim language quick reference</title>
+<meta name="generator" content="Org Mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="vim language quick reference">
+<meta property="og:description" content="">
+<meta property="description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/vim-quick-reference.html">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+</head>
+<body>
+<div id="content" class="content">
+<div style="float: left">
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-05-06-vim-quick-reference.org">Last edit: <2020-08-04></a>
+</div>
+
+<p>
+<h1 class=title>vim language quick reference</h1>
+</p>
+
+
+<hr>
+
+<p>
+Example command <code>di"</code> (| is the cursor below):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-txt">somefunc("here is a |string") --&gt; somefunc("") 
+</pre>
+</div>
+
+<p>
+The general form is <code>&lt;action&gt; &lt;operator&gt; &lt;text object&gt;</code>, or as I like to
+think, <code>&lt;action&gt; &lt;verb&gt; &lt;noun&gt;</code>. Verbs modify nouns.
+</p>
+
+<p>
+So, for <code>di"</code> above:
+</p>
+
+<ul class="org-ul">
+<li><code>d</code> is the action (delete)</li>
+<li><code>i</code> is the verb (inside)</li>
+<li><code>"</code> is the noun (matching quotes)</li>
+</ul>
+
+<p>
+Verbs are optional depending on the noun, but with this outline there
+are many commands you compose.
+</p>
+
+
+<div id="outline-container-h-db13f55e-95e0-49ba-bb8e-7d51a7c996a2" class="outline-2">
+<h2 id="h-db13f55e-95e0-49ba-bb8e-7d51a7c996a2"><span class="section-number-2">1.</span> Actions <span class=anchor><a href="#h-db13f55e-95e0-49ba-bb8e-7d51a7c996a2">⚓</a></span></h2>
+<div class="outline-text-2" id="text-h-db13f55e-95e0-49ba-bb8e-7d51a7c996a2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">action</th>
+<th scope="col" class="org-left">mnemonic</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">change</td>
+<td class="org-left">delete and enter insert mode</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">delete</td>
+<td class="org-left">delete</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">go</td>
+<td class="org-left">movement/jump to</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">paste</td>
+<td class="org-left">paste</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">replace</td>
+<td class="org-left">replace</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">visual</td>
+<td class="org-left">enter visual mode</td>
+</tr>
+
+<tr>
+<td class="org-left">y</td>
+<td class="org-left">yank</td>
+<td class="org-left">copy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-h-26bed420-c778-4113-946c-e034463cc628" class="outline-2">
+<h2 id="h-26bed420-c778-4113-946c-e034463cc628"><span class="section-number-2">2.</span> Verbs <span class=anchor><a href="#h-26bed420-c778-4113-946c-e034463cc628">⚓</a></span></h2>
+<div class="outline-text-2" id="text-h-26bed420-c778-4113-946c-e034463cc628">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">verb</th>
+<th scope="col" class="org-left">mnemonic</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">around</td>
+<td class="org-left">inclusive of noun selector</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">inside</td>
+<td class="org-left">exclusive of noun selector</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">find</td>
+<td class="org-left">forward to character, inclusive</td>
+</tr>
+
+<tr>
+<td class="org-left">F</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">backward to character, inclusive</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">till</td>
+<td class="org-left">forward to character, exclusive (character is the verb)</td>
+</tr>
+
+<tr>
+<td class="org-left">T</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">backward to character, exclusive</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-h-e32d2d3f-d18b-4b9a-9a09-00f32acefce5" class="outline-2">
+<h2 id="h-e32d2d3f-d18b-4b9a-9a09-00f32acefce5"><span class="section-number-2">3.</span> Nouns <span class=anchor><a href="#h-e32d2d3f-d18b-4b9a-9a09-00f32acefce5">⚓</a></span></h2>
+<div class="outline-text-2" id="text-h-e32d2d3f-d18b-4b9a-9a09-00f32acefce5">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">noun</th>
+<th scope="col" class="org-left">mnemonic</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">block</td>
+<td class="org-left">blocks of surrounding <code>([{</code> (implicit)</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">paragraph</td>
+<td class="org-left">paragraph</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">sentence</td>
+<td class="org-left">sentence</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">tag</td>
+<td class="org-left"><code>&lt;tags&gt; pairs of &lt;/tags&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">word</td>
+<td class="org-left">word</td>
+</tr>
+
+<tr>
+<td class="org-left">%</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">matching [{( under cursor, inclusive</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>/</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">forward to search result</td>
+</tr>
+
+<tr>
+<td class="org-left">&lt;,&gt;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>&lt;tags&gt; pairs of &lt;/tags&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">backward to search result</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>'</code>, <code>"</code>, <code>`</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">surrounding <code>"'`</code> pairs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>(</code>, <code>[</code>, <code>{</code>, <code>}</code>, <code>]</code>, <code>}</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">surrounding <code>([{</code> pairs</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+You can install plugins to get more nouns and nice contextual actions. For example with tpope&rsquo;s
+<a href="https://github.com/tpope/vim-commentary">commentary</a> you get a <code>gc</code> action for commenting in whatever programming language you are in &#x2013; which
+you can compose with any of the above nouns and verbs!
+</p>
+
+
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
+</p>
+
+<div class='footer-left'>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<p>
+<div class=footer-center>type: post</div>
+</p>
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-05-06-vim-quick-reference.org">Page Markup</a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

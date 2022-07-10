@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>(reduce)</title>
+<meta name="generator" content="Org Mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="(reduce)">
+<meta property="og:description" content="">
+<meta property="description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/reduce.html">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+</head>
+<body>
+<div id="content" class="content">
+<div style="float: left">
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-04-reduce.org">Last edit: <2020-11-04></a>
+</div>
+
+<p>
+<h1 class=title>(reduce)</h1>
+</p>
+
+
+<hr>
+
+<p>
+One habit I had to initially overcome coming to Clojure was a tendency to loop recur all the time instead of reducing. Here&rsquo;s a snippet from #clojure where I came to ask about the habit that I saved from that time:
+</p>
+
+<hr>
+
+<div id="outline-container-neeasade*-hello-all----newbie-clojure-user-here,-and-I've-noticed-I-tend-to-solve-almost-all-my-problems-with-loop+recur-forms." class="outline-2">
+<h2 id="neeasade*-hello-all----newbie-clojure-user-here,-and-I've-noticed-I-tend-to-solve-almost-all-my-problems-with-loop+recur-forms."><span class="section-number-2">1.</span> neeasade* hello all &#x2013; newbie clojure user here, and I&rsquo;ve noticed I tend to solve almost all my problems with loop+recur forms. <span class=anchor><a href="#neeasade*-hello-all----newbie-clojure-user-here,-and-I've-noticed-I-tend-to-solve-almost-all-my-problems-with-loop+recur-forms.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-neeasade*-hello-all----newbie-clojure-user-here,-and-I've-noticed-I-tend-to-solve-almost-all-my-problems-with-loop+recur-forms.">
+<p>
+just wondering if that&rsquo;s like, maybe a sign I&rsquo;m still doing stuff procedurally.
+</p>
+</div>
+</div>
+
+<div id="outline-container-justin_smith*-neeasade:-yeah---for-example-any-time-you-do-(recur-(rest-x))-is-a-sign-you-are-doing-it-the-hard-way." class="outline-2">
+<h2 id="justin_smith*-neeasade:-yeah---for-example-any-time-you-do-(recur-(rest-x))-is-a-sign-you-are-doing-it-the-hard-way."><span class="section-number-2">2.</span> justin_smith* neeasade: yeah - for example any time you do (recur (rest x)) is a sign you are doing it the hard way. <span class=anchor><a href="#justin_smith*-neeasade:-yeah---for-example-any-time-you-do-(recur-(rest-x))-is-a-sign-you-are-doing-it-the-hard-way.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-justin_smith*-neeasade:-yeah---for-example-any-time-you-do-(recur-(rest-x))-is-a-sign-you-are-doing-it-the-hard-way.">
+<p>
+clojure has many functions to abstract variants of that pattern (traversing a collection in order) without needing to explicitly do a procedural loop.
+then it&rsquo;s a question of learning what the various collection functions are useful for (filter, map, mapcat, reduce, for etc.).
+</p>
+</div>
+</div>
+
+<div id="outline-container-neeasade*-I-guess-the-problem-I-have-is-I-feel-like-usually-I-have-a-collection-of-'moves'-or-'ops'-that-I-want-to-apply-to-'state'-and-have-state-change-along-the-way." class="outline-2">
+<h2 id="neeasade*-I-guess-the-problem-I-have-is-I-feel-like-usually-I-have-a-collection-of-'moves'-or-'ops'-that-I-want-to-apply-to-'state'-and-have-state-change-along-the-way."><span class="section-number-2">3.</span> neeasade* I guess the problem I have is I feel like usually I have a collection of &rsquo;moves&rsquo; or &rsquo;ops&rsquo; that I want to apply to &rsquo;state&rsquo; and have state change along the way. <span class=anchor><a href="#neeasade*-I-guess-the-problem-I-have-is-I-feel-like-usually-I-have-a-collection-of-'moves'-or-'ops'-that-I-want-to-apply-to-'state'-and-have-state-change-along-the-way.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-neeasade*-I-guess-the-problem-I-have-is-I-feel-like-usually-I-have-a-collection-of-'moves'-or-'ops'-that-I-want-to-apply-to-'state'-and-have-state-change-along-the-way.">
+</div>
+</div>
+
+<div id="outline-container-justin_smith*-that-sounds-like-reduce-or-reductions-to-me." class="outline-2">
+<h2 id="justin_smith*-that-sounds-like-reduce-or-reductions-to-me."><span class="section-number-2">4.</span> justin_smith* that sounds like reduce or reductions to me. <span class=anchor><a href="#justin_smith*-that-sounds-like-reduce-or-reductions-to-me.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-justin_smith*-that-sounds-like-reduce-or-reductions-to-me.">
+</div>
+</div>
+
+<div id="outline-container-neeasade*-maybe-reduce-is-what-I-need-to-get-comfy-with-then-(I'm-comf-with-map/reduce/filter)." class="outline-2">
+<h2 id="neeasade*-maybe-reduce-is-what-I-need-to-get-comfy-with-then-(I'm-comf-with-map/reduce/filter)."><span class="section-number-2">5.</span> neeasade* maybe reduce is what I need to get comfy with then (I&rsquo;m comf with map/reduce/filter). <span class=anchor><a href="#neeasade*-maybe-reduce-is-what-I-need-to-get-comfy-with-then-(I'm-comf-with-map/reduce/filter).">⚓</a></span></h2>
+<div class="outline-text-2" id="text-neeasade*-maybe-reduce-is-what-I-need-to-get-comfy-with-then-(I'm-comf-with-map/reduce/filter).">
+</div>
+</div>
+
+<div id="outline-container-justin_smith*-it-caries-a-state-(usually-called-an-"accumulator"-but-it-can-be-anything)-between-each-step." class="outline-2">
+<h2 id="justin_smith*-it-caries-a-state-(usually-called-an-"accumulator"-but-it-can-be-anything)-between-each-step."><span class="section-number-2">6.</span> justin_smith* it caries a state (usually called an &ldquo;accumulator&rdquo; but it can be anything) between each step. <span class=anchor><a href="#justin_smith*-it-caries-a-state-(usually-called-an-"accumulator"-but-it-can-be-anything)-between-each-step.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-justin_smith*-it-caries-a-state-(usually-called-an-"accumulator"-but-it-can-be-anything)-between-each-step.">
+</div>
+</div>
+
+<div id="outline-container-neeasade*-cool----thanks,-I've-use-reducing/reducers-before,-I-think-I-just-fell-out-of-habit-because-it-doesn't-feel-"natural"-to-me-yet." class="outline-2">
+<h2 id="neeasade*-cool----thanks,-I've-use-reducing/reducers-before,-I-think-I-just-fell-out-of-habit-because-it-doesn't-feel-"natural"-to-me-yet."><span class="section-number-2">7.</span> neeasade* cool &#x2013; thanks, I&rsquo;ve use reducing/reducers before, I think I just fell out of habit because it doesn&rsquo;t feel &ldquo;natural&rdquo; to me yet. <span class=anchor><a href="#neeasade*-cool----thanks,-I've-use-reducing/reducers-before,-I-think-I-just-fell-out-of-habit-because-it-doesn't-feel-"natural"-to-me-yet.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-neeasade*-cool----thanks,-I've-use-reducing/reducers-before,-I-think-I-just-fell-out-of-habit-because-it-doesn't-feel-"natural"-to-me-yet.">
+</div>
+</div>
+
+<div id="outline-container-justin_smith*:" class="outline-2">
+<h2 id="justin_smith*:"><span class="section-number-2">8.</span> justin_smith*: <span class=anchor><a href="#justin_smith*:">⚓</a></span></h2>
+<div class="outline-text-2" id="text-justin_smith*:">
+<div class="org-src-container">
+<pre class="src src-clojure">(reduce
+ (<span style="color: #1d6a76;">fn</span> [acc i]
+   (<span style="color: #1d6a76;">let</span> [res (+ acc i)]
+     (<span style="color: #1d6a76;">if</span> (&gt; res 100) (reduced res) res)))
+ 0 (range))
+<span style="color: #a93b2f;">;; </span><span style="color: #a93b2f;">=&gt; 105</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-justin_smith*-neeasade:-also-reduce-has-a-built-in-debugger,-you-can-s/reduce/reductions/." class="outline-2">
+<h2 id="justin_smith*-neeasade:-also-reduce-has-a-built-in-debugger,-you-can-s/reduce/reductions/."><span class="section-number-2">9.</span> justin_smith* neeasade: also reduce has a built in debugger, you can s/reduce/reductions/. <span class=anchor><a href="#justin_smith*-neeasade:-also-reduce-has-a-built-in-debugger,-you-can-s/reduce/reductions/.">⚓</a></span></h2>
+<div class="outline-text-2" id="text-justin_smith*-neeasade:-also-reduce-has-a-built-in-debugger,-you-can-s/reduce/reductions/.">
+<div class="org-src-container">
+<pre class="src src-clojure">(reductions
+ (<span style="color: #1d6a76;">fn</span> [acc i]
+   (<span style="color: #1d6a76;">let</span> [res (+ acc i)]
+     (<span style="color: #1d6a76;">if</span> (&gt; res 100) (reduced res) res)))
+ 0 (range))
+<span style="color: #a93b2f;">;; </span><span style="color: #a93b2f;">=&gt; (0 0 1 3 6 ...)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-neeasade*-thanks-justin_smith----appreciate-it!" class="outline-2">
+<h2 id="neeasade*-thanks-justin_smith----appreciate-it!"><span class="section-number-2">10.</span> neeasade* thanks justin_smith &#x2013; appreciate it! <span class=anchor><a href="#neeasade*-thanks-justin_smith----appreciate-it!">⚓</a></span></h2>
+<div class="outline-text-2" id="text-neeasade*-thanks-justin_smith----appreciate-it!">
+<div class="org-center">
+<p>
+🪨 🪨 🪨
+</p>
+</div>
+
+
+<p>
+Now, let&rsquo;s compare what this difference looks like with easy-ranked <a href="http://www.4clojure.com/problem/40">4clojure problem</a>:
+</p>
+
+<p>
+Write a function which separates the items of a sequence by an arbitrary value.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #a93b2f;">;; </span><span style="color: #a93b2f;">replace the '__'</span>
+(= (__ 0 [1 2 3]) [1 0 2 0 3])
+(= (apply str (__ <span style="color: #5b6600;">", "</span> [<span style="color: #5b6600;">"one"</span> <span style="color: #5b6600;">"two"</span> <span style="color: #5b6600;">"three"</span>])) <span style="color: #5b6600;">"one, two, three"</span>)
+(= (__ <span style="color: #1d6a76;">:z</span> [<span style="color: #1d6a76;">:a</span> <span style="color: #1d6a76;">:b</span> <span style="color: #1d6a76;">:c</span> <span style="color: #1d6a76;">:d</span>]) [<span style="color: #1d6a76;">:a</span> <span style="color: #1d6a76;">:z</span> <span style="color: #1d6a76;">:b</span> <span style="color: #1d6a76;">:z</span> <span style="color: #1d6a76;">:c</span> <span style="color: #1d6a76;">:z</span> <span style="color: #1d6a76;">:d</span>])
+</pre>
+</div>
+
+<p>
+Before (bad habits):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(<span style="color: #1d6a76;">fn</span> [sep coll &amp; state]
+   (<span style="color: #1d6a76;">if</span> (= 1 (count coll))
+     (conj state (first coll))
+     (<span style="color: #1d6a76;">recur</span> sep (rest coll)
+            (conj (<span style="color: #1d6a76;">or</span> state [])
+                  (first coll)
+                  sep))))
+</pre>
+</div>
+
+<p>
+We&rsquo;re doing a lot of manual management of state here, to carry it through the solution.
+</p>
+
+<p>
+After:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">(<span style="color: #1d6a76;">fn</span> [sep coll]
+   (butlast
+    (reduce (<span style="color: #1d6a76;">fn</span> [state next]
+              (conj state next sep))
+            [] coll)))
+</pre>
+</div>
+
+<p>
+Just gotta remember to embrace reducin&rsquo;, and the implicit carrying of state it gives us.
+</p>
+
+<div class="org-center">
+<p>
+<a href="https://clojuredocs.org/clojure.core/reduce">(reduce)</a>
+</p>
+</div>
+
+
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
+</p>
+
+<div class='footer-left'>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<p>
+<div class=footer-center>type: post</div>
+</p>
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-04-reduce.org">Page Markup</a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

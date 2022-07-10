@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>printing and scanning on linux</title>
+<meta name="generator" content="Org Mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="printing and scanning on linux">
+<meta property="og:description" content="">
+<meta property="description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/printing-and-scanning-on-linux.html">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+</head>
+<body>
+<div id="content" class="content">
+<div style="float: left">
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-14-printing-and-scanning-on-linux.org">Last edit: <2020-12-14></a>
+</div>
+
+<p>
+<h1 class=title>printing and scanning on linux</h1>
+</p>
+
+
+<hr>
+
+<div id="outline-container-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574" class="outline-2">
+<h2 id="h-6c57cb88-f33f-4a04-8556-fec4dbf4b574"><span class="section-number-2">1.</span> printing <span class=anchor><a href="#h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">⚓</a></span></h2>
+<div class="outline-text-2" id="text-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">
+<ul class="org-ul">
+<li>Install CUPS, enable the service</li>
+<li>Install the gutenprint printer drivers</li>
+<li>Configure your printer in the CUPS interface, <a href="http://localhost:631/">http://localhost:631/</a>, and select the gutenprint drivers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39" class="outline-2">
+<h2 id="h-f7fe536a-882a-4ed7-9b9f-96e4638dac39"><span class="section-number-2">2.</span> scanning <span class=anchor><a href="#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">⚓</a></span></h2>
+<div class="outline-text-2" id="text-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">
+<p>
+I&rsquo;ve never gotten xsane to work. <code>scanimage</code> did me good though:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ <span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">nb: might need sudo on scanimage</span>
+$ <span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">list devices:</span>
+$ scanimage -L
+$ scanimage -d <span style="color: #5b6600;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">create a PDF with graphicsmagic</span>
+$ gm convert result.pnm result.pdf
+</pre>
+</div>
+
+<p>
+After posting this, tan reached out to me and mentioned to checkout <code>simple-scan</code> as another gui option.
+</p>
+</div>
+</div>
+
+<div id="outline-container-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a" class="outline-2">
+<h2 id="h-addd5bf0-e140-409b-b5aa-d8f40c3c027a"><span class="section-number-2">3.</span> pdf stuff <span class=anchor><a href="#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">⚓</a></span></h2>
+<div class="outline-text-2" id="text-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">
+<p>
+If you have a poppler utils package on your distro, you get <code>pdfseparate</code> and <code>pdfunite</code>. Be careful with the latter! If you don&rsquo;t include a target output, you will squash yourself!
+</p>
+
+<p>
+<code>pdfseparate</code> is rather odd, after specifying a pattern and range of pages, you get range n PDFs, with %d being swapped for the index in the pattern.
+</p>
+
+<p>
+This is an example to swap out page 6 of 10 with the scanned result.pdf into an existing pdf:
+</p>
+
+<pre class="example">
+$ cd $(mktemp -d)
+$ pdfseparate -f 1 -l 10 'in-%04d.pdf'
+$ ls
+in-0001.pdf  in-0004.pdf  in-0007.pdf  in-0010.pdf
+in-0002.pdf  in-0005.pdf  in-0008.pdf  in.pdf
+in-0003.pdf  in-0006.pdf  in-0009.pdf
+$ cp /path/to/result.pdf in-0006.pdf
+$ pdfunite in-0*.pdf out.pdf
+</pre>
+
+
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
+</p>
+
+<div class='footer-left'>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<p>
+<div class=footer-center>type: post</div>
+</p>
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-14-printing-and-scanning-on-linux.org">Page Markup</a>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

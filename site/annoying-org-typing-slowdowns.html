@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>annoying org typing slowdowns</title>
+<meta name="generator" content="Org Mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="annoying org typing slowdowns">
+<meta property="og:description" content="">
+<meta property="description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/annoying-org-typing-slowdowns.html">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+</head>
+<body>
+<div id="content" class="content">
+<div style="float: left">
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-01-annoying-org-typing-slowdowns.org">Last edit: <2020-12-30></a>
+</div>
+
+<p>
+<h1 class=title>annoying org typing slowdowns</h1>
+</p>
+
+
+<hr>
+
+<p>
+This is a list of things I had to turn off to not fuck with my typing speed in emacs org-mode buffers (sometimes I am really sensitive to latency/breaks in typing). For context, I usually run things in one really big notes file.
+</p>
+
+<ul class="org-ul">
+<li>smartparens mode</li>
+<li>modeline</li>
+<li>git-gutter mode</li>
+<li>timers that query the current buffer I&rsquo;m typing in</li>
+<li>emojify-mode</li>
+<li>flyspell-mode (switched to a keybind to flyspell the buffer)</li>
+<li>(rarely) font-locking
+<ul class="org-ul">
+<li>related: font-locking takes longer if you have a really big emacs window (ie hidpi fullscreen emacs will lag, but if you float that bad boy in the center you will have a good time).</li>
+</ul></li>
+<li>(rarely) irc volume</li>
+<li>blink-cursor-mode</li>
+</ul>
+
+<p>
+You can see how I&rsquo;m doing this <a href="https://github.com/neeasade/emacs.d/blob/3f99869ec8ebabf5caf49a3c601092a4702c1342/lisp/trees/org.el#L425-L446">here</a> and <a href="https://github.com/neeasade/emacs.d/blob/master/lisp/trees/editing.el#L11">here</a>.
+</p>
+
+<p>
+These were all super annoying to track down because I would have to wait until I was caffienated enough to be &ldquo;sensitive&rdquo; to the speed and then profile everything. But now the feeling is SUPER COMFY.
+</p>
+
+<p>
+Related: <a href="https://github.com/rnkn/olivetti">olivetti-mode</a> has some nice display settings that don&rsquo;t takeover everything, for the pretty.
+</p>
+
+<p>
+Related pain: <a href="https://emacshorrors.com/posts/self-insert-command.html">https://emacshorrors.com/posts/self-insert-command.html</a>
+</p>
+
+
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
+</p>
+
+<div class='footer-left'>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<p>
+<div class=footer-center>type: post</div>
+</p>
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-01-annoying-org-typing-slowdowns.org">Page Markup</a>
+</div>
+</div>
+</body>
+</html>

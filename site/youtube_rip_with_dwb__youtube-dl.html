@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>youtube rip with dwb + youtube-dl</title>
+<meta name="generator" content="Org Mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="youtube rip with dwb + youtube-dl">
+<meta property="og:description" content="">
+<meta property="description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
+<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/youtube_rip_with_dwb__youtube-dl.html">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+</head>
+<body>
+<div id="content" class="content">
+<div style="float: left">
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<div style="float: right">
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">Last edit: <2019-02-19></a>
+</div>
+
+<p>
+<h1 class=title>youtube rip with dwb + youtube-dl</h1>
+</p>
+
+
+<hr>
+
+
+
+
+
+
+
+<p>
+Just finished a snippet that can be used in combination with dwb(or many
+other browsers, probably) to auto download a youtube video and convert
+it to audio using <a href="rg3.github.io/youtube-dl">youtube-dl</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #a93b2f;">#</span><span style="color: #a93b2f;">!/bin/</span><span style="color: #1d6a76;">bash</span><span style="color: #a93b2f;"> </span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">dwb: xf</span>
+download\<span style="color: #825072;">_dir</span>=/my/media/dir youtube-dl -x -o
+$<span style="color: #825072;">download</span><span style="color: #5b6600;">\_</span>dir<span style="color: #5b6600;">'/%(uploader)s/%(title)s.%(ext)s'</span> $<span style="color: #825072;">DWB</span><span style="color: #5b6600;">\_</span>URI 
+</pre>
+</div>
+
+<p>
+It can probably be noted that I had some trouble with the youtube-dl
+naming syntax at first - the &rsquo;%(title)s&rsquo; and such needs to be in a
+string or else bash freaks out. Also this will fail without ffmpeg, as
+that is a dep for audio conversion with youtube-dl.
+</p>
+
+
+<p>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
+</p>
+
+<div class='footer-left'>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+</div>
+
+<p>
+<div class=footer-center>type: post</div>
+</p>
+
+<div class="footer-right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org">Page Markup</a>
+</div>
+</div>
+</body>
+</html>
