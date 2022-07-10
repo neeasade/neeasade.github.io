@@ -1,5 +1,4 @@
 #!/bin/sh
-# generate and commit the site
 
 cd "$(dirname $([ -L $0  ] && readlink -f $0 || echo $0))"
 set -e
@@ -12,14 +11,6 @@ if ! $clean_tree; then
     git stash
 fi
 
-# emacs in batch mode doesn't include font-locking, so everything is broken.
-# elisp -b "(progn (ns/core) (ns/extra) (ns/development) (ns/style) (ns/blog-generate))"
-# elisp -w "(progn (ns/core) (ns/extra) (ns/development) (ns/style) (ns/blog-generate))"
-if ! elisp_timeout=120 elisp "(ns/blog-generate)"; then
-    echo "generation failure"
-    exit 1
-fi
-
 rm -rf /tmp/notes.neeasade.net
 cp -r site /tmp/notes.neeasade.net
 
@@ -30,7 +21,7 @@ git checkout master
 git fetch origin
 git reset --hard origin/master
 
-# rm -rf *
+rm -rf *
 cp -r /tmp/notes.neeasade.net/* ./
 
 git add --all

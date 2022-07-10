@@ -13,16 +13,10 @@ This is a visualization page for functions used in the [[https://github.com/neea
    "\n"
    (append
     (list (format "*** %s -- %s" (prin1-to-string make)
-
 		  (ns/blog-make-color-preview
 		   (funcall make rate rate rate)
 		   (prin1-to-string
-		    (list make rate rate rate)
-		    )
-		   )
-		  )
-
-	  )
+		    (list make rate rate rate)))))
     (-map
      (lambda (f)
        (format "\n%s\n\n%s"
@@ -33,9 +27,7 @@ This is a visualization page for functions used in the [[https://github.com/neea
 
 		 (if (= ?h (string-to-char (reverse (prin1-to-string f))))
 		     (range 0 361 30)
-		   (range 0 101 10)
-
-		   )
+		   (range 0 101 10))
 		 ))
 	       (ns/blog-make-detail
 		(format "(map '%s %s)"
@@ -43,34 +35,25 @@ This is a visualization page for functions used in the [[https://github.com/neea
 			(if (= ?h (string-to-char (reverse (prin1-to-string f))))
 			    '(range 0 361 30)
 			  '(range 0 101 10)))
-		)
-	       )
-       )
+		)))
      kinds)
     ;; (list (ns/blog-make-hsep))
     (list "\n\n")
     )))
 
-
 (s-join
  "\n"
-
-(-flatten
+ (-flatten
   (-map
    (lambda (rate)
-(list
-     (ns/ct-visual 'ct-make-hsl '(ct-transform-hsl-h ct-transform-hsl-s ct-transform-hsl-l) rate)
-     (ns/ct-visual 'ct-make-hsv '(ct-transform-hsv-h ct-transform-hsv-s ct-transform-hsv-v) rate)
-     (ns/ct-visual 'ct-make-hsluv '(ct-transform-hsluv-h ct-transform-hsluv-s ct-transform-hsluv-l) rate)
-     (ns/ct-visual 'ct-make-hpluv '(ct-transform-hpluv-h ct-transform-hpluv-p ct-transform-hpluv-l) rate)
-     (ns/ct-visual 'ct-make-lab '(ct-transform-lab-l ct-transform-lab-a ct-transform-lab-b) rate)
-     (ns/ct-visual 'ct-make-lch '(ct-transform-lch-l ct-transform-lch-c ct-transform-lch-h) rate)
-)
-     )
-   '(40 60)
-   )
-   )
- )
+     (list
+      (ns/ct-visual 'ct-make-hsl '(ct-edit-hsl-h ct-edit-hsl-s ct-edit-hsl-l) rate)
+      (ns/ct-visual 'ct-make-hsv '(ct-edit-hsv-h ct-edit-hsv-s ct-edit-hsv-v) rate)
+      (ns/ct-visual 'ct-make-hsluv '(ct-edit-hsluv-h ct-edit-hsluv-s ct-edit-hsluv-l) rate)
+      (ns/ct-visual 'ct-make-hpluv '(ct-edit-hpluv-h ct-edit-hpluv-p ct-edit-hpluv-l) rate)
+      (ns/ct-visual 'ct-make-lab '(ct-edit-lab-l ct-edit-lab-a ct-edit-lab-b) rate)
+      (ns/ct-visual 'ct-make-lch '(ct-edit-lch-l ct-edit-lch-c ct-edit-lch-h) rate)))
+   '(40 60))))
 #+end_src
 
 ** Hue rotation

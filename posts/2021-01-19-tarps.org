@@ -1,6 +1,8 @@
 #+title: tarps
-#+filetags: tarp emacs gui theme previews
+#+filetags: :tarp:emacs:gui:theme:previews:
 #+pubdate: <2021-01-19>
+
+
 
 # NB: to regen the tables, run C-c C-c over the TBLFM line with the correlated theme loaded.
 
@@ -19,13 +21,13 @@ palette:
 #+end_center
 
 | _           | :normal              | :weak                | :strong              | :focused             |
-| :background | {{{color(#e8ebec)}}} | {{{color(#dbdcdd)}}} | {{{color(#d4d1d2)}}} | {{{color(#b3d6ef)}}} |
-| :foreground | {{{color(#4a4d4e)}}} | {{{color(#434445)}}} | {{{color(#403d3e)}}} | {{{color(#1d4059)}}} |
-| :faded      | {{{color(#6a6d6e)}}} | {{{color(#636465)}}} | {{{color(#5e5b5c)}}} | {{{color(#3d6079)}}} |
-| :primary    | {{{color(#c6007f)}}} | {{{color(#c00079)}}} | {{{color(#b6006f)}}} | {{{color(#b4006d)}}} |
-| :assumed    | {{{color(#0065c8)}}} | {{{color(#0061c4)}}} | {{{color(#0059bc)}}} | {{{color(#0059bc)}}} |
-| :alt        | {{{color(#006e96)}}} | {{{color(#006a92)}}} | {{{color(#00648c)}}} | {{{color(#00648c)}}} |
-| :strings    | {{{color(#007c00)}}} | {{{color(#007800)}}} | {{{color(#007200)}}} | {{{color(#007000)}}} |
+| :background | {{{color(#e8ebec)}}} | {{{color(#d6d7d8)}}} | {{{color(#cdcacb)}}} | {{{color(#a6d0ed)}}} |
+| :foreground | {{{color(#444748)}}} | {{{color(#3a3b3c)}}} | {{{color(#353233)}}} | {{{color(#0c3653)}}} |
+| :faded      | {{{color(#6a6d6e)}}} | {{{color(#606162)}}} | {{{color(#5b5859)}}} | {{{color(#335d7a)}}} |
+| :primary    | {{{color(#c6007f)}}} | {{{color(#bb0074)}}} | {{{color(#ae0067)}}} | {{{color(#ad0066)}}} |
+| :assumed    | {{{color(#0065c8)}}} | {{{color(#005ec1)}}} | {{{color(#0055b8)}}} | {{{color(#0055b8)}}} |
+| :alt        | {{{color(#006e96)}}} | {{{color(#006890)}}} | {{{color(#005f87)}}} | {{{color(#005f87)}}} |
+| :strings    | {{{color(#007c00)}}} | {{{color(#007500)}}} | {{{color(#006d00)}}} | {{{color(#006c00)}}} |
 #+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
 
 #+begin_center
@@ -33,12 +35,12 @@ preview:
 #+end_center
 
 | _           | :normal                                  | :weak                                    | :strong                                  | :focused                                 |
-| :foreground | {{{color-ext(#e8ebec,#4a4d4e,preview)}}} | {{{color-ext(#dbdcdd,#434445,preview)}}} | {{{color-ext(#d4d1d2,#403d3e,preview)}}} | {{{color-ext(#b3d6ef,#1d4059,preview)}}} |
-| :faded      | {{{color-ext(#e8ebec,#6a6d6e,preview)}}} | {{{color-ext(#dbdcdd,#636465,preview)}}} | {{{color-ext(#d4d1d2,#5e5b5c,preview)}}} | {{{color-ext(#b3d6ef,#3d6079,preview)}}} |
-| :primary    | {{{color-ext(#e8ebec,#c6007f,preview)}}} | {{{color-ext(#dbdcdd,#c00079,preview)}}} | {{{color-ext(#d4d1d2,#b6006f,preview)}}} | {{{color-ext(#b3d6ef,#b4006d,preview)}}} |
-| :assumed    | {{{color-ext(#e8ebec,#0065c8,preview)}}} | {{{color-ext(#dbdcdd,#0061c4,preview)}}} | {{{color-ext(#d4d1d2,#0059bc,preview)}}} | {{{color-ext(#b3d6ef,#0059bc,preview)}}} |
-| :alt        | {{{color-ext(#e8ebec,#006e96,preview)}}} | {{{color-ext(#dbdcdd,#006a92,preview)}}} | {{{color-ext(#d4d1d2,#00648c,preview)}}} | {{{color-ext(#b3d6ef,#00648c,preview)}}} |
-| :strings    | {{{color-ext(#e8ebec,#007c00,preview)}}} | {{{color-ext(#dbdcdd,#007800,preview)}}} | {{{color-ext(#d4d1d2,#007200,preview)}}} | {{{color-ext(#b3d6ef,#007000,preview)}}} |
+| :foreground | {{{color-ext(#e8ebec,#444748,preview)}}} | {{{color-ext(#d6d7d8,#3a3b3c,preview)}}} | {{{color-ext(#cdcacb,#353233,preview)}}} | {{{color-ext(#a6d0ed,#0c3653,preview)}}} |
+| :faded      | {{{color-ext(#e8ebec,#6a6d6e,preview)}}} | {{{color-ext(#d6d7d8,#606162,preview)}}} | {{{color-ext(#cdcacb,#5b5859,preview)}}} | {{{color-ext(#a6d0ed,#335d7a,preview)}}} |
+| :primary    | {{{color-ext(#e8ebec,#c6007f,preview)}}} | {{{color-ext(#d6d7d8,#bb0074,preview)}}} | {{{color-ext(#cdcacb,#ae0067,preview)}}} | {{{color-ext(#a6d0ed,#ad0066,preview)}}} |
+| :assumed    | {{{color-ext(#e8ebec,#0065c8,preview)}}} | {{{color-ext(#d6d7d8,#005ec1,preview)}}} | {{{color-ext(#cdcacb,#0055b8,preview)}}} | {{{color-ext(#a6d0ed,#0055b8,preview)}}} |
+| :alt        | {{{color-ext(#e8ebec,#006e96,preview)}}} | {{{color-ext(#d6d7d8,#006890,preview)}}} | {{{color-ext(#cdcacb,#005f87,preview)}}} | {{{color-ext(#a6d0ed,#005f87,preview)}}} |
+| :strings    | {{{color-ext(#e8ebec,#007c00,preview)}}} | {{{color-ext(#d6d7d8,#007500,preview)}}} | {{{color-ext(#cdcacb,#006d00,preview)}}} | {{{color-ext(#a6d0ed,#006c00,preview)}}} |
 #+TBLFM: @2$2..@7$5='(format "{{{color-ext(%s,%s,%s)}}}" (tarp/get :background (intern @1)) (tarp/get (intern $1) (intern @1)) "preview")'
 
 ** struan
@@ -52,13 +54,13 @@ palette:
 #+end_center
 
 | _           | :normal              | :weak                | :strong              | :focused             |
-| :background | {{{color(#f2e9e3)}}} | {{{color(#e3dad8)}}} | {{{color(#d9d0d5)}}} | {{{color(#e9ccc4)}}} |
-| :foreground | {{{color(#544b45)}}} | {{{color(#4b4240)}}} | {{{color(#453c41)}}} | {{{color(#544b45)}}} |
-| :faded      | {{{color(#a35a29)}}} | {{{color(#a7432d)}}} | {{{color(#a52b6f)}}} | {{{color(#a35a29)}}} |
-| :primary    | {{{color(#903f7a)}}} | {{{color(#903f7a)}}} | {{{color(#903f7a)}}} | {{{color(#903f7a)}}} |
-| :assumed    | {{{color(#3c6369)}}} | {{{color(#3c6369)}}} | {{{color(#3c6369)}}} | {{{color(#3c6369)}}} |
-| :alt        | {{{color(#8a4d38)}}} | {{{color(#8a4d38)}}} | {{{color(#8a4d38)}}} | {{{color(#8a4d38)}}} |
-| :strings    | {{{color(#4f6600)}}} | {{{color(#4f6600)}}} | {{{color(#4f6600)}}} | {{{color(#4f6600)}}} |
+| :background | {{{color(#f2e9e3)}}} | {{{color(#ded5d4)}}} | {{{color(#d2c9ce)}}} | {{{color(#e1c5c0)}}} |
+| :foreground | {{{color(#544b45)}}} | {{{color(#483f3e)}}} | {{{color(#40373c)}}} | {{{color(#544b45)}}} |
+| :faded      | {{{color(#a35a29)}}} | {{{color(#a93b2f)}}} | {{{color(#a1276b)}}} | {{{color(#a35a29)}}} |
+| :primary    | {{{color(#8f5d7f)}}} | {{{color(#825072)}}} | {{{color(#7b496b)}}} | {{{color(#8f5d7f)}}} |
+| :assumed    | {{{color(#2a7783)}}} | {{{color(#1d6a76)}}} | {{{color(#15626e)}}} | {{{color(#2a7783)}}} |
+| :alt        | {{{color(#916156)}}} | {{{color(#845449)}}} | {{{color(#7d4d42)}}} | {{{color(#916156)}}} |
+| :strings    | {{{color(#667400)}}} | {{{color(#5b6600)}}} | {{{color(#545f00)}}} | {{{color(#667400)}}} |
 #+TBLFM: @2$2..@8$5='(format "{{{color(%s)}}}" (tarp/get (intern $1) (intern @1)))'
 
 #+begin_center
@@ -66,10 +68,10 @@ preview:
 #+end_center
 
 | _           | :normal                                  | :weak                                    | :strong                                  | :focused                                 |
-| :foreground | {{{color-ext(#f2e9e3,#544b45,preview)}}} | {{{color-ext(#e3dad8,#4b4240,preview)}}} | {{{color-ext(#d9d0d5,#453c41,preview)}}} | {{{color-ext(#e9ccc4,#544b45,preview)}}} |
-| :faded      | {{{color-ext(#f2e9e3,#a35a29,preview)}}} | {{{color-ext(#e3dad8,#a7432d,preview)}}} | {{{color-ext(#d9d0d5,#a52b6f,preview)}}} | {{{color-ext(#e9ccc4,#a35a29,preview)}}} |
-| :primary    | {{{color-ext(#f2e9e3,#903f7a,preview)}}} | {{{color-ext(#e3dad8,#903f7a,preview)}}} | {{{color-ext(#d9d0d5,#903f7a,preview)}}} | {{{color-ext(#e9ccc4,#903f7a,preview)}}} |
-| :assumed    | {{{color-ext(#f2e9e3,#3c6369,preview)}}} | {{{color-ext(#e3dad8,#3c6369,preview)}}} | {{{color-ext(#d9d0d5,#3c6369,preview)}}} | {{{color-ext(#e9ccc4,#3c6369,preview)}}} |
-| :alt        | {{{color-ext(#f2e9e3,#8a4d38,preview)}}} | {{{color-ext(#e3dad8,#8a4d38,preview)}}} | {{{color-ext(#d9d0d5,#8a4d38,preview)}}} | {{{color-ext(#e9ccc4,#8a4d38,preview)}}} |
-| :strings    | {{{color-ext(#f2e9e3,#4f6600,preview)}}} | {{{color-ext(#e3dad8,#4f6600,preview)}}} | {{{color-ext(#d9d0d5,#4f6600,preview)}}} | {{{color-ext(#e9ccc4,#4f6600,preview)}}} |
+| :foreground | {{{color-ext(#f2e9e3,#544b45,preview)}}} | {{{color-ext(#ded5d4,#483f3e,preview)}}} | {{{color-ext(#d2c9ce,#40373c,preview)}}} | {{{color-ext(#e1c5c0,#544b45,preview)}}} |
+| :faded      | {{{color-ext(#f2e9e3,#a35a29,preview)}}} | {{{color-ext(#ded5d4,#a93b2f,preview)}}} | {{{color-ext(#d2c9ce,#a1276b,preview)}}} | {{{color-ext(#e1c5c0,#a35a29,preview)}}} |
+| :primary    | {{{color-ext(#f2e9e3,#8f5d7f,preview)}}} | {{{color-ext(#ded5d4,#825072,preview)}}} | {{{color-ext(#d2c9ce,#7b496b,preview)}}} | {{{color-ext(#e1c5c0,#8f5d7f,preview)}}} |
+| :assumed    | {{{color-ext(#f2e9e3,#2a7783,preview)}}} | {{{color-ext(#ded5d4,#1d6a76,preview)}}} | {{{color-ext(#d2c9ce,#15626e,preview)}}} | {{{color-ext(#e1c5c0,#2a7783,preview)}}} |
+| :alt        | {{{color-ext(#f2e9e3,#916156,preview)}}} | {{{color-ext(#ded5d4,#845449,preview)}}} | {{{color-ext(#d2c9ce,#7d4d42,preview)}}} | {{{color-ext(#e1c5c0,#916156,preview)}}} |
+| :strings    | {{{color-ext(#f2e9e3,#667400,preview)}}} | {{{color-ext(#ded5d4,#5b6600,preview)}}} | {{{color-ext(#d2c9ce,#545f00,preview)}}} | {{{color-ext(#e1c5c0,#667400,preview)}}} |
 #+TBLFM: @2$2..@7$5='(format "{{{color-ext(%s,%s,%s)}}}" (tarp/get :background (intern @1)) (tarp/get (intern $1) (intern @1)) "preview")'
