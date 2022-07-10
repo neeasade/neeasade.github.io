@@ -1,56 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:43 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
-<meta name="generator" content="Org mode">
+<meta name="generator" content="Org Mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="checking for toots">
 <meta property="og:description" content="">
 <meta property="description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/checking-for-toots.html">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <div style="float: right">
@@ -69,7 +47,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I
 </p>
 
 
-<figure id="orgba6a8a0">
+<figure id="orgc90538e">
 <a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
 
 </figure>
@@ -109,14 +87,14 @@ Note: There is the ability to clear all notifications, but then you also lose up
 </p>
 
 <div id="outline-container-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28" class="outline-2">
-<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1</span> Rolling my own <span class=anchor><a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">⚓</a></span></h2>
+<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1.</span> Rolling my own <span class=anchor><a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
 Alright, I need 2 things &#x2013; a way to mark the current set of notifications as &rsquo;seen&rsquo; and a way to check the content of &rsquo;unseen&rsquo; notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don&rsquo;t quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #007800;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #5b6600;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -125,17 +103,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #636465;">#</span><span style="color: #636465;">!/usr/bin/</span><span style="color: #0061c4;">env</span><span style="color: #636465;"> bash</span>
-<span style="color: #636465;"># </span><span style="color: #636465;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #636465;"># </span><span style="color: #636465;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #a93b2f;">#</span><span style="color: #a93b2f;">!/usr/bin/</span><span style="color: #1d6a76;">env</span><span style="color: #a93b2f;"> bash</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #c00079;">count</span>=0
-<span style="color: #0061c4;">if</span> <span style="color: #007800;">!</span> <span style="color: #c00079;">diff</span>=$(diff &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #0061c4;">then</span>
-    <span style="color: #c00079;">new_content</span>=$(echo <span style="color: #007800;">"$diff"</span> | grep <span style="color: #007800;">'^&lt;'</span> | sed <span style="color: #007800;">'s/&lt; //'</span>)
-    <span style="color: #c00079;">count</span>=$(echo <span style="color: #007800;">"$new_content"</span> | awk <span style="color: #007800;">'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}'</span> | wc -l)
-<span style="color: #0061c4;">fi</span>
+<span style="color: #825072;">count</span>=0
+<span style="color: #1d6a76;">if</span> <span style="color: #5b6600;">!</span> <span style="color: #825072;">diff</span>=$(diff &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #1d6a76;">then</span>
+    <span style="color: #825072;">new_content</span>=$(echo "$diff" | grep '^&lt;' | sed 's/&lt; //')
+    <span style="color: #825072;">count</span>=$(echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l)
+<span style="color: #1d6a76;">fi</span>
 
-<span style="color: #0061c4;">echo</span> <span style="color: #007800;">"toot mentions: $count"</span>
+<span style="color: #1d6a76;">echo</span> <span style="color: #5b6600;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -144,7 +122,7 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 </p>
 
 
-<figure id="orgbaa61af">
+<figure id="orgdab7374">
 <a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
 
 </figure>
@@ -155,11 +133,11 @@ With a click action to &ldquo;Mark toots as seen&rdquo;(just updating the temp f
 
 
 <p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <p>

@@ -1,60 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:43 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, quest for the perfect menu</title>
-<meta name="generator" content="Org mode">
+<meta name="generator" content="Org Mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="tickling bash, quest for the perfect menu">
 <meta property="og:description" content="where the 'perfect menu' means you can start typing right away">
 <meta property="description" content="where the 'perfect menu' means you can start typing right away">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/tickling-bash-a-rofi-adventure.html">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">Last edit: <2021-01-22></a>
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">Last edit: <2022-07-10></a>
 </div>
 
 <p>
@@ -63,7 +41,7 @@
 
 <div class="org-center">
 <p>
-where the &rsquo;perfect menu&rsquo; means you can start typing right away        
+where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 </div>
 
@@ -75,7 +53,7 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #007800;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0061c4;">read</span> pid; <span style="color: #0061c4;">read</span> line; <span style="color: #0061c4;">echo</span> <span style="color: #007800;">"$line"</span>; <span style="color: #0061c4;">kill</span> $<span style="color: #c00079;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #5b6600;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #1d6a76;">read</span> pid; <span style="color: #1d6a76;">read</span> line; <span style="color: #1d6a76;">echo</span> <span style="color: #5b6600;">"$line"</span>; <span style="color: #1d6a76;">kill</span> $<span style="color: #825072;">pid</span>)
 </pre>
 </div>
 
@@ -87,7 +65,7 @@ of more things you might do, and some take <a href="https://www.youtube.com/watc
 </p>
 
 <div id="outline-container-Setup" class="outline-2">
-<h2 id="Setup"><span class="section-number-2">1</span> Setup <span class=anchor><a href="#Setup">⚓</a></span></h2>
+<h2 id="Setup"><span class="section-number-2">1.</span> Setup <span class=anchor><a href="#Setup">⚓</a></span></h2>
 <div class="outline-text-2" id="text-Setup">
 <p>
 Let&rsquo;s go through some history first. dmenu2 was my goto &rsquo;selector&rsquo; for years, because it has some
@@ -131,7 +109,7 @@ Such is the state of things for a few months.
 
 <div class="org-center">
 <p>
-🍂 🍂 🍂
+⛰ ⛰ ⛰
 </p>
 </div>
 
@@ -143,7 +121,7 @@ In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a 
 </div>
 
 <div id="outline-container-Rofi" class="outline-2">
-<h2 id="Rofi"><span class="section-number-2">2</span> Rofi <span class=anchor><a href="#Rofi">⚓</a></span></h2>
+<h2 id="Rofi"><span class="section-number-2">2.</span> Rofi <span class=anchor><a href="#Rofi">⚓</a></span></h2>
 <div class="outline-text-2" id="text-Rofi">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -156,14 +134,14 @@ history in the past week) but still start typing right away.
 </div>
 
 <div id="outline-container-Tickling-bash-(cheating)" class="outline-2">
-<h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3</span> Tickling bash (cheating) <span class=anchor><a href="#Tickling-bash-(cheating)">⚓</a></span></h2>
+<h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3.</span> Tickling bash (cheating) <span class=anchor><a href="#Tickling-bash-(cheating)">⚓</a></span></h2>
 <div class="outline-text-2" id="text-Tickling-bash-(cheating)">
 <p>
 So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu replacement. This means I&rsquo;m at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the &rsquo;a&rsquo; option before &rsquo;b&rsquo; is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #0061c4;">echo</span> a; sleep 10; <span style="color: #0061c4;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #1d6a76;">echo</span> a; sleep 10; <span style="color: #1d6a76;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
@@ -179,14 +157,23 @@ So the way I cheated was to run the &rsquo;candidate maker&rsquo; in a subshell,
 <li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu_switcher#L196">dmenu_switcher</a> (passes along pid to kill)</li>
 <li><a href="https://github.com/neeasade/dotfiles/blob/06b831a5cea3ededd76c3f4c101a4de3a56ca687/wm/.wm/scripts/interact/dmenu#L21-L24">rofi wrapper</a> (notes the pid and kills the feeder after rofi returns)</li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-Followup-<2022-07-10-Sun-14:29>" class="outline-2">
+<h2 id="Followup-<2022-07-10-Sun-14:29>"><span class="section-number-2">4.</span> Followup <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-10 02:29 PM&gt;</span></span> <span class=anchor><a href="#Followup-<2022-07-10-Sun-14:29>">⚓</a></span></h2>
+<div class="outline-text-2" id="text-Followup-<2022-07-10-Sun-14:29>">
+<p>
+Since posting this, I have returned to emacs as a general-purpose selector &#x2013; the auto-frecency from prescient is just too nice.
+</p>
 
 
 <p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <p>

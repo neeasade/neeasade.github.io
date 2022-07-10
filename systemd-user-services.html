@@ -1,56 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:43 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>systemd user services</title>
-<meta name="generator" content="Org mode">
+<meta name="generator" content="Org Mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="systemd user services">
 <meta property="og:description" content="">
 <meta property="description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/systemd-user-services.html">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <div style="float: right">
@@ -91,7 +69,7 @@ Next step was to wrap the above in a script and display it in my panel. Nice! no
 </p>
 
 <div id="outline-container-h-9c426974-626d-47cf-bca6-c2b71698b392" class="outline-2">
-<h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1</span> Alerts <span class=anchor><a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">⚓</a></span></h2>
+<h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1.</span> Alerts <span class=anchor><a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-9c426974-626d-47cf-bca6-c2b71698b392">
 <p>
 With something like <a href="https://github.com/dunst-project/dunst">dunst</a>, I can send notifications that appear only when I&rsquo;m concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
@@ -105,7 +83,7 @@ Making this call in my <code>.xinitrc</code> worked out OK, but I&rsquo;m someti
 
 
 <div id="outline-container-h-bedee5e8-3ef1-4038-9bc8-33640146db06" class="outline-2">
-<h2 id="h-bedee5e8-3ef1-4038-9bc8-33640146db06"><span class="section-number-2">2</span> The big D <span class=anchor><a href="#h-bedee5e8-3ef1-4038-9bc8-33640146db06">⚓</a></span></h2>
+<h2 id="h-bedee5e8-3ef1-4038-9bc8-33640146db06"><span class="section-number-2">2.</span> The big D <span class=anchor><a href="#h-bedee5e8-3ef1-4038-9bc8-33640146db06">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-bedee5e8-3ef1-4038-9bc8-33640146db06">
 <p>
 Systemd user services are regular systemd service files that live in <code>$HOME/.config/systemd/user</code>. A service file matching the above problem might look like this:
@@ -115,19 +93,19 @@ Systemd user services are regular systemd service files that live in <code>$HOME
 <code>battery_alert.service</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf">[<span style="color: #006a92;">Unit</span>]
-<span style="color: #c00079;">Description</span>=Notify when the battery is low
+<pre class="src src-conf">[<span style="color: #845449;">Unit</span>]
+<span style="color: #825072;">Description</span>=Notify when the battery is low
 
-[<span style="color: #006a92;">Service</span>]
-<span style="color: #c00079;">ExecStart</span>=/path/to/bin/periodically 60 check_battery
-<span style="color: #c00079;">ExecStop</span>=/path/to/bin/kill -int $MAINPID
+[<span style="color: #845449;">Service</span>]
+<span style="color: #825072;">ExecStart</span>=/path/to/bin/periodically 60 check_battery
+<span style="color: #825072;">ExecStop</span>=/path/to/bin/kill -int $MAINPID
 
-<span style="color: #c00079;">Environment</span>=PATH=/paths/that/contain/check_battery:...:....
-<span style="color: #c00079;">Environment</span>=DISPLAY=<span style="color: #007800;">":0"</span>
-<span style="color: #c00079;">Environment</span>=XAUTHORITY=<span style="color: #007800;">"/home/neeasade/.Xauthority"</span>
+<span style="color: #825072;">Environment</span>=PATH=/paths/that/contain/check_battery:...:....
+<span style="color: #825072;">Environment</span>=DISPLAY=<span style="color: #5b6600;">":0"</span>
+<span style="color: #825072;">Environment</span>=XAUTHORITY=<span style="color: #5b6600;">"/home/neeasade/.Xauthority"</span>
 
-[<span style="color: #006a92;">Install</span>]
-<span style="color: #c00079;">WantedBy</span>=default.target
+[<span style="color: #845449;">Install</span>]
+<span style="color: #825072;">WantedBy</span>=default.target
 </pre>
 </div>
 
@@ -146,14 +124,14 @@ With the above I get the systemd goodness but for managing my local stuff, just 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #636465;"># </span><span style="color: #636465;">start, stop</span>
+<pre class="src src-shell"><span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">start, stop</span>
 systemctl --user start battery_alert
 systemctl --user stop battery_alert
 
-<span style="color: #636465;"># </span><span style="color: #636465;">logs (can also tail theme)</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">logs (can also tail theme)</span>
 systemctl --user status battery_alert
 
-<span style="color: #636465;"># </span><span style="color: #636465;">automatic startup</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">automatic startup</span>
 systemctl --user enable battery_alert
 </pre>
 </div>
@@ -165,7 +143,7 @@ So the next step in this systemd journey was to integrate <a href="https://githu
 </div>
 
 <div id="outline-container-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935" class="outline-2">
-<h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935"><span class="section-number-2">3</span> The big.. T? <span class=anchor><a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">⚓</a></span></h2>
+<h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935"><span class="section-number-2">3.</span> The big.. T? <span class=anchor><a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">
 <p>
 Those of you in the know will see something very wrong with the above. Systemd has a &ldquo;when to run&rdquo; concept: <a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html">timers</a>! Using timers files you can do things like:
@@ -186,21 +164,21 @@ Let&rsquo;s take a look at what that last one looks like. You create a file in t
 <code>battery_alert.timer</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf">[<span style="color: #006a92;">Unit</span>]
-<span style="color: #c00079;">Description</span>=Run check_battery every 60 seconds
+<pre class="src src-conf">[<span style="color: #845449;">Unit</span>]
+<span style="color: #825072;">Description</span>=Run check_battery every 60 seconds
 
-[<span style="color: #006a92;">Timer</span>]
+[<span style="color: #845449;">Timer</span>]
 
-<span style="color: #636465;"># </span><span style="color: #636465;">on boot</span>
-<span style="color: #636465;"># </span><span style="color: #636465;">OnBootSec=0min</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">on boot</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">OnBootSec=0min</span>
 
-<span style="color: #636465;"># </span><span style="color: #636465;">on service manager activation</span>
-<span style="color: #c00079;">OnStartupSec</span>=0min
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">on service manager activation</span>
+<span style="color: #825072;">OnStartupSec</span>=0min
 
-<span style="color: #c00079;">OnUnitActiveSec</span>=60s
+<span style="color: #825072;">OnUnitActiveSec</span>=60s
 
-[<span style="color: #006a92;">Install</span>]
-<span style="color: #c00079;">WantedBy</span>=timers.target
+[<span style="color: #845449;">Install</span>]
+<span style="color: #825072;">WantedBy</span>=timers.target
 </pre>
 </div>
 
@@ -213,7 +191,7 @@ And then we would change the <code>ExecStart</code> in our <code>battery_alert.s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf"><span style="color: #c00079;">ExecStart</span>=/path/to/check_battery
+<pre class="src src-conf"><span style="color: #825072;">ExecStart</span>=/path/to/check_battery
 </pre>
 </div>
 
@@ -223,11 +201,11 @@ And bam! we have done the thing.
 
 
 <p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <p>

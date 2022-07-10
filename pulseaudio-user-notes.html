@@ -1,56 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:43 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>pulseaudio user notes</title>
-<meta name="generator" content="Org mode">
+<meta name="generator" content="Org Mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="pulseaudio user notes">
 <meta property="og:description" content="">
 <meta property="description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/pulseaudio-user-notes.html">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <div style="float: right">
@@ -68,9 +46,9 @@
 When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker sources.
 </p>
 
-<div id="outline-container-h-0f0f140b-cace-40c9-814c-37c348635dc5" class="outline-2">
-<h2 id="h-0f0f140b-cace-40c9-814c-37c348635dc5"><span class="section-number-2">1</span> interfaces <span class=anchor><a href="#h-0f0f140b-cace-40c9-814c-37c348635dc5">⚓</a></span></h2>
-<div class="outline-text-2" id="text-h-0f0f140b-cace-40c9-814c-37c348635dc5">
+<div id="outline-container-h-0f0f140b-cace-40c9-814c-37c348635dc5" class="outline-3">
+<h3 id="h-0f0f140b-cace-40c9-814c-37c348635dc5"><span class="section-number-3">0.1.</span> interfaces <span class=anchor><a href="#h-0f0f140b-cace-40c9-814c-37c348635dc5">⚓</a></span></h3>
+<div class="outline-text-3" id="text-h-0f0f140b-cace-40c9-814c-37c348635dc5">
 <table>
 
 
@@ -105,15 +83,17 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </div>
 </div>
 
-<div id="outline-container-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3" class="outline-2">
-<h2 id="h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3"><span class="section-number-2">2</span> mute noise from a stream <span class=anchor><a href="#h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">⚓</a></span></h2>
-<div class="outline-text-2" id="text-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">
-<p>
-<b>EXTREMELY</b> useful for video calling. Relies on nix and <a href="https://tazj.in/">tazjin</a>&rsquo;s monorepo:
-</p>
+<div id="outline-container-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3" class="outline-3">
+<h3 id="h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3"><span class="section-number-3">0.2.</span> mute noise from a stream <span class=anchor><a href="#h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">⚓</a></span></h3>
+<div class="outline-text-3" id="text-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">
+</div>
+</div>
 
+<div id="outline-container-EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:" class="outline-2">
+<h2 id="EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:"><span class="section-number-2">1.</span> EXTREMELY* useful for video calling. Relies on nix and <a href="https://tazj.in/">tazjin</a>&rsquo;s monorepo: <span class=anchor><a href="#EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:">⚓</a></span></h2>
+<div class="outline-text-2" id="text-EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:">
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #007800;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #5b6600;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -135,12 +115,11 @@ minutes or so, which is unnoticeable and keeps it from drifting
 </p>
 </blockquote>
 </div>
-</div>
 
 
-<div id="outline-container-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers" class="outline-2">
-<h2 id="Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers <span class=anchor><a href="#Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">⚓</a></span></h2>
-<div class="outline-text-2" id="text-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">
+<div id="outline-container-TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers" class="outline-3">
+<h3 id="TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers"><span class="section-number-3">1.1.</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers <span class=anchor><a href="#TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">⚓</a></span></h3>
+<div class="outline-text-3" id="text-TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">
 <p>
 Some leftover notes from when I was last messing with this with <a href="https://obsproject.com/">OBS</a>.
 </p>
@@ -148,30 +127,30 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #636465;"># </span><span style="color: #636465;">add a null sync</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #636465;"># </span><span style="color: #636465;">=&gt; 25</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">=&gt; 25</span>
 
-pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink <span style="color: #825072;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
  2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
 
-pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink <span style="color: #825072;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink <span style="color: #825072;">slaves</span>=25,null
+pactl load-module module-combine-sink <span style="color: #825072;">slaves</span>=25,analog-stereo
 
-<span style="color: #636465;"># </span><span style="color: #636465;">number is the output of the above</span>
-<span style="color: #636465;"># </span><span style="color: #636465;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">number is the output of the above</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 
 
 <p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <p>
@@ -180,6 +159,7 @@ pactl load-module module-combine-sink <span style="color: #c00079;">slaves</span
 
 <div class="footer-right">
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-12-pulseaudio-user-notes.org">Page Markup</a>
+</div>
 </div>
 </div>
 </div>

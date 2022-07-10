@@ -1,56 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-06 Sat 17:43 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2022-07-10 Sun 15:22 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
-<meta name="generator" content="Org mode">
+<meta name="generator" content="Org Mode" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="reverse ssh tunnels">
 <meta property="og:description" content="">
 <meta property="description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/leaves.jpg">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/reverse-ssh-tunnels.html">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=5a05a2688397e2bb2316dca7f1b5d11e'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=f4feaf5958849b26e74a7f9f605844ea'>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: ＧＲＯＶＥ</a>
+    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <div style="float: right">
@@ -79,7 +57,7 @@ The problem is that <code>home</code> is behind some network you don&rsquo;t con
 </p>
 
 <div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
-<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1</span> From <code>home</code> <span class=anchor><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">⚓</a></span></h2>
+<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <span class=anchor><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <pre class="example">
 ssh -R 22222:localhost:22 username@vps
@@ -92,16 +70,16 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 
 <div id="outline-container-h-56d8bbe1-5940-4d97-b817-a71979240c19" class="outline-2">
-<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2</span> From <code>laptop</code> <span class=anchor><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">⚓</a></span></h2>
+<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <span class=anchor><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #636465;"># </span><span style="color: #636465;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">to access home after ssh'ing into vps:</span>
 ssh localhost -p 22222
 
-<span style="color: #636465;"># </span><span style="color: #636465;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #007800;">'ssh localhost -p 22222'</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">to access home in one go from laptop:</span>
+ssh -t vps <span style="color: #5b6600;">'ssh localhost -p 22222'</span>
 
-<span style="color: #636465;"># </span><span style="color: #636465;">to Jump from the laptop (-J is the jumpbox target):</span>
+<span style="color: #a93b2f;"># </span><span style="color: #a93b2f;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
 </pre>
 </div>
@@ -109,7 +87,7 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 
 <div id="outline-container-h-76dc15ec-0aab-464c-a674-60474010c8f0" class="outline-2">
-<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3</span> TRAMP syntax <span class=anchor><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">⚓</a></span></h2>
+<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <span class=anchor><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
@@ -124,9 +102,9 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #0061c4;">let*</span> ((tramp-connection-path <span style="color: #007800;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #007800;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #007800;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #1d6a76;">let*</span> ((tramp-connection-path <span style="color: #5b6600;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #5b6600;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #5b6600;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
@@ -134,7 +112,7 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </div>
 
 <div id="outline-container-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4" class="outline-2">
-<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4</span> Other <span class=anchor><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">⚓</a></span></h2>
+<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <span class=anchor><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">⚓</a></span></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
@@ -142,11 +120,11 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 
 
 <p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/bark.jpg' /> </div>
+<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>🍃🌳ＧＲＯＶＥ🍃🌳</a>
+    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
 </div>
 
 <p>
