@@ -1,1 +1,12 @@
 Org mode blog. See the generation [[https://github.com/neeasade/emacs.d/blob/master/lisp/trees/blog.el][here]]. The notes is an export from my personal notes file.
+
+setup:
+
+#+begin_src sh
+git worktree add published origin/master
+cd published
+git checkout master
+ggpull
+#+end_src
+
+Then commit from ~published~ to update site after generation
