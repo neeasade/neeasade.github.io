@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-10 Sun 15:22 -->
+<!-- 2022-07-13 Wed 11:14 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GDB Registers</title>
@@ -11,24 +11,24 @@
 <meta property="og:description" content="">
 <meta property="description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
-<meta property="og:url" content="/home/neeasade/git/neeasade.github.io/site/Registers-with-GDB.html">
+<meta property="og:url" content="https://notes.neeasade.net/Registers-with-GDB.html">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=294447da8445d35e73a488312b1905d3'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=c01a640d99c7eef2196634061985d6ff'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: 𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+    <a href='/index.html'>Up: 𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
 </div>
 
 <div style="float: right">
@@ -62,14 +62,14 @@ of a Makefile for 3 of them:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-makefile"><span style="color: #8f5d7f;">all</span>: 32bit 64bit 64bitInLine
+<pre class="src src-makefile"><span style="color: #c6007f;">all</span>: 32bit 64bit 64bitInLine
 
-<span style="color: #8f5d7f;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+<span style="color: #c6007f;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
 MyProgram.c -o MyProgram
 
-<span style="color: #8f5d7f;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+<span style="color: #c6007f;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
 
-<span style="color: #8f5d7f;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
+<span style="color: #c6007f;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
 </pre>
 </div>
 
@@ -104,7 +104,7 @@ run the program - this will cause the breakpoint to instantly be hit.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">(gdb)<span style="color: #1d6a76;">break</span> main
+<pre class="src src-bash">(gdb)<span style="color: #0065c8;">break</span> main
 (gdb)run
 </pre>
 </div>
@@ -118,7 +118,7 @@ command <code>layout reg</code>, which will result in something like this:
 </p>
 
 
-<figure id="org1fcb2f8">
+<figure id="orgb87d539">
 <img src="http://i.imgur.com/SZkGALi.png" alt="SZkGALi.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>GDB</figcaption>
@@ -131,11 +131,11 @@ change value, they will be highlighted in the top window. Have fun!
 
 
 <p>
-<div class='title flair'><img class='flair-border' src='./assets/img/backgrounds/pattern_125.gif' /> </div>
+<div class='flair'></div>
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>𝔊𝔄𝔗𝔈𝔚𝔄𝔜⟴</a>
+    <a href='/index.html'>𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
 </div>
 
 <p>

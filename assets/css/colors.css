@@ -39,28 +39,27 @@ $ theme -p color.normal -r ./um
 
 */
 
-
 :root {
---background  : #f2e9e3;
---background_weak : #ded5d4;
---background_strong: #d2c9ce;
---background_plus : #e1c5c0;
+--background  : #e8ebec;
+--background_weak : #d6d7d8;
+--background_strong: #cdcacb;
+--background_plus : #a6d0ed;
 
---strings     : #667400;
---alt         : #916156;
---assumed     : #2a7783;
---primary     : #8f5d7f;
+--strings     : #007c00;
+--alt         : #006e96;
+--assumed     : #0065c8;
+--primary     : #c6007f;
 
---faded       : #a35a29;
---faded_weak : #a93b2f;
---faded_strong : #a1276b;
+--faded       : #6a6d6e;
+--faded_weak : #606162;
+--faded_strong : #5b5859;
 
---foreground  : #544b45;
---foreground_weak : #483f3e;
---foreground_strong : #40373c;
---foreground_plus : #544b45;
+--foreground  : #444748;
+--foreground_weak : #3a3b3c;
+--foreground_strong : #353233;
+--foreground_plus : #0c3653;
 
---radius: 0px;
+-radius: 0px;
 
 /* compat */
 --background__: var(--background_strong);

@@ -40,7 +40,7 @@ body {
     font-size: 1rem;
     line-height: 1.4;
 
-    background-image: url("../img/backgrounds/warm.png");
+    background-image: url("../img/backgrounds/pattern_125.gif");
     background-repeat: repeat;
 
     background-attachment: fixed;
@@ -220,14 +220,23 @@ a[href^="#"]:hover {
     left: 14px;
 }
 
-.flair img {
+.flair {
+    height: 100px;
+    width:100px;
+    border-width: 50px;
+    margin: auto;
     margin-top: 2em;
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 60%;
-    border-width: 8px;
-    /* border-color: var(--assumed) var(--alt) var(--primary) var(--alt) ; */
+    border-radius: 50%;
+
+    background-image: url("../img/backgrounds/soft.jpg");
     /* border-color: var(--alt) var(--primary) var(--alt) var(--assumed) ; */
-    border-color: var(--strings);
-    border-style: ridge double ridge double ;
+    /* border-color: var(--assumed); */
+    /* border-style: ridge double ridge double ; */
+    /* border-style:ridge double double ridge ; */
+    border-style:double ;
+    /* border-style:double ridge ridge double ; */
+    /* border-color: var(--assumed) var(--alt) var(--primary) var(--string); */
+    /* top right bottom left */
+    border-color: var(--primary) var(--alt) var(--assumed) var(--strings);
+    /* border-color: var(--alt) var(--strings) var(--assumed) var(--primary); */
 }
