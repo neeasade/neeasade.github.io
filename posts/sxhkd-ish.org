@@ -71,7 +71,7 @@ $ echo foo{bar,baz}
 foobar foobaz
 
 $ echo {,fae}{bar,baz}
-foobar foobaz faebar faebaz
+bar baz faebar faebaz
 
 $ echo super+{_,shift,alt,ctrl}+{h,n,e,l}
 super+_+h super+_+n super+_+e super+_+l super+shift+h super+shift+n super+shift+e super+shift+l super+alt+h super+alt+n super+alt+e super+alt+l super+ctrl+h super+ctrl+n super+ctrl+e super+ctrl+l
