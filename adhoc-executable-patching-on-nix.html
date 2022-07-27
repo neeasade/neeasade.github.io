@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-26 Tue 23:17 -->
+<!-- 2022-07-27 Wed 17:33 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>adhoc executable patching on nixos</title>
@@ -28,7 +28,7 @@
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: arst wow</a>
+    <a href='/index.html'>Up: neeanotes📜</a>
 </div>
 
 <div style="float: right">
@@ -58,7 +58,7 @@ Create a <code>shell.nix</code> file that looks like:
     (<span style="color: #0065c8;">with</span> pkgs; [
       gcc
 
-      <span style="color: #606162;"># example libraries you might want:</span>
+      <span style="color: #6a6d6e;"># example libraries you might want:</span>
       zlib
       SDL2
     ]);
@@ -72,7 +72,7 @@ Launch the nix-shell, patch the linker so you can call the executable and see wh
 
 <div class="org-src-container">
 <pre class="src src-sh">; nix-shell shell.nix
-; patchelf --set-interpreter <span style="color: #007500;">"$(</span>cat $NIX_CC/nix-support/dynamic-linker<span style="color: #007500;">)"</span> /path/to/executable
+; patchelf --set-interpreter <span style="color: #007c00;">"$(</span><span style="color: #c6007f;">cat $NIX_CC/nix-support/dynamic-linker</span><span style="color: #007c00;">)"</span> /path/to/executable
 </pre>
 </div>
 
@@ -92,9 +92,9 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 
 <div class="org-src-container">
 <pre class="src src-sh">; nix-shell ./shell.nix
-; <span style="color: #606162;"># </span><span style="color: #606162;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
-; <span style="color: #bb0074;">new_rpath</span>=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')
-; patchelf --set-rpath <span style="color: #007500;">"$new_rpath"</span> /path/to/executable
+; <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
+; <span style="color: #c6007f;">new_rpath</span>=$(<span style="color: #c6007f;">echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n'</span>)
+; patchelf --set-rpath <span style="color: #007c00;">"$new_rpath"</span> /path/to/executable
 </pre>
 </div>
 
@@ -105,7 +105,7 @@ Then you should be able to run the executable by calling it normally (in or out 
 
 <div class="org-center">
 <p>
-⛰ ⛰ ⛰
+🗿 🗿 🗿
 </p>
 </div>
 
@@ -116,35 +116,35 @@ That&rsquo;s all well and good for <i>right now</i>, but what if we lose the nix
 
 <div class="org-src-container">
 <pre class="src src-nix"><span style="color: #c6007f;">babashka</span> = stdenv.mkDerivation <span style="color: #0065c8;">rec</span> {
-    <span style="color: #c6007f;">name</span> = <span style="color: #007500;">"babashka"</span>;
-    <span style="color: #606162;"># this is the way to coerce a string into a path</span>
-    <span style="color: #606162;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
+    <span style="color: #c6007f;">name</span> = <span style="color: #007c00;">"babashka"</span>;
+    <span style="color: #6a6d6e;"># this is the way to coerce a string into a path</span>
+    <span style="color: #6a6d6e;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
 
-    <span style="color: #606162;"># showing a few different ways:</span>
-    <span style="color: #606162;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
+    <span style="color: #6a6d6e;"># showing a few different ways:</span>
+    <span style="color: #6a6d6e;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
     <span style="color: #c6007f;">src</span> = (fetchurl {
-        <span style="color: #c6007f;">url</span> = <span style="color: #007500;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
-        <span style="color: #c6007f;">sha256</span> = <span style="color: #007500;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
+        <span style="color: #c6007f;">url</span> = <span style="color: #007c00;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
+        <span style="color: #c6007f;">sha256</span> = <span style="color: #007c00;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
     });
 
-    <span style="color: #c6007f;">unpackPhase</span> = <span style="color: #007500;">"unzip $src"</span>;
-    <span style="color: #606162;"># if src is a path to the executable:</span>
-    <span style="color: #606162;"># unpackPhase = "cp $src bb";</span>
+    <span style="color: #c6007f;">unpackPhase</span> = <span style="color: #007c00;">"unzip $src"</span>;
+    <span style="color: #6a6d6e;"># if src is a path to the executable:</span>
+    <span style="color: #6a6d6e;"># unpackPhase = "cp $src bb";</span>
 
-    <span style="color: #606162;"># note: the chmod is only needed when using direct path to local executable</span>
-    <span style="color: #c6007f;">patchPhase</span> = <span style="color: #007500;">''</span>
-<span style="color: #007500;">        chmod u+w ./bb</span>
-<span style="color: #007500;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
-<span style="color: #007500;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
-<span style="color: #007500;">        patchelf --set-rpath "$new_rpath" ./bb</span>
-<span style="color: #007500;">    ''</span>;
+    <span style="color: #6a6d6e;"># note: the chmod is only needed when using direct path to local executable</span>
+    <span style="color: #c6007f;">patchPhase</span> = <span style="color: #007c00;">''</span>
+<span style="color: #007c00;">        chmod u+w ./bb</span>
+<span style="color: #007c00;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
+<span style="color: #007c00;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
+<span style="color: #007c00;">        patchelf --set-rpath "$new_rpath" ./bb</span>
+<span style="color: #007c00;">    ''</span>;
 
     <span style="color: #c6007f;">dontBuild</span> = <span style="color: #0065c8;">true</span>;
 
-    <span style="color: #c6007f;">installPhase</span> = <span style="color: #007500;">''</span>
-<span style="color: #007500;">        mkdir -p $out/bin</span>
-<span style="color: #007500;">        cp bb $out/bin</span>
-<span style="color: #007500;">    ''</span>;
+    <span style="color: #c6007f;">installPhase</span> = <span style="color: #007c00;">''</span>
+<span style="color: #007c00;">        mkdir -p $out/bin</span>
+<span style="color: #007c00;">        cp bb $out/bin</span>
+<span style="color: #007c00;">    ''</span>;
 
     <span style="color: #c6007f;">nativeBuildInputs</span> = (<span style="color: #0065c8;">with</span> pkgs; [
         gcc-unwrapped.lib zlib unzip
@@ -175,7 +175,7 @@ And bam! now we can integrate our sins into our package definitions.
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>arst wow</a>
+    <a href='/index.html'>neeanotes📜</a>
 </div>
 
 <p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-26 Tue 23:17 -->
+<!-- 2022-07-27 Wed 17:33 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>checking for toots</title>
@@ -28,7 +28,7 @@
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: arst wow</a>
+    <a href='/index.html'>Up: neeanotes📜</a>
 </div>
 
 <div style="float: right">
@@ -47,7 +47,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I
 </p>
 
 
-<figure id="org48ec04d">
+<figure id="orgcb4f7a1">
 <a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
 
 </figure>
@@ -94,7 +94,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #007500;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #007c00;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -103,17 +103,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #606162;">#</span><span style="color: #606162;">!/usr/bin/</span><span style="color: #005ec1;">env</span><span style="color: #606162;"> bash</span>
-<span style="color: #606162;"># </span><span style="color: #606162;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #606162;"># </span><span style="color: #606162;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #bb0074;">count</span>=0
-<span style="color: #005ec1;">if</span> <span style="color: #007500;">!</span> <span style="color: #bb0074;">diff</span>=$(diff &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); <span style="color: #005ec1;">then</span>
-    <span style="color: #bb0074;">new_content</span>=$(echo "$diff" | grep '^&lt;' | sed 's/&lt; //')
-    <span style="color: #bb0074;">count</span>=$(echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l)
-<span style="color: #005ec1;">fi</span>
+<span style="color: #c6007f;">count</span>=0
+<span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> <span style="color: #c6007f;">diff</span>=$(<span style="color: #c6007f;">diff &lt;(toot notifications</span>) &lt;(cat /tmp/toot-notifications)); <span style="color: #0065c8;">then</span>
+    <span style="color: #c6007f;">new_content</span>=$(<span style="color: #c6007f;">echo "$diff" | grep '^&lt;' | sed 's/&lt; //'</span>)
+    <span style="color: #c6007f;">count</span>=$(<span style="color: #c6007f;">echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l</span>)
+<span style="color: #0065c8;">fi</span>
 
-<span style="color: #005ec1;">echo</span> <span style="color: #007500;">"toot mentions: $count"</span>
+<span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -122,7 +122,7 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 </p>
 
 
-<figure id="org6648bb3">
+<figure id="orgb70ecfb">
 <a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
 
 </figure>
@@ -137,7 +137,7 @@ With a click action to &ldquo;Mark toots as seen&rdquo;(just updating the temp f
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>arst wow</a>
+    <a href='/index.html'>neeanotes📜</a>
 </div>
 
 <p>

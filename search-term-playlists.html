@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-26 Tue 23:17 -->
+<!-- 2022-07-27 Wed 17:33 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>search term playlists</title>
@@ -28,7 +28,7 @@
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: arst wow</a>
+    <a href='/index.html'>Up: neeanotes📜</a>
 </div>
 
 <div style="float: right">
@@ -73,7 +73,7 @@ Playlist files are files where every line is a comment, except for lines startin
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf"><span style="color: #606162;"># </span><span style="color: #606162;">artists</span>
+<pre class="src src-conf"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">artists</span>
 +ryo fukui
 +hiromi
 +gabor szabo
@@ -82,28 +82,28 @@ Playlist files are files where every line is a comment, except for lines startin
 +Minoru Muraoka
 +alice coltrane
 
-<span style="color: #606162;"># </span><span style="color: #606162;">albums</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">albums</span>
 +flight to brazil
 
-<span style="color: #606162;"># </span><span style="color: #606162;">generic</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">generic</span>
 +piano
 +jazz
 +koto
 
-<span style="color: #606162;"># </span><span style="color: #606162;">channel</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">channel</span>
 +mogurin3131
 +mogurin313131
 +marcel the drunkard
 
-<span style="color: #606162;"># </span><span style="color: #606162;">edd ed eddy is actually pretty jazzy</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">edd ed eddy is actually pretty jazzy</span>
 +ed, edd
 
-<span style="color: #606162;"># </span><span style="color: #606162;">random</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">random</span>
 +touhou
 
 -05 My Sick Piano.m4a
--Mario Basanov &amp; Vidis  - I<span style="color: #007500;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
-<span style="color: #007500;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
+-Mario Basanov &amp; Vidis  - I<span style="color: #007c00;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
+<span style="color: #007c00;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
 </pre>
 </div>
 
@@ -114,7 +114,7 @@ Lines that start with a <code>+</code> are search terms against the current musi
 <p>
 The script may be found <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/music">here</a>. Here are it&rsquo;s current options:
 </p>
-<pre class="example" id="orga601426">
+<pre class="example" id="orga694ff9">
 $ music
 music options:
 add        : add a url to library, fallback on clipboard content
@@ -133,7 +133,7 @@ shuffle    : reshuffle current selection from all
 <p>
 And an example of a fetch-like status (bar created with <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/panel/tools/mkb">mkb</a>):
 </p>
-<pre class="example" id="org37f1fe8">
+<pre class="example" id="org1265c6b">
 $ music info
 Hiromi Uehara 2006 Love and Laughter
 ◈◈◈◈◈◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
@@ -143,7 +143,7 @@ playlist: jazz_piano | 60h 35m 13s
 
 <div class="org-center">
 <p>
-🌋 🌋 🌋
+🪨 🪨 🪨
 </p>
 </div>
 
@@ -153,10 +153,10 @@ After some times passed with the above system, I found myself sometimes wanting 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">+ () { append <span style="color: #007500;">"$@"</span>; }
-<span style="color: #bb0074;">-</span> () { remove <span style="color: #007500;">"$@"</span>; }
-@ () { artist <span style="color: #007500;">"$@"</span>; }
-<span style="color: #005ec1;">.</span> <span style="color: #007500;">"/path/to/playlist"</span>
+<pre class="src src-sh">+ () { append <span style="color: #007c00;">"$@"</span>; }
+<span style="color: #c6007f;">-</span> () { remove <span style="color: #007c00;">"$@"</span>; }
+@ () { artist <span style="color: #007c00;">"$@"</span>; }
+<span style="color: #0065c8;">.</span> <span style="color: #007c00;">"/path/to/playlist"</span>
 </pre>
 </div>
 
@@ -165,14 +165,14 @@ Sourcing the playlist means the blend between music script and playlist is total
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #606162;">#</span><span style="color: #606162;">!/bin/</span><span style="color: #005ec1;">sh</span>
+<pre class="src src-sh"><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/bin/</span><span style="color: #0065c8;">sh</span>
 
-<span style="color: #606162;"># </span><span style="color: #606162;">get any song with a widechar in its name</span>
-<span style="color: #005ec1;">for</span> x<span style="color: #005ec1;"> in</span> &#65345; &#65346; &#65347; &#65348; &#65349; &#65350; &#65351; &#65352; &#65353; &#65354; &#65355; &#65356; &#65357; &#65358; &#65359; &#65360; &#65361; &#65362; &#65363; &#65364; &#65365; &#65366; &#65361; &#65368; &#65369; &#65370; &#65313; &#65314; &#65315; &#65316; &#65317; &#65318; &#65319; &#65320; &#65321; &#65322; &#65323; &#65324; &#65325; &#65326; &#65327; &#65328; &#65329; &#65330; &#65331; &#65332; &#65333; &#65334; &#65329; &#65336; &#65337; &#65338;; <span style="color: #005ec1;">do</span>
-   append $<span style="color: #bb0074;">x</span>
-<span style="color: #005ec1;">done</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">get any song with a widechar in its name</span>
+<span style="color: #0065c8;">for</span> x<span style="color: #0065c8;"> in</span> &#65345; &#65346; &#65347; &#65348; &#65349; &#65350; &#65351; &#65352; &#65353; &#65354; &#65355; &#65356; &#65357; &#65358; &#65359; &#65360; &#65361; &#65362; &#65363; &#65364; &#65365; &#65366; &#65361; &#65368; &#65369; &#65370; &#65313; &#65314; &#65315; &#65316; &#65317; &#65318; &#65319; &#65320; &#65321; &#65322; &#65323; &#65324; &#65325; &#65326; &#65327; &#65328; &#65329; &#65330; &#65331; &#65332; &#65333; &#65334; &#65329; &#65336; &#65337; &#65338;; <span style="color: #0065c8;">do</span>
+   append $<span style="color: #c6007f;">x</span>
+<span style="color: #0065c8;">done</span>
 
-<span style="color: #606162;"># </span><span style="color: #606162;">artists</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">artists</span>
 @ HOME
 @ windows96
 @ lucien hughes
@@ -180,15 +180,15 @@ Sourcing the playlist means the blend between music script and playlist is total
 @ haircuts for men
 @ blank banshee
 
-<span style="color: #606162;"># </span><span style="color: #606162;">search terms</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">search terms</span>
 + vaporwave
 + vapor
 + E m o t i o n a l T o k y o
 
-<span style="color: #606162;"># </span><span style="color: #606162;">youtube channel</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">youtube channel</span>
 + elfamosodemon
 
-<span style="color: #606162;"># </span><span style="color: #606162;">give us stuff longer than 15min</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">give us stuff longer than 15min</span>
 filter is_long
 
 - lazerhawk
@@ -212,7 +212,7 @@ Have fun with it! 🐨
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>arst wow</a>
+    <a href='/index.html'>neeanotes📜</a>
 </div>
 
 <p>
