@@ -8,10 +8,10 @@ These repositories constitute where I turn my desktop into an interactive enviro
 
  A fork of the [[https://st.suckless.org/][st terminal]] with some patches applied, with Xresources integration and live reloading.
 
-* [[https://github.com/neeasade/color-tools.el][colors-tools.el]]
+* [[https://github.com/neeasade/ct.el][ct.el]]
 
 A collection of [[https://notes.neeasade.net/color-spaces.html][colorspace]] utility functions.
 
-* [[https://github.com/neeasade/bspwwm][bspwwm]]
+# * [[https://github.com/neeasade/bspwwm][bspwwm]]
 
-A *vaporware* Wayland compositor built on top of wlroots using Nix and Clojure. Mostly a playground to experiment with Clojure FFI to the Wlroots libraries.
+# A *vaporware* Wayland compositor built on top of wlroots using Nix and Clojure. Mostly a playground to experiment with Clojure FFI to the Wlroots libraries.

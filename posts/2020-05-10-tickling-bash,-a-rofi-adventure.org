@@ -8,8 +8,7 @@
 #+OPTIONS: ^:nil
 
 
-# nb: front leading space is significant
- *tl;dr*: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
+*tl;dr*: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
 
 #+begin_src sh
 sh -c 'echo $$; echo a; sleep 100; echo b' | (read pid; read line; echo "$line"; kill $pid)

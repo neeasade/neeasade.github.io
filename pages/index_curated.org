@@ -1,30 +1,20 @@
 #+title: {{blog-title}}
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] [[./index_published.org][Published]] [[./index_bubble.org][Bubble]] *Curated*)}}}
 
-This is a curated subset of posts on this site, sorted by edit date. 'curated' just means I thought I might as well put a post  in my main [[https://notes.neeasade.net/rss.xml][rss feed]].
+This is a curated subset of posts on this site, sorted by edit date. 'curated' just means I thought I might as well put a post in my main [[https://notes.neeasade.net/rss.xml][rss feed]].
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->>
- (if (boundp 'org-post-metas)
-     (append org-post-metas org-note-metas)
-   (-map 'ns/blog-file-to-meta (ns/blog-get-org "posts")))
- (-filter (fn (not (ht-get <> :is-draft))))
- (-filter (fn (ht-get <> :rss-title)))
- (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
-
- ;; sorting order
- ((lambda (items)
-    (sort items (fn (string-lessp
-		     (ht-get <1> :edited-date)
-		     (ht-get <2> :edited-date)
-		     )))))
- (mapcar
-  (fn (format "- <%s> [[file:./%s.html][%s]]"
-	      (ht-get <> :edited-date)
-	      (f-base (ht-get <> :html-dest))
-	      (ht-get <> :title)
-	      )))
- reverse
- (s-join "\n")
- )
+(->> (ns/blog-get-metas)
+     (-filter (-lambda ((&hash :rss-title :draft-p :edited-date :type))
+		  (and edited-date 	; tracked by git
+		   rss-title
+		   (not draft-p)
+		   (string= "post" type))))
+     (--sort (string-greaterp
+	      (ht-get it :edited-date)
+	      (ht-get other :edited-date)))
+     (-map (-lambda ((&hash :edited-date :html-dest :title))
+	       (format "- <%s> [[file:./%s.html][%s]]"
+		edited-date (f-base html-dest) title)))
+     (s-join "\n"))
 #+END_SRC

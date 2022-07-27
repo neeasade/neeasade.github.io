@@ -14,27 +14,15 @@ a {
 #+end_export
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->>
- (if (boundp 'org-post-metas)
-     (append org-post-metas org-note-metas)
-   (-map 'ns/blog-file-to-meta (ns/blog-get-org "posts")))
- (-filter (fn (not (ht-get <> :is-draft))))
- (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
-
- ;; sorting order
- ((lambda (items)
-    (sort items (fn (string-lessp
-		     (ht-get <1> :edited-date)
-		     (ht-get <2> :edited-date)
-		     )))))
- (mapcar
-  (fn (format "[[file:./%s.html][%s]]"
-	      ;; (ht-get <> :edited-date)
-	      (f-base (ht-get <> :html-dest))
-	      (ht-get <> :title)
-	      (ht-get <> :edited-date)
-	      )))
- reverse
- (s-join "\n")
- )
+(->> (ns/blog-get-metas)
+     (-filter (-lambda ((&hash :draft-p :edited-date :type))
+		  (and edited-date 	; tracked by git
+		   (not draft-p)
+		   (-contains-p '("post" "note") type))))
+     (--sort (string-greaterp
+	      (ht-get it :edited-date)
+	      (ht-get other :edited-date)))
+     (-map (-lambda ((&hash :html-dest :title))
+	       (format "[[file:./%s.html][%s]]" (f-base html-dest) title)))
+     (s-join "\n"))
 #+END_SRC

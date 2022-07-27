@@ -1,100 +1,20 @@
 #+title: {{blog-title}}
 #+title_extra: {{{nav-strip([[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_curated.org][Curated]])}}}
 
-A list of all posts on this site, sorted by publish date.
+posts+notes sorted by last-published date
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->> (if (boundp 'org-post-metas)
-	 (append org-post-metas org-note-metas)
-       (append (-map 'ns/blog-file-to-meta (ns/blog-get-org "posts"))
-	       (-map 'ns/blog-file-to-meta (ns/blog-get-org "notes"))))
-
-     (-filter (fn (not (ht-get <> :is-draft))))
-     (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
-     ;; sorting order
-     ((lambda (items)
-	(sort items (fn (string-lessp
-			 (ht-get <1> :publish-date)
-			 (ht-get <2> :publish-date)
-			 )))))
-     (mapcar
-      (fn (format "- <%s> [[file:./%s.html][%s]] "
-		  (ht-get <> :publish-date)
-		  (f-base (ht-get <> :html-dest))
-		  (ht-get <> :title)
-		  )))
-     reverse
-     (s-join "\n")
-     )
+(->> (ns/blog-get-metas)
+     (-filter (-lambda ((&hash :draft-p :edited-date :type))
+		  (and edited-date 	; tracked by git
+		   (not draft-p)
+		   (-contains-p '("post" "note") type))))
+     (--sort (string-greaterp
+	      (ht-get it :published-date)
+	      (ht-get other :published-date)))
+     (-map (-lambda ((&hash :published-date :html-dest :title))
+	       (format "- <%s> [[file:./%s.html][%s]]"
+		published-date (f-base html-dest) title)))
+     (s-join "\n"))
 #+END_SRC
 
-#+RESULTS:
-- <nil> [[file:./colemak-dh-mod.html][colemak-dh mod]]
-- <nil> [[file:./checking-for-toots.html][checking for toots]]
-- <nil> [[file:./blog-meta.html][May Days]]
-- <nil> [[file:./reverse-ssh-tunnels.html][reverse ssh tunnels]]
-- <nil> [[file:./mobile-capture-with-orgzly-termux-and-syncthing.html][My Mobile Setup]]
-- <nil> [[file:./adhoc-executable-patching-on-nix.html][adhoc executable patching on nixos]]
-- <nil> [[file:./rice-links.html][rice links]]
-- <nil> [[file:./shell-getopts.html][tl;dr shell getopts]]
-- <nil> [[file:./Updating-nix-channels.html][Updating nix channels]]
-- <nil> [[file:./On-Emacs.html][On Emacs]]
-- <nil> [[file:./tldr-org-mode--graphviz.html][TLDR org mode + graphviz]]
-- <nil> [[file:./git-svn-reference.html][git svn workflow]]
-- <nil> [[file:./add-local-font-files-linux.html][add local font files linux]]
-- <nil> [[file:./quote-to-string-in-elisp.html][quote to string in elisp]]
-- <nil> [[file:./restclient.el--elasticsearch.html][restclient.el + elasticsearch]]
-- <nil> [[file:./curl-exit-code-60-on-Windows.html][curl exit code 60 on Windows]]
-- <nil> [[file:./Pok3r-Mapping.html][Pok3r Mapping]]
-- <nil> [[file:./Ryo_Fukui.html][Ryo Fukui]]
-- <nil> [[file:./BSPWM-Multihead.html][i3-like multihead in bspwm]]
-- <nil> [[file:./BPSWM-Experiences.html][BSPWM Experiences]]
-- <nil> [[file:./Registers-with-GDB.html][GDB Registers]]
-- <nil> [[file:./youtube_rip_with_dwb__youtube-dl.html][youtube rip with dwb + youtube-dl]]
-- <nil> [[file:./wasd-v2-mechanical-keyboard.html][WASD V2 Mechanical Keyboard]]
-- <nil> [[file:./configuring-constant-lang-variable.html][Configuring constant LANG variable]]
-- <nil> [[file:./creation-of-a-time-based-wallpaper-with-feh.html][Creation of a time based wallpaper with feh]]
-- <nil> [[file:./virtualbox-setup-on-arch-linux.html][VirtualBox setup on Arch Linux]]
-- <nil> [[file:./asdf.html][asdf]]
-- <nil> [[file:./weekend.html][Weekend]]
-- <nil> [[file:./more-gw2-api-released.html][More gw2 API released]]
-- <nil> [[file:./guildwars.html][Guildwars]]
-- <nil> [[file:./the-battle-for-wesnoth.html][The Battle for Wesnoth]]
-- <nil> [[file:./crunchbang-11.html][CrunchBang 11]]
-- <nil> [[file:./general-thoughts-on-summer.html][General Thoughts on Summer]]
-- <nil> [[file:./sources-of-offline-documentation.html][Offline documentation]]
-- <2021-02-03> [[file:./x-clients.html][Maximum number of clients reached on X]]
-- <2021-02-03> [[file:./redshift.html][redshift oneshot calls]]
-- <2021-02-03> [[file:./org-habits.html][org habit syntax reference]]
-- <2021-02-03> [[file:./nix-profile.html][nix profile]]
-- <2021-02-03> [[file:./eve-fits.html][eve fits]]
-- <2021-01-31> [[file:./tiled-wallpaper-sources.html][tiled wallpaper sources]]
-- <2021-01-26> [[file:./sxhkd-ish.html][sxhkd-ish]]
-- <2021-01-19> [[file:./tarps.html][tarps]]
-- <2021-01-04> [[file:./passionate-state-of-mind.html][passionate state of mind]]
-- <2021-01-04> [[file:./fortune-quotes.html][fortune quotes]]
-- <2021-01-02> [[file:./systemd-user-services.html][systemd user services]]
-- <2020-12-17> [[file:./Calf-Path.html][The Calf Path]]
-- <2020-12-14> [[file:./printing-and-scanning-on-linux.html][printing and scanning on linux]]
-- <2020-12-13> [[file:./search-term-playlists.html][search term playlists]]
-- <2020-12-12> [[file:./o7.html][o7]]
-- <2020-12-01> [[file:./site-colors.html][site colors]]
-- <2020-11-30> [[file:./monday.html][Monday]]
-- <2020-11-24> [[file:./color-spaces.html][reasoning about colors]]
-- <2020-11-09> [[file:./my-shell-prompt.html][my shell prompt]]
-- <2020-11-04> [[file:./reduce.html][(reduce)]]
-- <2020-11-01> [[file:./annoying-org-typing-slowdowns.html][annoying org typing slowdowns]]
-- <2020-08-15> [[file:./meatbag-maintenance.html][meatbag maintenance]]
-- <2020-08-14> [[file:./Automata-tiling-backgrounds-2.html][Automata tiling backgrounds 2]]
-- <2020-08-12> [[file:./pulseaudio-user-notes.html][pulseaudio user notes]]
-- <2020-08-07> [[file:./A-fun-focus-exercise.html][A fun focus exercise]]
-- <2020-08-04> [[file:./Aug-2020.html][8 Months Adrift]]
-- <2020-08-03> [[file:./ImageMagick-notes.html][ImageMagick notes]]
-- <2020-08-02> [[file:./webrings.html][webrings]]
-- <2020-07-24> [[file:./sound-log.html][sound log]]
-- <2020-06-09> [[file:./Pinebook-Pro.html][Pinebook Pro]]
-- <2020-05-10> [[file:./tickling-bash-a-rofi-adventure.html][tickling bash, quest for the perfect menu]]
-- <2020-05-08> [[file:./Automata-tiling-backgrounds.html][Automata tiling backgrounds]]
-- <2020-05-05> [[file:./Archiving-CDs-on-linux.html][Archiving CD's on linux]]
-- <2020-04-04> [[file:./xeros-irc-ref.html][xero's irc ref]]
-- <2018-05-06> [[file:./vim-quick-reference.html][vim language quick reference]]

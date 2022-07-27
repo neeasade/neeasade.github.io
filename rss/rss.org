@@ -15,32 +15,29 @@
 #   :END:
 
 #+BEGIN_SRC elisp :results raw :exports results
-  (->>
-   (if (boundp 'org-post-metas)
-       org-post-metas
-     (mapcar 'ns/blog-file-to-meta (f-entries ns/blog-posts-dir (fn (s-ends-with-p ".org" <>)))))
+(->> (ns/blog-get-metas)
+     (-filter (-lambda ((&hash :draft-p :rss-title :edited-date :type))
+		  (and edited-date 	; tracked by git
+		   rss-title
+		   (not draft-p)
+		   (-contains-p '("post") type))))
+     (--sort (string-greaterp
+	      (ht-get it :publish-date)
+	      (ht-get other :publish-date)))
+     (-map
+      (fn (format (s-join "\n" '("* %s"
+				 ":PROPERTIES:"
+				 ":ID: %s"
+				 ":PUBDATE: %s"
+				 ":RSS_PERMALINK: %s"
+				 ":END:"))
+		  (ht-get <> :rss-title)
+		  (ht-get <> :rss-title)
+		  (ht-get <> :published-date)
+		  (f-filename (ht-get <> :html-dest)))))
+     ;; (-map (-lambda ((&hash :edited-date :html-dest :title))
+     ;; 	       (format "- <%s> [[file:./%s.html][%s]]"
+     ;; 		edited-date (f-base html-dest) title)))
+     (s-join "\n"))
 
-   (-filter (fn (not (ht-get <> :is-draft))))
-   (-filter (fn (ht-get <> :rss-title)))
-   (-filter (fn (ht-get <> :edited-date))) ; what's tracked by git
-   ;; sorting order
-   ((lambda (items)
-      (sort items (fn (string-lessp
-		       (ht-get <1> :publish-date)
-		       (ht-get <2> :publish-date)
-		       )))))
-   (mapcar
-    (fn (format (s-join "\n" '("* %s"
-			       ":PROPERTIES:"
-			       ":ID: %s"
-			       ":PUBDATE: %s"
-			       ":RSS_PERMALINK: %s"
-			       ":END:"))
-		(ht-get <> :rss-title)
-		(ht-get <> :rss-title)
-		(ht-get <> :publish-date)
-		(f-filename (ht-get <> :html-dest))
-		)))
-   reverse
-   (s-join "\n"))
 #+END_SRC
