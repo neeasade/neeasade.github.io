@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-13 Wed 15:08 -->
+<!-- 2022-07-26 Tue 23:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reasoning about colors</title>
@@ -29,7 +29,7 @@
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: 𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
+    <a href='/index.html'>Up: arst wow</a>
 </div>
 
 <div style="float: right">
@@ -228,7 +228,7 @@ Saturation in HSL is a controlled version of chromacity (&ldquo;distance from gr
 </p>
 
 
-<figure id="org5e49ad1">
+<figure id="orgbf91291">
 <a href="./assets/posts/color_cylinder.png"><img src="./assets/posts/color_cylinder.png" alt="color_cylinder.png"></a>
 
 </figure>
@@ -1091,11 +1091,11 @@ Emacs ships with a fair amount of <a href="https://github.com/emacs-mirror/emacs
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(ct-edit-hsl <span style="color: #007c00;">"#c930e8"</span>
- (<span style="color: #0065c8;">lambda</span> (H S L)
+<pre class="src src-emacs-lisp">(ct-edit-hsl <span style="color: #007500;">"#c930e8"</span>
+ (<span style="color: #005ec1;">lambda</span> (H S L)
    (list H S (* 1.5 L))))
 
-<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; "#eb16af59f708"</span>
+<span style="color: #606162;">;; </span><span style="color: #606162;">=&gt; "#eb16af59f708"</span>
 </pre>
 </div>
 
@@ -1114,10 +1114,10 @@ I also implemented a function for comparing contrast, referencing Peter Occil&rs
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">order does not matter:</span>
-(ct-contrast-ratio <span style="color: #007c00;">"#ffffff"</span> <span style="color: #007c00;">"#445544"</span>)
+<pre class="src src-emacs-lisp"><span style="color: #606162;">;; </span><span style="color: #606162;">order does not matter:</span>
+(ct-contrast-ratio <span style="color: #007500;">"#ffffff"</span> <span style="color: #007500;">"#445544"</span>)
 
-<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; 3.0000000000000004</span>
+<span style="color: #606162;">;; </span><span style="color: #606162;">=&gt; 3.0000000000000004</span>
 </pre>
 </div>
 
@@ -1125,7 +1125,7 @@ I also implemented a function for comparing contrast, referencing Peter Occil&rs
 Is a color light? just check the lightness value in LAB space (note: that 65 value is ~opinions~):
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #0065c8;">defun</span> <span style="color: #c6007f;">ct-is-light-p</span> (name)
+<pre class="src src-emacs-lisp">(<span style="color: #005ec1;">defun</span> <span style="color: #bb0074;">ct-is-light-p</span> (name)
   (&gt; (first (ct-name-to-lab name))
      65))
 </pre>
@@ -1151,23 +1151,23 @@ These pieces (transformers and comparison functions) can be combined to do thing
 
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(ct-iterate
- <span style="color: #007c00;">"#eeeeee"</span>
+ <span style="color: #007500;">"#eeeeee"</span>
 
- <span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">Darken the color a little at a time in LAB space:</span>
- (<span style="color: #0065c8;">lambda</span> (c)
+ <span style="color: #606162;">;; </span><span style="color: #606162;">Darken the color a little at a time in LAB space:</span>
+ (<span style="color: #005ec1;">lambda</span> (c)
    (ct-edit-lab c
-    (<span style="color: #0065c8;">lambda</span> (L A B)
+    (<span style="color: #005ec1;">lambda</span> (L A B)
       (list (- L 0.1)
             A B))))
 
- <span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">check that we've reached some desired contrast ratio</span>
- <span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">4.5, Here against a background #f7f7f7</span>
- (<span style="color: #0065c8;">lambda</span> (c)
-   (&gt; (ct-contrast-ratio <span style="color: #007c00;">"#f7f7f7"</span> c)
+ <span style="color: #606162;">;; </span><span style="color: #606162;">check that we've reached some desired contrast ratio</span>
+ <span style="color: #606162;">;; </span><span style="color: #606162;">4.5, Here against a background #f7f7f7</span>
+ (<span style="color: #005ec1;">lambda</span> (c)
+   (&gt; (ct-contrast-ratio <span style="color: #007500;">"#f7f7f7"</span> c)
       4.5)))
 
-<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; "#2d662ca72d1b"</span>
-<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">(converted: #2d2c2c)</span>
+<span style="color: #606162;">;; </span><span style="color: #606162;">=&gt; "#2d662ca72d1b"</span>
+<span style="color: #606162;">;; </span><span style="color: #606162;">(converted: #2d2c2c)</span>
 </pre>
 </div>
 </div>
@@ -1319,7 +1319,7 @@ Which in action looks like (click to see full size):
 </p>
 
 
-<figure id="org0899193">
+<figure id="org74b28f8">
 <a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png"></a>
 
 </figure>
@@ -1524,7 +1524,7 @@ Thanks to the <a href="https://github.com/gnotclub/">Axis of Eval</a>, <a href="
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
+    <a href='/index.html'>arst wow</a>
 </div>
 
 <p>

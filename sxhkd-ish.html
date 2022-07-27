@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-13 Wed 15:08 -->
+<!-- 2022-07-26 Tue 23:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sxhkd-ish</title>
@@ -28,11 +28,11 @@
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: 𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
+    <a href='/index.html'>Up: arst wow</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">Last edit: <2021-01-26></a>
+    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">Last edit: <2022-07-20></a>
 </div>
 
 <p>
@@ -54,7 +54,7 @@ For years now, I&rsquo;ve used bspwm as my daily driver window manager. It does 
 
 <div class="org-src-container">
 <pre class="src src-conf">super + Escape
-    notify-send <span style="color: #007c00;">"reloading sxhkd!"</span>; pkill -USR1 -x sxhkd
+    notify-send <span style="color: #007500;">"reloading sxhkd!"</span>; pkill -USR1 -x sxhkd
 
 super + {_,shift,alt,ctrl} + {h,n,e,l}
     {focus,move,resize,presel}.sh {west,south,north,east}
@@ -108,7 +108,7 @@ WEW that&rsquo;s a lot. Thanks Baskerbae.
 
 <div class="org-center">
 <p>
-⛰ ⛰ ⛰
+🗿 🗿 🗿
 </p>
 </div>
 
@@ -134,7 +134,7 @@ This snippet comes from the example config, but if you prepend the lines with <c
 foobar foobaz
 
 $ echo {,fae}{bar,baz}
-foobar foobaz faebar faebaz
+bar baz faebar faebaz
 
 $ echo super+{_,shift,alt,ctrl}+{h,n,e,l}
 super+_+h super+_+n super+_+e super+_+l super+shift+h super+shift+n super+shift+e super+shift+l super+alt+h super+alt+n super+alt+e super+alt+l super+ctrl+h super+ctrl+n super+ctrl+e super+ctrl+l
@@ -146,22 +146,22 @@ Armed with this knowledge, I glued together something terrible for my <code>sway
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #0065c8;">bind</span>() {
-    <span style="color: #c6007f;">args</span>=(<span style="color: #007c00;">"$@"</span>)
-    <span style="color: #0065c8;">for</span> i<span style="color: #0065c8;"> in</span> $(<span style="color: #c6007f;">seq 0 "$(( (${#args[@]} / 2</span><span style="color: #007c00;">) - 1 ))"</span>); <span style="color: #0065c8;">do</span>
-        <span style="color: #c6007f;">key</span>=$(<span style="color: #c6007f;">echo "${args[$i]}" | sed 's/super/Mod4/' </span>)
+<pre class="src src-bash"><span style="color: #005ec1;">bind</span>() {
+    <span style="color: #bb0074;">args</span>=(<span style="color: #007500;">"$@"</span>)
+    <span style="color: #005ec1;">for</span> i<span style="color: #005ec1;"> in</span> $(seq 0 "$(( (${#args[@]} / 2<span style="color: #007500;">) - 1 ))"</span>); <span style="color: #005ec1;">do</span>
+        <span style="color: #bb0074;">key</span>=$(echo "${args[$i]}" | sed 's/super/Mod4/' )
 
-        <span style="color: #c6007f;">val_index</span>=$(<span style="color: #c6007f;">( i + (${#args[@]} / 2</span>) ))
-        <span style="color: #c6007f;">val</span>=${<span style="color: #c6007f;">args</span>[$<span style="color: #c6007f;">val_index</span>]}
+        <span style="color: #bb0074;">val_index</span>=$(( i + (${#args[@]} / 2) ))
+        <span style="color: #bb0074;">val</span>=${<span style="color: #bb0074;">args</span>[$<span style="color: #bb0074;">val_index</span>]}
 
-        <span style="color: #0065c8;">echo</span> swaymsg bindsym <span style="color: #007c00;">"$key"</span> <span style="color: #007c00;">"$bindprefix$val"</span>
-        swaymsg bindsym <span style="color: #007c00;">"$key"</span> <span style="color: #007c00;">"$bindprefix$val"</span>
-    <span style="color: #0065c8;">done</span>
+        <span style="color: #005ec1;">echo</span> swaymsg bindsym <span style="color: #007500;">"$key"</span> <span style="color: #007500;">"$bindprefix$val"</span>
+        swaymsg bindsym <span style="color: #007500;">"$key"</span> <span style="color: #007500;">"$bindprefix$val"</span>
+    <span style="color: #005ec1;">done</span>
 }
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">bind exec</span>
-<span style="color: #c6007f;">binde</span>() {
-    <span style="color: #c6007f;">bindprefix</span>=<span style="color: #007c00;">'exec '</span> bind <span style="color: #007c00;">"$@"</span>
+<span style="color: #606162;"># </span><span style="color: #606162;">bind exec</span>
+<span style="color: #bb0074;">binde</span>() {
+    <span style="color: #bb0074;">bindprefix</span>=<span style="color: #007500;">'exec '</span> bind <span style="color: #007500;">"$@"</span>
 }
 </pre>
 </div>
@@ -172,7 +172,7 @@ And then, as long as I escaped the spaces to connect the terms, I could get away
 
 <div class="org-src-container">
 <pre class="src src-sh">binde super+{,shift+,alt+,ctrl+}{h,n,e,l} <span style="color: #007c00;">\</span>
-    {focus,move,resize,presel}.sh<span style="color: #007c00;">\ </span>{west,south,north,east}
+    {focus,move,resize,presel}.sh<span style="color: #007500;">\ </span>{west,south,north,east}
 </pre>
 </div>
 
@@ -186,7 +186,7 @@ Hooray!
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
+    <a href='/index.html'>arst wow</a>
 </div>
 
 <p>

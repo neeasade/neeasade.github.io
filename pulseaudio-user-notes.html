@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-13 Wed 15:08 -->
+<!-- 2022-07-26 Tue 23:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>pulseaudio user notes</title>
@@ -28,7 +28,7 @@
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: 𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
+    <a href='/index.html'>Up: arst wow</a>
 </div>
 
 <div style="float: right">
@@ -93,7 +93,7 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 <h2 id="EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:"><span class="section-number-2">1.</span> EXTREMELY* useful for video calling. Relies on nix and <a href="https://tazj.in/">tazjin</a>&rsquo;s monorepo: <span class=anchor><a href="#EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:">⚓</a></span></h2>
 <div class="outline-text-2" id="text-EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:">
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #007c00;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #007500;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -127,20 +127,20 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">add a null sync</span>
+<span style="color: #606162;"># </span><span style="color: #606162;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">=&gt; 25</span>
+<span style="color: #606162;"># </span><span style="color: #606162;">=&gt; 25</span>
 
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink <span style="color: #bb0074;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
  2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
 
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink <span style="color: #bb0074;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink <span style="color: #bb0074;">slaves</span>=25,null
+pactl load-module module-combine-sink <span style="color: #bb0074;">slaves</span>=25,analog-stereo
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">number is the output of the above</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #606162;"># </span><span style="color: #606162;">number is the output of the above</span>
+<span style="color: #606162;"># </span><span style="color: #606162;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 
@@ -150,7 +150,7 @@ pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span
 </p>
 
 <div class='footer-left'>
-    <a href='/index.html'>𝟶𝚡𝙳𝙴𝙲𝙰𝙵𝙱𝙰𝙳☕</a>
+    <a href='/index.html'>arst wow</a>
 </div>
 
 <p>
