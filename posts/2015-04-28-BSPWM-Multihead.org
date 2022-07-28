@@ -38,7 +38,6 @@ So, This will focus on a window in a direction determined by keypress,
 which are vi-like here. However, lets say you have 2 monitors, and one
 is empty:
 
-#+caption: img
 [[http://i.imgur.com/5VBlIjn.png]]
 
 the command =bspc node -f east= will fail, as there is no window to the
@@ -54,11 +53,11 @@ middle of the right monitor as well as focus on that monitor.
 
 #+begin_src bash
 super + {h,j,k,l}
+    dir={west,south,north,east}; \
     bspc config pointer_follows_monitor true; \
     bspc config pointer_follows_focus true; \
-    dir={west,south,north,east}; \
-	if ! bspc node -f $dir; then \
-    bspc monitor -f $dir; \
+    if ! bspc node -f $dir; then \
+        bspc monitor -f $dir; \
     fi; \
     bspc config pointer_follows_monitor false; \
     bspc config pointer_follows_focus false
@@ -67,9 +66,8 @@ super + {h,j,k,l}
 When the node right command fails in the above scenario, the monitor to
 the right will be focused, and the pointer will be there.
 
-#
 #+begin_quote
-Why is half of this function setting pointer_follows_* values?
+Why is half of this binding setting =pointer_follows_*= values?
 #+end_quote
 
 So let's say you are moving a floating window with your mouse across the
@@ -114,21 +112,21 @@ Here is an implementation:
 
 #+begin_src bash
 super + shift + {h,j,k,l}
-    bspc config pointer_follows_focus true; \
-    cur_win=$(bspc query -W -w) \
-    cur_mon=$(bspc query -M -m); \
     dir={west,south,north,east}; \
+    wid=$(bspc query -N -n); \
+    mon=$(bspc query -M -m); \
+    bspc config pointer_follows_focus true; \
     if ! bspc node -f $dir; then \
-	bspc node -m $dir; \
-	bspc monitor -f $dir; \
+        bspc node -m $dir; \
+        bspc monitor -f $dir; \
     else \
-	new_mon=$(bspc query -M -m); \
-	if [ $new_mon -eq $cur_mon ]; then \
-	    bspc node -s $cur_win; \
-	else \
-	    bspc node $cur_win -m ^$new_mon; \
-	fi; \
-    bspc node -f $cur_win; \
+        new_mon=$(bspc query -M -m); \
+        if [ $new_mon -eq $mon ]; then \
+            bspc node -s $wid; \
+        else \
+            bspc node $wid -m $new_mon; \
+        fi; \
+        bspc node -f $wid; \
     fi; \
     bspc config pointer_follows_focus false
 #+end_src
@@ -139,3 +137,7 @@ then check if we are on a new monitor - if so, move the original window
 to the new monitor.
 
 wooo.
+
+-----
+
+This was initially authored in 2015, and nowaways I would recommend putting your focus/move/resize logic into scripts and then binding sxhkd keybinds to that -- so that the sxkhd can be clean, and you can enjoy editing shell without having to do the =;\;\;\= dance.
