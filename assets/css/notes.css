@@ -40,7 +40,8 @@ body {
     font-size: 1rem;
     line-height: 1.4;
 
-    background-image: url("../img/backgrounds/pattern_125.gif");
+    /* background-image: url("../img/backgrounds/pattern_125.gif"); */
+    background-color: var(--background_plus);
     background-repeat: repeat;
 
     background-attachment: fixed;
@@ -90,6 +91,7 @@ img {
     /* leave room for the footer */
     padding-bottom: 64px;
     background: var(--background);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
 }
 
 .section-number-1,
@@ -228,12 +230,13 @@ a[href^="#"]:hover {
     margin-top: 2em;
     border-radius: 50%;
 
-    background-image: url("../img/backgrounds/soft.jpg");
+    /* background-image: url("../img/backgrounds/soft.jpg"); */
+    background-color: var(--background_plus);
     /* border-color: var(--alt) var(--primary) var(--alt) var(--assumed) ; */
     /* border-color: var(--assumed); */
     /* border-style: ridge double ridge double ; */
     /* border-style:ridge double double ridge ; */
-    border-style:double ;
+    border-style: double;
     /* border-style:double ridge ridge double ; */
     /* border-color: var(--assumed) var(--alt) var(--primary) var(--string); */
     /* top right bottom left */
