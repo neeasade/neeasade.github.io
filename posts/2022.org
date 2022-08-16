@@ -1,0 +1,32 @@
+#+title: 2022‽
+#+post_type: post
+#+filetags:
+#+pubdate: <2022-08-15>
+
+hi!!!!! ✨✨✨✨✨
+
+I am still very alive.
+
+This site goes through more redesigns than writings sometimes, I swear.
+
+I've still been living my life and things, and just not been posting as much here as I have in my journal.
+
+Really it's been about a year and 7 months since posting here, and that pretty much directly correlates with the length of my employment. My site generator was broken in it's own special way and I didn't feel like fixing it, let alone _writing_ new stuff, but now I've swung by to give it some tender love and care, even the ability to only partially generate the site, so we'll see. A constant goal is that there should be a very low bar to writing anything out and just seeing what sticks.
+
+The start of 2022 saw me get really interested in meditation, through an app with a new age guru type. It's been a wonderful journey and has increasingly put me "in my own body" so to speak, instead of detached from it (wandering in the future or past). That might read pretty Woo if you've never meditated, so I'll I think I'll dedicate a post to it another time.
+
+Anyways one result of this mindfulness-focus has been an intense interest in yoga, which is also very good at getting you into the present moment. When you settle into a tough pose or enter a holding stance, your brain starts to pull away in much the same fashion a distracting thought or wrong impression. Seeing that wandering and coming back to the endless adjustments you can keep making with your breath is great practice for continuously matching your action to your intent.
+
+Plus it feels pretty damn good
+
+Other things:
+
+- Emacs still the best
+- I'm around the KC area
+- Been reading a lot in the past few weeks, binging stuff on a kobo-reader with [[https://github.com/baskerville/plato][Plato]]!
+    - Currently: The Three Musketeers
+- Games? Sometimes age of mythology
+- Had covid twice, it's ass
+- On twitter too much
+- ct.el got a shiny update
+- tarp is now myron-themes. be submitted to melpa soon??
