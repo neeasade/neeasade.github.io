@@ -1,8 +1,10 @@
-#+title: tarps
+#+title: Myron Themes
 #+filetags: :tarp:emacs:gui:theme:previews:
 #+pubdate: <2021-01-19>
 
+/TODO/: update this post
 
+#+MACRO:  color-ext (eval (ns/blog-make-color-preview-extended $1 $2 $3))
 
 # NB: to regen the tables, run C-c C-c over the TBLFM line with the correlated theme loaded.
 
