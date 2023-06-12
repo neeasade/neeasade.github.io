@@ -40,8 +40,8 @@ body {
     font-size: 1rem;
     line-height: 1.4;
 
-    /* background-image: url("../img/backgrounds/pattern_125.gif"); */
-    background-color: var(--background_plus);
+    background-image: url("../img/backgrounds/newfeather.png");
+    /* background-color: var(--background_plus); */
     background-repeat: repeat;
 
     background-attachment: fixed;
@@ -103,7 +103,14 @@ img {
     float: right;
 }
 
-.colorblock{
+.separator {
+    text-align: center;
+    vertical-align: center;
+    margin: 0;
+    line-height: 1.0;
+}
+
+.colorblock {
     min-width: fit-content;
 
     text-align: center;
@@ -242,4 +249,12 @@ a[href^="#"]:hover {
     /* top right bottom left */
     border-color: var(--primary) var(--alt) var(--assumed) var(--strings);
     /* border-color: var(--alt) var(--strings) var(--assumed) var(--primary); */
+}
+
+.pubinfo {
+    margin: 0px;
+}
+
+.pubinfo + hr {
+    margin-top: 0px;
 }
