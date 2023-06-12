@@ -1,0 +1,46 @@
+#+title: plato on the kobo libra 2
+#+title_extra: I caught the reading bug again
+#+post_type: post
+#+filetags:
+#+rss_title:
+#+draft: t
+#+pubdate: <2023-06-11>
+
+
+For almost a year now I've been using [[https://github.com/baskerville/plato][plato]] on the [[https://us.kobobooks.com/products/kobo-libra-2][kobo libra 2]], an ereader that
+includes a backlight and a warmth scale (red light). The user experience has been
+good, here's how setup works.
+
+When you first get the device, you can plug it into your computer and mount it
+directly, everything is just owned by root:
+
+#+begin_src sh
+$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:48   0 232.9G  0 disk
+├─sda1   8:49   0   550M  0 part /boot
+├─sda2   8:50   0   225G  0 part /nix/store
+│                                /
+└─sdd3   8:51   0     4G  0 part [SWAP]
+sdb      8:144  1  28.5G  0 disk
+
+$ sudo mount /dev/sdj ~/kobo
+#+end_src
+
+To bypass the kobo account setup, you can exit the database on the device:
+
+#+begin_quote
+You might ask, why are we bypassing kobo account setup? because doing that means
+turning on the wifi. You do *not* want to turn on the wifi, because then
+automatic firmware updates will mess up your plato install and you'll have to
+redo it (this may occur even if you have the automatic update setting turned off).
+#+end_quote
+
+#+begin_src console
+$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
+sqlite> INSERT INTO user(UserID,UserKey) VALUES('1','');
+sqlite> .quit
+#+end_src
+
+Now let's install plato. Current releases can be found at the OP of [[https://www.mobileread.com/forums/showthread.php?t=314220][this kobo
+forum post]]. The release is just a zip file that we will extract to ~~/kobo~.
