@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-06-12 Mon 15:59 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>plato on the kobo libra 2</title>
+<meta name="generator" content="Org Mode" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="plato on the kobo libra 2">
+<meta property="og:description" content="I caught the reading bug again">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
+<meta property="og:url" content="https://notes.neeasade.net/plato-on-the-kobo-libra-2.html">
+<meta property="description" content="I caught the reading bug again">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
+</head>
+<body>
+<div id="content" class="content">
+<div style="float: left">
+    <a href='/index.html'>../𝚂𝚃𝚇</a>
+</div>
+
+<div style="float: right">
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/plato-on-the-kobo-libra-2.org">source</a>
+</div>
+<h1 class=title>plato on the kobo libra 2</h1>
+<div class="org-center">
+<p>
+I caught the reading bug again
+</p>
+</div>
+<div class=pubinfo>
+Published 2023-06-11, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/plato-on-the-kobo-libra-2.org">2023-06-12</a>
+</div>
+<hr>
+<p>
+For almost a year now I&rsquo;ve been using <a href="https://github.com/baskerville/plato">plato</a> on the <a href="https://us.kobobooks.com/products/kobo-libra-2">kobo libra 2</a>, an ereader that
+includes a backlight and a warmth scale (red light). The user experience has been
+good, here&rsquo;s how setup works.
+</p>
+
+<p>
+When you first get the device, you can plug it into your computer and mount it
+directly, everything is just owned by root:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:48   0 232.9G  0 disk
+&#9500;&#9472;sda1   8:49   0   550M  0 part /boot
+&#9500;&#9472;sda2   8:50   0   225G  0 part /nix/store
+&#9474;                                /
+&#9492;&#9472;sdd3   8:51   0     4G  0 part [SWAP]
+sdb      8:144  1  28.5G  0 disk
+
+$ sudo mount /dev/sdj ~/kobo
+</pre>
+</div>
+
+<p>
+To bypass the kobo account setup, you can exit the database on the device:
+</p>
+
+<blockquote>
+<p>
+You might ask, why are we bypassing kobo account setup? because doing that means
+turning on the wifi. You do <b>not</b> want to turn on the wifi, because then
+automatic firmware updates will mess up your plato install and you&rsquo;ll have to
+redo it (this may occur even if you have the automatic update setting turned off).
+</p>
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-console">$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
+sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES('1','');
+sqlite&gt; .quit
+</pre>
+</div>
+
+<p>
+Now let&rsquo;s install plato. Current releases can be found at the OP of <a href="https://www.mobileread.com/forums/showthread.php?t=314220">this kobo
+forum post</a>. The release is just a zip file that we will extract to <code>~/kobo</code>.
+</p>
+
+<div class="footer-center">
+    
+</div>
+</div>
+</body>
+</html>

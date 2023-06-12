@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-27 Wed 17:33 -->
+<!-- 2023-06-12 Mon 15:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>reverse ssh tunnels</title>
@@ -9,39 +9,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="reverse ssh tunnels">
 <meta property="og:description" content="">
-<meta property="description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="https://notes.neeasade.net/reverse-ssh-tunnels.html">
+<meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: neeanotes📜</a>
+    <a href='/index.html'>../𝚂𝚃𝚇</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">Last edit: <2020-08-04></a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-10-reverse-ssh-tunnels.org">source</a>
 </div>
-
-<p>
 <h1 class=title>reverse ssh tunnels</h1>
+<div class="org-center">
+<p>
+
 </p>
-
-
+</div>
+<div class=pubinfo>
+Published 2020-04-10, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-08-04</a>
+</div>
 <hr>
-
 <p>
 You have 3 machines:
 </p>
@@ -57,11 +59,12 @@ The problem is that <code>home</code> is behind some network you don&rsquo;t con
 </p>
 
 <div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
-<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <span class=anchor><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">⚓</a></span></h2>
+<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <span class=anchor><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></span></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
-<pre class="example">
-ssh -R 22222:localhost:22 username@vps
+<div class="org-src-container">
+<pre class="src src-nil">ssh -R 22222:localhost:22 username@vps
 </pre>
+</div>
 
 <p>
 This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> through the ssh connection. Some more detail and visualizations may be found <a href="https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work">here</a>.
@@ -70,7 +73,7 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 
 <div id="outline-container-h-56d8bbe1-5940-4d97-b817-a71979240c19" class="outline-2">
-<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <span class=anchor><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">⚓</a></span></h2>
+<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <span class=anchor><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></span></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home after ssh'ing into vps:</span>
@@ -87,15 +90,16 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 
 <div id="outline-container-h-76dc15ec-0aab-464c-a674-60474010c8f0" class="outline-2">
-<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <span class=anchor><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">⚓</a></span></h2>
+<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <span class=anchor><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">#</a></span></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
 </p>
 
-<pre class="example">
-find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
+<div class="org-src-container">
+<pre class="src src-nil">find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
 </pre>
+</div>
 
 <p>
 and then here&rsquo;s a cool trick for providing the connection info to a remote shell through the environment with <code>$TRAMP_INFO</code>: (this will also do the jumping for you!)
@@ -112,27 +116,14 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </div>
 
 <div id="outline-container-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4" class="outline-2">
-<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <span class=anchor><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">⚓</a></span></h2>
+<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <span class=anchor><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">#</a></span></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
 </p>
 
-
-<p>
-<div class='flair'></div>
-</p>
-
-<div class='footer-left'>
-    <a href='/index.html'>neeanotes📜</a>
-</div>
-
-<p>
-<div class=footer-center>type: post</div>
-</p>
-
-<div class="footer-right">
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-10-reverse-ssh-tunnels.org">Page Markup</a>
+<div class="footer-center">
+    
 </div>
 </div>
 </div>

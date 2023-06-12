@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-27 Wed 17:33 -->
+<!-- 2023-06-12 Mon 15:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>systemd user services</title>
@@ -9,39 +9,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="systemd user services">
 <meta property="og:description" content="">
-<meta property="description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="https://notes.neeasade.net/systemd-user-services.html">
+<meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: neeanotes📜</a>
+    <a href='/index.html'>../𝚂𝚃𝚇</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-31-systemd-user-services.org">Last edit: <2021-01-04></a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-31-systemd-user-services.org">source</a>
 </div>
-
-<p>
 <h1 class=title>systemd user services</h1>
+<div class="org-center">
+<p>
+
 </p>
-
-
+</div>
+<div class=pubinfo>
+Published 2021-01-02, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-31-systemd-user-services.org">2021-01-04</a>
+</div>
 <hr>
-
 <p>
 This is a text version of a lighting talk I gave at <a href="https://www.recurse.com">recurse center</a> Feb 2020.
 </p>
@@ -69,7 +71,7 @@ Next step was to wrap the above in a script and display it in my panel. Nice! no
 </p>
 
 <div id="outline-container-h-9c426974-626d-47cf-bca6-c2b71698b392" class="outline-2">
-<h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1.</span> Alerts <span class=anchor><a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">⚓</a></span></h2>
+<h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1.</span> Alerts <span class=anchor><a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">#</a></span></h2>
 <div class="outline-text-2" id="text-h-9c426974-626d-47cf-bca6-c2b71698b392">
 <p>
 With something like <a href="https://github.com/dunst-project/dunst">dunst</a>, I can send notifications that appear only when I&rsquo;m concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
@@ -83,7 +85,7 @@ Making this call in my <code>.xinitrc</code> worked out OK, but I&rsquo;m someti
 
 
 <div id="outline-container-h-bedee5e8-3ef1-4038-9bc8-33640146db06" class="outline-2">
-<h2 id="h-bedee5e8-3ef1-4038-9bc8-33640146db06"><span class="section-number-2">2.</span> The big D <span class=anchor><a href="#h-bedee5e8-3ef1-4038-9bc8-33640146db06">⚓</a></span></h2>
+<h2 id="h-bedee5e8-3ef1-4038-9bc8-33640146db06"><span class="section-number-2">2.</span> The big D <span class=anchor><a href="#h-bedee5e8-3ef1-4038-9bc8-33640146db06">#</a></span></h2>
 <div class="outline-text-2" id="text-h-bedee5e8-3ef1-4038-9bc8-33640146db06">
 <p>
 Systemd user services are regular systemd service files that live in <code>$HOME/.config/systemd/user</code>. A service file matching the above problem might look like this:
@@ -143,7 +145,7 @@ So the next step in this systemd journey was to integrate <a href="https://githu
 </div>
 
 <div id="outline-container-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935" class="outline-2">
-<h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935"><span class="section-number-2">3.</span> The big.. T? <span class=anchor><a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">⚓</a></span></h2>
+<h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935"><span class="section-number-2">3.</span> The big.. T? <span class=anchor><a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">#</a></span></h2>
 <div class="outline-text-2" id="text-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">
 <p>
 Those of you in the know will see something very wrong with the above. Systemd has a &ldquo;when to run&rdquo; concept: <a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html">timers</a>! Using timers files you can do things like:
@@ -199,21 +201,8 @@ And then we would change the <code>ExecStart</code> in our <code>battery_alert.s
 And bam! we have done the thing.
 </p>
 
-
-<p>
-<div class='flair'></div>
-</p>
-
-<div class='footer-left'>
-    <a href='/index.html'>neeanotes📜</a>
-</div>
-
-<p>
-<div class=footer-center>type: post</div>
-</p>
-
-<div class="footer-right">
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-31-systemd-user-services.org">Page Markup</a>
+<div class="footer-center">
+    
 </div>
 </div>
 </div>

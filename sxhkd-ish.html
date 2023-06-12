@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-07-27 Wed 17:33 -->
+<!-- 2023-06-12 Mon 15:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sxhkd-ish</title>
@@ -9,45 +9,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="sxhkd-ish">
 <meta property="og:description" content="another place the shell lives forever">
-<meta property="description" content="another place the shell lives forever">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/warm.png">
 <meta property="og:url" content="https://notes.neeasade.net/sxhkd-ish.html">
+<meta property="description" content="another place the shell lives forever">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=abd38449620b2223dffce2c948aae610'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=4868ab8522b4e4059bfc5213fd799d61'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=716dbb6fbb74dcea14c1ee0dc8098072'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=19824060f71383b34e196f76ea8c38f1'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=7f1e0aaa36371b978c44c8839ba3713f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6ef94b2648dc58ea39219e79af4ef6e9'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>Up: neeanotes📜</a>
+    <a href='/index.html'>../𝚂𝚃𝚇</a>
 </div>
 
 <div style="float: right">
-    <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">Last edit: <2022-07-20></a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sxhkd-ish.org">source</a>
 </div>
-
-<p>
 <h1 class=title>sxhkd-ish</h1>
-</p>
-
 <div class="org-center">
 <p>
 another place the shell lives forever
 </p>
 </div>
-
-
+<div class=pubinfo>
+Published 2021-01-26, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">2022-07-20</a>
+</div>
 <hr>
-
 <p>
 For years now, I&rsquo;ve used bspwm as my daily driver window manager. It does not ship with a builtin way to set keybindings &#x2013; instead, the recommended path is to use another program by it&rsquo;s author, <a href="https://github.com/baskerville/sxhkd/">sxhkd</a>, to bind key presses to process calls. Such calls are launched with <code>SHELL -c COMMAND</code>, where <code>SHELL</code> is set by <code>$SXHKD_SHELL</code>  or <code>$SHELL</code>. Here&rsquo;s a pair of bindings from my <a href="https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/sxhkd/.config/sxhkd/sxhkdrc#L1">sxhkdrc</a>:
 </p>
@@ -105,13 +101,9 @@ super + ctrl + l
 WEW that&rsquo;s a lot. Thanks Baskerbae.
 </p>
 
-
-<div class="org-center">
 <p>
-🗿 🗿 🗿
+<div class=separator>∗ ∗ ∗</div>
 </p>
-</div>
-
 
 <p>
 Many of the newer wayland window managers have you assign keys individually via a client, mostly in a shape that sort of hails from the i3 config format. I&rsquo;ll cherrypick <a href="https://github.com/swaywm/sway/blob/4d43f1dd996e61e38d89adf0ad1435dac32e38a5/config.in#L90">sway</a>&rsquo;s, but you can see comparable formats in example configs for <a href="https://gitlab.com/cardboardwm/cardboard/-/blob/f2ef2ff076ddbbd23994553b8eff131f9bd0207f/README.md">cardboard</a>, <a href="https://github.com/ifreund/river/blob/afe1f197aa8f80f5fb0069aeaf851240189f9dcc/example/init">river</a>, and <a href="https://github.com/ifreund/river/blob/afe1f197aa8f80f5fb0069aeaf851240189f9dcc/example/init">wayfire</a> as well:
@@ -180,21 +172,8 @@ And then, as long as I escaped the spaces to connect the terms, I could get away
 Hooray!
 </p>
 
-
-<p>
-<div class='flair'></div>
-</p>
-
-<div class='footer-left'>
-    <a href='/index.html'>neeanotes📜</a>
-</div>
-
-<p>
-<div class=footer-center>type: post</div>
-</p>
-
-<div class="footer-right">
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sxhkd-ish.org">Page Markup</a>
+<div class="footer-center">
+    
 </div>
 </div>
 </body>
