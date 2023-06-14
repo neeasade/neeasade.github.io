@@ -1,5 +1,5 @@
 #+title: Site Map
-#+title_extra: {{{center(entries of type 'page' (and rss links))}}}
+#+title_extra: entries of type ~page~
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-metas)

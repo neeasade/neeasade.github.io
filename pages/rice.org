@@ -1,23 +1,24 @@
 #+title: Rice
+#+title_extra: [[https://github.com/neeasade/dotfiles][dots]] [[https://notes.neeasade.net/rice-links.html][rice links]]
 
 #+BEGIN_SRC elisp :results raw :exports results
-(ns/blog-make-nav-strip
-    "[[https://github.com/neeasade/dotfiles][dots]]"
-    "[[https://notes.neeasade.net/rice-links.html][rice links]]"
-    )
-#+END_SRC
+(let* ((dtop-path "./assets/img/desktops/")
+       (dtop-path-thumb (format "%sthumb/" dtop-path))
+       (dtop-path-full (format "%sfull/" dtop-path)))
 
-#+BEGIN_SRC elisp :results raw :exports results
-  (let* ((dtop-path "./assets/img/desktops/")
-	 (dtop-path-thumb (format "%sthumb/" dtop-path))
-	 (dtop-path-full (format "%sfull/" dtop-path)))
-
-    (->> dtop-path-thumb
-	 (f-entries)
-	 (reverse)
-	 ;; todo: should maybe be a full html decode
-	 (mapcar (fn (s-replace " " "%20" (f-filename <>))))
-	 (mapcar (fn (format "\n#+BEGIN_CENTER\n - _%s_  :\n[[file:%s%s][file:%s%s]] \n#+END_CENTER\n" (f-no-ext <>) dtop-path-full <> dtop-path-thumb <>)))
-	 (s-join "\n")
-	 ))
+  (->> dtop-path-thumb
+       (f-entries)
+       (reverse)
+       ;; todo: should maybe be a full html decode
+       (--map (s-replace " " "%20" (f-filename it)))
+       (-map (fn (format "\n* %s \n[[file:%s%s][file:%s%s]] \n"
+                         (f-no-ext <>)
+                         dtop-path-full <>
+                         dtop-path-thumb <>)))
+       (s-join "\n")
+       ((lambda (s)
+          (with-temp-buffer
+            (insert s)
+            (ns/blog-make-anchors)
+            (buffer-substring (point-min) (point-max)))))))
 #+END_SRC
