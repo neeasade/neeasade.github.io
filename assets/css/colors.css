@@ -41,9 +41,9 @@ $ theme -p color.normal -r ./um
 
 :root {
 --background  : #e8ebec;
---background_weak : #d6d7d8;
---background_strong: #cdcacb;
---background_plus : #a6d0ed;
+--background_weak : #d5d6d7;
+--background_strong: #ccc9ca;
+--background_plus : #a4cfed;
 
 --strings     : #007c00;
 --alt         : #006e96;
@@ -51,15 +51,15 @@ $ theme -p color.normal -r ./um
 --primary     : #c6007f;
 
 --faded       : #6a6d6e;
---faded_weak : #606162;
---faded_strong : #5b5859;
+--faded_weak : #5f6061;
+--faded_strong : #5a5758;
 
 --foreground  : #444748;
---foreground_weak : #3a3b3c;
---foreground_strong : #353233;
---foreground_plus : #0c3653;
+--foreground_weak : #393a3b;
+--foreground_strong : #343132;
+--foreground_plus : #093553;
 
--radius: 0px;
+--radius: 0px;
 
 /* compat */
 --background__: var(--background_strong);
