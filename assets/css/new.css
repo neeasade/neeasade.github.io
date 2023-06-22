@@ -182,11 +182,13 @@ input[type="reset"],
 input[type="button"] {
 	font-size: 1rem;
 	display: inline-block;
-	padding: 6px 12px;
+	padding: 6px 6px;
 	text-align: center;
 	text-decoration: none;
 	white-space: nowrap;
-	background: var(--nc-lk-1);
+
+	background: var(--background_weak);
+
 	color: var(--nc-lk-tx);
 	border: 0;
 	border-radius: var(--radius);
@@ -217,7 +219,8 @@ input[type="reset"]:focus,
 input[type="reset"]:enabled:hover,
 input[type="button"]:focus,
 input[type="button"]:enabled:hover {
-	background: var(--nc-lk-2);
+	background: var(--background_plus);
+	color: var(--foreground);
 }
 
 code,
@@ -234,11 +237,15 @@ samp,
 kbd,
 pre {
 	/* The main preformatted style. This is changed slightly across different cases. */
-	background: var(--nc-bg-2);
+	/* background: var(--nc-bg-2); */
 	color: var(--foreground_weak);
 	border-radius: var(--radius);
 	padding: 1px 2px;
 	font-size: 0.9rem;
+}
+
+code {
+	    background: var(--nc-bg-2);
 }
 
 a code {
@@ -250,6 +257,12 @@ a code {
 kbd {
 	/* Makes the kbd element look like a keyboard key */
 	border-bottom: 3px solid var(--nc-bg-3);
+}
+
+pre {
+    border-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABHNCSVQICAgIfAhkiAAAALpJREFUWEft2UEOgCAMRFG4rokeRhOvqytcoKY/QKqQcT0N9VFcYAydPLGTPsPV6DQvx1PT+7a6vIy1/jiNfj0aaUdN0W4a1YxmW4UPU6pLBV6S+Wi9rX/79KhReColCqFwTKKYCgYlCqFwTKKYCgYlCqFwTKKYCgYlCqFwTKKYCgYlCqFwTKKYCgYlCqFwbBxR60oFkxQGrfXN2zyvq53qRguBmpXpfrSUsnrrfzejpRJedS6/Zlq8zAkv7iA6kXcndgAAAABJRU5ErkJggg==") 14 /  14px / 0 round;
+    border-width:  14px;
+    border-style:  solid;
 }
 
 pre {
@@ -403,3 +416,18 @@ input {
 	box-sizing: border-box;
 }
 
+
+
+/* pre[class*="language-"] { */
+/*   position: relative; */
+/*   margin: 5px 0 ; */
+/*   padding: 1.75rem 0 1.75rem 1rem; */
+
+/*   /\* more stuff *\/ */
+/* } */
+
+pre button{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

@@ -42,14 +42,23 @@ pre.src {
 pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    background-color: var(--background_weak);
+    top: 6px;
+    right: 40px;
     padding: 3px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
-pre.src:hover:before { display: inline;}
+pre button {
+    display: none;
+}
+
+pre:hover button {
+    display: block;
+}
+
+pre.src:hover:before { display: none;}
+
 /* Languages per Org manual */
 pre.src-asymptote:before { content: 'Asymptote'; }
 pre.src-awk:before { content: 'Awk'; }
