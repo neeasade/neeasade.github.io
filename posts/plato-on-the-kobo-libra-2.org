@@ -6,10 +6,16 @@
 #+draft: t
 #+pubdate: <2023-06-11>
 
-
 For almost a year now I've been using [[https://github.com/baskerville/plato][plato]] on the [[https://us.kobobooks.com/products/kobo-libra-2][kobo libra 2]], an ereader that
-includes a backlight and a warmth scale (red light). The user experience has been
-good, here's how setup works.
+includes a backlight and a red light scale. The user experience has been
+very good (fast, portable, decent battery), here's some howto's.
+
+Quicklinks:
+
+- plato guide https://github.com/baskerville/plato/blob/master/doc/GUIDE.md
+- plato manual https://github.com/baskerville/plato/blob/master/doc/MANUAL.md
+
+** Install
 
 When you first get the device, you can plug it into your computer and mount it
 directly, everything is just owned by root:
@@ -29,13 +35,6 @@ $ sudo mount /dev/sdj ~/kobo
 
 To bypass the kobo account setup, you can exit the database on the device:
 
-#+begin_quote
-You might ask, why are we bypassing kobo account setup? because doing that means
-turning on the wifi. You do *not* want to turn on the wifi, because then
-automatic firmware updates will mess up your plato install and you'll have to
-redo it (this may occur even if you have the automatic update setting turned off).
-#+end_quote
-
 #+begin_src console
 $ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
 sqlite> INSERT INTO user(UserID,UserKey) VALUES('1','');
@@ -44,3 +43,84 @@ sqlite> .quit
 
 Now let's install plato. Current releases can be found at the OP of [[https://www.mobileread.com/forums/showthread.php?t=314220][this kobo
 forum post]]. The release is just a zip file that we will extract to ~~/kobo~.
+"installing" just means coping the contents of the release onto the reader:
+
+#+begin_src console
+sudo unzip OCP-Plato-0.9.38.zip -d ~/kobo
+#+end_src
+
+After you unmount, there will be a Plato launch icon at the bottom of the
+screen - but you'll likely want to do some setup (see below)
+
+** Settings
+
+Reader settings I have that differ from the default (the Georgia font
+just looks "right" to me for reading):
+
+#+begin_src toml
+[reader]
+south-strip = "next-page"
+font-path = "/mnt/onboard/.adds/plato/fonts"
+font-family = "Georgia"
+margin-width = 10
+max-margin-width = 20
+line-height = 1.1
+ignore-document-css = true
+
+[reader.paragraph-breaker]
+stretch-tolerance = 1.5
+#+end_src
+
+The most opinionated setting in here is setting ~ignore-document-css~ to true.
+This means I have a consistent reading experience for books that are simply
+plain text, but if epubs rely on something more fancy for effect (or for example
+if I am reading a screenplay) I will turn this off. Overall though, having this
+setting on and crushing the exceptions has been worth the consistent experience
+for me.
+
+** Dictionary
+
+To install a dictionary, grab a zip from [[https://tuxor1337.frama.io/firedict/dictionaries.html][here]] and unzip it to
+~~/kobo/.adds/plato/dictionaries~. You can long tap a word while reading to look
+it up while reading.
+
+** Fonts
+
+I add font files to the ~~/kobo/.adds/plato/fonts~ dir, and then make them
+accessible with this option in ~Settings.toml~:
+
+#+begin_src toml
+font-path = "/mnt/onboard/.adds/plato/fonts"
+#+end_src
+
+** CSS
+
+Create ~~/kobo/.adds/plato/css/epub-user.css~, and add:
+
+#+begin_src css
+p {
+    text-align: justify;
+    margin: 1em 0 0 0;
+}
+
+p + p {
+    text-indent: 1em;
+    margin: 0;
+}
+
+img { /* center images */
+    margin: auto;
+}
+#+end_src
+
+** Debugging
+
+Add the log reference/how to view crash log (eg wrong setting no-start/menu crash)
+
+** Library
+
+** ❗Caution: firmware updates
+
+Note that even if you have firmware updates turned off, if you are connected to
+the wifi, kobo can still auto-update and break plato for you. Your files will
+still be there, you'll just have to copy the plato release again.
