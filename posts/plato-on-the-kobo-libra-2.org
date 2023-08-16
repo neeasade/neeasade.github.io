@@ -3,17 +3,16 @@
 #+post_type: post
 #+filetags:
 #+rss_title:
-#+draft: t
 #+pubdate: <2023-06-11>
 
-For almost a year now I've been using [[https://github.com/baskerville/plato][plato]] on the [[https://us.kobobooks.com/products/kobo-libra-2][kobo libra 2]], an ereader that
-includes a backlight and a red light scale. The user experience has been
+For almost a year now I've been using [[https://github.com/baskerville/plato][plato]] on the [[https://us.kobobooks.com/products/kobo-libra-2][kobo libra 2]], an e-ink reader
+that includes a backlight and a red light scale. The user experience has been
 very good (fast, portable, decent battery), here's some howto's.
 
 Quicklinks:
 
-- plato guide https://github.com/baskerville/plato/blob/master/doc/GUIDE.md
-- plato manual https://github.com/baskerville/plato/blob/master/doc/MANUAL.md
+- [[https://github.com/baskerville/plato/blob/master/doc/GUIDE.md][plato guide]]
+- [[https://github.com/baskerville/plato/blob/master/doc/MANUAL.md][plato manual]]
 
 ** Install
 
@@ -100,27 +99,36 @@ Create ~~/kobo/.adds/plato/css/epub-user.css~, and add:
 #+begin_src css
 p {
     text-align: justify;
-    margin: 1em 0 0 0;
+    margin: 1em 0 0 0 !important;
 }
 
 p + p {
     text-indent: 1em;
-    margin: 0;
+    margin: 0 !important;
 }
 
-img { /* center images */
+img { /* for centering */
     margin: auto;
 }
 #+end_src
 
+** Library
+
+For a db located in  ~~/kobo/library~, set path like so:
+
+#+begin_src toml
+[[libraries]]
+path = "/mnt/onboard/library"
+# ...
+#+end_src
+
 ** Debugging
 
-Add the log reference/how to view crash log (eg wrong setting no-start/menu crash)
-
-** Library
+If there are any issues with ~Settings.toml~, the default settings are used and
+the config error is logged to an ~info.log~ file in the same directory.
 
 ** ❗Caution: firmware updates
 
 Note that even if you have firmware updates turned off, if you are connected to
 the wifi, kobo can still auto-update and break plato for you. Your files will
-still be there, you'll just have to copy the plato release again.
+still be there, you'll just have to copy the plato release over to then device again.
