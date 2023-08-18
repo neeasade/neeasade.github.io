@@ -1,0 +1,28 @@
+#+title: automata tiles 3
+#+title_extra:
+#+post_type: post
+#+filetags:
+#+rss_title:
+#+draft: t
+#+pubdate: <2023-08-16>
+
+I've been playing with Camille's [[https://github.com/turquoise-hexagon/automata][automata]] repo again, with some glue to set
+colors and then take a screenshot at a random time to generate a tile. Here are
+some of the ones I enjoy (click to demo):
+
+#+HTML_HEAD: <style> p > img { max-width: 19%;} </style>
+
+#+BEGIN_SRC elisp :results raw :exports results
+;; (->>
+;;   (f-files (~ "tiles"))
+;;   (--map (f-copy it (ns/blog-path "published/assets/posts/ca_dump3/"))))
+;; cp ~/tiles/* ~/code/neeasade.github.io/published/assets/posts/ca_dump3
+
+(->>
+ (f-files (ns/blog-path "published/assets/posts/ca_dump3/"))
+ (-map 'f-filename)
+ (--map (format "<img src='./assets/posts/ca_dump3/%s' onclick=\"(function() {document.body.style.backgroundImage = 'url(./assets/posts/ca_dump3/%s)'; })(); return false;\" />" it it))
+ (--map (format "@@html: %s@@" it))
+ (s-join "\n")
+ )
+#+end_src
