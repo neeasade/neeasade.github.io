@@ -14,8 +14,8 @@
   <link>https://notes.neeasade.net/</link>
   <description><![CDATA[neeasade's notes (full feed)]]></description>
   <language>en</language>
-  <pubDate>Mon, 21 Aug 2023 14:08:30 -0500</pubDate>
-  <lastBuildDate>Mon, 21 Aug 2023 14:08:30 -0500</lastBuildDate>
+  <pubDate>Mon, 21 Aug 2023 14:42:45 -0500</pubDate>
+  <lastBuildDate>Mon, 21 Aug 2023 14:42:45 -0500</lastBuildDate>
   <generator>Emacs 29.1 Org-mode 9.6.1</generator>
   <webMaster>neeasade@bliss (nil)</webMaster>
   <image>
@@ -156,6 +156,15 @@
     <author>neeasade@bliss (nil)</author>
     <guid isPermaLink="false">https://notes.neeasade.net/systemd-user-services.html</guid>
     <pubDate>Sat, 02 Jan 2021 00:00:00 -0600</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title></title>
+    <link>https://notes.neeasade.net/automata-tiles-3.html</link>
+    <author>neeasade@bliss (nil)</author>
+    <guid isPermaLink="false">https://notes.neeasade.net/automata-tiles-3.html</guid>
+    <pubDate>Wed, 16 Aug 2023 00:00:00 -0500</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
