@@ -21,9 +21,13 @@ some of the ones I enjoy (click to demo):
 
 (->>
  (f-files (ns/blog-path "published/assets/posts/ca_dump3/"))
+ (seq-sort-by (lambda (f)
+		(llet [wh (sh "identify '%s' | awk '{print $3}'" f)
+			  (w h) (-map 'string-to-number (s-split "x" wh))]
+		      (/ h w))
+		) '>)
  (-map 'f-filename)
  (--map (format "<img src='./assets/posts/ca_dump3/%s' onclick=\"(function() {document.body.style.backgroundImage = 'url(./assets/posts/ca_dump3/%s)'; })(); return false;\" />" it it))
  (--map (format "@@html: %s@@" it))
- (s-join "\n")
- )
+ (s-join "\n"))
 #+end_src
