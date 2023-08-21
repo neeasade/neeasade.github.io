@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-21 Wed 22:25 -->
+<!-- 2023-08-21 Mon 14:08 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tickling bash, quest for the perfect menu</title>
@@ -29,8 +29,8 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=9155cf29eaa472b8accb2802aba57720'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=9155cf29eaa472b8accb2802aba57720'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
 </head>
@@ -59,7 +59,7 @@ Published 2020-05-10, last edit <a href="https://github.com/neeasade/neeasade.gi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #007c00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0065c8;">read</span> pid; <span style="color: #0065c8;">read</span> line; <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"$line"</span>; <span style="color: #0065c8;">kill</span> $<span style="color: #c6007f;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #7a7a7a;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #6a6a6a;">read</span> pid; <span style="color: #6a6a6a;">read</span> line; <span style="color: #6a6a6a;">echo</span> <span style="color: #7a7a7a;">"$line"</span>; <span style="color: #6a6a6a;">kill</span> $<span style="color: #7a7a7a;">pid</span>)
 </pre>
 </div>
 
@@ -143,7 +143,7 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #0065c8;">echo</span> a; sleep 10; <span style="color: #0065c8;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #6a6a6a;">echo</span> a; sleep 10; <span style="color: #6a6a6a;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 

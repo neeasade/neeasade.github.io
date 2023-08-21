@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-21 Wed 22:26 -->
+<!-- 2023-08-21 Mon 14:08 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>plato on the kobo libra 2</title>
@@ -29,8 +29,8 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
 <link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
 <link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=9155cf29eaa472b8accb2802aba57720'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=9155cf29eaa472b8accb2802aba57720'>
+<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
+<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
 </head>
@@ -51,15 +51,27 @@ I caught the reading bug again
 </p>
 </div>
 <div class=pubinfo>
-Published 2023-06-11, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/plato-on-the-kobo-libra-2.org">2023-06-12</a>
+Published 2023-06-11, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/plato-on-the-kobo-libra-2.org">2023-08-15</a>
 </div>
 <hr>
 <p>
-For almost a year now I&rsquo;ve been using <a href="https://github.com/baskerville/plato">plato</a> on the <a href="https://us.kobobooks.com/products/kobo-libra-2">kobo libra 2</a>, an ereader that
-includes a backlight and a warmth scale (red light). The user experience has been
-good, here&rsquo;s how setup works.
+For almost a year now I&rsquo;ve been using <a href="https://github.com/baskerville/plato">plato</a> on the <a href="https://us.kobobooks.com/products/kobo-libra-2">kobo libra 2</a>, an e-ink reader
+that includes a backlight and a red light scale. The user experience has been
+very good (fast, portable, decent battery), here&rsquo;s some howto&rsquo;s.
 </p>
 
+<p>
+Quicklinks:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/baskerville/plato/blob/master/doc/GUIDE.md">plato guide</a></li>
+<li><a href="https://github.com/baskerville/plato/blob/master/doc/MANUAL.md">plato manual</a></li>
+</ul>
+
+<div id="outline-container-Install" class="outline-2">
+<h2 id="Install"><span class="section-number-2">1.</span> Install <span class=anchor><a href="#Install">#</a></span></h2>
+<div class="outline-text-2" id="text-Install">
 <p>
 When you first get the device, you can plug it into your computer and mount it
 directly, everything is just owned by root:
@@ -83,15 +95,6 @@ $ sudo mount /dev/sdj ~/kobo
 To bypass the kobo account setup, you can exit the database on the device:
 </p>
 
-<blockquote>
-<p>
-You might ask, why are we bypassing kobo account setup? because doing that means
-turning on the wifi. You do <b>not</b> want to turn on the wifi, because then
-automatic firmware updates will mess up your plato install and you&rsquo;ll have to
-redo it (this may occur even if you have the automatic update setting turned off).
-</p>
-</blockquote>
-
 <div class="org-src-container">
 <pre class="src src-console">$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
 sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES('1','');
@@ -102,10 +105,146 @@ sqlite&gt; .quit
 <p>
 Now let&rsquo;s install plato. Current releases can be found at the OP of <a href="https://www.mobileread.com/forums/showthread.php?t=314220">this kobo
 forum post</a>. The release is just a zip file that we will extract to <code>~/kobo</code>.
+&ldquo;installing&rdquo; just means coping the contents of the release onto the reader:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-console">sudo unzip OCP-Plato-0.9.38.zip -d ~/kobo
+</pre>
+</div>
+
+<p>
+After you unmount, there will be a Plato launch icon at the bottom of the
+screen - but you&rsquo;ll likely want to do some setup (see below)
+</p>
+</div>
+</div>
+
+<div id="outline-container-Settings" class="outline-2">
+<h2 id="Settings"><span class="section-number-2">2.</span> Settings <span class=anchor><a href="#Settings">#</a></span></h2>
+<div class="outline-text-2" id="text-Settings">
+<p>
+Reader settings I have that differ from the default (the Georgia font
+just looks &ldquo;right&rdquo; to me for reading):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-toml">[<span style="color: #8f8f8f;">reader</span>]
+<span style="color: #7a7a7a;">south-strip</span> = <span style="color: #7a7a7a;">"next-page"</span>
+<span style="color: #7a7a7a;">font-path</span> = <span style="color: #7a7a7a;">"/mnt/onboard/.adds/plato/fonts"</span>
+<span style="color: #7a7a7a;">font-family</span> = <span style="color: #7a7a7a;">"Georgia"</span>
+<span style="color: #7a7a7a;">margin-width</span> = 10
+<span style="color: #7a7a7a;">max-margin-width</span> = 20
+<span style="color: #7a7a7a;">line-height</span> = 1.1
+<span style="color: #7a7a7a;">ignore-document-css</span> = <span style="color: #6a6a6a;">true</span>
+
+[<span style="color: #8f8f8f;">reader.paragraph-breaker</span>]
+<span style="color: #7a7a7a;">stretch-tolerance</span> = 1.5
+</pre>
+</div>
+
+<p>
+The most opinionated setting in here is setting <code>ignore-document-css</code> to true.
+This means I have a consistent reading experience for books that are simply
+plain text, but if epubs rely on something more fancy for effect (or for example
+if I am reading a screenplay) I will turn this off. Overall though, having this
+setting on and crushing the exceptions has been worth the consistent experience
+for me.
+</p>
+</div>
+</div>
+
+<div id="outline-container-Dictionary" class="outline-2">
+<h2 id="Dictionary"><span class="section-number-2">3.</span> Dictionary <span class=anchor><a href="#Dictionary">#</a></span></h2>
+<div class="outline-text-2" id="text-Dictionary">
+<p>
+To install a dictionary, grab a zip from <a href="https://tuxor1337.frama.io/firedict/dictionaries.html">here</a> and unzip it to
+<code>~/kobo/.adds/plato/dictionaries</code>. You can long tap a word while reading to look
+it up while reading.
+</p>
+</div>
+</div>
+
+<div id="outline-container-Fonts" class="outline-2">
+<h2 id="Fonts"><span class="section-number-2">4.</span> Fonts <span class=anchor><a href="#Fonts">#</a></span></h2>
+<div class="outline-text-2" id="text-Fonts">
+<p>
+I add font files to the <code>~/kobo/.adds/plato/fonts</code> dir, and then make them
+accessible with this option in <code>Settings.toml</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-toml"><span style="color: #7a7a7a;">font-path</span> = <span style="color: #7a7a7a;">"/mnt/onboard/.adds/plato/fonts"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-CSS" class="outline-2">
+<h2 id="CSS"><span class="section-number-2">5.</span> CSS <span class=anchor><a href="#CSS">#</a></span></h2>
+<div class="outline-text-2" id="text-CSS">
+<p>
+Create <code>~/kobo/.adds/plato/css/epub-user.css</code>, and add:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #7a7a7a;">p</span> {
+    <span style="color: #6a6a6a;">text-align</span>: justify;
+    <span style="color: #6a6a6a;">margin</span>: 1em 0 0 0 <span style="color: #6a6a6a;">!important</span>;
+}
+
+<span style="color: #7a7a7a;">p + p</span> {
+    <span style="color: #6a6a6a;">text-indent</span>: 1em;
+    <span style="color: #6a6a6a;">margin</span>: 0 <span style="color: #6a6a6a;">!important</span>;
+}
+
+<span style="color: #7a7a7a;">img</span> { <span style="color: #8f8f8f;">/* </span><span style="color: #8f8f8f;">for centering</span><span style="color: #8f8f8f;"> */</span>
+    <span style="color: #6a6a6a;">margin</span>: auto;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-Library" class="outline-2">
+<h2 id="Library"><span class="section-number-2">6.</span> Library <span class=anchor><a href="#Library">#</a></span></h2>
+<div class="outline-text-2" id="text-Library">
+<p>
+For a db located in  <code>~/kobo/library</code>, set path like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-toml">[[<span style="color: #8f8f8f;">libraries</span>]]
+<span style="color: #7a7a7a;">path</span> = <span style="color: #7a7a7a;">"/mnt/onboard/library"</span>
+<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">...</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-Debugging" class="outline-2">
+<h2 id="Debugging"><span class="section-number-2">7.</span> Debugging <span class=anchor><a href="#Debugging">#</a></span></h2>
+<div class="outline-text-2" id="text-Debugging">
+<p>
+If there are any issues with <code>Settings.toml</code>, the default settings are used and
+the config error is logged to an <code>info.log</code> file in the same directory.
+</p>
+</div>
+</div>
+
+<div id="outline-container-❗Caution:-firmware-updates" class="outline-2">
+<h2 id="❗Caution:-firmware-updates"><span class="section-number-2">8.</span> ❗Caution: firmware updates <span class=anchor><a href="#❗Caution:-firmware-updates">#</a></span></h2>
+<div class="outline-text-2" id="text-❗Caution:-firmware-updates">
+<p>
+Note that even if you have firmware updates turned off, if you are connected to
+the wifi, kobo can still auto-update and break plato for you. Your files will
+still be there, you&rsquo;ll just have to copy the plato release over to then device again.
 </p>
 
 <div class="footer-center">
     
+</div>
+</div>
 </div>
 </div>
 </body>
