@@ -36,7 +36,8 @@ body {
     font-size: 1rem;
     line-height: 1.4;
 
-    background-image: url("../img/backgrounds/newfeather.png");
+    background-image: url("../posts/ca_dump3/339f75f140677b39471e8f7510e80fab3efa0363a2ecf2613d99096b43888c0d.png");
+    /* background-image: url("../img/backgrounds/newfeather.png"); */
     /* background-color: var(--background_plus); */
     background-repeat: repeat;
 
@@ -88,8 +89,8 @@ img {
     height: 100%;
     min-height: 100vh;
     padding: 14px;
-    /* leave room for the footer */
-    padding-bottom: 64px;
+    /* leave room for the footer frogs*/
+    padding-bottom: 13em;
     background: var(--background);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
 }
@@ -257,4 +258,17 @@ a[href^="#"]:hover {
 
 .pubinfo + hr {
     margin-top: 0px;
+}
+
+.frog {
+    border: none !important;
+    bottom: 0;
+    display: inline-block;
+    line-height: 1.2 !important;
+    margin-bottom: 0 !important;
+    margin: auto;
+    position: absolute;
+    left: 20%;
+    padding: 0px;
+    width: min-content;
 }
