@@ -3,8 +3,9 @@
 #+post_type: post
 #+filetags:
 #+rss_title:
-#+draft: t
 #+pubdate: <2023-08-16>
+
+Previously: [[./automata-tiling-backgrounds-2.org][Automata tiling backgrounds 2]]
 
 I've been playing with Camille's [[https://github.com/turquoise-hexagon/automata][automata]] repo again, with some glue to set
 colors and then take a screenshot at a random time to generate a tile. Here are
