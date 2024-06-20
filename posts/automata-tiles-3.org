@@ -2,7 +2,6 @@
 #+title_extra:
 #+post_type: post
 #+filetags:
-#+rss_title:
 #+pubdate: <2023-08-16>
 
 Previously: [[./automata-tiling-backgrounds-2.org][Automata tiling backgrounds 2]]
@@ -19,15 +18,15 @@ some of the ones I enjoy (click to demo):
 ;;   (--map (f-copy it (ns/blog-path "published/assets/posts/ca_dump3/"))))
 ;; cp ~/tiles/* ~/code/neeasade.github.io/published/assets/posts/ca_dump3
 
-(->>
- (f-files (ns/blog-path "published/assets/posts/ca_dump3/"))
- (seq-sort-by (lambda (f)
-		(llet [wh (sh "identify '%s' | awk '{print $3}'" f)
-			  (w h) (-map 'string-to-number (s-split "x" wh))]
-		      (/ h w))
-		) '>)
- (-map 'f-filename)
- (--map (format "<img src='./assets/posts/ca_dump3/%s' onclick=\"(function() {document.body.style.backgroundImage = 'url(./assets/posts/ca_dump3/%s)'; })(); return false;\" />" it it))
- (--map (format "@@html: %s@@" it))
- (s-join "\n"))
+(->> (sh "identify  %s | awk '{print $1 \"x\" $3}'" (ns/blog-path "published/assets/posts/ca_dump3/*"))
+     (s-lines)
+     (-map (lambda (out)
+	     (llet [(f w h) (s-split "x" out)]
+		   (list f (string-to-number w) (string-to-number h)))))
+     (seq-sort-by (-lambda ((_ w h)) (/ h w)) '>)
+     (-map 'first)
+     (-map 'f-filename)
+     (--map (format "<img src='./assets/posts/ca_dump3/%s' onclick=\"(function() {document.body.style.backgroundImage = 'url(./assets/posts/ca_dump3/%s)'; })(); return false;\" />" it it))
+     (--map (format "@@html: %s@@" it))
+     (s-join "\n"))
 #+end_src
