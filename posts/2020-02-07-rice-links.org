@@ -116,7 +116,7 @@ These are some people I've encountered and maybe even stayed in touch with over 
    ("venam" "https://venam.nixers.net/blog/")
    ("windelicato" "http://windelicato.com/" "https://github.com/windelicato/dotfiles")
    ("winny" "https://winny.tech/" "https://github.com/winny-/configs")
-   ("xero" "http://xero.nu/" "https://github.com/xero/dotfiles")
+   ("xero" "http://x-e.ro/" "https://github.com/xero/dotfiles")
    ("yuppie" "https://internaught.io/")
    ("z3bra" "https://z3bra.org/" "https://git.z3bra.org/scripts/files.html")
    ("zzzeyez" nil "https://github.com/zzzeyez/dots")
