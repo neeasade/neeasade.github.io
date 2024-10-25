@@ -19,7 +19,7 @@ are typically 3 layers, like so:
 
 | Layer                 | Notes                                    |
 | rice (bottom)         | Jasmine rice + various sauces            |
-| meat (middle          | pre cooked chicken or tuna               |
+| meat (middle)         | pre cooked chicken or tuna               |
 | veggies n beans (top) | frozen or canned vegetables, pinto beans |
 
 ** Layer 1 (rice)
