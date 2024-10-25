@@ -1,0 +1,79 @@
+#+title: rice slop
+#+title_extra: food maxxing
+#+post_type: post
+#+filetags:
+#+rss_title:
+#+draft: t
+#+pubdate: <2024-10-25>
+
+For a little over a year now, I have been increasingly obsessed with a meal I
+have lovingly termed "rice slop". A friend asked me to write some of the process
+down, so here we are.
+
+The beauty of rice slop is almost none of the measurements are precise, you can
+just toss in the ingredients and hit the "cook" button and then BAM you are set
+for a meal or 5 depending on the size of your rice cooker and ingredients.
+
+Rice slop is made in a rice cooker, with different layers of ingredients. There
+are typically 3 layers, like so:
+
+| Layer                 | Notes                                    |
+| rice (bottom)         | Jasmine rice + various sauces            |
+| meat (middle          | pre cooked chicken or tuna               |
+| veggies n beans (top) | frozen or canned vegetables, pinto beans |
+
+** Layer 1 (rice)
+
+I usually use jasmin rice, using 1 [[https://en.wikipedia.org/wiki/Ge_(unit)][Ge]] for a smaller batch, or 2 for a larger one.
+
+Rinse the rice in a strainer (or sifter) and then place jasmine rice and water in a 1:1 ratio in the rice cooker bowl.
+
+Now for the fun part - mix in any of the following for flavor:
+
+- chicken bouillon cube
+- hot sauce (I usually use sriracha)
+- garlic cloves
+- chili crisp
+- sesame seed oil (just a few drops)
+- soy sauce
+- teriyaki sauce
+- oyster sauce
+- salsa
+
+Basically any misc sauce or seasoning that your curious about can be thrown in
+at this stage. I'll put it this way, I've never over seasoned my rice slop. If
+you want to keep it simple, maybe start with just salsa?
+
+Mix ingredients together and you're done with layer one 😎
+
+** Layer 2 (meat)
+
+I usually use precooked grilled chicken from the grocery store. A can of tuna
+(drained first) works nicely as well. Just lay it on top of the rice + sauce
+mixture (*no mixing*).
+
+** Layer 3 (veggies n beans)
+
+I usually use a frozen or canned vegetable pack for this stage, just lay them on
+top of the meat. Do the same with a can of pinto beans.
+
+Hit the cook button and you are DONE (mix together layers after the rice cooker button pops)
+
+** Streamlined example: tuna slop
+
+Ingredients:
+
+- 1/2 cup of jasmine rice
+- 1/2 cup of water
+- soy sauce
+- a can of tuna
+- stir fry vegetable mix (or asian mix, or whatever sticks out to you)
+- (optional) 1 can pinto beans
+
+howto:
+
+- Place rice and water in rice cooker.
+- Add a shit ton of soy sauce, mix
+- Drain tuna can, throw on top
+- Throw veggies and optionally beans in there
+- Hit the cook button, and wait for your savory bowl
