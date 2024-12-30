@@ -24,6 +24,7 @@
      (--sort (string-greaterp
 	      (ht-get it :publish-date)
 	      (ht-get other :publish-date)))
+     (-filter (-rpartial 'ht-get :rss-title))
      (-map
       (fn (format (s-join "\n" '("* %s"
 				 ":PROPERTIES:"
@@ -39,5 +40,4 @@
      ;; 	       (format "- <%s> [[file:./%s.html][%s]]"
      ;; 		edited-date (f-base html-dest) title)))
      (s-join "\n"))
-
 #+END_SRC

@@ -1,6 +1,8 @@
 #+title: Rice
 #+title_extra: [[https://github.com/neeasade/dotfiles][dots]] [[https://notes.neeasade.net/rice-links.html][rice links]]
 
+The wm used in every rice from 2015 onwards is [[https://github.com/baskerville/bspwm][bspwm]].
+
 #+BEGIN_SRC elisp :results raw :exports results
 (let* ((dtop-path "./assets/img/desktops/")
        (dtop-path-thumb (format "%sthumb/" dtop-path))

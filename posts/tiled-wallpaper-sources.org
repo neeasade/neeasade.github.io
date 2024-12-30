@@ -5,6 +5,9 @@
 #+rss_title: tiled wallpaper sources
 #+pubdate: <2021-01-31>
 
+# https://github.com/peteroupc/classic-wallpaper?tab=readme-ov-file
+# https://github.com/JohnGWebDev/Background-Textures
+
 Tiled wallpapers are quirky, fun, and smol. That last property means you can do fun things to them fast, like programattically apply image filters or [[https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/bin/bin/bgtint][tint]] them so some current colorscheme.
 
 The following is mostly a scraping of this [[https://nixers.net/Thread-Tiling-Wallpapers][nixer's thread]], and also the [[https://rizonrice.club/Rice:Resources#Wallpaper_sources][#rice wiki wallpapers]] (a tiled subset). The archives are compressed collections hosted on [[https:teknik.io][teknik.io]]. This collection focuses /only/ on tiled patterns.

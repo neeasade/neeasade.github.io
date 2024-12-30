@@ -13,11 +13,11 @@ when you aren't.
 
 The following commands are effected:
 
-| git         | git svn                       |
-|-------------+-------------------------------|
-| git pull    | git svn fetch git svn merge   |
-| git push    | git svn dcommit               |
-| git clone   | git svn clone                 |
+| git       | git svn                     |
+|-----------+-----------------------------|
+| git pull  | git svn fetch git svn merge |
+| git push  | git svn dcommit             |
+| git clone | git svn clone               |
 
 If you are a [[https://magit.vc/][magit]] user, you can install
 [[https://github.com/magit/magit-svn][magit-svn]]. To enable magit-svn

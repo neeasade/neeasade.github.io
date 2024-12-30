@@ -5,6 +5,8 @@
 #+rss_title:
 #+pubdate: <2023-06-11>
 
+# todo: this post should have a "just do the thing" script
+
 For almost a year now I've been using [[https://github.com/baskerville/plato][plato]] on the [[https://us.kobobooks.com/products/kobo-libra-2][kobo libra 2]], an e-ink reader
 that includes a backlight and a red light scale. The user experience has been
 very good (fast, portable, decent battery), here's some howto's.

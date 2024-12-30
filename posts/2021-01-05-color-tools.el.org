@@ -72,20 +72,22 @@ This is a visualization page for functions used in the [[https://github.com/neea
 				   (lambda (degrees)
 				     (ns/blog-make-color-strip
 				      (funcall make
+					       (/ 360 degrees)
 					       ;; "#6486BB"
 					       (ct-make-hsluv 270 60 60)
-					       degrees)))
+					       )))
 				   '(180 120 90 72 60))
 				  (list "45° turn:")
 				  (-map
 				   (lambda (degrees)
 				     (ns/blog-make-color-strip
 				      (funcall make
+					       (/ 360 degrees)
 					       ;; "#6486BB"
 					       (ct-make-hsluv (+ 270 45) 60 60)
-					       degrees)))
-				   '(180 120 90 72 60))
-				  )))
+					       ;; degrees
+					       )))
+				   '(180 120 90 72 60)))))
 		 )
 	       '(
 		 ct-rotation-hsl
