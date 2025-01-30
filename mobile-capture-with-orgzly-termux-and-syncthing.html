@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-01-30 Thu 16:15 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
@@ -31,13 +31,13 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../🌳ＧＲＯＶＥ🌳</a>
 </div>
 
 <div style="float: right">
@@ -61,7 +61,6 @@ TL;DR Syncthing + Termux + Orgzly
 <p>
 Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual &#x2013; this is motivated by my recent re-interest in capturing things in <a href="https://orgmode.org/">org-mode</a>. Here I will cover the tools and apps I&rsquo;ve setup to try and get a &rsquo;blended&rsquo; mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it&rsquo;s worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
 </p>
-
 <div id="outline-container-h-11b4a27d-4fc3-4357-8afe-c828e328574f" class="outline-2">
 <h2 id="h-11b4a27d-4fc3-4357-8afe-c828e328574f"><span class="section-number-2">1.</span> Syncthing <span class=anchor><a href="#h-11b4a27d-4fc3-4357-8afe-c828e328574f">#</a></span></h2>
 <div class="outline-text-2" id="text-h-11b4a27d-4fc3-4357-8afe-c828e328574f">
@@ -70,7 +69,6 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 </div>
 </div>
-
 <div id="outline-container-h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04" class="outline-2">
 <h2 id="h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04"><span class="section-number-2">2.</span> Orgzly <span class=anchor><a href="#h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">#</a></span></h2>
 <div class="outline-text-2" id="text-h-0a78676c-4de5-45bd-a4f8-6c7cf7488e04">
@@ -79,7 +77,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="orgc7d3897">
+<figure id="org90eb902">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -91,13 +89,12 @@ turns into:
 </div>
 
 
-<figure id="orgd3f2562">
+<figure id="org5681708">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
 </div>
 </div>
-
 <div id="outline-container-h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74" class="outline-2">
 <h2 id="h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74"><span class="section-number-2">3.</span> Music <span class=anchor><a href="#h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">#</a></span></h2>
 <div class="outline-text-2" id="text-h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">
@@ -106,24 +103,23 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">200mb</span>
-  <span style="color: #7a7a7a;">size_limit</span>=200000
-  <span style="color: #7a7a7a;">sync_music_dir</span>=<span style="color: #7a7a7a;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #7a7a7a;">music_dir</span>=<span style="color: #7a7a7a;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">200mb</span>
+  <span style="color: #c6007f;">size_limit</span>=200000
+  <span style="color: #c6007f;">sync_music_dir</span>=<span style="color: #007c00;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #c6007f;">music_dir</span>=<span style="color: #007c00;">"$HOME/Music"</span>
 
-  <span style="color: #7a7a7a;">IFS</span>=$<span style="color: #7a7a7a;">'\n'</span>
-  <span style="color: #6a6a6a;">while </span><span style="color: #6a6a6a;">read</span> -r f; <span style="color: #6a6a6a;">do</span>
-      <span style="color: #7a7a7a;">collection_size</span>=$(<span style="color: #7a7a7a;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
-      <span style="color: #6a6a6a;">if</span> [ $<span style="color: #7a7a7a;">collection_size</span> -lt $<span style="color: #7a7a7a;">size_limit</span> ]; <span style="color: #6a6a6a;">then</span>
-          <span style="color: #6a6a6a;">echo</span> cp <span style="color: #7a7a7a;">"${music_dir}/$f"</span> <span style="color: #7a7a7a;">"$sync_music_dir"</span>
-          cp <span style="color: #7a7a7a;">"${music_dir}/$f"</span> <span style="color: #7a7a7a;">"$sync_music_dir"</span>
-      <span style="color: #6a6a6a;">fi</span>
-  <span style="color: #6a6a6a;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #7a7a7a;">'%file%'</span> | shuf)
+  <span style="color: #c6007f;">IFS</span>=$<span style="color: #007c00;">'\n'</span>
+  <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r f; <span style="color: #0065c8;">do</span>
+      <span style="color: #c6007f;">collection_size</span>=$(<span style="color: #c6007f;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
+      <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">collection_size</span> -lt $<span style="color: #c6007f;">size_limit</span> ]; <span style="color: #0065c8;">then</span>
+          <span style="color: #0065c8;">echo</span> cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+          cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+      <span style="color: #0065c8;">fi</span>
+  <span style="color: #0065c8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007c00;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719" class="outline-2">
 <h2 id="h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719"><span class="section-number-2">4.</span> Browsing the internet <span class=anchor><a href="#h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">#</a></span></h2>
 <div class="outline-text-2" id="text-h-c102bb2e-c0c3-4c6a-9d1c-6f166832f719">
@@ -132,7 +128,6 @@ Chome on android doesn&rsquo;t have a umatrix option. This sucks, because the UX
 </p>
 </div>
 </div>
-
 <div id="outline-container-h-6398d541-3e48-4846-807b-077455426531" class="outline-2">
 <h2 id="h-6398d541-3e48-4846-807b-077455426531"><span class="section-number-2">5.</span> Audiobooks <span class=anchor><a href="#h-6398d541-3e48-4846-807b-077455426531">#</a></span></h2>
 <div class="outline-text-2" id="text-h-6398d541-3e48-4846-807b-077455426531">
@@ -141,7 +136,6 @@ Somewhere in the past few year or so audiobooks snuck into my life, and I&rsquo;
 </p>
 </div>
 </div>
-
 <div id="outline-container-h-c6bb3ae8-90ab-473d-a487-e7a020a003af" class="outline-2">
 <h2 id="h-c6bb3ae8-90ab-473d-a487-e7a020a003af"><span class="section-number-2">6.</span> Termux and bringing it all together <span class=anchor><a href="#h-c6bb3ae8-90ab-473d-a487-e7a020a003af">#</a></span></h2>
 <div class="outline-text-2" id="text-h-c6bb3ae8-90ab-473d-a487-e7a020a003af">
@@ -161,7 +155,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="orgf97b6fe">
+<figure id="org948eadf">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -171,7 +165,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="orgf059420">
+<figure id="org0bd23cf">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>

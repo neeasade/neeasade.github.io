@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-01-30 Thu 16:15 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(reduce)</title>
@@ -31,13 +31,13 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../🌳ＧＲＯＶＥ🌳</a>
 </div>
 
 <div style="float: right">
@@ -96,11 +96,11 @@ then it&rsquo;s a question of learning what the various collection functions are
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reduce
- (<span style="color: #6a6a6a;">fn</span> [acc i]
-   (<span style="color: #6a6a6a;">let</span> [res (+ acc i)]
-     (<span style="color: #6a6a6a;">if</span> (&gt; res 100) (reduced res) res)))
+ (fn [acc i]
+   (let [res (+ acc i)]
+     (if (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #8f8f8f;">;; </span><span style="color: #8f8f8f;">=&gt; 105</span>
+;; =&gt; 105
 </pre>
 </div>
 
@@ -109,11 +109,11 @@ then it&rsquo;s a question of learning what the various collection functions are
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reductions
- (<span style="color: #6a6a6a;">fn</span> [acc i]
-   (<span style="color: #6a6a6a;">let</span> [res (+ acc i)]
-     (<span style="color: #6a6a6a;">if</span> (&gt; res 100) (reduced res) res)))
+ (fn [acc i]
+   (let [res (+ acc i)]
+     (if (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #8f8f8f;">;; </span><span style="color: #8f8f8f;">=&gt; (0 0 1 3 6 ...)</span>
+;; =&gt; (0 0 1 3 6 ...)
 </pre>
 </div>
 
@@ -134,10 +134,10 @@ Write a function which separates the items of a sequence by an arbitrary value.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure"><span style="color: #8f8f8f;">;; </span><span style="color: #8f8f8f;">replace the '__'</span>
+<pre class="src src-clojure">;; replace the '__'
 (= (__ 0 [1 2 3]) [1 0 2 0 3])
-(= (apply str (__ <span style="color: #7a7a7a;">", "</span> [<span style="color: #7a7a7a;">"one"</span> <span style="color: #7a7a7a;">"two"</span> <span style="color: #7a7a7a;">"three"</span>])) <span style="color: #7a7a7a;">"one, two, three"</span>)
-(= (__ <span style="color: #6a6a6a;">:z</span> [<span style="color: #6a6a6a;">:a</span> <span style="color: #6a6a6a;">:b</span> <span style="color: #6a6a6a;">:c</span> <span style="color: #6a6a6a;">:d</span>]) [<span style="color: #6a6a6a;">:a</span> <span style="color: #6a6a6a;">:z</span> <span style="color: #6a6a6a;">:b</span> <span style="color: #6a6a6a;">:z</span> <span style="color: #6a6a6a;">:c</span> <span style="color: #6a6a6a;">:z</span> <span style="color: #6a6a6a;">:d</span>])
+(= (apply str (__ ", " ["one" "two" "three"])) "one, two, three")
+(= (__ :z [:a :b :c :d]) [:a :z :b :z :c :z :d])
 </pre>
 </div>
 
@@ -146,11 +146,11 @@ Before (bad habits):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #6a6a6a;">fn</span> [sep coll &amp; state]
-   (<span style="color: #6a6a6a;">if</span> (= 1 (count coll))
+<pre class="src src-clojure">(fn [sep coll &amp; state]
+   (if (= 1 (count coll))
      (conj state (first coll))
-     (<span style="color: #6a6a6a;">recur</span> sep (rest coll)
-            (conj (<span style="color: #6a6a6a;">or</span> state [])
+     (recur sep (rest coll)
+            (conj (or state [])
                   (first coll)
                   sep))))
 </pre>
@@ -165,9 +165,9 @@ After:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #6a6a6a;">fn</span> [sep coll]
+<pre class="src src-clojure">(fn [sep coll]
    (butlast
-    (reduce (<span style="color: #6a6a6a;">fn</span> [state next]
+    (reduce (fn [state next]
               (conj state next sep))
             [] coll)))
 </pre>

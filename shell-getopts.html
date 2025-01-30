@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-01-30 Thu 16:15 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tl;dr shell getopts</title>
@@ -31,13 +31,13 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../🌳ＧＲＯＶＥ🌳</a>
 </div>
 
 <div style="float: right">
@@ -55,19 +55,19 @@ Published 2020-01-16, last edit <a href="https://github.com/neeasade/neeasade.gi
 </div>
 <hr>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">the ':' in front means the flag takes an arg</span>
-<span style="color: #6a6a6a;">while </span><span style="color: #6a6a6a;">getopts</span> w:reh flag; <span style="color: #6a6a6a;">do</span>
-    <span style="color: #6a6a6a;">case</span> $<span style="color: #7a7a7a;">flag</span><span style="color: #6a6a6a;"> in</span>
-        w) <span style="color: #7a7a7a;">wid</span>=$<span style="color: #7a7a7a;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">the ':' in front means the flag takes an arg</span>
+<span style="color: #0065c8;">while </span><span style="color: #0065c8;">getopts</span> w:reh flag; <span style="color: #0065c8;">do</span>
+    <span style="color: #0065c8;">case</span> $<span style="color: #c6007f;">flag</span><span style="color: #0065c8;"> in</span>
+        w) <span style="color: #c6007f;">wid</span>=$<span style="color: #c6007f;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #6a6a6a;">esac</span>
-<span style="color: #6a6a6a;">done</span>
+    <span style="color: #0065c8;">esac</span>
+<span style="color: #0065c8;">done</span>
 
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #6a6a6a;">shift</span> $(<span style="color: #7a7a7a;">(OPTIND-1</span>))
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #0065c8;">shift</span> $(<span style="color: #c6007f;">(OPTIND-1</span>))
 </pre>
 </div>
 

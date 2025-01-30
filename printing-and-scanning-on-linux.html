@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-01-30 Thu 16:15 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>printing and scanning on linux</title>
@@ -31,13 +31,13 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=b7435d0ce95f834f432834ae1ed74852'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../🌳ＧＲＯＶＥ🌳</a>
 </div>
 
 <div style="float: right">
@@ -54,7 +54,6 @@
 Published 2020-12-14, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-14-printing-and-scanning-on-linux.org">2020-12-14</a>
 </div>
 <hr>
-
 <div id="outline-container-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574" class="outline-2">
 <h2 id="h-6c57cb88-f33f-4a04-8556-fec4dbf4b574"><span class="section-number-2">1.</span> printing <span class=anchor><a href="#h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">#</a></span></h2>
 <div class="outline-text-2" id="text-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574">
@@ -65,7 +64,6 @@ Published 2020-12-14, last edit <a href="https://github.com/neeasade/neeasade.gi
 </ul>
 </div>
 </div>
-
 <div id="outline-container-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39" class="outline-2">
 <h2 id="h-f7fe536a-882a-4ed7-9b9f-96e4638dac39"><span class="section-number-2">2.</span> scanning <span class=anchor><a href="#h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">#</a></span></h2>
 <div class="outline-text-2" id="text-h-f7fe536a-882a-4ed7-9b9f-96e4638dac39">
@@ -74,11 +72,11 @@ I&rsquo;ve never gotten xsane to work. <code>scanimage</code> did me good though
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ <span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">nb: might need sudo on scanimage</span>
-$ <span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">list devices:</span>
+<pre class="src src-sh">$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nb: might need sudo on scanimage</span>
+$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list devices:</span>
 $ scanimage -L
-$ scanimage -d <span style="color: #7a7a7a;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">create a PDF with graphicsmagic</span>
+$ scanimage -d <span style="color: #007c00;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">create a PDF with graphicsmagic</span>
 $ gm convert result.pnm result.pdf
 </pre>
 </div>
@@ -88,7 +86,6 @@ After posting this, tan reached out to me and mentioned to checkout <code>simple
 </p>
 </div>
 </div>
-
 <div id="outline-container-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a" class="outline-2">
 <h2 id="h-addd5bf0-e140-409b-b5aa-d8f40c3c027a"><span class="section-number-2">3.</span> pdf stuff <span class=anchor><a href="#h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">#</a></span></h2>
 <div class="outline-text-2" id="text-h-addd5bf0-e140-409b-b5aa-d8f40c3c027a">
