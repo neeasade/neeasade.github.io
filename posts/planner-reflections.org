@@ -1,0 +1,24 @@
+#+title: planner notes
+#+title_extra: he's in his stationary era
+#+post_type: post
+#+pubdate: <2025-02-03>
+
+I've been using a planner for ~4 months now, and it's been very nice. Most of the benefit for me is about looking back and seeing what happened over the past few months - it helps remove a feeling of "what even happened in the last n months", because I can scroll back to the week and see exactly what my goals were/some of where my time went.
+
+This is the layout I use (the "weekly planner and notebook" from [[https://www.leuchtturm1917.us/planners/][here]]) :
+
+{{{image(planner.png)}}}
+
+On the notebook side I track bullet journal style TODO's, and each week I manage them (carry over any that didn't happen, jot small observations about how the week went). Weekly is a good cadence for me, having the current week open forces me to acknowledge the passage of time, and manage my own expectations for what I can fit in there.
+
+Here's my legend showing the TODO notations (bujo + some of my own):
+
+{{{image(planner-legend.png)}}}
+
+You might notice the annoying bleedthrough. That got much better after I started using a pencil - I would like this same layout with thicker paper, but couldn't find one that existed.
+
+I still use org mode for recurring tasks and things that don't merit a physical entry, but the planner is great for externalizing /what matters/ to me this week.
+
+I use the habit section at the front to track streaks, and the yearly overview page to track yoga practice. I cut out some unused sections as well so it's not as thicc.
+
+Sometimes I find myself daydreaming that I am a mage or necromancer, and the more I put into this book, the more I'll get out of it.. then I get back to the mundane tasks I noted there for myself and such fantasies quickly fade.
