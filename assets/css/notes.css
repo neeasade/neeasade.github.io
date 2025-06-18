@@ -84,8 +84,8 @@ table {
 }
 
 a:has(img) {
-    border: none;
-    background: none;
+    border: none !important;
+    background: none !important;
 }
 
 figure {
