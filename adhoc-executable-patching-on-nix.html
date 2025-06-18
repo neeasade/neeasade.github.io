@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-06-18 Wed 16:11 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>adhoc executable patching on nixos</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -12,7 +12,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="adhoc executable patching on nixos">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
@@ -25,19 +24,19 @@
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../neeasade's notes</a>
 </div>
 
 <div style="float: right">
@@ -63,14 +62,14 @@ Create a <code>shell.nix</code> file that looks like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #6a6a6a;">let</span>
-  <span style="color: #7a7a7a;">pkgs</span> = <span style="color: #6a6a6a;">import</span> <span style="color: #5e5e5e;">&lt;nixpkgs&gt;</span> {};
-<span style="color: #6a6a6a;">in</span> pkgs.mkShell {
-  <span style="color: #7a7a7a;">nativeBuildInputs</span> =
-    (<span style="color: #6a6a6a;">with</span> pkgs; [
+<pre class="src src-nix"><span style="color: #5a5a5a;">let</span>
+  <span style="color: #0095ac;">pkgs</span> = <span style="color: #5a5a5a;">import</span> <span style="color: #5a5a5a;">&lt;nixpkgs&gt;</span> {};
+<span style="color: #5a5a5a;">in</span> pkgs.mkShell {
+  <span style="color: #0095ac;">nativeBuildInputs</span> =
+    (<span style="color: #5a5a5a;">with</span> pkgs; [
       gcc
 
-      <span style="color: #8f8f8f;"># example libraries you might want:</span>
+      <span style="color: #8a8a8a;"># example libraries you might want:</span>
       zlib
       SDL2
     ]);
@@ -84,7 +83,7 @@ Launch the nix-shell, patch the linker so you can call the executable and see wh
 
 <div class="org-src-container">
 <pre class="src src-sh">; nix-shell shell.nix
-; patchelf --set-interpreter <span style="color: #7a7a7a;">"$(</span><span style="color: #7a7a7a;">cat $NIX_CC/nix-support/dynamic-linker</span><span style="color: #7a7a7a;">)"</span> /path/to/executable
+; patchelf --set-interpreter <span style="color: #cb7000;">"$(</span><span style="color: #0095ac;">cat $NIX_CC/nix-support/dynamic-linker</span><span style="color: #cb7000;">)"</span> /path/to/executable
 </pre>
 </div>
 
@@ -104,9 +103,9 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 
 <div class="org-src-container">
 <pre class="src src-sh">; nix-shell ./shell.nix
-; <span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
-; <span style="color: #7a7a7a;">new_rpath</span>=$(<span style="color: #7a7a7a;">echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n'</span>)
-; patchelf --set-rpath <span style="color: #7a7a7a;">"$new_rpath"</span> /path/to/executable
+; <span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
+; <span style="color: #0095ac;">new_rpath</span>=$(<span style="color: #0095ac;">echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n'</span>)
+; patchelf --set-rpath <span style="color: #cb7000;">"$new_rpath"</span> /path/to/executable
 </pre>
 </div>
 
@@ -123,38 +122,38 @@ That&rsquo;s all well and good for <i>right now</i>, but what if we lose the nix
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #7a7a7a;">babashka</span> = stdenv.mkDerivation <span style="color: #6a6a6a;">rec</span> {
-    <span style="color: #7a7a7a;">name</span> = <span style="color: #7a7a7a;">"babashka"</span>;
-    <span style="color: #8f8f8f;"># this is the way to coerce a string into a path</span>
-    <span style="color: #8f8f8f;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
+<pre class="src src-nix"><span style="color: #0095ac;">babashka</span> = stdenv.mkDerivation <span style="color: #5a5a5a;">rec</span> {
+    <span style="color: #0095ac;">name</span> = <span style="color: #cb7000;">"babashka"</span>;
+    <span style="color: #8a8a8a;"># this is the way to coerce a string into a path</span>
+    <span style="color: #8a8a8a;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
 
-    <span style="color: #8f8f8f;"># showing a few different ways:</span>
-    <span style="color: #8f8f8f;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
-    <span style="color: #7a7a7a;">src</span> = (fetchurl {
-        <span style="color: #7a7a7a;">url</span> = <span style="color: #7a7a7a;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
-        <span style="color: #7a7a7a;">sha256</span> = <span style="color: #7a7a7a;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
+    <span style="color: #8a8a8a;"># showing a few different ways:</span>
+    <span style="color: #8a8a8a;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
+    <span style="color: #0095ac;">src</span> = (fetchurl {
+        <span style="color: #0095ac;">url</span> = <span style="color: #cb7000;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
+        <span style="color: #0095ac;">sha256</span> = <span style="color: #cb7000;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
     });
 
-    <span style="color: #7a7a7a;">unpackPhase</span> = <span style="color: #7a7a7a;">"unzip $src"</span>;
-    <span style="color: #8f8f8f;"># if src is a path to the executable:</span>
-    <span style="color: #8f8f8f;"># unpackPhase = "cp $src bb";</span>
+    <span style="color: #0095ac;">unpackPhase</span> = <span style="color: #cb7000;">"unzip $src"</span>;
+    <span style="color: #8a8a8a;"># if src is a path to the executable:</span>
+    <span style="color: #8a8a8a;"># unpackPhase = "cp $src bb";</span>
 
-    <span style="color: #8f8f8f;"># note: the chmod is only needed when using direct path to local executable</span>
-    <span style="color: #7a7a7a;">patchPhase</span> = <span style="color: #7a7a7a;">''</span>
-<span style="color: #7a7a7a;">        chmod u+w ./bb</span>
-<span style="color: #7a7a7a;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
-<span style="color: #7a7a7a;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
-<span style="color: #7a7a7a;">        patchelf --set-rpath "$new_rpath" ./bb</span>
-<span style="color: #7a7a7a;">    ''</span>;
+    <span style="color: #8a8a8a;"># note: the chmod is only needed when using direct path to local executable</span>
+    <span style="color: #0095ac;">patchPhase</span> = <span style="color: #cb7000;">''</span>
+<span style="color: #cb7000;">        chmod u+w ./bb</span>
+<span style="color: #cb7000;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
+<span style="color: #cb7000;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
+<span style="color: #cb7000;">        patchelf --set-rpath "$new_rpath" ./bb</span>
+<span style="color: #cb7000;">    ''</span>;
 
-    <span style="color: #7a7a7a;">dontBuild</span> = <span style="color: #6a6a6a;">true</span>;
+    <span style="color: #0095ac;">dontBuild</span> = <span style="color: #5a5a5a;">true</span>;
 
-    <span style="color: #7a7a7a;">installPhase</span> = <span style="color: #7a7a7a;">''</span>
-<span style="color: #7a7a7a;">        mkdir -p $out/bin</span>
-<span style="color: #7a7a7a;">        cp bb $out/bin</span>
-<span style="color: #7a7a7a;">    ''</span>;
+    <span style="color: #0095ac;">installPhase</span> = <span style="color: #cb7000;">''</span>
+<span style="color: #cb7000;">        mkdir -p $out/bin</span>
+<span style="color: #cb7000;">        cp bb $out/bin</span>
+<span style="color: #cb7000;">    ''</span>;
 
-    <span style="color: #7a7a7a;">nativeBuildInputs</span> = (<span style="color: #6a6a6a;">with</span> pkgs; [
+    <span style="color: #0095ac;">nativeBuildInputs</span> = (<span style="color: #5a5a5a;">with</span> pkgs; [
         gcc-unwrapped.lib zlib unzip
     ]);
 };

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-06-18 Wed 16:11 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ImageMagick notes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>ImageMagick Snippets</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,8 +12,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="ImageMagick notes">
+<meta property="og:title" content="ImageMagick Snippets">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
 <meta property="og:url" content="https://notes.neeasade.net/ImageMagick-notes.html">
@@ -25,36 +24,47 @@
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../neeasade's notes</a>
 </div>
 
 <div style="float: right">
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-08-03-ImageMagick-notes.org">source</a>
 </div>
-<h1 class=title>ImageMagick notes</h1>
+<h1 class=title>ImageMagick Snippets</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
 <div class=pubinfo>
-Published 2020-08-03, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org">2020-08-04</a>
+Published 2020-08-03, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org">2024-03-01</a>
 </div>
 <hr>
+<p>
+<b>NB:</b> The convert command is deprecated in IMv7, use &ldquo;magick&rdquo; instead of &ldquo;convert&rdquo; or &ldquo;magick convert&rdquo;
+</p>
 
+<p>
+inspo sites:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www.fmwconcepts.com/imagemagick/index.php">http://www.fmwconcepts.com/imagemagick/index.php</a></li>
+<li><a href="http://im.snibgo.com/">http://im.snibgo.com/</a></li>
+</ul>
 <div id="outline-container-h-311d42c6-cd20-4f19-922e-8df55e7fee07" class="outline-2">
 <h2 id="h-311d42c6-cd20-4f19-922e-8df55e7fee07"><span class="section-number-2">1.</span> Rotate a tiled image 45 degrees <span class=anchor><a href="#h-311d42c6-cd20-4f19-922e-8df55e7fee07">#</a></span></h2>
 <div class="outline-text-2" id="text-h-311d42c6-cd20-4f19-922e-8df55e7fee07">
@@ -63,17 +73,47 @@ Better results with square images, of course. The <code>45</code> is the degree 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">convert in.png  -matte -virtual-pixel tile +distort  ScaleRotateTranslate  <span style="color: #7a7a7a;">'1  1  45'</span> out.png
+<pre class="src src-sh">magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #cb7000;">'1  1  45'</span> out.png
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-h-ac358ddb-6701-4782-8641-22946fc54b18" class="outline-2">
 <h2 id="h-ac358ddb-6701-4782-8641-22946fc54b18"><span class="section-number-2">2.</span> Stack images vertically <span class=anchor><a href="#h-ac358ddb-6701-4782-8641-22946fc54b18">#</a></span></h2>
 <div class="outline-text-2" id="text-h-ac358ddb-6701-4782-8641-22946fc54b18">
 <div class="org-src-container">
-<pre class="src src-sh">convert 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
+<pre class="src src-sh">magick 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-Create-a-solid-color-image" class="outline-2">
+<h2 id="Create-a-solid-color-image"><span class="section-number-2">3.</span> Create a solid color image <span class=anchor><a href="#Create-a-solid-color-image">#</a></span></h2>
+<div class="outline-text-2" id="text-Create-a-solid-color-image">
+<div class="org-src-container">
+<pre class="src src-sh">magick -size 100x100 <span style="color: #cb7000;">"xc:#cccccc"</span> out.png
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-Rotate-a-tiled-image-an-arbitrary-degree" class="outline-2">
+<h2 id="Rotate-a-tiled-image-an-arbitrary-degree"><span class="section-number-2">4.</span> Rotate a tiled image an arbitrary degree <span class=anchor><a href="#Rotate-a-tiled-image-an-arbitrary-degree">#</a></span></h2>
+<div class="outline-text-2" id="text-Rotate-a-tiled-image-an-arbitrary-degree">
+<p>
+see also: <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/tiletilt">tiletilt</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #0095ac;">tile</span>=<span style="color: #cb7000;">"some_file.png"</span>
+<span style="color: #0095ac;">angle</span>=$(<span style="color: #0095ac;">(RANDOM % 360</span>))
+<span style="color: #0095ac;">w</span>=1920
+<span style="color: #0095ac;">h</span>=1080
+
+magick <span style="color: #cb7000;">"$tile"</span> -set option:distort:viewport <span style="color: #cb7000;">"${w}x${h}"</span> <span style="color: #cb7000;">\</span>
+    -virtual-pixel tile -filter point <span style="color: #cb7000;">\</span>
+    -distort SRT <span style="color: #cb7000;">"$angle"</span> <span style="color: #cb7000;">\</span>
+    -gravity center -crop <span style="color: #cb7000;">"${w}x${h}+0+0"</span> +repage <span style="color: #cb7000;">\</span>
+    <span style="color: #cb7000;">"result.png"</span>
 </pre>
 </div>
 

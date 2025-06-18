@@ -1,5 +1,4 @@
 /* notes
-This is a version of tarp-mcfay that was generated against a background that accounts for transparency
 
 Get the mode color of a background image:
 $ convert "leaves.jpg" txt:- | awk '{print $3}' | rg -v pixel | sort | bb -i '(apply max-key val (frequencies *input*))'
@@ -14,7 +13,6 @@ Get the target background against that median:
 => "#dfe2e0"
 
 .. and then regenerate the base and emphasized themes around that opacity altered target
-
 
 $
 
@@ -51,7 +49,7 @@ EOF
 
 --strings     : #cb7000;
 --alt         : #00acc3;
---assumed     : #666666;
+--assumed     : #5a5a5a;
 --primary     : #0095ac;
 
 --faded       : #8a8a8a;

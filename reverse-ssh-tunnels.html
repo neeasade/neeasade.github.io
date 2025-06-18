@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-06-18 Wed 16:11 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>reverse ssh tunnels</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -12,7 +12,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="reverse ssh tunnels">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
@@ -25,19 +24,19 @@
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../neeasade's notes</a>
 </div>
 
 <div style="float: right">
@@ -67,7 +66,6 @@ You have 3 machines:
 <p>
 The problem is that <code>home</code> is behind some network you don&rsquo;t control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
-
 <div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
 <h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <span class=anchor><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></span></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
@@ -81,24 +79,22 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </p>
 </div>
 </div>
-
 <div id="outline-container-h-56d8bbe1-5940-4d97-b817-a71979240c19" class="outline-2">
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <span class=anchor><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></span></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to access home after ssh'ing into vps:</span>
 ssh localhost -p 22222
 
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #7a7a7a;">'ssh localhost -p 22222'</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to access home in one go from laptop:</span>
+ssh -t vps <span style="color: #cb7000;">'ssh localhost -p 22222'</span>
 
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">to Jump from the laptop (-J is the jumpbox target):</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-h-76dc15ec-0aab-464c-a674-60474010c8f0" class="outline-2">
 <h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <span class=anchor><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">#</a></span></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
@@ -116,15 +112,14 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #6a6a6a;">let*</span> ((tramp-connection-path <span style="color: #7a7a7a;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #7a7a7a;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #7a7a7a;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #5a5a5a;">let*</span> ((tramp-connection-path <span style="color: #cb7000;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #cb7000;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #cb7000;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4" class="outline-2">
 <h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <span class=anchor><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">#</a></span></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">

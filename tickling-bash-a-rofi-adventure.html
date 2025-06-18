@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-06-18 Wed 16:11 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>tickling bash, quest for the perfect menu</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -12,7 +12,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="tickling bash, quest for the perfect menu">
 <meta property="og:description" content="where the 'perfect menu' means you can start typing right away">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
@@ -25,19 +24,19 @@
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../neeasade's notes</a>
 </div>
 
 <div style="float: right">
@@ -59,7 +58,7 @@ Published 2020-05-10, last edit <a href="https://github.com/neeasade/neeasade.gi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #7a7a7a;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #6a6a6a;">read</span> pid; <span style="color: #6a6a6a;">read</span> line; <span style="color: #6a6a6a;">echo</span> <span style="color: #7a7a7a;">"$line"</span>; <span style="color: #6a6a6a;">kill</span> $<span style="color: #7a7a7a;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #cb7000;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #5a5a5a;">read</span> pid; <span style="color: #5a5a5a;">read</span> line; <span style="color: #5a5a5a;">echo</span> <span style="color: #cb7000;">"$line"</span>; <span style="color: #5a5a5a;">kill</span> $<span style="color: #0095ac;">pid</span>)
 </pre>
 </div>
 
@@ -69,7 +68,6 @@ about being able to bring up a menu, mash a few buttons, and get to where you ar
 lots of really cool generic &ldquo;select thing from list&rdquo; programs out there. As time goes on, you think
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
-
 <div id="outline-container-Setup" class="outline-2">
 <h2 id="Setup"><span class="section-number-2">1.</span> Setup <span class=anchor><a href="#Setup">#</a></span></h2>
 <div class="outline-text-2" id="text-Setup">
@@ -121,7 +119,6 @@ In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a 
 </p>
 </div>
 </div>
-
 <div id="outline-container-Rofi" class="outline-2">
 <h2 id="Rofi"><span class="section-number-2">2.</span> Rofi <span class=anchor><a href="#Rofi">#</a></span></h2>
 <div class="outline-text-2" id="text-Rofi">
@@ -134,7 +131,6 @@ history in the past week) but still start typing right away.
 </p>
 </div>
 </div>
-
 <div id="outline-container-Tickling-bash-(cheating)" class="outline-2">
 <h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3.</span> Tickling bash (cheating) <span class=anchor><a href="#Tickling-bash-(cheating)">#</a></span></h2>
 <div class="outline-text-2" id="text-Tickling-bash-(cheating)">
@@ -143,7 +139,7 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #6a6a6a;">echo</span> a; sleep 10; <span style="color: #6a6a6a;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #5a5a5a;">echo</span> a; sleep 10; <span style="color: #5a5a5a;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
@@ -161,7 +157,6 @@ So the way I cheated was to run the &rsquo;candidate maker&rsquo; in a subshell,
 </ul>
 </div>
 </div>
-
 <div id="outline-container-Followup-<2022-07-10-Sun-14:29>" class="outline-2">
 <h2 id="Followup-<2022-07-10-Sun-14:29>"><span class="section-number-2">4.</span> Followup <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-10 02:29 PM&gt;</span></span> <span class=anchor><a href="#Followup-<2022-07-10-Sun-14:29>">#</a></span></h2>
 <div class="outline-text-2" id="text-Followup-<2022-07-10-Sun-14:29>">

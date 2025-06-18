@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-08-21 Mon 14:42 -->
+<!-- 2025-06-18 Wed 16:11 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>pulseaudio user notes</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -12,7 +12,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:title" content="pulseaudio user notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
@@ -25,19 +24,19 @@
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=02c3d8a0f0201338ed0f15528e701e34'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=af3f2dec72257f4c5826491a26255626'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
+<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
+<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d0d1c4252b3a39fa36352fadd6018fe2'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=fa37501051191341a7f3dc0bd53d43a5'>
 </head>
 <body>
 <div id="content" class="content">
 <div style="float: left">
-    <a href='/index.html'>../𝚂𝚃𝚇</a>
+    <a href='/index.html'>../neeasade's notes</a>
 </div>
 
 <div style="float: right">
@@ -57,10 +56,9 @@ Published 2020-08-12, last edit <a href="https://github.com/neeasade/neeasade.gi
 <p>
 When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker sources.
 </p>
-
-<div id="outline-container-h-0f0f140b-cace-40c9-814c-37c348635dc5" class="outline-3">
-<h3 id="h-0f0f140b-cace-40c9-814c-37c348635dc5"><span class="section-number-3">0.1.</span> interfaces <span class=anchor><a href="#h-0f0f140b-cace-40c9-814c-37c348635dc5">#</a></span></h3>
-<div class="outline-text-3" id="text-h-0f0f140b-cace-40c9-814c-37c348635dc5">
+<div id="outline-container-h-0f0f140b-cace-40c9-814c-37c348635dc5" class="outline-2">
+<h2 id="h-0f0f140b-cace-40c9-814c-37c348635dc5"><span class="section-number-2">1.</span> interfaces <span class=anchor><a href="#h-0f0f140b-cace-40c9-814c-37c348635dc5">#</a></span></h2>
+<div class="outline-text-2" id="text-h-0f0f140b-cace-40c9-814c-37c348635dc5">
 <table>
 
 
@@ -94,18 +92,15 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </table>
 </div>
 </div>
+<div id="outline-container-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3" class="outline-2">
+<h2 id="h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3"><span class="section-number-2">2.</span> mute noise from a stream <span class=anchor><a href="#h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">#</a></span></h2>
+<div class="outline-text-2" id="text-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">
+<p>
+<b>EXTREMELY</b> useful for video calling. Relies on nix and <a href="https://tazj.in/">tazjin</a>&rsquo;s monorepo:
+</p>
 
-<div id="outline-container-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3" class="outline-3">
-<h3 id="h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3"><span class="section-number-3">0.2.</span> mute noise from a stream <span class=anchor><a href="#h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">#</a></span></h3>
-<div class="outline-text-3" id="text-h-a16ca2c4-a26b-4956-b2c4-2e621ee4d6f3">
-</div>
-</div>
-
-<div id="outline-container-EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:" class="outline-2">
-<h2 id="EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:"><span class="section-number-2">1.</span> EXTREMELY* useful for video calling. Relies on nix and <a href="https://tazj.in/">tazjin</a>&rsquo;s monorepo: <span class=anchor><a href="#EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:">#</a></span></h2>
-<div class="outline-text-2" id="text-EXTREMELY*-useful-for-video-calling.-Relies-on-nix-and-tazjin's-monorepo:">
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #7a7a7a;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #cb7000;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -127,11 +122,10 @@ minutes or so, which is unnoticeable and keeps it from drifting
 </p>
 </blockquote>
 </div>
-
-
-<div id="outline-container-TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers" class="outline-3">
-<h3 id="TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers"><span class="section-number-3">1.1.</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers <span class=anchor><a href="#TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">#</a></span></h3>
-<div class="outline-text-3" id="text-TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">
+</div>
+<div id="outline-container-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers" class="outline-2">
+<h2 id="Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers"><span class="section-number-2">3.</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers <span class=anchor><a href="#Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">#</a></span></h2>
+<div class="outline-text-2" id="text-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">
 <p>
 Some leftover notes from when I was last messing with this with <a href="https://obsproject.com/">OBS</a>.
 </p>
@@ -139,60 +133,25 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">add a null sync</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">=&gt; 25</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">=&gt; 25</span>
 
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
  2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
 
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=25,null
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=25,analog-stereo
 
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">number is the output of the above</span>
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">number is the output of the above</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 
 <div class="footer-center">
     
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers" class="outline-3">
-<h3 id="TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers"><span class="section-number-3">1.2.</span> <span class="todo TODO">TODO</span> Split an audio source so it can go to a stream and your local speakers <span class=anchor><a href="#TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">#</a></span></h3>
-<div class="outline-text-3" id="text-TODO-Split-an-audio-source-so-it-can-go-to-a-stream-and-your-local-speakers">
-<p>
-Some leftover notes from when I was last messing with this with <a href="https://obsproject.com/">OBS</a>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">pactl list short sinks
-
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">add a null sync</span>
-pactl load-module module-null-sink
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">=&gt; 25</span>
-
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=&lt;number&gt;,&lt;name&gt;
-
- 2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
-
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #7a7a7a;">slaves</span>=25,analog-stereo
-
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">number is the output of the above</span>
-<span style="color: #8f8f8f;"># </span><span style="color: #8f8f8f;">name is the internal name of the output you want to use on obs?</span>
-</pre>
-</div>
-
-<div class="footer-center">
-    
-</div>
 </div>
 </div>
 </div>
