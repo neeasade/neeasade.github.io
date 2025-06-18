@@ -16,7 +16,9 @@ Get the target background against that median:
 .. and then regenerate the base and emphasized themes around that opacity altered target
 
 
-$ theme -p color.normal -r ./um
+$
+
+cat<<EOF | theme -p color.normal -r /dev/stdin
 
 --background  : {{background}};
 --background_weak : {{color.weak.background}};
@@ -36,28 +38,30 @@ $ theme -p color.normal -r ./um
 --foreground_weak : {{color.weak.foreground}};
 --foreground_strong : {{color.strong.foreground}};
 --foreground_plus : {{color.focused.foreground}};
+EOF
 
 */
 
 :root {
---background  : #e8ebec;
---background_weak : #d5d6d7;
---background_strong: #ccc9ca;
---background_plus : #a4cfed;
 
---strings     : #007c00;
---alt         : #006e96;
---assumed     : #0065c8;
---primary     : #c6007f;
+--background  : #f0f0f0;
+--background_weak : #dddddd;
+--background_strong: #d0d0d0;
+--background_plus : #fed3c8;
 
---faded       : #6a6d6e;
---faded_weak : #5f6061;
---faded_strong : #5a5758;
+--strings     : #cb7000;
+--alt         : #00acc3;
+--assumed     : #666666;
+--primary     : #0095ac;
 
---foreground  : #444748;
---foreground_weak : #393a3b;
---foreground_strong : #343132;
---foreground_plus : #093553;
+--faded       : #8a8a8a;
+--faded_weak : #7d7d7d;
+--faded_strong : #747474;
+
+--foreground  : #5a5a5a;
+--foreground_weak : #4f4f4f;
+--foreground_strong : #474747;
+--foreground_plus : #6e4338;
 
 --radius: 0px;
 

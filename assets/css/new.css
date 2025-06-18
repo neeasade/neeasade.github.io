@@ -224,7 +224,7 @@ input[type="button"]:enabled:hover {
 }
 
 code,
-plre,
+pre,
 kbd,
 samp {
 	/* Set the font family for monospaced elements */
