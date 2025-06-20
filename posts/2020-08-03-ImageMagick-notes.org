@@ -1,28 +1,47 @@
 #+title: ImageMagick Snippets
 #+pubdate: <2020-08-03>
 
-** [[#h-311d42c6-cd20-4f19-922e-8df55e7fee07][Rotate a tiled image 45 degrees]]
-:PROPERTIES:
-:CUSTOM_ID: h-311d42c6-cd20-4f19-922e-8df55e7fee07
-:END:
+*NB:* The convert command is deprecated in IMv7, use "magick" instead of "convert" or "magick convert"
+
+inspo sites:
+
+- http://www.fmwconcepts.com/imagemagick/index.php
+- http://im.snibgo.com/
+
+** Rotate a tiled image 45 degrees
 
 Better results with square images, of course. The ~45~ is the degree amount.
 
 #+begin_src sh
-convert in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate '1  1  45' out.png
+magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate '1  1  45' out.png
 #+end_src
 
-** [[#h-ac358ddb-6701-4782-8641-22946fc54b18][Stack images vertically]]
-:PROPERTIES:
-:CUSTOM_ID: h-ac358ddb-6701-4782-8641-22946fc54b18
-:END:
+** Stack images vertically
 
 #+begin_src sh
-convert 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
+magick 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
 #+end_src
 
 ** Create a solid color image
 
 #+begin_src sh
-convert -size 100x100 "xc:#cccccc" out.png
+magick -size 100x100 "xc:#cccccc" out.png
 #+end_src
+
+** Rotate a tiled image an arbitrary degree
+
+see also: [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/tiletilt][tiletilt]]
+
+#+begin_src sh
+tile="some_file.png"
+angle=$((RANDOM % 360))
+w=1920
+h=1080
+
+magick "$tile" -set option:distort:viewport "${w}x${h}" \
+    -virtual-pixel tile -filter point \
+    -distort SRT "$angle" \
+    -gravity center -crop "${w}x${h}+0+0" +repage \
+    "result.png"
+    #+end_src
+#+RESULTS:
