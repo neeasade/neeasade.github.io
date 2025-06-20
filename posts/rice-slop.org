@@ -3,7 +3,6 @@
 #+post_type: post
 #+filetags:
 #+rss_title:
-#+draft: t
 #+pubdate: <2024-10-25>
 
 For a little over a year now, I have been increasingly obsessed with a meal I
@@ -19,7 +18,7 @@ are typically 3 layers, like so:
 
 | Layer                 | Notes                                    |
 | rice (bottom)         | Jasmine rice + various sauces            |
-| meat (middle)         | pre cooked chicken or tuna               |
+| meat (middle)         | pre cooked frozen chicken or tuna        |
 | veggies n beans (top) | frozen or canned vegetables, pinto beans |
 
 ** Layer 1 (rice)
@@ -48,7 +47,7 @@ Mix ingredients together and you're done with layer one 😎
 
 ** Layer 2 (meat)
 
-I usually use precooked grilled chicken from the grocery store. A can of tuna
+I usually use precooked grilled frozen chicken from the grocery store. A can of tuna
 (drained first) works nicely as well. Just lay it on top of the rice + sauce
 mixture (*no mixing*).
 
