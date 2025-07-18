@@ -1,0 +1,20 @@
+#+title: Warcraft III Resolution Fix
+#+title_extra:
+#+post_type: post
+#+pubdate: <2024-12-31>
+
+Have an old warcraft III installer and want to play the game in 4K @ 120hz?
+
+regedit path:
+
+#+begin_src
+HKEY_CURRENT_USER\\Software\\Blizzard Entertainment\\Warcraft III\\Video
+#+end_src
+
+Relevant Keys:
+
+- ~resheight~
+- ~reswidth~
+- ~refreshrate~
+
+Initial source: https://www.overclock.net/threads/how-to-force-warcraft-3-to-display-a-high-or-widescreen-resolution.305554/
