@@ -8,7 +8,8 @@ html {
     height: 100% !important;
 }
 
-.anchor {
+/* anchors */
+h2 > a[href^='#'] {
     font-size: 1rem;
     vertical-align: 10%;
 }
