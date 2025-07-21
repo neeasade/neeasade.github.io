@@ -217,14 +217,14 @@ header h1 {
 }
 
 /* Additional decorations for the header h1 */
-header h1:before,
-header h1:after {
-    content: "⮺";
-    color: var(--fg);
-    font-size: 1.5rem;
-    vertical-align: middle;
-    padding: 0 0.5rem;
-}
+/* header h1:before, */
+/* header h1:after { */
+/*     content: ""; */
+/*     color: var(--fg); */
+/*     font-size: 1.5rem; */
+/*     vertical-align: middle; */
+/*     padding: 0 0.5rem; */
+/* } */
 
 /*
     1) Remove any list symbols.
@@ -618,6 +618,7 @@ blockquote footer cite {
     3) Set a custom monospace font.
     4) Add a top and bottom border line.
 */
+pre.example,
 pre.src {
     background: var(--background_subtle);
     padding: 1rem 1.6rem; /* 1 */

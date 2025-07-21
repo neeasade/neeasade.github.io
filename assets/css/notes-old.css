@@ -111,13 +111,13 @@ img {
     margin: 0;
     line-height: 1.0;
 }
+
 detail {
     text-align: center;
     padding-top: 0px;
     font-size: 0.9rem;
     display: block;
 }
-
 
 a[href$=".png"],
 a[href$=".png"]:hover,
@@ -127,7 +127,6 @@ a[href$=".png"]:visited
     border: 0 none;
     background: var(--background);
 }
-
 
 .footer-right {
     position:absolute;
