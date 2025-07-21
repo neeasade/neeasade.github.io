@@ -31,6 +31,8 @@
 html {
     font-size: 62.5%; /* 1 */
     box-sizing: border-box; /* 2 */
+
+    font-family: serif;
 }
 
 /* Use smaller sizes on mobile devices. */
@@ -52,7 +54,6 @@ body {
     background-color: var(--bg); /* 2 */
     color: var(--fg); /* 2 */
     /* todo: fonts */
-    font-family: "Averia Serif Libre", serif; /* 3 */
     font-style: normal; /* 3 */
     line-height: 2.2rem; /* 3 */
     font-weight: 300; /* 3 */
@@ -168,7 +169,6 @@ em {
 h2,
 h3,
 h4 {
-    font-family: "Averia Libre", cursive; /* 1 */
     color: var(--fg); /* 1 */
     font-style: normal; /* 1 */
     font-weight: 600; /* 1 */
@@ -432,7 +432,7 @@ select {
     border-radius: 0; /* 3 */
     font-size: 1.8rem; /* 3 */
 
-    font-family: "Caveat", cursive; /* 4 */
+    /* font-family: "Caveat", cursive; /\* 4 *\/ */
     font-size: 2.6rem; /* 4 */
     color: var(--form-fg); /* 4 */
     caret-color: var(--form-fg); /* 4 */
@@ -583,7 +583,6 @@ blockquote {
     2) Add some space between the paragraphs.
 */
 blockquote p {
-    font-family: "Spectral", serif; /* 1 */
     font-style: italic; /* 1 */
     font-size: 2.1rem; /* 1 */
     font-weight: 300; /* 1 */
@@ -604,7 +603,6 @@ blockquote footer {
     float: right; /* 2 */
     text-align: right; /* 2 */
     width: 55%; /* 3 */
-    font-family: "Spectral", serif; /* 4 */
     font-style: normal; /* 4 */
     font-size: 1.4rem; /* 4 */
 }
@@ -721,7 +719,6 @@ aside h1, aside h2, aside h3, aside h4 {
 .sidenote:before {
     font-size: 1.3rem;
     position: relative;
-    font-family: "Spectral", serif;
 }
 
 /* Fine-adjust the number position for the sidenote anchor */
