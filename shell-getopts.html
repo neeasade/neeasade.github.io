@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>tl;dr shell getopts</title>
@@ -19,22 +19,21 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -55,26 +54,34 @@
     Published 2020-01-16,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org\">2020-01-23</a>
 </span>
+</header>
 <hr>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #67625f;"># </span><span style="color: #67625f;">the ':' in front means the flag takes an arg</span>
-<span style="color: #524d4a;">while </span><span style="color: #524d4a;">getopts</span> w:reh flag; <span style="color: #524d4a;">do</span>
-    <span style="color: #524d4a;">case</span> $<span style="color: #626700;">flag</span><span style="color: #524d4a;"> in</span>
-        w) <span style="color: #626700;">wid</span>=$<span style="color: #626700;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">the ':' in front means the flag takes an arg</span>
+<span style="color: #5a5a5a;">while </span><span style="color: #5a5a5a;">getopts</span> w:reh flag; <span style="color: #5a5a5a;">do</span>
+    <span style="color: #5a5a5a;">case</span> $<span style="color: #0095ac;">flag</span><span style="color: #5a5a5a;"> in</span>
+        w) <span style="color: #0095ac;">wid</span>=$<span style="color: #0095ac;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #524d4a;">esac</span>
-<span style="color: #524d4a;">done</span>
+    <span style="color: #5a5a5a;">esac</span>
+<span style="color: #5a5a5a;">done</span>
 
-<span style="color: #67625f;"># </span><span style="color: #67625f;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #524d4a;">shift</span> $(<span style="color: #626700;">(OPTIND-1</span>))
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #5a5a5a;">shift</span> $(<span style="color: #0095ac;">(OPTIND-1</span>))
 </pre>
 </div>
 
-<a href='https://notes.neeasade.net/updating-nix-channels.html'>Updating nix channels</a> 
-<a href='https://notes.neeasade.net/rice-links.html'>rice links</a> 
-</div>
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/rice-links.html'>newer: rice links</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/updating-nix-channels.html'>older: Updating nix channels</a> 
+    </div>
+</footer>
+<hr>
+</main>
 </body>
 </html>

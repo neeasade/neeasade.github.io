@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>reasoning about colors</title>
@@ -19,23 +19,22 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 <style> detail {margin-top: -0.9rem;} </style>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -56,19 +55,20 @@
     Published 2020-11-24,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org\">2022-07-10</a>
 </span>
+</header>
 <hr>
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #524d4a;color: #d7d2cf; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #605b58;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #6f6a67;color: #d7d2cf; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #7e7976;color: #d7d2cf; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #8d8885;color: #d7d2cf; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #9b9693;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #aaa5a2;color: #524d4a; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #b9b4b1;color: #524d4a; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #c8c3c0;color: #524d4a; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #d7d2cf;color: #524d4a; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #5a5a5a;color: #f0f0f0; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #6a6a6a;color: #f0f0f0; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #7b7b7b;color: #f0f0f0; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #8b8b8b;color: #f0f0f0; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #9c9c9c;color: #f0f0f0; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #adadad;color: #5a5a5a; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #bebebe;color: #5a5a5a; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #cecece;color: #5a5a5a; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #dfdfdf;color: #5a5a5a; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #f0f0f0;color: #5a5a5a; width: 10.0%;">Ｓ</div>
  </div>
 </p>
 
@@ -114,44 +114,44 @@ Color spaces are ways of defining colors in different sets of properties. They a
 <h3 id="h-99356355-d54c-41d8-bc1a-6e14e29f42c8"><span class="section-number-3">3.1.</span> RGB <a href="#h-99356355-d54c-41d8-bc1a-6e14e29f42c8">#</a></h3>
 <div class="outline-text-3" id="text-h-99356355-d54c-41d8-bc1a-6e14e29f42c8">
 <p>
-The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach <code style="background: #ffffff;color: #524d4a; padding: 2px; border: 1px solid #524d4a">#ffffff</code> (and down, -&gt; <code style="background: #000000;color: #d7d2cf; padding: 2px; border: 1px solid #000000">#000000</code>). This isn&rsquo;t particularly flexible in &ldquo;ways you can think about colors&rdquo;.
+The one you know and love:  [R]ed, [G]reen, [B]lue. Your knobs are amounts of each. As you turn everything up, you approach <code style="background: #ffffff;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">#ffffff</code> (and down, -&gt; <code style="background: #000000;color: #f0f0f0; padding: 2px; border: 1px solid #000000">#000000</code>). This isn&rsquo;t particularly flexible in &ldquo;ways you can think about colors&rdquo;.
 </p>
 
 <p>
-Here is a gradient from <code style="background: #cc3333;color: #d7d2cf; padding: 2px; border: 1px solid #cc3333">#cc3333</code> to <code style="background: #33cc33;color: #524d4a; padding: 2px; border: 1px solid #524d4a">#33cc33</code> to <code style="background: #3333cc;color: #d7d2cf; padding: 2px; border: 1px solid #3333cc">#3333cc</code>:
+Here is a gradient from <code style="background: #cc3333;color: #f0f0f0; padding: 2px; border: 1px solid #cc3333">#cc3333</code> to <code style="background: #33cc33;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">#33cc33</code> to <code style="background: #3333cc;color: #f0f0f0; padding: 2px; border: 1px solid #3333cc">#3333cc</code>:
 </p>
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #cc3333;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c13d33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b64833;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #ab5333;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a05e33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #956933;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #8a7433;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #7f7f33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #748a33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #699533;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #5ea033;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #53ab33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #48b633;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3dc133;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33cc33;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33c13d;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33b648;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33ab53;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33a05e;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #339569;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #338a74;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #337f7f;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33748a;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #336995;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #335ea0;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3353ab;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3348b6;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #333dc1;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3333cc;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #cc3333;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c13d33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b64833;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #ab5333;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a05e33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #956933;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #8a7433;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #7f7f33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #748a33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #699533;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #5ea033;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #53ab33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #48b633;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3dc133;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33cc33;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33c13d;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33b648;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33ab53;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33a05e;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #339569;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #338a74;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #337f7f;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33748a;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #336995;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #335ea0;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3353ab;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3348b6;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #333dc1;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3333cc;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
 </p>
 
@@ -161,35 +161,35 @@ To show the lighting effect, let&rsquo;s repeat the above gradient, but instead 
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #cc9999;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c89c99;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c4a099;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c1a399;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #bda799;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b9ab99;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b6ae99;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b2b299;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #aeb699;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #abb999;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a7bd99;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a3c199;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a0c499;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #9cc899;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99cc99;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99c89c;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99c4a0;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99c1a3;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99bda7;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99b9ab;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99b6ae;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99b2b2;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99aeb6;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99abb9;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99a7bd;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99a3c1;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #99a0c4;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #999cc8;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #9999cc;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #cc9999;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c89c99;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c4a099;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c1a399;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #bda799;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b9ab99;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b6ae99;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b2b299;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #aeb699;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #abb999;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a7bd99;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a3c199;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a0c499;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #9cc899;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99cc99;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99c89c;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99c4a0;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99c1a3;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99bda7;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99b9ab;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99b6ae;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99b2b2;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99aeb6;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99abb9;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99a7bd;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99a3c1;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #99a0c4;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #999cc8;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #9999cc;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
 </p>
 </div>
@@ -237,7 +237,7 @@ Saturation in HSL is a controlled version of chromacity (&ldquo;distance from gr
 </p>
 
 
-<figure id="orgeeebb2f">
+<figure id="org189885b">
 <a href="./assets/posts/color_cylinder.png"><img src="./assets/posts/color_cylinder.png" alt="color_cylinder.png"></a>
 
 </figure>
@@ -248,12 +248,12 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bf3f3f;color: #d7d2cf; width: 16.666666666666668%;">red,0°</div>
-<div class="colorblock colorcenter" style="background: #bfbf3f;color: #524d4a; width: 16.666666666666668%;">yellow,60°</div>
-<div class="colorblock colorcenter" style="background: #3fbf3f;color: #524d4a; width: 16.666666666666668%;">green,120°</div>
-<div class="colorblock colorcenter" style="background: #3fbfbf;color: #524d4a; width: 16.666666666666668%;">cyan,180°</div>
-<div class="colorblock colorcenter" style="background: #3f3fbf;color: #d7d2cf; width: 16.666666666666668%;">blue,240°</div>
-<div class="colorblock colorcenter" style="background: #bf3fbf;color: #d7d2cf; width: 16.666666666666668%;">magenta,300°</div>
+<div class="colorblock colorcenter" style="background: #bf3f3f;color: #f0f0f0; width: 16.666666666666668%;">red,0°</div>
+<div class="colorblock colorcenter" style="background: #bfbf3f;color: #5a5a5a; width: 16.666666666666668%;">yellow,60°</div>
+<div class="colorblock colorcenter" style="background: #3fbf3f;color: #5a5a5a; width: 16.666666666666668%;">green,120°</div>
+<div class="colorblock colorcenter" style="background: #3fbfbf;color: #5a5a5a; width: 16.666666666666668%;">cyan,180°</div>
+<div class="colorblock colorcenter" style="background: #3f3fbf;color: #f0f0f0; width: 16.666666666666668%;">blue,240°</div>
+<div class="colorblock colorcenter" style="background: #bf3fbf;color: #f0f0f0; width: 16.666666666666668%;">magenta,300°</div>
  </div>
 </p>
 
@@ -267,17 +267,17 @@ Let&rsquo;s see the effect saturation has:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #7f7f7f;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #72728c;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #666699;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #5959a5;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #4c4cb2;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #3f3fbf;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #3232cc;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #2626d8;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #1919e5;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #0c0cf2;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #0000ff;color: #d7d2cf; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7f7f7f;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #72728c;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #666699;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #5959a5;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #4c4cb2;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3f3fbf;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3232cc;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #2626d8;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #1919e5;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #0c0cf2;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #0000ff;color: #f0f0f0; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -291,17 +291,17 @@ And lightness:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #0c0c26;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #19194c;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #262672;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #323299;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #3f3fbf;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6565cc;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #8c8cd8;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b2b2e5;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d8d8f2;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffffff;color: #524d4a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #0c0c26;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #19194c;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #262672;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #323299;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3f3fbf;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6565cc;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #8c8cd8;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b2b2e5;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d8d8f2;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -323,12 +323,12 @@ What does that mean for us? Well, let&rsquo;s take our above examples and recrea
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bc556e;color: #d7d2cf; width: 16.666666666666668%;">red,0°</div>
-<div class="colorblock colorcenter" style="background: #887452;color: #d7d2cf; width: 16.666666666666668%;">yellow,60°</div>
-<div class="colorblock colorcenter" style="background: #5d8051;color: #d7d2cf; width: 16.666666666666668%;">green,120°</div>
-<div class="colorblock colorcenter" style="background: #557e79;color: #d7d2cf; width: 16.666666666666668%;">cyan,180°</div>
-<div class="colorblock colorcenter" style="background: #597a98;color: #d7d2cf; width: 16.666666666666668%;">blue,240°</div>
-<div class="colorblock colorcenter" style="background: #a05dac;color: #d7d2cf; width: 16.666666666666668%;">magenta,300°</div>
+<div class="colorblock colorcenter" style="background: #bc556e;color: #f0f0f0; width: 16.666666666666668%;">red,0°</div>
+<div class="colorblock colorcenter" style="background: #887452;color: #f0f0f0; width: 16.666666666666668%;">yellow,60°</div>
+<div class="colorblock colorcenter" style="background: #5d8051;color: #f0f0f0; width: 16.666666666666668%;">green,120°</div>
+<div class="colorblock colorcenter" style="background: #557e79;color: #f0f0f0; width: 16.666666666666668%;">cyan,180°</div>
+<div class="colorblock colorcenter" style="background: #597a98;color: #f0f0f0; width: 16.666666666666668%;">blue,240°</div>
+<div class="colorblock colorcenter" style="background: #a05dac;color: #f0f0f0; width: 16.666666666666668%;">magenta,300°</div>
  </div>
 </p>
 
@@ -342,17 +342,17 @@ Saturation:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #72777d;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6d7884;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #67788b;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #607991;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #597a97;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #517b9e;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #477ba4;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #3a7caa;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #287db0;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #007eb6;color: #d7d2cf; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #72777d;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6d7884;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #67788b;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #607991;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #597a97;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #517b9e;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #477ba4;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3a7caa;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #287db0;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #007eb6;color: #f0f0f0; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -366,17 +366,17 @@ Lightness:
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #121c25;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #22313f;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #34485b;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #466079;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #597a97;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6d94b7;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #85afd6;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b0c9e3;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d8e3f0;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feffff;color: #524d4a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #121c25;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #22313f;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #34485b;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #466079;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #597a97;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6d94b7;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #85afd6;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b0c9e3;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d8e3f0;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -482,52 +482,52 @@ Let&rsquo;s look at some LAB colors. The labels below will have the values of  <
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #009275;color: #d7d2cf; width: 20.0%;">(50,-80,0)</div>
-<div class="colorblock colorcenter" style="background: #008e75;color: #d7d2cf; width: 20.0%;">(50,-60,0)</div>
-<div class="colorblock colorcenter" style="background: #008775;color: #d7d2cf; width: 20.0%;">(50,-40,0)</div>
-<div class="colorblock colorcenter" style="background: #4c8076;color: #d7d2cf; width: 20.0%;">(50,-20,0)</div>
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 20.0%;">(50,0,0)</div>
+<div class="colorblock colorcenter" style="background: #009275;color: #f0f0f0; width: 20.0%;">(50,-80,0)</div>
+<div class="colorblock colorcenter" style="background: #008e75;color: #f0f0f0; width: 20.0%;">(50,-60,0)</div>
+<div class="colorblock colorcenter" style="background: #008775;color: #f0f0f0; width: 20.0%;">(50,-40,0)</div>
+<div class="colorblock colorcenter" style="background: #4c8076;color: #f0f0f0; width: 20.0%;">(50,-20,0)</div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 20.0%;">(50,0,0)</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 20.0%;">(50,0,0)</div>
-<div class="colorblock colorcenter" style="background: #976a77;color: #d7d2cf; width: 20.0%;">(50,20,0)</div>
-<div class="colorblock colorcenter" style="background: #b45978;color: #d7d2cf; width: 20.0%;">(50,40,0)</div>
-<div class="colorblock colorcenter" style="background: #cf4079;color: #d7d2cf; width: 20.0%;">(50,60,0)</div>
-<div class="colorblock colorcenter" style="background: #e8007a;color: #d7d2cf; width: 20.0%;">(50,80,0)</div>
- </div>
-</p>
-
-<p>
- <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #0080ff;color: #d7d2cf; width: 20.0%;">(50,0,-80)</div>
-<div class="colorblock colorcenter" style="background: #007ddd;color: #d7d2cf; width: 20.0%;">(50,0,-60)</div>
-<div class="colorblock colorcenter" style="background: #367aba;color: #d7d2cf; width: 20.0%;">(50,0,-40)</div>
-<div class="colorblock colorcenter" style="background: #617898;color: #d7d2cf; width: 20.0%;">(50,0,-20)</div>
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 20.0%;">(50,0,0)</div>
- </div>
- <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 20.0%;">(50,0,0)</div>
-<div class="colorblock colorcenter" style="background: #837555;color: #d7d2cf; width: 20.0%;">(50,0,20)</div>
-<div class="colorblock colorcenter" style="background: #8a7530;color: #d7d2cf; width: 20.0%;">(50,0,40)</div>
-<div class="colorblock colorcenter" style="background: #8e7400;color: #d7d2cf; width: 20.0%;">(50,0,60)</div>
-<div class="colorblock colorcenter" style="background: #907400;color: #d7d2cf; width: 20.0%;">(50,0,80)</div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 20.0%;">(50,0,0)</div>
+<div class="colorblock colorcenter" style="background: #976a77;color: #f0f0f0; width: 20.0%;">(50,20,0)</div>
+<div class="colorblock colorcenter" style="background: #b45978;color: #f0f0f0; width: 20.0%;">(50,40,0)</div>
+<div class="colorblock colorcenter" style="background: #cf4079;color: #f0f0f0; width: 20.0%;">(50,60,0)</div>
+<div class="colorblock colorcenter" style="background: #e8007a;color: #f0f0f0; width: 20.0%;">(50,80,0)</div>
  </div>
 </p>
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #009aff;color: #d7d2cf; width: 20.0%;">(50,-80,-80)</div>
-<div class="colorblock colorcenter" style="background: #0093dc;color: #d7d2cf; width: 20.0%;">(50,-60,-60)</div>
-<div class="colorblock colorcenter" style="background: #008bba;color: #d7d2cf; width: 20.0%;">(50,-40,-40)</div>
-<div class="colorblock colorcenter" style="background: #198198;color: #d7d2cf; width: 20.0%;">(50,-20,-20)</div>
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 20.0%;">(50,0,0)</div>
+<div class="colorblock colorcenter" style="background: #0080ff;color: #f0f0f0; width: 20.0%;">(50,0,-80)</div>
+<div class="colorblock colorcenter" style="background: #007ddd;color: #f0f0f0; width: 20.0%;">(50,0,-60)</div>
+<div class="colorblock colorcenter" style="background: #367aba;color: #f0f0f0; width: 20.0%;">(50,0,-40)</div>
+<div class="colorblock colorcenter" style="background: #617898;color: #f0f0f0; width: 20.0%;">(50,0,-20)</div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 20.0%;">(50,0,0)</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 20.0%;">(50,0,0)</div>
-<div class="colorblock colorcenter" style="background: #a16956;color: #d7d2cf; width: 20.0%;">(50,20,20)</div>
-<div class="colorblock colorcenter" style="background: #c05734;color: #d7d2cf; width: 20.0%;">(50,40,40)</div>
-<div class="colorblock colorcenter" style="background: #db3b06;color: #d7d2cf; width: 20.0%;">(50,60,60)</div>
-<div class="colorblock colorcenter" style="background: #f40000;color: #d7d2cf; width: 20.0%;">(50,80,80)</div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 20.0%;">(50,0,0)</div>
+<div class="colorblock colorcenter" style="background: #837555;color: #f0f0f0; width: 20.0%;">(50,0,20)</div>
+<div class="colorblock colorcenter" style="background: #8a7530;color: #f0f0f0; width: 20.0%;">(50,0,40)</div>
+<div class="colorblock colorcenter" style="background: #8e7400;color: #f0f0f0; width: 20.0%;">(50,0,60)</div>
+<div class="colorblock colorcenter" style="background: #907400;color: #f0f0f0; width: 20.0%;">(50,0,80)</div>
+ </div>
+</p>
+
+<p>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #009aff;color: #f0f0f0; width: 20.0%;">(50,-80,-80)</div>
+<div class="colorblock colorcenter" style="background: #0093dc;color: #f0f0f0; width: 20.0%;">(50,-60,-60)</div>
+<div class="colorblock colorcenter" style="background: #008bba;color: #f0f0f0; width: 20.0%;">(50,-40,-40)</div>
+<div class="colorblock colorcenter" style="background: #198198;color: #f0f0f0; width: 20.0%;">(50,-20,-20)</div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 20.0%;">(50,0,0)</div>
+ </div>
+ <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 20.0%;">(50,0,0)</div>
+<div class="colorblock colorcenter" style="background: #a16956;color: #f0f0f0; width: 20.0%;">(50,20,20)</div>
+<div class="colorblock colorcenter" style="background: #c05734;color: #f0f0f0; width: 20.0%;">(50,40,40)</div>
+<div class="colorblock colorcenter" style="background: #db3b06;color: #f0f0f0; width: 20.0%;">(50,60,60)</div>
+<div class="colorblock colorcenter" style="background: #f40000;color: #f0f0f0; width: 20.0%;">(50,80,80)</div>
  </div>
 </p>
 
@@ -576,10 +576,10 @@ LCH is a &ldquo;cylindrical&rdquo; version of cieLAB. What that means for us is 
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #c14e78;color: #d7d2cf; width: 25.0%;">red, 0°</div>
-<div class="colorblock colorcenter" style="background: #8c7317;color: #d7d2cf; width: 25.0%;">yellow, 90°</div>
-<div class="colorblock colorcenter" style="background: #008973;color: #d7d2cf; width: 25.0%;">green, 180°</div>
-<div class="colorblock colorcenter" style="background: #367db7;color: #d7d2cf; width: 25.0%;">blue, 270°</div>
+<div class="colorblock colorcenter" style="background: #c14e78;color: #f0f0f0; width: 25.0%;">red, 0°</div>
+<div class="colorblock colorcenter" style="background: #8c7317;color: #f0f0f0; width: 25.0%;">yellow, 90°</div>
+<div class="colorblock colorcenter" style="background: #008973;color: #f0f0f0; width: 25.0%;">green, 180°</div>
+<div class="colorblock colorcenter" style="background: #367db7;color: #f0f0f0; width: 25.0%;">blue, 270°</div>
  </div>
 </p>
 
@@ -592,17 +592,17 @@ LCH lightness:
 </p>
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000849;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #002161;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #00357a;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #004b95;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #0063b0;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #007bcc;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #3195e8;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #58afff;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7acbff;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99e7ff;color: #524d4a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b8ffff;color: #524d4a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000849;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #002161;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #00357a;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #004b95;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #0063b0;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #007bcc;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3195e8;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #58afff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7acbff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99e7ff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b8ffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -616,17 +616,17 @@ Chromacity, &ldquo;distance from gray&rdquo; - very similar to Saturation (which
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #767676;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #797383;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7b7091;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7c6d9f;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7c6aad;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7c67bb;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7b63c9;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #795fd7;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #765be5;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7257f3;color: #d7d2cf; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6d53ff;color: #d7d2cf; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #767676;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #797383;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7b7091;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c6d9f;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c6aad;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c67bb;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7b63c9;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #795fd7;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #765be5;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7257f3;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6d53ff;color: #f0f0f0; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -644,35 +644,35 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #cc3333;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c13d33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b64833;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #ab5333;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #a05e33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #956933;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #8a7433;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #7f7f33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #748a33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #699533;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #5ea033;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #53ab33;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #48b633;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3dc133;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33cc33;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33c13d;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33b648;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33ab53;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33a05e;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #339569;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #338a74;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #337f7f;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #33748a;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #336995;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #335ea0;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3353ab;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3348b6;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #333dc1;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3333cc;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #cc3333;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c13d33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b64833;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #ab5333;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #a05e33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #956933;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #8a7433;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #7f7f33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #748a33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #699533;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #5ea033;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #53ab33;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #48b633;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3dc133;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33cc33;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33c13d;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33b648;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33ab53;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33a05e;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #339569;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #338a74;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #337f7f;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #33748a;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #336995;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #335ea0;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3353ab;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3348b6;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #333dc1;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3333cc;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
 </p>
 
@@ -682,35 +682,35 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #dc3737;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #d44338;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c85039;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #bb5b38;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #ab6537;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #9b6d35;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #8a7433;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #7a7a30;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #6a7e2e;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #5b822b;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #4d8428;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3f8626;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #338723;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #288821;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #1f891f;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #218928;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #238834;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #268840;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #29874e;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #2d865e;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #30846f;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #348282;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #387f97;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3d7bae;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #4176c7;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #4a70dd;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #5b6cdd;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #646ade;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #6868e1;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #dc3737;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #d44338;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c85039;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #bb5b38;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #ab6537;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #9b6d35;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #8a7433;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #7a7a30;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #6a7e2e;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #5b822b;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #4d8428;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3f8626;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #338723;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #288821;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #1f891f;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #218928;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #238834;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #268840;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #29874e;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #2d865e;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #30846f;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #348282;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #387f97;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3d7bae;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #4176c7;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #4a70dd;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #5b6cdd;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #646ade;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #6868e1;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
 </p>
 
@@ -720,97 +720,97 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #eb0019;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #e6000e;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #e10000;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #d90f00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #cb3a00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b35900;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #937200;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #708400;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #509200;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #339d00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #14a700;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b100;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ba00;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c400;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ce19;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c414;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00bc15;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b31d;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ab2b;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00a340;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #009b63;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0094a3;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #008af4;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0077ff;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0062ff;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0051f5;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0043e7;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0038dd;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #2530d6;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #eb0019;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #e6000e;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #e10000;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #d90f00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #cb3a00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b35900;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #937200;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #708400;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #509200;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #339d00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #14a700;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00b100;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ba00;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c400;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ce19;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c414;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00bc15;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00b31d;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ab2b;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00a340;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #009b63;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0094a3;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #008af4;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0077ff;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0062ff;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0051f5;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0043e7;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0038dd;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #2530d6;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #ff0000;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #f31100;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #e92500;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #de3b00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #d35300;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c86e00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #bd8d00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b1b200;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #8dbd00;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #6ec800;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #53d300;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #3bde00;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #25e900;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #11f300;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ff00;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00f311;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00e925;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00de3b;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00d353;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c86e;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00bd8d;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b1b2;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #008dbd;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #006ec8;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0053d3;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #003bde;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0025e9;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0011f3;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0000ff;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #ff0000;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #f31100;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #e92500;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #de3b00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #d35300;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c86e00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #bd8d00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b1b200;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #8dbd00;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #6ec800;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #53d300;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #3bde00;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #25e900;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #11f300;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ff00;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00f311;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00e925;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00de3b;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00d353;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c86e;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00bd8d;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00b1b2;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #008dbd;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #006ec8;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0053d3;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #003bde;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0025e9;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0011f3;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0000ff;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #dd0000;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #d12300;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #c53800;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #b84900;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #aa5800;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #9c6600;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #8d7300;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #7f7f00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #718b00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #639600;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #54a200;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #45ad00;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #34b800;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #20c300;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00cd00;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00c320;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00b834;color: #524d4a; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00ad45;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #00a254;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #009763;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #008c72;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #008181;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #007691;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #006aa1;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #005db3;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0050c5;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #003fd9;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #002aee;color: #d7d2cf; width: 3.4482758620689653%;"></div>
-<div class="colorblock colorcenter" style="background: #0707ff;color: #d7d2cf; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #dd0000;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #d12300;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #c53800;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #b84900;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #aa5800;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #9c6600;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #8d7300;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #7f7f00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #718b00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #639600;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #54a200;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #45ad00;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #34b800;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #20c300;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00cd00;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00c320;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00b834;color: #5a5a5a; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00ad45;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #00a254;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #009763;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #008c72;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #008181;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #007691;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #006aa1;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #005db3;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0050c5;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #003fd9;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #002aee;color: #f0f0f0; width: 3.4482758620689653%;"></div>
+<div class="colorblock colorcenter" style="background: #0707ff;color: #f0f0f0; width: 3.4482758620689653%;"></div>
  </div>
 </p>
 
@@ -828,7 +828,7 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 <h3 id="h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51"><span class="section-number-3">4.1.</span> Contrast <a href="#h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">#</a></h3>
 <div class="outline-text-3" id="text-h-c9cde0e6-ddb0-4f76-82ff-d730a3ce3f51">
 <p>
-For text, the Web Content Assembly Guidelines (WCAG) recommend at least a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. Let&rsquo;s take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #524d4a; padding: 2px; border: 1px solid #524d4a">#f7f7f7</code> and <code style="background: #101010;color: #d7d2cf; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #d7d2cf; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #524d4a; padding: 2px; border: 1px solid #524d4a">#ffffff</code> is 21.0
+For text, the Web Content Assembly Guidelines (WCAG) recommend at least a 4.5:1 contrast ratio: <a href="https://www.w3.org/TR/WCAG/#contrast-minimum">link</a>. Let&rsquo;s take a look at some different text contrasts! I will steal the backgrounds used here from the base-16 grayscale sets: <code style="background: #f7f7f7;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">#f7f7f7</code> and <code style="background: #101010;color: #f0f0f0; padding: 2px; border: 1px solid #101010">#101010</code>. For reference, the contrast ratio between <code style="background: #000000;color: #f0f0f0; padding: 2px; border: 1px solid #000000">#000000</code> and <code style="background: #ffffff;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">#ffffff</code> is 21.0
 </p>
 
 <p>
@@ -883,16 +883,16 @@ Color distance is a measure of how far apart colors are by properties in spaces.
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #a05dac;color: #d7d2cf; width: 10.0%;">0</div>
-<div class="colorblock colorcenter" style="background: #ae60aa;color: #d7d2cf; width: 10.0%;">3</div>
-<div class="colorblock colorcenter" style="background: #bc63a9;color: #d7d2cf; width: 10.0%;">7</div>
-<div class="colorblock colorcenter" style="background: #ca67a7;color: #d7d2cf; width: 10.0%;">10</div>
-<div class="colorblock colorcenter" style="background: #cf72a1;color: #d7d2cf; width: 10.0%;">14</div>
-<div class="colorblock colorcenter" style="background: #d37e9c;color: #d7d2cf; width: 10.0%;">18</div>
-<div class="colorblock colorcenter" style="background: #d68a99;color: #524d4a; width: 10.0%;">22</div>
-<div class="colorblock colorcenter" style="background: #d99698;color: #524d4a; width: 10.0%;">27</div>
-<div class="colorblock colorcenter" style="background: #dca299;color: #524d4a; width: 10.0%;">31</div>
-<div class="colorblock colorcenter" style="background: #e0ae9c;color: #524d4a; width: 10.0%;">35</div>
+<div class="colorblock colorcenter" style="background: #a05dac;color: #f0f0f0; width: 10.0%;">0</div>
+<div class="colorblock colorcenter" style="background: #ae60aa;color: #f0f0f0; width: 10.0%;">3</div>
+<div class="colorblock colorcenter" style="background: #bc63a9;color: #f0f0f0; width: 10.0%;">7</div>
+<div class="colorblock colorcenter" style="background: #ca67a7;color: #f0f0f0; width: 10.0%;">10</div>
+<div class="colorblock colorcenter" style="background: #cf72a1;color: #f0f0f0; width: 10.0%;">14</div>
+<div class="colorblock colorcenter" style="background: #d37e9c;color: #f0f0f0; width: 10.0%;">18</div>
+<div class="colorblock colorcenter" style="background: #d68a99;color: #5a5a5a; width: 10.0%;">22</div>
+<div class="colorblock colorcenter" style="background: #d99698;color: #5a5a5a; width: 10.0%;">27</div>
+<div class="colorblock colorcenter" style="background: #dca299;color: #5a5a5a; width: 10.0%;">31</div>
+<div class="colorblock colorcenter" style="background: #e0ae9c;color: #5a5a5a; width: 10.0%;">35</div>
  </div>
 </p>
 
@@ -917,21 +917,21 @@ A gradient is where you travel from one color&rsquo;s initial property values to
 <h3 id="h-1ed7ea90-395e-4486-a11c-6f3c9054dd15"><span class="section-number-3">4.4.</span> Pastel <a href="#h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">#</a></h3>
 <div class="outline-text-3" id="text-h-1ed7ea90-395e-4486-a11c-6f3c9054dd15">
 <p>
-&ldquo;Pastel Colors&rdquo; when described in HSL have high lightness and low saturation. This means we can invent a function to &ldquo;pastelize&rdquo; a color, bit by bit (increasing lightness and lowering saturation). Let&rsquo;s take a rather dark defined color <code style="background: #2d249f;color: #d7d2cf; padding: 2px; border: 1px solid #2d249f">#2d249f</code>, and run it through with the same effect we have at the top of this page, making it more pastel until it&rsquo;s brighter:
+&ldquo;Pastel Colors&rdquo; when described in HSL have high lightness and low saturation. This means we can invent a function to &ldquo;pastelize&rdquo; a color, bit by bit (increasing lightness and lowering saturation). Let&rsquo;s take a rather dark defined color <code style="background: #2d249f;color: #f0f0f0; padding: 2px; border: 1px solid #2d249f">#2d249f</code>, and run it through with the same effect we have at the top of this page, making it more pastel until it&rsquo;s brighter:
 </p>
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #7670c1;color: #d7d2cf; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #7a74c1;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #7e78c1;color: #d7d2cf; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #827cc1;color: #d7d2cf; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #8680c1;color: #d7d2cf; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #8a84c1;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #8d88c1;color: #d7d2cf; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #908cc1;color: #d7d2cf; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #9390c1;color: #d7d2cf; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #9694c1;color: #d7d2cf; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #7670c1;color: #f0f0f0; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #7a74c1;color: #f0f0f0; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #7e78c1;color: #f0f0f0; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #827cc1;color: #f0f0f0; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #8680c1;color: #f0f0f0; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #8a84c1;color: #f0f0f0; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #8d88c1;color: #f0f0f0; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #908cc1;color: #f0f0f0; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #9390c1;color: #f0f0f0; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #9694c1;color: #f0f0f0; width: 10.0%;">Ｓ</div>
  </div>
 </p>
 </div>
@@ -944,14 +944,14 @@ Color wheel rotations are all about hue. The circle that hue forms is the color 
 </p>
 
 <p>
-Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm looking light background <code style="background: #ffffd53ed101;color: #524d4a; padding: 2px; border: 1px solid #524d4a"> LAB(90,90,10)</code>, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color <code style="background: #816557;color: #d7d2cf; padding: 2px; border: 1px solid #816557">#816557</code>, which has a hue of 19.6°. Let&rsquo;s see what doing hue rotations on this color look like:
+Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm looking light background <code style="background: #ffffd53ed101;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a"> LAB(90,90,10)</code>, and then we darken it until we hit some minimal contrast (say, 3.9) for a starting color <code style="background: #816557;color: #f0f0f0; padding: 2px; border: 1px solid #816557">#816557</code>, which has a hue of 19.6°. Let&rsquo;s see what doing hue rotations on this color look like:
 </p>
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #816557;color: #d7d2cf; width: 33.333333333333336%;">19.6</div>
-<div class="colorblock colorcenter" style="background: #578165;color: #d7d2cf; width: 33.333333333333336%;">139.6</div>
-<div class="colorblock colorcenter" style="background: #655781;color: #d7d2cf; width: 33.333333333333336%;">259.6</div>
+<div class="colorblock colorcenter" style="background: #816557;color: #f0f0f0; width: 33.333333333333336%;">19.6</div>
+<div class="colorblock colorcenter" style="background: #578165;color: #f0f0f0; width: 33.333333333333336%;">139.6</div>
+<div class="colorblock colorcenter" style="background: #655781;color: #f0f0f0; width: 33.333333333333336%;">259.6</div>
  </div>
 </p>
 
@@ -961,10 +961,10 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #816557;color: #d7d2cf; width: 25.0%;">19.6</div>
-<div class="colorblock colorcenter" style="background: #5e8157;color: #d7d2cf; width: 25.0%;">109.6</div>
-<div class="colorblock colorcenter" style="background: #577381;color: #d7d2cf; width: 25.0%;">199.6</div>
-<div class="colorblock colorcenter" style="background: #7a5781;color: #d7d2cf; width: 25.0%;">289.6</div>
+<div class="colorblock colorcenter" style="background: #816557;color: #f0f0f0; width: 25.0%;">19.6</div>
+<div class="colorblock colorcenter" style="background: #5e8157;color: #f0f0f0; width: 25.0%;">109.6</div>
+<div class="colorblock colorcenter" style="background: #577381;color: #f0f0f0; width: 25.0%;">199.6</div>
+<div class="colorblock colorcenter" style="background: #7a5781;color: #f0f0f0; width: 25.0%;">289.6</div>
  </div>
 </p>
 
@@ -974,11 +974,11 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #816557;color: #d7d2cf; width: 20.0%;">19.6</div>
-<div class="colorblock colorcenter" style="background: #6b8157;color: #d7d2cf; width: 20.0%;">91.6</div>
-<div class="colorblock colorcenter" style="background: #578176;color: #d7d2cf; width: 20.0%;">163.6</div>
-<div class="colorblock colorcenter" style="background: #575a81;color: #d7d2cf; width: 20.0%;">235.6</div>
-<div class="colorblock colorcenter" style="background: #81577c;color: #d7d2cf; width: 20.0%;">307.6</div>
+<div class="colorblock colorcenter" style="background: #816557;color: #f0f0f0; width: 20.0%;">19.6</div>
+<div class="colorblock colorcenter" style="background: #6b8157;color: #f0f0f0; width: 20.0%;">91.6</div>
+<div class="colorblock colorcenter" style="background: #578176;color: #f0f0f0; width: 20.0%;">163.6</div>
+<div class="colorblock colorcenter" style="background: #575a81;color: #f0f0f0; width: 20.0%;">235.6</div>
+<div class="colorblock colorcenter" style="background: #81577c;color: #f0f0f0; width: 20.0%;">307.6</div>
  </div>
 </p>
 
@@ -988,12 +988,12 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #816557;color: #d7d2cf; width: 16.666666666666668%;">19.6</div>
-<div class="colorblock colorcenter" style="background: #738157;color: #d7d2cf; width: 16.666666666666668%;">79.6</div>
-<div class="colorblock colorcenter" style="background: #578165;color: #d7d2cf; width: 16.666666666666668%;">139.6</div>
-<div class="colorblock colorcenter" style="background: #577381;color: #d7d2cf; width: 16.666666666666668%;">199.6</div>
-<div class="colorblock colorcenter" style="background: #655781;color: #d7d2cf; width: 16.666666666666668%;">259.6</div>
-<div class="colorblock colorcenter" style="background: #815773;color: #d7d2cf; width: 16.666666666666668%;">319.6</div>
+<div class="colorblock colorcenter" style="background: #816557;color: #f0f0f0; width: 16.666666666666668%;">19.6</div>
+<div class="colorblock colorcenter" style="background: #738157;color: #f0f0f0; width: 16.666666666666668%;">79.6</div>
+<div class="colorblock colorcenter" style="background: #578165;color: #f0f0f0; width: 16.666666666666668%;">139.6</div>
+<div class="colorblock colorcenter" style="background: #577381;color: #f0f0f0; width: 16.666666666666668%;">199.6</div>
+<div class="colorblock colorcenter" style="background: #655781;color: #f0f0f0; width: 16.666666666666668%;">259.6</div>
+<div class="colorblock colorcenter" style="background: #815773;color: #f0f0f0; width: 16.666666666666668%;">319.6</div>
  </div>
 </p>
 
@@ -1003,12 +1003,12 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #816557;color: #d7d2cf; width: 16.666666666666668%;">19.6</div>
-<div class="colorblock colorcenter" style="background: #7e8157;color: #d7d2cf; width: 16.666666666666668%;">64.6</div>
-<div class="colorblock colorcenter" style="background: #5e8157;color: #d7d2cf; width: 16.666666666666668%;">109.6</div>
-<div class="colorblock colorcenter" style="background: #57816f;color: #d7d2cf; width: 16.666666666666668%;">154.6</div>
-<div class="colorblock colorcenter" style="background: #577381;color: #d7d2cf; width: 16.666666666666668%;">199.6</div>
-<div class="colorblock colorcenter" style="background: #5a5781;color: #d7d2cf; width: 16.666666666666668%;">244.6</div>
+<div class="colorblock colorcenter" style="background: #816557;color: #f0f0f0; width: 16.666666666666668%;">19.6</div>
+<div class="colorblock colorcenter" style="background: #7e8157;color: #f0f0f0; width: 16.666666666666668%;">64.6</div>
+<div class="colorblock colorcenter" style="background: #5e8157;color: #f0f0f0; width: 16.666666666666668%;">109.6</div>
+<div class="colorblock colorcenter" style="background: #57816f;color: #f0f0f0; width: 16.666666666666668%;">154.6</div>
+<div class="colorblock colorcenter" style="background: #577381;color: #f0f0f0; width: 16.666666666666668%;">199.6</div>
+<div class="colorblock colorcenter" style="background: #5a5781;color: #f0f0f0; width: 16.666666666666668%;">244.6</div>
  </div>
 </p>
 
@@ -1030,16 +1030,16 @@ CIELAB has a white point component used when entering and leaving the space. You
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #524d4a;color: #d7d2cf; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #605b58;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #6f6a67;color: #d7d2cf; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #7e7976;color: #d7d2cf; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #8d8885;color: #d7d2cf; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #9b9693;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #aaa5a2;color: #524d4a; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #b9b4b1;color: #524d4a; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #c8c3c0;color: #524d4a; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #d7d2cf;color: #524d4a; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #5a5a5a;color: #f0f0f0; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #6a6a6a;color: #f0f0f0; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #7b7b7b;color: #f0f0f0; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #8b8b8b;color: #f0f0f0; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #9c9c9c;color: #f0f0f0; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #adadad;color: #5a5a5a; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #bebebe;color: #5a5a5a; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #cecece;color: #5a5a5a; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #dfdfdf;color: #5a5a5a; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #f0f0f0;color: #5a5a5a; width: 10.0%;">Ｓ</div>
  </div>
 </p>
 
@@ -1049,16 +1049,16 @@ CIELAB has a white point component used when entering and leaving the space. You
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #574c3e;color: #d7d2cf; width: 10.0%;">Ａ</div>
-<div class="colorblock colorcenter" style="background: #66594a;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #766857;color: #d7d2cf; width: 10.0%;">Ｓ</div>
-<div class="colorblock colorcenter" style="background: #867765;color: #d7d2cf; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #968672;color: #d7d2cf; width: 10.0%;">Ｈ</div>
-<div class="colorblock colorcenter" style="background: #a5947e;color: #d7d2cf; width: 10.0%;">Ｅ</div>
-<div class="colorblock colorcenter" style="background: #b5a38b;color: #524d4a; width: 10.0%;">Ｔ</div>
-<div class="colorblock colorcenter" style="background: #c5b298;color: #524d4a; width: 10.0%;">Ｉ</div>
-<div class="colorblock colorcenter" style="background: #d5c0a5;color: #524d4a; width: 10.0%;">Ｃ</div>
-<div class="colorblock colorcenter" style="background: #e5cfb2;color: #524d4a; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #61584c;color: #f0f0f0; width: 10.0%;">Ａ</div>
+<div class="colorblock colorcenter" style="background: #72685a;color: #f0f0f0; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #847969;color: #f0f0f0; width: 10.0%;">Ｓ</div>
+<div class="colorblock colorcenter" style="background: #958977;color: #f0f0f0; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #a79a86;color: #f0f0f0; width: 10.0%;">Ｈ</div>
+<div class="colorblock colorcenter" style="background: #baab95;color: #5a5a5a; width: 10.0%;">Ｅ</div>
+<div class="colorblock colorcenter" style="background: #ccbba4;color: #5a5a5a; width: 10.0%;">Ｔ</div>
+<div class="colorblock colorcenter" style="background: #ddcbb2;color: #5a5a5a; width: 10.0%;">Ｉ</div>
+<div class="colorblock colorcenter" style="background: #efdcc0;color: #5a5a5a; width: 10.0%;">Ｃ</div>
+<div class="colorblock colorcenter" style="background: #ffedcf;color: #5a5a5a; width: 10.0%;">Ｓ</div>
  </div>
 </p>
 
@@ -1084,20 +1084,20 @@ Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-01-22&gt
 </p>
 
 <p>
-Emacs ships with a fair amount of <a href="https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el">conversion functions</a>, but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue <code>color-name-to-rgb</code>, <code>color-srgb-to-lab</code>, <code>color-lab-to-lch</code>, and pipe back out. To assist with this, I implemented some <a href="https://github.com/neeasade/color-tools.el">wrappers</a> that would do the conversion to your space of choice (coming from the &rsquo;name&rsquo;, strings eg &ldquo;<code style="background: #c930e8;color: #d7d2cf; padding: 2px; border: 1px solid #c930e8">#c930e8</code>&rdquo;). Here&rsquo;s an example &#x2013; say you wanted to increase luminosity of that color by a multiplier <code>1.5</code>:
+Emacs ships with a fair amount of <a href="https://github.com/emacs-mirror/emacs/blob/master/lisp/color.el">conversion functions</a>, but using them to convert between color spaces can be awkward. You end up with a lot of pipelines to glue <code>color-name-to-rgb</code>, <code>color-srgb-to-lab</code>, <code>color-lab-to-lch</code>, and pipe back out. To assist with this, I implemented some <a href="https://github.com/neeasade/color-tools.el">wrappers</a> that would do the conversion to your space of choice (coming from the &rsquo;name&rsquo;, strings eg &ldquo;<code style="background: #c930e8;color: #f0f0f0; padding: 2px; border: 1px solid #c930e8">#c930e8</code>&rdquo;). Here&rsquo;s an example &#x2013; say you wanted to increase luminosity of that color by a multiplier <code>1.5</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(ct-edit-hsl <span style="color: #757b00;">"#c930e8"</span>
- (<span style="color: #524d4a;">lambda</span> (H S L)
+<pre class="src src-emacs-lisp">(ct-edit-hsl <span style="color: #cb7000;">"#c930e8"</span>
+ (<span style="color: #5a5a5a;">lambda</span> (H S L)
    (list H S (* 1.5 L))))
 
-<span style="color: #67625f;">;; </span><span style="color: #67625f;">=&gt; "#eb16af59f708"</span>
+<span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">=&gt; "#eb16af59f708"</span>
 </pre>
 </div>
 
 <p>
-<code style="background: #eb16af59f708;color: #524d4a; padding: 2px; border: 1px solid #524d4a">#eb16af59f708</code> is definitely a lighter color, nice.
+<code style="background: #eb16af59f708;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">#eb16af59f708</code> is definitely a lighter color, nice.
 </p>
 
 <blockquote>
@@ -1111,10 +1111,10 @@ I also implemented a function for comparing contrast, referencing Peter Occil&rs
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #67625f;">;; </span><span style="color: #67625f;">order does not matter:</span>
-(ct-contrast-ratio <span style="color: #757b00;">"#ffffff"</span> <span style="color: #757b00;">"#445544"</span>)
+<pre class="src src-emacs-lisp"><span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">order does not matter:</span>
+(ct-contrast-ratio <span style="color: #cb7000;">"#ffffff"</span> <span style="color: #cb7000;">"#445544"</span>)
 
-<span style="color: #67625f;">;; </span><span style="color: #67625f;">=&gt; 3.0000000000000004</span>
+<span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">=&gt; 3.0000000000000004</span>
 </pre>
 </div>
 
@@ -1122,7 +1122,7 @@ I also implemented a function for comparing contrast, referencing Peter Occil&rs
 Is a color light? just check the lightness value in LAB space (note: that 65 value is ~opinions~):
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #524d4a;">defun</span> <span style="color: #626700;">ct-is-light-p</span> (name)
+<pre class="src src-emacs-lisp">(<span style="color: #5a5a5a;">defun</span> <span style="color: #0095ac;">ct-is-light-p</span> (name)
   (&gt; (first (ct-name-to-lab name))
      65))
 </pre>
@@ -1134,37 +1134,37 @@ A neat trick you can do with this is decide whether or not to use a dark or ligh
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #006d77;color: #d7d2cf; width: 20.0%;">dark</div>
-<div class="colorblock colorcenter" style="background: #83c5be;color: #524d4a; width: 20.0%;">light</div>
-<div class="colorblock colorcenter" style="background: #429958;color: #d7d2cf; width: 20.0%;">dark</div>
-<div class="colorblock colorcenter" style="background: #edf6f9;color: #524d4a; width: 20.0%;">light</div>
-<div class="colorblock colorcenter" style="background: #ffddd2;color: #524d4a; width: 20.0%;">light</div>
+<div class="colorblock colorcenter" style="background: #006d77;color: #f0f0f0; width: 20.0%;">dark</div>
+<div class="colorblock colorcenter" style="background: #83c5be;color: #5a5a5a; width: 20.0%;">light</div>
+<div class="colorblock colorcenter" style="background: #429958;color: #f0f0f0; width: 20.0%;">dark</div>
+<div class="colorblock colorcenter" style="background: #edf6f9;color: #5a5a5a; width: 20.0%;">light</div>
+<div class="colorblock colorcenter" style="background: #ffddd2;color: #5a5a5a; width: 20.0%;">light</div>
  </div>
 </p>
 
 <p>
-These pieces (transformers and comparison functions) can be combined to do things like &ldquo;darken this color until I reach a minimum contrast ratio&rdquo; (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter <code>ct-iterate</code> &#x2013; a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing &#x2013; you can&rsquo;t darken <code style="background: #000000;color: #d7d2cf; padding: 2px; border: 1px solid #000000">#000000</code>!)
+These pieces (transformers and comparison functions) can be combined to do things like &ldquo;darken this color until I reach a minimum contrast ratio&rdquo; (which is how I get theme-level contrast tweaking of foreground and accent colors). Enter <code>ct-iterate</code> &#x2013; a function that takes an initial color, and applies a function to it until a condition is met (or if the transformation does nothing &#x2013; you can&rsquo;t darken <code style="background: #000000;color: #f0f0f0; padding: 2px; border: 1px solid #000000">#000000</code>!)
 </p>
 
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(ct-iterate
- <span style="color: #757b00;">"#eeeeee"</span>
+ <span style="color: #cb7000;">"#eeeeee"</span>
 
- <span style="color: #67625f;">;; </span><span style="color: #67625f;">Darken the color a little at a time in LAB space:</span>
- (<span style="color: #524d4a;">lambda</span> (c)
+ <span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">Darken the color a little at a time in LAB space:</span>
+ (<span style="color: #5a5a5a;">lambda</span> (c)
    (ct-edit-lab c
-    (<span style="color: #524d4a;">lambda</span> (L A B)
+    (<span style="color: #5a5a5a;">lambda</span> (L A B)
       (list (- L 0.1)
             A B))))
 
- <span style="color: #67625f;">;; </span><span style="color: #67625f;">check that we've reached some desired contrast ratio</span>
- <span style="color: #67625f;">;; </span><span style="color: #67625f;">4.5, Here against a background #f7f7f7</span>
- (<span style="color: #524d4a;">lambda</span> (c)
-   (&gt; (ct-contrast-ratio <span style="color: #757b00;">"#f7f7f7"</span> c)
+ <span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">check that we've reached some desired contrast ratio</span>
+ <span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">4.5, Here against a background #f7f7f7</span>
+ (<span style="color: #5a5a5a;">lambda</span> (c)
+   (&gt; (ct-contrast-ratio <span style="color: #cb7000;">"#f7f7f7"</span> c)
       4.5)))
 
-<span style="color: #67625f;">;; </span><span style="color: #67625f;">=&gt; "#2d662ca72d1b"</span>
-<span style="color: #67625f;">;; </span><span style="color: #67625f;">(converted: #2d2c2c)</span>
+<span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">=&gt; "#2d662ca72d1b"</span>
+<span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">(converted: #2d2c2c)</span>
 </pre>
 </div>
 </div>
@@ -1291,21 +1291,21 @@ At the time of this writing, I&rsquo;m using a color rotation of 45° in the LCH
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #e5e7ea;color: #524d4a; width: 25.0%;">:background</div>
-<div class="colorblock colorcenter" style="background: #e0dadb;color: #524d4a; width: 25.0%;">:background_</div>
-<div class="colorblock colorcenter" style="background: #d1c8ca;color: #524d4a; width: 25.0%;">:background__</div>
-<div class="colorblock colorcenter" style="background: #aacde6;color: #524d4a; width: 25.0%;">:background+</div>
+<div class="colorblock colorcenter" style="background: #e5e7ea;color: #5a5a5a; width: 25.0%;">:background</div>
+<div class="colorblock colorcenter" style="background: #e0dadb;color: #5a5a5a; width: 25.0%;">:background_</div>
+<div class="colorblock colorcenter" style="background: #d1c8ca;color: #5a5a5a; width: 25.0%;">:background__</div>
+<div class="colorblock colorcenter" style="background: #aacde6;color: #5a5a5a; width: 25.0%;">:background+</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #393a3c;color: #d7d2cf; width: 33.333333333333336%;">:foreground</div>
-<div class="colorblock colorcenter" style="background: #656669;color: #d7d2cf; width: 33.333333333333336%;">:foreground_</div>
-<div class="colorblock colorcenter" style="background: #393a3c;color: #d7d2cf; width: 33.333333333333336%;">:foreground+</div>
+<div class="colorblock colorcenter" style="background: #393a3c;color: #f0f0f0; width: 33.333333333333336%;">:foreground</div>
+<div class="colorblock colorcenter" style="background: #656669;color: #f0f0f0; width: 33.333333333333336%;">:foreground_</div>
+<div class="colorblock colorcenter" style="background: #393a3c;color: #f0f0f0; width: 33.333333333333336%;">:foreground+</div>
  </div>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #2d249f;color: #d7d2cf; width: 25.0%;">:accent1</div>
-<div class="colorblock colorcenter" style="background: #0061c4;color: #d7d2cf; width: 25.0%;">:accent1_</div>
-<div class="colorblock colorcenter" style="background: #006e96;color: #d7d2cf; width: 25.0%;">:accent2</div>
-<div class="colorblock colorcenter" style="background: #2c7600;color: #d7d2cf; width: 25.0%;">:accent2_</div>
+<div class="colorblock colorcenter" style="background: #2d249f;color: #f0f0f0; width: 25.0%;">:accent1</div>
+<div class="colorblock colorcenter" style="background: #0061c4;color: #f0f0f0; width: 25.0%;">:accent1_</div>
+<div class="colorblock colorcenter" style="background: #006e96;color: #f0f0f0; width: 25.0%;">:accent2</div>
+<div class="colorblock colorcenter" style="background: #2c7600;color: #f0f0f0; width: 25.0%;">:accent2_</div>
  </div>
 </p>
 
@@ -1314,7 +1314,7 @@ Which in action looks like (click to see full size):
 </p>
 
 
-<figure id="org7b0750e">
+<figure id="org25293a2">
 <a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png"></a>
 
 </figure>
@@ -1461,21 +1461,21 @@ Now that the mapping has been created, with some glue I can use any of the <a hr
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d7d2cf;color: #524d4a; width: 6.666666666666667%;">H</div>
-<div class="colorblock colorcenter" style="background: #cdc8c5;color: #524d4a; width: 6.666666666666667%;">a</div>
-<div class="colorblock colorcenter" style="background: #c4bfbc;color: #524d4a; width: 6.666666666666667%;">p</div>
-<div class="colorblock colorcenter" style="background: #bab5b2;color: #524d4a; width: 6.666666666666667%;">p</div>
-<div class="colorblock colorcenter" style="background: #b1aca9;color: #524d4a; width: 6.666666666666667%;">y</div>
-<div class="colorblock colorcenter" style="background: #a7a29f;color: #524d4a; width: 6.666666666666667%;"> </div>
-<div class="colorblock colorcenter" style="background: #9e9996;color: #d7d2cf; width: 6.666666666666667%;">C</div>
-<div class="colorblock colorcenter" style="background: #948f8c;color: #d7d2cf; width: 6.666666666666667%;">o</div>
-<div class="colorblock colorcenter" style="background: #8b8683;color: #d7d2cf; width: 6.666666666666667%;">l</div>
-<div class="colorblock colorcenter" style="background: #817c79;color: #d7d2cf; width: 6.666666666666667%;">o</div>
-<div class="colorblock colorcenter" style="background: #787370;color: #d7d2cf; width: 6.666666666666667%;">r</div>
-<div class="colorblock colorcenter" style="background: #6e6966;color: #d7d2cf; width: 6.666666666666667%;">i</div>
-<div class="colorblock colorcenter" style="background: #65605d;color: #d7d2cf; width: 6.666666666666667%;">n</div>
-<div class="colorblock colorcenter" style="background: #5b5653;color: #d7d2cf; width: 6.666666666666667%;">g</div>
-<div class="colorblock colorcenter" style="background: #524d4a;color: #d7d2cf; width: 6.666666666666667%;">!</div>
+<div class="colorblock colorcenter" style="background: #f0f0f0;color: #5a5a5a; width: 6.666666666666667%;">H</div>
+<div class="colorblock colorcenter" style="background: #e5e5e5;color: #5a5a5a; width: 6.666666666666667%;">a</div>
+<div class="colorblock colorcenter" style="background: #dadada;color: #5a5a5a; width: 6.666666666666667%;">p</div>
+<div class="colorblock colorcenter" style="background: #cfcfcf;color: #5a5a5a; width: 6.666666666666667%;">p</div>
+<div class="colorblock colorcenter" style="background: #c5c5c5;color: #5a5a5a; width: 6.666666666666667%;">y</div>
+<div class="colorblock colorcenter" style="background: #bababa;color: #5a5a5a; width: 6.666666666666667%;"> </div>
+<div class="colorblock colorcenter" style="background: #afafaf;color: #5a5a5a; width: 6.666666666666667%;">C</div>
+<div class="colorblock colorcenter" style="background: #a4a4a4;color: #5a5a5a; width: 6.666666666666667%;">o</div>
+<div class="colorblock colorcenter" style="background: #9a9a9a;color: #f0f0f0; width: 6.666666666666667%;">l</div>
+<div class="colorblock colorcenter" style="background: #8f8f8f;color: #f0f0f0; width: 6.666666666666667%;">o</div>
+<div class="colorblock colorcenter" style="background: #848484;color: #f0f0f0; width: 6.666666666666667%;">r</div>
+<div class="colorblock colorcenter" style="background: #7a7a7a;color: #f0f0f0; width: 6.666666666666667%;">i</div>
+<div class="colorblock colorcenter" style="background: #6f6f6f;color: #f0f0f0; width: 6.666666666666667%;">n</div>
+<div class="colorblock colorcenter" style="background: #646464;color: #f0f0f0; width: 6.666666666666667%;">g</div>
+<div class="colorblock colorcenter" style="background: #5a5a5a;color: #f0f0f0; width: 6.666666666666667%;">!</div>
  </div>
 </p>
 </div>
@@ -1510,11 +1510,18 @@ Shoutout to <a href="https://github.com/belak">belak</a> for work on the the bas
 Thanks to the <a href="https://github.com/gnotclub/">Axis of Eval</a>, <a href="https://catgirl.sh/">camille</a>, and <a href="http://xero.nu/">xero</a> for all their feedback when I was posting way too many pictures of colors.
 </p>
 
-<a href='https://notes.neeasade.net/my-shell-prompt.html'>my shell prompt</a> 
-<a href='https://notes.neeasade.net/monday.html'>Monday</a> 
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/monday.html'>newer: Monday</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/my-shell-prompt.html'>older: my shell prompt</a> 
+    </div>
+</footer>
+<hr>
 </div>
 </div>
 </div>
-</div>
+</main>
 </body>
 </html>

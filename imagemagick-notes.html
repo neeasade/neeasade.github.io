@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>ImageMagick Snippets</title>
@@ -19,22 +19,21 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -55,6 +54,7 @@
     Published 2020-08-03,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org\">2025-06-20</a>
 </span>
+</header>
 <hr>
 <p>
 <b>NB:</b> The convert command is deprecated in IMv7, use &ldquo;magick&rdquo; instead of &ldquo;convert&rdquo; or &ldquo;magick convert&rdquo;
@@ -76,7 +76,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #757b00;">'1  1  45'</span> out.png
+<pre class="src src-sh">magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #cb7000;">'1  1  45'</span> out.png
 </pre>
 </div>
 </div>
@@ -94,7 +94,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <h2 id="Create-a-solid-color-image"><span class="section-number-2">3.</span> Create a solid color image <a href="#Create-a-solid-color-image">#</a></h2>
 <div class="outline-text-2" id="text-Create-a-solid-color-image">
 <div class="org-src-container">
-<pre class="src src-sh">magick -size 100x100 <span style="color: #757b00;">"xc:#cccccc"</span> out.png
+<pre class="src src-sh">magick -size 100x100 <span style="color: #cb7000;">"xc:#cccccc"</span> out.png
 </pre>
 </div>
 </div>
@@ -107,23 +107,30 @@ see also: <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/tile
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #626700;">tile</span>=<span style="color: #757b00;">"some_file.png"</span>
-<span style="color: #626700;">angle</span>=$(<span style="color: #626700;">(RANDOM % 360</span>))
-<span style="color: #626700;">w</span>=1920
-<span style="color: #626700;">h</span>=1080
+<pre class="src src-sh"><span style="color: #0095ac;">tile</span>=<span style="color: #cb7000;">"some_file.png"</span>
+<span style="color: #0095ac;">angle</span>=$(<span style="color: #0095ac;">(RANDOM % 360</span>))
+<span style="color: #0095ac;">w</span>=1920
+<span style="color: #0095ac;">h</span>=1080
 
-magick <span style="color: #757b00;">"$tile"</span> -set option:distort:viewport <span style="color: #757b00;">"${w}x${h}"</span> <span style="color: #757b00;">\</span>
-    -virtual-pixel tile -filter point <span style="color: #757b00;">\</span>
-    -distort SRT <span style="color: #757b00;">"$angle"</span> <span style="color: #757b00;">\</span>
-    -gravity center -crop <span style="color: #757b00;">"${w}x${h}+0+0"</span> +repage <span style="color: #757b00;">\</span>
-    <span style="color: #757b00;">"result.png"</span>
+magick <span style="color: #cb7000;">"$tile"</span> -set option:distort:viewport <span style="color: #cb7000;">"${w}x${h}"</span> <span style="color: #cb7000;">\</span>
+    -virtual-pixel tile -filter point <span style="color: #cb7000;">\</span>
+    -distort SRT <span style="color: #cb7000;">"$angle"</span> <span style="color: #cb7000;">\</span>
+    -gravity center -crop <span style="color: #cb7000;">"${w}x${h}+0+0"</span> +repage <span style="color: #cb7000;">\</span>
+    <span style="color: #cb7000;">"result.png"</span>
 </pre>
 </div>
 
-<a href='https://notes.neeasade.net/webrings.html'>webrings</a> 
-<a href='https://notes.neeasade.net/aug-2020.html'>8 Months Adrift</a> 
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/aug-2020.html'>newer: 8 Months Adrift</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/webrings.html'>older: webrings</a> 
+    </div>
+</footer>
+<hr>
 </div>
 </div>
-</div>
+</main>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>On Emacs</title>
@@ -19,22 +19,21 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -55,6 +54,7 @@
     Published 2019-12-06,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2019-12-06-On-Emacs.org\">2020-05-03</a>
 </span>
+</header>
 <hr>
 <p>
 This post is a short love letter to emacs, the text editor that has changed the way I do my daily computing for a few years now. You can find my config <a href="https://github.com/neeasade/emacs.d">here</a>.
@@ -129,7 +129,7 @@ An <code>elisp</code> script that obfuscates the details of connecting to the ru
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ elisp <span style="color: #757b00;">'(message "hello from the shell")'</span>
+<pre class="src src-sh">$ elisp <span style="color: #cb7000;">'(message "hello from the shell")'</span>
 </pre>
 </div>
 
@@ -191,7 +191,7 @@ I have a lisp eval function that will have different targets in different situat
 </p>
 
 
-<figure id="org37a58a7">
+<figure id="org308b342">
 <a href="./assets/posts/eros.png"><img src="./assets/posts/eros.png" alt="eros.png"></a>
 
 </figure>
@@ -205,7 +205,7 @@ I created a derived text mode for irc highlights that allows me to jump to menti
 </p>
 
 
-<figure id="org3846e16">
+<figure id="org8d53e16">
 <a href="./assets/posts/circe.png"><img src="./assets/posts/circe.png" alt="circe.png"></a>
 
 </figure>
@@ -251,10 +251,17 @@ I have a function that will follow &rsquo;thing&rsquo; at point, handling:
 <a href="https://nixers.net/showthread.php?tid=2216&amp;pid=19558#pid19558">https://nixers.net/showthread.php?tid=2216&amp;pid=19558#pid19558</a>
 </p>
 
-<a href='https://notes.neeasade.net/tldr-org-mode--graphviz.html'>TLDR org mode + graphviz</a> 
-<a href='https://notes.neeasade.net/updating-nix-channels.html'>Updating nix channels</a> 
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/updating-nix-channels.html'>newer: Updating nix channels</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/tldr-org-mode--graphviz.html'>older: TLDR org mode + graphviz</a> 
+    </div>
+</footer>
+<hr>
 </div>
 </div>
-</div>
+</main>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>pulseaudio user notes</title>
@@ -19,22 +19,21 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -55,6 +54,7 @@
     Published 2020-08-12,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-12-pulseaudio-user-notes.org\">2020-08-14</a>
 </span>
+</header>
 <hr>
 <p>
 When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker sources.
@@ -103,7 +103,7 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #757b00;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh">nix-build -E <span style="color: #cb7000;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
 ./result/bin/nsfv-setup
 </pre>
 </div>
@@ -136,27 +136,34 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 <div class="org-src-container">
 <pre class="src src-sh">pactl list short sinks
 
-<span style="color: #67625f;"># </span><span style="color: #67625f;">add a null sync</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">add a null sync</span>
 pactl load-module module-null-sink
-<span style="color: #67625f;"># </span><span style="color: #67625f;">=&gt; 25</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">=&gt; 25</span>
 
-pactl load-module module-combine-sink <span style="color: #626700;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=&lt;number&gt;,&lt;name&gt;
 
  2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
 
-pactl load-module module-combine-sink <span style="color: #626700;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #626700;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #626700;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=25,null
+pactl load-module module-combine-sink <span style="color: #0095ac;">slaves</span>=25,analog-stereo
 
-<span style="color: #67625f;"># </span><span style="color: #67625f;">number is the output of the above</span>
-<span style="color: #67625f;"># </span><span style="color: #67625f;">name is the internal name of the output you want to use on obs?</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">number is the output of the above</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">name is the internal name of the output you want to use on obs?</span>
 </pre>
 </div>
 
-<a href='https://notes.neeasade.net/a-fun-focus-exercise.html'>A fun focus exercise</a> 
-<a href='https://notes.neeasade.net/automata-tiling-backgrounds-2.html'>Automata tiling backgrounds 2</a> 
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/automata-tiling-backgrounds-2.html'>newer: Automata tiling backgrounds 2</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/a-fun-focus-exercise.html'>older: A fun focus exercise</a> 
+    </div>
+</footer>
+<hr>
 </div>
 </div>
-</div>
+</main>
 </body>
 </html>

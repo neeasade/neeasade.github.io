@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>Archiving CD's on linux</title>
@@ -19,22 +19,21 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -55,6 +54,7 @@
     Published 2020-05-05,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-05-Archiving-CD's-on-linux.org\">2020-08-11</a>
 </span>
+</header>
 <hr>
 <div id="outline-container-h-c2430d47-065c-438b-9ffe-3856b927a6ce" class="outline-2">
 <h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><span class="section-number-2">1.</span> Mounting data CD&rsquo;s/DVD&rsquo;s <a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">#</a></h2>
@@ -94,7 +94,7 @@ With cdparanoia:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #524d4a;">cd</span> /place/to/store/tracks
+<pre class="src src-sh"><span style="color: #5a5a5a;">cd</span> /place/to/store/tracks
 cdparanoia -d &lt;dev&gt; -B
 </pre>
 </div>
@@ -104,7 +104,7 @@ cdparanoia -d &lt;dev&gt; -B
 <h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3.</span> Backing up to an ISO <a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">#</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
 <div class="org-src-container">
-<pre class="src src-sh">dd <span style="color: #626700;">if</span>=&lt;dev&gt; <span style="color: #626700;">of</span>=/path/to/label.iso <span style="color: #626700;">bs</span>=128k
+<pre class="src src-sh">dd <span style="color: #0095ac;">if</span>=&lt;dev&gt; <span style="color: #0095ac;">of</span>=/path/to/label.iso <span style="color: #0095ac;">bs</span>=128k
 </pre>
 </div>
 </div>
@@ -117,10 +117,17 @@ cdparanoia -d &lt;dev&gt; -B
 </pre>
 </div>
 
-<a href='https://notes.neeasade.net/colemak-dh-mod.html'>colemak-dh mod</a> 
-<a href='https://notes.neeasade.net/automata-tiling-backgrounds.html'>Automata tiling backgrounds</a> 
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/automata-tiling-backgrounds.html'>newer: Automata tiling backgrounds</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/colemak-dh-mod.html'>older: colemak-dh mod</a> 
+    </div>
+</footer>
+<hr>
 </div>
 </div>
-</div>
+</main>
 </body>
 </html>

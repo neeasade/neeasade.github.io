@@ -24,16 +24,6 @@
     --form-fg-placeholder: #00004d9a;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --fg: #fefefe;
-        --bg: #0e0e0e;
-        --form-bg: #1a1a1a;
-        --form-fg: #fefefe;
-        --form-fg-placeholder: #fefefe9a;
-    }
-}
-
 /*
     1) Modify the base font-size to 62.5% so that 1.6rem = 16px.
     2) Set box-sizing globally to handle padding and border widths.
@@ -57,9 +47,11 @@ html {
     4) Reset the counter for sidenotes.
 */
 body {
+    /* padding: 1px; */
     font-size: 1.8rem; /* 1 */
     background-color: var(--bg); /* 2 */
     color: var(--fg); /* 2 */
+    /* todo: fonts */
     font-family: "Averia Serif Libre", serif; /* 3 */
     font-style: normal; /* 3 */
     line-height: 2.2rem; /* 3 */
@@ -98,7 +90,7 @@ main {
 header,
 section,
 footer {
-    margin: 0.7rem;
+    margin: 0rem;
     padding: 0.7rem;
 }
 
@@ -136,12 +128,10 @@ header {
 /*
     1) Center align the text in the footer.
     2) Add a margin to the top of the footer to visually separate it from the main content.
-    3) Add a margin to the bottom of the footer to not have it stuck to the bottom of the page.
 */
 footer {
     text-align: center; /* 1 */
     margin-top: 5rem; /* 2 */
-    margin-bottom: 2rem; /* 3 */
 }
 
 /* ========================================================================================================================= */

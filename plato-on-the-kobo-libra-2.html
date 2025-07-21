@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-20 Sun 20:50 -->
+<!-- 2025-07-21 Mon 00:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>plato on the kobo libra 2</title>
@@ -19,22 +19,21 @@
 <meta property="description" content="I caught the reading bug again">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=7ca3a7d19d77e07a7aa1b75c41b6c485'>
-<link rel='stylesheet' href='/assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
-<link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=769ebdb94e66615cccb11826dd3742f6'>
+<link rel='stylesheet' href='/assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
+<link rel='stylesheet' href='./assets/css/magick-extra.css?sum=f7011cb496789b87a6315975fc8f4a46'>
 </head>
 <body>
-<div id="content" class="content">
+<main id="content" class="content">
+<header>
 <div style="float: left">
     <a href='/index.html'>../ＳＴＸ</a>
 </div>
@@ -55,6 +54,7 @@ I caught the reading bug again
     Published 2023-06-11,
     last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/plato-on-the-kobo-libra-2.org\">2024-12-30</a>
 </span>
+</header>
 <hr>
 <p>
 For almost a year now I&rsquo;ve been using <a href="https://github.com/baskerville/plato">plato</a> on the <a href="https://us.kobobooks.com/products/kobo-libra-2">kobo libra 2</a>, an e-ink reader
@@ -80,7 +80,7 @@ directly, everything is just owned by root:
 
 <div class="org-src-container">
 <pre class="src src-sh">$ lsblk
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda      8:48   0 232.9G  0 disk
 &#9500;&#9472;sda1   8:49   0   550M  0 part /boot
 &#9500;&#9472;sda2   8:50   0   225G  0 part /nix/store
@@ -129,17 +129,17 @@ just looks &ldquo;right&rdquo; to me for reading):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml">[<span style="color: #524d4a;">reader</span>]
-<span style="color: #626700;">south-strip</span> = <span style="color: #757b00;">"next-page"</span>
-<span style="color: #626700;">font-path</span> = <span style="color: #757b00;">"/mnt/onboard/.adds/plato/fonts"</span>
-<span style="color: #626700;">font-family</span> = <span style="color: #757b00;">"Georgia"</span>
-<span style="color: #626700;">margin-width</span> = 10
-<span style="color: #626700;">max-margin-width</span> = 20
-<span style="color: #626700;">line-height</span> = 1.1
-<span style="color: #626700;">ignore-document-css</span> = <span style="color: #524d4a;">true</span>
+<pre class="src src-toml">[<span style="color: #00acc3;">reader</span>]
+<span style="color: #0095ac;">south-strip</span> = <span style="color: #cb7000;">"next-page"</span>
+<span style="color: #0095ac;">font-path</span> = <span style="color: #cb7000;">"/mnt/onboard/.adds/plato/fonts"</span>
+<span style="color: #0095ac;">font-family</span> = <span style="color: #cb7000;">"Georgia"</span>
+<span style="color: #0095ac;">margin-width</span> = 10
+<span style="color: #0095ac;">max-margin-width</span> = 20
+<span style="color: #0095ac;">line-height</span> = 1.1
+<span style="color: #0095ac;">ignore-document-css</span> = <span style="color: #5a5a5a;">true</span>
 
-[<span style="color: #524d4a;">reader.paragraph-breaker</span>]
-<span style="color: #626700;">stretch-tolerance</span> = 1.5
+[<span style="color: #00acc3;">reader.paragraph-breaker</span>]
+<span style="color: #0095ac;">stretch-tolerance</span> = 1.5
 </pre>
 </div>
 
@@ -172,7 +172,7 @@ accessible with this option in <code>Settings.toml</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><span style="color: #626700;">font-path</span> = <span style="color: #757b00;">"/mnt/onboard/.adds/plato/fonts"</span>
+<pre class="src src-toml"><span style="color: #0095ac;">font-path</span> = <span style="color: #cb7000;">"/mnt/onboard/.adds/plato/fonts"</span>
 </pre>
 </div>
 </div>
@@ -185,18 +185,18 @@ Create <code>~/kobo/.adds/plato/css/epub-user.css</code>, and add:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css"><span style="color: #626700;">p</span> {
-    <span style="color: #524d4a;">text-align</span>: justify;
-    <span style="color: #524d4a;">margin</span>: 1em 0 0 0 <span style="color: #524d4a;">!important</span>;
+<pre class="src src-css"><span style="color: #0095ac;">p</span> {
+    <span style="color: #5a5a5a;">text-align</span>: justify;
+    <span style="color: #5a5a5a;">margin</span>: 1em 0 0 0 <span style="color: #5a5a5a;">!important</span>;
 }
 
-<span style="color: #626700;">p + p</span> {
-    <span style="color: #524d4a;">text-indent</span>: 1em;
-    <span style="color: #524d4a;">margin</span>: 0 <span style="color: #524d4a;">!important</span>;
+<span style="color: #0095ac;">p + p</span> {
+    <span style="color: #5a5a5a;">text-indent</span>: 1em;
+    <span style="color: #5a5a5a;">margin</span>: 0 <span style="color: #5a5a5a;">!important</span>;
 }
 
-<span style="color: #626700;">img</span> { <span style="color: #67625f;">/* </span><span style="color: #67625f;">for centering</span><span style="color: #67625f;"> */</span>
-    <span style="color: #524d4a;">margin</span>: auto;
+<span style="color: #0095ac;">img</span> { <span style="color: #8a8a8a;">/* </span><span style="color: #8a8a8a;">for centering</span><span style="color: #8a8a8a;"> */</span>
+    <span style="color: #5a5a5a;">margin</span>: auto;
 }
 </pre>
 </div>
@@ -210,9 +210,9 @@ For a db located in  <code>~/kobo/library</code>, set path like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml">[[<span style="color: #524d4a;">libraries</span>]]
-<span style="color: #626700;">path</span> = <span style="color: #757b00;">"/mnt/onboard/library"</span>
-<span style="color: #67625f;"># </span><span style="color: #67625f;">...</span>
+<pre class="src src-toml">[[<span style="color: #00acc3;">libraries</span>]]
+<span style="color: #0095ac;">path</span> = <span style="color: #cb7000;">"/mnt/onboard/library"</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">...</span>
 </pre>
 </div>
 </div>
@@ -235,10 +235,17 @@ the wifi, kobo can still auto-update and break plato for you. Your files will
 still be there, you&rsquo;ll just have to copy the plato release over to then device again.
 </p>
 
-<a href='https://notes.neeasade.net/sharath-led-primary-notes.html'>Sharath led primary notes</a> 
-<a href='https://notes.neeasade.net/automata-tiles-3.html'>automata tiles 3</a> 
+<footer>
+    <div style="float: left">
+         <a href='https://notes.neeasade.net/automata-tiles-3.html'>newer: automata tiles 3</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='https://notes.neeasade.net/sharath-led-primary-notes.html'>older: Sharath led primary notes</a> 
+    </div>
+</footer>
+<hr>
 </div>
 </div>
-</div>
+</main>
 </body>
 </html>
