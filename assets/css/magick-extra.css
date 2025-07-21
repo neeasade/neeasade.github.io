@@ -3,24 +3,133 @@ body {
     background: url("../img/backgrounds/room.png") repeat;
     background-repeat: repeat; /* makes the image tile */
     background-position: center; /* centers the background */
+
+    image-rendering: pixelated;
 }
 
 main {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
     height: 100%;
     background: var(--bg);
+
+
+    image-rendering: auto;
 }
 
-.title_extra {
+/* opacity: 0.0; */
+
+/* h1 { */
+/*     margin-bottom: 0px !important; */
+/* } */
+
+h1 + div.org-center > p {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0;
+    margin-top: 0px !important;
     text-align: center;
 }
 
 /* anchors */
-h2 > a[href^='#'] {
-    /* font-size: 1.8rem; */
-    font-size: 2rem;
+h2 > a[href^='#'],
+h3 > a[href^='#'],
+h4 > a[href^='#']
+{
+    font-size: 1.5rem;
+    /* font-size: 1rem; */
     vertical-align: top;
 }
+
+h2,
+h3 {
+	border-bottom: 1px solid var(--background__);
+}
+
+
+blockquote {
+	color: var(--foreground_weak);
+	/* background: var(--background_weak); */
+	background: var(--background_weak);
+	border-left: 4px solid var(--background_weak);
+	border-radius: var(--radius);
+}
+
+a {
+	padding: 0px 2px;
+
+	min-width: fit-content;
+	text-decoration: none;
+
+	background: var(--background_weak);
+	/* color: var(--foreground_weak); */
+	color: var(--alt);
+
+	border-style: solid;
+
+	border-color: #a0a3a4;
+	border-radius: var(--radius);
+	border-width: 1px;
+	margin: -1px;
+}
+
+a:visited {
+	border-color: #a0a3a4;
+	text-decoration: none;
+	color: var(--faded_weak);
+}
+
+a:hover {
+	color: var(--foreground_plus);
+	background: var(--background_plus);
+	border-color: var(--foreground_plus);
+}
+
+a[href^="https://notes.neeasade.net"],
+a[href^="/"],
+a[href^="./"],
+a[href^="#"] {
+    background: var(--background_strong);
+    color: var(--foreground_strong);
+}
+
+a[href^="https://notes.neeasade.net"]:hover,
+a[href^="/"]:hover,
+a[href^="./"]:hover,
+a[href^="#"]:hover {
+    background: var(--background_plus);
+    color: var(--foreground_plus);
+}
+
+.section-number-1,
+.section-number-2,
+.section-number-3,
+.section-number-4,
+.section-number-5 {
+    color: var(--foreground_);
+    float: right;
+}
+
+
+
+
+
+
+.colorblock {
+    min-width: fit-content;
+
+    text-align: center;
+    min-height: 50px;
+
+    display: block;
+    font-family: var(--nc-font-mono);
+    /* font-size: 0.9rem; */
+}
+
+.colorpadding {
+    padding: 5px;
+    margin: 5px;
+}
+
+.colorcenter {
+    line-height: 50px;
+}
+

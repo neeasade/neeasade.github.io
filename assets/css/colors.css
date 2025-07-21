@@ -41,6 +41,12 @@ EOF
 */
 
 :root {
+    /* NOT HANDLED ABOVE TODO */
+    /* myron-room */
+--background_subtle : #e7e7e7;
+}
+
+:root {
 
 --background  : #f0f0f0;
 --background_weak : #dddddd;

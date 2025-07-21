@@ -174,7 +174,7 @@ em {
     1) Set the font-family, color, and font-style for the headings.
     2) Add a margin to the top and bottom of the headings.
 */
-h1,
+/* h1, */
 h2,
 h3,
 h4 {
@@ -205,12 +205,12 @@ h3 {
 }
 
 /* Add a decorative element before h3 headings. */
-h3:before {
-    font-family: "Noto Sans Symbols 2", sans-serif;
-    content: "🙛 ";
-}
+/* h3:before { */
+/*     font-family: "Noto Sans Symbols 2", sans-serif; */
+/*     content: "🙛 "; */
+/* } */
 
-/* h4 headings are the same size as h3 headings, but italic and without the decorative element. */
+/* h4 headings 0are the same size as h3 headings, but italic and without the decorative element. */
 h4 {
     font-style: italic;
     font-size: 2.025rem;
@@ -221,14 +221,15 @@ header h1 {
     font-size: 4rem;
     color: var(--fg);
     text-align: center;
-    padding: 4rem 0 1.2rem 0;
-    margin-bottom: 1rem;
+    /* padding: 4rem 0 1.2rem 0; */
+    padding: 4rem 0 0rem 0;
+    /* margin-bottom: 1rem; */
 }
 
 /* Additional decorations for the header h1 */
 header h1:before,
 header h1:after {
-    content: "✦";
+    content: "⮺";
     color: var(--fg);
     font-size: 1.5rem;
     vertical-align: middle;
@@ -630,13 +631,16 @@ blockquote footer cite {
     4) Add a top and bottom border line.
 */
 pre.src {
+    background: var(--background_subtle);
     padding: 1rem 1.6rem; /* 1 */
     margin: 1.6rem 0; /* 1 */
     overflow-y: hidden; /* 2 */
     font-family: "Courier Prime", monospace; /* 3 */
     font-size: 1.6rem; /* 3 */
-    border-top: 2px solid var(--fg); /* 4 */
-    border-bottom: 2px solid var(--fg); /* 4 */
+
+    border: 2px solid var(--background_weak); /* 4 */
+    /* border-top: 2px solid var(--background_weak); /\* 4 *\/ */
+    /* border-bottom: 2px solid var(--background_weak); /\* 4 *\/ */
 }
 
 /* Set a custom monospace font */

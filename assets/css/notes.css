@@ -8,32 +8,26 @@ html {
     height: 100% !important;
 }
 
-/* anchors */
-h2 > a[href^='#'] {
-    font-size: 1rem;
-    vertical-align: 10%;
-}
-
 /* include border and padding in element width and height */
 * {
   box-sizing: border-box;
 }
 
-body::before {
-    height: 100vh;
-    width: 100vw;
+/* body::before { */
+/*     height: 100vh; */
+/*     width: 100vw; */
 
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+/*     content: ''; */
+/*     position: absolute; */
+/*     top: 0; left: 0; */
+/*     width: 100%; height: 100%; */
 
-    image-rendering: pixelated;
-    z-index: -1;
+/*     image-rendering: pixelated; */
+/*     z-index: -1; */
 
-    /* nb: match to size in hidpi below */
-    background: url("../img/backgrounds/room.png") repeat;
-}
+/*     /\* nb: match to size in hidpi below *\/ */
+/*     background: url("../img/backgrounds/room.png") repeat; */
+/* } */
 
 @media (min-resolution: 120dpi) {
     body::before {
@@ -59,10 +53,6 @@ body {
     color: var(--foreground);
     font-size: 1rem;
     line-height: 1.4;
-
-    /* background-image: url("../posts/ca_dump3/339f75f140677b39471e8f7510e80fab3efa0363a2ecf2613d99096b43888c0d.png"); */
-    /* background-image: url("../img/backgrounds/newfeather.png"); */
-    /* background-color: var(--background_plus); */
 }
 
 /* hide org mode figure notes on image captions */
@@ -115,53 +105,17 @@ img {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
 }
 
-.section-number-1,
-.section-number-2,
-.section-number-3,
-.section-number-4,
-.section-number-5 {
-    color: var(--foreground_);
-    float: right;
-}
-
 .separator {
     text-align: center;
     vertical-align: center;
     margin: 0;
     line-height: 1.0;
 }
-
-.colorblock {
-    min-width: fit-content;
-
-    text-align: center;
-    min-height: 50px;
-
-    display: block;
-    font-family: var(--nc-font-mono);
-    font-size: 0.9rem;
-}
-
-.colorpadding {
-    padding: 5px;
-    margin: 5px;
-}
-
-.colorcenter {
-    line-height: 50px;
-}
-
 detail {
     text-align: center;
     padding-top: 0px;
     font-size: 0.9rem;
     display: block;
-}
-
-blockquote detail {
-    text-align: left;
-    margin-left: 1rem;
-    font-size: 1rem;
 }
 
 
@@ -174,52 +128,6 @@ a[href$=".png"]:visited
     background: var(--background);
 }
 
-
-a {
-	padding: 0px 2px;
-
-	min-width: fit-content;
-	text-decoration: none;
-
-	background: var(--background_weak);
-	/* color: var(--foreground_weak); */
-	color: var(--alt);
-
-	border-style: solid;
-
-	border-color: #a0a3a4;
-	border-radius: var(--radius);
-	border-width: 1px;
-	margin: -1px;
-}
-
-a:visited {
-	border-color: #a0a3a4;
-	text-decoration: none;
-	color: var(--faded_weak);
-}
-
-a:hover {
-	color: var(--foreground_plus);
-	background: var(--background_plus);
-	border-color: var(--foreground_plus);
-}
-
-a[href^="https://notes.neeasade.net"],
-a[href^="/"],
-a[href^="./"],
-a[href^="#"] {
-    background: var(--background_strong);
-    color: var(--foreground_strong);
-}
-
-a[href^="https://notes.neeasade.net"]:hover,
-a[href^="/"]:hover,
-a[href^="./"]:hover,
-a[href^="#"]:hover {
-    background: var(--background_plus);
-    color: var(--foreground_plus);
-}
 
 .footer-right {
     position:absolute;
