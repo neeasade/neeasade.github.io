@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<title>Nicotine</title>
+<title>curl exit code 60 on Windows</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,11 +12,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="Nicotine">
-<meta property="og:description" content="those darn pouches">
+<meta property="og:title" content="curl exit code 60 on Windows">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/Nicotine.html">
-<meta property="description" content="those darn pouches">
+<meta property="og:url" content="https://notes.neeasade.net/curl-exit-code-60-on-windows.html">
+<meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
 <script src="/assets/js/copy.js" defer></script>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -41,44 +41,37 @@
 
 <div style="float: right">
     
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/Nicotine.org">source</a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2018-04-04-curl-exit-code-60-on-Windows.org">source</a>
 </div>
-<h1 class=title>Nicotine</h1>
+<h1 class=title>
+    curl exit code 60 on Windows
+</h1>
 <div class="org-center">
 <p>
-those darn pouches
+
 </p>
 </div>
-<div class=pubinfo
-Published 2024-12-30, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/Nicotine.org">2024-12-30</a>
-</div>
+<span class=pubinfo>
+    Published 2018-04-04,
+    last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-04-04-curl-exit-code-60-on-Windows.org\">2019-02-19</a>
+</span>
 <hr>
-<p>
-A few times this year, I&rsquo;ve fallen prey to those little nicotine pouches (velo).
-Nicotine is awesome for about a week, and then the experience flips and you find
-yourself in a limbo where you must increase the dose to experience the same
-effects &#x2013; subjectively it also feels like you swap from an &ldquo;up&rdquo; feeling to a
-&ldquo;relaxed&rdquo; feeling when taking it.
-</p>
+
+
 
 <p>
-Here&rsquo;s my personal reasons to not do it:
+Many times the <code>curl</code> tool version available to you on windows is
+outdated and doesn&rsquo;t ship with up to date ca certs. A workaround for
+this is to grab the latest <code>cacert.pem</code> from curl
+<a href="http://curl.haxx.se/docs/caextract.html">here</a> in the same location
+as curl, and rename it to <code>curl-ca-bundle.crt</code>. Thanks to
+<a href="https://superuser.com/questions/442793/why-cant-curl-properly-verify-a-certificate-on-windows">Cheeso</a>
+for the solution. I ran into this while trying to use <code>emacs-request</code> on
+windows.
 </p>
 
-<ul class="org-ul">
-<li>stuffy nose all the time</li>
-<li>makes caffeine less effective</li>
-<li>messes with sleep</li>
-<li>irritates the bowels</li>
-<li>damages the gums</li>
-<li>it&rsquo;s impossible (for me) to use in moderation</li>
-<li>&ldquo;nic sick&rdquo; can you feel heavy, lethargic</li>
-</ul>
-
-
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/pok3r-mapping.html'>Pok3r Mapping</a> 
+<a href='https://notes.neeasade.net/restclient.el--elasticsearch.html'>restclient.el + elasticsearch</a> 
 </div>
 </body>
 </html>

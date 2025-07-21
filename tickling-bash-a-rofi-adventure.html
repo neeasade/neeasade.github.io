@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>tickling bash, quest for the perfect menu</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,22 +43,25 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">source</a>
 </div>
-<h1 class=title>tickling bash, quest for the perfect menu</h1>
+<h1 class=title>
+    tickling bash, quest for the perfect menu
+</h1>
 <div class="org-center">
 <p>
 where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 </div>
-<div class=pubinfo
-Published 2020-05-10, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2022-07-27</a>
-</div>
+<span class=pubinfo>
+    Published 2020-05-10,
+    last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org\">2022-07-27</a>
+</span>
 <hr>
 <p>
 <b>tl;dr</b>: I wanted to stop reading stdin after the first newline to stdout, and I did a hacky thing to get that, the essence of which is:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #cb7000;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #5a5a5a;">read</span> pid; <span style="color: #5a5a5a;">read</span> line; <span style="color: #5a5a5a;">echo</span> <span style="color: #cb7000;">"$line"</span>; <span style="color: #5a5a5a;">kill</span> $<span style="color: #0095ac;">pid</span>)
+<pre class="src src-sh">sh -c <span style="color: #757b00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #524d4a;">read</span> pid; <span style="color: #524d4a;">read</span> line; <span style="color: #524d4a;">echo</span> <span style="color: #757b00;">"$line"</span>; <span style="color: #524d4a;">kill</span> $<span style="color: #626700;">pid</span>)
 </pre>
 </div>
 
@@ -69,7 +72,7 @@ lots of really cool generic &ldquo;select thing from list&rdquo; programs out th
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 <div id="outline-container-Setup" class="outline-2">
-<h2 id="Setup"><span class="section-number-2">1.</span> Setup <span class=anchor><a href="#Setup">#</a></span></h2>
+<h2 id="Setup"><span class="section-number-2">1.</span> Setup <a href="#Setup">#</a></h2>
 <div class="outline-text-2" id="text-Setup">
 <p>
 Let&rsquo;s go through some history first. dmenu2 was my goto &rsquo;selector&rsquo; for years, because it has some
@@ -110,9 +113,7 @@ a script in my path also named dmenu pointing at <a href="https://github.com/nee
 Such is the state of things for a few months.
 </p>
 
-<p>
-<div class=separator>∗ ∗ ∗</div>
-</p>
+<div class=separator> ∗ ∗ ∗ </div>
 
 <p>
 In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it&rsquo;s like I&rsquo;m typing through the mud (tangent: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my <code>emacs_dmenu</code> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. A 200ms bump is quite noticable in the &ldquo;flow&rdquo; of things (you have an action in mind, you mash the keybind and start typing then OOPS I just sent gibberish to my text editor).
@@ -120,7 +121,7 @@ In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a 
 </div>
 </div>
 <div id="outline-container-Rofi" class="outline-2">
-<h2 id="Rofi"><span class="section-number-2">2.</span> Rofi <span class=anchor><a href="#Rofi">#</a></span></h2>
+<h2 id="Rofi"><span class="section-number-2">2.</span> Rofi <a href="#Rofi">#</a></h2>
 <div class="outline-text-2" id="text-Rofi">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -132,14 +133,14 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 <div id="outline-container-Tickling-bash-(cheating)" class="outline-2">
-<h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3.</span> Tickling bash (cheating) <span class=anchor><a href="#Tickling-bash-(cheating)">#</a></span></h2>
+<h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3.</span> Tickling bash (cheating) <a href="#Tickling-bash-(cheating)">#</a></h2>
 <div class="outline-text-2" id="text-Tickling-bash-(cheating)">
 <p>
 So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu replacement. This means I&rsquo;m at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the &rsquo;a&rsquo; option before &rsquo;b&rsquo; is ready, you are stuck):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #5a5a5a;">echo</span> a; sleep 10; <span style="color: #5a5a5a;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh">(<span style="color: #524d4a;">echo</span> a; sleep 10; <span style="color: #524d4a;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </pre>
 </div>
 
@@ -158,15 +159,14 @@ So the way I cheated was to run the &rsquo;candidate maker&rsquo; in a subshell,
 </div>
 </div>
 <div id="outline-container-Followup-<2022-07-10-Sun-14:29>" class="outline-2">
-<h2 id="Followup-<2022-07-10-Sun-14:29>"><span class="section-number-2">4.</span> Followup <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-10 02:29 PM&gt;</span></span> <span class=anchor><a href="#Followup-<2022-07-10-Sun-14:29>">#</a></span></h2>
+<h2 id="Followup-<2022-07-10-Sun-14:29>"><span class="section-number-2">4.</span> Followup <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-10 02:29 PM&gt;</span></span> <a href="#Followup-<2022-07-10-Sun-14:29>">#</a></h2>
 <div class="outline-text-2" id="text-Followup-<2022-07-10-Sun-14:29>">
 <p>
 Since posting this, I have returned to emacs as a general-purpose selector &#x2013; the auto-frecency from prescient is just too nice.
 </p>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/automata-tiling-backgrounds.html'>Automata tiling backgrounds</a> 
+<a href='https://notes.neeasade.net/pinebook-pro.html'>Pinebook Pro</a> 
 </div>
 </div>
 </div>

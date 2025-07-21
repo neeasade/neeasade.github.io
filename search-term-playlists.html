@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>search term playlists</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,15 +43,18 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-12-13-search-term-playlists.org">source</a>
 </div>
-<h1 class=title>search term playlists</h1>
+<h1 class=title>
+    search term playlists
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-<div class=pubinfo
-Published 2020-12-13, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-13-search-term-playlists.org">2022-07-09</a>
-</div>
+<span class=pubinfo>
+    Published 2020-12-13,
+    last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-13-search-term-playlists.org\">2022-07-09</a>
+</span>
 <hr>
 <p>
 This is a brief overview of how I manage a local music collection in <code>$current_year</code>. I use Music Player Daemon (MPD) and youtube-dl to index and add music to big &ldquo;local music&rdquo; folder. Over the years structure is totally scattered, but at least for the import folder (youtube-dl) things always look like this: <code>${musicdir}/import/&lt;channel&gt;/&lt;title&gt;</code>. MPD has many clients, but now I use a script that operates atop the mpc client.
@@ -84,7 +87,7 @@ Playlist files are files where every line is a comment, except for lines startin
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf"><span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">artists</span>
+<pre class="src src-conf"><span style="color: #67625f;"># </span><span style="color: #67625f;">artists</span>
 +ryo fukui
 +hiromi
 +gabor szabo
@@ -93,28 +96,28 @@ Playlist files are files where every line is a comment, except for lines startin
 +Minoru Muraoka
 +alice coltrane
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">albums</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">albums</span>
 +flight to brazil
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">generic</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">generic</span>
 +piano
 +jazz
 +koto
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">channel</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">channel</span>
 +mogurin3131
 +mogurin313131
 +marcel the drunkard
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">edd ed eddy is actually pretty jazzy</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">edd ed eddy is actually pretty jazzy</span>
 +ed, edd
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">random</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">random</span>
 +touhou
 
 -05 My Sick Piano.m4a
--Mario Basanov &amp; Vidis  - I<span style="color: #cb7000;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
-<span style="color: #cb7000;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
+-Mario Basanov &amp; Vidis  - I<span style="color: #757b00;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
+<span style="color: #757b00;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
 </pre>
 </div>
 
@@ -125,7 +128,7 @@ Lines that start with a <code>+</code> are search terms against the current musi
 <p>
 The script may be found <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/music">here</a>. Here are it&rsquo;s current options:
 </p>
-<pre class="example" id="org9fafd74">
+<pre class="example" id="orgcbb43d7">
 $ music
 music options:
 add        : add a url to library, fallback on clipboard content
@@ -144,26 +147,24 @@ shuffle    : reshuffle current selection from all
 <p>
 And an example of a fetch-like status (bar created with <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/panel/tools/mkb">mkb</a>):
 </p>
-<pre class="example" id="orgf1a7233">
+<pre class="example" id="org52bff12">
 $ music info
 Hiromi Uehara 2006 Love and Laughter
 ◈◈◈◈◈◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
 playlist: jazz_piano | 60h 35m 13s
 </pre>
 
-<p>
-<div class=separator>∗ ∗ ∗</div>
-</p>
+<div class=separator> ∗ ∗ ∗ </div>
 
 <p>
 After some times passed with the above system, I found myself sometimes wanting more flexibility in playlist composition. Did you know you that <code>-</code> and <code>+</code> are valid function names in bash? Oh yes, we&rsquo;re going to get dumb:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">+ () { append <span style="color: #cb7000;">"$@"</span>; }
-<span style="color: #0095ac;">-</span> () { remove <span style="color: #cb7000;">"$@"</span>; }
-@ () { artist <span style="color: #cb7000;">"$@"</span>; }
-<span style="color: #5a5a5a;">.</span> <span style="color: #cb7000;">"/path/to/playlist"</span>
+<pre class="src src-sh">+ () { append <span style="color: #757b00;">"$@"</span>; }
+<span style="color: #626700;">-</span> () { remove <span style="color: #757b00;">"$@"</span>; }
+@ () { artist <span style="color: #757b00;">"$@"</span>; }
+<span style="color: #524d4a;">.</span> <span style="color: #757b00;">"/path/to/playlist"</span>
 </pre>
 </div>
 
@@ -172,14 +173,14 @@ Sourcing the playlist means the blend between music script and playlist is total
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #8a8a8a;">#</span><span style="color: #8a8a8a;">!/bin/</span><span style="color: #5a5a5a;">sh</span>
+<pre class="src src-sh"><span style="color: #67625f;">#</span><span style="color: #67625f;">!/bin/</span><span style="color: #524d4a;">sh</span>
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">get any song with a widechar in its name</span>
-<span style="color: #5a5a5a;">for</span> x<span style="color: #5a5a5a;"> in</span> &#65345; &#65346; &#65347; &#65348; &#65349; &#65350; &#65351; &#65352; &#65353; &#65354; &#65355; &#65356; &#65357; &#65358; &#65359; &#65360; &#65361; &#65362; &#65363; &#65364; &#65365; &#65366; &#65361; &#65368; &#65369; &#65370; &#65313; &#65314; &#65315; &#65316; &#65317; &#65318; &#65319; &#65320; &#65321; &#65322; &#65323; &#65324; &#65325; &#65326; &#65327; &#65328; &#65329; &#65330; &#65331; &#65332; &#65333; &#65334; &#65329; &#65336; &#65337; &#65338;; <span style="color: #5a5a5a;">do</span>
-   append $<span style="color: #0095ac;">x</span>
-<span style="color: #5a5a5a;">done</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">get any song with a widechar in its name</span>
+<span style="color: #524d4a;">for</span> x<span style="color: #524d4a;"> in</span> &#65345; &#65346; &#65347; &#65348; &#65349; &#65350; &#65351; &#65352; &#65353; &#65354; &#65355; &#65356; &#65357; &#65358; &#65359; &#65360; &#65361; &#65362; &#65363; &#65364; &#65365; &#65366; &#65361; &#65368; &#65369; &#65370; &#65313; &#65314; &#65315; &#65316; &#65317; &#65318; &#65319; &#65320; &#65321; &#65322; &#65323; &#65324; &#65325; &#65326; &#65327; &#65328; &#65329; &#65330; &#65331; &#65332; &#65333; &#65334; &#65329; &#65336; &#65337; &#65338;; <span style="color: #524d4a;">do</span>
+   append $<span style="color: #626700;">x</span>
+<span style="color: #524d4a;">done</span>
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">artists</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">artists</span>
 @ HOME
 @ windows96
 @ lucien hughes
@@ -187,15 +188,15 @@ Sourcing the playlist means the blend between music script and playlist is total
 @ haircuts for men
 @ blank banshee
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">search terms</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">search terms</span>
 + vaporwave
 + vapor
 + E m o t i o n a l T o k y o
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">youtube channel</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">youtube channel</span>
 + elfamosodemon
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">give us stuff longer than 15min</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">give us stuff longer than 15min</span>
 filter is_long
 
 - lazerhawk
@@ -213,9 +214,8 @@ This degree of control is fun because I can do things like &ldquo;make a playlis
 Have fun with it! 🐨
 </p>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/o7.html'>o7</a> 
+<a href='https://notes.neeasade.net/printing-and-scanning-on-linux.html'>printing and scanning on linux</a> 
 </div>
 </body>
 </html>

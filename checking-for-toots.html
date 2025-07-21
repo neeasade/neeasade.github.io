@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>checking for toots</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,22 +43,24 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-03-checking-for-toots.org">source</a>
 </div>
-<h1 class=title>checking for toots</h1>
+<h1 class=title>
+    checking for toots
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-<div class=pubinfo
-Published 2020-05-03, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-03-checking-for-toots.org">2020-05-03</a>
-</div>
+<span class=pubinfo>
+    Published 2020-05-03
+</span>
 <hr>
 <p>
 The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I want to post something I can just <code>toot post "some really unique thought"</code> and BAM it&rsquo;s out there on the internet forever. It even supports media &#x2013; EG <code>echo 'can I pipe stuff into toot?' | toot post -m $(shot)</code> and I can put adhoc screenshots in there:
 </p>
 
 
-<figure id="org8566095">
+<figure id="orgda148a7">
 <a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
 
 </figure>
@@ -98,14 +100,14 @@ hazel :blobcatcomfy: @hazel@is.nota.live now follows you
 Note: There is the ability to clear all notifications, but then you also lose upstream history &#x2013; I&rsquo;d like to preserve that.
 </p>
 <div id="outline-container-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28" class="outline-2">
-<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1.</span> Rolling my own <span class=anchor><a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">#</a></span></h2>
+<h2 id="h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28"><span class="section-number-2">1.</span> Rolling my own <a href="#h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">#</a></h2>
 <div class="outline-text-2" id="text-h-dfa7f639-4dfe-45a8-af1a-1ba6563fcc28">
 <p>
 Alright, I need 2 things &#x2013; a way to mark the current set of notifications as &rsquo;seen&rsquo; and a way to check the content of &rsquo;unseen&rsquo; notifications (I only care if mentions happen, not necessarily boots or favs). I need to delimit based on that weird separator.. at first I reached for grep and sed, but they don&rsquo;t quite handle multiline iteration that well &#x2013; awk has me covered though! After some searching I stumble upon the internal RS (record separator) variable. Since the value it takes is a regex, I can do the following to map over toots:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #cb7000;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #757b00;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -114,17 +116,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8a8a8a;">#</span><span style="color: #8a8a8a;">!/usr/bin/</span><span style="color: #5a5a5a;">env</span><span style="color: #8a8a8a;"> bash</span>
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #67625f;">#</span><span style="color: #67625f;">!/usr/bin/</span><span style="color: #524d4a;">env</span><span style="color: #67625f;"> bash</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #0095ac;">count</span>=0
-<span style="color: #5a5a5a;">if</span> <span style="color: #cb7000;">!</span> <span style="color: #0095ac;">diff</span>=$(<span style="color: #0095ac;">diff &lt;(toot notifications</span>) &lt;(cat /tmp/toot-notifications)); <span style="color: #5a5a5a;">then</span>
-    <span style="color: #0095ac;">new_content</span>=$(<span style="color: #0095ac;">echo "$diff" | grep '^&lt;' | sed 's/&lt; //'</span>)
-    <span style="color: #0095ac;">count</span>=$(<span style="color: #0095ac;">echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l</span>)
-<span style="color: #5a5a5a;">fi</span>
+<span style="color: #626700;">count</span>=0
+<span style="color: #524d4a;">if</span> <span style="color: #757b00;">!</span> <span style="color: #626700;">diff</span>=$(<span style="color: #626700;">diff &lt;(toot notifications</span>) &lt;(cat /tmp/toot-notifications)); <span style="color: #524d4a;">then</span>
+    <span style="color: #626700;">new_content</span>=$(<span style="color: #626700;">echo "$diff" | grep '^&lt;' | sed 's/&lt; //'</span>)
+    <span style="color: #626700;">count</span>=$(<span style="color: #626700;">echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l</span>)
+<span style="color: #524d4a;">fi</span>
 
-<span style="color: #5a5a5a;">echo</span> <span style="color: #cb7000;">"toot mentions: $count"</span>
+<span style="color: #524d4a;">echo</span> <span style="color: #757b00;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -133,7 +135,7 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 </p>
 
 
-<figure id="org1b08d35">
+<figure id="orga14aa48">
 <a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
 
 </figure>
@@ -142,9 +144,8 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 With a click action to &ldquo;Mark toots as seen&rdquo;(just updating the temp file) and open up mastodon, I&rsquo;m all set for some distration free tootin&rsquo; without the FOMO of mentions.
 </p>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/blog-meta.html'>May Days</a> 
+<a href='https://notes.neeasade.net/colemak-dh-mod.html'>colemak-dh mod</a> 
 </div>
 </div>
 </div>

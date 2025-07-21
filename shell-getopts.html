@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>tl;dr shell getopts</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,36 +43,38 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-01-16-shell-getopts.org">source</a>
 </div>
-<h1 class=title>tl;dr shell getopts</h1>
+<h1 class=title>
+    tl;dr shell getopts
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-<div class=pubinfo
-Published 2020-01-16, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org">2020-01-23</a>
-</div>
+<span class=pubinfo>
+    Published 2020-01-16,
+    last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-01-16-shell-getopts.org\">2020-01-23</a>
+</span>
 <hr>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">the ':' in front means the flag takes an arg</span>
-<span style="color: #5a5a5a;">while </span><span style="color: #5a5a5a;">getopts</span> w:reh flag; <span style="color: #5a5a5a;">do</span>
-    <span style="color: #5a5a5a;">case</span> $<span style="color: #0095ac;">flag</span><span style="color: #5a5a5a;"> in</span>
-        w) <span style="color: #0095ac;">wid</span>=$<span style="color: #0095ac;">OPTARG</span>;;
+<pre class="src src-sh"><span style="color: #67625f;"># </span><span style="color: #67625f;">the ':' in front means the flag takes an arg</span>
+<span style="color: #524d4a;">while </span><span style="color: #524d4a;">getopts</span> w:reh flag; <span style="color: #524d4a;">do</span>
+    <span style="color: #524d4a;">case</span> $<span style="color: #626700;">flag</span><span style="color: #524d4a;"> in</span>
+        w) <span style="color: #626700;">wid</span>=$<span style="color: #626700;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #5a5a5a;">esac</span>
-<span style="color: #5a5a5a;">done</span>
+    <span style="color: #524d4a;">esac</span>
+<span style="color: #524d4a;">done</span>
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">this shift at the end is to reset the args to the env of getopts parsing</span>
-<span style="color: #5a5a5a;">shift</span> $(<span style="color: #0095ac;">(OPTIND-1</span>))
+<span style="color: #67625f;"># </span><span style="color: #67625f;">this shift at the end is to reset the args to the env of getopts parsing</span>
+<span style="color: #524d4a;">shift</span> $(<span style="color: #626700;">(OPTIND-1</span>))
 </pre>
 </div>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/updating-nix-channels.html'>Updating nix channels</a> 
+<a href='https://notes.neeasade.net/rice-links.html'>rice links</a> 
 </div>
 </body>
 </html>

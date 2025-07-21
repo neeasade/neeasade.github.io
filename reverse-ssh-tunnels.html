@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>reverse ssh tunnels</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,15 +43,18 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-10-reverse-ssh-tunnels.org">source</a>
 </div>
-<h1 class=title>reverse ssh tunnels</h1>
+<h1 class=title>
+    reverse ssh tunnels
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-<div class=pubinfo
-Published 2020-04-10, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-08-04</a>
-</div>
+<span class=pubinfo>
+    Published 2020-04-10,
+    last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org\">2020-08-04</a>
+</span>
 <hr>
 <p>
 You have 3 machines:
@@ -67,7 +70,7 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don&rsquo;t control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 <div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
-<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <span class=anchor><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></span></h2>
+<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <div class="org-src-container">
 <pre class="src src-nil">ssh -R 22222:localhost:22 username@vps
@@ -80,23 +83,23 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 <div id="outline-container-h-56d8bbe1-5940-4d97-b817-a71979240c19" class="outline-2">
-<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <span class=anchor><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></span></h2>
+<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><span style="color: #67625f;"># </span><span style="color: #67625f;">to access home after ssh'ing into vps:</span>
 ssh localhost -p 22222
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #cb7000;">'ssh localhost -p 22222'</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">to access home in one go from laptop:</span>
+ssh -t vps <span style="color: #757b00;">'ssh localhost -p 22222'</span>
 
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to Jump from the laptop (-J is the jumpbox target):</span>
+<span style="color: #67625f;"># </span><span style="color: #67625f;">to Jump from the laptop (-J is the jumpbox target):</span>
 ssh -J username@vps:22 localhost -p 22222
 </pre>
 </div>
 </div>
 </div>
 <div id="outline-container-h-76dc15ec-0aab-464c-a674-60474010c8f0" class="outline-2">
-<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <span class=anchor><a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">#</a></span></h2>
+<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">#</a></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
@@ -112,24 +115,23 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #5a5a5a;">let*</span> ((tramp-connection-path <span style="color: #cb7000;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #cb7000;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #cb7000;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp">(<span style="color: #524d4a;">let*</span> ((tramp-connection-path <span style="color: #757b00;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #757b00;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #757b00;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </pre>
 </div>
 </div>
 </div>
 <div id="outline-container-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4" class="outline-2">
-<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <span class=anchor><a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">#</a></span></h2>
+<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">#</a></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
 </p>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing.html'>My Mobile Setup</a> 
+<a href='https://notes.neeasade.net/blog-meta.html'>May Days</a> 
 </div>
 </div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>Maximum number of clients reached on X</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,13 +43,14 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/notes/x-clients.org">source</a>
 </div>
-<h1 class=title>Maximum number of clients reached on X</h1>
+<h1 class=title>
+    Maximum number of clients reached on X
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-
 <hr>
 
 <p>
@@ -57,7 +58,7 @@ Find out who is hogging your clients:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">lsof -U +c 15 | cut -f1 -d<span style="color: #cb7000;">' '</span> | sort | uniq -c | sort -rn | head -n 100
+<pre class="src src-sh">lsof -U +c 15 | cut -f1 -d<span style="color: #757b00;">' '</span> | sort | uniq -c | sort -rn | head -n 100
 </pre>
 </div>
 
@@ -68,10 +69,6 @@ cf <a href="https://unix.stackexchange.com/questions/368017/cant-start-applicati
 <p>
 Some further discussion: <a href="https://nixers.net/Thread-Maximum-number-of-clients-reached-on-X">https://nixers.net/Thread-Maximum-number-of-clients-reached-on-X</a>
 </p>
-
-<div class="footer-center">
-    
-</div>
 </div>
 </body>
 </html>

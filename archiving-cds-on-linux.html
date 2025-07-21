@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>Archiving CD's on linux</title>
@@ -15,7 +15,7 @@
 <meta property="og:title" content="Archiving CD's on linux">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/Archiving-CDs-on-linux.html">
+<meta property="og:url" content="https://notes.neeasade.net/archiving-cds-on-linux.html">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,18 +43,21 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-05-Archiving-CD's-on-linux.org">source</a>
 </div>
-<h1 class=title>Archiving CD's on linux</h1>
+<h1 class=title>
+    Archiving CD's on linux
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-<div class=pubinfo
-Published 2020-05-05, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-05-Archiving-CD's-on-linux.org">2020-08-11</a>
-</div>
+<span class=pubinfo>
+    Published 2020-05-05,
+    last edit <a href=\"https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-05-Archiving-CD's-on-linux.org\">2020-08-11</a>
+</span>
 <hr>
 <div id="outline-container-h-c2430d47-065c-438b-9ffe-3856b927a6ce" class="outline-2">
-<h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><span class="section-number-2">1.</span> Mounting data CD&rsquo;s/DVD&rsquo;s <span class=anchor><a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">#</a></span></h2>
+<h2 id="h-c2430d47-065c-438b-9ffe-3856b927a6ce"><span class="section-number-2">1.</span> Mounting data CD&rsquo;s/DVD&rsquo;s <a href="#h-c2430d47-065c-438b-9ffe-3856b927a6ce">#</a></h2>
 <div class="outline-text-2" id="text-h-c2430d47-065c-438b-9ffe-3856b927a6ce">
 <p>
 You might have to install one or both of these packages: <code>cdrecord cdrkit</code> to get the <code>iso9660</code> mount type (you can check if you have support with <code>cat /proc/filesystems | grep iso9660</code>)
@@ -84,39 +87,38 @@ or, more explicitly:
 </div>
 </div>
 <div id="outline-container-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895" class="outline-2">
-<h2 id="h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895"><span class="section-number-2">2.</span> Getting the content from a Music CD/DVD <span class=anchor><a href="#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">#</a></span></h2>
+<h2 id="h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895"><span class="section-number-2">2.</span> Getting the content from a Music CD/DVD <a href="#h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">#</a></h2>
 <div class="outline-text-2" id="text-h-b99a597e-f28c-4bc2-83aa-8a2a23eb1895">
 <p>
 With cdparanoia:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5a5a5a;">cd</span> /place/to/store/tracks
+<pre class="src src-sh"><span style="color: #524d4a;">cd</span> /place/to/store/tracks
 cdparanoia -d &lt;dev&gt; -B
 </pre>
 </div>
 </div>
 </div>
 <div id="outline-container-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf" class="outline-2">
-<h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3.</span> Backing up to an ISO <span class=anchor><a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">#</a></span></h2>
+<h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3.</span> Backing up to an ISO <a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">#</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
 <div class="org-src-container">
-<pre class="src src-sh">dd <span style="color: #0095ac;">if</span>=&lt;dev&gt; <span style="color: #0095ac;">of</span>=/path/to/label.iso <span style="color: #0095ac;">bs</span>=128k
+<pre class="src src-sh">dd <span style="color: #626700;">if</span>=&lt;dev&gt; <span style="color: #626700;">of</span>=/path/to/label.iso <span style="color: #626700;">bs</span>=128k
 </pre>
 </div>
 </div>
 </div>
 <div id="outline-container-h-8052e45f-f714-4bd1-b2ed-39ed0175a499" class="outline-2">
-<h2 id="h-8052e45f-f714-4bd1-b2ed-39ed0175a499"><span class="section-number-2">4.</span> Mounting an ISO <span class=anchor><a href="#h-8052e45f-f714-4bd1-b2ed-39ed0175a499">#</a></span></h2>
+<h2 id="h-8052e45f-f714-4bd1-b2ed-39ed0175a499"><span class="section-number-2">4.</span> Mounting an ISO <a href="#h-8052e45f-f714-4bd1-b2ed-39ed0175a499">#</a></h2>
 <div class="outline-text-2" id="text-h-8052e45f-f714-4bd1-b2ed-39ed0175a499">
 <div class="org-src-container">
 <pre class="src src-nil">mount /path/to/image.iso /path/to/mountpoint/ -o loop
 </pre>
 </div>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/colemak-dh-mod.html'>colemak-dh mod</a> 
+<a href='https://notes.neeasade.net/automata-tiling-backgrounds.html'>Automata tiling backgrounds</a> 
 </div>
 </div>
 </div>

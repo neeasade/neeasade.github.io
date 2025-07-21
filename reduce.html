@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-06-18 Wed 16:53 -->
+<!-- 2025-07-20 Sun 20:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>(reduce)</title>
@@ -30,8 +30,8 @@
 <link rel='stylesheet' href='./assets/css/new.css?sum=8ded96c4e22d9cf406740e90fb2c41de'>
 <link rel='stylesheet' href='/assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
 <link rel='stylesheet' href='./assets/css/org.css?sum=6f5b128ae2001f1230d4fdc21163a4d6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=444396e7a7768e08c9594d95c6234b4a'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=6f340a34ffd939c10ae790189fcbd8ab'>
 </head>
 <body>
 <div id="content" class="content">
@@ -43,15 +43,17 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-11-04-reduce.org">source</a>
 </div>
-<h1 class=title>(reduce)</h1>
+<h1 class=title>
+    (reduce)
+</h1>
 <div class="org-center">
 <p>
 
 </p>
 </div>
-<div class=pubinfo
-Published 2020-11-04, last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-04-reduce.org">2020-11-04</a>
-</div>
+<span class=pubinfo>
+    Published 2020-11-04
+</span>
 <hr>
 <p>
 One habit I had to initially overcome coming to Clojure was a tendency to loop recur all the time instead of reducing. Here&rsquo;s a snippet from #clojure where I came to ask about the habit that I saved from that time:
@@ -95,11 +97,11 @@ then it&rsquo;s a question of learning what the various collection functions are
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reduce
- (<span style="color: #5a5a5a;">fn</span> [acc i]
-   (<span style="color: #5a5a5a;">let</span> [res (+ acc i)]
-     (<span style="color: #5a5a5a;">if</span> (&gt; res 100) (reduced res) res)))
+ (<span style="color: #524d4a;">fn</span> [acc i]
+   (<span style="color: #524d4a;">let</span> [res (+ acc i)]
+     (<span style="color: #524d4a;">if</span> (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">=&gt; 105</span>
+<span style="color: #67625f;">;; </span><span style="color: #67625f;">=&gt; 105</span>
 </pre>
 </div>
 
@@ -108,11 +110,11 @@ then it&rsquo;s a question of learning what the various collection functions are
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reductions
- (<span style="color: #5a5a5a;">fn</span> [acc i]
-   (<span style="color: #5a5a5a;">let</span> [res (+ acc i)]
-     (<span style="color: #5a5a5a;">if</span> (&gt; res 100) (reduced res) res)))
+ (<span style="color: #524d4a;">fn</span> [acc i]
+   (<span style="color: #524d4a;">let</span> [res (+ acc i)]
+     (<span style="color: #524d4a;">if</span> (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">=&gt; (0 0 1 3 6 ...)</span>
+<span style="color: #67625f;">;; </span><span style="color: #67625f;">=&gt; (0 0 1 3 6 ...)</span>
 </pre>
 </div>
 
@@ -120,9 +122,7 @@ then it&rsquo;s a question of learning what the various collection functions are
 <b>neeasade</b> thanks justin_smith &#x2013; appreciate it!
 </p>
 
-<p>
-<div class=separator>∗ ∗ ∗</div>
-</p>
+<div class=separator> ∗ ∗ ∗ </div>
 
 <p>
 Now, let&rsquo;s compare what this difference looks like with easy-ranked <a href="http://www.4clojure.com/problem/40">4clojure problem</a>:
@@ -133,10 +133,10 @@ Write a function which separates the items of a sequence by an arbitrary value.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure"><span style="color: #8a8a8a;">;; </span><span style="color: #8a8a8a;">replace the '__'</span>
+<pre class="src src-clojure"><span style="color: #67625f;">;; </span><span style="color: #67625f;">replace the '__'</span>
 (= (__ 0 [1 2 3]) [1 0 2 0 3])
-(= (apply str (__ <span style="color: #cb7000;">", "</span> [<span style="color: #cb7000;">"one"</span> <span style="color: #cb7000;">"two"</span> <span style="color: #cb7000;">"three"</span>])) <span style="color: #cb7000;">"one, two, three"</span>)
-(= (__ <span style="color: #5a5a5a;">:z</span> [<span style="color: #5a5a5a;">:a</span> <span style="color: #5a5a5a;">:b</span> <span style="color: #5a5a5a;">:c</span> <span style="color: #5a5a5a;">:d</span>]) [<span style="color: #5a5a5a;">:a</span> <span style="color: #5a5a5a;">:z</span> <span style="color: #5a5a5a;">:b</span> <span style="color: #5a5a5a;">:z</span> <span style="color: #5a5a5a;">:c</span> <span style="color: #5a5a5a;">:z</span> <span style="color: #5a5a5a;">:d</span>])
+(= (apply str (__ <span style="color: #757b00;">", "</span> [<span style="color: #757b00;">"one"</span> <span style="color: #757b00;">"two"</span> <span style="color: #757b00;">"three"</span>])) <span style="color: #757b00;">"one, two, three"</span>)
+(= (__ <span style="color: #524d4a;">:z</span> [<span style="color: #524d4a;">:a</span> <span style="color: #524d4a;">:b</span> <span style="color: #524d4a;">:c</span> <span style="color: #524d4a;">:d</span>]) [<span style="color: #524d4a;">:a</span> <span style="color: #524d4a;">:z</span> <span style="color: #524d4a;">:b</span> <span style="color: #524d4a;">:z</span> <span style="color: #524d4a;">:c</span> <span style="color: #524d4a;">:z</span> <span style="color: #524d4a;">:d</span>])
 </pre>
 </div>
 
@@ -145,11 +145,11 @@ Before (bad habits):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #5a5a5a;">fn</span> [sep coll &amp; state]
-   (<span style="color: #5a5a5a;">if</span> (= 1 (count coll))
+<pre class="src src-clojure">(<span style="color: #524d4a;">fn</span> [sep coll &amp; state]
+   (<span style="color: #524d4a;">if</span> (= 1 (count coll))
      (conj state (first coll))
-     (<span style="color: #5a5a5a;">recur</span> sep (rest coll)
-            (conj (<span style="color: #5a5a5a;">or</span> state [])
+     (<span style="color: #524d4a;">recur</span> sep (rest coll)
+            (conj (<span style="color: #524d4a;">or</span> state [])
                   (first coll)
                   sep))))
 </pre>
@@ -164,9 +164,9 @@ After:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #5a5a5a;">fn</span> [sep coll]
+<pre class="src src-clojure">(<span style="color: #524d4a;">fn</span> [sep coll]
    (butlast
-    (reduce (<span style="color: #5a5a5a;">fn</span> [state next]
+    (reduce (<span style="color: #524d4a;">fn</span> [state next]
               (conj state next sep))
             [] coll)))
 </pre>
@@ -182,9 +182,8 @@ Just gotta remember to embrace reducin&rsquo;, and the implicit carrying of stat
 </p>
 </div>
 
-<div class="footer-center">
-    
-</div>
+<a href='https://notes.neeasade.net/annoying-org-typing-slowdowns.html'>annoying org typing slowdowns</a> 
+<a href='https://notes.neeasade.net/my-shell-prompt.html'>my shell prompt</a> 
 </div>
 </body>
 </html>
