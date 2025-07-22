@@ -137,7 +137,7 @@ a[href^="#"]:hover {
     min-height: 50px;
 
     display: block;
-    font-family: var(--nc-font-mono);
+    font-family: var(--font-mono);
     /* font-size: 0.9rem; */
 }
 
@@ -177,3 +177,4 @@ pre button {
 	background: var(--background_plus);
 	color: var(--foreground_plus);
 }
+
