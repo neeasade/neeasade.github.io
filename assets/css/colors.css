@@ -18,10 +18,11 @@ $
 
 cat<<EOF | theme -p color.normal -r /dev/stdin
 
---background  : {{background}};
+--background_subtle  : {{color.meta.subtle}};
 --background_weak : {{color.weak.background}};
 --background_strong: {{color.strong.background}};
 --background_plus : {{color.focused.background}};
+--background_subtle  : {{color.meta}};
 
 --strings     : {{strings}};
 --alt         : {{alt}};
@@ -41,13 +42,10 @@ EOF
 */
 
 :root {
-    /* NOT HANDLED ABOVE TODO */
-    /* myron-room */
+
+
+
 --background_subtle : #e7e7e7;
-}
-
-:root {
-
 --background  : #f0f0f0;
 --background_weak : #dddddd;
 --background_strong: #d0d0d0;
@@ -66,6 +64,8 @@ EOF
 --foreground_weak : #4f4f4f;
 --foreground_strong : #474747;
 --foreground_plus : #6e4338;
+
+/* ----- */
 
 --radius: 0px;
 

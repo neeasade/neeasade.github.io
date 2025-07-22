@@ -64,12 +64,6 @@ body {
     list-style-type: none;
 }
 
-.timestamp {
-    color: var(--accent1_);
-    display: inline-block;
-    white-space: nowrap;
-}
-
 table {
     margin: auto;
 }
