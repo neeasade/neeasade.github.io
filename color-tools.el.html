@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-21 Mon 00:31 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>color-tools.el</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -19,17 +18,19 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
 </head>
 <body>
 <main id="content" class="content">
@@ -43,7 +44,15 @@
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-05-color-tools.el.org">source</a>
 </div>
 <h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
     color-tools.el
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
 </h1>
 <div class="org-center">
 <p>
@@ -63,24 +72,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 <h2 id="Iteration"><span class="section-number-2">1.</span> Iteration <a href="#Iteration">#</a></h2>
 <div class="outline-text-2" id="text-Iteration">
 </div>
-<div id="outline-container-orga9fa1fb" class="outline-3">
-<h3 id="orga9fa1fb"><span class="section-number-3">1.1.</span> ct-make-hsl &#x2013; <code style="background: #8e733d;color: #f0f0f0; padding: 2px; border: 1px solid #8e733d">(ct-make-hsl 40 40 40)</code></h3>
+<div id="outline-container-org8bef072" class="outline-3">
+<h3 id="org8bef072"><span class="section-number-3">1.1.</span> ct-make-hsl &#x2013; <code style="background: #8e733d;color: #e8ebec; padding: 2px; border: 1px solid #8e733d">(ct-make-hsl 40 40 40)</code></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #8e3d3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8e653d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8e8e3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #658e3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d8e3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d8e65;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d8e8e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d658e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d3d8e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #653d8e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8e3d8e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8e3d65;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8e3d3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8e3d3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8e653d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8e8e3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #658e3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d8e3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d8e65;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d8e8e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d658e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d3d8e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #653d8e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8e3d8e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8e3d65;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8e3d3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -90,17 +99,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #656565;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6f685b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #796c51;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #836f47;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #8e733c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #987632;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a27928;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ac7d1e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b68014;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c0830a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cb8700;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #656565;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6f685b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #796c51;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #836f47;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #8e733c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #987632;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a27928;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ac7d1e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b68014;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c0830a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cb8700;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -110,17 +119,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #231c0f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #47391e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6b562d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #8e733d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b2904c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c1a670;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d1bc93;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e0d2b7;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #efe8db;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #231c0f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #47391e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6b562d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #8e733d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b2904c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c1a670;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d1bc93;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e0d2b7;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #efe8db;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffffff;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -129,24 +138,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-org203b867" class="outline-3">
-<h3 id="org203b867"><span class="section-number-3">1.2.</span> ct-make-hsv &#x2013; <code style="background: #66583d;color: #f0f0f0; padding: 2px; border: 1px solid #66583d">(ct-make-hsv 40 40 40)</code></h3>
+<div id="outline-container-org23d5692" class="outline-3">
+<h3 id="org23d5692"><span class="section-number-3">1.2.</span> ct-make-hsv &#x2013; <code style="background: #66583d;color: #e8ebec; padding: 2px; border: 1px solid #66583d">(ct-make-hsv 40 40 40)</code></h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #663d3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #66513d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #66663d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #51663d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d663d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d6651;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d6666;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d5166;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d3d66;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #513d66;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #663d66;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #663d51;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #663d3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #663d3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #66513d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #66663d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #51663d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d663d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d6651;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d6666;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d5166;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d3d66;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #513d66;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #663d66;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #663d51;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #663d3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -156,17 +165,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #666666;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #66625b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #665f51;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #665b47;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #66583d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #665433;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #665128;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #664d1e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #664a14;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #66460a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #664300;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #666666;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #66625b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #665f51;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #665b47;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #66583d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #665433;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #665128;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #664d1e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #664a14;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #66460a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #664300;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -176,17 +185,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #19160f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #332c1e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #4c412d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #66583d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7f6d4c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99835b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b29a6a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ccb07a;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e5c589;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffdb98;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #19160f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #332c1e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #4c412d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #66583d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7f6d4c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99835b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b29a6a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ccb07a;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e5c589;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffdb98;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -195,24 +204,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orge82f96f" class="outline-3">
-<h3 id="orge82f96f"><span class="section-number-3">1.3.</span> ct-make-hsluv &#x2013; <code style="background: #735847;color: #f0f0f0; padding: 2px; border: 1px solid #735847">(ct-make-hsluv 40 40 40)</code></h3>
+<div id="outline-container-orgc0663b1" class="outline-3">
+<h3 id="orgc0663b1"><span class="section-number-3">1.3.</span> ct-make-hsluv &#x2013; <code style="background: #735847;color: #e8ebec; padding: 2px; border: 1px solid #735847">(ct-make-hsluv 40 40 40)</code></h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #8c4957;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #795547;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #695b46;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5d5f46;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #4d6346;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #486355;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #49625f;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #4a6166;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #4c5f72;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5e5497;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #774e7f;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #824b6e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8c4957;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8c4957;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #795547;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #695b46;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5f46;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #4d6346;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #486355;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #49625f;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #4a6166;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #4c5f72;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5e5497;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #774e7f;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #824b6e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8c4957;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -222,17 +231,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #5d5d5d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #635c58;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #695a52;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6e594c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #735746;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #775640;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7b5538;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7f5330;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #825226;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #865118;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #894f00;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5d5d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #635c58;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #695a52;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6e594c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #735746;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #775640;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7b5538;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7f5330;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #825226;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #865118;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #894f00;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -242,17 +251,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #231912;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #3c2d23;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #574234;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #735847;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #91705b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b0886f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cfa184;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e0c0ae;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #eedfd8;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #231912;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3c2d23;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #574234;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #735847;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #91705b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b0886f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cfa184;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e0c0ae;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #eedfd8;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feffff;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -261,24 +270,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-org78df015" class="outline-3">
-<h3 id="org78df015"><span class="section-number-3">1.4.</span> ct-make-hpluv &#x2013; <code style="background: #6a5b52;color: #f0f0f0; padding: 2px; border: 1px solid #6a5b52">(ct-make-hpluv 40 40 40)</code></h3>
+<div id="outline-container-orgd001fc0" class="outline-3">
+<h3 id="orgd001fc0"><span class="section-number-3">1.4.</span> ct-make-hpluv &#x2013; <code style="background: #6a5b52;color: #e8ebec; padding: 2px; border: 1px solid #6a5b52">(ct-make-hpluv 40 40 40)</code></h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #6e585c;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6b5a54;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #665c4e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5d5f4d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #546150;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #4c6257;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #48625f;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #4b6166;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #535f6b;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5d5c6c;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #665969;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6c5864;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6e585c;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6e585c;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6b5a54;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #665c4e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5f4d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #546150;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #4c6257;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #48625f;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #4b6166;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #535f6b;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5c6c;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #665969;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6c5864;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6e585c;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -288,17 +297,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #5d5d5d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #615d5b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #645c58;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #675b55;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #695b52;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6c5a4f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6e594b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #715948;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #735845;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #755741;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #77573d;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5d5d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #615d5b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #645c58;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #675b55;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #695b52;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6c5a4f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6e594b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #715948;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #735845;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #755741;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #77573d;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -308,17 +317,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #201a16;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #372e29;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #50443d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6a5b52;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #857368;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a28c7f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #bfa696;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d9c2b4;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ebe0da;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #201a16;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #372e29;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #50443d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6a5b52;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #857368;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a28c7f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #bfa696;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d9c2b4;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ebe0da;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feffff;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -327,22 +336,22 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orgad24c61" class="outline-3">
-<h3 id="orgad24c61"><span class="section-number-3">1.5.</span> ct-make-lab &#x2013; <code style="background: #a23d1d;color: #f0f0f0; padding: 2px; border: 1px solid #a23d1d">(ct-make-lab 40 40 40)</code></h3>
+<div id="outline-container-orgf973f79" class="outline-3">
+<h3 id="orgf973f79"><span class="section-number-3">1.5.</span> ct-make-lab &#x2013; <code style="background: #a23d1d;color: #e8ebec; padding: 2px; border: 1px solid #a23d1d">(ct-make-lab 40 40 40)</code></h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #3c0000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #4e0000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #680300;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #842305;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a23d1d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c05734;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #df714c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fe8b64;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffa67e;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffc298;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffdeb3;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #3c0000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #4e0000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #680300;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #842305;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a23d1d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c05734;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #df714c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fe8b64;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffa67e;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffc298;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffdeb3;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -352,17 +361,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #6f5c17;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7c5618;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #894f1a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #95471b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a13d1c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ad2f1e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b8181f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c40021;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cf0023;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #da0024;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e50026;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6f5c17;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7c5618;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #894f1a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #95471b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a13d1c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ad2f1e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b8181f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c40021;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cf0023;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #da0024;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e50026;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -372,17 +381,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #973f5f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9b3e4f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9e3d3f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a03d2e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a23c1c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a33c02;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a33c00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a43c00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a53c00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a53b00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a63b00;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #973f5f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9b3e4f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9e3d3f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a03d2e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a23c1c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a33c02;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a33c00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a43c00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a53c00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a53b00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a63b00;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -391,22 +400,22 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-org5c56367" class="outline-3">
-<h3 id="org5c56367"><span class="section-number-3">1.6.</span> ct-make-lch &#x2013; <code style="background: #944735;color: #f0f0f0; padding: 2px; border: 1px solid #944735">(ct-make-lch 40 40 40)</code></h3>
+<div id="outline-container-orgbe26c0d" class="outline-3">
+<h3 id="orgbe26c0d"><span class="section-number-3">1.6.</span> ct-make-lch &#x2013; <code style="background: #944735;color: #e8ebec; padding: 2px; border: 1px solid #944735">(ct-make-lch 40 40 40)</code></h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #330000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #430000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #5d1709;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #782f1f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #944735;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b1604c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ce7a64;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ec947d;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffaf97;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffcbb2;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffe7ce;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #330000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #430000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #5d1709;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #782f1f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #944735;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b1604c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ce7a64;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ec947d;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffaf97;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffcbb2;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffe7ce;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -416,17 +425,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #5d5d5d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6d5853;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7b5349;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #884d3f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #934735;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9e3f2a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a83520;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b12814;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #bb1206;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c40000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cd0000;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5d5d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6d5853;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7b5349;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #884d3f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #934735;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9e3f2a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a83520;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b12814;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #bb1206;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c40000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cd0000;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -436,19 +445,19 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #973f5e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #97433e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #884f24;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6e5b16;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #4e6520;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #1e6a3b;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #006d5c;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #006c7d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #006995;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #00619f;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5d5496;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #85477e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #973f5e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #973f5e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #97433e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #884f24;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6e5b16;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #4e6520;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #1e6a3b;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #006d5c;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #006c7d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #006995;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #00619f;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5d5496;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #85477e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #973f5e;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -457,24 +466,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orge3ec586" class="outline-3">
-<h3 id="orge3ec586"><span class="section-number-3">1.7.</span> ct-make-hsl &#x2013; <code style="background: #d6d65b;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">(ct-make-hsl 60 60 60)</code></h3>
+<div id="outline-container-orgb48ee58" class="outline-3">
+<h3 id="orgb48ee58"><span class="section-number-3">1.7.</span> ct-make-hsl &#x2013; <code style="background: #d6d65b;color: #444748; padding: 2px; border: 1px solid #444748">(ct-make-hsl 60 60 60)</code></h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d65a5a;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d6985a;color: #5a5a5a; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d6d65a;color: #5a5a5a; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #98d65a;color: #5a5a5a; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5ad65a;color: #5a5a5a; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5ad698;color: #5a5a5a; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5ad6d6;color: #5a5a5a; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5a98d6;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5a5ad6;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #985ad6;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d65ad6;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d65a98;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d65a5a;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d65a5a;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d6985a;color: #444748; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d6d65a;color: #444748; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #98d65a;color: #444748; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5ad65a;color: #444748; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5ad698;color: #444748; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5ad6d6;color: #444748; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5a98d6;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5a5ad6;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #985ad6;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d65ad6;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d65a98;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d65a5a;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -484,17 +493,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #989898;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a2a28e;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #adad83;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b7b779;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c1c16f;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cbcb65;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d5d55b;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e0e050;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #eaea46;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f4f43c;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feff31;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #989898;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a2a28e;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #adad83;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b7b779;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c1c16f;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cbcb65;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d5d55b;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e0e050;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #eaea46;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f4f43c;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feff31;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -504,17 +513,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #28280a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #515114;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7a7a1e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a3a328;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cbcc32;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d6d65b;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e0e084;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #eaeaad;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f4f4d6;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fefeff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #28280a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #515114;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7a7a1e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a3a328;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cbcc32;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d6d65b;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e0e084;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #eaeaad;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f4f4d6;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fefeff;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -523,24 +532,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-org93a892c" class="outline-3">
-<h3 id="org93a892c"><span class="section-number-3">1.8.</span> ct-make-hsv &#x2013; <code style="background: #99993d;color: #f0f0f0; padding: 2px; border: 1px solid #99993d">(ct-make-hsv 60 60 60)</code></h3>
+<div id="outline-container-org8f00b07" class="outline-3">
+<h3 id="org8f00b07"><span class="section-number-3">1.8.</span> ct-make-hsv &#x2013; <code style="background: #99993d;color: #e8ebec; padding: 2px; border: 1px solid #99993d">(ct-make-hsv 60 60 60)</code></h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #993d3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #996a3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #99993d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6a993d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d993d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d996a;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d9999;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d6a99;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #3d3d99;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6a3d99;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #993d99;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #993d6b;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #993d3d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #993d3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #996a3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #99993d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6a993d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d993d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d996a;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d9999;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d6a99;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #3d3d99;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6a3d99;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #993d99;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #993d6b;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #993d3d;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -550,17 +559,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #999999;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #999989;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99997a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99996b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99995b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99994c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99993d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99992d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99991e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99990f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #999900;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #999999;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #999989;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99997a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99996b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99995b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99994c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99993d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99992d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99991e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99990f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #999900;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -570,17 +579,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #19190a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #333314;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #4c4c1e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #666628;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7f7f32;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #99993d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b2b247;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cccc51;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e5e55b;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffff65;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #19190a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #333314;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #4c4c1e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #666628;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7f7f32;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #99993d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b2b247;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cccc51;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e5e55b;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffff65;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -589,24 +598,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orgc2b4d29" class="outline-3">
-<h3 id="orgc2b4d29"><span class="section-number-3">1.9.</span> ct-make-hsluv &#x2013; <code style="background: #a88c59;color: #f0f0f0; padding: 2px; border: 1px solid #a88c59">(ct-make-hsluv 60 60 60)</code></h3>
+<div id="outline-container-org71c57d8" class="outline-3">
+<h3 id="org71c57d8"><span class="section-number-3">1.9.</span> ct-make-hsluv &#x2013; <code style="background: #a88c59;color: #e8ebec; padding: 2px; border: 1px solid #a88c59">(ct-make-hsluv 60 60 60)</code></h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #db6c86;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #c97c59;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #a78c58;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8f9458;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6a9c58;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5b9c7e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5d9a93;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5f98a4;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6294be;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #9086d3;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #c36fd2;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d769b1;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #db6c86;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #db6c86;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #c97c59;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #a78c58;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8f9458;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6a9c58;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5b9c7e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5d9a93;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5f98a4;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6294be;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #9086d3;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #c36fd2;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d769b1;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #db6c86;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -616,17 +625,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #8f8f8f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #948f87;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #988e7f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9d8d77;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a08d6e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a48c64;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a78c59;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ab8b4d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ae8a3e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b18a2a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b38900;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #8f8f8f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #948f87;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #988e7f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9d8d77;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a08d6e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a48c64;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a78c59;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ab8b4d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ae8a3e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b18a2a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b38900;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -636,17 +645,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #211a0d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #392e1a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #534429;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6e5b38;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #8b7348;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a88c59;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c7a66a;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e6c17c;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f4dfc0;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #211a0d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #392e1a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #534429;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6e5b38;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #8b7348;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a88c59;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c7a66a;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e6c17c;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f4dfc0;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feffff;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -655,24 +664,24 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orgf1866c2" class="outline-3">
-<h3 id="orgf1866c2"><span class="section-number-3">1.10.</span> ct-make-hpluv &#x2013; <code style="background: #a18d6f;color: #f0f0f0; padding: 2px; border: 1px solid #a18d6f">(ct-make-hpluv 60 60 60)</code></h3>
+<div id="outline-container-org001e7a3" class="outline-3">
+<h3 id="org001e7a3"><span class="section-number-3">1.10.</span> ct-make-hpluv &#x2013; <code style="background: #a18d6f;color: #e8ebec; padding: 2px; border: 1px solid #a18d6f">(ct-make-hpluv 60 60 60)</code></h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #b1838c;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #ac877b;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #a08d6e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8f926b;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #7b9773;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #689a81;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #5e9a93;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #6597a2;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #7892ac;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8f8bae;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #a386a9;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #ae839d;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #b1838c;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #b1838c;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #ac877b;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #a08d6e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8f926b;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #7b9773;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #689a81;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #5e9a93;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #6597a2;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #7892ac;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8f8bae;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #a386a9;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #ae839d;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #b1838c;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -682,17 +691,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #8f8f8f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #928f8a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #968e85;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #998e80;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9b8d7a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9e8d74;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a18c6e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a38c68;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a58c61;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a88b5a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #aa8b53;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #8f8f8f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #928f8a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #968e85;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #998e80;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9b8d7a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9e8d74;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a18c6e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a38c68;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a58c61;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a88b5a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #aa8b53;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -702,17 +711,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #000000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #201a12;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #372f23;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #4f4535;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #6a5c47;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #85745b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #a18d6f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #bfa784;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d8c3a5;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ebe0d3;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #feffff;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #000000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #201a12;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #372f23;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #4f4535;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #6a5c47;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #85745b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #a18d6f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #bfa784;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d8c3a5;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ebe0d3;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #feffff;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -721,22 +730,22 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orgf08d0f5" class="outline-3">
-<h3 id="orgf08d0f5"><span class="section-number-3">1.11.</span> ct-make-lab &#x2013; <code style="background: #fc5925;color: #f0f0f0; padding: 2px; border: 1px solid #fc5925">(ct-make-lab 60 60 60)</code></h3>
+<div id="outline-container-org5eaa058" class="outline-3">
+<h3 id="org5eaa058"><span class="section-number-3">1.11.</span> ct-make-lab &#x2013; <code style="background: #fc5925;color: #e8ebec; padding: 2px; border: 1px solid #fc5925">(ct-make-lab 60 60 60)</code></h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #4c0000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #620000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7d0000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9b0000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #bb1900;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #db3c06;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fc5925;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ff753e;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ff9158;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffae72;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffcb8c;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #4c0000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #620000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7d0000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9b0000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #bb1900;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #db3c06;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fc5925;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ff753e;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ff9158;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffae72;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffcb8c;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -746,17 +755,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #ab8d17;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b98719;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c7801c;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d5791e;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e27020;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ef6522;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fc5825;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ff4827;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ff3029;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ff002b;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ff002d;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ab8d17;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b98719;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c7801c;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d5791e;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e27020;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ef6522;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fc5825;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ff4827;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ff3029;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ff002b;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ff002d;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -766,17 +775,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #ec5d92;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f05c81;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f45b70;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f65a5f;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f8594d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fa593a;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fc5825;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fd5800;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fd5800;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fe5800;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #fe5800;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ec5d92;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f05c81;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f45b70;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f65a5f;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f8594d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fa593a;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fc5825;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fd5800;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fd5800;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fe5800;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #fe5800;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -785,22 +794,22 @@ This is a visualization page for functions used in the <a href="https://github.c
 </p>
 </div>
 </div>
-<div id="outline-container-orgb9edd66" class="outline-3">
-<h3 id="orgb9edd66"><span class="section-number-3">1.12.</span> ct-make-lch &#x2013; <code style="background: #d47932;color: #f0f0f0; padding: 2px; border: 1px solid #d47932">(ct-make-lch 60 60 60)</code></h3>
+<div id="outline-container-org1f30210" class="outline-3">
+<h3 id="org1f30210"><span class="section-number-3">1.12.</span> ct-make-lch &#x2013; <code style="background: #d47932;color: #e8ebec; padding: 2px; border: 1px solid #d47932">(ct-make-lch 60 60 60)</code></h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #390000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #480000;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #601700;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #7a2f00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #984700;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b66018;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d47932;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f3934b;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffae65;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffca7f;color: #5a5a5a; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ffe69a;color: #5a5a5a; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #390000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #480000;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #601700;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #7a2f00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #984700;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b66018;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d47932;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f3934b;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffae65;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffca7f;color: #444748; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ffe69a;color: #444748; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -810,17 +819,17 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #909090;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #9f8c81;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ac8972;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #b78563;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #c18153;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #cb7d43;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #d37932;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #db741d;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #e36f00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #ea6a00;color: #f0f0f0; width: 9.090909090909092%;"></div>
-<div class="colorblock colorcenter" style="background: #f16400;color: #f0f0f0; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #909090;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #9f8c81;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ac8972;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #b78563;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #c18153;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #cb7d43;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #d37932;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #db741d;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #e36f00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #ea6a00;color: #e8ebec; width: 9.090909090909092%;"></div>
+<div class="colorblock colorcenter" style="background: #f16400;color: #e8ebec; width: 9.090909090909092%;"></div>
  </div>
 </p>
 
@@ -830,19 +839,19 @@ This is a visualization page for functions used in the <a href="https://github.c
 
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #ed5c92;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #ec645e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #d37931;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #aa8d16;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #759c2a;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #1ca558;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #00a88e;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #00a8c3;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #00a2eb;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #0096fa;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #8f81ec;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #cf6ac6;color: #f0f0f0; width: 7.6923076923076925%;"></div>
-<div class="colorblock colorcenter" style="background: #ed5c92;color: #f0f0f0; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #ed5c92;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #ec645e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #d37931;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #aa8d16;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #759c2a;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #1ca558;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #00a88e;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #00a8c3;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #00a2eb;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #0096fa;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #8f81ec;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #cf6ac6;color: #e8ebec; width: 7.6923076923076925%;"></div>
+<div class="colorblock colorcenter" style="background: #ed5c92;color: #e8ebec; width: 7.6923076923076925%;"></div>
  </div>
 </p>
 
@@ -856,292 +865,292 @@ This is a visualization page for functions used in the <a href="https://github.c
 <h2 id="Hue-rotation"><span class="section-number-2">2.</span> Hue rotation <a href="#Hue-rotation">#</a></h2>
 <div class="outline-text-2" id="text-Hue-rotation">
 </div>
-<div id="outline-container-orgf4a93de" class="outline-3">
-<h3 id="orgf4a93de"><span class="section-number-3">2.1.</span> ct-rotation-hsl</h3>
+<div id="outline-container-orgccc59ff" class="outline-3">
+<h3 id="orgccc59ff"><span class="section-number-3">2.1.</span> ct-rotation-hsl</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d2;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #c8d287;color: #5a5a5a; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d2;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #c8d287;color: #444748; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d2;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #d29187;color: #5a5a5a; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #87d291;color: #5a5a5a; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d2;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #d29187;color: #444748; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #87d291;color: #444748; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d2;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d287a2;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #c8d287;color: #5a5a5a; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #87d2b6;color: #5a5a5a; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d2;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d287a2;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #c8d287;color: #444748; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #87d2b6;color: #444748; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d2;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d287b9;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d2af87;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #9bd287;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #87d2cd;color: #5a5a5a; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d2;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d287b9;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d2af87;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9bd287;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #87d2cd;color: #444748; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d2;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d287c8;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d29187;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c8d287;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #87d291;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #87c9d2;color: #5a5a5a; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d2;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d287c8;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d29187;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c8d287;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #87d291;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #87c9d2;color: #444748; width: 16.666666666666668%;"></div>
  </div>45° turn: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #67d475;color: #5a5a5a; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #67d475;color: #444748; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #c6d467;color: #5a5a5a; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #67c5d4;color: #5a5a5a; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #c6d467;color: #444748; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #67c5d4;color: #444748; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d4ac67;color: #5a5a5a; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #67d475;color: #5a5a5a; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #678fd4;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d4ac67;color: #444748; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #67d475;color: #444748; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #678fd4;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d48b67;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #9ad467;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #67d4b6;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #676fd4;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d48b67;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9ad467;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #67d4b6;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #676fd4;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d47567;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c6d467;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #67d475;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #67c5d4;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #7667d4;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d47567;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c6d467;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #67d475;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #67c5d4;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #7667d4;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>
 </p>
 </div>
 </div>
-<div id="outline-container-org4910b88" class="outline-3">
-<h3 id="org4910b88"><span class="section-number-3">2.2.</span> ct-rotation-hsv</h3>
+<div id="outline-container-orga400e65" class="outline-3">
+<h3 id="orga400e65"><span class="section-number-3">2.2.</span> ct-rotation-hsv</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d3;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #c8d387;color: #5a5a5a; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d3;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #c8d387;color: #444748; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d3;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #d39187;color: #5a5a5a; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #87d391;color: #5a5a5a; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d3;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #d39187;color: #444748; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #87d391;color: #444748; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d3;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d387a2;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #c8d387;color: #5a5a5a; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #87d3b7;color: #5a5a5a; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d3;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d387a2;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #c8d387;color: #444748; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #87d3b7;color: #444748; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d3;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d387b9;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d3af87;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #9bd387;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #87d3cd;color: #5a5a5a; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d3;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d387b9;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d3af87;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9bd387;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #87d3cd;color: #444748; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9187d3;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d387c8;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d39187;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c8d387;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #87d391;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #87c8d3;color: #5a5a5a; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9187d3;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d387c8;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d39187;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c8d387;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #87d391;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #87c8d3;color: #444748; width: 16.666666666666668%;"></div>
  </div>45° turn: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #67d476;color: #5a5a5a; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #67d476;color: #444748; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #c5d467;color: #5a5a5a; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #67c5d4;color: #5a5a5a; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #c5d467;color: #444748; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #67c5d4;color: #444748; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d4ac67;color: #5a5a5a; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #67d476;color: #5a5a5a; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #678fd4;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d4ac67;color: #444748; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #67d476;color: #444748; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #678fd4;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d48b67;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #9ad467;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #67d4b6;color: #5a5a5a; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #676fd4;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d48b67;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9ad467;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #67d4b6;color: #444748; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #676fd4;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c5;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d47667;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c5d467;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #67d476;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #67c5d4;color: #5a5a5a; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #7667d4;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c5;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d47667;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c5d467;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #67d476;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #67c5d4;color: #444748; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #7667d4;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>
 </p>
 </div>
 </div>
-<div id="outline-container-orga625a74" class="outline-3">
-<h3 id="orga625a74"><span class="section-number-3">2.3.</span> ct-rotation-hsluv</h3>
+<div id="outline-container-orgb4b1e9d" class="outline-3">
+<h3 id="orgb4b1e9d"><span class="section-number-3">2.3.</span> ct-rotation-hsluv</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9087d2;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #909459;color: #f0f0f0; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9087d2;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #909459;color: #e8ebec; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9087d2;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #c97d5a;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #5c9d7e;color: #f0f0f0; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9087d2;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #c97d5a;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #5c9d7e;color: #e8ebec; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9087d2;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #db6e87;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #909459;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #5e9b93;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9087d2;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #db6e87;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #909459;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #5e9b93;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9087d2;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d86ca1;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #ad8a5a;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #5e9f59;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #5f9a9d;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9087d2;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d86ca1;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #ad8a5a;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #5e9f59;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #5f9a9d;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9087d2;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d66ab1;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c97d5a;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #909459;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #5c9d7e;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #6099a4;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9087d2;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d66ab1;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c97d5a;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #909459;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #5c9d7e;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #6099a4;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>45° turn: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d368c5;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #5a9e6b;color: #f0f0f0; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d368c5;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #5a9e6b;color: #e8ebec; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d368c5;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #9c9059;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #5f9a9b;color: #f0f0f0; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #d368c5;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9c9059;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #5f9a9b;color: #e8ebec; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d368c5;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #b5865a;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #5a9e6b;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #6197af;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d368c5;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #b5865a;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #5a9e6b;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #6197af;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d368c5;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #cd7a5a;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #879659;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #5d9b8e;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #6494c3;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d368c5;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #cd7a5a;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #879659;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #5d9b8e;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #6494c3;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d368c5;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #dd6f68;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #9c9059;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #5a9e6b;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #5f9a9b;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #728fd2;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d368c5;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #dd6f68;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9c9059;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #5a9e6b;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #5f9a9b;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #728fd2;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>
 </p>
 </div>
 </div>
-<div id="outline-container-orgafedaab" class="outline-3">
-<h3 id="orgafedaab"><span class="section-number-3">2.4.</span> ct-rotation-hpluv</h3>
+<div id="outline-container-org5d0575a" class="outline-3">
+<h3 id="org5d0575a"><span class="section-number-3">2.4.</span> ct-rotation-hpluv</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9089c3;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #90954b;color: #f0f0f0; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9089c3;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #90954b;color: #e8ebec; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9089c3;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #bc826c;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #41a178;color: #f0f0f0; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9089c3;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #bc826c;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #41a178;color: #e8ebec; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9089c3;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #c57b8a;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #90954b;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #07a195;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9089c3;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #c57b8a;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #90954b;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #07a195;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9089c3;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #c4799b;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #ae8a56;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #659d61;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #10a0a5;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9089c3;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #c4799b;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #ae8a56;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #659d61;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #10a0a5;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9089c3;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c179a6;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #bc826c;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #90954b;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #41a178;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #2a9daf;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9089c3;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c179a6;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #bc826c;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #90954b;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #41a178;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #2a9daf;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>45° turn: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bb7bb1;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #589f69;color: #f0f0f0; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #bb7bb1;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #589f69;color: #e8ebec; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bb7bb1;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #9d904c;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #09a0a3;color: #f0f0f0; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #bb7bb1;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9d904c;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #09a0a3;color: #e8ebec; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bb7bb1;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #b4875d;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #589f69;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #489ab8;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #bb7bb1;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #b4875d;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #589f69;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #489ab8;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bb7bb1;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #bd816e;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #86974e;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #1aa18d;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #6894c0;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #bb7bb1;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #bd816e;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #86974e;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #1aa18d;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #6894c0;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #bb7bb1;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c17e7a;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #9d904c;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #589f69;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #09a0a3;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #7b8fc3;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #bb7bb1;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c17e7a;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9d904c;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #589f69;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #09a0a3;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #7b8fc3;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>
 </p>
 </div>
 </div>
-<div id="outline-container-org1b8de16" class="outline-3">
-<h3 id="org1b8de16"><span class="section-number-3">2.5.</span> ct-rotation-lch</h3>
+<div id="outline-container-orgc1b8571" class="outline-3">
+<h3 id="orgc1b8571"><span class="section-number-3">2.5.</span> ct-rotation-lch</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
  <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9186d3;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #81994b;color: #f0f0f0; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9186d3;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #81994b;color: #e8ebec; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9186d3;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #c6804f;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #00a38d;color: #f0f0f0; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #9186d3;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #c6804f;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #00a38d;color: #e8ebec; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9186d3;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d6746d;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #81994b;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #00a3b3;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9186d3;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d6746d;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #81994b;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #00a3b3;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9186d3;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d87083;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #af8b43;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #46a16e;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #00a0c6;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #9186d3;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d87083;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #af8b43;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #46a16e;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #00a0c6;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #9186d3;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #d57093;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #c6804f;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #81994b;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #00a38d;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #009ed0;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #9186d3;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d57093;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #c6804f;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #81994b;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #00a38d;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #009ed0;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>45° turn: <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c6;color: #f0f0f0; width: 50.0%;"></div>
-<div class="colorblock colorcenter" style="background: #00a658;color: #f0f0f0; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c6;color: #e8ebec; width: 50.0%;"></div>
+<div class="colorblock colorcenter" style="background: #00a658;color: #e8ebec; width: 50.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c6;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #a98e0b;color: #f0f0f0; width: 33.333333333333336%;"></div>
-<div class="colorblock colorcenter" style="background: #00a9c7;color: #f0f0f0; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c6;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #a98e0b;color: #e8ebec; width: 33.333333333333336%;"></div>
+<div class="colorblock colorcenter" style="background: #00a9c7;color: #e8ebec; width: 33.333333333333336%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c6;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #d4792c;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #00a658;color: #f0f0f0; width: 25.0%;"></div>
-<div class="colorblock colorcenter" style="background: #00a3f0;color: #f0f0f0; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c6;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d4792c;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #00a658;color: #e8ebec; width: 25.0%;"></div>
+<div class="colorblock colorcenter" style="background: #00a3f0;color: #e8ebec; width: 25.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c6;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #e66b46;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #7e9a1e;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #00aa9c;color: #f0f0f0; width: 20.0%;"></div>
-<div class="colorblock colorcenter" style="background: #009cfc;color: #f0f0f0; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c6;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #e66b46;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #7e9a1e;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #00aa9c;color: #e8ebec; width: 20.0%;"></div>
+<div class="colorblock colorcenter" style="background: #009cfc;color: #e8ebec; width: 20.0%;"></div>
  </div> <div style='display: flex; flex-wrap: wrap; justify-content: center;'>  
-<div class="colorblock colorcenter" style="background: #d467c6;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #ee625a;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #a98e0b;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #00a658;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #00a9c7;color: #f0f0f0; width: 16.666666666666668%;"></div>
-<div class="colorblock colorcenter" style="background: #0095fe;color: #f0f0f0; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #d467c6;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #ee625a;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #a98e0b;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #00a658;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #00a9c7;color: #e8ebec; width: 16.666666666666668%;"></div>
+<div class="colorblock colorcenter" style="background: #0095fe;color: #e8ebec; width: 16.666666666666668%;"></div>
  </div>
 </p>
 

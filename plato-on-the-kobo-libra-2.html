@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-21 Mon 21:22 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>plato on the kobo libra 2</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -28,10 +27,10 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
 </head>
 <body>
 <main id="content" class="content">
@@ -139,17 +138,17 @@ just looks &ldquo;right&rdquo; to me for reading):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml">[<span style="color: #00acc3;">reader</span>]
-<span style="color: #0095ac;">south-strip</span> = <span style="color: #cb7000;">"next-page"</span>
-<span style="color: #0095ac;">font-path</span> = <span style="color: #cb7000;">"/mnt/onboard/.adds/plato/fonts"</span>
-<span style="color: #0095ac;">font-family</span> = <span style="color: #cb7000;">"Georgia"</span>
-<span style="color: #0095ac;">margin-width</span> = 10
-<span style="color: #0095ac;">max-margin-width</span> = 20
-<span style="color: #0095ac;">line-height</span> = 1.1
-<span style="color: #0095ac;">ignore-document-css</span> = <span style="color: #5a5a5a;">true</span>
+<pre class="src src-toml">[<span style="color: #006e96;">reader</span>]
+<span style="color: #c6007f;">south-strip</span> = <span style="color: #007c00;">"next-page"</span>
+<span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
+<span style="color: #c6007f;">font-family</span> = <span style="color: #007c00;">"Georgia"</span>
+<span style="color: #c6007f;">margin-width</span> = 10
+<span style="color: #c6007f;">max-margin-width</span> = 20
+<span style="color: #c6007f;">line-height</span> = 1.1
+<span style="color: #c6007f;">ignore-document-css</span> = <span style="color: #0065c8;">true</span>
 
-[<span style="color: #00acc3;">reader.paragraph-breaker</span>]
-<span style="color: #0095ac;">stretch-tolerance</span> = 1.5
+[<span style="color: #006e96;">reader.paragraph-breaker</span>]
+<span style="color: #c6007f;">stretch-tolerance</span> = 1.5
 </pre>
 </div>
 
@@ -182,7 +181,7 @@ accessible with this option in <code>Settings.toml</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><span style="color: #0095ac;">font-path</span> = <span style="color: #cb7000;">"/mnt/onboard/.adds/plato/fonts"</span>
+<pre class="src src-toml"><span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
 </pre>
 </div>
 </div>
@@ -195,18 +194,18 @@ Create <code>~/kobo/.adds/plato/css/epub-user.css</code>, and add:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css"><span style="color: #0095ac;">p</span> {
-    <span style="color: #5a5a5a;">text-align</span>: justify;
-    <span style="color: #5a5a5a;">margin</span>: 1em 0 0 0 <span style="color: #5a5a5a;">!important</span>;
+<pre class="src src-css"><span style="color: #c6007f;">p</span> {
+    <span style="color: #0065c8;">text-align</span>: justify;
+    <span style="color: #0065c8;">margin</span>: 1em 0 0 0 <span style="color: #0065c8;">!important</span>;
 }
 
-<span style="color: #0095ac;">p + p</span> {
-    <span style="color: #5a5a5a;">text-indent</span>: 1em;
-    <span style="color: #5a5a5a;">margin</span>: 0 <span style="color: #5a5a5a;">!important</span>;
+<span style="color: #c6007f;">p + p</span> {
+    <span style="color: #0065c8;">text-indent</span>: 1em;
+    <span style="color: #0065c8;">margin</span>: 0 <span style="color: #0065c8;">!important</span>;
 }
 
-<span style="color: #0095ac;">img</span> { <span style="color: #8a8a8a;">/* </span><span style="color: #8a8a8a;">for centering</span><span style="color: #8a8a8a;"> */</span>
-    <span style="color: #5a5a5a;">margin</span>: auto;
+<span style="color: #c6007f;">img</span> { <span style="color: #6a6d6e;">/* </span><span style="color: #6a6d6e;">for centering</span><span style="color: #6a6d6e;"> */</span>
+    <span style="color: #0065c8;">margin</span>: auto;
 }
 </pre>
 </div>
@@ -220,9 +219,9 @@ For a db located in  <code>~/kobo/library</code>, set path like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml">[[<span style="color: #00acc3;">libraries</span>]]
-<span style="color: #0095ac;">path</span> = <span style="color: #cb7000;">"/mnt/onboard/library"</span>
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">...</span>
+<pre class="src src-toml">[[<span style="color: #006e96;">libraries</span>]]
+<span style="color: #c6007f;">path</span> = <span style="color: #007c00;">"/mnt/onboard/library"</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">...</span>
 </pre>
 </div>
 </div>

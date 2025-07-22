@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-21 Mon 00:31 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Archiving CD's on linux</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -19,17 +18,19 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
 </head>
 <body>
 <main id="content" class="content">
@@ -43,7 +44,15 @@
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-05-05-Archiving-CD's-on-linux.org">source</a>
 </div>
 <h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
     Archiving CD's on linux
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
 </h1>
 <div class="org-center">
 <p>
@@ -94,7 +103,7 @@ With cdparanoia:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5a5a5a;">cd</span> /place/to/store/tracks
+<pre class="src src-sh"><span style="color: #0065c8;">cd</span> /place/to/store/tracks
 cdparanoia -d &lt;dev&gt; -B
 </pre>
 </div>
@@ -104,7 +113,7 @@ cdparanoia -d &lt;dev&gt; -B
 <h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf"><span class="section-number-2">3.</span> Backing up to an ISO <a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">#</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
 <div class="org-src-container">
-<pre class="src src-sh">dd <span style="color: #0095ac;">if</span>=&lt;dev&gt; <span style="color: #0095ac;">of</span>=/path/to/label.iso <span style="color: #0095ac;">bs</span>=128k
+<pre class="src src-sh">dd <span style="color: #c6007f;">if</span>=&lt;dev&gt; <span style="color: #c6007f;">of</span>=/path/to/label.iso <span style="color: #c6007f;">bs</span>=128k
 </pre>
 </div>
 </div>

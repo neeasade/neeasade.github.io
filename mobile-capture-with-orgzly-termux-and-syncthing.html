@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2025-07-21 Mon 00:31 -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>My Mobile Setup</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -19,17 +18,19 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='/assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=1a738054b4cb351d1bdece2d51def881'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d6efac35e229065b9c00d6cdc8d181b5'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
 </head>
 <body>
 <main id="content" class="content">
@@ -43,7 +44,15 @@
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2020-04-07-mobile-capture-with-orgzly,-termux,-and-syncthing.org">source</a>
 </div>
 <h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
     My Mobile Setup
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
 </h1>
 <div class="org-center">
 <p>
@@ -79,7 +88,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="org0ac4186">
+<figure id="org7eb70b3">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -91,7 +100,7 @@ turns into:
 </div>
 
 
-<figure id="org490a5ce">
+<figure id="org9fa9f74">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
@@ -105,19 +114,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">200mb</span>
-  <span style="color: #0095ac;">size_limit</span>=200000
-  <span style="color: #0095ac;">sync_music_dir</span>=<span style="color: #cb7000;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #0095ac;">music_dir</span>=<span style="color: #cb7000;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">200mb</span>
+  <span style="color: #c6007f;">size_limit</span>=200000
+  <span style="color: #c6007f;">sync_music_dir</span>=<span style="color: #007c00;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #c6007f;">music_dir</span>=<span style="color: #007c00;">"$HOME/Music"</span>
 
-  <span style="color: #0095ac;">IFS</span>=$<span style="color: #cb7000;">'\n'</span>
-  <span style="color: #5a5a5a;">while </span><span style="color: #5a5a5a;">read</span> -r f; <span style="color: #5a5a5a;">do</span>
-      <span style="color: #0095ac;">collection_size</span>=$(<span style="color: #0095ac;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
-      <span style="color: #5a5a5a;">if</span> [ $<span style="color: #0095ac;">collection_size</span> -lt $<span style="color: #0095ac;">size_limit</span> ]; <span style="color: #5a5a5a;">then</span>
-          <span style="color: #5a5a5a;">echo</span> cp <span style="color: #cb7000;">"${music_dir}/$f"</span> <span style="color: #cb7000;">"$sync_music_dir"</span>
-          cp <span style="color: #cb7000;">"${music_dir}/$f"</span> <span style="color: #cb7000;">"$sync_music_dir"</span>
-      <span style="color: #5a5a5a;">fi</span>
-  <span style="color: #5a5a5a;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #cb7000;">'%file%'</span> | shuf)
+  <span style="color: #c6007f;">IFS</span>=$<span style="color: #007c00;">'\n'</span>
+  <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r f; <span style="color: #0065c8;">do</span>
+      <span style="color: #c6007f;">collection_size</span>=$(<span style="color: #c6007f;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
+      <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">collection_size</span> -lt $<span style="color: #c6007f;">size_limit</span> ]; <span style="color: #0065c8;">then</span>
+          <span style="color: #0065c8;">echo</span> cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+          cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+      <span style="color: #0065c8;">fi</span>
+  <span style="color: #0065c8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007c00;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
@@ -157,7 +166,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="orgf3d90f5">
+<figure id="org9e79781">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -167,7 +176,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="orge135002">
+<figure id="org311eb55">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dokku</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="dokku">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
+<meta property="og:url" content="https://notes.neeasade.net/dokku.html">
+<meta property="description" content="">
+<meta name="twitter:card" content="summary">
+<script src="/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
+<script src="../published/assets/js/linktext.js" defer></script>
+<script src="../published/assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
+<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<div style="float: left">
+    <a href='/index.html'>../ＳＴＸ</a>
+</div>
+
+<div style="float: right">
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/dokku.org">source</a>
+</div>
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
+    dokku
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+    </svg>
+</h1>
+<div class="org-center">
+<p>
+
+</p>
+</div>
+<span class=pubinfo>
+    Published 2025-07-22
+</span>
+</header>
+<hr>
+<p>
+<a href="https://dokku.com/">dokku</a> is a PaaS (&ldquo;platform as a service&rdquo; or heroku-like) I&rsquo;d heard about off and
+on over the years, but awhile back I got the chance to use it and it <i>just
+worked</i> so hard I completely forgot about it, even though it&rsquo;s been running for
+a year.
+</p>
+
+<p>
+It looks like I took notes at the time on the setup (on a debian box hosted on
+vultr) - named the &ldquo;app&rdquo; muffin, after my cat:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #c6007f;">domain</span>=app.neeasade.net
+<span style="color: #c6007f;">app_name</span>=muffin
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">on server</span>
+wget -NP . https://dokku.com/install/v0.35.7/bootstrap.sh
+sudo <span style="color: #c6007f;">DOKKU_TAG</span>=v0.35.7 bash bootstrap.sh
+dokku domains:set-global <span style="color: #007c00;">"$domain"</span>
+cat ~/.ssh/authorized_keys | dokku ssh-keys:add admin
+dokku apps:create <span style="color: #007c00;">'$app_name'</span>
+- open ports 80, 443
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">on your computer/from repo</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">... add Procfile, then:</span>
+git remote add dokku <span style="color: #007c00;">"dokku@$domain:$app_name"</span>
+git push dokku main
+</pre>
+</div>
+
+<p>
+As soon as you run git push, dokku runs the Procfile! That&rsquo;s all there is to it.
+</p>
+
+<p>
+links:
+</p>
+<ul class="org-ul">
+<li><a href="https://dokku.com/docs/getting-started/installation/">dokku installation</a></li>
+<li><a href="https://dokku.com/docs/deployment/application-deployment/">dokku deployment</a></li>
+</ul>
+
+<div class=separator> ∗ ∗ ∗ </div>
+
+<p>
+usecase:
+</p>
+
+<p>
+The <a href="https://github.com/neeasade/ct.el">ct.el</a> readme needs a few hundred color images for it&rsquo;s documentation (colors
+are visual!), so I setup a little clojure service to send back smol square svgs.
+The entire source is below:
+</p>
+
+<p>
+<code>./src/muffin/handler.clj</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-clojure">
+<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">ns</span> <span style="color: #006e96;">muffin.handler</span>
+  <span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">:require</span> <span style="color: #6a6d6e;">[</span>compojure.core <span style="color: #0065c8;">:refer</span> <span style="color: #0065c8;">:all</span><span style="color: #6a6d6e;">]</span>
+            <span style="color: #6a6d6e;">[</span>compojure.route <span style="color: #0065c8;">:as</span> route<span style="color: #6a6d6e;">]</span>
+            <span style="color: #6a6d6e;">[</span>ring.util.response <span style="color: #0065c8;">:as</span> resp<span style="color: #6a6d6e;">]</span>
+            <span style="color: #6a6d6e;">[</span>ring.middleware.defaults <span style="color: #0065c8;">:refer</span> <span style="color: #6a6d6e;">[</span>wrap-defaults site-defaults<span style="color: #6a6d6e;">]]))</span>
+
+<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">svg-response</span> <span style="color: #6a6d6e;">[</span>svg-content<span style="color: #6a6d6e;">]</span>
+  <span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">-&gt;</span> <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">resp</span>/response svg-content<span style="color: #6a6d6e;">)</span>
+      <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">resp</span>/content-type <span style="color: #007c00;">"image/svg+xml"</span><span style="color: #6a6d6e;">)</span>
+      <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">resp</span>/header <span style="color: #007c00;">"Cache-Control"</span> <span style="color: #007c00;">"public, max-age=31536000, immutable"</span><span style="color: #6a6d6e;">)))</span>
+
+<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">color-block</span>
+  <span style="color: #6a6d6e;">([</span>color<span style="color: #6a6d6e;">]</span> <span style="color: #6a6d6e;">(</span>color-block color 16<span style="color: #6a6d6e;">))</span>
+  <span style="color: #6a6d6e;">([</span>color width<span style="color: #6a6d6e;">]</span>
+   <span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">when</span> <span style="color: #6a6d6e;">(</span>re-matches #<span style="color: #007c00;">"[a-f0-9]{6}"</span> color<span style="color: #6a6d6e;">)</span>
+     <span style="color: #6a6d6e;">(</span>format <span style="color: #007c00;">"&lt;svg xmlns='http://www.w3.org/2000/svg' width='%s' height='%s'&gt;</span>
+<span style="color: #007c00;">  &lt;rect width='%s' height='%s' fill='#%s'/&gt;</span>
+<span style="color: #007c00;">&lt;/svg&gt;"</span> width width width width color<span style="color: #6a6d6e;">))))</span>
+
+<span style="color: #6a6d6e;">(</span>defroutes app-routes
+  <span style="color: #6a6d6e;">(</span>GET <span style="color: #007c00;">"/"</span> <span style="color: #6a6d6e;">[]</span> <span style="color: #007c00;">"But why? -_-"</span><span style="color: #6a6d6e;">)</span>
+  <span style="color: #6a6d6e;">(</span>GET <span style="color: #007c00;">"/colorsquare/:color.svg"</span> <span style="color: #6a6d6e;">[</span>color<span style="color: #6a6d6e;">]</span> <span style="color: #6a6d6e;">(</span>svg-response <span style="color: #6a6d6e;">(</span>color-block color<span style="color: #6a6d6e;">)))</span>
+  <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">route</span>/not-found <span style="color: #007c00;">"Not Found"</span><span style="color: #6a6d6e;">))</span>
+
+<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">def</span> <span style="color: #c6007f;">app</span> <span style="color: #6a6d6e;">(</span>wrap-defaults app-routes site-defaults<span style="color: #6a6d6e;">))</span>
+</pre>
+</div>
+
+<p>
+<code>./project.clj</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-clojure"><span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">defproject</span> muffin <span style="color: #007c00;">"0.1.0-SNAPSHOT"</span>
+  <span style="color: #0065c8;">:min-lein-version</span> <span style="color: #007c00;">"2.0.0"</span>
+  <span style="color: #0065c8;">:dependencies</span> <span style="color: #6a6d6e;">[[</span><span style="color: #006e96;">org.clojure</span>/clojure <span style="color: #007c00;">"1.10.0"</span><span style="color: #6a6d6e;">]</span>
+                 <span style="color: #6a6d6e;">[</span>compojure <span style="color: #007c00;">"1.6.1"</span><span style="color: #6a6d6e;">]</span>
+                 <span style="color: #6a6d6e;">[</span><span style="color: #006e96;">ring</span>/ring-defaults <span style="color: #007c00;">"0.3.2"</span><span style="color: #6a6d6e;">]]</span>
+  <span style="color: #0065c8;">:plugins</span> <span style="color: #6a6d6e;">[[</span>lein-ring <span style="color: #007c00;">"0.12.5"</span><span style="color: #6a6d6e;">]]</span>
+  <span style="color: #0065c8;">:ring</span> {<span style="color: #0065c8;">:handler</span> <span style="color: #006e96;">muffin.handler</span>/app}
+  <span style="color: #0065c8;">:profiles</span> {<span style="color: #0065c8;">:dev</span> {<span style="color: #0065c8;">:dependencies</span> <span style="color: #6a6d6e;">[[</span><span style="color: #006e96;">javax.servlet</span>/servlet-api <span style="color: #007c00;">"2.5"</span><span style="color: #6a6d6e;">]</span>
+                                  <span style="color: #6a6d6e;">[</span><span style="color: #006e96;">ring</span>/ring-mock <span style="color: #007c00;">"0.3.2"</span><span style="color: #6a6d6e;">]]</span>}}<span style="color: #6a6d6e;">)</span>
+</pre>
+</div>
+
+<p>
+<code>./Procfile</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">web: lein ring server-headless
+</pre>
+</div>
+
+
+<p>
+<img src="http://muffin.app.neeasade.net/colorsquare/4fa4e8.svg" alt="4fa4e8.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/914fe8.svg" alt="914fe8.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/e84fa4.svg" alt="e84fa4.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/e8914f.svg" alt="e8914f.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/a5e84f.svg" alt="a5e84f.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/4fe892.svg" alt="4fe892.svg" class="org-svg">
+</p>
+
+<footer>
+    <div style="float: left">
+        
+    </div>
+    <div style="text-align: right">
+        
+    </div>
+</footer>
+<hr>
+</main>
+</body>
+</html>
