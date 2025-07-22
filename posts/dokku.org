@@ -1,0 +1,94 @@
+#+title: dokku
+#+title_extra:
+#+pubdate: <2025-07-22>
+#+filetags:
+
+[[https://dokku.com/][dokku]] is a PaaS ("platform as a service" or heroku-like) I'd heard about off and
+on over the years, but awhile back I got the chance to use it and it /just
+worked/ so hard I completely forgot about it, even though it's been running for
+a year.
+
+It looks like I took notes at the time on the setup (on a debian box hosted on
+vultr) - named the "app" muffin, after my cat:
+
+#+begin_src bash
+domain=app.neeasade.net
+app_name=muffin
+
+# on server
+wget -NP . https://dokku.com/install/v0.35.7/bootstrap.sh
+sudo DOKKU_TAG=v0.35.7 bash bootstrap.sh
+dokku domains:set-global "$domain"
+cat ~/.ssh/authorized_keys | dokku ssh-keys:add admin
+dokku apps:create '$app_name'
+- open ports 80, 443
+
+# on your computer/from repo
+# ... add Procfile, then:
+git remote add dokku "dokku@$domain:$app_name"
+git push dokku main
+#+end_src
+
+As soon as you run git push, dokku runs the Procfile! That's all there is to it.
+
+links:
+- [[https://dokku.com/docs/getting-started/installation/][dokku installation]]
+- [[https://dokku.com/docs/deployment/application-deployment/][dokku deployment]]
+
+-----
+
+usecase:
+
+The [[https://github.com/neeasade/ct.el][ct.el]] readme needs a few hundred color images for it's documentation (colors
+are visual!), so I setup a little clojure service to send back smol square svgs.
+The entire source is below:
+
+=./src/muffin/handler.clj=:
+#+begin_src clojure
+
+(ns muffin.handler
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.util.response :as resp]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
+
+(defn svg-response [svg-content]
+  (-> (resp/response svg-content)
+      (resp/content-type "image/svg+xml")
+      (resp/header "Cache-Control" "public, max-age=31536000, immutable")))
+
+(defn color-block
+  ([color] (color-block color 16))
+  ([color width]
+   (when (re-matches #"[a-f0-9]{6}" color)
+     (format "<svg xmlns='http://www.w3.org/2000/svg' width='%s' height='%s'>
+  <rect width='%s' height='%s' fill='#%s'/>
+</svg>" width width width width color))))
+
+(defroutes app-routes
+  (GET "/" [] "But why? -_-")
+  (GET "/colorsquare/:color.svg" [color] (svg-response (color-block color)))
+  (route/not-found "Not Found"))
+
+(def app (wrap-defaults app-routes site-defaults))
+#+end_src
+
+=./project.clj=:
+#+begin_src clojure
+(defproject muffin "0.1.0-SNAPSHOT"
+  :min-lein-version "2.0.0"
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [compojure "1.6.1"]
+                 [ring/ring-defaults "0.3.2"]]
+  :plugins [[lein-ring "0.12.5"]]
+  :ring {:handler muffin.handler/app}
+  :profiles {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+                                  [ring/ring-mock "0.3.2"]]}})
+#+end_src
+
+=./Procfile=:
+#+begin_src
+web: lein ring server-headless
+#+end_src
+
+[[http://muffin.app.neeasade.net/colorsquare/4fa4e8.svg]] [[http://muffin.app.neeasade.net/colorsquare/914fe8.svg]] [[http://muffin.app.neeasade.net/colorsquare/e84fa4.svg]] [[http://muffin.app.neeasade.net/colorsquare/e8914f.svg]] [[http://muffin.app.neeasade.net/colorsquare/a5e84f.svg]] [[http://muffin.app.neeasade.net/colorsquare/4fe892.svg]]
