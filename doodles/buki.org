@@ -1,0 +1,37 @@
+#+title: buki
+#+pubdate: <2025-07-23>
+#+rss_title:
+#+filetags:
+
+#+begin_export html
+<style>
+@keyframes hor-movement {
+  from {
+    margin-left: 0%;
+  }
+  to {
+    margin-left: 70%;
+  }
+}
+
+@keyframes ver-movement {
+  from {
+    margin-top: 0%;
+  }
+  to {
+    margin-top: 100%;
+  }
+}
+
+.image {
+  animation-name: hor-movement, ver-movement;
+  animation-duration: 3.141s, 1.414s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+</style>
+
+<img class="image" width=200 height=200 src="./assets/posts/buki.png" />
+#+end_export
