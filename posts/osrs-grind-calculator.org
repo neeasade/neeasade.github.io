@@ -1,7 +1,6 @@
 #+title: osrs grind calculator
 #+title_extra: napkin math for your suffering
 #+pubdate: <2025-07-22>
-#+draft: t
 #+rss_title:
 #+filetags:
 #+post_type: post
