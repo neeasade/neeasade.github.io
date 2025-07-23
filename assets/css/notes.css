@@ -11,6 +11,11 @@ body {
     background-size: auto 195px !important;
 }
 
+a:has(img) {
+    border: none !important;
+    background: none !important;
+}
+
 main {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
     background: var(--bg);
