@@ -23,14 +23,14 @@
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=2fec13999255583f3b6d5acd0d883869'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=e0a63f27032d7f3bb50c5b293dd64434'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=d5647458a9fd8d31659c7681cd727ebf'>
+<link rel='stylesheet' href='/assets/css/magick.css?sum=e71339f4a35fb23b9f6ddf718c2bfb68'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=e71339f4a35fb23b9f6ddf718c2bfb68'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=7b8a3fe61adfc349c8c4db02a803e542'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=7b8a3fe61adfc349c8c4db02a803e542'>
 </head>
 <body>
 <main id="content" class="content">
@@ -124,31 +124,31 @@ The entire source is below:
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">
-<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">ns</span> <span style="color: #006e96;">muffin.handler</span>
-  <span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">:require</span> <span style="color: #6a6d6e;">[</span>compojure.core <span style="color: #0065c8;">:refer</span> <span style="color: #0065c8;">:all</span><span style="color: #6a6d6e;">]</span>
-            <span style="color: #6a6d6e;">[</span>compojure.route <span style="color: #0065c8;">:as</span> route<span style="color: #6a6d6e;">]</span>
-            <span style="color: #6a6d6e;">[</span>ring.util.response <span style="color: #0065c8;">:as</span> resp<span style="color: #6a6d6e;">]</span>
-            <span style="color: #6a6d6e;">[</span>ring.middleware.defaults <span style="color: #0065c8;">:refer</span> <span style="color: #6a6d6e;">[</span>wrap-defaults site-defaults<span style="color: #6a6d6e;">]]))</span>
+(<span style="color: #0065c8;">ns</span> <span style="color: #006e96;">muffin.handler</span>
+  (<span style="color: #0065c8;">:require</span> [compojure.core <span style="color: #0065c8;">:refer</span> <span style="color: #0065c8;">:all</span>]
+            [compojure.route <span style="color: #0065c8;">:as</span> route]
+            [ring.util.response <span style="color: #0065c8;">:as</span> resp]
+            [ring.middleware.defaults <span style="color: #0065c8;">:refer</span> [wrap-defaults site-defaults]]))
 
-<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">svg-response</span> <span style="color: #6a6d6e;">[</span>svg-content<span style="color: #6a6d6e;">]</span>
-  <span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">-&gt;</span> <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">resp</span>/response svg-content<span style="color: #6a6d6e;">)</span>
-      <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">resp</span>/content-type <span style="color: #007c00;">"image/svg+xml"</span><span style="color: #6a6d6e;">)</span>
-      <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">resp</span>/header <span style="color: #007c00;">"Cache-Control"</span> <span style="color: #007c00;">"public, max-age=31536000, immutable"</span><span style="color: #6a6d6e;">)))</span>
+(<span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">svg-response</span> [svg-content]
+  (<span style="color: #0065c8;">-&gt;</span> (<span style="color: #006e96;">resp</span>/response svg-content)
+      (<span style="color: #006e96;">resp</span>/content-type <span style="color: #007c00;">"image/svg+xml"</span>)
+      (<span style="color: #006e96;">resp</span>/header <span style="color: #007c00;">"Cache-Control"</span> <span style="color: #007c00;">"public, max-age=31536000, immutable"</span>)))
 
-<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">color-block</span>
-  <span style="color: #6a6d6e;">([</span>color<span style="color: #6a6d6e;">]</span> <span style="color: #6a6d6e;">(</span>color-block color 16<span style="color: #6a6d6e;">))</span>
-  <span style="color: #6a6d6e;">([</span>color width<span style="color: #6a6d6e;">]</span>
-   <span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">when</span> <span style="color: #6a6d6e;">(</span>re-matches #<span style="color: #007c00;">"[a-f0-9]{6}"</span> color<span style="color: #6a6d6e;">)</span>
-     <span style="color: #6a6d6e;">(</span>format <span style="color: #007c00;">"&lt;svg xmlns='http://www.w3.org/2000/svg' width='%s' height='%s'&gt;</span>
+(<span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">color-block</span>
+  ([color] (color-block color 16))
+  ([color width]
+   (<span style="color: #0065c8;">when</span> (re-matches #<span style="color: #007c00;">"[a-f0-9]{6}"</span> color)
+     (format <span style="color: #007c00;">"&lt;svg xmlns='http://www.w3.org/2000/svg' width='%s' height='%s'&gt;</span>
 <span style="color: #007c00;">  &lt;rect width='%s' height='%s' fill='#%s'/&gt;</span>
-<span style="color: #007c00;">&lt;/svg&gt;"</span> width width width width color<span style="color: #6a6d6e;">))))</span>
+<span style="color: #007c00;">&lt;/svg&gt;"</span> width width width width color))))
 
-<span style="color: #6a6d6e;">(</span>defroutes app-routes
-  <span style="color: #6a6d6e;">(</span>GET <span style="color: #007c00;">"/"</span> <span style="color: #6a6d6e;">[]</span> <span style="color: #007c00;">"But why? -_-"</span><span style="color: #6a6d6e;">)</span>
-  <span style="color: #6a6d6e;">(</span>GET <span style="color: #007c00;">"/colorsquare/:color.svg"</span> <span style="color: #6a6d6e;">[</span>color<span style="color: #6a6d6e;">]</span> <span style="color: #6a6d6e;">(</span>svg-response <span style="color: #6a6d6e;">(</span>color-block color<span style="color: #6a6d6e;">)))</span>
-  <span style="color: #6a6d6e;">(</span><span style="color: #006e96;">route</span>/not-found <span style="color: #007c00;">"Not Found"</span><span style="color: #6a6d6e;">))</span>
+(defroutes app-routes
+  (GET <span style="color: #007c00;">"/"</span> [] <span style="color: #007c00;">"But why? -_-"</span>)
+  (GET <span style="color: #007c00;">"/colorsquare/:color.svg"</span> [color] (svg-response (color-block color)))
+  (<span style="color: #006e96;">route</span>/not-found <span style="color: #007c00;">"Not Found"</span>))
 
-<span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">def</span> <span style="color: #c6007f;">app</span> <span style="color: #6a6d6e;">(</span>wrap-defaults app-routes site-defaults<span style="color: #6a6d6e;">))</span>
+(<span style="color: #0065c8;">def</span> <span style="color: #c6007f;">app</span> (wrap-defaults app-routes site-defaults))
 </pre>
 </div>
 
@@ -156,15 +156,15 @@ The entire source is below:
 <code>./project.clj</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-clojure"><span style="color: #6a6d6e;">(</span><span style="color: #0065c8;">defproject</span> muffin <span style="color: #007c00;">"0.1.0-SNAPSHOT"</span>
+<pre class="src src-clojure">(<span style="color: #0065c8;">defproject</span> muffin <span style="color: #007c00;">"0.1.0-SNAPSHOT"</span>
   <span style="color: #0065c8;">:min-lein-version</span> <span style="color: #007c00;">"2.0.0"</span>
-  <span style="color: #0065c8;">:dependencies</span> <span style="color: #6a6d6e;">[[</span><span style="color: #006e96;">org.clojure</span>/clojure <span style="color: #007c00;">"1.10.0"</span><span style="color: #6a6d6e;">]</span>
-                 <span style="color: #6a6d6e;">[</span>compojure <span style="color: #007c00;">"1.6.1"</span><span style="color: #6a6d6e;">]</span>
-                 <span style="color: #6a6d6e;">[</span><span style="color: #006e96;">ring</span>/ring-defaults <span style="color: #007c00;">"0.3.2"</span><span style="color: #6a6d6e;">]]</span>
-  <span style="color: #0065c8;">:plugins</span> <span style="color: #6a6d6e;">[[</span>lein-ring <span style="color: #007c00;">"0.12.5"</span><span style="color: #6a6d6e;">]]</span>
+  <span style="color: #0065c8;">:dependencies</span> [[<span style="color: #006e96;">org.clojure</span>/clojure <span style="color: #007c00;">"1.10.0"</span>]
+                 [compojure <span style="color: #007c00;">"1.6.1"</span>]
+                 [<span style="color: #006e96;">ring</span>/ring-defaults <span style="color: #007c00;">"0.3.2"</span>]]
+  <span style="color: #0065c8;">:plugins</span> [[lein-ring <span style="color: #007c00;">"0.12.5"</span>]]
   <span style="color: #0065c8;">:ring</span> {<span style="color: #0065c8;">:handler</span> <span style="color: #006e96;">muffin.handler</span>/app}
-  <span style="color: #0065c8;">:profiles</span> {<span style="color: #0065c8;">:dev</span> {<span style="color: #0065c8;">:dependencies</span> <span style="color: #6a6d6e;">[[</span><span style="color: #006e96;">javax.servlet</span>/servlet-api <span style="color: #007c00;">"2.5"</span><span style="color: #6a6d6e;">]</span>
-                                  <span style="color: #6a6d6e;">[</span><span style="color: #006e96;">ring</span>/ring-mock <span style="color: #007c00;">"0.3.2"</span><span style="color: #6a6d6e;">]]</span>}}<span style="color: #6a6d6e;">)</span>
+  <span style="color: #0065c8;">:profiles</span> {<span style="color: #0065c8;">:dev</span> {<span style="color: #0065c8;">:dependencies</span> [[<span style="color: #006e96;">javax.servlet</span>/servlet-api <span style="color: #007c00;">"2.5"</span>]
+                                  [<span style="color: #006e96;">ring</span>/ring-mock <span style="color: #007c00;">"0.3.2"</span>]]}})
 </pre>
 </div>
 
@@ -176,7 +176,6 @@ The entire source is below:
 </pre>
 </div>
 
-
 <p>
 <img src="http://muffin.app.neeasade.net/colorsquare/4fa4e8.svg" alt="4fa4e8.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/914fe8.svg" alt="914fe8.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/e84fa4.svg" alt="e84fa4.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/e8914f.svg" alt="e8914f.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/a5e84f.svg" alt="a5e84f.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/4fe892.svg" alt="4fe892.svg" class="org-svg">
 </p>
@@ -186,7 +185,7 @@ The entire source is below:
         
     </div>
     <div style="text-align: right">
-        
+         <a href='https://notes.neeasade.net/enchiridion.html'>older: Enchiridion #51</a> 
     </div>
 </footer>
 <hr>
