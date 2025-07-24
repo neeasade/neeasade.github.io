@@ -1,3 +1,5 @@
 #+title: 404
 
-{{{image(iiam.gif)}}}
+Are you doing what you want to be doing right now?
+
+# {{{image(iiam.gif)}}}

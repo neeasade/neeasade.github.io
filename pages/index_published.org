@@ -1,7 +1,7 @@
-#+title: {{blog-title}}
-#+title_extra: {{{nav-strip([[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_curated.org][Curated]])}}}
+#+title: {{{blog-title}}}
+#+title_extra: [[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_doodles.org][Doodles]]
 
-posts+notes sorted by last-published date
+posts+notes sorted by =:published-date=
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-metas)
