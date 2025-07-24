@@ -126,55 +126,58 @@ function debounce(func, wait, immediate) {
 if (!!(window.history && history.replaceState) && typeof(Range) != "undefined") {
 	document.onselectionchange = debounce(() => {
 		const selection = window.getSelection();
-		if (!selection.isCollapsed) {
-			const nodes = getRangeSelectedNodes(selection.getRangeAt(0)).filter((n) => { return n.nodeType == 3 });
-			const hashes = nodes.map((n) => {
-				return hashnode(n);
-			});
+		console.log(selection);
+		if (selection.isCollapsed) {
+			return;
+		}
+		const nodes = getRangeSelectedNodes(selection.getRangeAt(0)).filter((n) => { return n.nodeType == 3 });
+		const hashes = nodes.map((n) => {
+			return hashnode(n);
+		});
 
-			// TODO: make selecting block elements work
-			if (hashes.length == 0) {
-				history.replaceState(null, null, window.location.pathname);
-				return;
-			}
+		// TODO: make selecting block elements work
+		if (hashes.length == 0) {
+			history.replaceState(null, null, window.location.pathname);
+			return;
+		}
 
-			let anchor_offsets = new Map();
-			anchor_offsets.set(hashnode(selection.anchorNode), [selection.anchorOffset]);
-			anchor_offsets.set(hashnode(selection.focusNode), [selection.focusOffset]);
-			if (anchor_offsets.size == 1) { anchor_offsets.set(hashnode(selection.anchorNode), [selection.anchorOffset, selection.focusOffset].sort()); }
+		let anchor_offsets = new Map();
+		anchor_offsets.set(hashnode(selection.anchorNode), [selection.anchorOffset]);
+		anchor_offsets.set(hashnode(selection.focusNode), [selection.focusOffset]);
+		if (anchor_offsets.size == 1) { anchor_offsets.set(hashnode(selection.anchorNode), [selection.anchorOffset, selection.focusOffset].sort()); }
 
-			if (hashes.length > 0) {
-				const version = "1";
-				const start_hash = hashes[0];
-				const start_offset = Math.min(...anchor_offsets.get(start_hash));
-				const end_hash = hashes[hashes.length-1];
-				const end_offset = Math.max(...anchor_offsets.get(end_hash));
-				const fragment = `#${version}.${start_hash}:${start_offset}.${end_hash}:${end_offset}`
-				history.replaceState(null, null, fragment);
-				return;
-			} 
+		if (hashes.length > 0) {
+			const version = "1";
+			const start_hash = hashes[0];
+			const start_offset = Math.min(...anchor_offsets.get(start_hash));
+			const end_hash = hashes[hashes.length-1];
+			const end_offset = Math.max(...anchor_offsets.get(end_hash));
+			const fragment = `#${version}.${start_hash}:${start_offset}.${end_hash}:${end_offset}`
+			history.replaceState(null, null, fragment);
+			return;
 		}
 		history.replaceState(null, null, window.location.pathname);
-	}, 250);
 
-	if (window.location.hash.length > 0) {
-		let [version, start_hash_full, end_hash_full] = window.location.hash.slice(1).split(".");
-		if (version == "1") {
-			let range = new Range();
-			let [start_hash, start_offset] = start_hash_full.split(":");
-			let [end_hash, end_offset] = end_hash_full.split(":");
-			let n, walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-			while (n = walk.nextNode()) { // eslint-disable-line no-cond-assign
-				const h = hashnode(n);
-				if (h == start_hash) { range.setStart(n, start_offset); }
-				if (h == end_hash) { range.setEnd(n, end_offset); }
+		if (window.location.hash.length > 0) {
+			let [version, start_hash_full, end_hash_full] = window.location.hash.slice(1).split(".");
+			if (version == "1") {
+				let range = new Range();
+				let [start_hash, start_offset] = start_hash_full.split(":");
+				let [end_hash, end_offset] = end_hash_full.split(":");
+				let n, walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+				while (n = walk.nextNode()) { // eslint-disable-line no-cond-assign
+					const h = hashnode(n);
+					if (h == start_hash) { range.setStart(n, start_offset); }
+					if (h == end_hash) { range.setEnd(n, end_offset); }
+				}
+				document.getSelection().removeAllRanges();
+				document.getSelection().addRange(range);
+				range.startContainer.parentElement.scrollIntoView();
+				window.scrollBy(0, -200);
+			} else {
+				console.log("unknown link version: ", version);
 			}
-			document.getSelection().removeAllRanges();
-			document.getSelection().addRange(range);
-		    range.startContainer.parentElement.scrollIntoView();
-		    window.scrollBy(0, -200);
-		} else {
-			console.log("unknown link version: ", version);
 		}
-	}
+
+	}, 250);
 }
