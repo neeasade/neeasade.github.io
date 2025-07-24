@@ -1,0 +1,15 @@
+:root {
+
+{{sitecolors}}
+
+--radius: 0px;
+
+/* compat */
+--background__: var(--background_strong);
+--background_: var(--background_weak);
+--foreground_ : var(--faded);
+--accent2_    : var(--strings);
+--accent2     : var(--alt);
+--accent1_    : var(--assumed);
+--accent1     : var(--primary);
+}

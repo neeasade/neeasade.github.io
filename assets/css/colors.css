@@ -1,71 +1,21 @@
-/* notes
-
-Get the mode color of a background image:
-$ convert "leaves.jpg" txt:- | awk '{print $3}' | rg -v pixel | sort | bb -i '(apply max-key val (frequencies *input*))'
-"#394400"
-
-Get the target background against that median:
-(ct-mix-opacity
-  (tarp/get :background)
-  "#394400"
-  0.95)
-
-=> "#dfe2e0"
-
-.. and then regenerate the base and emphasized themes around that opacity altered target
-
-$
-
-cat<<EOF | theme -p color.normal -r /dev/stdin
-
---background_subtle  : {{color.meta.subtle}};
---background_weak : {{color.weak.background}};
---background_strong: {{color.strong.background}};
---background_plus : {{color.focused.background}};
---background_subtle  : {{color.meta}};
-
---strings     : {{strings}};
---alt         : {{alt}};
---assumed     : {{assumed}};
---primary     : {{primary}};
-
---faded       : {{faded}};
---faded_weak : {{color.weak.faded}};
---faded_strong : {{color.strong.faded}};
-
---foreground  : {{foreground}};
---foreground_weak : {{color.weak.foreground}};
---foreground_strong : {{color.strong.foreground}};
---foreground_plus : {{color.focused.foreground}};
-EOF
-
-*/
-
 :root {
 
-
-
---background_subtle : #e7e7e7;
---background  : #f0f0f0;
---background_weak : #dddddd;
---background_strong: #d0d0d0;
---background_plus : #fed3c8;
-
---strings     : #cb7000;
---alt         : #00acc3;
---assumed     : #5a5a5a;
---primary     : #0095ac;
-
---faded       : #8a8a8a;
---faded_weak : #7d7d7d;
---faded_strong : #747474;
-
---foreground  : #5a5a5a;
---foreground_weak : #4f4f4f;
---foreground_strong : #474747;
---foreground_plus : #6e4338;
-
-/* ----- */
+--foreground_plus: #0c3653;
+--foreground_strong: #353233;
+--foreground_weak: #3a3b3c;
+--foreground: #444748;
+--faded_strong: #5b5859;
+--faded_weak: #606162;
+--faded: #6a6d6e;
+--primary: #c6007f;
+--assumed: #0065c8;
+--alt: #006e96;
+--strings: #007c00;
+--background_plus: #a6d0ed;
+--background_strong: #cdcacb;
+--background_weak: #d6d7d8;
+--background: #e8ebec;
+--background_subtle: #dfe2e3;
 
 --radius: 0px;
 

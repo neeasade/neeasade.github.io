@@ -8,7 +8,9 @@ body {
 
     /* keep bg size in sync for pixel perf rendering */
     background: url("../img/backgrounds/room.png") repeat;
-    background-size: auto 195px !important;
+    background: var(--background_plus);
+    /* background: url("../img/backgrounds/room.png") repeat; */
+    /* background-size: auto 195px !important; */
 }
 
 a:has(img) {
