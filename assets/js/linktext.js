@@ -126,7 +126,6 @@ function debounce(func, wait, immediate) {
 if (!!(window.history && history.replaceState) && typeof(Range) != "undefined") {
 	document.onselectionchange = debounce(() => {
 		const selection = window.getSelection();
-		console.log(selection);
 		if (selection.isCollapsed) {
 			return;
 		}
