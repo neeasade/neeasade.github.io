@@ -186,3 +186,7 @@ pre button {
     font-size: 1.5rem;
     white-space: nowrap;
 }
+
+input type {
+    background: var(--background_subtle);
+}

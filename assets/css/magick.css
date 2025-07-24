@@ -435,12 +435,13 @@ select {
 
     font-size: 2rem; /* 3 */
     color: var(--fg); /* 3 */
-    background-color: transparent; /* 3 */
-    border-bottom: 1px solid var(--fg); /* 3 */
-    border-radius: 0; /* 3 */
+    background-color: var(--background_subtle);
+    border: 1px solid var(--background_weak); /* 4 */
+    /* background-color: transparent; /\* 3 *\/ */
+    /* border-bottom: 1px solid var(--fg); /\* 3 *\/ */
+    border-radius: var(--radius); /* 3 */
     font-size: 1.8rem; /* 3 */
 
-    /* font-family: "Caveat", cursive; /\* 4 *\/ */
     font-size: 2.6rem; /* 4 */
     color: var(--form-fg); /* 4 */
     caret-color: var(--form-fg); /* 4 */
@@ -480,8 +481,9 @@ input[type="url"]:focus,
 textarea:focus,
 select:focus {
     outline: none; /* 1 */
-    border-bottom: 2px solid var(--fg); /* 2 */
-    margin-bottom: calc(1.6rem - 1px); /* 2 */
+    border-bottom: 1px solid var(--background_strong);
+    /* border-bottom: 2px solid var(--fg); /\* 2 *\/ */
+    /* margin-bottom: calc(1.6rem - 1px); /\* 2 *\/ */
 }
 
 

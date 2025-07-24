@@ -119,14 +119,13 @@
                     :level ""
                     :current-xp ""
                     :xp-per-hour  ""
-                    :error nil
-                    }))
+                    :error nil}))
 
 (defn error [s]
-  (swap! state update :error (constantly s)))
+  (swap! state assoc :error s))
 
 (defn update-state [& args]
-  (apply swap! state update args)
+  (apply swap! state assoc args)
   (prn @state)
 
   (let [{:keys [current-xp xp-per-hour level hours]} @state
@@ -136,10 +135,9 @@
 
     (error nil)
     (cond
-      (nil? xp-per-hour) (error "error parsing XP per hour")
-      (nil? current-xp) (error "error parsing current XP")
-      :else (do
-              (swap! state update :hours (constantly (hours-left current-xp xp-per-hour level)))))))
+      (nil? xp-per-hour) (error "parsing XP per hour")
+      (nil? current-xp) (error "parsing current XP")
+      :else (swap! state assoc :hours (hours-left current-xp xp-per-hour level)))))
 
 ;; todo: input box for current level -> current xp sync (later)
 
@@ -148,13 +146,13 @@
     [:div
      [:p "Current XP: " [:input {:type "text"
                                  :value current-xp
-                                 :on-change #(update-state :current-xp (fn [] (-> % .-target .-value)))}]]
+                                 :on-change #(update-state :current-xp (-> % .-target .-value))}]]
      [:p "Target Level: " [:input {:type "number"
                                    :value level
-                                   :on-change #(update-state :level (fn [] (-> % .-target .-value)))}]]
+                                   :on-change #(update-state :level (-> % .-target .-value))}]]
      [:p "XP per hour: " [:input {:type "text"
                                   :value xp-per-hour
-                                  :on-change #(update-state :xp-per-hour (fn [] (-> % .-target .-value)))}]]
+                                  :on-change #(update-state :xp-per-hour (-> % .-target .-value))}]]
      (when error [:p "Error: " error])
      [:h1 "HOURS: " hours]]))
 
