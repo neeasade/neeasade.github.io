@@ -19,10 +19,9 @@ straight through to the post.
 ;; count
 (->> (ns/blog-get-tags)
      (--sort (> (second it) (second other)))
-     (-map (-lambda ((tag count html-dest))
-               (message html-dest)
+     (-map (-lambda ((tag count slug))
                (if (= count 1)
-                   (format "[[%s][%s (%s)]]" html-dest tag count)
+                   (format "[[./%s.org][%s (%s)]]" slug tag count)
                  (format "[[./tag-%s.org][%s (%s)]]" tag tag count))))
      (s-join "\n"))
 #+end_src
