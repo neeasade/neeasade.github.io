@@ -18,7 +18,6 @@ straight through to the post.
 #+BEGIN_SRC elisp :results raw :exports results
 ;; count
 (->> (ns/blog-get-tags)
-
      (--sort (> (second it) (second other)))
      (-map (-lambda ((tag count html-dest))
                (message html-dest)

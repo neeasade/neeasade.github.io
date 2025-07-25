@@ -1,7 +1,6 @@
 #+title: {{{blog-title}}}
 #+title_extra: [[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_doodles.org][Doodles]]
 
-?
 posts+notes sorted by =:published-date=
 
 #+BEGIN_SRC elisp :results raw :exports results

@@ -8,7 +8,7 @@ I hate tagging content. It occurs to me for a series, but never ahead of time,
 and they are nice to have for browsing. Let's add slop to the web by tagging
 posts here with [[https://ollama.com/][ollama]]!
 
-We can create a motel derived from an existing one with a [[https://github.com/ollama/ollama/blob/main/docs/modelfile.md][ModelFile]]:
+We can create a model derived from an existing one with a [[https://github.com/ollama/ollama/blob/main/docs/modelfile.md][ModelFile]]:
 
 #+begin_src dockerfile :tangle ../tags/modelfile.txt
 FROM phi4:latest
@@ -56,3 +56,12 @@ emacs,programming,text-editor,lisp,customization
 
 I'm not much of a prompt engineer, but it's been fun (and infuriating) to see
 how little shifts in the system prompt affect the quality of the tagging.
+
+-----
+
+Much more interesting has been HOWTO display the tags around the site. Showing
+generated tags on every header would get noisy fast - I've decided that what
+makes tags meaningful is there being multiple posts with a tag (it's annoying to
+click a tag link and find out you are on the only relevant post already). You
+can see the tag cloud over at [[./tags.org][tag links]], but for now only tags that have
+multiple posts are shown at the top of post pages.
