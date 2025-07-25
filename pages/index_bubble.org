@@ -15,16 +15,8 @@ a {
 #+end_export
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->> (ns/blog-get-metas)
-     (-filter (-lambda ((&hash :is-index :draft-p :edited-date :type))
-		  (and edited-date 	; tracked by git
-		   (not draft-p)
-		   (not is-index)
-		   ;; (-contains-p '("post" "note" "doodle" "page") type)
-		   )))
-     (--sort (string-greaterp
-	      (ht-get it :edited-date)
-	      (ht-get other :edited-date)))
+(->> (ns/blog-get-metas-public)
+     (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
      (-map (-lambda ((&hash :html-dest :title))
 	       (format "[[file:./%s.html][%s]]" (f-base html-dest) title)))
      (s-join "\n"))

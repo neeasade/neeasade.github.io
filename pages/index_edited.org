@@ -4,14 +4,10 @@
 posts+notes sorted by =:edited-date=
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->> (ns/blog-get-metas)
-     (-filter (-lambda ((&hash :draft-p :edited-date :type))
-		  (and edited-date
-		   (not draft-p)
-		   (-contains-p '("post" "note") type))))
-     (--sort (string-greaterp
-	      (ht-get it :edited-date)
-	      (ht-get other :edited-date)))
+(->> (ns/blog-get-metas-public)
+     (--filter (or (ht-get it :is-post)
+		   (ht-get it :is-note)))
+     (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
      (-map (-lambda ((&hash :edited-date :html-dest :title))
 	       (format "- <%s> [[file:./%s.html][%s]]"
 		edited-date (f-base html-dest) title)))

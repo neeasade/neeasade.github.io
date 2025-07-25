@@ -2,11 +2,8 @@
 #+title_extra: entries of type ~page~
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->> (ns/blog-get-metas)
-     (-filter (-lambda ((&hash :draft-p :edited-date :type))
-		  (and edited-date 	; tracked by git
-		   (not draft-p)
-		   (-contains-p '("page") type))))
+(->> (ns/blog-get-metas-public)
+     (--filter (ht-get it :is-page))
      (-remove (-lambda ((&hash :path))
 		  (--any (s-contains-p it (f-base path))
 		   '("index" "404" "sitemap"))))

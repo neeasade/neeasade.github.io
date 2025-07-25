@@ -1,17 +1,14 @@
 #+title: {{{blog-title}}}
 #+title_extra: [[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_doodles.org][Doodles]]
 
+?
 posts+notes sorted by =:published-date=
 
 #+BEGIN_SRC elisp :results raw :exports results
-(->> (ns/blog-get-metas)
-     (-filter (-lambda ((&hash :draft-p :edited-date :type))
-		  (and edited-date 	; tracked by git
-		   (not draft-p)
-		   (-contains-p '("post" "note") type))))
-     (--sort (string-greaterp
-	      (ht-get it :published-date)
-	      (ht-get other :published-date)))
+(->> (ns/blog-get-metas-public)
+     (--filter (or (ht-get it :is-post)
+		   (ht-get it :is-note)))
+     (--sort (string> (ht-get it :published-date) (ht-get other :published-date)))
      (-map (-lambda ((&hash :published-date :html-dest :title))
 	       (format "- <%s> [[file:./%s.html][%s]]"
 		published-date (f-base html-dest) title)))
