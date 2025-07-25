@@ -18,11 +18,7 @@ straight through to the post.
 #+BEGIN_SRC elisp :results raw :exports results
 ;; count
 (->> (ns/blog-get-tags)
-     (--map (llet [posts (-filter (lambda (meta) (-contains? (ht-get meta :tags) it)) (ns/blog-get-metas-public))]
-                  (list it
-                        (length posts)
-                        (when (= 1 (length posts))
-                          (ht-get (first posts) :html-dest )))))
+
      (--sort (> (second it) (second other)))
      (-map (-lambda ((tag count html-dest))
                (message html-dest)

@@ -1,0 +1,85 @@
+2013-05-11-sources-of-offline-documentation.org@documentation,offline,browser,linux,emacs
+2013-05-17-general-thoughts-on-summer.org@college,internship,programming,summer,career
+2013-05-29-crunchbang-11.org@CrunchBang,dual-boot,Ubuntu,Windows,Grub
+2013-05-31-the-battle-for-wesnoth.org@Battle for Wesnoth,Linux,games,strategy,campaigns
+2013-06-05-guildwars.org@guildwars,guildwars2,multiplayer,achievement,camp
+2013-06-21-more-gw2-api-released.org@gw2,api,map,tiles,browser
+2013-08-04-weekend.org@overtime,pizza,leap motion,games,midi files
+2013-12-16-asdf.org@growth,uncomfortable
+2014-02-04-virtualbox-setup-on-arch-linux.org@virtualbox,archlinux,windows,mount,extension
+2014-02-17-creation-of-a-time-based-wallpaper-with-feh.org@bash,feh,wallpaper,time,script
+2014-02-21-configuring-constant-lang-variable.org@sublime,text,locale,Linux,LANG
+2014-02-23-wasd-v2-mechanical-keyboard.org@keyboard,mechanical,birthday,purchase,WASD
+2014-05-24-youtube_rip_with_dwb_+_youtube-dl.org@youtube,download,dwb,youtube-dl,ffmpeg
+2015-02-20-Registers-with-GDB.org@gdb,assembly,registers,debugging,makefile
+2013-05-11-sources-of-offline-documentation.org@documentation,offline,browser,linux,emacs
+2013-05-17-general-thoughts-on-summer.org@college,internship,programming,summer,career
+2013-05-29-crunchbang-11.org@CrunchBang,dual-boot,Ubuntu,Windows,Grub
+2013-05-31-the-battle-for-wesnoth.org@Battle for Wesnoth,Linux,games,strategy,campaigns
+2013-06-05-guildwars.org@guildwars,guildwars2,multiplayer,achievement,camp
+2013-06-21-more-gw2-api-released.org@gw2,api,map,tiles,browser
+2015-04-03-BPSWM-Experiences.org@bspwm, i3, panel, scripting, customization
+2015-04-28-BSPWM-Multihead.org@bspwm,i3,multihead,monitors,window management
+2017-05-28-Ryo_Fukui.org@Ryo Fukui,jazz,piano,album,bootleg
+2018-03-19-Pok3r-Mapping.org@keyboard,mapping,programming,customization,scripting
+2018-04-04-curl-exit-code-60-on-Windows.org@curl,windows,certificates,emacs-request,ca-certificates
+2018-04-04-restclient.el-+-elasticsearch.org@emacs,elasticsearch,restclient,plugin,autocomplete
+2018-04-10-quote-to-string-in-elisp.org@elisp,quote,string,fix,code
+2018-04-16-add-local-font-files-linux.org@linux,fonts,cache,command
+2018-05-06-vim-quick-reference.org@vim,command,reference,languages,plugin
+2018-05-07-git-svn-reference.org@git,svn,magit,hook,workflow
+2019-05-21-tldr-org-mode-+-graphviz.org@emacs,org-mode,dot-language,graphviz,attributes
+2019-12-06-On-Emacs.org@emacs,config,lisp,programming,text-editor
+2020-01-15-Updating-nix-channels.org@nix,channels,nixos,configuration,update
+2020-01-16-shell-getopts.org@shell,getopts,scripting,options,usage
+2020-02-07-rice-links.org@rice,customization,community,emacs,dotfiles
+2020-03-11-xeros-irc-ref.org@irc,commands,nick,serv,channel
+2020-03-14-adhoc-executable-patching-on-nix.org@nixos,patching,nix-shell,build-definition,executable
+2020-04-07-mobile-capture-with-orgzly,-termux,-and-syncthing.org@mobile,syncthing,orgmode,music,browsing
+2020-04-10-reverse-ssh-tunnels.org@ssh,reverse,tunnel,vps,laptop
+2020-05-02-blog-meta.org@100daystooffload,blogging,goals,writing,emacs
+2020-05-03-checking-for-toots.org@mastodon,toot,cli,fomo,notifications
+2020-05-04-colemak-dh-mod.org@colemak,dh,keyboard,comfort,remap
+2020-05-05-Archiving-CD's-on-linux.org@linux,cd,dvd,mount,iso
+2020-05-08-Automata-tiling-backgrounds.org@automata,wallpapers,tiles,camille,mpv
+2020-05-10-tickling-bash,-a-rofi-adventure.org@bash,menu,emacs,rofi,touch typing
+2020-06-09-Pinebook-Pro.org@pinebook,emacs,battery,script,writing
+2020-07-15-meatbag-maintenance.org@exercise,health,diet,supplements,sleep
+2020-07-24-sound-log.org@music,recursion,soundtrack,zulip,album
+2020-08-02-webrings.org@webrings, comeback, internet
+2020-08-03-ImageMagick-notes.org@imagemagick,rotate,image,color,stack
+2020-08-04-Aug-2020.org@unemployment,emacs,clojure,personal growth,programming
+2020-08-07-A-fun-focus-exercise.org@agile,exercise,multitasking,productivity,context-switching
+2020-08-12-pulseaudio-user-notes.org@pulseaudio,gui,nix,noise,calls
+2020-08-13-color-spaces.org@color,contrast,color-space,hsl,lab,emacs
+2020-08-14-Automata-tiling-backgrounds-2.org@automata,cellular,backgrounds,patterns,compression
+2020-09-10-nixos-notes.org@nix,nixos,links,gimp,nix-env
+2020-11-01-annoying-org-typing-slowdowns.org@emacs,speed,latency,modes,performance
+2020-11-04-reduce.org@clojure,reduce,habit,state,loop-recur
+2020-11-09-my-shell-prompt.org@bash,emacs,vim,git,ssh
+2020-11-30-monday.org@meta,blog,coding,programming,minimalism
+2020-12-12-o7.org@xkcd,commentary,o7,holiday,emoji
+2020-12-13-search-term-playlists.org@mpd,youtube-dl,playlist,music,bash
+2020-12-14-printing-and-scanning-on-linux.org@linux,printing,scanning,pdf,software
+2020-12-17-Calf-Path.org@poem,history,moral,followers,path
+2020-12-31-systemd-user-services.org@linux,systemd,battery,notifications,dotfiles
+2021-01-04-fortune-quotes.org@git,fortune,quote,dotfiles,random
+2021-01-04-passionate-state-of-mind.org@Eric Hoffer,confidence,intensity,skill,power
+2021-01-05-color-tools.el.org@emacs,code,color-tools
+2021-01-08-stoicism.org@stoicism,philosophy,ancient
+2021-01-19-tarps.org@emacs,theme,color,palette,code
+2022.org@meditation,yoga,emacs,twitter,covid
+automata-tiles-3.org@automata,tiles,code,screenshot,gif
+dokku.org@dokku,deployment,clojure,services,paaS
+Enchiridion.org@self-improvement,reasoning,growth,socrates,philosophy
+Nicotine.org@nicotine,nasal,caffeine,sleep,bowels,gums,moderation,lethargy
+planner-reflections.org@planner,bulletjournal,productivity,magic,reflection
+plato-on-the-kobo-libra-2.org@kobo,plato,e-reader,firmware,settings
+reptile-waterfall.org@movie,soda,popcorn,solo,adventure
+rice-slop.org@rice,sauce,chicken,tuna,vegetables
+scotland-log.org@travel,scotland,edinburgh,oban,inverness,hostels
+Sharath-led-primary-notes.org@ashtanga,yoga,sharath,guru,practice
+sxhkd-ish.org@swaywm,binding,keybinding,templating,scripting
+tag-slop.org@ollama,content,tagging,prompt,engineering
+tiled-wallpaper-sources.org@tiled wallpaper,sources,patterns,archives
+Warcraft-III-1.21b-HD.org@warcraft,blizzard,resolution,regedit,4k

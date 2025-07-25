@@ -1,16 +1,13 @@
 #+title: Drafts
 # #+title_extra: {{{nav-strip((Drafts))}}}
 
-These may be in a /very/ partial state.
+These may be in a /very/ partial state. Last edit date shown.
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-metas)
-     (-filter (-lambda ((&hash :draft-p :edited-date))
-		  (and edited-date 	; tracked by git
-		   draft-p)))
-     (--sort (string-greaterp
-	      (ht-get it :edited-date)
-	      (ht-get other :edited-date)))
+     (--remove (ht-get it :hidden))
+     (--filter (ht-get it :is-draft))
+     (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
      (-map (-lambda ((&hash :edited-date :html-dest :title))
 	       (format "- <%s> [[file:./%s.html][%s]]"
 		edited-date (f-base html-dest) title)))
