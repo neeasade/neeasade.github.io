@@ -1,6 +1,8 @@
 #+title: A fun focus exercise
 #+pubdate: <2020-08-07>
 
+#+html_head: <style> td { border: 1px solid var(--foreground)} </style>
+
 Circa 2015 I worked for a contracting software company (you know the ones, all work is project based, your time "on the bench" is paid so you can be retained, priorities shift fast because someone is always chasing a whale), where I had a weekly 1-on-1 meeting with an "agile coach". Later I learned the practice of holding 1-on-1's was common (at least in agile shops), but at the time it was a brand new thing for me. The check-in was nice and sort of served as a "psychological stand up" or something. IDK, just felt nice to take a short meeting to be like "yeah, things are going OK, have a good one" (and if they weren't, a place to ask questions).
 
 Anyway, at one of these meetings the coach had an exercise that I really enjoyed for showing the value of working on only one thing at a time. It's something I hear repeated everywhere, that humans can't multitask well, and that deliberate learning by isolating a task can get you farther than switching over everywhere. In my experience that has proved true, and this was a fun exercise to prove the point.
