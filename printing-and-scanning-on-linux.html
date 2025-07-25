@@ -14,29 +14,29 @@
 <meta property="og:title" content="printing and scanning on linux">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/printing-and-scanning-on-linux.html">
+<meta property="og:url" content="https://neeasade.net/printing-and-scanning-on-linux.html">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
 </head>
 <body>
 <main id="content" class="content">
 <header>
 <div style="float: left">
-    <a href='/index.html'>../Notes</a>
+    <a href='./index.html'>../notes</a>
 </div>
 
 <div style="float: right">
@@ -62,6 +62,7 @@
 <span class=pubinfo>
     Published 2020-12-14
 </span>
+<div class="posttags"> <a href='./tag-linux.html'>#linux</a> </div>
 </header>
 <hr>
 <div id="outline-container-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574" class="outline-2">
@@ -82,11 +83,11 @@ I&rsquo;ve never gotten xsane to work. <code>scanimage</code> did me good though
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nb: might need sudo on scanimage</span>
-$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list devices:</span>
+<pre class="src src-sh">$ <span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">nb: might need sudo on scanimage</span>
+$ <span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">list devices:</span>
 $ scanimage -L
-$ scanimage -d <span style="color: #007c00;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">create a PDF with graphicsmagic</span>
+$ scanimage -d <span style="color: #cb7000;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">create a PDF with graphicsmagic</span>
 $ gm convert result.pnm result.pdf
 </pre>
 </div>
@@ -125,10 +126,10 @@ $ pdfunite in-0*.pdf out.pdf
 
 <footer>
     <div style="float: left">
-         <a href='https://notes.neeasade.net/calf-path.html'>newer: The Calf Path</a> 
+         <a href='calf-path.html'>newer: The Calf Path</a> 
     </div>
     <div style="text-align: right">
-         <a href='https://notes.neeasade.net/search-term-playlists.html'>older: search term playlists</a> 
+         <a href='search-term-playlists.html'>older: search term playlists</a> 
     </div>
 </footer>
 <hr>

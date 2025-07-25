@@ -14,29 +14,29 @@
 <meta property="og:title" content="sxhkd-ish">
 <meta property="og:description" content="another place the shell lives forever">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/sxhkd-ish.html">
+<meta property="og:url" content="https://neeasade.net/sxhkd-ish.html">
 <meta property="description" content="another place the shell lives forever">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
 </head>
 <body>
 <main id="content" class="content">
 <header>
 <div style="float: left">
-    <a href='/index.html'>../Notes</a>
+    <a href='./index.html'>../notes</a>
 </div>
 
 <div style="float: right">
@@ -63,6 +63,7 @@ another place the shell lives forever
     Published 2021-01-26,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">2022-07-20</a>
 </span>
+<div class="posttags"> <a href='./tag-scripting.html'>#scripting</a><a href='./tag-shell.html'>#shell</a> </div>
 </header>
 <hr>
 <p>
@@ -71,7 +72,7 @@ For years now, I&rsquo;ve used bspwm as my daily driver window manager. It does 
 
 <div class="org-src-container">
 <pre class="src src-conf">super + Escape
-    notify-send <span style="color: #007c00;">"reloading sxhkd!"</span>; pkill -USR1 -x sxhkd
+    notify-send <span style="color: #cb7000;">"reloading sxhkd!"</span>; pkill -USR1 -x sxhkd
 
 super + {_,shift,alt,ctrl} + {h,n,e,l}
     {focus,move,resize,presel}.sh {west,south,north,east}
@@ -157,22 +158,22 @@ Armed with this knowledge, I glued together something terrible for my <code>sway
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #0065c8;">bind</span>() {
-    <span style="color: #c6007f;">args</span>=(<span style="color: #007c00;">"$@"</span>)
-    <span style="color: #0065c8;">for</span> i<span style="color: #0065c8;"> in</span> $(<span style="color: #c6007f;">seq 0 "$(( (${#args[@]} / 2</span><span style="color: #007c00;">) - 1 ))"</span>); <span style="color: #0065c8;">do</span>
-        <span style="color: #c6007f;">key</span>=$(<span style="color: #c6007f;">echo "${args[$i]}" | sed 's/super/Mod4/' </span>)
+<pre class="src src-bash"><span style="color: #5a5a5a;">bind</span>() {
+    <span style="color: #0095ac;">args</span>=(<span style="color: #cb7000;">"$@"</span>)
+    <span style="color: #5a5a5a;">for</span> i<span style="color: #5a5a5a;"> in</span> $(<span style="color: #0095ac;">seq 0 "$(( (${#args[@]} / 2</span><span style="color: #cb7000;">) - 1 ))"</span>); <span style="color: #5a5a5a;">do</span>
+        <span style="color: #0095ac;">key</span>=$(<span style="color: #0095ac;">echo "${args[$i]}" | sed 's/super/Mod4/' </span>)
 
-        <span style="color: #c6007f;">val_index</span>=$(<span style="color: #c6007f;">( i + (${#args[@]} / 2</span>) ))
-        <span style="color: #c6007f;">val</span>=${<span style="color: #c6007f;">args</span>[$<span style="color: #c6007f;">val_index</span>]}
+        <span style="color: #0095ac;">val_index</span>=$(<span style="color: #0095ac;">( i + (${#args[@]} / 2</span>) ))
+        <span style="color: #0095ac;">val</span>=${<span style="color: #0095ac;">args</span>[$<span style="color: #0095ac;">val_index</span>]}
 
-        <span style="color: #0065c8;">echo</span> swaymsg bindsym <span style="color: #007c00;">"$key"</span> <span style="color: #007c00;">"$bindprefix$val"</span>
-        swaymsg bindsym <span style="color: #007c00;">"$key"</span> <span style="color: #007c00;">"$bindprefix$val"</span>
-    <span style="color: #0065c8;">done</span>
+        <span style="color: #5a5a5a;">echo</span> swaymsg bindsym <span style="color: #cb7000;">"$key"</span> <span style="color: #cb7000;">"$bindprefix$val"</span>
+        swaymsg bindsym <span style="color: #cb7000;">"$key"</span> <span style="color: #cb7000;">"$bindprefix$val"</span>
+    <span style="color: #5a5a5a;">done</span>
 }
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">bind exec</span>
-<span style="color: #c6007f;">binde</span>() {
-    <span style="color: #c6007f;">bindprefix</span>=<span style="color: #007c00;">'exec '</span> bind <span style="color: #007c00;">"$@"</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">bind exec</span>
+<span style="color: #0095ac;">binde</span>() {
+    <span style="color: #0095ac;">bindprefix</span>=<span style="color: #cb7000;">'exec '</span> bind <span style="color: #cb7000;">"$@"</span>
 }
 </pre>
 </div>
@@ -182,8 +183,8 @@ And then, as long as I escaped the spaces to connect the terms, I could get away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">binde super+{,shift+,alt+,ctrl+}{h,n,e,l} <span style="color: #007c00;">\</span>
-    {focus,move,resize,presel}.sh<span style="color: #007c00;">\ </span>{west,south,north,east}
+<pre class="src src-sh">binde super+{,shift+,alt+,ctrl+}{h,n,e,l} <span style="color: #cb7000;">\</span>
+    {focus,move,resize,presel}.sh<span style="color: #cb7000;">\ </span>{west,south,north,east}
 </pre>
 </div>
 
@@ -193,10 +194,10 @@ Hooray!
 
 <footer>
     <div style="float: left">
-         <a href='https://notes.neeasade.net/tiled-wallpaper-sources.html'>newer: tiled wallpaper sources</a> 
+         <a href='tiled-wallpaper-sources.html'>newer: tiled wallpaper sources</a> 
     </div>
     <div style="text-align: right">
-         <a href='https://notes.neeasade.net/tarps.html'>older: Myron Theme Palettes</a> 
+         <a href='tarps.html'>older: Myron Theme Palettes</a> 
     </div>
 </footer>
 <hr>

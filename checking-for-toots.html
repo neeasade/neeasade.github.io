@@ -14,29 +14,29 @@
 <meta property="og:title" content="checking for toots">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/checking-for-toots.html">
+<meta property="og:url" content="https://neeasade.net/checking-for-toots.html">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
 </head>
 <body>
 <main id="content" class="content">
 <header>
 <div style="float: left">
-    <a href='/index.html'>../Notes</a>
+    <a href='./index.html'>../notes</a>
 </div>
 
 <div style="float: right">
@@ -62,6 +62,7 @@
 <span class=pubinfo>
     Published 2020-05-03
 </span>
+<div class="posttags"> <a href='./tag-notifications.html'>#notifications</a> </div>
 </header>
 <hr>
 <p>
@@ -69,7 +70,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I
 </p>
 
 
-<figure id="org200f95c">
+<figure id="orgbb59c96">
 <a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
 
 </figure>
@@ -116,7 +117,7 @@ Alright, I need 2 things &#x2013; a way to mark the current set of notifications
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">toot notifications | awk <span style="color: #007c00;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
+<pre class="src src-bash">toot notifications | awk <span style="color: #cb7000;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </pre>
 </div>
 
@@ -125,17 +126,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to save the 'seen' state (will mapped to a click on the panel):</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">toot notifications &gt;/tmp/toot-notifications.txt</span>
+<pre class="src src-bash"><span style="color: #8a8a8a;">#</span><span style="color: #8a8a8a;">!/usr/bin/</span><span style="color: #5a5a5a;">env</span><span style="color: #8a8a8a;"> bash</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">to save the 'seen' state (will mapped to a click on the panel):</span>
+<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">toot notifications &gt;/tmp/toot-notifications.txt</span>
 
-<span style="color: #c6007f;">count</span>=0
-<span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> <span style="color: #c6007f;">diff</span>=$(<span style="color: #c6007f;">diff &lt;(toot notifications</span>) &lt;(cat /tmp/toot-notifications)); <span style="color: #0065c8;">then</span>
-    <span style="color: #c6007f;">new_content</span>=$(<span style="color: #c6007f;">echo "$diff" | grep '^&lt;' | sed 's/&lt; //'</span>)
-    <span style="color: #c6007f;">count</span>=$(<span style="color: #c6007f;">echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l</span>)
-<span style="color: #0065c8;">fi</span>
+<span style="color: #0095ac;">count</span>=0
+<span style="color: #5a5a5a;">if</span> <span style="color: #cb7000;">!</span> <span style="color: #0095ac;">diff</span>=$(<span style="color: #0095ac;">diff &lt;(toot notifications</span>) &lt;(cat /tmp/toot-notifications)); <span style="color: #5a5a5a;">then</span>
+    <span style="color: #0095ac;">new_content</span>=$(<span style="color: #0095ac;">echo "$diff" | grep '^&lt;' | sed 's/&lt; //'</span>)
+    <span style="color: #0095ac;">count</span>=$(<span style="color: #0095ac;">echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l</span>)
+<span style="color: #5a5a5a;">fi</span>
 
-<span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"toot mentions: $count"</span>
+<span style="color: #5a5a5a;">echo</span> <span style="color: #cb7000;">"toot mentions: $count"</span>
 </pre>
 </div>
 
@@ -144,7 +145,7 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 </p>
 
 
-<figure id="org22628f2">
+<figure id="orgb79227b">
 <a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
 
 </figure>
@@ -155,10 +156,10 @@ With a click action to &ldquo;Mark toots as seen&rdquo;(just updating the temp f
 
 <footer>
     <div style="float: left">
-         <a href='https://notes.neeasade.net/colemak-dh-mod.html'>newer: colemak-dh mod</a> 
+         <a href='colemak-dh-mod.html'>newer: colemak-dh mod</a> 
     </div>
     <div style="text-align: right">
-         <a href='https://notes.neeasade.net/blog-meta.html'>older: May Days</a> 
+         <a href='blog-meta.html'>older: May Days</a> 
     </div>
 </footer>
 <hr>

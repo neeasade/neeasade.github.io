@@ -14,29 +14,29 @@
 <meta property="og:title" content="Pok3r Mapping">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/pok3r-mapping.html">
+<meta property="og:url" content="https://neeasade.net/pok3r-mapping.html">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
 </head>
 <body>
 <main id="content" class="content">
 <header>
 <div style="float: left">
-    <a href='/index.html'>../Notes</a>
+    <a href='./index.html'>../notes</a>
 </div>
 
 <div style="float: right">
@@ -63,6 +63,7 @@
     Published 2018-03-19,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-03-19-Pok3r-Mapping.org">2020-05-03</a>
 </span>
+<div class="posttags"> <a href='./tag-keyboard.html'>#keyboard</a><a href='./tag-programming.html'>#programming</a><a href='./tag-customization.html'>#customization</a><a href='./tag-scripting.html'>#scripting</a> </div>
 </header>
 <hr>
 <p>
@@ -115,7 +116,7 @@ after this.
 
 <ul class="org-ul">
 <li>unplug keyboard, flip switch 4</li>
-<li>hit fn, then r<sub>ctrl</sub></li>
+<li>hit fn, then r_ctrl</li>
 <li>hit pn, pn to keep position</li>
 <li>turn off switch 4</li>
 </ul>
@@ -145,26 +146,26 @@ arrow keys):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ahk">  <span style="color: #c6007f;">#SingleInstance</span> force
+<pre class="src src-ahk">  #SingleInstance force
 
-<span style="color: #444748;">  Capslock</span>::<span style="color: #444748;">Ctrl</span>
+  Capslock::Ctrl
 
-<span style="color: #444748;">  </span>::<span style="color: #444748;">Backspace</span> <span style="color: #444748;">Backspace</span>::\\
+  ::Backspace Backspace::\\
 
-<span style="color: #444748;">  +BS</span>:: <span style="color: #0065c8;">KeyWait</span><span style="color: #0065c8;">,</span> <span style="color: #444748;">Shift</span> <span style="color: #0065c8;">Send</span><span style="color: #0065c8;">,</span> {<span style="color: #0065c8;">|</span>} <span style="color: #006e96;">Return</span>
+  +BS:: KeyWait, Shift Send, {|} Return
 
-<span style="color: #444748;">  LWin</span>::<span style="color: #444748;">LAlt</span> <span style="color: #444748;">LAlt</span>::<span style="color: #444748;">LWin</span>
+  LWin::LAlt LAlt::LWin
 
-<span style="color: #444748;">  RWin</span>::<span style="color: #444748;">RAlt</span> <span style="color: #444748;">RAlt</span>::<span style="color: #444748;">RWin</span>
+  RWin::RAlt RAlt::RWin
 </pre>
 </div>
 
 <footer>
     <div style="float: left">
-         <a href='https://notes.neeasade.net/curl-exit-code-60-on-windows.html'>newer: curl exit code 60 on Windows</a> 
+         <a href='curl-exit-code-60-on-windows.html'>newer: curl exit code 60 on Windows</a> 
     </div>
     <div style="text-align: right">
-         <a href='https://notes.neeasade.net/ryo_fukui.html'>older: Ryo Fukui</a> 
+         <a href='ryo_fukui.html'>older: Ryo Fukui</a> 
     </div>
 </footer>
 <hr>

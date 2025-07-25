@@ -14,29 +14,29 @@
 <meta property="og:title" content="(reduce)">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/reduce.html">
+<meta property="og:url" content="https://neeasade.net/reduce.html">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
 </head>
 <body>
 <main id="content" class="content">
 <header>
 <div style="float: left">
-    <a href='/index.html'>../Notes</a>
+    <a href='./index.html'>../notes</a>
 </div>
 
 <div style="float: right">
@@ -62,6 +62,7 @@
 <span class=pubinfo>
     Published 2020-11-04
 </span>
+<div class="posttags"> <a href='./tag-clojure.html'>#clojure</a> </div>
 </header>
 <hr>
 <p>
@@ -106,11 +107,11 @@ then it&rsquo;s a question of learning what the various collection functions are
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reduce
- (<span style="color: #0065c8;">fn</span> [acc i]
-   (<span style="color: #0065c8;">let</span> [res (+ acc i)]
-     (<span style="color: #0065c8;">if</span> (&gt; res 100) (reduced res) res)))
+ (fn [acc i]
+   (let [res (+ acc i)]
+     (if (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; 105</span>
+;; =&gt; 105
 </pre>
 </div>
 
@@ -119,11 +120,11 @@ then it&rsquo;s a question of learning what the various collection functions are
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure">(reductions
- (<span style="color: #0065c8;">fn</span> [acc i]
-   (<span style="color: #0065c8;">let</span> [res (+ acc i)]
-     (<span style="color: #0065c8;">if</span> (&gt; res 100) (reduced res) res)))
+ (fn [acc i]
+   (let [res (+ acc i)]
+     (if (&gt; res 100) (reduced res) res)))
  0 (range))
-<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; (0 0 1 3 6 ...)</span>
+;; =&gt; (0 0 1 3 6 ...)
 </pre>
 </div>
 
@@ -142,10 +143,10 @@ Write a function which separates the items of a sequence by an arbitrary value.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure"><span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">replace the '__'</span>
+<pre class="src src-clojure">;; replace the '__'
 (= (__ 0 [1 2 3]) [1 0 2 0 3])
-(= (apply str (__ <span style="color: #007c00;">", "</span> [<span style="color: #007c00;">"one"</span> <span style="color: #007c00;">"two"</span> <span style="color: #007c00;">"three"</span>])) <span style="color: #007c00;">"one, two, three"</span>)
-(= (__ <span style="color: #0065c8;">:z</span> [<span style="color: #0065c8;">:a</span> <span style="color: #0065c8;">:b</span> <span style="color: #0065c8;">:c</span> <span style="color: #0065c8;">:d</span>]) [<span style="color: #0065c8;">:a</span> <span style="color: #0065c8;">:z</span> <span style="color: #0065c8;">:b</span> <span style="color: #0065c8;">:z</span> <span style="color: #0065c8;">:c</span> <span style="color: #0065c8;">:z</span> <span style="color: #0065c8;">:d</span>])
+(= (apply str (__ ", " ["one" "two" "three"])) "one, two, three")
+(= (__ :z [:a :b :c :d]) [:a :z :b :z :c :z :d])
 </pre>
 </div>
 
@@ -154,11 +155,11 @@ Before (bad habits):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #0065c8;">fn</span> [sep coll &amp; state]
-   (<span style="color: #0065c8;">if</span> (= 1 (count coll))
+<pre class="src src-clojure">(fn [sep coll &amp; state]
+   (if (= 1 (count coll))
      (conj state (first coll))
-     (<span style="color: #0065c8;">recur</span> sep (rest coll)
-            (conj (<span style="color: #0065c8;">or</span> state [])
+     (recur sep (rest coll)
+            (conj (or state [])
                   (first coll)
                   sep))))
 </pre>
@@ -173,9 +174,9 @@ After:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-clojure">(<span style="color: #0065c8;">fn</span> [sep coll]
+<pre class="src src-clojure">(fn [sep coll]
    (butlast
-    (reduce (<span style="color: #0065c8;">fn</span> [state next]
+    (reduce (fn [state next]
               (conj state next sep))
             [] coll)))
 </pre>
@@ -193,10 +194,10 @@ Just gotta remember to embrace reducin&rsquo;, and the implicit carrying of stat
 
 <footer>
     <div style="float: left">
-         <a href='https://notes.neeasade.net/my-shell-prompt.html'>newer: my shell prompt</a> 
+         <a href='my-shell-prompt.html'>newer: my shell prompt</a> 
     </div>
     <div style="text-align: right">
-         <a href='https://notes.neeasade.net/annoying-org-typing-slowdowns.html'>older: annoying org typing slowdowns</a> 
+         <a href='annoying-org-typing-slowdowns.html'>older: annoying org typing slowdowns</a> 
     </div>
 </footer>
 <hr>

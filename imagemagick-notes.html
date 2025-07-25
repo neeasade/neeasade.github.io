@@ -14,29 +14,29 @@
 <meta property="og:title" content="ImageMagick Snippets">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://notes.neeasade.net/imagemagick-notes.html">
+<meta property="og:url" content="https://neeasade.net/imagemagick-notes.html">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/linktext.js" defer></script>
+<script src="/assets/js/copy.js" defer></script>
 <script src="../published/assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=4e25672ec2152636a22f5871b20bed87'>
+<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
 <link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=94d48ee37b1e58ef62635b99a1bdeb8f'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=88774771739fafe5f844480bfa0e5f33'>
 </head>
 <body>
 <main id="content" class="content">
 <header>
 <div style="float: left">
-    <a href='/index.html'>../Notes</a>
+    <a href='./index.html'>../notes</a>
 </div>
 
 <div style="float: right">
@@ -63,6 +63,7 @@
     Published 2020-08-03,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org">2025-06-20</a>
 </span>
+<div class="posttags"> <a href='./tag-color.html'>#color</a> </div>
 </header>
 <hr>
 <p>
@@ -85,7 +86,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #007c00;">'1  1  45'</span> out.png
+<pre class="src src-sh">magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #cb7000;">'1  1  45'</span> out.png
 </pre>
 </div>
 </div>
@@ -103,7 +104,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <h2 id="Create-a-solid-color-image"><span class="section-number-2">3.</span> Create a solid color image <a href="#Create-a-solid-color-image">#</a></h2>
 <div class="outline-text-2" id="text-Create-a-solid-color-image">
 <div class="org-src-container">
-<pre class="src src-sh">magick -size 100x100 <span style="color: #007c00;">"xc:#cccccc"</span> out.png
+<pre class="src src-sh">magick -size 100x100 <span style="color: #cb7000;">"xc:#cccccc"</span> out.png
 </pre>
 </div>
 </div>
@@ -116,25 +117,25 @@ see also: <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/tile
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #c6007f;">tile</span>=<span style="color: #007c00;">"some_file.png"</span>
-<span style="color: #c6007f;">angle</span>=$(<span style="color: #c6007f;">(RANDOM % 360</span>))
-<span style="color: #c6007f;">w</span>=1920
-<span style="color: #c6007f;">h</span>=1080
+<pre class="src src-sh"><span style="color: #0095ac;">tile</span>=<span style="color: #cb7000;">"some_file.png"</span>
+<span style="color: #0095ac;">angle</span>=$(<span style="color: #0095ac;">(RANDOM % 360</span>))
+<span style="color: #0095ac;">w</span>=1920
+<span style="color: #0095ac;">h</span>=1080
 
-magick <span style="color: #007c00;">"$tile"</span> -set option:distort:viewport <span style="color: #007c00;">"${w}x${h}"</span> <span style="color: #007c00;">\</span>
-    -virtual-pixel tile -filter point <span style="color: #007c00;">\</span>
-    -distort SRT <span style="color: #007c00;">"$angle"</span> <span style="color: #007c00;">\</span>
-    -gravity center -crop <span style="color: #007c00;">"${w}x${h}+0+0"</span> +repage <span style="color: #007c00;">\</span>
-    <span style="color: #007c00;">"result.png"</span>
+magick <span style="color: #cb7000;">"$tile"</span> -set option:distort:viewport <span style="color: #cb7000;">"${w}x${h}"</span> <span style="color: #cb7000;">\</span>
+    -virtual-pixel tile -filter point <span style="color: #cb7000;">\</span>
+    -distort SRT <span style="color: #cb7000;">"$angle"</span> <span style="color: #cb7000;">\</span>
+    -gravity center -crop <span style="color: #cb7000;">"${w}x${h}+0+0"</span> +repage <span style="color: #cb7000;">\</span>
+    <span style="color: #cb7000;">"result.png"</span>
 </pre>
 </div>
 
 <footer>
     <div style="float: left">
-         <a href='https://notes.neeasade.net/aug-2020.html'>newer: 8 Months Adrift</a> 
+         <a href='aug-2020.html'>newer: 8 Months Adrift</a> 
     </div>
     <div style="text-align: right">
-         <a href='https://notes.neeasade.net/webrings.html'>older: webrings</a> 
+         <a href='webrings.html'>older: webrings</a> 
     </div>
 </footer>
 <hr>
