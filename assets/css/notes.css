@@ -20,10 +20,6 @@ a:has(img) {
     background: none !important;
 }
 
-.posttags {
-    float: right;
-}
-
 .posttags a {
     background: none !important;
     color: var(--faded) !important;
