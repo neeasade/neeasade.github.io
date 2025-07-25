@@ -1,0 +1,58 @@
+#+title: tag slop
+#+title_extra:
+#+pubdate: <2025-07-25>
+#+rss_title:
+#+filetags:
+
+I hate tagging content. It occurs to me for a series, but never ahead of time,
+and they are nice to have for browsing. Let's add slop to the web by tagging
+posts here with [[https://ollama.com/][ollama]]!
+
+We can create a motel derived from an existing one with a [[https://github.com/ollama/ollama/blob/main/docs/modelfile.md][ModelFile]]:
+
+#+begin_src dockerfile :tangle ../tags/modelfile.txt
+FROM phi4:latest
+
+# setting a seed makes it deterministic
+PARAMETER seed 1337
+
+# set temperature [higher is more creative, lower is more coherent]
+# PARAMETER temperature 0.1
+PARAMETER temperature 1
+
+# allow looking back further, at the cost of more memory
+PARAMETER num_ctx 20000
+# PARAMETER num_ctx 4096
+
+SYSTEM """You are a content tagger for blog content. Your job is to take in text and categorize it into a terse set of tags, no more than 5 at a time.
+
+The response may only contain up to 5 tags. This is extremely important. There might not be 5 relevant tags in the text.
+
+Responses should be a single line long.
+
+Output everything in the following text format. Comma separated strings, limited to single-word tags:
+emacs,yes,no,theme
+"""
+
+# give it an example of expected conversation:
+MESSAGE user tag the following content: sarah is nice, she loves cats and lately I've been thinking about the rain
+MESSAGE assistant sarah,cats,rain
+#+end_src
+
+We'll name it "tagger":
+
+#+begin_src sh
+ollama create tagger -f ../tags/modelfile.txt;
+#+end_src
+
+#+RESULTS:
+
+And we're off!:
+
+#+begin_src sh
+$ cat 2019-12-06-On-Emacs.org | ollama run tagger "tag the following content: \n"
+emacs,programming,text-editor,lisp,customization
+#+end_src
+
+I'm not much of a prompt engineer, but it's been fun (and infuriating) to see
+how little shifts in the system prompt affect the quality of the tagging.

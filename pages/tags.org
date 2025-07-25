@@ -1,0 +1,33 @@
+#+title: tag links
+
+#+begin_export html
+<style>
+#content {
+    text-align: center;
+}
+a {
+    margin: 5px 3px 0px 0px;
+    display: inline-block;
+}
+</style>
+#+end_export
+
+Links to tag pages. If a tag has only 1 relevant post, the link will take you
+straight through to the post.
+
+#+BEGIN_SRC elisp :results raw :exports results
+;; count
+(->> (ns/blog-get-tags)
+     (--map (llet [posts (-filter (lambda (meta) (-contains? (ht-get meta :tags) it)) (ns/blog-get-metas-public))]
+                  (list it
+                        (length posts)
+                        (when (= 1 (length posts))
+                          (ht-get (first posts) :html-dest )))))
+     (--sort (> (second it) (second other)))
+     (-map (-lambda ((tag count html-dest))
+               (message html-dest)
+               (if (= count 1)
+                   (format "[[%s][%s (%s)]]" html-dest tag count)
+                 (format "[[./tag-%s.org][%s (%s)]]" tag tag count))))
+     (s-join "\n"))
+#+end_src
