@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Myron Theme Palettes</title>
+<title>myron-themes previews</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="Myron Theme Palettes">
+<meta property="og:title" content="myron-themes previews">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
 <meta property="og:url" content="https://neeasade.net/">
@@ -48,7 +48,7 @@
         <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
         <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
     </svg>
-    Myron Theme Palettes
+    myron-themes previews
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
         <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
@@ -61,24 +61,19 @@
 </div>
 <span class=pubinfo>
     Published 2021-01-19,
-    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2021-01-19-tarps.org">2025-06-20</a>
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2021-01-19-tarps.org">2025-07-26</a>
 </span>
 <div class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-color.html'>#color</a><a href='./tag-code.html'>#code</a><a href='./tag-emacs.html'>#emacs</a><a href='./tag-gui.html'>#gui</a> </div>
 </header>
 <hr>
 <p>
-This page shows palettes from my emacs theme colorschemes. Screenshots of the
-flagship themes may be seen in the
-<a href="https://github.com/neeasade/myron-themes">repo readme</a>, which also has more
-details about the intents of the different theme contexts.
+This page shows previews of the <a href="https://github.com/neeasade/myron-themes">myron-themes</a> colorschemes for emacs. The readme
+there has more details.
 </p>
-<div id="outline-container-orgea2fe1b" class="outline-2">
-<h2 id="orgea2fe1b"><span class="section-number-2">1.</span> myron-dogman</h2>
+<div id="outline-container-org7c30df2" class="outline-2">
+<h2 id="org7c30df2"><span class="section-number-2">1.</span> myron-dogman</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -159,92 +154,34 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #9efff3 !important; foreground: #036458 !important" class="src src-c"><span style="color: #854cfb;">#include</span> <span style="color: #1a8500;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #1a8500;">int</span> <span style="color: #854cfb;">main</span>(<span style="color: #1a8500;">void</span>)
+{
+    <span style="color: #1a8500;">int</span> <span style="color: #854cfb;">i</span>;
+    <span style="color: #00825e;">// </span><span style="color: #00825e;">loop to one hundred...</span>
+    <span style="color: #f256c9;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #f256c9;">if</span> (i % 3 == 0)
+            printf(<span style="color: #1a8500;">"Fizz"</span>);
+        <span style="color: #f256c9;">if</span> <span style="background: #e0d9f8;">(i % 5 == 0)</span>
+            printf(<span style="color: #1a8500;">"Buzz"</span>);
+        <span style="color: #f256c9;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #1a8500;">"number=%d"</span>, i);
+        printf(<span style="color: #1a8500;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #9efff3;color: #036458; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92ede7;color: #005953; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92d9dd;color: #064d51; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0d9f8;color: #524b6a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #9efff3;color: #00825e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92ede7;color: #007753; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92d9dd;color: #006b47; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0d9f8;color: #007753; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #9efff3;color: #854cfb; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92ede7;color: #7940ef; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92d9dd;color: #6d34e3; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0d9f8;color: #7940ef; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #9efff3;color: #f256c9; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92ede7;color: #e14db9; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92d9dd;color: #d144a7; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0d9f8;color: #e14db9; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #9efff3;color: #1a8500; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92ede7;color: #0e7900; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92d9dd;color: #026d00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0d9f8;color: #0e7900; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #9efff3;color: #1a8500; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92ede7;color: #0e7900; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #92d9dd;color: #026d00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0d9f8;color: #0e7900; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #00825e;">// </span><span style="color: #00825e;">all done!</span>
+    <span style="color: #f256c9;">return</span> 0;
+}
+</pre>
 </div>
 </div>
-<div id="outline-container-org58f60f8" class="outline-2">
-<h2 id="org58f60f8"><span class="section-number-2">2.</span> myron-grayscale</h2>
+<div id="outline-container-org72de6fc" class="outline-2">
+<h2 id="org72de6fc"><span class="section-number-2">2.</span> myron-grayscale</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -325,92 +262,34 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #f3f3f3 !important; foreground: #5c5c5c !important" class="src src-c"><span style="color: #777777;">#include</span> <span style="color: #777777;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #8c8c8c;">int</span> <span style="color: #777777;">main</span>(<span style="color: #8c8c8c;">void</span>)
+{
+    <span style="color: #8c8c8c;">int</span> <span style="color: #777777;">i</span>;
+    <span style="color: #8c8c8c;">// </span><span style="color: #8c8c8c;">loop to one hundred...</span>
+    <span style="color: #686868;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #686868;">if</span> (i % 3 == 0)
+            printf(<span style="color: #777777;">"Fizz"</span>);
+        <span style="color: #686868;">if</span> <span style="background: #e4e4e4;">(i % 5 == 0)</span>
+            printf(<span style="color: #777777;">"Buzz"</span>);
+        <span style="color: #686868;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #777777;">"number=%d"</span>, i);
+        printf(<span style="color: #777777;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #f3f3f3;color: #5c5c5c; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0e0e0;color: #515151; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d3d3d3;color: #494949; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e4e4e4;color: #535353; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #f3f3f3;color: #8c8c8c; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0e0e0;color: #7f7f7f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d3d3d3;color: #767676; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e4e4e4;color: #828282; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #f3f3f3;color: #777777; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0e0e0;color: #6b6b6b; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d3d3d3;color: #636363; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e4e4e4;color: #6e6e6e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #f3f3f3;color: #686868; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0e0e0;color: #5c5c5c; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d3d3d3;color: #545454; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e4e4e4;color: #5f5f5f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #f3f3f3;color: #8c8c8c; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0e0e0;color: #7f7f7f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d3d3d3;color: #767676; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e4e4e4;color: #828282; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #f3f3f3;color: #777777; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e0e0e0;color: #6b6b6b; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d3d3d3;color: #636363; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e4e4e4;color: #6e6e6e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #8c8c8c;">// </span><span style="color: #8c8c8c;">all done!</span>
+    <span style="color: #686868;">return</span> 0;
+}
+</pre>
 </div>
 </div>
-<div id="outline-container-org69163da" class="outline-2">
-<h2 id="org69163da"><span class="section-number-2">3.</span> myron-kobo</h2>
+<div id="outline-container-org09729cd" class="outline-2">
+<h2 id="org09729cd"><span class="section-number-2">3.</span> myron-kobo</h2>
 <div class="outline-text-2" id="text-3">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -491,92 +370,34 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #d7d2cf !important; foreground: #524d4a !important" class="src src-c"><span style="color: #626700;">#include</span> <span style="color: #757b00;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #757b00;">int</span> <span style="color: #626700;">main</span>(<span style="color: #757b00;">void</span>)
+{
+    <span style="color: #757b00;">int</span> <span style="color: #626700;">i</span>;
+    <span style="color: #67625f;">// </span><span style="color: #67625f;">loop to one hundred...</span>
+    <span style="color: #524d4a;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #524d4a;">if</span> (i % 3 == 0)
+            printf(<span style="color: #757b00;">"Fizz"</span>);
+        <span style="color: #524d4a;">if</span> <span style="background: #ccc7c4;">(i % 5 == 0)</span>
+            printf(<span style="color: #757b00;">"Buzz"</span>);
+        <span style="color: #524d4a;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #757b00;">"number=%d"</span>, i);
+        printf(<span style="color: #757b00;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #d7d2cf;color: #524d4a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded9d6;color: #57524f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cac5c2;color: #4a4542; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccc7c4;color: #4b4643; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #d7d2cf;color: #67625f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded9d6;color: #6b6663; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cac5c2;color: #5e5956; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccc7c4;color: #5f5a57; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #d7d2cf;color: #626700; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded9d6;color: #666b00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cac5c2;color: #595e00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccc7c4;color: #5a5f00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #d7d2cf;color: #524d4a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded9d6;color: #57524f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cac5c2;color: #4a4542; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccc7c4;color: #4b4643; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #d7d2cf;color: #757b00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded9d6;color: #7a8000; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cac5c2;color: #6c7100; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccc7c4;color: #6e7400; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #d7d2cf;color: #757b00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded9d6;color: #7a8000; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cac5c2;color: #6c7100; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccc7c4;color: #6e7400; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #67625f;">// </span><span style="color: #67625f;">all done!</span>
+    <span style="color: #524d4a;">return</span> 0;
+}
+</pre>
 </div>
 </div>
-<div id="outline-container-org6202eec" class="outline-2">
-<h2 id="org6202eec"><span class="section-number-2">4.</span> myron-mcfay</h2>
+<div id="outline-container-orgbd8a3b7" class="outline-2">
+<h2 id="orgbd8a3b7"><span class="section-number-2">4.</span> myron-mcfay</h2>
 <div class="outline-text-2" id="text-4">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -657,92 +478,34 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #e8ebec !important; foreground: #444748 !important" class="src src-c"><span style="color: #c6007f;">#include</span> <span style="color: #007c00;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #006e96;">int</span> <span style="color: #c6007f;">main</span>(<span style="color: #006e96;">void</span>)
+{
+    <span style="color: #006e96;">int</span> <span style="color: #c6007f;">i</span>;
+    <span style="color: #6a6d6e;">// </span><span style="color: #6a6d6e;">loop to one hundred...</span>
+    <span style="color: #0065c8;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #0065c8;">if</span> (i % 3 == 0)
+            printf(<span style="color: #007c00;">"Fizz"</span>);
+        <span style="color: #0065c8;">if</span> <span style="background: #a6d0ed;">(i % 5 == 0)</span>
+            printf(<span style="color: #007c00;">"Buzz"</span>);
+        <span style="color: #0065c8;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #007c00;">"number=%d"</span>, i);
+        printf(<span style="color: #007c00;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #e8ebec;color: #444748; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d6d7d8;color: #3a3b3c; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cdcacb;color: #353233; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #a6d0ed;color: #0c3653; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #e8ebec;color: #6a6d6e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d6d7d8;color: #606162; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cdcacb;color: #5b5859; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #a6d0ed;color: #335d7a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #e8ebec;color: #c6007f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d6d7d8;color: #bb0074; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cdcacb;color: #ae0067; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #a6d0ed;color: #ad0066; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #e8ebec;color: #0065c8; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d6d7d8;color: #005ec1; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cdcacb;color: #0055b8; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #a6d0ed;color: #0055b8; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #e8ebec;color: #006e96; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d6d7d8;color: #006890; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cdcacb;color: #005f87; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #a6d0ed;color: #005f87; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #e8ebec;color: #007c00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d6d7d8;color: #007500; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #cdcacb;color: #006d00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #a6d0ed;color: #006c00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #6a6d6e;">// </span><span style="color: #6a6d6e;">all done!</span>
+    <span style="color: #0065c8;">return</span> 0;
+}
+</pre>
 </div>
 </div>
-<div id="outline-container-org39dd239" class="outline-2">
-<h2 id="org39dd239"><span class="section-number-2">5.</span> myron-room</h2>
+<div id="outline-container-org23d0027" class="outline-2">
+<h2 id="org23d0027"><span class="section-number-2">5.</span> myron-room</h2>
 <div class="outline-text-2" id="text-5">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -823,92 +586,34 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #f0f0f0 !important; foreground: #5a5a5a !important" class="src src-c"><span style="color: #0095ac;">#include</span> <span style="color: #cb7000;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #00acc3;">int</span> <span style="color: #0095ac;">main</span>(<span style="color: #00acc3;">void</span>)
+{
+    <span style="color: #00acc3;">int</span> <span style="color: #0095ac;">i</span>;
+    <span style="color: #8a8a8a;">// </span><span style="color: #8a8a8a;">loop to one hundred...</span>
+    <span style="color: #5a5a5a;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #5a5a5a;">if</span> (i % 3 == 0)
+            printf(<span style="color: #cb7000;">"Fizz"</span>);
+        <span style="color: #5a5a5a;">if</span> <span style="background: #fed3c8;">(i % 5 == 0)</span>
+            printf(<span style="color: #cb7000;">"Buzz"</span>);
+        <span style="color: #5a5a5a;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #cb7000;">"number=%d"</span>, i);
+        printf(<span style="color: #cb7000;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #f0f0f0;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #dddddd;color: #4f4f4f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d0d0d0;color: #474747; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #fed3c8;color: #6e4338; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #f0f0f0;color: #8a8a8a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #dddddd;color: #7d7d7d; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d0d0d0;color: #747474; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #fed3c8;color: #9e7368; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #f0f0f0;color: #0095ac; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #dddddd;color: #00879f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d0d0d0;color: #007e97; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #fed3c8;color: #803bea; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #f0f0f0;color: #5a5a5a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #dddddd;color: #4f4f4f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d0d0d0;color: #474747; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #fed3c8;color: #6e4338; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #f0f0f0;color: #00acc3; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #dddddd;color: #009eb5; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d0d0d0;color: #0094ab; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #fed3c8;color: #9454ff; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #f0f0f0;color: #cb7000; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #dddddd;color: #b56800; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d0d0d0;color: #a66300; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #fed3c8;color: #626d1e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #8a8a8a;">// </span><span style="color: #8a8a8a;">all done!</span>
+    <span style="color: #5a5a5a;">return</span> 0;
+}
+</pre>
 </div>
 </div>
-<div id="outline-container-orge14879c" class="outline-2">
-<h2 id="orge14879c"><span class="section-number-2">6.</span> myron-storm</h2>
+<div id="outline-container-org14e44aa" class="outline-2">
+<h2 id="org14e44aa"><span class="section-number-2">6.</span> myron-storm</h2>
 <div class="outline-text-2" id="text-6">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -989,92 +694,34 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #e3f0ed !important; foreground: #697673 !important" class="src src-c"><span style="color: #a356a4;">#include</span> <span style="color: #0e8618;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #a95e5b;">int</span> <span style="color: #a356a4;">main</span>(<span style="color: #a95e5b;">void</span>)
+{
+    <span style="color: #a95e5b;">int</span> <span style="color: #a356a4;">i</span>;
+    <span style="color: #7e8b88;">// </span><span style="color: #7e8b88;">loop to one hundred...</span>
+    <span style="color: #108082;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #108082;">if</span> (i % 3 == 0)
+            printf(<span style="color: #0e8618;">"Fizz"</span>);
+        <span style="color: #108082;">if</span> <span style="background: #ecccec;">(i % 5 == 0)</span>
+            printf(<span style="color: #0e8618;">"Buzz"</span>);
+        <span style="color: #108082;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #0e8618;">"number=%d"</span>, i);
+        printf(<span style="color: #0e8618;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #e3f0ed;color: #697673; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccd9d6;color: #5b6865; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #c3d0cd;color: #55625f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ecccec;color: #7a5a7a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #e3f0ed;color: #7e8b88; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccd9d6;color: #6e7b78; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #c3d0cd;color: #687572; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ecccec;color: #8e6e8e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #e3f0ed;color: #a356a4; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccd9d6;color: #924894; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #c3d0cd;color: #8b418d; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ecccec;color: #a74908; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #e3f0ed;color: #108082; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccd9d6;color: #067074; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #c3d0cd;color: #026a6f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ecccec;color: #a74446; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #e3f0ed;color: #a95e5b; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccd9d6;color: #984f49; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #c3d0cd;color: #924942; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ecccec;color: #00716d; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #e3f0ed;color: #0e8618; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ccd9d6;color: #05760f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #c3d0cd;color: #006f0a; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ecccec;color: #a138a1; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #7e8b88;">// </span><span style="color: #7e8b88;">all done!</span>
+    <span style="color: #108082;">return</span> 0;
+}
+</pre>
 </div>
 </div>
-<div id="outline-container-org7a7264f" class="outline-2">
-<h2 id="org7a7264f"><span class="section-number-2">7.</span> myron-struan</h2>
+<div id="outline-container-org8638589" class="outline-2">
+<h2 id="org8638589"><span class="section-number-2">7.</span> myron-struan</h2>
 <div class="outline-text-2" id="text-7">
-<p>
-palette:
-</p>
-
+<details> <summary>Colors</summary>
 <table>
 
 
@@ -1155,83 +802,28 @@ palette:
 </tr>
 </tbody>
 </table>
+</details>
+<pre style="background: #f2e9e3 !important; foreground: #544b45 !important" class="src src-c"><span style="color: #8f5d7f;">#include</span> <span style="color: #677400;">&lt;stdio.h&gt;</span>
 
-<p>
-preview:
-</p>
+<span style="color: #916156;">int</span> <span style="color: #8f5d7f;">main</span>(<span style="color: #916156;">void</span>)
+{
+    <span style="color: #916156;">int</span> <span style="color: #8f5d7f;">i</span>;
+    <span style="color: #a35a29;">// </span><span style="color: #a35a29;">loop to one hundred...</span>
+    <span style="color: #2a7783;">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: #2a7783;">if</span> (i % 3 == 0)
+            printf(<span style="color: #677400;">"Fizz"</span>);
+        <span style="color: #2a7783;">if</span> <span style="background: #e1c5c0;">(i % 5 == 0)</span>
+            printf(<span style="color: #677400;">"Buzz"</span>);
+        <span style="color: #2a7783;">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: #677400;">"number=%d"</span>, i);
+        printf(<span style="color: #677400;">"\n"</span>);
+    }
 
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td>_</td>
-<td>:normal</td>
-<td>:weak</td>
-<td>:strong</td>
-<td>:focused</td>
-</tr>
-
-<tr>
-<td>:foreground</td>
-<td><code style="background: #f2e9e3;color: #544b45; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded5d4;color: #483f3e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d2c9ce;color: #40373c; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e1c5c0;color: #544b45; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:faded</td>
-<td><code style="background: #f2e9e3;color: #a35a29; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded5d4;color: #a93b2f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d2c9ce;color: #a1276b; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e1c5c0;color: #a35a29; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:primary</td>
-<td><code style="background: #f2e9e3;color: #8f5d7f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded5d4;color: #825072; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d2c9ce;color: #7b496b; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e1c5c0;color: #8f5d7f; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:assumed</td>
-<td><code style="background: #f2e9e3;color: #2a7783; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded5d4;color: #1d6a76; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d2c9ce;color: #15626e; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e1c5c0;color: #2a7783; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:alt</td>
-<td><code style="background: #f2e9e3;color: #916156; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded5d4;color: #845449; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d2c9ce;color: #7d4d42; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e1c5c0;color: #916156; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-
-<tr>
-<td>:strings</td>
-<td><code style="background: #f2e9e3;color: #677400; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #ded5d4;color: #5b6700; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #d2c9ce;color: #535f00; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-<td><code style="background: #e1c5c0;color: #677400; padding: 2px; border: 1px solid #5a5a5a">preview</code></td>
-</tr>
-</tbody>
-</table>
+    <span style="color: #a35a29;">// </span><span style="color: #a35a29;">all done!</span>
+    <span style="color: #2a7783;">return</span> 0;
+}
+</pre>
 
 <footer>
     <div style="float: left">
