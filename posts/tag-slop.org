@@ -50,7 +50,7 @@ ollama create tagger -f ../tags/modelfile.txt;
 And we're off!:
 
 #+begin_src sh
-$ cat 2019-12-06-On-Emacs.org | ollama run tagger "tag the following content: \n"
+$ cat On-Emacs.org | ollama run tagger "tag the following content: \n"
 emacs,programming,text-editor,lisp,customization
 #+end_src
 
