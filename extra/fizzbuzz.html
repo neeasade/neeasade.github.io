@@ -1,0 +1,21 @@
+<pre style="background: {{background}} !important; foreground: {{foreground}} !important" class="src src-c"><span style="color: {{primary}};">#include</span> <span style="color: {{strings}};">&lt;stdio.h&gt;</span>
+
+<span style="color: {{alt}};">int</span> <span style="color: {{primary}};">main</span>(<span style="color: {{alt}};">void</span>)
+{
+    <span style="color: {{alt}};">int</span> <span style="color: {{primary}};">i</span>;
+    <span style="color: {{faded}};">// </span><span style="color: {{faded}};">loop to one hundred...</span>
+    <span style="color: {{assumed}};">for</span>(i=1; i&lt;=100; ++i)
+    {
+        <span style="color: {{assumed}};">if</span> (i % 3 == 0)
+            printf(<span style="color: {{strings}};">"Fizz"</span>);
+        <span style="color: {{assumed}};">if</span> <span style="background: {{focused}};">(i % 5 == 0)</span>
+            printf(<span style="color: {{strings}};">"Buzz"</span>);
+        <span style="color: {{assumed}};">if</span> ((i % 3 != 0) &amp;&amp; (i % 5 != 0))
+            printf(<span style="color: {{strings}};">"number=%d"</span>, i);
+        printf(<span style="color: {{strings}};">"\n"</span>);
+    }
+
+    <span style="color: {{faded}};">// </span><span style="color: {{faded}};">all done!</span>
+    <span style="color: {{assumed}};">return</span> 0;
+}
+</pre>

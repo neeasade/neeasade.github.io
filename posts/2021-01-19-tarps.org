@@ -1,60 +1,53 @@
-#+title: Myron Theme Palettes
+#+title: myron-themes previews
 #+filetags: :tarp:emacs:gui:theme:previews:
 #+pubdate: <2021-01-19>
 
-This page shows palettes from my emacs theme colorschemes. Screenshots of the
-flagship themes may be seen in the
-[[https://github.com/neeasade/myron-themes][repo readme]], which also has more
-details about the intents of the different theme contexts.
+This page shows previews of the [[https://github.com/neeasade/myron-themes][myron-themes]] colorschemes for emacs. The readme
+there has more details.
 
 #+BEGIN_SRC elisp :results raw :exports results
 
 ;; this is write-once code
 ;; sorry future me
 
+;; ...
 (defun myron-cache-get (theme-name label &optional emphasis)
   (llet [theme (plist-get myron-themes-cache theme-name)]
-    (or (ht-get* theme (or emphasis :normal) label)
-      (when (not emphasis) (ht-get* theme :meta label)))))
+	(or (ht-get* theme (or emphasis :normal) label)
+	    (when (not emphasis) (ht-get* theme :meta label)))))
 
 (s-join "\n"
-	(llet
-	 [themes (-map 'first (-partition 2 myron-themes-cache))]
-	 (-map
-	  (lambda (theme)
-	    (format "
+	(llet [themes (ns/plist-keys myron-themes-cache)]
+	      (-map
+	       (lambda (theme)
+		 (format "
 ,** %s
 
-palette:
-
+,#+begin_export html
+<details> <summary>Colors</summary>
+,#+end_export
 %s
+,#+begin_export html
+</details>
+%s
+,#+end_export
+"
 
-preview:
+			 theme
 
-%s"
-		    theme
-		    (s-join "\n"
-			    `("| _           | :normal              | :weak                | :strong              | :focused             |"
-			      ,@(-map (lambda (fg-type)
-					(format "| %s | %s |" fg-type
-						(s-join " | "
-							(-map
-							 (lambda (bg-type)
-							   (ns/blog-make-color-preview (myron-cache-get theme fg-type bg-type)))
-							 '(:normal :weak :strong :focused)))))
-				      '(:background :foreground :faded :primary :assumed :alt :strings))))
-		    (s-join "\n"
-			    `("| _           | :normal              | :weak                | :strong              | :focused             |"
-			      ,@(-map (lambda (fg-type)
-					(format "| %s | %s |" fg-type
-						(s-join " | "
-							(-map
-							 (lambda (bg-type)
-							   (ns/blog-make-color-preview-extended
-							    (myron-cache-get theme :background bg-type)
-							    (myron-cache-get theme fg-type bg-type) "preview")
-							   )
-							 '(:normal :weak :strong :focused)))))
-				      '(:foreground :faded :primary :assumed :alt :strings))))
-		    )) themes)))
+			 (s-join "\n"
+				 `("| _           | :normal              | :weak                | :strong              | :focused             |"
+				   ,@(-map (lambda (fg-type)
+					     (format "| %s | %s |" fg-type
+						     (s-join " | "
+							     (-map
+							      (lambda (bg-type)
+								(ns/blog-make-color-preview (myron-cache-get theme fg-type bg-type)))
+							      '(:normal :weak :strong :focused)))))
+					   '(:background :foreground :faded :primary :assumed :alt :strings))))
+			 (ns/mustache (slurp (ns/blog-path "extra/fizzbuzz.html"))
+				      (ht-merge
+				       (ht-get (plist-get myron-themes-cache theme) :normal)
+				       (-ht :focused (ht-get* (plist-get myron-themes-cache theme) :focused :background))))
+			 )) themes)))
 #+end_src
