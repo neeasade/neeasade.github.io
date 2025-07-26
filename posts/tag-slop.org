@@ -10,7 +10,7 @@ posts here with [[https://ollama.com/][ollama]]!
 
 We can create a model derived from an existing one with a [[https://github.com/ollama/ollama/blob/main/docs/modelfile.md][ModelFile]]:
 
-#+begin_src dockerfile :tangle ../tags/modelfile.txt
+#+begin_src dockerfile :tangle ../extra/modelfile.txt
 FROM phi4:latest
 
 # setting a seed makes it deterministic
@@ -42,7 +42,7 @@ MESSAGE assistant sarah,cats,rain
 We'll name it "tagger":
 
 #+begin_src sh
-ollama create tagger -f ../tags/modelfile.txt;
+ollama create tagger -f ../extra/modelfile.txt;
 #+end_src
 
 #+RESULTS:
