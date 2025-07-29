@@ -157,6 +157,9 @@ if (!!(window.history && history.replaceState) && typeof(Range) != "undefined") 
 		}
 		history.replaceState(null, null, window.location.pathname);
 
+
+	}, 250);
+
 		if (window.location.hash.length > 0) {
 			let [version, start_hash_full, end_hash_full] = window.location.hash.slice(1).split(".");
 			if (version == "1") {
@@ -178,5 +181,4 @@ if (!!(window.history && history.replaceState) && typeof(Range) != "undefined") 
 			}
 		}
 
-	}, 250);
 }
