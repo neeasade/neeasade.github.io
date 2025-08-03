@@ -29,8 +29,8 @@
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=416556d817f2f6768622caca0c9b04a3'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=416556d817f2f6768622caca0c9b04a3'>
+<link rel='stylesheet' href='/assets/css/notes.css?sum=42de97b824d20d34f0c5351b59dc1c2a'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=42de97b824d20d34f0c5351b59dc1c2a'>
 </head>
 <body>
 <main id="content" class="content">
@@ -60,9 +60,10 @@
 </p>
 </div>
 <span class=pubinfo>
-    Published 2025-07-25
+    Published 2025-07-25,
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/tag-slop.org">2025-07-26</a>
 </span>
-<div>  </div>
+<div class="posttags">  </div>
 </header>
 <hr>
 <p>
@@ -110,7 +111,7 @@ We&rsquo;ll name it &ldquo;tagger&rdquo;:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">ollama create tagger -f ../tags/modelfile.txt;
+<pre class="src src-sh">ollama create tagger -f ../extra/modelfile.txt;
 </pre>
 </div>
 
@@ -119,7 +120,7 @@ And we&rsquo;re off!:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ cat 2019-12-06-On-Emacs.org | ollama run tagger <span style="color: #cb7000;">"tag the following content: \n"</span>
+<pre class="src src-sh">$ cat On-Emacs.org | ollama run tagger <span style="color: #cb7000;">"tag the following content: \n"</span>
 emacs,programming,text-editor,lisp,customization
 </pre>
 </div>
