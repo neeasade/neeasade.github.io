@@ -5,15 +5,19 @@ body {
     image-rendering: pixelated;
     /* height: 100%; */
 
-
-    background: var(--background);
+    /* background: var(--background); */
 
     /* background: var(--background_plus); */
 
     /* keep bg size in sync for pixel perf rendering */
     /* background: url("../img/backgrounds/room.png") repeat; */
     /* background-size: auto 195px !important; */
+}
 
+tr:nth-child(even) {
+  /* background-color: var(--background_subtle); */
+  background-color: var(--background_weak);
+  color: var(--foreground_weak);
 }
 
 img {
@@ -34,6 +38,7 @@ a:has(img) {
 
 main {
     /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40); */
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.60);
     background: var(--bg);
     image-rendering: auto;
 

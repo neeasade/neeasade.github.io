@@ -549,17 +549,17 @@ th {
     padding: 0.4rem 1.0rem;
 }
 
-/* Remove left padding for first cell in a row. */
-td:first-child,
-th:first-child {
-    padding-left: 0;
-}
+/* /\* Remove left padding for first cell in a row. *\/ */
+/* td:first-child, */
+/* th:first-child { */
+/*     padding-left: 0; */
+/* } */
 
-/* Remove right padding for last cell in a row. */
-td:last-child,
-th:last-child {
-    padding-right: 0;
-}
+/* /\* Remove right padding for last cell in a row. *\/ */
+/* td:last-child, */
+/* th:last-child { */
+/*     padding-right: 0; */
+/* } */
 
 /*
     1) Add a border under the table header.
