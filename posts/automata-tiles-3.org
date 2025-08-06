@@ -18,11 +18,13 @@ some of the ones I enjoy (click to demo):
 ;;   (--map (f-copy it (ns/blog-path "published/assets/posts/ca_dump3/"))))
 ;; cp ~/tiles/* ~/code/neeasade.github.io/published/assets/posts/ca_dump3
 
-(->> (sh (format "identify %s | awk '{print $1 \"x\" $3}'" (ns/blog-path "published/assets/posts/ca_dump3/*")))
+(->> (sh (format "identify %s | awk '{print $1 \"@\" $3}'" (ns/blog-path "published/assets/posts/ca_dump3/*")))
      (s-lines)
      (-map (lambda (out)
-	     (llet [(f w h) (s-split "x" out)]
-		   (list f (string-to-number w) (string-to-number h)))))
+	     (llet [(f wh) (s-split "@" out)
+                    (w h) (s-split "x" wh)]
+                   (list f (string-to-number w) (string-to-number h))
+	           (list (f-filename f) w h))))
      (seq-sort-by (-lambda ((_ w h)) (/ h w)) '>)
      (-map 'first)
      (-map 'f-filename)
