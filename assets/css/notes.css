@@ -13,6 +13,11 @@ body {
     /* keep bg size in sync for pixel perf rendering */
     /* background: url("../img/backgrounds/room.png") repeat; */
     /* background-size: auto 195px !important; */
+
+}
+
+img {
+    max-height: 30rem;
 }
 
 a:has(img) {
@@ -28,7 +33,7 @@ a:has(img) {
 }
 
 main {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
+    /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40); */
     background: var(--bg);
     image-rendering: auto;
 
@@ -79,7 +84,6 @@ blockquote {
 	/* background: var(--background_weak); */
 	background: var(--background_subtle);
 	border-left: 4px solid var(--background_weak);
-	border-radius: var(--radius);
 }
 
 a {
@@ -93,10 +97,8 @@ a {
 	color: var(--alt);
 
 	border-style: solid;
-
 	border-color: #a0a3a4;
-	border-radius: var(--radius);
-	border-width: 1px;
+	border-width: 0px;
 	margin: -1px;
 }
 
@@ -189,7 +191,7 @@ pre button {
 }
 
 .timestamp {
-    border: 1px solid var(--background_weak);
+    /* border: 1px solid var(--background_weak); */
     background: var(--background_subtle);
 
     color: var(--accent1_);
@@ -231,5 +233,3 @@ dt { font-weight: bold; }
     text-align: right;
     vertical-align: middle;
 }
-caption.t-above { caption-side: top; }
-caption.t-bottom { caption-side: bottom; }

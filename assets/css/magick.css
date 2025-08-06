@@ -630,6 +630,7 @@ blockquote footer cite {
 */
 pre.example,
 pre.src {
+    border-radius: var(--radius);
     background: var(--background_subtle);
     padding: 1rem 1.6rem; /* 1 */
     margin: 1.6rem 0; /* 1 */
@@ -644,6 +645,7 @@ pre.src {
 
 /* Set a custom monospace font */
 code {
+    border-radius: var(--radius);
     font-family: "Courier Prime", monospace;
     font-size: 1.6rem;
     background: var(--background_subtle);
