@@ -9,6 +9,8 @@
 
 Cool stuff I see on the internet (may be nsfw)
 
+- [[https://swamij.com/yoga-sutras.htm][Yoga Sutras]]
+- [[https://terebess.hu/english/tao.html][Index of Terebess Asia Online (TAO)]]
 - [[https://www.bopsecrets.org/][Bureau of Public Secrets website]]
 - [[https://pages.gseis.ucla.edu/faculty/agre/how-to-help.html][How to help someone use a computer]]
 - [[http://wesclark.com/jw/index.html][JonahWorld!]]
