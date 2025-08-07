@@ -101,13 +101,6 @@ img {
     line-height: 1.0;
 }
 
-detail {
-    text-align: center;
-    padding-top: 0px;
-    font-size: 0.9rem;
-    display: block;
-}
-
 a:has(img) {
     border: none !important;
     background: none !important;

@@ -24,6 +24,22 @@ img {
     max-height: 30rem;
 }
 
+
+p:empty {
+    display: none;
+}
+
+.detail::before {
+    content: "↑";
+}
+
+.detail {
+    text-align: center;
+    padding-top: -10px;
+    /* font-size: 0.9rem; */
+    display: block;
+}
+
 a:has(img) {
     border: none !important;
     background: none !important;
