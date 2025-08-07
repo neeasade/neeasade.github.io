@@ -36,7 +36,7 @@ $ sudo mount /dev/sdj ~/kobo
 
 To bypass the kobo account setup, you can exit the database on the device:
 
-#+begin_src console
+#+begin_src sh
 $ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
 sqlite> INSERT INTO user(UserID,UserKey) VALUES('1','');
 sqlite> .quit
@@ -46,7 +46,7 @@ Now let's install plato. Current releases can be found at the OP of [[https://ww
 forum post]]. The release is just a zip file that we will extract to ~~/kobo~.
 "installing" just means coping the contents of the release onto the reader:
 
-#+begin_src console
+#+begin_src sh
 sudo unzip OCP-Plato-0.9.38.zip -d ~/kobo
 #+end_src
 

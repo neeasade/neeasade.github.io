@@ -23,8 +23,7 @@ some of the ones I enjoy (click to demo):
      (-map (lambda (out)
 	     (llet [(f wh) (s-split "@" out)
                     (w h) (s-split "x" wh)]
-                   (list f (string-to-number w) (string-to-number h))
-	           (list (f-filename f) w h))))
+                   (list f (string-to-number w) (string-to-number h)))))
      (seq-sort-by (-lambda ((_ w h)) (/ h w)) '>)
      (-map 'first)
      (-map 'f-filename)

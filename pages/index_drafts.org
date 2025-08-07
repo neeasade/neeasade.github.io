@@ -8,8 +8,8 @@ These may be in a /very/ partial state. Last edit date shown.
      (--remove (ht-get it :hidden))
      (--filter (ht-get it :is-draft))
      (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
-     (-map (-lambda ((&hash :edited-date :html-dest :title))
+     (-map (-lambda ((&hash :edited-date :slug :title))
 	       (format "- <%s> [[file:./%s.html][%s]]"
-		edited-date (f-base html-dest) title)))
+		edited-date slug title)))
      (s-join "\n"))
 #+END_SRC

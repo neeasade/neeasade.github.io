@@ -1,0 +1,23 @@
+#+title: tag links
+
+#+begin_export html
+<style>
+#content {
+    text-align: center;
+}
+a {
+    margin: 5px 3px 0px 0px;
+    display: inline-block;
+}
+</style>
+#+end_export
+
+Links to tag pages.
+
+#+BEGIN_SRC elisp :results raw :exports results
+(->> (ns/blog-get-tags)
+     (--sort (> (cdr it) (cdr other)))
+     (-map (-lambda ((tag . count))
+               (format "[[./tag-%s.org][%s (%s)]]" tag tag count)))
+     (s-join "\n"))
+#+end_src

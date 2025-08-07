@@ -3,7 +3,6 @@
 #+pubdate: <2025-07-22>
 #+rss_title:
 #+filetags:
-#+post_type: post
 
 #+html_head: <script src="./assets/cljs/bundle.js" type="application/javascript"></script>
 #+html_head: <script src="../published/assets/cljs/bundle.js" type="application/javascript"></script>
