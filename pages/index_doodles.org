@@ -1,10 +1,10 @@
 #+title: doodles
-#+title_extra: [[./index_edited.org][Edited]] [[./index_published.org][Published]] [[./index_bubble.org][Bubble]] *Doodles*
+#+title_extra: {{{index-navbar(Doodles)}}}
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-metas-public)
      (--filter (ht-get it :is-doodle))
-     (-map (-lambda ((&hash :path :title))
-	       (format "** [[./%s.html][%s]]" (f-base path) title)))
+     (-map (-lambda ((&hash :slug :title))
+	       (format "** [[./%s.org][%s]]" slug title)))
      (s-join "\n"))
 #+END_SRC

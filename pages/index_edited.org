@@ -1,5 +1,5 @@
-#+title: {{{blog-title}}}
-#+title_extra: *Edited* [[./index_published.org][Published]] [[./index_bubble.org][Bubble]] [[./index_doodles.org][Doodles]]
+#+title: edited
+#+title_extra: {{{index-navbar(Edited)}}}
 
 posts+notes sorted by =:edited-date=
 
@@ -8,8 +8,7 @@ posts+notes sorted by =:edited-date=
      (--filter (or (ht-get it :is-post)
 		   (ht-get it :is-note)))
      (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
-     (-map (-lambda ((&hash :edited-date :html-dest :title))
-	       (format "- <%s> [[file:./%s.html][%s]]"
-		edited-date (f-base html-dest) title)))
+     (-map (-lambda ((&hash :edited-date :orglink))
+	       (format "- <%s> %s" edited-date orglink)))
      (s-join "\n"))
 #+END_SRC

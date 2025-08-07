@@ -1,6 +1,5 @@
 #+title: {{{blog-title}}}
-#+title_extra: [[./index_edited.org][Edited]] [[./index_published.org][Published]] *Bubble* [[./index_doodles.org][Doodles]]
-# #+title_extra: [[./index_edited.org][Edited]] [[./index_published.org][Published]] [[./index_bubble.org][Bubble]] [[./index_doodles.org][Doodles]]
+#+title_extra: {{{index-navbar(Bubble)}}}
 
 #+begin_export html
 <style>
@@ -17,7 +16,6 @@ a {
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-metas-public)
      (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
-     (-map (-lambda ((&hash :html-dest :title))
-	       (format "[[file:./%s.html][%s]]" (f-base html-dest) title)))
+     (--map (ht-get it :orglink))
      (s-join "\n"))
 #+END_SRC

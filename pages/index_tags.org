@@ -1,4 +1,5 @@
 #+title: tag links
+#+title_extra: {{{index-navbar(Tags)}}}
 
 #+begin_export html
 <style>
@@ -12,7 +13,7 @@ a {
 </style>
 #+end_export
 
-Links to tag pages.
+Links to tag pages
 
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-tags)

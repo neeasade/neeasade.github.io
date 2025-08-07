@@ -1,5 +1,4 @@
 #+title: Drafts
-# #+title_extra: {{{nav-strip((Drafts))}}}
 
 These may be in a /very/ partial state. Last edit date shown.
 
@@ -8,8 +7,7 @@ These may be in a /very/ partial state. Last edit date shown.
      (--remove (ht-get it :hidden))
      (--filter (ht-get it :is-draft))
      (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
-     (-map (-lambda ((&hash :edited-date :slug :title))
-	       (format "- <%s> [[file:./%s.html][%s]]"
-		edited-date slug title)))
+     (-map (-lambda ((&hash :edited-date :orglink))
+	       (format "- <%s> %s" edited-date orglink)))
      (s-join "\n"))
 #+END_SRC

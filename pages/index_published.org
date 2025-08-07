@@ -1,5 +1,5 @@
-#+title: {{{blog-title}}}
-#+title_extra: [[./index_edited.org][Edited]] *Published* [[./index_bubble.org][Bubble]] [[./index_doodles.org][Doodles]]
+#+title: published
+#+title_extra: {{{index-navbar(Published)}}}
 
 posts+notes sorted by =:published-date=
 
@@ -8,9 +8,7 @@ posts+notes sorted by =:published-date=
      (--filter (or (ht-get it :is-post)
 		   (ht-get it :is-note)))
      (--sort (string> (ht-get it :published-date) (ht-get other :published-date)))
-     (-map (-lambda ((&hash :published-date :html-dest :title))
-	       (format "- <%s> [[file:./%s.html][%s]]"
-		published-date (f-base html-dest) title)))
+     (-map (-lambda ((&hash :published-date :orglink)) (format "- <%s> %s" published-date orglink)))
      (s-join "\n"))
 #+END_SRC
 

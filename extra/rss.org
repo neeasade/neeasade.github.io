@@ -35,7 +35,7 @@
 		  (ht-get <> :rss-title)
 		  (ht-get <> :rss-title)
 		  (ht-get <> :published-date)
-		  (f-filename (ht-get <> :html-dest)))))
+		  (ns/str (ht-get <> :slug) ".html"))))
      ;; (-map (-lambda ((&hash :edited-date :html-dest :title))
      ;; 	       (format "- <%s> [[file:./%s.html][%s]]"
      ;; 		edited-date (f-base html-dest) title)))
