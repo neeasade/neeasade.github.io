@@ -12,7 +12,7 @@ Cool stuff I see on the internet (may be nsfw)
 - [[https://www.bopsecrets.org/][Bureau of Public Secrets website]]
 - [[https://pages.gseis.ucla.edu/faculty/agre/how-to-help.html][How to help someone use a computer]]
 - [[http://wesclark.com/jw/index.html][JonahWorld!]]
-- [[http://lambdaway.fr/workshop/?view=noosphere][lambdaway :: noosphere]]
+- [[http://lambdaway.fr/workshop/?view=noosphere][lambdaway noosphere]]
 - [[http://www.fmwconcepts.com/imagemagick/index.php][Fred's ImageMagick Scripts]]
 - [[http://dirk.rave.org/combinatris/][Combinatris]]
 - [[http://www.total-knowledge.com/~ilya/mips/ugt.html][UGT]]
