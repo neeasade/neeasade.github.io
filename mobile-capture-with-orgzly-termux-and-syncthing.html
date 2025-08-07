@@ -13,24 +13,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <meta property="og:title" content="My Mobile Setup">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://neeasade.net/">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/33db270ce25f1849ee3f01d2867b5a83dcad9a56d0f6b0bdaabc3f6ebd512458.png">
+<meta property="og:url" content="https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
-<script src="/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
+<script src="./assets/js/linktext.js" defer></script>
+<style> body {background: url("./assets/posts/ca_dump3/33db270ce25f1849ee3f01d2867b5a83dcad9a56d0f6b0bdaabc3f6ebd512458.png") repeat;} </style>
+<style> body {background-size: auto 784px !important; } </style>
+<script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
-<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=1408848e865ed01e90177085e1085f8f'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=b0b2b506dac76f261785d157f35d3622'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=b0b2b506dac76f261785d157f35d3622'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=8aacef8a73bc48c8489e29412bb42f23'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c20e8c9dec7b22b516bc875c6e26dc69'>
 </head>
 <body>
 <main id="content" class="content">
@@ -45,13 +41,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
     My Mobile Setup
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -89,7 +85,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="org8a9d257">
+<figure id="orgd6c64f2">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -101,7 +97,7 @@ turns into:
 </div>
 
 
-<figure id="orgeb7c50f">
+<figure id="orga0d2adc">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
@@ -115,19 +111,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">200mb</span>
-  <span style="color: #0095ac;">size_limit</span>=200000
-  <span style="color: #0095ac;">sync_music_dir</span>=<span style="color: #cb7000;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #0095ac;">music_dir</span>=<span style="color: #cb7000;">"$HOME/Music"</span>
+<pre class="src src-sh">  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">200mb</span>
+  <span style="color: #c6007f;">size_limit</span>=200000
+  <span style="color: #c6007f;">sync_music_dir</span>=<span style="color: #007c00;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #c6007f;">music_dir</span>=<span style="color: #007c00;">"$HOME/Music"</span>
 
-  <span style="color: #0095ac;">IFS</span>=$<span style="color: #cb7000;">'\n'</span>
-  <span style="color: #5a5a5a;">while </span><span style="color: #5a5a5a;">read</span> -r f; <span style="color: #5a5a5a;">do</span>
-      <span style="color: #0095ac;">collection_size</span>=$(<span style="color: #0095ac;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
-      <span style="color: #5a5a5a;">if</span> [ $<span style="color: #0095ac;">collection_size</span> -lt $<span style="color: #0095ac;">size_limit</span> ]; <span style="color: #5a5a5a;">then</span>
-          <span style="color: #5a5a5a;">echo</span> cp <span style="color: #cb7000;">"${music_dir}/$f"</span> <span style="color: #cb7000;">"$sync_music_dir"</span>
-          cp <span style="color: #cb7000;">"${music_dir}/$f"</span> <span style="color: #cb7000;">"$sync_music_dir"</span>
-      <span style="color: #5a5a5a;">fi</span>
-  <span style="color: #5a5a5a;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #cb7000;">'%file%'</span> | shuf)
+  <span style="color: #c6007f;">IFS</span>=$<span style="color: #007c00;">'\n'</span>
+  <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r f; <span style="color: #0065c8;">do</span>
+      <span style="color: #c6007f;">collection_size</span>=$(<span style="color: #c6007f;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
+      <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">collection_size</span> -lt $<span style="color: #c6007f;">size_limit</span> ]; <span style="color: #0065c8;">then</span>
+          <span style="color: #0065c8;">echo</span> cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+          cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+      <span style="color: #0065c8;">fi</span>
+  <span style="color: #0065c8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007c00;">'%file%'</span> | shuf)
 </pre>
 </div>
 </div>
@@ -167,7 +163,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="orge6ac722">
+<figure id="org2d340b4">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -177,7 +173,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="org0d2fb6d">
+<figure id="org2c2a6d2">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>

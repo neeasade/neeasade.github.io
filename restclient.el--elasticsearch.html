@@ -13,24 +13,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <meta property="og:title" content="restclient.el + elasticsearch">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://neeasade.net/">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/cfd87d5df9b246e9f1b4ff5d8726dd692336f6e11fbd21c41028b2b2ce62aac1.png">
+<meta property="og:url" content="https://notes.neeasade.net/restclient.el--elasticsearch">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
-<script src="/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
+<script src="./assets/js/linktext.js" defer></script>
+<style> body {background: url("./assets/posts/ca_dump3/cfd87d5df9b246e9f1b4ff5d8726dd692336f6e11fbd21c41028b2b2ce62aac1.png") repeat;} </style>
+<style> body {background-size: auto 93px !important; } </style>
+<script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
-<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=1408848e865ed01e90177085e1085f8f'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=b0b2b506dac76f261785d157f35d3622'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=b0b2b506dac76f261785d157f35d3622'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=8aacef8a73bc48c8489e29412bb42f23'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c20e8c9dec7b22b516bc875c6e26dc69'>
 </head>
 <body>
 <main id="content" class="content">
@@ -45,13 +41,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
     restclient.el + elasticsearch
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -84,33 +80,33 @@ one might use it with elasticsearch:
 <div class="org-src-container">
 <pre class="src src-restclient">;; -*- mode: restclient -*-
 
-# local
-:target = http://localhost:9200
-:cloud-auth = ""
-# Basic http auth example:
-cloud-auth := (concat "Basic " (base64-encode-string "username:password"))
-:prefix = some_prefix
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">local</span>
+<span style="color: #c6007f;">:target</span> = <span style="color: #007c00;">http://localhost:9200</span>
+<span style="color: #c6007f;">:cloud-auth</span> = <span style="color: #007c00;">""</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">Basic http auth example:</span>
+cloud-auth := (concat <span style="color: #007c00;">"Basic "</span> (base64-encode-string <span style="color: #007c00;">"username:password"</span>))
+<span style="color: #c6007f;">:prefix</span> = <span style="color: #007c00;">some_prefix</span>
 
-# multiline variable
-:headers = &lt;&lt;
-content-type: application/json
-Authorization: :cloud-auth
-#
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">multiline variable</span>
+<span style="color: #c6007f;">:headers</span> = <span style="color: #6a6d6e;">&lt;&lt;</span>
+<span style="color: #c6007f;">content-type</span>: <span style="color: #007c00;">application/json</span>
+<span style="color: #c6007f;">Authorization</span>: <span style="color: #007c00;">:cloud-auth</span>
+<span style="color: #6a6d6e;">#</span>
 
-# note: there must be a comment to separate request definitions.
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">note: there must be a comment to separate request definitions.</span>
 
-# list indices
-GET :target/_cat/indices
-:headers
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list indices</span>
+<span style="color: #0065c8;">GET</span> <span style="color: #c6007f;">:target/_cat/indices</span>
+<span style="color: #c6007f;">:headers</span>
 
-# logs sorted by a field
-GET :target/:prefix_log/_search
-:headers
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">logs sorted by a field</span>
+<span style="color: #0065c8;">GET</span> <span style="color: #c6007f;">:target/:prefix_log/_search</span>
+<span style="color: #c6007f;">:headers</span>
 {
-  "sort": [
+  <span style="color: #007c00;">"sort"</span>: [
     {
-      "timestamp": {
-        "order": "desc"
+      <span style="color: #007c00;">"timestamp"</span>: {
+        <span style="color: #007c00;">"order"</span>: <span style="color: #007c00;">"desc"</span>
       }
     }
   ]

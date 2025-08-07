@@ -13,24 +13,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <meta property="og:title" content="plato on the kobo libra 2">
 <meta property="og:description" content="I caught the reading bug again">
-<meta property="og:image" content="https://notes.neeasade.net/assets/img/backgrounds/newfeather.png">
-<meta property="og:url" content="https://neeasade.net/">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/c1d5bf5356d331b02e334f249bf97c6e16483b2f32a60524ff5e80c5c2d074ab.png">
+<meta property="og:url" content="https://notes.neeasade.net/plato-on-the-kobo-libra-2">
 <meta property="description" content="I caught the reading bug again">
 <meta name="twitter:card" content="summary">
-<script src="/assets/js/linktext.js" defer></script>
-<script src="../published/assets/js/linktext.js" defer></script>
-<script src="/assets/js/copy.js" defer></script>
-<script src="../published/assets/js/copy.js" defer></script>
+<script src="./assets/js/linktext.js" defer></script>
+<style> body {background: url("./assets/posts/ca_dump3/c1d5bf5356d331b02e334f249bf97c6e16483b2f32a60524ff5e80c5c2d074ab.png") repeat;} </style>
+<style> body {background-size: auto 777px !important; } </style>
+<script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='/assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=495589c982e6b68f1a8adabc54e44dda'>
-<link rel='stylesheet' href='/assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=1408848e865ed01e90177085e1085f8f'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='/assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=e67dc754cb3ed386e2529c61f1b67ed6'>
-<link rel='stylesheet' href='/assets/css/notes.css?sum=b0b2b506dac76f261785d157f35d3622'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=b0b2b506dac76f261785d157f35d3622'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=8aacef8a73bc48c8489e29412bb42f23'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c20e8c9dec7b22b516bc875c6e26dc69'>
 </head>
 <body>
 <main id="content" class="content">
@@ -45,13 +41,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
     plato on the kobo libra 2
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#5a5a5a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -61,7 +57,7 @@ I caught the reading bug again
 </div>
 <span class=pubinfo>
     Published 2023-06-11,
-    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/plato-on-the-kobo-libra-2.org">2024-12-30</a>
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/plato-on-the-kobo-libra-2.org">2025-08-06</a>
 </span>
 <div class="posttags">  </div>
 </header>
@@ -107,8 +103,8 @@ To bypass the kobo account setup, you can exit the database on the device:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-console">$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
-sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES('1','');
+<pre class="src src-sh">$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
+sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES(<span style="color: #007c00;">'1'</span>,<span style="color: #007c00;">''</span>);
 sqlite&gt; .quit
 </pre>
 </div>
@@ -120,7 +116,7 @@ forum post</a>. The release is just a zip file that we will extract to <code>~/k
 </p>
 
 <div class="org-src-container">
-<pre class="src src-console">sudo unzip OCP-Plato-0.9.38.zip -d ~/kobo
+<pre class="src src-sh">sudo unzip OCP-Plato-0.9.38.zip -d ~/kobo
 </pre>
 </div>
 
@@ -139,17 +135,17 @@ just looks &ldquo;right&rdquo; to me for reading):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml">[<span style="color: #00acc3;">reader</span>]
-<span style="color: #0095ac;">south-strip</span> = <span style="color: #cb7000;">"next-page"</span>
-<span style="color: #0095ac;">font-path</span> = <span style="color: #cb7000;">"/mnt/onboard/.adds/plato/fonts"</span>
-<span style="color: #0095ac;">font-family</span> = <span style="color: #cb7000;">"Georgia"</span>
-<span style="color: #0095ac;">margin-width</span> = 10
-<span style="color: #0095ac;">max-margin-width</span> = 20
-<span style="color: #0095ac;">line-height</span> = 1.1
-<span style="color: #0095ac;">ignore-document-css</span> = <span style="color: #5a5a5a;">true</span>
+<pre class="src src-toml">[<span style="color: #006e96;">reader</span>]
+<span style="color: #c6007f;">south-strip</span> = <span style="color: #007c00;">"next-page"</span>
+<span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
+<span style="color: #c6007f;">font-family</span> = <span style="color: #007c00;">"Georgia"</span>
+<span style="color: #c6007f;">margin-width</span> = 10
+<span style="color: #c6007f;">max-margin-width</span> = 20
+<span style="color: #c6007f;">line-height</span> = 1.1
+<span style="color: #c6007f;">ignore-document-css</span> = <span style="color: #0065c8;">true</span>
 
-[<span style="color: #00acc3;">reader.paragraph-breaker</span>]
-<span style="color: #0095ac;">stretch-tolerance</span> = 1.5
+[<span style="color: #006e96;">reader.paragraph-breaker</span>]
+<span style="color: #c6007f;">stretch-tolerance</span> = 1.5
 </pre>
 </div>
 
@@ -182,7 +178,7 @@ accessible with this option in <code>Settings.toml</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><span style="color: #0095ac;">font-path</span> = <span style="color: #cb7000;">"/mnt/onboard/.adds/plato/fonts"</span>
+<pre class="src src-toml"><span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
 </pre>
 </div>
 </div>
@@ -195,18 +191,18 @@ Create <code>~/kobo/.adds/plato/css/epub-user.css</code>, and add:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css"><span style="color: #0095ac;">p</span> {
-    <span style="color: #5a5a5a;">text-align</span>: justify;
-    <span style="color: #5a5a5a;">margin</span>: 1em 0 0 0 <span style="color: #5a5a5a;">!important</span>;
+<pre class="src src-css"><span style="color: #c6007f;">p</span> {
+    <span style="color: #0065c8;">text-align</span>: justify;
+    <span style="color: #0065c8;">margin</span>: 1em 0 0 0 <span style="color: #0065c8;">!important</span>;
 }
 
-<span style="color: #0095ac;">p + p</span> {
-    <span style="color: #5a5a5a;">text-indent</span>: 1em;
-    <span style="color: #5a5a5a;">margin</span>: 0 <span style="color: #5a5a5a;">!important</span>;
+<span style="color: #c6007f;">p + p</span> {
+    <span style="color: #0065c8;">text-indent</span>: 1em;
+    <span style="color: #0065c8;">margin</span>: 0 <span style="color: #0065c8;">!important</span>;
 }
 
-<span style="color: #0095ac;">img</span> { <span style="color: #8a8a8a;">/* </span><span style="color: #8a8a8a;">for centering</span><span style="color: #8a8a8a;"> */</span>
-    <span style="color: #5a5a5a;">margin</span>: auto;
+<span style="color: #c6007f;">img</span> { <span style="color: #6a6d6e;">/* </span><span style="color: #6a6d6e;">for centering</span><span style="color: #6a6d6e;"> */</span>
+    <span style="color: #0065c8;">margin</span>: auto;
 }
 </pre>
 </div>
@@ -220,9 +216,9 @@ For a db located in  <code>~/kobo/library</code>, set path like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml">[[<span style="color: #00acc3;">libraries</span>]]
-<span style="color: #0095ac;">path</span> = <span style="color: #cb7000;">"/mnt/onboard/library"</span>
-<span style="color: #8a8a8a;"># </span><span style="color: #8a8a8a;">...</span>
+<pre class="src src-toml">[[<span style="color: #006e96;">libraries</span>]]
+<span style="color: #c6007f;">path</span> = <span style="color: #007c00;">"/mnt/onboard/library"</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">...</span>
 </pre>
 </div>
 </div>
