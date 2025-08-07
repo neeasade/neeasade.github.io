@@ -1,0 +1,23 @@
+#+title: Cut at the joints
+#+title_extra:
+#+filetags:
+#+rss_title:
+#+pubdate: <2025-08-06>
+
+# other translations at: https://www.bopsecrets.org/gateway/passages/chuang-tzu.htm
+
+#+begin_quote
+Prince Huei’s cook was cutting up a bullock. Every blow of his hand, every heave of his shoulders, every tread of his foot, every thrust of his knee, every whshh of rent flesh, every chhk of the chopper, was in perfect rhythm — like the dance of the Mulberry Grove, like the harmonious chords of Ching Shou.
+
+“Well done!” cried the Prince. “Yours is skill indeed!”
+
+“Sire,” replied the cook, laying down his chopper. “I have always devoted myself to Tao, which is higher than mere skill. When I first began to cut up bullocks, I saw before me whole bullocks. After three years’ practice, I saw no more whole animals. And now I work with my mind and not with my eyes. My mind works along without the control of the senses. Falling back upon eternal principles, I glide through such great joints or cavities as there may be, according to the natural constitution of the animal. I do not even touch the convolutions of muscle and tendon, still less attempt to cut through large bones.
+
+*“A good cook changes his chopper once a year — because he cuts. An ordinary cook, once a month — because he hacks. But I have had this chopper nineteen years, and although I have cut up many thousand bullocks, its edge is as if fresh from the whetstone. For at the joints there are always interstices, and the edge of a chopper being without thickness, it remains only to insert that which is without thickness into such an insterstice. Indeed there is plenty of room for the blade to move about. It is thus that I have kept my chopper for nineteen years as though fresh from the whetstone.*
+
+“Nevertheless, when I come upon a knotty part which is difficult to tackle, I am all caution. Fixing my eye on it, I stay my hand and gently apply the blade, until with a kwah the part yields like earth crumbling to the ground. Then I take out my chopper and stand up, and look around, and pause with an air of triumph. Then wiping my chopper, I put it carefully away.”
+
+“Bravo!” cried the Prince. “From the words of this cook I have learnt how to take care of my life.”
+#+end_quote
+
+Translated by Lin Yutang (The Wisdom of Laotse, 1948)
