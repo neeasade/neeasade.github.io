@@ -210,6 +210,7 @@ h3 {
 
 /* h4 headings 0are the same size as h3 headings, but italic and without the decorative element. */
 h4 {
+    /* todo: should figure out h4 differentiator */
     font-style: italic;
     font-size: 2.025rem;
 }
@@ -593,7 +594,7 @@ blockquote {
     2) Add some space between the paragraphs.
 */
 blockquote p {
-    font-style: italic; /* 1 */
+    /* font-style: italic; /\* 1 *\/ */
     font-size: 2.1rem; /* 1 */
     font-weight: 300; /* 1 */
     line-height: 2.4rem; /* 1 */
