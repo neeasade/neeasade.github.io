@@ -1,6 +1,6 @@
 #+title: Cut at the joints
 #+title_extra:
-#+filetags:
+#+filetags: quote
 #+rss_title:
 #+pubdate: <2025-08-06>
 

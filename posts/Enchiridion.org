@@ -1,6 +1,6 @@
 #+title: Enchiridion #51
 #+post_type: post
-#+filetags:
+#+filetags: quote
 #+pubdate: <2025-07-18>
 
 #+begin_quote
