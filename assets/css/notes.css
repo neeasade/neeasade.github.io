@@ -107,6 +107,16 @@ blockquote {
 	border-left: 4px solid var(--background_weak);
 }
 
+cite {
+    margin-top: 1rem;
+    display: block;
+    float: right;
+}
+
+cite:before {
+    content: "—";
+}
+
 a {
 	padding: 0px 2px;
 
