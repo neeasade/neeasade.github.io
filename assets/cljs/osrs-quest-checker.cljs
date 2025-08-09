@@ -7,7 +7,7 @@
 
 (require '[ajax.core :refer [GET]])
 
-(def state (r/atom {:player-string "neeasade"
+(def state (r/atom {:player-string ""
                     :error ""
                     :players {}
                     :blockers {}
