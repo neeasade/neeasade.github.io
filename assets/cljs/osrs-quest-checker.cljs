@@ -3,7 +3,7 @@
             [reagent.dom :as rdom]
             [clojure.string :as string]
             [clojure.walk :as walk]
-            [osrs.data :refer [quest-data]]))
+            [osrs.data :refer [quest-data optimal-quest-list]]))
 
 (require '[ajax.core :refer [GET]])
 
@@ -72,12 +72,15 @@
                              (->> (:quests want)
                                   distinct
                                   (remove (partial = "Kudos"))))
-
         missing-skills (->> (:skills want)
                             (remove (fn [[skill level]]
                                       (>= (skill (:levels player-data))
                                           level)))
-                            (map (fn [[s l]] (str l " " (name s)))))]
+                            (map (fn [[s l]] (format "%s/%s %s"
+                                                     (-> player-data :levels s)
+                                                     l
+                                                     (name s)
+                                                     ))))]
     (concat missing-skills missing-quests)))
 
 
@@ -127,6 +130,41 @@
 (def update-player-stats-debounce!
   (debounce update-player-stats! 600))
 
+(defn update-quest-optimal []
+  (let [players (keys (:players @state))]
+    (swap! state assoc :quest
+           (or
+            (->> optimal-quest-list
+                 (some
+                  (fn [quest]
+                    (some
+                     (fn [player]
+                       (when (not (= 2 (or (get-in @state [:players player :quests (keyword quest)]) 2)))
+                         quest)) ; comp for extra stuff we don't have in quest data
+                     players))))
+            "None")))
+  (update-blockers!))
+
+(defn update-quest-doable []
+  (let [players (keys (:players @state))]
+    (swap! state assoc :quest
+           (or
+            (->> optimal-quest-list
+                 (some
+                  (fn [quest]
+                    (and
+                     (every?
+                      (fn [player]
+                        (when (and
+                               (not (= 2 (or (get-in @state [:players player :quests (keyword quest)]) 2)))
+                               (empty? (blockers (get-in @state [:players player])
+                                                 quest)))
+                          quest)) ; comp for extra stuff we don't have in quest data
+                      players)
+                     quest))))
+            "None")))
+  (update-blockers!))
+
 (defn my-component []
   [:div
    [:input {:type "text"
@@ -137,10 +175,15 @@
                            (swap! state assoc :player-string v)
                            (update-player-stats-debounce! v)))}]
    (when-let [e (:error @state)] [:h2 e])
-   [:p "Selected Quest: " [:b (:quest @state)]]
+   [:p "Selected Quest: " [:b
+                           [:a {:href (str "https://oldschool.runescape.wiki/w/" (string/replace (:quest @state) " " "_"))}
+                            (:quest @state)]]
+    ]
    [(search-box (map :title quest-data)
                 #(do (swap! state assoc :quest %)
                      (update-blockers!)))]
+   [:button {:on-click update-quest-optimal} "auto pick quest (next optimal)" ]
+   [:button {:on-click update-quest-doable} "auto pick quest (next doable)" ]
 
    (for [player (keys (:blockers @state))]
      (if (= 2 (get-in @state [:players player :quests (keyword (:quest @state))]))
@@ -155,7 +198,6 @@
 (when-let [url-state (parse-url)]
   (swap! state merge url-state)
   (update-player-stats! (:player-string url-state))
-  (update-blockers!)
-  (prn @state))
+  (update-blockers!))
 
 (rdom/render [my-component] (.getElementById js/document "app"))
