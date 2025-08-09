@@ -23,8 +23,7 @@ or lost. Socrates became perfect this way, making everything an
 opportunity for his improvement, following only reason. Though you're
 not yet a Socrates, you should live as though you intend to become a
 Socrates.
+{{{cite(The Enchiridion, section 51 (Stephen Walton translation))}}}
 #+end_quote
 
-- http://www.ideonautics.net/manual2.htm, section 51
-
-This entry appears towards the end of the manual.
+[[http://www.ideonautics.net/manual2.htm][The Manual]]
