@@ -29,7 +29,7 @@
     --bg: var(--background);
     --form-bg: var(--background_subtle);
     --form-fg: var(--fg);
-    --form-fg-placeholder: #00004d9a;
+    --form-fg-placeholder: var(--faded);
 }
 
 /*
@@ -435,7 +435,7 @@ select {
     margin-bottom: 1.6rem; /* 2 */
 
     font-size: 2rem; /* 3 */
-    color: var(--fg); /* 3 */
+    /* color: var(--fg); /\* 3 *\/ */
     background-color: var(--background_subtle);
     border: 1px solid var(--background_weak); /* 4 */
     /* background-color: transparent; /\* 3 *\/ */
