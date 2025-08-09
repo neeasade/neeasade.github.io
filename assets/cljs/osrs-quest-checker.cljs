@@ -5,6 +5,8 @@
             [clojure.walk :as walk]
             [osrs.data :refer [quest-data]]))
 
+(require '[ajax.core :refer [GET]])
+
 
 #_(defn parse-url
     ([] (parse-url (.. js/window -location -href)))
@@ -35,8 +37,17 @@
 ;;     (. (. js/window -history) replaceState
 ;;        (clj->js {:path url})
 ;;        "" url)
-;;     ;; (set! (. js/document -title) (string/join " - " (list (:title @state) "SleepyCypress")))
+;;     ;; (set! (. js/document -title) (string/join " - " (list (:title @state) )))
 ;;     ))
+
+(defn debounce [f ms]
+  (let [timeout (atom nil)]
+    (fn [& args]
+      (when @timeout (js/clearTimeout @timeout))
+      (reset! timeout
+              (js/setTimeout
+               #(apply f args)
+               ms)))))
 
 (defn search-box [items on-select]
   (let [search-term (r/atom "")]
@@ -85,50 +96,66 @@
                             (map (fn [[s l]] (str l " " (name s)))))]
     (concat missing-skills missing-quests)))
 
-(def state (r/atom {
-                    :players "neeasade"
-                    :player-stats {}
+(def state (r/atom {:players "neeasade"
+                    ;; :player-stats {}
                     :player-missing {}
-                    :blockers {}
-                    :selected "placeholder"
-                    }))
+                    :selected "None"}))
 
-
-(require '[ajax.core :refer [GET]])
-;;curl | jq . > ~/osrs_wiki.txt
 
 (defn handler [player response]
   (swap! state assoc-in [:player-stats player] (walk/keywordize-keys response))
+  (swap! state assoc-in [:player-missing player] (blockers (walk/keywordize-keys response) (:selected @state))))
 
-  (swap! state assoc-in [:player-missing player]
-         (blockers (walk/keywordize-keys response) (:selected @state))) (prn @state)
+(defn debounce [f ms]
+  (let [timeout (atom nil)]
+    (fn [& args]
+      (when @timeout (js/clearTimeout @timeout))
+      (reset! timeout
+              (js/setTimeout
+               #(apply f args)
+               ms)))))
+
+(defn update-blockers []
   )
 
-(defn make-request []
-  (->> (map string/trim (string/split (:players @state) #","))
-       (run! (fn [player]
-               (GET (str "https://sync.runescape.wiki/runelite/player/" player "/STANDARD")
-                    {:handler (partial handler player)})))))
+(def update-player-stats! (debounce
+                           (fn [players]
+                             (->> (map string/trim (string/split players #","))
+                                  (run! (fn [player]
+                                          (GET (str "https://sync.runescape.wiki/runelite/player/" player "/STANDARD")
+                                               {:handler
+                                                (fn [response]
+                                                  ;; (swap! state assoc-in [:player-stats player] (walk/keywordize-keys response))
+                                                  (swap! state assoc-in [:player-missing player] (blockers (walk/keywordize-keys response) (:selected @state))))
+                                                :error-handler (fn [e]
+                                                                 ;; todo: swap back error
+                                                                 (prn e)
+                                                                 )
+                                                })))))
+                           1000))
 
 (defn my-component []
   [:div
    [:input {:type "text"
             :placeholder "RSNs"
             :value (:players @state)
-            :on-change #(swap! state assoc :players (-> % .-target .-value))
-            }]
+            :on-change
+            (fn [e]
+              (let [v (-> e .-target .-value)]
+                (swap! state assoc :players v)
+                (update-player-stats! v)))}]
+   [:p "Selected Quest: " [:b (:selected @state)]]
    [(search-box (map :title quest-data) #(swap! state assoc :selected %))]
    [:p (str "players: " (:players @state))]
-   [:p (str "selected state: " (:selected @state))]
 
    (for [player (keys (:player-missing @state))]
-     [:div [:h2 (str player " is missing:")]
-      [:ul
-       (prn "ul for " player)
-       (for [line (get-in @state [:player-missing player])]
-         [:li line])]])
-   [:button {:on-click make-request} "check!"]
-   ])
+     (let [blockers (get-in @state [:player-missing player])]
+       [:div [:h2 (if (empty? blockers)
+                    (str player " is good! ✅")
+                    (str player " is missing:"))]
+        (when-not (empty? blockers)
+          [:ul (for [line blockers] [:li line])])])
+     )])
 ;; export function to use from JavaScript:
 ;; (set! (.-make_request js/window) make-request)
 
