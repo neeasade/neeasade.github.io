@@ -2,10 +2,12 @@
 
 These may be in a /very/ partial state. Last edit date shown.
 
+# a draft is something that is a post, that is hidden
+
 #+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-metas)
-     (--remove (ht-get it :hidden))
-     (--filter (ht-get it :is-draft))
+     (--filter (ht-get it :is-hidden))
+     (--filter (ht-get it :is-post))
      (--sort (string> (ht-get it :edited-date) (ht-get other :edited-date)))
      (-map (-lambda ((&hash :edited-date :orglink))
 	       (format "- <%s> %s" edited-date orglink)))
