@@ -61,7 +61,6 @@
 
 (defn blockers [player-data quest-name]
   (let [player-data (assoc-in player-data [:levels :questpoints] 400) ; faking/not handling for now
-        ;; quest-name "Dragon Slayer II"
         want (first (filter #(= (:title %) quest-name) quest-data))
 
         ;; ---
@@ -144,12 +143,14 @@
                      (update-blockers!)))]
 
    (for [player (keys (:blockers @state))]
-     (let [blockers (get-in @state [:blockers player])]
-       [:div [:h2 (if (empty? blockers)
-                    (str player " is good! ✅")
-                    (str player " is missing:"))]
-        (when-not (empty? blockers)
-          [:ul (for [line blockers] [:li line])])]))])
+     (if (= 2 (get-in @state [:players player :quests (keyword (:quest @state))]))
+       [:h2 (str player " has already done this quest!😲")]
+       (let [blockers (get-in @state [:blockers player])]
+         [:div [:h2 (if (empty? blockers)
+                      (str player " is ready! ✅")
+                      (str player " is missing:"))]
+          (when-not (empty? blockers)
+            [:ul (for [line blockers] [:li line])])])))])
 
 (when-let [url-state (parse-url)]
   (swap! state merge url-state)
