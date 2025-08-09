@@ -1,6 +1,5 @@
 #+title: osrs quest checker
 #+title_extra: show me whatchu got
-#+hidden: t
 #+pubdate: <2025-07-29>
 
 #+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.js" type="application/javascript"></script>
