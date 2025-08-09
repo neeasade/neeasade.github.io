@@ -12,10 +12,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <meta property="og:title" content="osrs quest checker">
-<meta property="og:description" content="checking!!!">
+<meta property="og:description" content="show me whatchu got">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png">
 <meta property="og:url" content="https://notes.neeasade.net/osrs-quest-checker">
-<meta property="description" content="checking!!!">
+<meta property="description" content="show me whatchu got">
 <meta name="twitter:card" content="summary">
 <style> body {background: url("./assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png") repeat;} </style>
 <style> body {background-size: auto 129px !important; } </style>
@@ -24,7 +24,7 @@
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=cd9479bd38a99f5091814cdeca29966b'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=9c7e138639a6bb9d8f03e5a9aaab831f'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=e026f39e44e43db233a9ae4171250b53'>
 <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.js" type="application/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
@@ -33,7 +33,6 @@
 <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.reagent.js" type="application/javascript"></script>
 <script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
 <script src="./assets/cljs/osrs-quest-checker.cljs" type="application/x-scittle"></script>
-<style> img { max-width: 20%; float: right;} </style>
 </head>
 <body>
 <main id="content" class="content">
@@ -59,32 +58,49 @@
 </h1>
 <div class="org-center">
 <p>
-checking!!!
+show me whatchu got
 </p>
 </div>
 </header>
 <hr>
 
-<figure id="orgf07f431">
+<figure id="orge3995ec">
 <a href="./assets/posts/ge_standing.png"><img src="./assets/posts/ge_standing.png" alt="ge_standing.png"></a>
 
 </figure>
 
 <p>
-osrs = <a href="https://oldschool.runescape.com/">old school runescape</a>. This is for checking that 2 players can do a
-quest - both must have the <a href="https://oldschool.runescape.wiki/w/RuneScape:WikiSync">wikisync</a> plugin installed in runelite
+osrs = <a href="https://oldschool.runescape.com/">old school runescape</a>. This is for checking that 1 or more players can do
+a quest. Requires installation of the <a href="https://oldschool.runescape.wiki/w/RuneScape:WikiSync">WikiSync</a> plugin.
 </p>
 
 
 <style>
+
 ul.search-results {
     list-style-type: none;
     background-color: var(--background_weak);
+
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 0px
 }
 
-li:hover {
+.search-results li:hover {
     background-color: var(--background_plus);
 }
+
+.search-box input {
+    margin-bottom: 0px;
+}
+
+
+input {
+display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
 </style>
 
 <div id="app"></div>
