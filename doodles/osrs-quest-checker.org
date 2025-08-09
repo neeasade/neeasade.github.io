@@ -1,0 +1,37 @@
+#+title: osrs quest checker
+#+title_extra: checking!!!
+#+pubdate: <2025-07-29>
+
+#+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.js" type="application/javascript"></script>
+#+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
+#+html_head: <script crossorigin src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+#+html_head: <script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+#+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.reagent.js" type="application/javascript"></script>
+
+# #+html_head: <script src="./assets/cljs/bundle.js" type="application/javascript"></script>
+# #+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
+
+#+html_head: <script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
+#+html_head: <script src="./assets/cljs/osrs-quest-checker.cljs" type="application/x-scittle"></script>
+
+#+HTML_HEAD: <style> img { max-width: 20%; float: right;} </style>
+{{{image(rswav2.png.png)}}}
+
+osrs = [[https://oldschool.runescape.com/][old school runescape]]. This is for checking that 2 players can do a
+quest - both must have the [[https://oldschool.runescape.wiki/w/RuneScape:WikiSync][wikisync]] plugin installed in runelite
+
+#+BEGIN_EXPORT html
+
+<style>
+ul.search-results {
+    list-style-type: none;
+    background-color: var(--background_weak);
+}
+
+li:hover {
+    background-color: var(--background_plus);
+}
+</style>
+
+<div id="app"></div>
+#+END_EXPORT
