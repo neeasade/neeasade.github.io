@@ -1,5 +1,5 @@
 #+title: osrs quest checker
-#+title_extra: checking!!!
+#+title_extra: show me whatchu got
 #+hidden: t
 #+pubdate: <2025-07-29>
 
@@ -15,24 +15,39 @@
 #+html_head: <script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
 #+html_head: <script src="./assets/cljs/osrs-quest-checker.cljs" type="application/x-scittle"></script>
 
-#+HTML_HEAD: <style> img { max-width: 20%; float: right;} </style>
-
 {{{image(ge_standing.png)}}}
 
-osrs = [[https://oldschool.runescape.com/][old school runescape]]. This is for checking that 2 players can do a
-quest - both must have the [[https://oldschool.runescape.wiki/w/RuneScape:WikiSync][wikisync]] plugin installed in runelite
+osrs = [[https://oldschool.runescape.com/][old school runescape]]. This is for checking that 1 or more players can do
+a quest. Requires installation of the [[https://oldschool.runescape.wiki/w/RuneScape:WikiSync][WikiSync]] plugin.
 
 #+BEGIN_EXPORT html
 
 <style>
+
 ul.search-results {
     list-style-type: none;
     background-color: var(--background_weak);
+
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 0px
 }
 
-li:hover {
+.search-results li:hover {
     background-color: var(--background_plus);
 }
+
+.search-box input {
+    margin-bottom: 0px;
+}
+
+
+input {
+display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
 </style>
 
 <div id="app"></div>
