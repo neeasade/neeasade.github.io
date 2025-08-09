@@ -25,8 +25,8 @@
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=8aacef8a73bc48c8489e29412bb42f23'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=c20e8c9dec7b22b516bc875c6e26dc69'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=cd9479bd38a99f5091814cdeca29966b'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=aa2c86b5105f0ef46c5a6cd05e3e17a7'>
 <style> detail {margin-top: -0.9rem;} </style>
 </head>
 <body>
@@ -243,7 +243,7 @@ Saturation in HSL is a controlled version of chromacity (&ldquo;distance from gr
 </p>
 
 
-<figure id="org8788ec6">
+<figure id="org295574c">
 <a href="./assets/posts/color_cylinder.png"><img src="./assets/posts/color_cylinder.png" alt="color_cylinder.png"></a>
 
 </figure>
@@ -264,7 +264,7 @@ Hue has several defined points (at rotating 60° angles), I like to think of it 
 </p>
 
 <p>
-<detail>HSL: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%</detail>
+<span class=detail>HSL: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%</span>
 </p>
 
 <p>
@@ -288,7 +288,7 @@ Let&rsquo;s see the effect saturation has:
 </p>
 
 <p>
-<detail>HSL: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue)</detail>
+<span class=detail>HSL: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue)</span>
 </p>
 
 <p>
@@ -312,7 +312,7 @@ And lightness:
 </p>
 
 <p>
-<detail>HSL: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue)</detail>
+<span class=detail>HSL: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue)</span>
 </p>
 </div>
 </div>
@@ -339,7 +339,7 @@ What does that mean for us? Well, let&rsquo;s take our above examples and recrea
 </p>
 
 <p>
-<detail>HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%</detail>
+<span class=detail>HSLuv: Hue rotation 0-360 (step 60°), saturation 50%, lightness 50%</span>
 </p>
 
 <p>
@@ -363,7 +363,7 @@ Saturation:
 </p>
 
 <p>
-<detail>HSLuv: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue)</detail>
+<span class=detail>HSLuv: saturation scale 0-100% (step 10%), lightness 50%, hue 240° (blue)</span>
 </p>
 
 <p>
@@ -387,7 +387,7 @@ Lightness:
 </p>
 
 <p>
-<detail>HSLuv: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue)</detail>
+<span class=detail>HSLuv: lightness scale 0-100% (step 10%), saturation 50%, hue 240° (blue)</span>
 </p>
 
 <p>
@@ -538,7 +538,7 @@ Let&rsquo;s look at some LAB colors. The labels below will have the values of  <
 </p>
 
 <p>
-<detail>lab scales: -A -&gt; +A, -B -&gt; +B, {-A,-B} -&gt; {+A,+B}</detail>
+<span class=detail>lab scales: -A -&gt; +A, -B -&gt; +B, {-A,-B} -&gt; {+A,+B}</span>
 </p>
 </div>
 </div>
@@ -590,7 +590,7 @@ LCH is a &ldquo;cylindrical&rdquo; version of cieLAB. What that means for us is 
 </p>
 
 <p>
-<detail>LCH: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%</detail>
+<span class=detail>LCH: Hue rotation 0-360 (step 90°), saturation 50%, luminance 50%</span>
 </p>
 
 <p>
@@ -613,7 +613,7 @@ LCH lightness:
 </p>
 
 <p>
-<detail>LCH: lightness scale 0-100% (step 10%), chromacity 50%, hue 270° (blue)</detail>
+<span class=detail>LCH: lightness scale 0-100% (step 10%), chromacity 50%, hue 270° (blue)</span>
 </p>
 
 <p>
@@ -637,7 +637,7 @@ Chromacity, &ldquo;distance from gray&rdquo; - very similar to Saturation (which
 </p>
 
 <p>
-<detail>LCH: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue)</detail>
+<span class=detail>LCH: chromacity scale 0-100% (step 10%), luminance 70%, hue 270° (blue)</span>
 </p>
 </div>
 </div>
@@ -683,7 +683,7 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 </p>
 
 <p>
-<detail>original</detail>
+<span class=detail>original</span>
 </p>
 
 <p>
@@ -721,7 +721,7 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 </p>
 
 <p>
-<detail>squash lightness to 50 in HSLuv</detail>
+<span class=detail>squash lightness to 50 in HSLuv</span>
 </p>
 
 <p>
@@ -821,7 +821,7 @@ Let&rsquo;s compare some spaces. We&rsquo;ll take some the RGB gradient from abo
 </p>
 
 <p>
-<detail>3 branches off of the above: LCH maximize C, HSL maximize S, HSLuv maximize S</detail>
+<span class=detail>3 branches off of the above: LCH maximize C, HSL maximize S, HSLuv maximize S</span>
 </p>
 </div>
 </div>
@@ -853,7 +853,7 @@ Dark:
 </p>
 
 <p>
-<detail>dark contrast ratios, 3.0 - 9.0, step 1.0</detail>
+<span class=detail>dark contrast ratios, 3.0 - 9.0, step 1.0</span>
 </p>
 
 <p>
@@ -872,7 +872,7 @@ Light:
 </p>
 
 <p>
-<detail>light contrast ratios, 3.0 - 9.0, step 1.0</detail>
+<span class=detail>light contrast ratios, 3.0 - 9.0, step 1.0</span>
 </p>
 
 <p>
@@ -903,7 +903,7 @@ Color distance is a measure of how far apart colors are by properties in spaces.
 </p>
 
 <p>
-<detail>CIELAB distance from the start color is shown</detail>
+<span class=detail>CIELAB distance from the start color is shown</span>
 </p>
 
 <p>
@@ -962,7 +962,7 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 </p>
 
 <p>
-<detail>HSL: 120° rotation (hue value shown)</detail>
+<span class=detail>HSL: 120° rotation (hue value shown)</span>
 </p>
 
 <p>
@@ -975,7 +975,7 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 </p>
 
 <p>
-<detail>HSL: 90° rotation (hue value shown)</detail>
+<span class=detail>HSL: 90° rotation (hue value shown)</span>
 </p>
 
 <p>
@@ -989,7 +989,7 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 </p>
 
 <p>
-<detail>HSL: 72° rotation (hue value shown)</detail>
+<span class=detail>HSL: 72° rotation (hue value shown)</span>
 </p>
 
 <p>
@@ -1004,7 +1004,7 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 </p>
 
 <p>
-<detail>HSL: 60° rotation (hue value shown)</detail>
+<span class=detail>HSL: 60° rotation (hue value shown)</span>
 </p>
 
 <p>
@@ -1019,7 +1019,7 @@ Let&rsquo;s say we we&rsquo;ve played around in the LAB space to find a warm loo
 </p>
 
 <p>
-<detail>HSL: 45° rotation (take 6) (hue value shown)</detail>
+<span class=detail>HSL: 45° rotation (take 6) (hue value shown)</span>
 </p>
 
 <p>
@@ -1050,7 +1050,7 @@ CIELAB has a white point component used when entering and leaving the space. You
 </p>
 
 <p>
-<detail>original</detail>
+<span class=detail>original</span>
 </p>
 
 <p>
@@ -1069,7 +1069,7 @@ CIELAB has a white point component used when entering and leaving the space. You
 </p>
 
 <p>
-<detail>transformed</detail>
+<span class=detail>transformed</span>
 </p>
 
 <p>
@@ -1320,7 +1320,7 @@ Which in action looks like (click to see full size):
 </p>
 
 
-<figure id="orgde88f82">
+<figure id="org19db686">
 <a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png"></a>
 
 </figure>

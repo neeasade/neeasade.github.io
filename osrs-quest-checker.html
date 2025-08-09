@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>osrs grind calculator</title>
+<title>osrs quest checker</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -11,14 +11,14 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="osrs grind calculator">
-<meta property="og:description" content="napkin math for your suffering">
-<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/2de41c8444188b9254e222e745cb099fd11fc26c546441b65200f526fc1095a5.png">
-<meta property="og:url" content="https://notes.neeasade.net/osrs-grind-calculator">
-<meta property="description" content="napkin math for your suffering">
+<meta property="og:title" content="osrs quest checker">
+<meta property="og:description" content="checking!!!">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png">
+<meta property="og:url" content="https://notes.neeasade.net/osrs-quest-checker">
+<meta property="description" content="checking!!!">
 <meta name="twitter:card" content="summary">
-<style> body {background: url("./assets/posts/ca_dump3/2de41c8444188b9254e222e745cb099fd11fc26c546441b65200f526fc1095a5.png") repeat;} </style>
-<style> body {background-size: auto 232px !important; } </style>
+<style> body {background: url("./assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png") repeat;} </style>
+<style> body {background-size: auto 129px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
@@ -26,10 +26,13 @@
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=cd9479bd38a99f5091814cdeca29966b'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=aa2c86b5105f0ef46c5a6cd05e3e17a7'>
-<script src="./assets/cljs/bundle.js" type="application/javascript"></script>
-<script src="../published/assets/cljs/bundle.js" type="application/javascript"></script>
-<script src="./assets/cljs/osrs-calc.cljs" type="application/x-scittle"></script>
-<script src="../published/assets/cljs/osrs-calc.cljs" type="application/x-scittle"></script>
+<script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.js" type="application/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
+<script crossorigin src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.reagent.js" type="application/javascript"></script>
+<script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
+<script src="./assets/cljs/osrs-quest-checker.cljs" type="application/x-scittle"></script>
 <style> img { max-width: 20%; float: right;} </style>
 </head>
 <body>
@@ -41,14 +44,14 @@
 
 <div style="float: right">
     
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/doodles/osrs-grind-calculator.org">source</a>
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/doodles/osrs-quest-checker.org">source</a>
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
         <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
-    osrs grind calculator
+    osrs quest checker
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
         <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
@@ -56,22 +59,34 @@
 </h1>
 <div class="org-center">
 <p>
-napkin math for your suffering
+checking!!!
 </p>
 </div>
 </header>
 <hr>
 
-<figure id="org7340ea2">
+<figure id="orgc254faf">
 <a href="./assets/posts/rswav2.png.png"><img src="./assets/posts/rswav2.png.png" alt="rswav2.png.png"></a>
 
 </figure>
 
 <p>
-osrs = <a href="https://oldschool.runescape.com/">old school runescape</a>.
+osrs = <a href="https://oldschool.runescape.com/">old school runescape</a>. This is for checking that 2 players can do a
+quest - both must have the <a href="https://oldschool.runescape.wiki/w/RuneScape:WikiSync">wikisync</a> plugin installed in runelite
 </p>
 
-</script>
+
+<style>
+ul.search-results {
+    list-style-type: none;
+    background-color: var(--background_weak);
+}
+
+li:hover {
+    background-color: var(--background_plus);
+}
+</style>
+
 <div id="app"></div>
 
 <hr>
