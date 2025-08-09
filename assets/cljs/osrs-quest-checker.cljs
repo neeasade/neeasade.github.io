@@ -7,6 +7,10 @@
 
 (require '[ajax.core :refer [GET]])
 
+(defn format [s & replacers]
+  (reduce (fn [acc new] (string/replace-first acc "%s" (str new)))
+          s replacers))
+
 
 #_(defn parse-url
     ([] (parse-url (.. js/window -location -href)))
@@ -40,15 +44,6 @@
 ;;     ;; (set! (. js/document -title) (string/join " - " (list (:title @state) )))
 ;;     ))
 
-(defn debounce [f ms]
-  (let [timeout (atom nil)]
-    (fn [& args]
-      (when @timeout (js/clearTimeout @timeout))
-      (reset! timeout
-              (js/setTimeout
-               #(apply f args)
-               ms)))))
-
 (defn search-box [items on-select]
   (let [search-term (r/atom "")]
     (fn []
@@ -71,13 +66,9 @@
                item])])]))))
 
 (defn blockers [player-data quest-name]
-  (let [
-        ;; player-data (json/parse-string (slurp "/home/neeasade/osrs_wiki.txt") true)
-        player-data (assoc-in player-data [:levels :questpoints] 400) ; faking
+  (let [player-data (assoc-in player-data [:levels :questpoints] 400) ; faking/not handling for now
         ;; quest-name "Dragon Slayer II"
         want (first (filter #(= (:title %) quest-name) quest-data))
-        ;; quest-name (string/replace quest-name "Recipe for Disaster - " "Recipe for Disaster/")
-
 
         ;; ---
         missing-quests (keep (fn [dep-name]
@@ -96,15 +87,21 @@
                             (map (fn [[s l]] (str l " " (name s)))))]
     (concat missing-skills missing-quests)))
 
-(def state (r/atom {:players "neeasade"
-                    ;; :player-stats {}
-                    :player-missing {}
-                    :selected "None"}))
+(def state (r/atom {:players-input "neeasade"
+                    :error ""
+                    :players {}
+                    :blockers {}
+                    :quest "None"}))
 
-
-(defn handler [player response]
-  (swap! state assoc-in [:player-stats player] (walk/keywordize-keys response))
-  (swap! state assoc-in [:player-missing player] (blockers (walk/keywordize-keys response) (:selected @state))))
+(defn update-blockers! []
+  (swap! state assoc :blockers {})
+  (run! (fn [player]
+          (when-not (= "None" (:quest @state))
+            (println "update blockers " player)
+            (swap! state assoc-in [:blockers player]
+                   (blockers (get-in @state [:players player])
+                             (:quest @state)))))
+        (keys (:players @state))))
 
 (defn debounce [f ms]
   (let [timeout (atom nil)]
@@ -115,41 +112,48 @@
                #(apply f args)
                ms)))))
 
-(defn update-blockers []
-  )
+(defn handler [player response]
+  (println "found player" player)
+  (swap! state assoc-in [:players player] (walk/keywordize-keys response))
+  (update-blockers!))
 
-(def update-player-stats! (debounce
-                           (fn [players]
-                             (->> (map string/trim (string/split players #","))
-                                  (run! (fn [player]
-                                          (GET (str "https://sync.runescape.wiki/runelite/player/" player "/STANDARD")
-                                               {:handler
-                                                (fn [response]
-                                                  ;; (swap! state assoc-in [:player-stats player] (walk/keywordize-keys response))
-                                                  (swap! state assoc-in [:player-missing player] (blockers (walk/keywordize-keys response) (:selected @state))))
-                                                :error-handler (fn [e]
-                                                                 ;; todo: swap back error
-                                                                 (prn e)
-                                                                 )
-                                                })))))
-                           1000))
+(defn error-handler [player e]
+  (swap! state assoc :error
+         (format "error finding player '%s': %s"
+                 player
+                 (get-in e [:response "error"]))))
+
+(def update-player-stats!
+  (debounce
+   (fn [players]
+     (swap! state assoc :players {})
+     (let [players (map string/trim (string/split players #","))]
+       ;; (swap! state assoc :players players)
+       (run! (fn [player]
+               (println "looking up" player)
+               (GET (str "https://sync.runescape.wiki/runelite/player/" player "/STANDARD")
+                    {:handler (partial handler player)
+                     :error-handler (partial error-handler player)
+                     })) players)))
+   1000))
 
 (defn my-component []
   [:div
    [:input {:type "text"
             :placeholder "RSNs"
-            :value (:players @state)
-            :on-change
-            (fn [e]
-              (let [v (-> e .-target .-value)]
-                (swap! state assoc :players v)
-                (update-player-stats! v)))}]
-   [:p "Selected Quest: " [:b (:selected @state)]]
-   [(search-box (map :title quest-data) #(swap! state assoc :selected %))]
-   [:p (str "players: " (:players @state))]
+            :value (:player-string @state)
+            :on-change (fn [e]
+                         (let [v (-> e .-target .-value)]
+                           (swap! state assoc :player-string v)
+                           (update-player-stats! v)))}]
+   (when-let [e (:error @state)] [:p e])
+   [:p "Selected Quest: " [:b (:quest @state)]]
+   [(search-box (map :title quest-data)
+                #(do (swap! state assoc :quest %)
+                     (update-blockers!)))]
 
-   (for [player (keys (:player-missing @state))]
-     (let [blockers (get-in @state [:player-missing player])]
+   (for [player (keys (:blockers @state))]
+     (let [blockers (get-in @state [:blockers player])]
        [:div [:h2 (if (empty? blockers)
                     (str player " is good! ✅")
                     (str player " is missing:"))]
