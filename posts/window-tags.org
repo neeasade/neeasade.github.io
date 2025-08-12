@@ -1,0 +1,48 @@
+#+title: window groups
+#+title_extra: Thoughts after 5 years
+#+pubdate: <2025-08-12>
+#+filetags:
+#+rss_title:
+#+hidden: t
+
+I used to be a multi-screen maximalist. Everyone knows the more monitors you
+have the more powerful you are, right? I ran a triple-head setup turned in
+[[https://notes.neeasade.net/rice.html#2016-01-28][various ways]], and it came with it's own challenges for my wm management and
+window wants. One day I saw someone talking about their single monitor workflow
+and they said it helped them focus. Afer some reflection I came to the
+conclusion they were right - even if I'm referencing docs, having windows side
+by side rather than splatted helps me hone in on what matters. I would have to
+be a little more intentional with /what/ is on the single screen in front of me
+instead of just splatting things into whatever space is available.
+
+And so (initially as an experiment) I went from 3 mid monitors to one really
+nice monitor. Many edge cases left my dotfiles. I didn't have to worry about
+lemonbar's [[https://github.com/LemonBoy/bar/issues/163][-g flag]] behaving oddly anymore. When the border of the monitor is the
+edge of the total display, you don't have to worry about pseudo-borders for
+things like window movement scripts. All in all it was a great success! The
+result was a calmer, more focused desktop experience.
+
+Around 2020 I saw a talk about the [[https://hikari.acmelabs.space/][hikari]] wayland compositor and it mentioned
+taking great inspo from [[https://man.openbsd.org/cwm][cwm]], a window group wm in the openbsd world. I did some
+further digging and thought that window groups might be a fine thing to have,
+and it might stack further into the single-monitor feels described above - after
+all, you go from N virtual desktops to just 1, with tags for summoning or
+dismissing things at will. Thus the latter half of 2020 saw a lot of tag/group
+experiments for me, jamming the concept into bspwm with a script, currently
+called [[https://github.com/neeasade/dotfiles/blob/master/bin/bin/btags][=btags=]]. =bspc= can hide windows by toggling a hidden flag on them -
+After ~6 months of messing with the concept, things largely stabilized, though I
+did come back to tweak the flow once or twice in the 5 years since.
+
+So.. What worked? What didn't?
+
+-----
+
+todo:
+
+cover
+- matched panel state for scripts, ended up rolling my own panel section
+- multi-color borders for groups
+- resize friendly windows needed for tiling case
+- note not interested in floating case for all windows, layout emphasis
+- mapping of standard applications to groups - 1 always code, 2 browser, misc,
+  "hole" concept
