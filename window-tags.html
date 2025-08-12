@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>window groups</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="window groups">
+<meta property="og:description" content="Thoughts after 5 years">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/dcf58d8c6a227fa22786cee08a90e5068d06f80a8547a2048b1522d95044e7c3.png">
+<meta property="og:url" content="https://notes.neeasade.net/window-tags">
+<meta property="description" content="Thoughts after 5 years">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<style> body {background: url("./assets/posts/ca_dump3/dcf58d8c6a227fa22786cee08a90e5068d06f80a8547a2048b1522d95044e7c3.png") repeat;} </style>
+<style> body {background-size: auto 451px !important; } </style>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=9c7e138639a6bb9d8f03e5a9aaab831f'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=e026f39e44e43db233a9ae4171250b53'>
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<div style="float: left">
+    <a href='./index.html'>../notes</a>
+</div>
+
+<div style="float: right">
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/window-tags.org">source</a>
+</div>
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+    </svg>
+    window groups
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+    </svg>
+</h1>
+<div class="org-center">
+<p>
+Thoughts after 5 years
+</p>
+</div>
+<span class=pubinfo>
+    Published 2025-08-12
+</span>
+<div class="posttags">  </div>
+</header>
+<hr>
+<p>
+I used to be a multi-screen maximalist. Everyone knows the more monitors you
+have the more powerful you are, right? I ran a triple-head setup turned in
+<a href="https://notes.neeasade.net/rice.html#2016-01-28">various ways</a>, and it came with it&rsquo;s own challenges for my wm management and
+window wants. One day I saw someone talking about their single monitor workflow
+and they said it helped them focus. Afer some reflection I came to the
+conclusion they were right - even if I&rsquo;m referencing docs, having windows side
+by side rather than splatted helps me hone in on what matters. I would have to
+be a little more intentional with <i>what</i> is on the single screen in front of me
+instead of just splatting things into whatever space is available.
+</p>
+
+<p>
+And so (initially as an experiment) I went from 3 mid monitors to one really
+nice monitor. Many edge cases left my dotfiles. I didn&rsquo;t have to worry about
+lemonbar&rsquo;s <a href="https://github.com/LemonBoy/bar/issues/163">-g flag</a> behaving oddly anymore. When the border of the monitor is the
+edge of the total display, you don&rsquo;t have to worry about pseudo-borders for
+things like window movement scripts. All in all it was a great success! The
+result was a calmer, more focused desktop experience.
+</p>
+
+<p>
+Around 2020 I saw a talk about the <a href="https://hikari.acmelabs.space/">hikari</a> wayland compositor and it mentioned
+taking great inspo from <a href="https://man.openbsd.org/cwm">cwm</a>, a window group wm in the openbsd world. I did some
+further digging and thought that window groups might be a fine thing to have,
+and it might stack further into the single-monitor feels described above - after
+all, you go from N virtual desktops to just 1, with tags for summoning or
+dismissing things at will. Thus the latter half of 2020 saw a lot of tag/group
+experiments for me, jamming the concept into bspwm with a script, currently
+called <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/btags"><code>btags</code></a>. <code>bspc</code> can hide windows by toggling a hidden flag on them -
+After ~6 months of messing with the concept, things largely stabilized, though I
+did come back to tweak the flow once or twice in the 5 years since.
+</p>
+
+<p>
+So.. What worked? What didn&rsquo;t?
+</p>
+
+<div class=separator> ∗ ∗ ∗ </div>
+
+<p>
+todo:
+</p>
+
+<p>
+cover
+</p>
+<ul class="org-ul">
+<li>matched panel state for scripts, ended up rolling my own panel section</li>
+<li>multi-color borders for groups</li>
+<li>resize friendly windows needed for tiling case</li>
+<li>note not interested in floating case for all windows, layout emphasis</li>
+<li>mapping of standard applications to groups - 1 always code, 2 browser, misc,
+&ldquo;hole&rdquo; concept</li>
+</ul>
+
+<footer>
+    <div style="float: left">
+        
+    </div>
+    <div style="text-align: right">
+        
+    </div>
+</footer>
+<hr>
+</main>
+</body>
+</html>

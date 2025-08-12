@@ -25,7 +25,7 @@
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=cd9479bd38a99f5091814cdeca29966b'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=9c7e138639a6bb9d8f03e5a9aaab831f'>
 <link rel='stylesheet' href='./assets/css/notes.css?sum=e026f39e44e43db233a9ae4171250b53'>
 </head>
 <body>
@@ -56,7 +56,8 @@
 </p>
 </div>
 <span class=pubinfo>
-    Published 2025-07-22
+    Published 2025-07-22,
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/dokku.org">2025-08-12</a>
 </span>
 <div class="posttags"> <a href='./tag-clojure.html'>#clojure</a> </div>
 </header>
@@ -83,7 +84,7 @@ sudo <span style="color: #c6007f;">DOKKU_TAG</span>=v0.35.7 bash bootstrap.sh
 dokku domains:set-global <span style="color: #007c00;">"$domain"</span>
 cat ~/.ssh/authorized_keys | dokku ssh-keys:add admin
 dokku apps:create <span style="color: #007c00;">'$app_name'</span>
-- open ports 80, 443
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">don't forget to open ports: 80, 443</span>
 
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">on your computer/from repo</span>
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">... add Procfile, then:</span>
@@ -103,6 +104,33 @@ links:
 <li><a href="https://dokku.com/docs/getting-started/installation/">dokku installation</a></li>
 <li><a href="https://dokku.com/docs/deployment/application-deployment/">dokku deployment</a></li>
 </ul>
+
+<p>
+edit: want SSL? <a href="https://dokku.com/docs/configuration/ssl/">docs</a>
+</p>
+
+<p>
+on server:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">self signed cert option:</span>
+dokku certs:generate <span style="color: #007c00;">"$app_name"</span> key
+</pre>
+</div>
+
+<p>
+or, <a href="https://github.com/dokku/dokku-letsencrypt">Let&rsquo;s Encrypt</a>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+dokku letsencrypt:cron-job --add <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">&lt;- To enable auto-renew</span>
+
+dokku letsencrypt:set <span style="color: #007c00;">"$app_name"</span> email your@email.tld
+dokku letsencrypt:enable <span style="color: #007c00;">"$app_name"</span>
+</pre>
+</div>
 
 <div class=separator> ∗ ∗ ∗ </div>
 
@@ -173,9 +201,11 @@ The entire source is below:
 </pre>
 </div>
 
+<div class="org-center">
 <p>
-<img src="http://muffin.app.neeasade.net/colorsquare/4fa4e8.svg" alt="4fa4e8.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/914fe8.svg" alt="914fe8.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/e84fa4.svg" alt="e84fa4.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/e8914f.svg" alt="e8914f.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/a5e84f.svg" alt="a5e84f.svg" class="org-svg"> <img src="http://muffin.app.neeasade.net/colorsquare/4fe892.svg" alt="4fe892.svg" class="org-svg">
+<img src="https://muffin.app.neeasade.net/colorsquare/4fa4e8.svg" alt="4fa4e8.svg" class="org-svg"> <img src="https://muffin.app.neeasade.net/colorsquare/914fe8.svg" alt="914fe8.svg" class="org-svg"> <img src="https://muffin.app.neeasade.net/colorsquare/e84fa4.svg" alt="e84fa4.svg" class="org-svg"> <img src="https://muffin.app.neeasade.net/colorsquare/e8914f.svg" alt="e8914f.svg" class="org-svg"> <img src="https://muffin.app.neeasade.net/colorsquare/a5e84f.svg" alt="a5e84f.svg" class="org-svg"> <img src="https://muffin.app.neeasade.net/colorsquare/4fe892.svg" alt="4fe892.svg" class="org-svg">
 </p>
+</div>
 
 <footer>
     <div style="float: left">
