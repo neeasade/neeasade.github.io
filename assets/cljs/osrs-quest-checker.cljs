@@ -3,61 +3,15 @@
             [reagent.dom :as rdom]
             [clojure.string :as string]
             [clojure.walk :as walk]
-            [osrs.data :refer [quest-data optimal-quest-list]]))
-
-(require '[ajax.core :refer [GET]])
+            [osrs.data :refer [quest-data optimal-quest-list]]
+            [neeasade.util :refer [format parse-url save-to-url search-box debounce]]
+            [ajax.core :as ajax]))
 
 (def state (r/atom {:player-string ""
                     :error ""
                     :players {}
                     :blockers {}
                     :quest "None"}))
-
-(defn format [s & replacers]
-  (reduce (fn [acc new] (string/replace-first acc "%s" (str new)))
-          s replacers))
-
-(defn parse-url
-  ([] (parse-url (.. js/window -location -href)))
-  ([url]
-   (let [result (-> url
-                    js/URL.
-                    .-searchParams
-                    js/Object.fromEntries
-                    (js->clj :keywordize-keys true))]
-     (when-not (empty? result)
-       result))))
-
-(defn save-to-url []
-  (let [save-state (select-keys @state [:quest :player-string])
-        url (str (.. js/window -location -protocol) "//" (.. js/window -location -host) (.. js/window -location -pathname)
-                 "?"
-                 (.  (js/URLSearchParams. (clj->js save-state)) toString))]
-    (. (. js/window -history) pushState
-       (clj->js {:path url})
-       "" url)
-    (set! (. js/document -title) (str (:quest @state) "- osrs quest checker"))))
-
-(defn search-box [items on-select]
-  (let [search-term (r/atom "")]
-    (fn []
-      (let [filtered-items (when-not (empty? @search-term)
-                             (filter #(clojure.string/includes?
-                                       (clojure.string/lower-case %)
-                                       (clojure.string/lower-case @search-term))
-                                     items))]
-        [:div.search-box
-         [:input {:type "text"
-                  :placeholder "Quest Search..."
-                  :value @search-term
-                  :on-change #(reset! search-term (-> % .-target .-value))}]
-         (when filtered-items
-           [:ul.search-results
-            (for [item filtered-items]
-              ^{:key item}
-              [:li {:on-click #(do (on-select item)
-                                   (reset! search-term ""))}
-               item])])]))))
 
 (declare update-blockers!)
 (defn blockers [player-data quest-name]
@@ -96,7 +50,8 @@
 
 
 (defn update-blockers! []
-  (save-to-url)
+  (save-to-url (select-keys @state [:quest :player-string]))
+  (set! (. js/document -title) (str (:quest @state) "- osrs quest checker"))
   (swap! state assoc :blockers {})
   (run! (fn [player]
           (when-not (= "None" (:quest @state))
@@ -105,15 +60,6 @@
                    (blockers (get-in @state [:players player])
                              (:quest @state)))))
         (keys (:players @state))))
-
-(defn debounce [f ms]
-  (let [timeout (atom nil)]
-    (fn [& args]
-      (when @timeout (js/clearTimeout @timeout))
-      (reset! timeout
-              (js/setTimeout
-               #(apply f args)
-               ms)))))
 
 (defn handler [player response]
   (println "found player" player)
@@ -130,13 +76,12 @@
   (swap! state assoc :players {})
   (swap! state assoc :error "")
   (let [players (map string/trim (string/split players #","))]
-    ;; (swap! state assoc :players players)
     (run! (fn [player]
             (println "looking up" player)
-            (GET (str "https://sync.runescape.wiki/runelite/player/" player "/STANDARD")
-                 {:handler (partial handler player)
-                  :error-handler (partial error-handler player)
-                  })) players)))
+            (ajax/GET (str "https://sync.runescape.wiki/runelite/player/" player "/STANDARD")
+                      {:handler (partial handler player)
+                       :error-handler (partial error-handler player)
+                       })) players)))
 
 (def update-player-stats-debounce!
   (debounce update-player-stats! 600))
@@ -175,7 +120,6 @@
             "None")))
   (update-blockers!))
 
-
 (defn my-component []
   [:div
    [:input {:type "text"
@@ -206,17 +150,18 @@
             [:ul (for [line blockers]
                    [:li line])])])))])
 
+;; on load
 (when-let [url-state (parse-url)]
   (swap! state merge url-state)
   (update-player-stats! (:player-string url-state))
   (update-blockers!))
 
+;; ongoing...
 (.addEventListener
  js/window "popstate"
  (fn [e]
    (when-let [url-state (parse-url)]
      (swap! state merge url-state)
-     ;; (update-player-stats! (:player-string url-state))
      (update-blockers!))))
 
 (rdom/render [my-component] (.getElementById js/document "app"))
