@@ -17,10 +17,6 @@
 	  padding: 2px; font-size: 80%; font-weight: normal; }
 /* .timestamp { color: #bebebe; } */
 /* .timestamp-kwd { color: #5f9ea0; } */
-.org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-.org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-.org-center { margin-left: auto; margin-right: auto; text-align: center; }
-.underline { text-decoration: underline; }
 #postamble p, #preamble p { font-size: 90%; margin: .2em; }
 p.verse { margin-left: 3%; }
 

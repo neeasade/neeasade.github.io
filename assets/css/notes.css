@@ -236,6 +236,10 @@ input type {
 }
 
 /* exported from org.css */
+.org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.org-center { margin-left: auto; margin-right: auto; text-align: center; }
+.underline { text-decoration: underline; }
 table { border-collapse:collapse; }
 caption.t-above { caption-side: top; }
 caption.t-bottom { caption-side: bottom; }
