@@ -1,7 +1,7 @@
 #+title: dokku
 #+title_extra:
 #+pubdate: <2025-07-22>
-#+filetags:
+#+filetags: paas
 
 [[https://dokku.com/][dokku]] is a PaaS ("platform as a service" or heroku-like) I'd heard about off and
 on over the years, but awhile back I got the chance to use it and it /just
@@ -21,7 +21,7 @@ sudo DOKKU_TAG=v0.35.7 bash bootstrap.sh
 dokku domains:set-global "$domain"
 cat ~/.ssh/authorized_keys | dokku ssh-keys:add admin
 dokku apps:create '$app_name'
-- open ports 80, 443
+# don't forget to open ports: 80, 443
 
 # on your computer/from repo
 # ... add Procfile, then:
@@ -34,6 +34,25 @@ As soon as you run git push, dokku runs the Procfile! That's all there is to it.
 links:
 - [[https://dokku.com/docs/getting-started/installation/][dokku installation]]
 - [[https://dokku.com/docs/deployment/application-deployment/][dokku deployment]]
+
+edit: want SSL? [[https://dokku.com/docs/configuration/ssl/][docs]]
+
+on server:
+
+#+begin_src bash
+# self signed cert option:
+dokku certs:generate "$app_name" key
+#+end_src
+
+or, [[https://github.com/dokku/dokku-letsencrypt][Let's Encrypt]]:
+
+#+begin_src bash
+dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+dokku letsencrypt:cron-job --add # <- To enable auto-renew
+
+dokku letsencrypt:set "$app_name" email your@email.tld
+dokku letsencrypt:enable "$app_name"
+#+end_src
 
 -----
 
@@ -91,4 +110,6 @@ The entire source is below:
 web: lein ring server-headless
 #+end_src
 
-[[http://muffin.app.neeasade.net/colorsquare/4fa4e8.svg]] [[http://muffin.app.neeasade.net/colorsquare/914fe8.svg]] [[http://muffin.app.neeasade.net/colorsquare/e84fa4.svg]] [[http://muffin.app.neeasade.net/colorsquare/e8914f.svg]] [[http://muffin.app.neeasade.net/colorsquare/a5e84f.svg]] [[http://muffin.app.neeasade.net/colorsquare/4fe892.svg]]
+#+begin_center
+[[https://muffin.app.neeasade.net/colorsquare/4fa4e8.svg]] [[https://muffin.app.neeasade.net/colorsquare/914fe8.svg]] [[https://muffin.app.neeasade.net/colorsquare/e84fa4.svg]] [[https://muffin.app.neeasade.net/colorsquare/e8914f.svg]] [[https://muffin.app.neeasade.net/colorsquare/a5e84f.svg]] [[https://muffin.app.neeasade.net/colorsquare/4fe892.svg]]
+#+end_center
