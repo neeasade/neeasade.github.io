@@ -37,12 +37,117 @@ So.. What worked? What didn't?
 
 -----
 
-todo:
+** Overview:
 
-cover
-- matched panel state for scripts, ended up rolling my own panel section
-- multi-color borders for groups
-- resize friendly windows needed for tiling case
-- note not interested in floating case for all windows, layout emphasis
-- mapping of standard applications to groups - 1 always code, 2 browser, misc,
-  "hole" concept
+- I have 4 tags
+- Tags have their own associated border color
+- Toggling a tag just means flipping the hidden flag with bspc
+- I still tile my windows, am not interested in a floating experience
+
+** Ideas that worked
+
+*** The hole, and dismissal
+
+The 4th tag is my "hole" tag. It's where I banish windows I don't want to
+see, but still keep them open - things like a torrent client, spare emacs
+window, or steam. After a few years, I realized I needed a "dismiss" notion in
+all this. Something to say "idc where this window goes, but not here". Adding it
+made my experience much smoother pretty much right away.
+
+*** Standard roles for tags
+
+My tags uses are pretty much always:
+
+| tag | use                          |
+|   1 | emacs/code                   |
+|   2 | qutebrowser                  |
+|   3 | misc: chat, osrs, a document |
+|   4 | the hole                     |
+
+This means that I can always hit =Alt+1= to see/cycle through emacs windows, or
+2 for browsing. This predictability is soooo so nice, effectively giving
+
+*** Window Cycling
+
+Repeated focus of a window tag cycles through the windows with that tag.
+
+*** see only X tag visible
+
+*** Subscription
+
+*** Fishing
+
+As you might imagine the "hole" tag gets pretty messy sometimes.
+
+
+# cover
+# - matched panel state for scripts, ended up rolling my own panel section
+# - multi-color borders for groups
+# - resize friendly windows needed for tiling case
+# - note not interested in floating case for all windows, layout emphasis
+# - mapping of standard applications to groups - 1 always code, 2 browser, misc,
+#   "hole"
+
+- One tag per window
+- Tags have an associated border color (it should be obvious what tag a window
+  is in at a glance)
+- I haev
+
+
+** Ideas that didn't pan out
+
+*** Multiple tags per window
+
+I thought it would be neat to allow multiple tags/groups per window, but in
+practice this got messy super fast. Much easier to manage a single tag allowed
+per window, and then do tag juggling higher level commands.
+
+*** Status lines
+
+I gave btags an option to match the output format of =bspc subscribe= initially,
+thinking it would be nice to plug and play into existing status bar helpers, but
+ultimately ended up implementing a more plain status reporter and using it in my panel
+
+#+begin_src sh
+$ btags state
+: WMDP-0:Fa:Ob:Fc:ohole:fd:LT:TT:G
+#+end_src
+
+: $ btags state-plain
+: a true e9a4d1
+: b true 7bcc7b 0x01A25F85 0x01E00013 0x01E00013 0x01A219FF
+: c true 98bde1
+: hole false b9b9b9 0x0340003B 0x01A042CE
+: d false 00ff99
+: untagged true 000000
+
+*** Resize-averse applications
+
+In bspwm, showing/hiding a tiled node means re-inserting it into the tree, which
+can result in many resize events in nearby windows. Some programs (terminals,
+emacs, most websites) take this in stride, but occasionally you run into
+programs that don't. The runelite runescape client was causing my entire wm to
+freeze when being resized so often for the show/hide action.
+
+** What might a return to virtual desktops look like for me?
+
+I'm writing this post because occasionally I feel like I should scrape this
+whole notion and return to a more traditional setup. Let's think about it:
+
+- I'd miss the "summon browser" key via tag focus - would probably make it a
+  search-for-browser instead?
+- The "hole" concept can still exist in an nth desktop, along with a dismissal notion
+- cycling between current window class could be a thing
+- I could get rid of btags and tag state most likely, simplify border handling
+  (would only have to worry about one focused window, no multi-color drawing)
+- Would be a feeling of "going to" windows rather than summoning/dismissing them
+  in one space
+  - benefit: could leave some workspace in-progress with an idea alone for
+    awhile and pick it right back up
+- Is it possible to have summon/dismiss notions with keybinds for desktop
+  flicking and not have it be keybind hell? right now these things are conflated
+  because it's done via tags, so I don't have to think about it, which is /very/ nice.
+- Flicking through window class is more limited than a tagging notion because
+  you get to tag windows in an adhoc fashion. Is there some world where I mix
+  tags and desktops? I would want a way to show details of the current tab group
+  next to the desktop status - perhaps in the panel.
