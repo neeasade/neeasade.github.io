@@ -136,7 +136,7 @@ a {
 a:visited {
 	border-color: #a0a3a4;
 	text-decoration: none;
-	color: var(--faded_weak);
+	color: var(--faded);
 }
 
 a:hover,

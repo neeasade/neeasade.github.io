@@ -581,7 +581,7 @@ th {
     3) Set the width to fit just around the content, but limit it to 80% of the main column.
     4) Center the blockquote horizontally and add some vertical margins.
 */
-blockquote {
+blockquote, .verse {
     padding: 1rem 1.6rem; /* 1 */
     overflow-y: hidden; /* 2 */
     width: fit-content; /* 3 */
