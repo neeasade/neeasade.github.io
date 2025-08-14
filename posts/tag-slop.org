@@ -11,32 +11,34 @@ posts here with [[https://ollama.com/][ollama]]!
 We can create a model derived from an existing one with a [[https://github.com/ollama/ollama/blob/main/docs/modelfile.md][ModelFile]]:
 
 #+begin_src dockerfile :tangle ../extra/modelfile.txt
-FROM phi4:latest
+FROM gemma3:12b
 
 # setting a seed makes it deterministic
 PARAMETER seed 1337
 
 # set temperature [higher is more creative, lower is more coherent]
 # PARAMETER temperature 0.1
-PARAMETER temperature 1
+PARAMETER temperature 1.0
 
 # allow looking back further, at the cost of more memory
 PARAMETER num_ctx 20000
 # PARAMETER num_ctx 4096
 
-SYSTEM """You are a content tagger for blog content. Your job is to take in text and categorize it into a terse set of tags, no more than 5 at a time.
+SYSTEM """You are a content tagger for text. Your job is to take in an article and return a terse set of tags, no more than 5 at a time.
 
 The response may only contain up to 5 tags. This is extremely important. There might not be 5 relevant tags in the text.
 
 Responses should be a single line long.
 
-Output everything in the following text format. Comma separated strings, limited to single-word tags:
-emacs,yes,no,theme
+Prefer one word tags that don't have spaces.
+
+Only respond with a comma-separated list of tags, such as:
+emacs,bspwm,colors,scripting
 """
 
 # give it an example of expected conversation:
-MESSAGE user tag the following content: sarah is nice, she loves cats and lately I've been thinking about the rain
-MESSAGE assistant sarah,cats,rain
+MESSAGE user tag the following content: Cake is nice. I love cats and lately I've been thinking about the rain
+MESSAGE assistant cake,cats,rain
 #+end_src
 
 We'll name it "tagger":
