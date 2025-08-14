@@ -1,4 +1,4 @@
-#+title: window groups
+#+title: window tags
 #+title_extra: Thoughts after 5 years
 #+pubdate: <2025-08-12>
 #+filetags:
@@ -58,27 +58,63 @@ made my experience much smoother pretty much right away.
 
 My tags uses are pretty much always:
 
-| tag | use                          |
-|   1 | emacs/code                   |
-|   2 | qutebrowser                  |
-|   3 | misc: chat, osrs, a document |
-|   4 | the hole                     |
+| tag | use                          | name |
+|-----+------------------------------+------|
+|   1 | emacs/code                   | code |
+|   2 | qutebrowser                  | net  |
+|   3 | misc: chat, osrs, a document | misc |
+|   4 | the hole                     | hole |
 
 This means that I can always hit =Alt+1= to see/cycle through emacs windows, or
-2 for browsing. This predictability is soooo so nice, effectively giving
-
-*** Window Cycling
-
-Repeated focus of a window tag cycles through the windows with that tag.
-
-*** see only X tag visible
+2 for browsing. This predictability is extremely nice, I can always go to either
+without thinking much about it. Summon chat for a second to type something and
+then dismiss it? donezo.
 
 *** Subscription
 
+Subscribing to bspwm events allows me to automatically assign tags to windows
+based on their =WM_CLASS=, or inherit the value from the currently focused tag.
+This means I don't have to assign window tags often, things go where they
+should (ready to be summoned without thought)
+
+Showing how I get the info to make those decisions:
+
+#+begin_src sh
+bspc subscribe node_add | while read -r event m d i wid; do
+    current_class=$(xprop WM_CLASS -id $wid)
+    current_name=$(xprop WM_NAME -id $wid)
+    last_class=$(xprop WM_CLASS -id $(bspc query -N last -n))
+    # ...
+done
+#+end_src
+
+*** Window border colors from tag
+
+Using distinct colors, I can tell assigned tags at a glance (drawn with [[https://github.com/neeasade/opt][chwbn]]):
+
+{{{image(btags.png)}}}
+
+#+begin_center
+From the top left clockwise: net, code, code, hole
+#+end_center
+
+#+begin_src sh
+# tag, visible, border color, wids
+$ btags state-plain
+code	true	e9a4d1	0x01ACB110 0x01AD21ED
+net	true	7bcc7b	0x01E00013
+chat	false	98bde1
+hole	true	b9b9b9	0x01AE254F
+none	true	000000	0x0340003B
+#+end_src
+
 *** Fishing
 
-As you might imagine the "hole" tag gets pretty messy sometimes.
-
+I have a script called =find_class= that finds and shows a =WM_CLASS=,
+unhiding it if it is hidden - it does _not_ touch the tag toggle state, which
+allows me to view a window in a hidden tag. Thus, I can summon steam from the
+hole without conjuring all the other windows I've thrown in there, and it
+returns on the next action that triggers a tag render.
 
 # cover
 # - matched panel state for scripts, ended up rolling my own panel section
@@ -87,12 +123,6 @@ As you might imagine the "hole" tag gets pretty messy sometimes.
 # - note not interested in floating case for all windows, layout emphasis
 # - mapping of standard applications to groups - 1 always code, 2 browser, misc,
 #   "hole"
-
-- One tag per window
-- Tags have an associated border color (it should be obvious what tag a window
-  is in at a glance)
-- I haev
-
 
 ** Ideas that didn't pan out
 
@@ -113,13 +143,14 @@ $ btags state
 : WMDP-0:Fa:Ob:Fc:ohole:fd:LT:TT:G
 #+end_src
 
-: $ btags state-plain
-: a true e9a4d1
-: b true 7bcc7b 0x01A25F85 0x01E00013 0x01E00013 0x01A219FF
-: c true 98bde1
-: hole false b9b9b9 0x0340003B 0x01A042CE
-: d false 00ff99
-: untagged true 000000
+#+begin_src text
+$ btags state-plain
+a	true	e9a4d1
+b	true	7bcc7b	0x01A25F85 0x01E00013 0x01E00013 0x01A219FF
+c	true	98bde1
+hole	false	b9b9b9	0x0340003B 0x01A042CE
+none	true	000000
+#+end_src
 
 *** Resize-averse applications
 
