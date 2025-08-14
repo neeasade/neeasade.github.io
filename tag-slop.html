@@ -57,9 +57,9 @@
 </div>
 <span class=pubinfo>
     Published 2025-07-25,
-    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/tag-slop.org">2025-07-26</a>
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/tag-slop.org">2025-08-14</a>
 </span>
-<div class="posttags">  </div>
+<div class="posttags"> <a href='./tag-programming.html'>#programming</a> </div>
 </header>
 <hr>
 <p>
@@ -73,32 +73,34 @@ We can create a model derived from an existing one with a <a href="https://githu
 </p>
 
 <div class="org-src-container">
-<pre class="src src-dockerfile"><span style="color: #0065c8;">FROM</span> <span style="color: #006e96; font-weight: bold;">phi4:latest</span>
+<pre class="src src-dockerfile"><span style="color: #0065c8;">FROM</span> <span style="color: #006e96; font-weight: bold;">gemma3:12b</span>
 
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">setting a seed makes it deterministic</span>
 PARAMETER seed 1337
 
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">set temperature [higher is more creative, lower is more coherent]</span>
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">PARAMETER temperature 0.1</span>
-PARAMETER temperature 1
+PARAMETER temperature 1.0
 
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">allow looking back further, at the cost of more memory</span>
 PARAMETER num_ctx 20000
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">PARAMETER num_ctx 4096</span>
 
-SYSTEM <span style="color: #007c00;">"""You are a content tagger for blog content. Your job is to take in text and categorize it into a terse set of tags, no more than 5 at a time.</span>
+SYSTEM <span style="color: #007c00;">"""You are a content tagger for text. Your job is to take in an article and return a terse set of tags, no more than 5 at a time.</span>
 
 <span style="color: #007c00;">The response may only contain up to 5 tags. This is extremely important. There might not be 5 relevant tags in the text.</span>
 
 <span style="color: #007c00;">Responses should be a single line long.</span>
 
-<span style="color: #007c00;">Output everything in the following text format. Comma separated strings, limited to single-word tags:</span>
-<span style="color: #007c00;">emacs,yes,no,theme</span>
+<span style="color: #007c00;">Prefer one word tags that don't have spaces.</span>
+
+<span style="color: #007c00;">Only respond with a comma-separated list of tags, such as:</span>
+<span style="color: #007c00;">emacs,bspwm,colors,scripting</span>
 <span style="color: #007c00;">"""</span>
 
 <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">give it an example of expected conversation:</span>
-MESSAGE user tag the following content: sarah is nice, she loves cats and lately I<span style="color: #007c00;">'ve been thinking about the rain</span>
-<span style="color: #007c00;">MESSAGE assistant sarah,cats,rain</span>
+MESSAGE user tag the following content: Cake is nice. I love cats and lately I<span style="color: #007c00;">'ve been thinking about the rain</span>
+<span style="color: #007c00;">MESSAGE assistant cake,cats,rain</span>
 </pre>
 </div>
 
