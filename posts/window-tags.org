@@ -1,15 +1,14 @@
 #+title: window tags
 #+title_extra: Thoughts after 5 years
-#+pubdate: <2025-08-12>
+#+pubdate: <2025-08-14>
 #+filetags:
 #+rss_title:
-#+hidden: t
 
 I used to be a multi-screen maximalist. Everyone knows the more monitors you
 have the more powerful you are, right? I ran a triple-head setup turned in
 [[https://notes.neeasade.net/rice.html#2016-01-28][various ways]], and it came with it's own challenges for my wm management and
 window wants. One day I saw someone talking about their single monitor workflow
-and they said it helped them focus. Afer some reflection I came to the
+and they said it helped them focus. After some reflection I came to the
 conclusion they were right - even if I'm referencing docs, having windows side
 by side rather than splatted helps me hone in on what matters. I would have to
 be a little more intentional with /what/ is on the single screen in front of me
@@ -116,14 +115,6 @@ allows me to view a window in a hidden tag. Thus, I can summon steam from the
 hole without conjuring all the other windows I've thrown in there, and it
 returns on the next action that triggers a tag render.
 
-# cover
-# - matched panel state for scripts, ended up rolling my own panel section
-# - multi-color borders for groups
-# - resize friendly windows needed for tiling case
-# - note not interested in floating case for all windows, layout emphasis
-# - mapping of standard applications to groups - 1 always code, 2 browser, misc,
-#   "hole"
-
 ** Ideas that didn't pan out
 
 *** Multiple tags per window
@@ -134,7 +125,7 @@ per window, and then do tag juggling higher level commands.
 
 *** Status lines
 
-I gave btags an option to match the output format of =bspc subscribe= initially,
+I gave =btags= an option to match the output format of =bspc subscribe= initially,
 thinking it would be nice to plug and play into existing status bar helpers, but
 ultimately ended up implementing a more plain status reporter and using it in my panel
 
