@@ -25,8 +25,8 @@
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=9c7e138639a6bb9d8f03e5a9aaab831f'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e026f39e44e43db233a9ae4171250b53'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=de2a5435182495e691565c7d598903bd'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=4585bf9e4d5692e92670ff113acbae90'>
 </head>
 <body>
 <main id="content" class="content">
@@ -56,7 +56,8 @@ Thoughts after 5 years
 </p>
 </div>
 <span class=pubinfo>
-    Published 2025-08-12
+    Published 2025-08-12,
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/window-tags.org">2025-08-13</a>
 </span>
 <div class="posttags">  </div>
 </header>
@@ -100,21 +101,198 @@ So.. What worked? What didn&rsquo;t?
 </p>
 
 <div class=separator> ∗ ∗ ∗ </div>
-
-<p>
-todo:
-</p>
-
-<p>
-cover
-</p>
+<div id="outline-container-Overview:" class="outline-2">
+<h2 id="Overview:"><span class="section-number-2">1.</span> Overview: <a href="#Overview:">#</a></h2>
+<div class="outline-text-2" id="text-Overview:">
 <ul class="org-ul">
-<li>matched panel state for scripts, ended up rolling my own panel section</li>
-<li>multi-color borders for groups</li>
-<li>resize friendly windows needed for tiling case</li>
-<li>note not interested in floating case for all windows, layout emphasis</li>
-<li>mapping of standard applications to groups - 1 always code, 2 browser, misc,
-&ldquo;hole&rdquo; concept</li>
+<li>I have 4 tags</li>
+<li>Tags have their own associated border color</li>
+<li>Toggling a tag just means flipping the hidden flag with bspc</li>
+<li>I still tile my windows, am not interested in a floating experience</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-Ideas-that-worked" class="outline-2">
+<h2 id="Ideas-that-worked"><span class="section-number-2">2.</span> Ideas that worked <a href="#Ideas-that-worked">#</a></h2>
+<div class="outline-text-2" id="text-Ideas-that-worked">
+</div>
+<div id="outline-container-The-hole,-and-dismissal" class="outline-3">
+<h3 id="The-hole,-and-dismissal"><span class="section-number-3">2.1.</span> The hole, and dismissal <a href="#The-hole,-and-dismissal">#</a></h3>
+<div class="outline-text-3" id="text-The-hole,-and-dismissal">
+<p>
+The 4th tag is my &ldquo;hole&rdquo; tag. It&rsquo;s where I banish windows I don&rsquo;t want to
+see, but still keep them open - things like a torrent client, spare emacs
+window, or steam. After a few years, I realized I needed a &ldquo;dismiss&rdquo; notion in
+all this. Something to say &ldquo;idc where this window goes, but not here&rdquo;. Adding it
+made my experience much smoother pretty much right away.
+</p>
+</div>
+</div>
+<div id="outline-container-Standard-roles-for-tags" class="outline-3">
+<h3 id="Standard-roles-for-tags"><span class="section-number-3">2.2.</span> Standard roles for tags <a href="#Standard-roles-for-tags">#</a></h3>
+<div class="outline-text-3" id="text-Standard-roles-for-tags">
+<p>
+My tags uses are pretty much always:
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td>tag</td>
+<td>use</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>emacs/code</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>qutebrowser</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>misc: chat, osrs, a document</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>the hole</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+This means that I can always hit <code>Alt+1</code> to see/cycle through emacs windows, or
+2 for browsing. This predictability is soooo so nice, effectively giving
+</p>
+</div>
+</div>
+<div id="outline-container-Window-Cycling" class="outline-3">
+<h3 id="Window-Cycling"><span class="section-number-3">2.3.</span> Window Cycling <a href="#Window-Cycling">#</a></h3>
+<div class="outline-text-3" id="text-Window-Cycling">
+<p>
+Repeated focus of a window tag cycles through the windows with that tag.
+</p>
+</div>
+</div>
+<div id="outline-container-see-only-X-tag-visible" class="outline-3">
+<h3 id="see-only-X-tag-visible"><span class="section-number-3">2.4.</span> see only X tag visible <a href="#see-only-X-tag-visible">#</a></h3>
+<div class="outline-text-3" id="text-see-only-X-tag-visible">
+</div>
+</div>
+<div id="outline-container-Subscription" class="outline-3">
+<h3 id="Subscription"><span class="section-number-3">2.5.</span> Subscription <a href="#Subscription">#</a></h3>
+<div class="outline-text-3" id="text-Subscription">
+</div>
+</div>
+<div id="outline-container-Fishing" class="outline-3">
+<h3 id="Fishing"><span class="section-number-3">2.6.</span> Fishing <a href="#Fishing">#</a></h3>
+<div class="outline-text-3" id="text-Fishing">
+<p>
+As you might imagine the &ldquo;hole&rdquo; tag gets pretty messy sometimes.
+</p>
+
+
+<ul class="org-ul">
+<li>One tag per window</li>
+<li>Tags have an associated border color (it should be obvious what tag a window
+is in at a glance)</li>
+<li>I haev</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-Ideas-that-didn't-pan-out" class="outline-2">
+<h2 id="Ideas-that-didn't-pan-out"><span class="section-number-2">3.</span> Ideas that didn&rsquo;t pan out <a href="#Ideas-that-didn't-pan-out">#</a></h2>
+<div class="outline-text-2" id="text-Ideas-that-didn't-pan-out">
+</div>
+<div id="outline-container-Multiple-tags-per-window" class="outline-3">
+<h3 id="Multiple-tags-per-window"><span class="section-number-3">3.1.</span> Multiple tags per window <a href="#Multiple-tags-per-window">#</a></h3>
+<div class="outline-text-3" id="text-Multiple-tags-per-window">
+<p>
+I thought it would be neat to allow multiple tags/groups per window, but in
+practice this got messy super fast. Much easier to manage a single tag allowed
+per window, and then do tag juggling higher level commands.
+</p>
+</div>
+</div>
+<div id="outline-container-Status-lines" class="outline-3">
+<h3 id="Status-lines"><span class="section-number-3">3.2.</span> Status lines <a href="#Status-lines">#</a></h3>
+<div class="outline-text-3" id="text-Status-lines">
+<p>
+I gave btags an option to match the output format of <code>bspc subscribe</code> initially,
+thinking it would be nice to plug and play into existing status bar helpers, but
+ultimately ended up implementing a more plain status reporter and using it in my panel
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ btags state
+: WMDP-0:Fa:Ob:Fc:ohole:fd:LT:TT:G
+</pre>
+</div>
+
+<pre class="example">
+$ btags state-plain
+a true e9a4d1
+b true 7bcc7b 0x01A25F85 0x01E00013 0x01E00013 0x01A219FF
+c true 98bde1
+hole false b9b9b9 0x0340003B 0x01A042CE
+d false 00ff99
+untagged true 000000
+</pre>
+</div>
+</div>
+<div id="outline-container-Resize-averse-applications" class="outline-3">
+<h3 id="Resize-averse-applications"><span class="section-number-3">3.3.</span> Resize-averse applications <a href="#Resize-averse-applications">#</a></h3>
+<div class="outline-text-3" id="text-Resize-averse-applications">
+<p>
+In bspwm, showing/hiding a tiled node means re-inserting it into the tree, which
+can result in many resize events in nearby windows. Some programs (terminals,
+emacs, most websites) take this in stride, but occasionally you run into
+programs that don&rsquo;t. The runelite runescape client was causing my entire wm to
+freeze when being resized so often for the show/hide action.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-What-might-a-return-to-virtual-desktops-look-like-for-me?" class="outline-2">
+<h2 id="What-might-a-return-to-virtual-desktops-look-like-for-me?"><span class="section-number-2">4.</span> What might a return to virtual desktops look like for me? <a href="#What-might-a-return-to-virtual-desktops-look-like-for-me?">#</a></h2>
+<div class="outline-text-2" id="text-What-might-a-return-to-virtual-desktops-look-like-for-me?">
+<p>
+I&rsquo;m writing this post because occasionally I feel like I should scrape this
+whole notion and return to a more traditional setup. Let&rsquo;s think about it:
+</p>
+
+<ul class="org-ul">
+<li>I&rsquo;d miss the &ldquo;summon browser&rdquo; key via tag focus - would probably make it a
+search-for-browser instead?</li>
+<li>The &ldquo;hole&rdquo; concept can still exist in an nth desktop, along with a dismissal notion</li>
+<li>cycling between current window class could be a thing</li>
+<li>I could get rid of btags and tag state most likely, simplify border handling
+(would only have to worry about one focused window, no multi-color drawing)</li>
+<li>Would be a feeling of &ldquo;going to&rdquo; windows rather than summoning/dismissing them
+in one space
+<ul class="org-ul">
+<li>benefit: could leave some workspace in-progress with an idea alone for
+awhile and pick it right back up</li>
+</ul></li>
+<li>Is it possible to have summon/dismiss notions with keybinds for desktop
+flicking and not have it be keybind hell? right now these things are conflated
+because it&rsquo;s done via tags, so I don&rsquo;t have to think about it, which is <i>very</i> nice.</li>
+<li>Flicking through window class is more limited than a tagging notion because
+you get to tag windows in an adhoc fashion. Is there some world where I mix
+tags and desktops? I would want a way to show details of the current tab group
+next to the desktop status - perhaps in the panel.</li>
 </ul>
 
 <footer>
@@ -126,6 +304,8 @@ cover
     </div>
 </footer>
 <hr>
+</div>
+</div>
 </main>
 </body>
 </html>
