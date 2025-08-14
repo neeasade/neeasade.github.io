@@ -81,13 +81,23 @@ h1 + div.org-center > p {
 }
 
 /* anchors */
+h2:hover > a[href^='#'],
+h3:hover > a[href^='#'],
+h4:hover > a[href^='#']
+{
+    opacity: 1;
+}
+
 h2 > a[href^='#'],
 h3 > a[href^='#'],
 h4 > a[href^='#']
 {
+    opacity: 0;
     font-size: 1.5rem;
-    /* font-size: 1rem; */
-    vertical-align: top;
+    color: var(--faded);
+    background: none !important;
+    vertical-align: bottom;
+    margin-left: .2rem;
 }
 
 footer {
