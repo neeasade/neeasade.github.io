@@ -26,7 +26,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=de2a5435182495e691565c7d598903bd'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=4585bf9e4d5692e92670ff113acbae90'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5a7a29b051265cf89a5173ca895cc6d0'>
 </head>
 <body>
 <main id="content" class="content">
@@ -59,7 +59,7 @@
     Published 2020-04-10,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-08-04</a>
 </span>
-<div class="posttags"> <a href='./tag-ssh.html'>#ssh</a> </div>
+<div class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-vps.html'>#vps</a> </div>
 </header>
 <hr>
 <p>
@@ -76,7 +76,7 @@ You have 3 machines:
 The problem is that <code>home</code> is behind some network you don&rsquo;t control. You can use a reverse ssh tunnel to get access. We will use 22222 as our example port on <code>vps</code>.
 </p>
 <div id="outline-container-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4" class="outline-2">
-<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4"><span class="section-number-2">1.</span> From <code>home</code> <a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></h2>
+<h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <div class="org-src-container">
 <pre class="src src-nil">ssh -R 22222:localhost:22 username@vps
@@ -89,7 +89,7 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 </div>
 </div>
 <div id="outline-container-h-56d8bbe1-5940-4d97-b817-a71979240c19" class="outline-2">
-<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19"><span class="section-number-2">2.</span> From <code>laptop</code> <a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></h2>
+<h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home after ssh'ing into vps:</span>
@@ -105,7 +105,7 @@ ssh -J username@vps:22 localhost -p 22222
 </div>
 </div>
 <div id="outline-container-h-76dc15ec-0aab-464c-a674-60474010c8f0" class="outline-2">
-<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0"><span class="section-number-2">3.</span> TRAMP syntax <a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">#</a></h2>
+<h2 id="h-76dc15ec-0aab-464c-a674-60474010c8f0">TRAMP syntax<a href="#h-76dc15ec-0aab-464c-a674-60474010c8f0">#</a></h2>
 <div class="outline-text-2" id="text-h-76dc15ec-0aab-464c-a674-60474010c8f0">
 <p>
 emacs TRAMP syntax for jumping across a local reference on a different port:
@@ -130,7 +130,7 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </div>
 </div>
 <div id="outline-container-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4" class="outline-2">
-<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4"><span class="section-number-2">4.</span> Other <a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">#</a></h2>
+<h2 id="h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">Other<a href="#h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">#</a></h2>
 <div class="outline-text-2" id="text-h-49b5aea4-b058-45ae-ac2a-d2ebc04bacc4">
 <p>
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook

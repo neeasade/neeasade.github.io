@@ -26,7 +26,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=de2a5435182495e691565c7d598903bd'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=4585bf9e4d5692e92670ff113acbae90'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5a7a29b051265cf89a5173ca895cc6d0'>
 </head>
 <body>
 <main id="content" class="content">
@@ -59,7 +59,7 @@
     Published 2021-01-02,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-31-systemd-user-services.org">2021-01-04</a>
 </span>
-<div class="posttags"> <a href='./tag-linux.html'>#linux</a><a href='./tag-battery.html'>#battery</a><a href='./tag-notifications.html'>#notifications</a><a href='./tag-dotfiles.html'>#dotfiles</a> </div>
+<div class="posttags"> <a href='./tag-linux.html'>#linux</a><a href='./tag-script.html'>#script</a> </div>
 </header>
 <hr>
 <p>
@@ -88,7 +88,7 @@ That&rsquo;s a pain to type out, so I aliased it to something spam-able like <co
 Next step was to wrap the above in a script and display it in my panel. Nice! now the battery status is always a glance away. BUT! pixel real estate is precious on my 1366 x 768 resolution, so I would often hide the panel or full-screen something like media, or my text editor. We are back where we started.
 </p>
 <div id="outline-container-h-9c426974-626d-47cf-bca6-c2b71698b392" class="outline-2">
-<h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392"><span class="section-number-2">1.</span> Alerts <a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">#</a></h2>
+<h2 id="h-9c426974-626d-47cf-bca6-c2b71698b392">Alerts<a href="#h-9c426974-626d-47cf-bca6-c2b71698b392">#</a></h2>
 <div class="outline-text-2" id="text-h-9c426974-626d-47cf-bca6-c2b71698b392">
 <p>
 With something like <a href="https://github.com/dunst-project/dunst">dunst</a>, I can send notifications that appear only when I&rsquo;m concerned with them. This birthed a script that would only bother me if my battery was below a certain level, while polling periodically. I decoupled that last part into a script named <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/services/periodically"><code>periodically</code></a>, so ended up with a <code>battery_alert</code> daemon-like script that looked like <code>periodically 60 check_battery</code>.
@@ -100,7 +100,7 @@ Making this call in my <code>.xinitrc</code> worked out OK, but I&rsquo;m someti
 </div>
 </div>
 <div id="outline-container-h-bedee5e8-3ef1-4038-9bc8-33640146db06" class="outline-2">
-<h2 id="h-bedee5e8-3ef1-4038-9bc8-33640146db06"><span class="section-number-2">2.</span> The big D <a href="#h-bedee5e8-3ef1-4038-9bc8-33640146db06">#</a></h2>
+<h2 id="h-bedee5e8-3ef1-4038-9bc8-33640146db06">The big D<a href="#h-bedee5e8-3ef1-4038-9bc8-33640146db06">#</a></h2>
 <div class="outline-text-2" id="text-h-bedee5e8-3ef1-4038-9bc8-33640146db06">
 <p>
 Systemd user services are regular systemd service files that live in <code>$HOME/.config/systemd/user</code>. A service file matching the above problem might look like this:
@@ -159,7 +159,7 @@ So the next step in this systemd journey was to integrate <a href="https://githu
 </div>
 </div>
 <div id="outline-container-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935" class="outline-2">
-<h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935"><span class="section-number-2">3.</span> The big.. T? <a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">#</a></h2>
+<h2 id="h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">The big.. T?<a href="#h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">#</a></h2>
 <div class="outline-text-2" id="text-h-42fac00e-07ec-4d8d-849f-eaf1a86bb935">
 <p>
 Those of you in the know will see something very wrong with the above. Systemd has a &ldquo;when to run&rdquo; concept: <a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html">timers</a>! Using timers files you can do things like:

@@ -26,7 +26,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=de2a5435182495e691565c7d598903bd'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=4585bf9e4d5692e92670ff113acbae90'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5a7a29b051265cf89a5173ca895cc6d0'>
 </head>
 <body>
 <main id="content" class="content">
@@ -59,7 +59,7 @@
     Published 2015-04-28,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-04-28-BSPWM-Multihead.org">2022-07-28</a>
 </span>
-<div class="posttags"> <a href='./tag-bspwm.html'>#bspwm</a><a href='./tag-i3.html'>#i3</a> </div>
+<div class="posttags"> <a href='./tag-bspwm.html'>#bspwm</a><a href='./tag-focus.html'>#focus</a><a href='./tag-windows.html'>#windows</a><a href='./tag-shell.html'>#shell</a> </div>
 </header>
 <hr>
 <p>
@@ -69,7 +69,7 @@ on campus and used i3 on a multihead setup there, so I set out to make
 my bspwm setup act the same.
 </p>
 <div id="outline-container-h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4" class="outline-2">
-<h2 id="h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4"><span class="section-number-2">1.</span> Initial <a href="#h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">#</a></h2>
+<h2 id="h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">Initial<a href="#h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">#</a></h2>
 <div class="outline-text-2" id="text-h-f5e9511f-6cf0-48bc-bb99-b5ace54affb4">
 <p>
 In the example sxhkd in the bspwm repo, the main window focus keybind is
@@ -89,7 +89,7 @@ part.
 </div>
 </div>
 <div id="outline-container-h-0469c988-ab08-4684-afb2-708743a574aa" class="outline-2">
-<h2 id="h-0469c988-ab08-4684-afb2-708743a574aa"><span class="section-number-2">2.</span> Focus <a href="#h-0469c988-ab08-4684-afb2-708743a574aa">#</a></h2>
+<h2 id="h-0469c988-ab08-4684-afb2-708743a574aa">Focus<a href="#h-0469c988-ab08-4684-afb2-708743a574aa">#</a></h2>
 <div class="outline-text-2" id="text-h-0469c988-ab08-4684-afb2-708743a574aa">
 <p>
 So taking the focus part out of the above we get:
@@ -107,7 +107,7 @@ is empty:
 </p>
 
 
-<figure id="org2b19ac8">
+<figure id="orgeb422a8">
 <img src="http://i.imgur.com/5VBlIjn.png" alt="5VBlIjn.png">
 
 </figure>
@@ -118,7 +118,7 @@ right, and no action occurs as a result.
 </p>
 </div>
 <div id="outline-container-h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b" class="outline-3">
-<h3 id="h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b"><span class="section-number-3">2.1.</span> Desired behavior <a href="#h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">#</a></h3>
+<h3 id="h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">Desired behavior<a href="#h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">#</a></h3>
 <div class="outline-text-3" id="text-h-ee4ac00a-9b3f-48cd-8e9e-bfbdc247c75b">
 <p>
 In the above, on a focus right, I want the cursor to appear in the
@@ -159,7 +159,7 @@ window snapping out from under you can be quite annoying.
 </div>
 </div>
 <div id="outline-container-h-cc243055-0839-4d72-8471-2319a4d41e20" class="outline-2">
-<h2 id="h-cc243055-0839-4d72-8471-2319a4d41e20"><span class="section-number-2">3.</span> Movement <a href="#h-cc243055-0839-4d72-8471-2319a4d41e20">#</a></h2>
+<h2 id="h-cc243055-0839-4d72-8471-2319a4d41e20">Movement<a href="#h-cc243055-0839-4d72-8471-2319a4d41e20">#</a></h2>
 <div class="outline-text-2" id="text-h-cc243055-0839-4d72-8471-2319a4d41e20">
 <p>
 Movement part of the example sxhkd:
@@ -180,7 +180,7 @@ workspaces/monitors.
 </p>
 </div>
 <div id="outline-container-h-1915bc68-2afc-4d9f-ba88-c00ad1915867" class="outline-3">
-<h3 id="h-1915bc68-2afc-4d9f-ba88-c00ad1915867"><span class="section-number-3">3.1.</span> Desired behavior <a href="#h-1915bc68-2afc-4d9f-ba88-c00ad1915867">#</a></h3>
+<h3 id="h-1915bc68-2afc-4d9f-ba88-c00ad1915867">Desired behavior<a href="#h-1915bc68-2afc-4d9f-ba88-c00ad1915867">#</a></h3>
 <div class="outline-text-3" id="text-h-1915bc68-2afc-4d9f-ba88-c00ad1915867">
 <p>
 When a window is switched, retain focus on the original window that was

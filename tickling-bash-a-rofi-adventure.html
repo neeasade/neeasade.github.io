@@ -26,7 +26,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=de2a5435182495e691565c7d598903bd'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=4585bf9e4d5692e92670ff113acbae90'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5a7a29b051265cf89a5173ca895cc6d0'>
 </head>
 <body>
 <main id="content" class="content">
@@ -59,7 +59,7 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
     Published 2020-05-10,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2022-07-27</a>
 </span>
-<div class="posttags"> <a href='./tag-bash.html'>#bash</a><a href='./tag-emacs.html'>#emacs</a> </div>
+<div class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-bash.html'>#bash</a><a href='./tag-scripting.html'>#scripting</a><a href='./tag-typing.html'>#typing</a> </div>
 </header>
 <hr>
 <p>
@@ -78,7 +78,7 @@ lots of really cool generic &ldquo;select thing from list&rdquo; programs out th
 of more things you might do, and some take <a href="https://www.youtube.com/watch?v=NqbHe9X4PWU">it</a> <a href="https://github.com/BelkaDev/RofiFtw">really</a> <a href="https://keminglabs.com/finda/">far</a>.
 </p>
 <div id="outline-container-Setup" class="outline-2">
-<h2 id="Setup"><span class="section-number-2">1.</span> Setup <a href="#Setup">#</a></h2>
+<h2 id="Setup">Setup<a href="#Setup">#</a></h2>
 <div class="outline-text-2" id="text-Setup">
 <p>
 Let&rsquo;s go through some history first. dmenu2 was my goto &rsquo;selector&rsquo; for years, because it has some
@@ -127,7 +127,7 @@ In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a 
 </div>
 </div>
 <div id="outline-container-Rofi" class="outline-2">
-<h2 id="Rofi"><span class="section-number-2">2.</span> Rofi <a href="#Rofi">#</a></h2>
+<h2 id="Rofi">Rofi<a href="#Rofi">#</a></h2>
 <div class="outline-text-2" id="text-Rofi">
 <p>
 At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
@@ -139,7 +139,7 @@ history in the past week) but still start typing right away.
 </div>
 </div>
 <div id="outline-container-Tickling-bash-(cheating)" class="outline-2">
-<h2 id="Tickling-bash-(cheating)"><span class="section-number-2">3.</span> Tickling bash (cheating) <a href="#Tickling-bash-(cheating)">#</a></h2>
+<h2 id="Tickling-bash-(cheating)">Tickling bash (cheating)<a href="#Tickling-bash-(cheating)">#</a></h2>
 <div class="outline-text-2" id="text-Tickling-bash-(cheating)">
 <p>
 So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu replacement. This means I&rsquo;m at the mercy of the shell (pipelines waiting for stdin to be read before returning). An example is shown below (rofi pops up, you select the &rsquo;a&rsquo; option before &rsquo;b&rsquo; is ready, you are stuck):
@@ -165,7 +165,7 @@ So the way I cheated was to run the &rsquo;candidate maker&rsquo; in a subshell,
 </div>
 </div>
 <div id="outline-container-Followup-<2022-07-10-Sun-14:29>" class="outline-2">
-<h2 id="Followup-<2022-07-10-Sun-14:29>"><span class="section-number-2">4.</span> Followup <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-10 02:29 PM&gt;</span></span> <a href="#Followup-<2022-07-10-Sun-14:29>">#</a></h2>
+<h2 id="Followup-<2022-07-10-Sun-14:29>">Followup <span class="timestamp-wrapper"><span class="timestamp">&lt;2022-07-10 02:29 PM&gt;</span></span><a href="#Followup-<2022-07-10-Sun-14:29>">#</a></h2>
 <div class="outline-text-2" id="text-Followup-<2022-07-10-Sun-14:29>">
 <p>
 Since posting this, I have returned to emacs as a general-purpose selector &#x2013; the auto-frecency from prescient is just too nice.
