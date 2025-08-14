@@ -2,6 +2,7 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [clojure.string :as string]
+            [clojure.set :as set]
             [clojure.walk :as walk]
             [osrs.data :refer [quest-data all-quests]]
             [neeasade.util :refer [format parse-url save-to-url search-box debounce]]
@@ -20,11 +21,8 @@
         missing-quests (keep (fn [dep-name]
                                ;; 0 not started, 1 started, 2 done
                                (when (not (= 2 ((keyword dep-name) (:quests player-data))))
-                                 ;; (str "Quest: " dep-name)
                                  [:span "Quest: "
-                                  [:a {:href "javascript:;"
-                                       ;; :on-click #(do (swap! state assoc :quest dep-name) (update-blockers!))
-                                       }
+                                  [:a
                                    (if (empty? (blockers player-data dep-name))
                                      (str dep-name " ✅")
                                      dep-name)]]))
@@ -43,6 +41,8 @@
                                     [:b (str l " " (name s))]])))]
 
     (concat missing-skills missing-quests)))
+
+;; (blockers (get-in @state [:players player]) (:quest @state))
 
 (defn handler [player response]
   (println "found player" player)
@@ -69,13 +69,29 @@
                  (keys diary-data)))))))
 
 (defn player-table []
-  (let [players (keys (:blockers @state))]
-    ;; form url jump like:
+  (let [players (keys (:blockers @state))
+        player-quests (map player-finished-quests players)
 
+        quest-list (set/difference (set all-quests)
+                                   ;; remove quests that everyone has done
+                                   (apply set/intersection (map set player-quests))
+
+                                   ;; remove quests that no one has done
+                                   (set/difference (set all-quests) (set (flatten player-quests))))
+
+        ]
+    [:table
+     [:tr (map (fn [p] [:th p]) players) [:td]]
+     (for [quest quest-list]
+       [:tr (for [player [players]]
+              (let [blockers (blockers (get-in @state [:players player])
+                                       quest)
+                    [:td
+                     ]
+                    ]))])
+     ]
     )
-  [:table
-   []
-   ]
+
   )
 
 (defn my-component []
