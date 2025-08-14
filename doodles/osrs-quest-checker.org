@@ -12,6 +12,7 @@
 # #+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
 
 #+html_head: <script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
+#+html_head: <script src="./assets/cljs/util.cljs" type="application/x-scittle"></script>
 #+html_head: <script src="./assets/cljs/osrs-quest-checker.cljs" type="application/x-scittle"></script>
 
 {{{image(ge_standing.png)}}}
