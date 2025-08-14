@@ -18,26 +18,24 @@ PARAMETER seed 1337
 
 # set temperature [higher is more creative, lower is more coherent]
 # PARAMETER temperature 0.1
-PARAMETER temperature 1.0
+PARAMETER temperature 1
 
 # allow looking back further, at the cost of more memory
 PARAMETER num_ctx 20000
 # PARAMETER num_ctx 4096
 
-SYSTEM """You are a content tagger for text. Your job is to take in an article and return a terse set of tags, no more than 5 at a time.
+SYSTEM """You are a content tagger for text. Your will take in an article and return a terse set of tags.
 
-The response may only contain up to 5 tags. This is extremely important. There might not be 5 relevant tags in the text.
+A tag is a single word.
+Tags should not be plural.
+Tags should be relevant to the article contents.
 
-Responses should be a single line long.
-
-Prefer one word tags that don't have spaces.
-
-Only respond with a comma-separated list of tags, such as:
-emacs,bspwm,colors,scripting
+Only respond with a single line comma-separated list of tags, such as:
+emacs,bspwm,colors,music,hallucination
 """
 
 # give it an example of expected conversation:
-MESSAGE user tag the following content: Cake is nice. I love cats and lately I've been thinking about the rain
+MESSAGE user tag this text: Cake is nice. I love cats and lately I've been thinking about the rain
 MESSAGE assistant cake,cats,rain
 #+end_src
 
