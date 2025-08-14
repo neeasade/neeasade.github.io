@@ -26,8 +26,7 @@
                                  [:span "Quest: "
                                   [:a {:href "javascript:;"
                                        :on-click #(do (swap! state assoc :quest dep-name)
-                                                      (update-blockers!)
-                                                      )}
+                                                      (update-blockers!))}
                                    (if (empty? (blockers player-data
                                                          dep-name))
                                      (str dep-name " ✅")
