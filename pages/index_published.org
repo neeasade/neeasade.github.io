@@ -8,7 +8,13 @@ posts+notes sorted by =:published-date=
      (--filter (or (ht-get it :is-post)
 		   (ht-get it :is-note)))
      (--sort (string> (ht-get it :published-date) (ht-get other :published-date)))
-     (-map (-lambda ((&hash :published-date :orglink)) (format "- <%s> %s" published-date orglink)))
+     (--group-by (substring (ht-get it :published-date) 0 4))
+     (-map (-lambda ((year . posts))
+               (s-join "\n"
+                `(,(ns/str "* " year)
+                   ,@(-map (-lambda ((&hash :published-date :orglink)) (format "- <%s> %s" published-date orglink))
+                           posts
+                           )))))
      (s-join "\n"))
 #+END_SRC
 
