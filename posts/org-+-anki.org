@@ -1,0 +1,48 @@
+#+title: org->anki
+#+title_extra: sometimes things just work
+#+pubdate: <2025-08-08>
+#+filetags:
+#+rss_title:
+
+Anki decks are intelligent flashcards. "intelligent" here means they use a
+[[https://en.wikipedia.org/wiki/Spaced_repetition][spaced repetition]] system to decide when cards should be reviewed: after you
+review a card, you rate how hard it was, and that information tells anki when to
+show it to you again.
+
+There is a desktop application and mobile app, and the main pro of anki for me
+is the mobile app - got a second?? Time to review those cards.
+
+Naturally we're going to author said cards in emacs. Let's say we wanted a deck
+for the [[https://en.wikipedia.org/wiki/NATO_phonetic_alphabet][NATO phonetic alphabet]]:
+
+#+begin_example org
+,#+ANKI_DECK: org-phonetic-alphabet
+
+,* A
+Alfa
+
+,* B
+Bravo
+
+,* C
+Charlie
+
+# ....
+#+end_example
+
+Next, in the anki desktop application, install the [[https://git.sr.ht/~foosoft/anki-connect][anki-connect]] plugin and
+create a deck matching the =ANKI_DECK= value: =org-phonetic-alphabet=.
+
+Then, with the power of [[https://github.com/eyeinsky/org-anki][org-anki]], run =org-anki-sync-all= from the flashcard
+buffer, and BAM! Your deck will have the cards added. The org file will be
+edited to include a note it for mapping to the created card:
+
+#+begin_example org
+,* A
+:PROPERTIES:
+:ANKI_NOTE_ID: 1755049519946
+:END:
+Alfa
+#+end_example
+
+And with an anki account you can sync these created decks right to your phone. nice
