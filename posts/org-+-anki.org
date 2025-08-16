@@ -1,6 +1,6 @@
 #+title: org->anki
 #+title_extra: sometimes things just work
-#+pubdate: <2025-08-08>
+#+pubdate: <2025-08-16>
 #+filetags:
 #+rss_title:
 
@@ -30,8 +30,9 @@ Charlie
 # ....
 #+end_example
 
-Next, in the anki desktop application, install the [[https://git.sr.ht/~foosoft/anki-connect][anki-connect]] plugin and
-create a deck matching the =ANKI_DECK= value: =org-phonetic-alphabet=.
+Next, in the anki desktop application, install the [[https://git.sr.ht/~foosoft/anki-connect][anki-connect]] plugin
+(instructions in the readme there) and create a deck matching the =ANKI_DECK=
+value: =org-phonetic-alphabet=.
 
 Then, with the power of [[https://github.com/eyeinsky/org-anki][org-anki]], run =org-anki-sync-all= from the flashcard
 buffer, and BAM! Your deck will have the cards added. The org file will be
@@ -45,4 +46,5 @@ edited to include a note it for mapping to the created card:
 Alfa
 #+end_example
 
-And with an anki account you can sync these created decks right to your phone. nice
+And with an Ankiweb account you can sync these created decks right to your
+phone. nice
