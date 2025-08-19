@@ -173,3 +173,4 @@ whole notion and return to a more traditional setup. Let's think about it:
   you get to tag windows in an adhoc fashion. Is there some world where I mix
   tags and desktops? I would want a way to show details of the current tab group
   next to the desktop status - perhaps in the panel.
+- One thing that would be missing/have to implement if I wanted it: per desktop layouts
