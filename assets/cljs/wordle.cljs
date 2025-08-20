@@ -55,7 +55,9 @@
 
 (defn my-component []
   [:div {:class "wordle"}
+   [:br]
    [:div "greens: "
+    [:br]
     (for [i (range 5)]
       (let [v (nth (:greens @state) i)]
         [:input {:class "letter"
@@ -70,6 +72,7 @@
                                 ))}]))]
 
    [:div "yellows: "
+    [:br]
     (for [i (range 5)]
       (let [v (nth (:yellows @state) i)]
         [:input {:class "letter"
