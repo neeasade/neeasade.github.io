@@ -72,7 +72,7 @@ dokku.org@clojure,dokku,lein,svg,deployment
 Enchiridion.org@reason,self,improvement,action,socrates
 heart.org@heart,love,poem,life,stars
 Nicotine.org@nicotine,health,addiction,sleep,moderation
-org-+-anki.org@anki,org,sync,cards,study
+org-+-anki.org@anki,emacs,flashcard,sync,phone
 planner-reflections.org@planner,journal,time,tasks,habit
 plato-on-the-kobo-libra-2.org@kobo,plato,epub,reader,firmware,settings,fonts,css,dictionary
 reptile-waterfall.org@movie,popcorn,soda,dinosaur
@@ -80,7 +80,7 @@ rice-slop.org@rice,food,recipe,cook,easy
 scotland-log.org@scotland,train,trip,edinburgh,oban,inverness,food,cats,whiskey,hostel,ferry
 Sharath-led-primary-notes.org@yoga,ashtanga,practice,guru,constancy
 sxhkd-ish.org@sxhkd,sway,templating,shell,config
-tag-slop.org@tagging,ollama,model,text,post
+tag-slop.org@tagging,ollama,model,prompt,engineering
 tiled-wallpaper-sources.org@tiles,patterns,archive,sources,graphics
 Warcraft-III-1.21b-HD.org@warcraft,resolution,game,registry,video
-window-tags.org@bspwm,tags,window,desktop,bspc
+window-tags.org@wm,tags,bspwm,windows,compositor,desktop,scripting,bspc,dotfiles
