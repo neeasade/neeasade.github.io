@@ -14,6 +14,14 @@ body {
     /* background-size: auto 195px !important; */
 }
 
+details {
+  background-color: var(--background_subtle);
+}
+
+summary {
+  background-color: var(--background);
+}
+
 tr:nth-child(even) {
   /* background-color: var(--background_subtle); */
   background-color: var(--background_weak);
