@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>posts tagged 'window'</title>
+<title>wordle solver</title>
 <meta name="generator" content="Org Mode" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -11,22 +11,24 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="posts tagged 'window'">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/aa1cf8d938030d344b39187dc20534c2926d1463508a1f172d47d1e8a77cdda1.png">
-<meta property="og:url" content="https://notes.neeasade.net/tag-window">
-<meta property="description" content="">
+<meta property="og:title" content="wordle solver">
+<meta property="og:description" content="get wordle guess suggestions when you're stuck">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/bc026a292c7bf0564a4cdaae51ac26474bdc4a89f5a09cc4d2d46a5a08928552.png">
+<meta property="og:url" content="https://notes.neeasade.net/wordle-solver">
+<meta property="description" content="get wordle guess suggestions when you're stuck">
 <meta name="twitter:card" content="summary">
-<script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/aa1cf8d938030d344b39187dc20534c2926d1463508a1f172d47d1e8a77cdda1.png") repeat;} </style>
-<style> body {background-size: auto 466px !important; } </style>
+<style> body {background: url("./assets/posts/ca_dump3/bc026a292c7bf0564a4cdaae51ac26474bdc4a89f5a09cc4d2d46a5a08928552.png") repeat;} </style>
+<style> body {background-size: auto 360px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=de2a5435182495e691565c7d598903bd'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=0fb2cd8837a6f9e64d6e8f1c1091ae84'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<script src="./assets/cljs/bundle.js" type="application/javascript"></script>
+<script src="./assets/cljs/wordle-list.cljs" type="application/x-scittle"></script>
+<script src="./assets/cljs/wordle.cljs" type="application/x-scittle"></script>
 </head>
 <body>
 <main id="content" class="content">
@@ -37,14 +39,15 @@
 
 <div style="float: right">
     
-    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/tags/tag-window.org">source</a>
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/doodles/wordle-solver.org">source</a>
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
         <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
     </svg>
-    posts tagged 'window'
+    wordle solver
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
         <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
@@ -52,15 +55,33 @@
 </h1>
 <div class="org-center">
 <p>
-
+get wordle guess suggestions when you&rsquo;re stuck
 </p>
 </div>
 </header>
 <hr>
+<p>
+<details><summary>caveats</summary>
+</p>
 <ul class="org-ul">
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-08-14&gt;</span></span> <a href="./window-tags.html">window tags</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-04-03&gt;</span></span> <a href="./bpswm-experiences.html">BSPWM Experiences</a></li>
+<li>includes all 5 letter words, not just the wordle list</li>
 </ul>
+<p>
+</details>
+</p>
+
+
+<style>
+
+input.letter {
+    width: 5rem;
+    margin: 1rem;
+}
+</style>
+
+
+<div id="app"></div>
+
 <hr>
 </main>
 </body>
