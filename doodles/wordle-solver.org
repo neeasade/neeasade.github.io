@@ -1,0 +1,25 @@
+#+title: wordle solver
+#+title_extra: get wordle guess suggestions when you're stuck
+#+pubdate: <2025-08-20>
+
+#+html_head: <script src="./assets/cljs/bundle.js" type="application/javascript"></script>
+#+html_head: <script src="./assets/cljs/wordle-list.cljs" type="application/x-scittle"></script>
+#+html_head: <script src="./assets/cljs/wordle.cljs" type="application/x-scittle"></script>
+
+{{{foldstart(caveats)}}}
+- includes all 5 letter words, not just the wordle list
+{{{foldend}}}
+
+#+BEGIN_EXPORT html
+
+<style>
+
+input.letter {
+    width: 5rem;
+    margin: 1rem;
+}
+</style>
+
+
+<div id="app"></div>
+#+END_EXPORT
