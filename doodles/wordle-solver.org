@@ -1,4 +1,4 @@
-#+title: wordle solver
+#+title: wordle hinter
 #+title_extra: get wordle guess suggestions when you're stuck
 #+pubdate: <2025-08-20>
 
