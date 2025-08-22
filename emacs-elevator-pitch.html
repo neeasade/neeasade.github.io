@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>emacs elevator pitch</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="emacs elevator pitch">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/84660a7019dc0081bd565ade58057b16c3cb6f2a043af042c400135efcdf0054.png">
+<meta property="og:url" content="https://notes.neeasade.net/emacs-elevator-pitch">
+<meta property="description" content="">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<style> body {background: url("./assets/posts/ca_dump3/84660a7019dc0081bd565ade58057b16c3cb6f2a043af042c400135efcdf0054.png") repeat;} </style>
+<style> body {background-size: auto 220px !important; } </style>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<div style="float: left">
+    <a href='./index.html'>../notes</a>
+</div>
+
+<div style="float: right">
+    
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/emacs-elevator-pitch.org">source</a>
+</div>
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+    </svg>
+    emacs elevator pitch
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+    </svg>
+</h1>
+<div class="org-center">
+<p>
+
+</p>
+</div>
+<span class=pubinfo>
+    Published 2025-08-22
+</span>
+<div class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-lisp.html'>#lisp</a><a href='./tag-config.html'>#config</a><a href='./tag-state.html'>#state</a> </div>
+</header>
+<hr>
+<p>
+Context: There is an emacs <a href="https://www.emacswiki.org/emacs/Carnival">blog carnival</a>, and this month&rsquo;s host has chosen the
+topic &ldquo;<a href="https://takeonrules.com/2025/08/01/emacs-carnival-2025-08-your-elevator-pitch-for-emacs/">Your Elevator Pitch for Emacs</a>&rdquo;.
+</p>
+
+<p>
+Usually I don&rsquo;t try to convince people to start using emacs. It can be a
+significant time investment to learn, especially if one has never used a lisp
+before. Despite this, the payoff is extremely satisfying and worth it if one is
+interested in sharpening the saw.
+</p>
+
+<p>
+So, why emacs? I&rsquo;ll give 2 reasons.
+</p>
+<div id="outline-container-Escape-from-TUI-silo-hell" class="outline-2">
+<h2 id="Escape-from-TUI-silo-hell">Escape from TUI silo hell<a href="#Escape-from-TUI-silo-hell">#</a></h2>
+<div class="outline-text-2" id="text-Escape-from-TUI-silo-hell">
+<p>
+<b>Before emacs</b>: vim, htop, weechat, taskwarrior, xterm
+</p>
+
+<p>
+<b>After emacs</b>: emacs, emacs, emacs, emacs, emacs
+<details><summary>how?</summary>
+emacs, proced, erc, org-agenda, term-mode
+</details>
+</p>
+
+<p>
+Let&rsquo;s say I wanted to get into <a href="https://plaintextaccounting.org/">plain text accounting</a>. In a world before emacs, I
+would be interested in some TUI interface, with it&rsquo;s own associated config file.
+Maybe the display looks like ass out of the box, so I add some display options
+and make the colors match my terminal color theme. What if I want to add an
+alert when my bank account has less than $X in it? I would have to add some
+polling script and link it to my notifier, or find some suitable webhook I want
+to ping.
+</p>
+
+<p>
+If I&rsquo;m an emacs user though? I find the correlated emacs package. The colors are
+automatically derived from the loaded emacs theme. The settings are assigned
+from my existing emacs init.el file. I want to add that notifier? I tack on an
+emacs timer, and use <code>message</code> to surface the alert in whatever buffer I&rsquo;m
+already in.
+</p>
+
+<p>
+I don&rsquo;t need to grok some new interface for my new tool, I can reach it from the
+already-familiar emacs interface! yay
+</p>
+</div>
+</div>
+<div id="outline-container-Global-State-->-User-Empowerment" class="outline-2">
+<h2 id="Global-State-->-User-Empowerment">Global State -&gt; User Empowerment<a href="#Global-State-->-User-Empowerment">#</a></h2>
+<div class="outline-text-2" id="text-Global-State-->-User-Empowerment">
+<p>
+In emacs there are no formal namespaces. When some package creates a function
+called <code>foo</code>, it becomes available in every context right away. Should my config
+(or some other package) define <code>foo</code>, it is overridden and now the new
+definition is in play. To some, this sounds like hell. If anyone can step on
+your toes, shouldn&rsquo;t everything collapse??
+</p>
+
+<p>
+And yet, with informal namespacing via prefixes (eg <a href="https://github.com/magnars/s.el">s.el</a>,<a href="https://github.com/rejeep/f.el"> f.el</a>, <a href="https://github.com/Wilfred/ht.el">ht.el</a>),
+everything continues on just fine. And the shared state means it&rsquo;s easy for the
+user to glue pieces of code together, even if that was never the intent of the
+authors in the first place. An example: recently, I started using 2 packages,
+<a href="https://github.com/xenodium/chatgpt-shell">chatgpt-shell</a> and <a href="https://github.com/natrys/whisper.el">whisper.el</a> - these are for chatting with an llm in a comint
+buffer and sending stt (speech to text) to your editor, respectively. Even
+though these packages were not designed with the other in mind, with a small bit
+of elisp glue I can create a push-to-talk experience with chatgpt-shell! All I
+had to do was tell whisper to submit the message after recording:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #0065c8;">defun</span> <span style="color: #c6007f;">ns/send-whisper-message</span> ()
+  (<span style="color: #0065c8;">interactive</span>)
+  (<span style="color: #0065c8;">when</span> (eq major-mode 'chatgpt-shell-mode)
+    (shell-maker-submit)))
+
+(add-hook 'whisper-after-insert-hook #'ns/send-whisper-message)
+</pre>
+</div>
+
+<p>
+If <code>whisper.el</code> had not provided such a hook, it would have been trivial to
+advise functions in whisper, or even override them for different behavior, all
+<i>without needing to change whisper.el</i> itself. You can have your cake in your
+config, move on with your life, and think about upstream at your whim.
+</p>
+
+<footer>
+    <div style="float: left">
+        
+    </div>
+    <div style="text-align: right">
+         <a href='org--anki.html'>older: org->anki</a> 
+    </div>
+</footer>
+<hr>
+</div>
+</div>
+</main>
+</body>
+</html>
