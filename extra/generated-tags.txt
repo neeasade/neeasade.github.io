@@ -84,3 +84,4 @@ tag-slop.org@tagging,ollama,model,prompt,engineering
 tiled-wallpaper-sources.org@tiles,patterns,archive,sources,graphics
 Warcraft-III-1.21b-HD.org@warcraft,resolution,game,registry,video
 window-tags.org@wm,tags,bspwm,windows,compositor,desktop,scripting,bspc,dotfiles
+emacs-elevator-pitch.org@emacs,lisp,config,state,glue,hook,package

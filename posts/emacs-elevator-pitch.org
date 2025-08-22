@@ -1,0 +1,73 @@
+#+title: emacs elevator pitch
+#+title_extra:
+#+pubdate: <2025-08-22>
+#+filetags:
+#+rss_title:
+
+Context: There is an emacs [[https://www.emacswiki.org/emacs/Carnival][blog carnival]], and this month's host has chosen the
+topic "[[https://takeonrules.com/2025/08/01/emacs-carnival-2025-08-your-elevator-pitch-for-emacs/][Your Elevator Pitch for Emacs]]".
+
+Usually I don't try to convince people to start using emacs. It can be a
+significant time investment to learn, especially if one has never used a lisp
+before. Despite this, the payoff is extremely satisfying and worth it if one is
+interested in sharpening the saw.
+
+So, why emacs? I'll give 2 reasons.
+
+** Escape from TUI silo hell
+
+*Before emacs*: vim, htop, weechat, taskwarrior, xterm
+
+*After emacs*: emacs, emacs, emacs, emacs, emacs
+{{{foldstart(how?)}}}
+emacs, proced, erc, org-agenda, term-mode
+{{{foldend}}}
+
+Let's say I wanted to get into [[https://plaintextaccounting.org/][plain text accounting]]. In a world before emacs, I
+would be interested in some TUI interface, with it's own associated config file.
+Maybe the display looks like ass out of the box, so I add some display options
+and make the colors match my terminal color theme. What if I want to add an
+alert when my bank account has less than $X in it? I would have to add some
+polling script and link it to my notifier, or find some suitable webhook I want
+to ping.
+
+If I'm an emacs user though? I find the correlated emacs package. The colors are
+automatically derived from the loaded emacs theme. The settings are assigned
+from my existing emacs init.el file. I want to add that notifier? I tack on an
+emacs timer, and use ~message~ to surface the alert in whatever buffer I'm
+already in.
+
+I don't need to grok some new interface for my new tool, I can reach it from the
+already-familiar emacs interface! yay
+
+** Global State -> User Empowerment
+
+In emacs there are no formal namespaces. When some package creates a function
+called ~foo~, it becomes available in every context right away. Should my config
+(or some other package) define ~foo~, it is overridden and now the new
+definition is in play. To some, this sounds like hell. If anyone can step on
+your toes, shouldn't everything collapse??
+
+And yet, with informal namespacing via prefixes (eg [[https://github.com/magnars/s.el][s.el]],[[https://github.com/rejeep/f.el][ f.el]], [[https://github.com/Wilfred/ht.el][ht.el]]),
+everything continues on just fine. And the shared state means it's easy for the
+user to glue pieces of code together, even if that was never the intent of the
+authors in the first place. An example: recently, I started using 2 packages,
+[[https://github.com/xenodium/chatgpt-shell][chatgpt-shell]] and [[https://github.com/natrys/whisper.el][whisper.el]] - these are for chatting with an llm in a comint
+buffer and sending stt (speech to text) to your editor, respectively. Even
+though these packages were not designed with the other in mind, with a small bit
+of elisp glue I can create a push-to-talk experience with chatgpt-shell! All I
+had to do was tell whisper to submit the message after recording:
+
+#+begin_src emacs-lisp
+(defun ns/send-whisper-message ()
+  (interactive)
+  (when (eq major-mode 'chatgpt-shell-mode)
+    (shell-maker-submit)))
+
+(add-hook 'whisper-after-insert-hook #'ns/send-whisper-message)
+#+end_src
+
+If =whisper.el= had not provided such a hook, it would have been trivial to
+advise functions in whisper, or even override them for different behavior, all
+/without needing to change whisper.el/ itself. You can have your cake in your
+config, move on with your life, and think about upstream at your whim.
