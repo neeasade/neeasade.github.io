@@ -1,10 +1,7 @@
-
 #+title: Maximum number of clients reached on X
 #+title_extra: 
 #+filetags: 
 #+pubdate: <2021-02-03>
-#+post_type: note
-
 Find out who is hogging your clients:
 
 #+begin_src sh

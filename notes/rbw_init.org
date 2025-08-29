@@ -1,0 +1,17 @@
+#+title: rbw init
+#+title_extra: 
+#+filetags: 
+#+pubdate: <2025-08-30>
+
+Setup new computer recently, forgot how this works
+
+rbw is [[https://github.com/doy/rbw][rbw]], and in combination with [[https://github.com/fdw/rofi-rbw][rofi-rbw]] it has replaced my [[https://www.passwordstore.org/][passwordstore]] flow.
+
+first:
+
+#+begin_src bash
+rbw config set email "foo@bar.com"
+#+end_src
+
+second, call ~rbw register~ -- you will need the api credentials from bitwarden. You
+can get them from bitwarden under ~settings / security / keys / API Key~

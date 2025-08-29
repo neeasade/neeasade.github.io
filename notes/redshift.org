@@ -1,14 +1,12 @@
-
 #+title: redshift oneshot calls
 #+title_extra: 
 #+filetags: 
 #+pubdate: <2021-02-03>
 #+post_type: note
 
+redshift is https://github.com/jonls/redshift
 
-cf https://github.com/jonls/redshift
-
-The value is always relative to the current tempurature, with "current" = 6500K. Repeating calls like ~redshift -O 5000~ will continue to darken the screen.
+The value is always relative to the current temperature, with "current" = 6500K. Repeating calls like ~redshift -O 5000~ will continue to darken the screen.
 
 at night:
 #+begin_src sh :results none

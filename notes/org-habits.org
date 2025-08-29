@@ -1,10 +1,7 @@
-
 #+title: org habit syntax reference
 #+title_extra: 
 #+filetags: 
 #+pubdate: <2021-02-03>
-#+post_type: note
-
 
 A habit has the following properties:
 
@@ -13,7 +10,7 @@ A habit has the following properties:
 
 #+begin_example
 \* TODO something
-\SCHEDULED: <2020-10-27 Tue ++1w>
+\SCHEDULED: <2029-10-27 Tue ++1w>
 #+end_example
 
 - ++1w meaning: increase one week after scheduled date (keep increasing by one week until in future), keep day

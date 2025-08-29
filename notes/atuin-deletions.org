@@ -1,0 +1,36 @@
+#+title: atuin history deletions
+#+title_extra: 
+#+filetags: 
+#+pubdate: <2025-08-29>
+
+[[https://atuin.sh/][atuin]] is great at remembering things, but sometimes you want it to forget.
+
+*delete by exit code* 127 is basically always typos for me
+
+#+begin_src sh
+atuin search --exit 127 "" --delete
+#+end_src
+
+*delete by search* (exact match substring)
+
+#+begin_src sh
+# list
+atuin search --search-mode fulltext corn
+
+# delete
+atuin search --search-mode fulltext corn --delete
+#+end_src
+
+*delete an individual command invocation*
+
+in terminal, ~ctrl-r~ to bring up atuin search - hit ~ctrl-o~ to use inspector on a
+specific command, and then ~ctrl-d~ to delete it
+
+*delete keyvalue stores by substring in the key*
+#+begin_src sh
+# list:
+atuin kv list -n dirs | grep blag
+
+# delete:
+atuin kv list -n dirs | grep blag  | xargs -n1 atuin kv delete -n dirs
+#+end_src
