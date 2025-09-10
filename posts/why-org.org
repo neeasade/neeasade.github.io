@@ -1,0 +1,48 @@
+#+title: why org
+#+title_extra:
+#+pubdate: <2025-09-10>
+#+filetags:
+#+rss_title:
+
+[[https://orgmode.org/][org]] is a markup language that hugs emacs quite tightly.
+
+I find myself referencing an [[https://lobste.rs/s/z8rowj/how_do_you_keep_track_things_you_learn#c_zjcc6n][old comment]] (2021) I made on lobsters often enough that
+I'm saving it here:
+
+topic: *How do you keep track of things you learn/discover everyday?*
+
+neeasade: tl;dr emacs
+
+I track everything in one really big notes file.
+
+Org-mode has a feature that is called “capture”. I just got into the habit of slamming the capture button all the time, with some metadata that flags the date of capture – then I can annoy myself and be like “here are all the things you captured like a month ago, are you still interested in it”?
+
+A few years ago I read Getting Things Done, and my main takeaways were:
+
+- Have a system to get shit out of your head
+- REVIEW the system regularly (or else you just build a big list of TODO’s/it’s picture isn’t reality)
+- REMIND yourself why you want to do what you are doing
+
+With org, everything is plain text and thus searchable. Beyond the scope of my own “knowledge store”, I’ve been eyeing wallabag for articles, mostly because it tracks the reading position you are in.
+
+Since everything is just headlines + metadata, you can structure things however you like and fish out shit later. One thing I did recently was the ability to fish out a note to a file, so that I can share it to my blog (screenshot).
+
+org-modes scope goes beyond a capture target, as it encompasses:
+
+- timekeeping
+- scheduling/planning
+- a lingua franca export markup (because with org macros and exporters, there is always an escape hatch to your desired output)
+- TODO status/archiving
+- habits (repeatable TODOs)
+- priority ratings
+- link targets (which you can use to make “labelled bookmarks” but to anything)
+
+There are very much footguns, but it’s a powerful set of systems to learn, and you can opt into as little or as much as you want. The above list represents a few years of org usage before I feel like I /know/ how to shape it to my needs. But it’s a great tool to dive into.
+
+-----
+
+My sentiment remains the same since then, although I have started to split
+things out to multiple files - I search them with [[https://github.com/alphapapa/org-ql][org-ql]] (because it searches
+the content of headlines as well as the title). Probably my peak usecase is
+recurring tasks - the nagging todos that accompany daily living. More
+intentional goals usually end up in the planner.
