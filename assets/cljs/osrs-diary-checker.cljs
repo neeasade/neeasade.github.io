@@ -14,6 +14,17 @@
 
 (def tier-order [:easy :medium :hard :elite])
 
+(defn tier-anchor-id [region-name tier]
+  (-> (str region-name "-" (name tier))
+      string/lower-case
+      (string/replace " " "-")))
+
+(defn wiki-diary-url [region-name tier]
+  (str "https://oldschool.runescape.wiki/w/"
+       (string/replace region-name " " "_")
+       "_Diary#"
+       (string/capitalize (name tier))))
+
 (defn normalize-diary-key [k]
   (-> (name k)
       (string/replace " Diary" "")
@@ -61,31 +72,51 @@
 
 (defn task-component [region tier task-data task-idx player-data]
   (let [done? (task-status player-data region tier task-idx)]
-    [:li {:class (if done? "task-done" "task-pending")}
-     [:span {:class "task-status"} (if done? "✅" "❌")]
-     [:span {:class "task-text"} (:task task-data)]
+    [:li {:class (str "task-item " (if done? "task-done" "task-pending"))}
+     [:div {:class "task-content"}
+      [:span {:class "task-status"} (if done? "✅" "")]
+      [:span {:class "task-text"} (:task task-data)]]
      (let [{:keys [skills quests other]} (:requirements task-data)
            has-reqs? (or (seq skills) (seq quests) (seq other))]
        (when has-reqs?
          [:ul {:class "task-requirements"}
-          (for [{:keys [skill level]} skills]
-            ^{:key (str skill level)}
-            [:li {:class "req-skill"} (str level " " skill)])
+          (for [{:keys [skill level boostable]} skills]
+            (let [player-level (get-in player-data [:levels (keyword skill)] 0)
+                  met? (>= player-level level)]
+              ^{:key (str skill level)}
+              [:li {:class (str "req-skill " (if met? "req-met" "req-unmet"))}
+               (if met?
+                 [:span "✅ " (str level " " skill)]
+                 [:span "❌ " (str level " " skill) (str " (current: " player-level ")")
+                  (when boostable
+                    [:span " ("
+                     [:a {:href (str "https://oldschool.runescape.wiki/w/Temporary_skill_boost/"
+                                     (string/replace skill " " "_"))
+                          :target "_blank"}
+                      "boostable"]
+                     ")"])])]))
           (for [quest quests]
-            ^{:key quest}
-            [:li {:class "req-quest"} (str "Quest: " quest)])
+            (let [quest-status (get-in player-data [:quests (keyword quest)])
+                  done? (= 2 quest-status)
+                  wiki-url (str "https://oldschool.runescape.wiki/w/"
+                                (-> quest (string/replace " " "_") (js/encodeURI)))]
+              ^{:key quest}
+              [:li {:class (str "req-quest " (if done? "req-met" "req-unmet"))}
+               [:span (if done? "✅ " "❌ ") "Quest: "
+                [:a {:href wiki-url :target "_blank"} quest]]]))
           (for [o other]
             ^{:key o}
             [:li {:class "req-other"} o])]))]))
 
+(defn tier-progress [player-data region tier diary-tier-data]
+  (let [tasks (:tasks diary-tier-data)
+        done-count (count (filter #(task-status player-data region tier %) (range (count tasks))))]
+    {:done done-count :total (count tasks)}))
+
 (defn tier-component [region tier diary-tier-data player-data show-completed]
   (let [complete? (tier-complete? player-data region tier)
         tasks (:tasks diary-tier-data)
-        incomplete-indices (keep-indexed
-                            (fn [idx _]
-                              (when-not (task-status player-data region tier idx)
-                                idx))
-                            tasks)
+        {:keys [done total]} (tier-progress player-data region tier diary-tier-data)
         tasks-to-show (if show-completed
                         (map-indexed vector tasks)
                         (keep-indexed
@@ -93,28 +124,76 @@
                            (when-not (task-status player-data region tier idx)
                              [idx task]))
                          tasks))]
-    (when (or show-completed (seq incomplete-indices))
-      [:div {:class (str "tier tier-" (name tier))}
-       [:h4 {:class (if complete? "tier-complete" "tier-incomplete")}
-        (str (string/capitalize (name tier))
-             " (" (- (count tasks) (count incomplete-indices)) "/" (count tasks) ")")
-        (when complete? " ✅")]
+    (when (or show-completed (seq tasks-to-show))
+      [:details {:class (str "tier tier-" (name tier))
+                 :id (tier-anchor-id region tier)
+                 :open (not complete?)}
+       [:summary {:class (if complete? "tier-complete" "tier-incomplete")}
+        (str (string/capitalize (name tier)) " (" (- total done) " left)")
+        (when complete? " ✅") " "
+        [:a {:href (wiki-diary-url region tier) :target "_blank"
+             :style {:font-size "0.85em"}
+             :on-click (fn [e] (.stopPropagation e))}
+         "📖"]]
        (when (seq tasks-to-show)
          [:ul {:class "task-list"}
           (for [[idx task] tasks-to-show]
             ^{:key idx}
             [task-component region tier task idx player-data])])])))
 
+(defn region-name-from-key [region-key]
+  (-> (name region-key)
+      (string/replace "-" " ")
+      (string/replace " Diary" "")))
+
 (defn region-component [region-key diary-data player-data show-completed]
-  (let [region-name (-> (name region-key)
-                        (string/replace "-" " ")
-                        (string/replace " Diary" ""))]
+  (let [region-name (region-name-from-key region-key)]
     [:div {:class "diary-region"}
      [:h3 region-name]
      (for [tier tier-order]
        (when-let [tier-data (get diary-data tier)]
          ^{:key tier}
          [tier-component region-name tier tier-data player-data show-completed]))]))
+
+(defn progress-bar [region-key diary-data player-data]
+  (let [region-name (region-name-from-key region-key)
+        segments (for [tier tier-order]
+                   (when-let [tier-data (get diary-data tier)]
+                     (let [{:keys [done total]} (tier-progress player-data region-name tier tier-data)
+                           pct (if (zero? total) 0 (/ done total))]
+                       {:tier tier :done done :total total :pct pct})))
+        segments (remove nil? segments)]
+    [:div {:class "progress-bar-container"
+           :style {
+                   :margin-left "5rem"
+                   :margin-right "5rem"
+                   }
+           }
+     [:div {:class "progress-bar-label"} region-name]
+     [:div {:class "progress-bar"}
+      (for [{:keys [tier done total pct]} segments]
+        ^{:key tier}
+        [:a {:href (str "#" (tier-anchor-id region-name tier))
+             :class (str "progress-segment segment-" (name tier))
+             :style {:width "25%"
+                     :border "1px solid #555"
+                     :text-align "center"
+                     :text-decoration "none"
+                     :color "inherit"
+                     :background
+                     (str "linear-gradient(to right, "
+                          "#bbbbbb"
+                          " " (* pct 100) "%, "
+                          "var(--background_weak) "
+                          (* pct 100) "%)")}}
+         [:span {:class "segment-tooltip"} (str  done "/" total)]])]]))
+
+(defn progress-overview [player-data]
+  [:div {:class "progress-overview"}
+   [:h3 "Progress Overview"]
+   (for [[region-key diary-data] (sort-by (comp name first) all-diaries)]
+     ^{:key region-key}
+     [progress-bar region-key diary-data player-data])])
 
 (defn my-component []
   (let [{:keys [player-string error player-data show-completed]} @state]
@@ -133,10 +212,12 @@
       " Show completed tasks"]
      (when-not (empty? error) [:h2 {:class "error"} error])
      (when player-data
-       [:div {:class "diary-list"}
-        (for [[region-key diary-data] (sort-by (comp name first) all-diaries)]
-          ^{:key region-key}
-          [region-component region-key diary-data player-data show-completed])])]))
+       [:div
+        [progress-overview player-data]
+        [:div {:class "diary-list"}
+         (for [[region-key diary-data] (sort-by (comp name first) all-diaries)]
+           ^{:key region-key}
+           [region-component region-key diary-data player-data show-completed])]])]))
 
 ;; on load
 (when-let [url-state (parse-url)]

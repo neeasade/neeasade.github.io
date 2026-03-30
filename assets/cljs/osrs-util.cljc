@@ -1,8 +1,7 @@
 (ns neeasade.util
   (:require [clojure.string :as string]
             [clojure.walk :as walk]
-            [neeasade.util :refer [format]]
-            [osrs.data :refer [quest-data optimal-quest-list]]))
+            [neeasade.util :refer [format]]))
 
 (defn player-finished-quests [player-data]
   ;; player-data is from wikisync plugin json

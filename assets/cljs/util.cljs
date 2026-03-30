@@ -2,8 +2,7 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [clojure.string :as string]
-            [clojure.walk :as walk]
-            [osrs.data :refer [quest-data optimal-quest-list]]))
+            [clojure.walk :as walk]))
 
 (defn format [s & replacers]
   (reduce (fn [acc new] (string/replace-first acc "%s" (str new)))
