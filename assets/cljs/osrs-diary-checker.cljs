@@ -197,19 +197,22 @@
 
 (defn my-component []
   (let [{:keys [player-string error player-data show-completed]} @state]
-    [:div {:class "diary-checker"}
-     [:input {:type "text"
-              :placeholder "RSN"
-              :value player-string
-              :on-change (fn [e]
-                           (let [v (-> e .-target .-value)]
-                             (swap! state assoc :player-string v)
-                             (update-player-stats-debounce! v)))}]
-     [:label {:class "show-completed-toggle"}
-      [:input {:type "checkbox"
-               :checked show-completed
-               :on-change #(swap! state update :show-completed not)}]
-      " Show completed tasks"]
+    [:div {:class "diary-checker"
+           }
+     [:div {:style {:text-align "center"}}
+      [:input {:type "text"
+               :placeholder "RSN"
+               :value player-string
+               :on-change (fn [e]
+                            (let [v (-> e .-target .-value)]
+                              (swap! state assoc :player-string v)
+                              (update-player-stats-debounce! v)))}]
+      [:br]
+      [:label {:class "show-completed-toggle"}
+       [:input {:type "checkbox"
+                :checked show-completed
+                :on-change #(swap! state update :show-completed not)}]
+       " Show completed tasks"]]
      (when-not (empty? error) [:h2 {:class "error"} error])
      (when player-data
        [:div
