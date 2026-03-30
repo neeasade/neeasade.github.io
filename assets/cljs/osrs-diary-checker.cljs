@@ -47,10 +47,20 @@
   (let [diary (get-player-diary player-data region tier)]
     (:complete diary)))
 
+(defn combat-level [levels]
+  (let [{:keys [Defence Hitpoints Prayer Attack Strength Ranged Magic]} levels
+        base   (* 1/4 (+ Defence Hitpoints (js/Math.floor (* Prayer 1/2))))
+        melee  (* 13/40 (+ Attack Strength))
+        ranged (* 13/40 (js/Math.floor (* Ranged 3/2)))
+        mage   (* 13/40 (js/Math.floor (* Magic 3/2)))]
+    (js/Math.floor (+ base (max melee ranged mage)))))
+
 (defn handler [response]
   (println "found player")
-  (let [data (walk/keywordize-keys response)]
-    (swap! state assoc :player-data data))
+  (let [data (walk/keywordize-keys response)
+        data (update-in data [:levels] #(assoc % :Combat (combat-level (:levels data))) )]
+    (swap! state assoc :player-data data)
+    )
   (save-to-url (select-keys @state [:player-string])))
 
 (defn error-handler [e]
