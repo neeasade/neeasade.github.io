@@ -547,10 +547,7 @@
          "Means to cast Waterbirth Teleport ( 1 2 1 )"]}}
       {:task
        "Obtain the Blast Furnace Foremans permission to use the Blast Furnace for free. Note: With the requirements, talk to him and use the following dialogue options ( 1 • 3 • 1 ) … 1 What? 3 Can I use the furnace to smelt ore? 1 I have level 60! . Selecting the wrong choices may require you to pay him, in which case you can hop to another world to try again.",
-       :requirements {:skills [], :quests [], :other []}}
-      {:task "1", :requirements {:skills [], :quests [], :other []}}
-      {:task "3", :requirements {:skills [], :quests [], :other []}}
-      {:task "1", :requirements {:skills [], :quests [], :other []}}]},
+       :requirements {:skills [], :quests [], :other []}}]}
     :elite
     {:requirements
      {:skills
