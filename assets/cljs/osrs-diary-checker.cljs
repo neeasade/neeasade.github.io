@@ -80,12 +80,45 @@
 (def update-player-stats-debounce!
   (debounce update-player-stats! 600))
 
+(defn sentence-start? [text idx]
+  (or (zero? idx)
+      (some? (re-find #"[\].!?:\"]\s*$" (subs text 0 idx)))))
+
+(defn wiki-link [text]
+  [:a {:href (str "https://oldschool.runescape.wiki/w/"
+                  (-> text (string/replace " " "_") (js/encodeURI)))
+       :target "_blank"}
+   text])
+
+(defn linkify-text [text]
+  (let [text (-> text
+                 (string/replace #"([a-zA-Z]) Note" "$1. Note")
+                 (string/replace #" , " ", "))
+        pattern (js/RegExp. "[A-Z][a-zA-Z\\-]+(?:'[a-z]+)?(?:\\s+(?:[A-Z][a-zA-Z\\-]*(?:'[a-z]+)?|[0-9][a-zA-Z0-9\\-]*))*" "g")
+        parts (loop [parts [] last-idx 0]
+                (let [m (.exec pattern text)]
+                  (if m
+                    (let [match-text (aget m 0)
+                          idx (.-index m)
+                          end (+ idx (count match-text))
+                          before (subs text last-idx idx)]
+                      (if (sentence-start? text idx)
+                        (let [first-word (re-find #"[A-Z][a-zA-Z\-]+" match-text)
+                              skip-end (+ idx (count first-word))]
+                          (set! (.-lastIndex pattern) skip-end)
+                          (recur (conj parts (str before first-word)) skip-end))
+                        (recur (conj parts before (wiki-link match-text)) end)))
+                    (conj parts (subs text last-idx)))))]
+    (if (= 1 (count parts))
+      (first parts)
+      (into [:span] parts))))
+
 (defn task-component [region tier task-data task-idx player-data]
   (let [done? (task-status player-data region tier task-idx)]
     [:li {:class (str "task-item " (if done? "task-done" "task-pending"))}
      [:div {:class "task-content"}
       [:span {:class "task-status"} (if done? "✅" "")]
-      [:span {:class "task-text"} (:task task-data)]]
+      [:span {:class "task-text"} (linkify-text (:task task-data))]]
      (let [{:keys [skills quests other]} (:requirements task-data)
            has-reqs? (or (seq skills) (seq quests) (seq other))]
        (when has-reqs?
@@ -116,7 +149,9 @@
                 [:a {:href wiki-url :target "_blank"} quest]]]))
           (for [o other]
             ^{:key o}
-            [:li {:class "req-other"} o])]))]))
+            [:li {:class "req-other"}
+             (linkify-text o)
+             ])]))]))
 
 (defn tier-progress [player-data region tier diary-tier-data]
   (let [tasks (:tasks diary-tier-data)
