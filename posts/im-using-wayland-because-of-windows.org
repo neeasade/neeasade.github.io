@@ -1,0 +1,22 @@
+#+title: I'm using wayland because of windows
+#+title_extra:
+#+pubdate: <2026-07-06>
+#+filetags:
+#+rss_title:
+
+Windows is terrible, but $newJob uses it. Luckily I still get to use emacs. I'm doing this through WSL2 because that's the least-painful way to use windows... but the =wslg= wayland weston compositor is somewhat buggy. It often has mis-matched fullscreen monitor dimensions and poor integration with other windows™windows.
+
+so! I started using a terminal from windows (alacritty), with ~emacs -nw~. I started another curious journey to use terminal emacs everywhere. All hunky dory, right? wr0ng!
+
+- want keybinds? checkout [[https://github.com/benotn/kkp][kkp.el]]
+- want mouse support? ~xterm-mouse-mode~
+- want a clipboard? grok osc52
+- want your spiffy emacs window -> wm window integation to keep working? [[https://github.com/baskerville/sxhkd/issues/315][uh oh]].
+
+{{{foldstart(what?)}}}
+"spiffy emacs window integration" == a merging of wm window focus and emacs window focus commands into a single keybind. Make it natural to jump in a direction across either an emacs frame or top level view without switching contexts for your fingers. People have similar ideas for tmux, eg [[https://github.com/christoomey/vim-tmux-navigator][vim-tmux-navigator]].
+{{{foldend}}}
+
+You see, osc52 is a way to read and write the clipboard with a terminal escape code. When should one read the system clipboard? I'm doing so on frame focus. And it turns out that sxhkd causes the current X window to lose focus when a bound keybinding is hit. But now focus and clipboard sync are timed, so my yank gets overridden when window switching! nooooooooooooooooooooooooooooo
+
+That's okay I've been curious about [[https://github.com/niri-wm/niri][niri]] for awhile anyway. It seems hitting bound keys there doesn't snag focus (I suppose compositor has more control than in X-lang), so I've been testing the waters there for a few months now. Foot is very comfy over there, and has a sane osc52 limit (gigabytes), and I've been enjoying terminal font options for smooshing go mono into a narrower size.
