@@ -5,10 +5,8 @@
 #+filetags:
 
 #+html_head: <script src="./assets/cljs/bundle.js" type="application/javascript"></script>
-#+html_head: <script src="../published/assets/cljs/bundle.js" type="application/javascript"></script>
-
 #+html_head: <script src="./assets/cljs/osrs-calc.cljs" type="application/x-scittle"></script>
-#+html_head: <script src="../published/assets/cljs/osrs-calc.cljs" type="application/x-scittle"></script>
+#+html_head: <script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
 
 {{{image(rswav2.png.png)}}}
 
@@ -17,6 +15,5 @@ osrs = [[https://oldschool.runescape.com/][old school runescape]].
 #+HTML_HEAD: <style> img { max-width: 20%; float: right;} </style>
 
 #+BEGIN_EXPORT html
-</script>
 <div id="app"></div>
 #+END_EXPORT
