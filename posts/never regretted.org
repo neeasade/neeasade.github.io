@@ -1,8 +1,9 @@
 #+title: never regretted
 #+title_extra:
-#+pubdate: <2025-08-29>
+#+pubdate: <2025-08-30>
 #+filetags:
 #+rss_title:
+
 #+OPTIONS: \n:t
 
 *Things I've never regretted*:
@@ -17,4 +18,5 @@
 
 Spending 7 hours on twitter.!.!.! log off!
 Listening to youtube videos you don't care about!!
+Playing movies/shows in the background 24/7
 Time on your phone screen!!!!
