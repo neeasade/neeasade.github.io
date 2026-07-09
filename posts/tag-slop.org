@@ -11,7 +11,8 @@ posts here with [[https://ollama.com/][ollama]]!
 We can create a model derived from an existing one with a [[https://github.com/ollama/ollama/blob/main/docs/modelfile.md][ModelFile]]:
 
 #+begin_src dockerfile :tangle ../extra/modelfile.txt
-FROM gemma3:12b
+FROM gemma4:26b
+
 
 # setting a seed makes it deterministic
 PARAMETER seed 1337
@@ -28,10 +29,12 @@ SYSTEM """You are a content tagger for text. Your will take in an article and re
 
 A tag is a single word.
 Tags should not be plural.
-Tags should be relevant to the article contents.
+Tags should be **relevant** to the article contents.
 
 Only respond with a single line comma-separated list of tags, such as:
 emacs,bspwm,colors,music,hallucination
+
+RETURN ONLY 1-5 TAGS. There may not be 5 relevant tags.
 """
 
 # give it an example of expected conversation:
