@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="printing and scanning on linux">
+<meta property="og:title" content="printing and scanning on linux - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png">
 <meta property="og:url" content="https://notes.neeasade.net/printing-and-scanning-on-linux">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png") repeat;} </style>
-<style> body {background-size: auto 129px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,24 +40,22 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     printing and scanning on linux
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-12-14
 </span>
-<div class="posttags"> <a href='./tag-linux.html'>#linux</a> </div>
+<span class="posttags"> <a href='./tag-linux.html'>#linux</a> </span>
+</div>
 </header>
 <hr>
 <div id="outline-container-h-6c57cb88-f33f-4a04-8556-fec4dbf4b574" class="outline-2">
@@ -80,13 +76,13 @@ I&rsquo;ve never gotten xsane to work. <code>scanimage</code> did me good though
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nb: might need sudo on scanimage</span>
-$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list devices:</span>
+<pre class="src src-sh"><code>$ # nb: might need sudo on scanimage
+$ # list devices:
 $ scanimage -L
-$ scanimage -d <span style="color: #007c00;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">create a PDF with graphicsmagic</span>
+$ scanimage -d '&lt;device&gt;' &gt; result.pnm
+$ # create a PDF with graphicsmagic
 $ gm convert result.pnm result.pdf
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -110,7 +106,7 @@ This is an example to swap out page 6 of 10 with the scanned result.pdf into an 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nil">$ cd $(mktemp -d)
+<pre class="src src-nil"><code>$ cd $(mktemp -d)
 $ pdfseparate -f 1 -l 10 'in-%04d.pdf'
 $ ls
 in-0001.pdf  in-0004.pdf  in-0007.pdf  in-0010.pdf
@@ -118,9 +114,10 @@ in-0002.pdf  in-0005.pdf  in-0008.pdf  in.pdf
 in-0003.pdf  in-0006.pdf  in-0009.pdf
 $ cp /path/to/result.pdf in-0006.pdf
 $ pdfunite in-0*.pdf out.pdf
-</pre>
+</code></pre>
 </div>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='calf-path.html'>newer: The Calf Path</a> 
@@ -129,7 +126,7 @@ $ pdfunite in-0*.pdf out.pdf
          <a href='search-term-playlists.html'>older: search term playlists</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

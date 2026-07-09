@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="vim language quick reference">
+<meta property="og:title" content="vim language quick reference - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/ece4ef8f31621fb609b0021bf5051f3d1858cde82255973e08f94175a433b395.png">
 <meta property="og:url" content="https://notes.neeasade.net/vim-quick-reference">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/ece4ef8f31621fb609b0021bf5051f3d1858cde82255973e08f94175a433b395.png") repeat;} </style>
-<style> body {background-size: auto 152px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     vim language quick reference
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2018-05-06,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2018-05-06-vim-quick-reference.org">2020-08-04</a>
 </span>
-<div class="posttags"> <a href='./tag-vim.html'>#vim</a><a href='./tag-text.html'>#text</a><a href='./tag-commands.html'>#commands</a><a href='./tag-programming.html'>#programming</a> </div>
+<span class="posttags"> <a href='./tag-command.html'>#command</a><a href='./tag-syntax.html'>#syntax</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -68,8 +64,8 @@ Example command <code>di"</code> (| is the cursor below):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-txt">somefunc("here is a |string") --&gt; somefunc("") 
-</pre>
+<pre class="src src-txt"><code>somefunc("here is a |string") --&gt; somefunc("") 
+</code></pre>
 </div>
 
 <p>
@@ -198,7 +194,7 @@ are many commands you compose.
 
 <tr>
 <td>F</td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>backward to character, inclusive</td>
 </tr>
 
@@ -210,7 +206,7 @@ are many commands you compose.
 
 <tr>
 <td>T</td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>backward to character, exclusive</td>
 </tr>
 </tbody>
@@ -270,37 +266,37 @@ are many commands you compose.
 
 <tr>
 <td>%</td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>matching [{( under cursor, inclusive</td>
 </tr>
 
 <tr>
 <td><code>/</code></td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>forward to search result</td>
 </tr>
 
 <tr>
 <td>&lt;,&gt;</td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td><code>&lt;tags&gt; pairs of &lt;/tags&gt;</code></td>
 </tr>
 
 <tr>
 <td>?</td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>backward to search result</td>
 </tr>
 
 <tr>
 <td><code>'</code>, <code>"</code>, <code>`</code></td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>surrounding <code>"'`</code> pairs</td>
 </tr>
 
 <tr>
 <td><code>(</code>, <code>[</code>, <code>{</code>, <code>}</code>, <code>]</code>, <code>}</code></td>
-<td>&#xa0;</td>
+<td>&nbsp;</td>
 <td>surrounding <code>([{</code> pairs</td>
 </tr>
 </tbody>
@@ -308,10 +304,11 @@ are many commands you compose.
 
 <p>
 You can install plugins to get more nouns and nice contextual actions. For example with tpope&rsquo;s
-<a href="https://github.com/tpope/vim-commentary">commentary</a> you get a <code>gc</code> action for commenting in whatever programming language you are in &#x2013; which
+<a href="https://github.com/tpope/vim-commentary">commentary</a> you get a <code>gc</code> action for commenting in whatever programming language you are in &ndash; which
 you can compose with any of the above nouns and verbs!
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='git-svn-reference.html'>newer: git svn workflow</a> 
@@ -320,7 +317,7 @@ you can compose with any of the above nouns and verbs!
          <a href='add-local-font-files-linux.html'>older: add local font files linux</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

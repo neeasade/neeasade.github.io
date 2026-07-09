@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="GDB Registers">
+<meta property="og:title" content="GDB Registers - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/bbbc2ea694117d42b5b468a676fa573ad52c75ddb08392044a3a683a0ed1cdfd.png">
 <meta property="og:url" content="https://notes.neeasade.net/registers-with-gdb">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/bbbc2ea694117d42b5b468a676fa573ad52c75ddb08392044a3a683a0ed1cdfd.png") repeat;} </style>
-<style> body {background-size: auto 503px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     GDB Registers
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2015-02-20,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2015-02-20-Registers-with-GDB.org">2020-05-03</a>
 </span>
-<div class="posttags">  </div>
+<span class="posttags">  </span>
+</div>
 </header>
 <hr>
 <p>
@@ -82,15 +78,15 @@ of a Makefile for 3 of them:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-makefile"><span style="color: #c6007f;">all</span>: 32bit 64bit 64bitInLine
+<pre class="src src-makefile"><code>all: 32bit 64bit 64bitInLine
 
-<span style="color: #c6007f;">32bit</span>: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
+32bit: MyProgram.c gcc -g -O1 -fno-inline -fno-omit-frame-pointer -m32
 MyProgram.c -o MyProgram
 
-<span style="color: #c6007f;">64bit</span>: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
+64bit: MyProgram.c gcc -O1 -fno-inline MyProgram.c -o MyProgram\_64bit
 
-<span style="color: #c6007f;">64bitInLine</span>: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
-</pre>
+64bitInLine: MyProgram.c gcc -O1 MyProgram.c -o MyProgram\_64bit\_inline
+</code></pre>
 </div>
 
 <p>
@@ -123,9 +119,9 @@ run the program - this will cause the breakpoint to instantly be hit.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">(gdb)<span style="color: #0065c8;">break</span> main
+<pre class="src src-bash"><code>(gdb)break main
 (gdb)run
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -137,7 +133,7 @@ command <code>layout reg</code>, which will result in something like this:
 </p>
 
 
-<figure id="org5cc4c90">
+<figure id="org81bf032">
 <img src="http://i.imgur.com/SZkGALi.png" alt="SZkGALi.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>GDB</figcaption>
@@ -148,6 +144,7 @@ And now you can step through each instruction using &rsquo;si&rsquo;. As registe
 change value, they will be highlighted in the top window. Have fun!
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='bpswm-experiences.html'>newer: BSPWM Experiences</a> 
@@ -156,7 +153,7 @@ change value, they will be highlighted in the top window. Have fun!
          <a href='youtube_rip_with_dwb__youtube-dl.html'>older: youtube rip with dwb + youtube-dl</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

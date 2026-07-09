@@ -11,25 +11,22 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="osrs grind calculator">
+<meta property="og:title" content="osrs grind calculator - notes">
 <meta property="og:description" content="napkin math for your suffering">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/2de41c8444188b9254e222e745cb099fd11fc26c546441b65200f526fc1095a5.png">
 <meta property="og:url" content="https://notes.neeasade.net/osrs-grind-calculator">
 <meta property="description" content="napkin math for your suffering">
 <meta name="twitter:card" content="summary">
-<style> body {background: url("./assets/posts/ca_dump3/2de41c8444188b9254e222e745cb099fd11fc26c546441b65200f526fc1095a5.png") repeat;} </style>
-<style> body {background-size: auto 232px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 <script src="./assets/cljs/bundle.js" type="application/javascript"></script>
-<script src="../published/assets/cljs/bundle.js" type="application/javascript"></script>
 <script src="./assets/cljs/osrs-calc.cljs" type="application/x-scittle"></script>
-<script src="../published/assets/cljs/osrs-calc.cljs" type="application/x-scittle"></script>
+<script src="./assets/cljs/osrs-quest-data.cljc" type="application/x-scittle"></script>
 <style> img { max-width: 20%; float: right;} </style>
 </head>
 <body>
@@ -46,13 +43,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     osrs grind calculator
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -60,10 +57,11 @@
 napkin math for your suffering
 </p>
 </div>
+
 </header>
 <hr>
 
-<figure id="org8644830">
+<figure id="org34a5afc">
 <a href="./assets/posts/rswav2.png.png"><img src="./assets/posts/rswav2.png.png" alt="rswav2.png.png"></a>
 
 </figure>
@@ -72,7 +70,6 @@ napkin math for your suffering
 osrs = <a href="https://oldschool.runescape.com/">old school runescape</a>.
 </p>
 
-</script>
 <div id="app"></div>
 
 <hr>

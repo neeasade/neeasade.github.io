@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="tag slop">
+<meta property="og:title" content="tag slop - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/d0c9de68b554b413a2e51234d2c89c8a3cf9fd105c06cb54ecc7296e8b3b8356.png">
 <meta property="og:url" content="https://notes.neeasade.net/tag-slop">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/d0c9de68b554b413a2e51234d2c89c8a3cf9fd105c06cb54ecc7296e8b3b8356.png") repeat;} </style>
-<style> body {background-size: auto 689px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     tag slop
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2025-07-25,
-    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/tag-slop.org">2025-08-14</a>
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/tag-slop.org">2025-08-29</a>
 </span>
-<div class="posttags">  </div>
+<span class="posttags"> <a href='./tag-emacs.html'>#emacs</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -74,33 +70,36 @@ We can create a model derived from an existing one with a <a href="https://githu
 </p>
 
 <div class="org-src-container">
-<pre class="src src-dockerfile"><span style="color: #0065c8;">FROM</span> <span style="color: #006e96; font-weight: bold;">gemma3:12b</span>
+<pre class="src src-dockerfile"><code>FROM gemma4:26b
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">setting a seed makes it deterministic</span>
+
+# setting a seed makes it deterministic
 PARAMETER seed 1337
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">set temperature [higher is more creative, lower is more coherent]</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">PARAMETER temperature 0.1</span>
+# set temperature [higher is more creative, lower is more coherent]
+# PARAMETER temperature 0.1
 PARAMETER temperature 1
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">allow looking back further, at the cost of more memory</span>
+# allow looking back further, at the cost of more memory
 PARAMETER num_ctx 20000
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">PARAMETER num_ctx 4096</span>
+# PARAMETER num_ctx 4096
 
-SYSTEM <span style="color: #007c00;">"""You are a content tagger for text. Your will take in an article and return a terse set of tags.</span>
+SYSTEM """You are a content tagger for text. Your will take in an article and return a terse set of tags.
 
-<span style="color: #007c00;">A tag is a single word.</span>
-<span style="color: #007c00;">Tags should not be plural.</span>
-<span style="color: #007c00;">Tags should be relevant to the article contents.</span>
+A tag is a single word.
+Tags should not be plural.
+Tags should be **relevant** to the article contents.
 
-<span style="color: #007c00;">Only respond with a single line comma-separated list of tags, such as:</span>
-<span style="color: #007c00;">emacs,bspwm,colors,music,hallucination</span>
-<span style="color: #007c00;">"""</span>
+Only respond with a single line comma-separated list of tags, such as:
+emacs,bspwm,colors,music,hallucination
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">give it an example of expected conversation:</span>
-MESSAGE user tag this text: Cake is nice. I love cats and lately I<span style="color: #007c00;">'ve been thinking about the rain</span>
-<span style="color: #007c00;">MESSAGE assistant cake,cats,rain</span>
-</pre>
+RETURN ONLY 1-5 TAGS. There may not be 5 relevant tags.
+"""
+
+# give it an example of expected conversation:
+MESSAGE user tag this text: Cake is nice. I love cats and lately I've been thinking about the rain
+MESSAGE assistant cake,cats,rain
+</code></pre>
 </div>
 
 <p>
@@ -108,8 +107,8 @@ We&rsquo;ll name it &ldquo;tagger&rdquo;:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">ollama create tagger -f ../extra/modelfile.txt;
-</pre>
+<pre class="src src-sh"><code>ollama create ns/tagger -f ../extra/modelfile.txt;
+</code></pre>
 </div>
 
 <p>
@@ -117,9 +116,9 @@ And we&rsquo;re off!:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ cat On-Emacs.org | ollama run tagger <span style="color: #007c00;">"tag the following content: \n"</span>
+<pre class="src src-sh"><code>$ cat On-Emacs.org | ollama run ns/tagger "tag this text: \n"
 emacs,programming,text-editor,lisp,customization
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -138,6 +137,7 @@ can see the tag cloud over at <a href="./tags.html">tag links</a>, but for now o
 multiple posts are shown at the top of post pages.
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='cool-stuff.html'>newer: cool stuff</a> 
@@ -146,7 +146,7 @@ multiple posts are shown at the top of post pages.
          <a href='dokku.html'>older: dokku</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </main>
 </body>
 </html>

@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="search term playlists">
+<meta property="og:title" content="search term playlists - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/4ae1917353a4733cfb44d635e31b0f5bf4c33ec89db776c51ca5bd495ff5122a.png">
 <meta property="og:url" content="https://notes.neeasade.net/search-term-playlists">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/4ae1917353a4733cfb44d635e31b0f5bf4c33ec89db776c51ca5bd495ff5122a.png") repeat;} </style>
-<style> body {background-size: auto 60px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     search term playlists
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-12-13,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-12-13-search-term-playlists.org">2022-07-09</a>
 </span>
-<div class="posttags"> <a href='./tag-bash.html'>#bash</a><a href='./tag-music.html'>#music</a><a href='./tag-scripting.html'>#scripting</a> </div>
+<span class="posttags"> <a href='./tag-music.html'>#music</a><a href='./tag-playlist.html'>#playlist</a><a href='./tag-script.html'>#script</a><a href='./tag-bash.html'>#bash</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -72,9 +68,9 @@ For quite sometime, my music playing looked like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">mpc clear
+<pre class="src src-sh"><code>mpc clear
 mpc listall | sort -R | head -n 1000 | mpc add
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -94,7 +90,7 @@ Playlist files are files where every line is a comment, except for lines startin
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">artists</span>
+<pre class="src src-conf"><code># artists
 +ryo fukui
 +hiromi
 +gabor szabo
@@ -103,29 +99,29 @@ Playlist files are files where every line is a comment, except for lines startin
 +Minoru Muraoka
 +alice coltrane
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">albums</span>
+# albums
 +flight to brazil
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">generic</span>
+# generic
 +piano
 +jazz
 +koto
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">channel</span>
+# channel
 +mogurin3131
 +mogurin313131
 +marcel the drunkard
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">edd ed eddy is actually pretty jazzy</span>
+# edd ed eddy is actually pretty jazzy
 +ed, edd
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">random</span>
+# random
 +touhou
 
 -05 My Sick Piano.m4a
--Mario Basanov &amp; Vidis  - I<span style="color: #007c00;">'ll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a</span>
-<span style="color: #007c00;">-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a</span>
-</pre>
+-Mario Basanov &amp; Vidis  - I'll Be Gone (ft. Jazzu) _ Chill_Deep-6zaOfkd84Z0.m4a
+-Dubmood - Bored at the piano-vQUlWsU_yZ4.m4a
+</code></pre>
 </div>
 
 <p>
@@ -135,7 +131,7 @@ Lines that start with a <code>+</code> are search terms against the current musi
 <p>
 The script may be found <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/music">here</a>. Here are it&rsquo;s current options:
 </p>
-<pre class="example" id="org0020f87">
+<pre class="example" id="orgfc1b38a">
 $ music
 music options:
 add        : add a url to library, fallback on clipboard content
@@ -154,7 +150,7 @@ shuffle    : reshuffle current selection from all
 <p>
 And an example of a fetch-like status (bar created with <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/panel/tools/mkb">mkb</a>):
 </p>
-<pre class="example" id="org7d0417c">
+<pre class="example" id="orgf095b45">
 $ music info
 Hiromi Uehara 2006 Love and Laughter
 ◈◈◈◈◈◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇◇
@@ -168,11 +164,11 @@ After some times passed with the above system, I found myself sometimes wanting 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">+ () { append <span style="color: #007c00;">"$@"</span>; }
-<span style="color: #c6007f;">-</span> () { remove <span style="color: #007c00;">"$@"</span>; }
-@ () { artist <span style="color: #007c00;">"$@"</span>; }
-<span style="color: #0065c8;">.</span> <span style="color: #007c00;">"/path/to/playlist"</span>
-</pre>
+<pre class="src src-sh"><code>+ () { append "$@"; }
+- () { remove "$@"; }
+@ () { artist "$@"; }
+. "/path/to/playlist"
+</code></pre>
 </div>
 
 <p>
@@ -180,14 +176,14 @@ Sourcing the playlist means the blend between music script and playlist is total
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/bin/</span><span style="color: #0065c8;">sh</span>
+<pre class="src src-sh"><code>#!/bin/sh
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">get any song with a widechar in its name</span>
-<span style="color: #0065c8;">for</span> x<span style="color: #0065c8;"> in</span> &#65345; &#65346; &#65347; &#65348; &#65349; &#65350; &#65351; &#65352; &#65353; &#65354; &#65355; &#65356; &#65357; &#65358; &#65359; &#65360; &#65361; &#65362; &#65363; &#65364; &#65365; &#65366; &#65361; &#65368; &#65369; &#65370; &#65313; &#65314; &#65315; &#65316; &#65317; &#65318; &#65319; &#65320; &#65321; &#65322; &#65323; &#65324; &#65325; &#65326; &#65327; &#65328; &#65329; &#65330; &#65331; &#65332; &#65333; &#65334; &#65329; &#65336; &#65337; &#65338;; <span style="color: #0065c8;">do</span>
-   append $<span style="color: #c6007f;">x</span>
-<span style="color: #0065c8;">done</span>
+# get any song with a widechar in its name
+for x in ａ ｂ ｃ ｄ ｅ ｆ ｇ ｈ ｉ ｊ ｋ ｌ ｍ ｎ ｏ ｐ ｑ ｒ ｓ ｔ ｕ ｖ ｑ ｘ ｙ ｚ Ａ Ｂ Ｃ Ｄ Ｅ Ｆ Ｇ Ｈ Ｉ Ｊ Ｋ Ｌ Ｍ Ｎ Ｏ Ｐ Ｑ Ｒ Ｓ Ｔ Ｕ Ｖ Ｑ Ｘ Ｙ Ｚ; do
+   append $x
+done
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">artists</span>
+# artists
 @ HOME
 @ windows96
 @ lucien hughes
@@ -195,22 +191,22 @@ Sourcing the playlist means the blend between music script and playlist is total
 @ haircuts for men
 @ blank banshee
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">search terms</span>
+# search terms
 + vaporwave
 + vapor
 + E m o t i o n a l T o k y o
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">youtube channel</span>
+# youtube channel
 + elfamosodemon
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">give us stuff longer than 15min</span>
+# give us stuff longer than 15min
 filter is_long
 
 - lazerhawk
 - saint pepsi
 - lofi
 - synthwave
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -221,6 +217,7 @@ This degree of control is fun because I can do things like &ldquo;make a playlis
 Have fun with it! 🐨
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='printing-and-scanning-on-linux.html'>newer: printing and scanning on linux</a> 
@@ -229,7 +226,7 @@ Have fun with it! 🐨
          <a href='o7.html'>older: o7</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </main>
 </body>
 </html>

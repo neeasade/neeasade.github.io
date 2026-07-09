@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="sxhkd-ish">
+<meta property="og:title" content="sxhkd-ish - notes">
 <meta property="og:description" content="another place the shell lives forever">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png">
 <meta property="og:url" content="https://notes.neeasade.net/sxhkd-ish">
 <meta property="description" content="another place the shell lives forever">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png") repeat;} </style>
-<style> body {background-size: auto 129px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     sxhkd-ish
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -56,24 +54,27 @@
 another place the shell lives forever
 </p>
 </div>
+
+<div class="meta-container">
 <span class=pubinfo>
     Published 2021-01-26,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">2022-07-20</a>
 </span>
-<div class="posttags"> <a href='./tag-shell.html'>#shell</a><a href='./tag-config.html'>#config</a> </div>
+<span class="posttags"> <a href='./tag-bspwm.html'>#bspwm</a><a href='./tag-wayland.html'>#wayland</a><a href='./tag-config.html'>#config</a><a href='./tag-shell.html'>#shell</a> </span>
+</div>
 </header>
 <hr>
 <p>
-For years now, I&rsquo;ve used bspwm as my daily driver window manager. It does not ship with a builtin way to set keybindings &#x2013; instead, the recommended path is to use another program by it&rsquo;s author, <a href="https://github.com/baskerville/sxhkd/">sxhkd</a>, to bind key presses to process calls. Such calls are launched with <code>SHELL -c COMMAND</code>, where <code>SHELL</code> is set by <code>$SXHKD_SHELL</code>  or <code>$SHELL</code>. Here&rsquo;s a pair of bindings from my <a href="https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/sxhkd/.config/sxhkd/sxhkdrc#L1">sxhkdrc</a>:
+For years now, I&rsquo;ve used bspwm as my daily driver window manager. It does not ship with a builtin way to set keybindings &ndash; instead, the recommended path is to use another program by it&rsquo;s author, <a href="https://github.com/baskerville/sxhkd/">sxhkd</a>, to bind key presses to process calls. Such calls are launched with <code>SHELL -c COMMAND</code>, where <code>SHELL</code> is set by <code>$SXHKD_SHELL</code>  or <code>$SHELL</code>. Here&rsquo;s a pair of bindings from my <a href="https://github.com/neeasade/dotfiles/blob/a6bbfdad1fc8982bcedbb6e9449823b935d4a166/sxhkd/.config/sxhkd/sxhkdrc#L1">sxhkdrc</a>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf">super + Escape
-    notify-send <span style="color: #007c00;">"reloading sxhkd!"</span>; pkill -USR1 -x sxhkd
+<pre class="src src-conf"><code>super + Escape
+    notify-send "reloading sxhkd!"; pkill -USR1 -x sxhkd
 
 super + {_,shift,alt,ctrl} + {h,n,e,l}
     {focus,move,resize,presel}.sh {west,south,north,east}
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -81,7 +82,7 @@ One of sxhkd&rsquo;s most attractive features for me is the slick templating you
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf">super + h
+<pre class="src src-conf"><code>super + h
     focus.sh west
 super + n
     focus.sh south
@@ -113,7 +114,7 @@ super + ctrl + e
     presel.sh north
 super + ctrl + l
     presel.sh east
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -127,19 +128,19 @@ Many of the newer wayland window managers have you assign keys individually via 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-conf">bindsym $mod+$left focus left
+<pre class="src src-conf"><code>bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-</pre>
+</code></pre>
 </div>
 
 <p>
-This snippet comes from the example config, but if you prepend the lines with <code>swaymsg</code> you get something you can run in a script. In the week or so I gave sway a drive, most of my configuring was done this way &#x2013; with a <code>swayrc</code> file containing <code>swaymsg</code> client calls &#x2013; the prospect of porting my comparably compact sxhkdrc file was annoying though. So, like the lazy programmer I am, I squinted at it a little bit and realized the sxhkd templating format looked a little&#x2026; <i>familiar</i>. It&rsquo;s supremely similar to shell templating!:
+This snippet comes from the example config, but if you prepend the lines with <code>swaymsg</code> you get something you can run in a script. In the week or so I gave sway a drive, most of my configuring was done this way &ndash; with a <code>swayrc</code> file containing <code>swaymsg</code> client calls &ndash; the prospect of porting my comparably compact sxhkdrc file was annoying though. So, like the lazy programmer I am, I squinted at it a little bit and realized the sxhkd templating format looked a little&hellip; <i>familiar</i>. It&rsquo;s supremely similar to shell templating!:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">$ echo foo{bar,baz}
+<pre class="src src-sh"><code>$ echo foo{bar,baz}
 foobar foobaz
 
 $ echo {,fae}{bar,baz}
@@ -147,7 +148,7 @@ bar baz faebar faebaz
 
 $ echo super+{_,shift,alt,ctrl}+{h,n,e,l}
 super+_+h super+_+n super+_+e super+_+l super+shift+h super+shift+n super+shift+e super+shift+l super+alt+h super+alt+n super+alt+e super+alt+l super+ctrl+h super+ctrl+n super+ctrl+e super+ctrl+l
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -155,24 +156,24 @@ Armed with this knowledge, I glued together something terrible for my <code>sway
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #0065c8;">bind</span>() {
-    <span style="color: #c6007f;">args</span>=(<span style="color: #007c00;">"$@"</span>)
-    <span style="color: #0065c8;">for</span> i<span style="color: #0065c8;"> in</span> $(<span style="color: #c6007f;">seq 0 "$(( (${#args[@]} / 2</span><span style="color: #007c00;">) - 1 ))"</span>); <span style="color: #0065c8;">do</span>
-        <span style="color: #c6007f;">key</span>=$(<span style="color: #c6007f;">echo "${args[$i]}" | sed 's/super/Mod4/' </span>)
+<pre class="src src-bash"><code>bind() {
+    args=("$@")
+    for i in $(seq 0 "$(( (${#args[@]} / 2) - 1 ))"); do
+	key=$(echo "${args[$i]}" | sed 's/super/Mod4/' )
 
-        <span style="color: #c6007f;">val_index</span>=$(<span style="color: #c6007f;">( i + (${#args[@]} / 2</span>) ))
-        <span style="color: #c6007f;">val</span>=${<span style="color: #c6007f;">args</span>[$<span style="color: #c6007f;">val_index</span>]}
+	val_index=$(( i + (${#args[@]} / 2) ))
+	val=${args[$val_index]}
 
-        <span style="color: #0065c8;">echo</span> swaymsg bindsym <span style="color: #007c00;">"$key"</span> <span style="color: #007c00;">"$bindprefix$val"</span>
-        swaymsg bindsym <span style="color: #007c00;">"$key"</span> <span style="color: #007c00;">"$bindprefix$val"</span>
-    <span style="color: #0065c8;">done</span>
+	echo swaymsg bindsym "$key" "$bindprefix$val"
+	swaymsg bindsym "$key" "$bindprefix$val"
+    done
 }
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">bind exec</span>
-<span style="color: #c6007f;">binde</span>() {
-    <span style="color: #c6007f;">bindprefix</span>=<span style="color: #007c00;">'exec '</span> bind <span style="color: #007c00;">"$@"</span>
+# bind exec
+binde() {
+    bindprefix='exec ' bind "$@"
 }
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -180,15 +181,16 @@ And then, as long as I escaped the spaces to connect the terms, I could get away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">binde super+{,shift+,alt+,ctrl+}{h,n,e,l} <span style="color: #007c00;">\</span>
-    {focus,move,resize,presel}.sh<span style="color: #007c00;">\ </span>{west,south,north,east}
-</pre>
+<pre class="src src-sh"><code>binde super+{,shift+,alt+,ctrl+}{h,n,e,l} \
+    {focus,move,resize,presel}.sh\ {west,south,north,east}
+</code></pre>
 </div>
 
 <p>
 Hooray!
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='tiled-wallpaper-sources.html'>newer: tiled wallpaper sources</a> 
@@ -197,7 +199,7 @@ Hooray!
          <a href='tarps.html'>older: myron-themes previews</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </main>
 </body>
 </html>

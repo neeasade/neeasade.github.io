@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="reverse ssh tunnels">
+<meta property="og:title" content="reverse ssh tunnels - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/ef50d18d674798d571113c828cab9317f213346fdd03b07e25719103f249f7f1.png">
 <meta property="og:url" content="https://notes.neeasade.net/reverse-ssh-tunnels">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/ef50d18d674798d571113c828cab9317f213346fdd03b07e25719103f249f7f1.png") repeat;} </style>
-<style> body {background-size: auto 773px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     reverse ssh tunnels
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-04-10,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-10-reverse-ssh-tunnels.org">2020-08-04</a>
 </span>
-<div class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-vps.html'>#vps</a> </div>
+<span class="posttags"> <a href='./tag-emacs.html'>#emacs</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -80,8 +76,8 @@ The problem is that <code>home</code> is behind some network you don&rsquo;t con
 <h2 id="h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">From <code>home</code><a href="#h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">#</a></h2>
 <div class="outline-text-2" id="text-h-a3854f2f-36e7-43a8-8b45-b4a491923ba4">
 <div class="org-src-container">
-<pre class="src src-nil">ssh -R 22222:localhost:22 username@vps
-</pre>
+<pre class="src src-nil"><code>ssh -R 22222:localhost:22 username@vps
+</code></pre>
 </div>
 
 <p>
@@ -93,15 +89,15 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home after ssh'ing into vps:</span>
+<pre class="src src-sh"><code># to access home after ssh'ing into vps:
 ssh localhost -p 22222
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home in one go from laptop:</span>
-ssh -t vps <span style="color: #007c00;">'ssh localhost -p 22222'</span>
+# to access home in one go from laptop:
+ssh -t vps 'ssh localhost -p 22222'
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to Jump from the laptop (-J is the jumpbox target):</span>
+# to Jump from the laptop (-J is the jumpbox target):
 ssh -J username@vps:22 localhost -p 22222
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
@@ -113,8 +109,8 @@ emacs TRAMP syntax for jumping across a local reference on a different port:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nil">find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
-</pre>
+<pre class="src src-nil"><code>find-file /ssh:username@vps|ssh:username@localhost#22222:/path/to/some/file
+</code></pre>
 </div>
 
 <p>
@@ -122,11 +118,11 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #0065c8;">let*</span> ((tramp-connection-path <span style="color: #007c00;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #007c00;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #007c00;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp"><code>(let* ((tramp-connection-path "/ssh:username@vps|ssh:username@localhost#22222:")
+        (default-directory (concat tramp-connection-path "/home/username"))
+        (process-environment (cons (format "TRAMP_INFO=%s" tramp-connection-path) process-environment)))
   (shell))
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
@@ -137,6 +133,7 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 <a href="https://en.wikibooks.org/wiki/OpenSSH">https://en.wikibooks.org/wiki/OpenSSH</a> &gt; Cookbook
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='blog-meta.html'>newer: May Days</a> 
@@ -145,7 +142,7 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
          <a href='mobile-capture-with-orgzly-termux-and-syncthing.html'>older: My Mobile Setup</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

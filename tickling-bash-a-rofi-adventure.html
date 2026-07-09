@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="tickling bash, quest for the perfect menu">
+<meta property="og:title" content="tickling bash, quest for the perfect menu - notes">
 <meta property="og:description" content="where the 'perfect menu' means you can start typing right away">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/1fc357174e033c2c650c16793bc814daefab6dba37eadd20203c96e2469aa530.png">
 <meta property="og:url" content="https://notes.neeasade.net/tickling-bash-a-rofi-adventure">
 <meta property="description" content="where the 'perfect menu' means you can start typing right away">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/1fc357174e033c2c650c16793bc814daefab6dba37eadd20203c96e2469aa530.png") repeat;} </style>
-<style> body {background-size: auto 629px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     tickling bash, quest for the perfect menu
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -56,11 +54,14 @@
 where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 </div>
+
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-05-10,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-05-10-tickling-bash,-a-rofi-adventure.org">2025-08-20</a>
 </span>
-<div class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-bash.html'>#bash</a><a href='./tag-scripting.html'>#scripting</a><a href='./tag-typing.html'>#typing</a> </div>
+<span class="posttags"> <a href='./tag-bash.html'>#bash</a><a href='./tag-emacs.html'>#emacs</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -68,8 +69,8 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">sh -c <span style="color: #007c00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0065c8;">read</span> pid; <span style="color: #0065c8;">read</span> line; <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"$line"</span>; <span style="color: #0065c8;">kill</span> $<span style="color: #c6007f;">pid</span>)
-</pre>
+<pre class="src src-sh"><code>sh -c 'echo $$; echo a; sleep 100; echo b' | (read pid; read line; echo "$line"; kill $pid)
+</code></pre>
 </div>
 
 <p>
@@ -96,7 +97,7 @@ it&rsquo;s features was a builting &ldquo;switch to window by title&rdquo; featu
 stole the idea in a <a href="https://github.com/neeasade/dotfiles/blob/master/wm/.wm/scripts/interact/dmenu_windows">dmenu script</a>. But then I got to thinking, what if I had a &ldquo;switch to everything&rdquo;
 script. The vision I had in my head of a single hub to jump to or DO anything was a really nice
 picture, indeed. And thus, <code>dmenu_switcher</code> was born, a script I would then shout about many times.
-<code>dmenu_switcher</code> is a script that matches dmenu selections to bash functions in an associated array &#x2013;
+<code>dmenu_switcher</code> is a script that matches dmenu selections to bash functions in an associated array &ndash;
 so I added actions to:
 </p>
 
@@ -111,7 +112,7 @@ In the process of implementing that last point, I realized I might not need dmen
 emacs itself, I was using <a href="https://oremacs.com/swiper/">ivy</a> to switch to things. From there I learned that you can spawn an emacs
 frame that is solely a minibuffer, and that meant the next step was to create a dmenu-like <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">script</a>
 that just spawned an emacs frame containing ivy. In combination with <a href="https://github.com/raxod502/prescient.el">prescient.el</a> this means my
-&ldquo;mega menu&rdquo; gets extra sorting based on selected entries &#x2013; previously selected things automatically
+&ldquo;mega menu&rdquo; gets extra sorting based on selected entries &ndash; previously selected things automatically
 float to the top! How nice. However, I&rsquo;m already using dmenu in many places. This leads to me making
 a script in my path also named dmenu pointing at <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/emacs_dmenu">emacs_dmenu</a>.
 </p>
@@ -131,7 +132,7 @@ In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a 
 <h2 id="Rofi">Rofi<a href="#Rofi">#</a></h2>
 <div class="outline-text-2" id="text-Rofi">
 <p>
-At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &#x2013; and was rewarded with the very nice <code>-async-pre-read</code>
+At this point I decided to check out <a href="https://github.com/davatorium/rofi">rofi</a> &ndash; and was rewarded with the very nice <code>-async-pre-read</code>
 flag. Setting the value to 0 means that rofi will start accepting keyboard input right away. That
 means I can just summon the jump menu and start typing before candidates are ready. This is a golden
 experience! It means I can include search candidates that take a long time to get (say, my browser
@@ -147,12 +148,12 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">(<span style="color: #0065c8;">echo</span> a; sleep 10; <span style="color: #0065c8;">echo</span> b) | rofi -dmenu -async-pre-read 0
-</pre>
+<pre class="src src-sh"><code>(echo a; sleep 10; echo b) | rofi -dmenu -async-pre-read 0
+</code></pre>
 </div>
 
 <p>
-You see the issue with this? After I select something (intending to move on to an action), I&rsquo;m stuck again! until all the candidates have been created. Yet another bump in what I&rsquo;m trying to do. Clearly, this is an insult and I must make the machine do my bidding. This is not a fault with rofi &#x2013; it returns right away after selecting an option, as expected.
+You see the issue with this? After I select something (intending to move on to an action), I&rsquo;m stuck again! until all the candidates have been created. Yet another bump in what I&rsquo;m trying to do. Clearly, this is an insult and I must make the machine do my bidding. This is not a fault with rofi &ndash; it returns right away after selecting an option, as expected.
 </p>
 
 <p>
@@ -165,6 +166,7 @@ So the way I cheated was to run the &rsquo;candidate maker&rsquo; in a subshell,
 </ul>
 
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='pinebook-pro.html'>newer: Pinebook Pro</a> 
@@ -173,7 +175,7 @@ So the way I cheated was to run the &rsquo;candidate maker&rsquo; in a subshell,
          <a href='automata-tiling-backgrounds.html'>older: Automata tiling backgrounds</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

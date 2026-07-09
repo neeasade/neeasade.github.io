@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="ImageMagick Snippets">
+<meta property="og:title" content="ImageMagick Snippets - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/339f75f140677b39471e8f7510e80fab3efa0363a2ecf2613d99096b43888c0d.png">
 <meta property="og:url" content="https://notes.neeasade.net/imagemagick-notes">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/339f75f140677b39471e8f7510e80fab3efa0363a2ecf2613d99096b43888c0d.png") repeat;} </style>
-<style> body {background-size: auto 120px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     ImageMagick Snippets
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-08-03,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-03-ImageMagick-notes.org">2025-06-20</a>
 </span>
-<div class="posttags"> <a href='./tag-script.html'>#script</a> </div>
+<span class="posttags"> <a href='./tag-image.html'>#image</a><a href='./tag-command.html'>#command</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -83,8 +79,8 @@ Better results with square images, of course. The <code>45</code> is the degree 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #007c00;">'1  1  45'</span> out.png
-</pre>
+<pre class="src src-sh"><code>magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate '1  1  45' out.png
+</code></pre>
 </div>
 </div>
 </div>
@@ -92,8 +88,8 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <h2 id="Stack-images-vertically">Stack images vertically<a href="#Stack-images-vertically">#</a></h2>
 <div class="outline-text-2" id="text-Stack-images-vertically">
 <div class="org-src-container">
-<pre class="src src-sh">magick 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
-</pre>
+<pre class="src src-sh"><code>magick 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
+</code></pre>
 </div>
 </div>
 </div>
@@ -101,8 +97,8 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <h2 id="Create-a-solid-color-image">Create a solid color image<a href="#Create-a-solid-color-image">#</a></h2>
 <div class="outline-text-2" id="text-Create-a-solid-color-image">
 <div class="org-src-container">
-<pre class="src src-sh">magick -size 100x100 <span style="color: #007c00;">"xc:#cccccc"</span> out.png
-</pre>
+<pre class="src src-sh"><code>magick -size 100x100 "xc:#cccccc" out.png
+</code></pre>
 </div>
 </div>
 </div>
@@ -114,19 +110,20 @@ see also: <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/tile
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #c6007f;">tile</span>=<span style="color: #007c00;">"some_file.png"</span>
-<span style="color: #c6007f;">angle</span>=$(<span style="color: #c6007f;">(RANDOM % 360</span>))
-<span style="color: #c6007f;">w</span>=1920
-<span style="color: #c6007f;">h</span>=1080
+<pre class="src src-sh"><code>tile="some_file.png"
+angle=$((RANDOM % 360))
+w=1920
+h=1080
 
-magick <span style="color: #007c00;">"$tile"</span> -set option:distort:viewport <span style="color: #007c00;">"${w}x${h}"</span> <span style="color: #007c00;">\</span>
-    -virtual-pixel tile -filter point <span style="color: #007c00;">\</span>
-    -distort SRT <span style="color: #007c00;">"$angle"</span> <span style="color: #007c00;">\</span>
-    -gravity center -crop <span style="color: #007c00;">"${w}x${h}+0+0"</span> +repage <span style="color: #007c00;">\</span>
-    <span style="color: #007c00;">"result.png"</span>
-</pre>
+magick "$tile" -set option:distort:viewport "${w}x${h}" \
+    -virtual-pixel tile -filter point \
+    -distort SRT "$angle" \
+    -gravity center -crop "${w}x${h}+0+0" +repage \
+    "result.png"
+</code></pre>
 </div>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='aug-2020.html'>newer: 8 Months Adrift</a> 
@@ -135,7 +132,7 @@ magick <span style="color: #007c00;">"$tile"</span> -set option:distort:viewport
          <a href='webrings.html'>older: webrings</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

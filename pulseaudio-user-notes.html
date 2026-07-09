@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="pulseaudio user notes">
+<meta property="og:title" content="pulseaudio user notes - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/819a30b12a80c1e0f1142acddd3fc2abc647e864d414bfffc49911e12c740bc1.png">
 <meta property="og:url" content="https://notes.neeasade.net/pulseaudio-user-notes">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/819a30b12a80c1e0f1142acddd3fc2abc647e864d414bfffc49911e12c740bc1.png") repeat;} </style>
-<style> body {background-size: auto 640px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     pulseaudio user notes
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-08-12,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-12-pulseaudio-user-notes.org">2020-08-14</a>
 </span>
-<div class="posttags"> <a href='./tag-audio.html'>#audio</a><a href='./tag-nix.html'>#nix</a> </div>
+<span class="posttags"> <a href='./tag-audio.html'>#audio</a><a href='./tag-nix.html'>#nix</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -110,14 +106,14 @@ When in doubt, <code>pavucontrol</code> can save you/check all mic and speaker s
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">nix-build -E <span style="color: #007c00;">'(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'</span>
+<pre class="src src-sh"><code>nix-build -E '(import (builtins.fetchGit "https://cl.tvl.fyi/depot") {}).tools.nsfv-setup'
 ./result/bin/nsfv-setup
-</pre>
+</code></pre>
 </div>
 
 <p>
 Then, in <code>pavucontrol</code>, your audio sinks will have a &ldquo;LAPSPA Plugin Noise Detector on &lt;sink name&gt;&rdquo;
-option added &#x2013; just point your application output to it and voila! Remove
+option added &ndash; just point your application output to it and voila! Remove
 background noise from video calls and other things.
 </p>
 
@@ -141,25 +137,26 @@ Some leftover notes from when I was last messing with this with <a href="https:/
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">pactl list short sinks
+<pre class="src src-sh"><code>pactl list short sinks
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">add a null sync</span>
+# add a null sync
 pactl load-module module-null-sink
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">=&gt; 25</span>
+# =&gt; 25
 
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=&lt;number&gt;,&lt;name&gt;
+pactl load-module module-combine-sink slaves=&lt;number&gt;,&lt;name&gt;
 
- 2      alsa_output.pci-0000_00_1f.3.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
+ 2	alsa_output.pci-0000_00_1f.3.analog-stereo	module-alsa-card.c	s16le 2ch 44100Hz	RUNNING
 
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=25,alsa_output.pci-0000_00_1f.3.analog-stereo
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=25,null
-pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span>=25,analog-stereo
+pactl load-module module-combine-sink slaves=25,alsa_output.pci-0000_00_1f.3.analog-stereo
+pactl load-module module-combine-sink slaves=25,null
+pactl load-module module-combine-sink slaves=25,analog-stereo
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">number is the output of the above</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">name is the internal name of the output you want to use on obs?</span>
-</pre>
+# number is the output of the above
+# name is the internal name of the output you want to use on obs?
+</code></pre>
 </div>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='automata-tiling-backgrounds-2.html'>newer: Automata tiling backgrounds 2</a> 
@@ -168,7 +165,7 @@ pactl load-module module-combine-sink <span style="color: #c6007f;">slaves</span
          <a href='a-fun-focus-exercise.html'>older: A fun focus exercise</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

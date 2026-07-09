@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="TLDR org mode + graphviz">
+<meta property="og:title" content="TLDR org mode + graphviz - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/f9a7cc0d726f42212605267a1d704b8ab52b03c86348605c2550e1e2607bc529.png">
 <meta property="og:url" content="https://notes.neeasade.net/tldr-org-mode--graphviz">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/f9a7cc0d726f42212605267a1d704b8ab52b03c86348605c2550e1e2607bc529.png") repeat;} </style>
-<style> body {background-size: auto 375px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     TLDR org mode + graphviz
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2019-05-21,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2019-05-21-tldr-org-mode-+-graphviz.org">2020-01-15</a>
 </span>
-<div class="posttags"> <a href='./tag-org.html'>#org</a><a href='./tag-emacs.html'>#emacs</a> </div>
+<span class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-org.html'>#org</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -75,12 +71,12 @@ mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #444748; background-color: #e8ebec;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #444748; background-color: #dfe2e3;">digraph {</span>
-<span style="color: #444748; background-color: #dfe2e3;">    a -&gt; b</span>
-<span style="color: #444748; background-color: #dfe2e3;">}</span>
-<span style="color: #444748; background-color: #e8ebec;">#+END_SRC</span>
-</pre>
+<pre class="src src-org"><code>#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
+digraph {
+    a -&gt; b
+}
+#+END_SRC
+</code></pre>
 </div>
 
 <p>
@@ -92,12 +88,11 @@ You can eval the block with <code>C-c C-c</code> and then view it inline in emac
 These blocks also export! Just like in <a href="https://github.com/neeasade/neeasade.github.io/blob/source/posts/2019-05-21-tldr-org-mode-%2B-graphviz.org#org-mode">this page itself!</a>
 </p>
 
-<div class="org-src-container">
-<pre class="src src-dot">digraph {
-    a -&gt; b
-}
-</pre>
-</div>
+
+<figure id="orgec095bf">
+<img src="./assets/posts/dot-example.png" alt="dot-example.png">
+
+</figure>
 </div>
 </div>
 <div id="outline-container-The-Dot-language" class="outline-2">
@@ -132,46 +127,18 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #444748; background-color: #e8ebec;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng</span>
-<span style="color: #444748; background-color: #dfe2e3;">digraph {</span>
-<span style="color: #444748; background-color: #dfe2e3;">    // config:</span>
-<span style="color: #444748; background-color: #dfe2e3;">    // TBLR, top bottom left right, the direction of the graph.</span>
-<span style="color: #444748; background-color: #dfe2e3;">    graph [rankdir=TB];</span>
-<span style="color: #444748; background-color: #dfe2e3;">    // you can have multiple attrs per statement</span>
-<span style="color: #444748; background-color: #dfe2e3;">    graph [dpi=150 splines=ortho];</span>
-<span style="color: #444748; background-color: #dfe2e3;">    edge[decorate=true];</span>
-<span style="color: #444748; background-color: #dfe2e3;">    node [shape=box];</span>
-
-<span style="color: #444748; background-color: #dfe2e3;">    // definitions:</span>
-<span style="color: #444748; background-color: #dfe2e3;">    // nb: setting definitions on their own is useful in larger graphs</span>
-<span style="color: #444748; background-color: #dfe2e3;">    computer [label=computer];</span>
-<span style="color: #444748; background-color: #dfe2e3;">    // quotes are optional, I'm using them when there are spaces</span>
-<span style="color: #444748; background-color: #dfe2e3;">    phone [label="android phone"];</span>
-<span style="color: #444748; background-color: #dfe2e3;">    router [label=router];</span>
-
-<span style="color: #444748; background-color: #dfe2e3;">    // record syntax: | for horizontal, {|} for vert</span>
-<span style="color: #444748; background-color: #dfe2e3;">    internet [shape=record label="{internet|cat pictures}"]</span>
-
-<span style="color: #444748; background-color: #dfe2e3;">    // relations:</span>
-<span style="color: #444748; background-color: #dfe2e3;">    computer -&gt; router;</span>
-<span style="color: #444748; background-color: #dfe2e3;">    phone -&gt; router [label="wifi"];</span>
-<span style="color: #444748; background-color: #dfe2e3;">    router -&gt; internet [dir=both];</span>
-<span style="color: #444748; background-color: #dfe2e3;">}</span>
-<span style="color: #444748; background-color: #e8ebec;">#+END_SRC</span>
-</pre>
-</div>
-
-
-<div class="org-src-container">
-<pre class="src src-dot">digraph {
-    // --- config
-    graph [rankdir=TB]; // TBLR, top bottom left right, the direction of the graph.
-    graph [dpi=150 splines=ortho]; // you can have multiple attrs per statement
-    edge[decorate=true]
+<pre class="src src-org"><code>#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
+digraph {
+    // config:
+    // TBLR, top bottom left right, the direction of the graph.
+    graph [rankdir=TB];
+    // you can have multiple attrs per statement
+    graph [dpi=150 splines=ortho];
+    edge[decorate=true];
     node [shape=box];
 
-    // --- definitions
-    // nb: setting definitions on their own is useful in larger graphs for standalone attribute setting
+    // definitions:
+    // nb: setting definitions on their own is useful in larger graphs
     computer [label=computer];
     // quotes are optional, I'm using them when there are spaces
     phone [label="android phone"];
@@ -180,14 +147,23 @@ Here is an example that shows how attributes are set and some defaults I like:
     // record syntax: | for horizontal, {|} for vert
     internet [shape=record label="{internet|cat pictures}"]
 
-    // --- relations
+    // relations:
     computer -&gt; router;
-    phone -&gt;router [label="wifi"];
-    router -&gt;internet [dir=both];
+    phone -&gt; router [label="wifi"];
+    router -&gt; internet [dir=both];
 }
-</pre>
+#+END_SRC
+</code></pre>
 </div>
 
+
+
+<figure id="org415d3b9">
+<img src="./assets/posts/dot-internet.png" alt="dot-internet.png">
+
+</figure>
+
+<hr>
 <footer>
     <div style="float: left">
          <a href='on-emacs.html'>newer: On Emacs</a> 
@@ -196,7 +172,7 @@ Here is an example that shows how attributes are set and some defaults I like:
          <a href='git-svn-reference.html'>older: git svn workflow</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

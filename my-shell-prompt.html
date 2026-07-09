@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="my shell prompt">
+<meta property="og:title" content="my shell prompt - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/8c732a99bbc711c6a95882ea35e56834200ba5eb0406b9d71649f2b6001f3e2b.png">
 <meta property="og:url" content="https://notes.neeasade.net/my-shell-prompt">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/8c732a99bbc711c6a95882ea35e56834200ba5eb0406b9d71649f2b6001f3e2b.png") repeat;} </style>
-<style> body {background-size: auto 147px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     my shell prompt
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-11-09,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-11-09-my-shell-prompt.org">2020-11-15</a>
 </span>
-<div class="posttags"> <a href='./tag-shell.html'>#shell</a><a href='./tag-emacs.html'>#emacs</a><a href='./tag-git.html'>#git</a><a href='./tag-bash.html'>#bash</a><a href='./tag-vps.html'>#vps</a><a href='./tag-dotfiles.html'>#dotfiles</a> </div>
+<span class="posttags"> <a href='./tag-bash.html'>#bash</a><a href='./tag-emacs.html'>#emacs</a><a href='./tag-git.html'>#git</a><a href='./tag-shell.html'>#shell</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -72,14 +68,14 @@ Errors and background processes:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">$ false
+<pre class="src src-text"><code>$ false
 ! vim temp.txt
 [1]+  Stopped                 vim temp.txt
 $! true
 $$ fg
 vim temp
 $
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -87,7 +83,7 @@ git stuff:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">$ cd $(mktemp -d)
+<pre class="src src-text"><code>$ cd $(mktemp -d)
 $ git init
 Initialized empty Git repository in /tmp/tmp.enlQwywyEv/.git/
 $ touch readme.md
@@ -103,7 +99,7 @@ Switched to a new branch 'new_branch'
 Switched to a new branch 'master'
 HEAD is now at 3ff638e initial
 $
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -111,12 +107,12 @@ non-standard environment detection (checks capital variables):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">$ PYTHONPATH="$HOME/something/stateful"
+<pre class="src src-text"><code>$ PYTHONPATH="$HOME/something/stateful"
 E $ envv
 PYTHONPATH=/home/neeasade/something/stateful
 E $ unset PYTHONPATH
 $
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -124,29 +120,30 @@ ssh hostname:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">$ ssh super.cool.vps
+<pre class="src src-text"><code>$ ssh super.cool.vps
 trouw $ logout
 $
-</pre>
+</code></pre>
 </div>
 
 <p>
-and a hack that tells Emacs where the shell is (including tramp information &#x2013; this is normally used in the prompt, I&rsquo;m just showing it out here):
+and a hack that tells Emacs where the shell is (including tramp information &ndash; this is normally used in the prompt, I&rsquo;m just showing it out here):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">$ ssh super.cool.vps
+<pre class="src src-text"><code>$ ssh super.cool.vps
 trouw $ tell_emacs_shell_location
 +Pr0mPT+/ssh:neeasade@192.0.2.0:/home/neeasade+
 trouw $ logout
 $
-</pre>
+</code></pre>
 </div>
 
 <p>
 Source is here: <a href="https://github.com/neeasade/dotfiles/blob/083d2996df4a2fff6b7ebfbc237a6a27babcf4b9/shell/.sh.d/style#L109">~/.sh.d/style</a>
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='color-spaces.html'>newer: reasoning about colors</a> 
@@ -155,7 +152,7 @@ Source is here: <a href="https://github.com/neeasade/dotfiles/blob/083d2996df4a2
          <a href='reduce.html'>older: (reduce)</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </main>
 </body>
 </html>

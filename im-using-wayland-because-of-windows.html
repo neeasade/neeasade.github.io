@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>I'm using wayland because of windows</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="I'm using wayland because of windows - notes">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/107eb53ef8dbc02f26ca393b9dc633f32c907c766e1ce986220379e208193805.png">
+<meta property="og:url" content="https://notes.neeasade.net/im-using-wayland-because-of-windows">
+<meta property="description" content="">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<div style="float: left">
+    <a href='./index.html'>../notes</a>
+</div>
+
+<div style="float: right">
+    
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/im-using-wayland-because-of-windows.org">source</a>
+</div>
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+    </svg>
+    I'm using wayland because of windows
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+    </svg>
+</h1>
+
+<div class="meta-container">
+<span class=pubinfo>
+    Published 2026-07-09
+</span>
+<span class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-wayland.html'>#wayland</a><a href='./tag-windows.html'>#windows</a><a href='./tag-terminal.html'>#terminal</a> </span>
+</div>
+</header>
+<hr>
+<p>
+Windows is terrible, but $newJob uses it. Luckily I still get to use emacs. I&rsquo;m doing this through WSL2 because that&rsquo;s the least-painful way to use windows&hellip; but the <code>wslg</code> wayland weston compositor is somewhat buggy. It often has mis-matched fullscreen monitor dimensions and poor integration with other windows™windows.
+</p>
+
+<p>
+so! I started using a terminal from windows (alacritty), with <code>emacs -nw</code>. I started another curious journey to use terminal emacs everywhere. All hunky dory, right? wr0ng!
+</p>
+
+<ul class="org-ul">
+<li>want keybinds? checkout <a href="https://github.com/benotn/kkp">kkp.el</a></li>
+<li>want mouse support? <code>xterm-mouse-mode</code></li>
+<li>want a clipboard? grok osc52</li>
+<li>want your spiffy emacs window -&gt; wm window integation to keep working? <a href="https://github.com/baskerville/sxhkd/issues/315">uh oh</a>.</li>
+</ul>
+
+<p>
+<details><summary>what?</summary>
+&ldquo;spiffy emacs window integration&rdquo; == a merging of wm window focus and emacs window focus commands into a single keybind. Make it natural to jump in a direction across either an emacs frame or top level view without switching contexts for your fingers. People have similar ideas for tmux, eg <a href="https://github.com/christoomey/vim-tmux-navigator">vim-tmux-navigator</a>.
+</details>
+</p>
+
+<p>
+You see, osc52 is a way to read and write the clipboard with a terminal escape code. When should one read the system clipboard? I&rsquo;m doing so on frame focus. And it turns out that sxhkd causes the current X window to lose focus when a bound keybinding is hit. But now focus and clipboard sync are timed, so my yank gets overridden when window switching! nooooooooooooooooooooooooooooo
+</p>
+
+<p>
+That&rsquo;s okay I&rsquo;ve been curious about <a href="https://github.com/niri-wm/niri">niri</a> for awhile anyway. It seems hitting bound keys there doesn&rsquo;t snag focus (I suppose compositor has more control than in X-land), so I&rsquo;ve been testing the waters there for a few months now. Foot is very comfy over there, and has a sane osc52 limit (gigabytes), and I&rsquo;ve been enjoying terminal font options for smooshing go mono into a narrower size.
+</p>
+
+<hr>
+<footer>
+    <div style="float: left">
+        
+    </div>
+    <div style="text-align: right">
+         <a href='why-org.html'>older: why org</a> 
+    </div>
+</footer>
+<div class=flair> </div>
+</main>
+</body>
+</html>

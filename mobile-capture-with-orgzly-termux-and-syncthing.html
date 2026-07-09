@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="My Mobile Setup">
+<meta property="og:title" content="My Mobile Setup - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/33db270ce25f1849ee3f01d2867b5a83dcad9a56d0f6b0bdaabc3f6ebd512458.png">
 <meta property="og:url" content="https://notes.neeasade.net/mobile-capture-with-orgzly-termux-and-syncthing">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/33db270ce25f1849ee3f01d2867b5a83dcad9a56d0f6b0bdaabc3f6ebd512458.png") repeat;} </style>
-<style> body {background-size: auto 784px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     My Mobile Setup
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-04-07,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-04-07-mobile-capture-with-orgzly,-termux,-and-syncthing.org">2020-06-22</a>
 </span>
-<div class="posttags"> <a href='./tag-music.html'>#music</a><a href='./tag-youtube.html'>#youtube</a><a href='./tag-script.html'>#script</a> </div>
+<span class="posttags"> <a href='./tag-automation.html'>#automation</a><a href='./tag-productivity.html'>#productivity</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -68,7 +64,7 @@ TL;DR Syncthing + Termux + Orgzly
 </p>
 
 <p>
-Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual &#x2013; this is motivated by my recent re-interest in capturing things in <a href="https://orgmode.org/">org-mode</a>. Here I will cover the tools and apps I&rsquo;ve setup to try and get a &rsquo;blended&rsquo; mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it&rsquo;s worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
+Ironically in this time of quarantine I find myself tinkering with my mobile setup moreso than usual &ndash; this is motivated by my recent re-interest in capturing things in <a href="https://orgmode.org/">org-mode</a>. Here I will cover the tools and apps I&rsquo;ve setup to try and get a &rsquo;blended&rsquo; mobile feel between my phone and computers, at least with regards to capturing things on the go. For what it&rsquo;s worth, I hate the feel of mobile keyboards, and the goal of this setup is more to get things into the main setup rather than operate from the phone generally.
 </p>
 <div id="outline-container-h-11b4a27d-4fc3-4357-8afe-c828e328574f" class="outline-2">
 <h2 id="h-11b4a27d-4fc3-4357-8afe-c828e328574f">Syncthing<a href="#h-11b4a27d-4fc3-4357-8afe-c828e328574f">#</a></h2>
@@ -86,7 +82,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="orgaafd82c">
+<figure id="orgcfb8b85">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -98,7 +94,7 @@ turns into:
 </div>
 
 
-<figure id="orgf691db4">
+<figure id="orgaad927a">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
@@ -108,24 +104,24 @@ turns into:
 <h2 id="h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">Music<a href="#h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">#</a></h2>
 <div class="outline-text-2" id="text-h-f93a4f0c-6aa5-4faf-9ef9-ee7c4f23fd74">
 <p>
-I use the BlackPlayer music player, which lets you choose what folders to search for music from. I&rsquo;m sure you can see where this is going&#x2026; with MPD on my desktop it&rsquo;s really easy to do something like <code>mpc playlist -f '%file%' | shuf | head -n 100 | fd cp $music_dir/{} $syncthing_dir</code> and wham! A smattering of my music collection is now available for me to enjoy on my phone! Of course, the reality is a little more complicated. I want to limit the size of the music collection that ends up on my phone. What actually ends up happening is something like:
+I use the BlackPlayer music player, which lets you choose what folders to search for music from. I&rsquo;m sure you can see where this is going&hellip; with MPD on my desktop it&rsquo;s really easy to do something like <code>mpc playlist -f '%file%' | shuf | head -n 100 | fd cp $music_dir/{} $syncthing_dir</code> and wham! A smattering of my music collection is now available for me to enjoy on my phone! Of course, the reality is a little more complicated. I want to limit the size of the music collection that ends up on my phone. What actually ends up happening is something like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">200mb</span>
-  <span style="color: #c6007f;">size_limit</span>=200000
-  <span style="color: #c6007f;">sync_music_dir</span>=<span style="color: #007c00;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #c6007f;">music_dir</span>=<span style="color: #007c00;">"$HOME/Music"</span>
+<pre class="src src-sh"><code>  # 200mb
+  size_limit=200000
+  sync_music_dir="$HOME/sync/orgzly/music"
+  music_dir="$HOME/Music"
 
-  <span style="color: #c6007f;">IFS</span>=$<span style="color: #007c00;">'\n'</span>
-  <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r f; <span style="color: #0065c8;">do</span>
-      <span style="color: #c6007f;">collection_size</span>=$(<span style="color: #c6007f;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
-      <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">collection_size</span> -lt $<span style="color: #c6007f;">size_limit</span> ]; <span style="color: #0065c8;">then</span>
-          <span style="color: #0065c8;">echo</span> cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
-          cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
-      <span style="color: #0065c8;">fi</span>
-  <span style="color: #0065c8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007c00;">'%file%'</span> | shuf)
-</pre>
+  IFS=$'\n'
+  while read -r f; do
+      collection_size=$(du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//')
+      if [ $collection_size -lt $size_limit ]; then
+	  echo cp "${music_dir}/$f" "$sync_music_dir"
+	  cp "${music_dir}/$f" "$sync_music_dir"
+      fi
+  done &lt; &lt;(mpc playlist -f '%file%' | shuf)
+</code></pre>
 </div>
 </div>
 </div>
@@ -141,7 +137,7 @@ Chome on android doesn&rsquo;t have a umatrix option. This sucks, because the UX
 <h2 id="h-6398d541-3e48-4846-807b-077455426531">Audiobooks<a href="#h-6398d541-3e48-4846-807b-077455426531">#</a></h2>
 <div class="outline-text-2" id="text-h-6398d541-3e48-4846-807b-077455426531">
 <p>
-Somewhere in the past few year or so audiobooks snuck into my life, and I&rsquo;ve found I really only listen to them on my phone. Audible is pretty convienent, but sometimes the one credit a month doesn&rsquo;t meet my listening rate (I listen when cleaning the house, going for a walk, taking a piss, you know how it is). It turns out that many of the audiobooks I&rsquo;ve listened to are available on youtube (and thus, a youtube-dl call away). And so, <a href="https://play.google.com/store/apps/details?id=mdmt.sabp.free&amp;hl=en_US">Simple Audiobook Player</a> entered my life &#x2013; it has the ability to play local files but with audiobook niceties (like saving your spot, and adjusting the playback speed).
+Somewhere in the past few year or so audiobooks snuck into my life, and I&rsquo;ve found I really only listen to them on my phone. Audible is pretty convienent, but sometimes the one credit a month doesn&rsquo;t meet my listening rate (I listen when cleaning the house, going for a walk, taking a piss, you know how it is). It turns out that many of the audiobooks I&rsquo;ve listened to are available on youtube (and thus, a youtube-dl call away). And so, <a href="https://play.google.com/store/apps/details?id=mdmt.sabp.free&amp;hl=en_US">Simple Audiobook Player</a> entered my life &ndash; it has the ability to play local files but with audiobook niceties (like saving your spot, and adjusting the playback speed).
 </p>
 </div>
 </div>
@@ -164,7 +160,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="org7518046">
+<figure id="org06d934b">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -174,11 +170,12 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="org984adcc">
+<figure id="org4231591">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='reverse-ssh-tunnels.html'>newer: reverse ssh tunnels</a> 
@@ -187,7 +184,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
          <a href='xeros-irc-ref.html'>older: xero's irc ref</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </div>
 </div>
 </main>

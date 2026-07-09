@@ -11,22 +11,20 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-<meta property="og:title" content="adhoc executable patching on nixos">
+<meta property="og:title" content="adhoc executable patching on nixos - notes">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/1ad198ed6e1e7560decc47e73bed37827c96054165788ca30367fdf658a367b3.png">
 <meta property="og:url" content="https://notes.neeasade.net/adhoc-executable-patching-on-nix">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
-<style> body {background: url("./assets/posts/ca_dump3/1ad198ed6e1e7560decc47e73bed37827c96054165788ca30367fdf658a367b3.png") repeat;} </style>
-<style> body {background-size: auto 374px !important; } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=ad765b26ae8d125d48aa674ded941209'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=2ca97ca19bc03ef9dd1d6b45d109ec3a'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=5146fda5bafcad0a7993df2ca8e83f58'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=8a5f03ccb8518742a3fbcaf3ee736dce'>
 </head>
 <body>
 <main id="content" class="content">
@@ -42,25 +40,23 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
     adhoc executable patching on nixos
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
     </svg>
 </h1>
-<div class="org-center">
-<p>
 
-</p>
-</div>
+<div class="meta-container">
 <span class=pubinfo>
     Published 2020-03-14,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-03-14-adhoc-executable-patching-on-nix.org">2021-01-03</a>
 </span>
-<div class="posttags"> <a href='./tag-nix.html'>#nix</a> </div>
+<span class="posttags"> <a href='./tag-nixos.html'>#nixos</a><a href='./tag-nix.html'>#nix</a> </span>
+</div>
 </header>
 <hr>
 <p>
@@ -72,19 +68,19 @@ Create a <code>shell.nix</code> file that looks like:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #0065c8;">let</span>
-  <span style="color: #c6007f;">pkgs</span> = <span style="color: #0065c8;">import</span> <span style="color: #444748;">&lt;nixpkgs&gt;</span> {};
-<span style="color: #0065c8;">in</span> pkgs.mkShell {
-  <span style="color: #c6007f;">nativeBuildInputs</span> =
-    (<span style="color: #0065c8;">with</span> pkgs; [
+<pre class="src src-nix"><code>let
+  pkgs = import &lt;nixpkgs&gt; {};
+in pkgs.mkShell {
+  nativeBuildInputs =
+    (with pkgs; [
       gcc
 
-      <span style="color: #6a6d6e;"># example libraries you might want:</span>
+      # example libraries you might want:
       zlib
       SDL2
     ]);
 }
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -92,9 +88,9 @@ Launch the nix-shell, patch the linker so you can call the executable and see wh
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">; nix-shell shell.nix
-; patchelf --set-interpreter <span style="color: #007c00;">"$(</span><span style="color: #c6007f;">cat $NIX_CC/nix-support/dynamic-linker</span><span style="color: #007c00;">)"</span> /path/to/executable
-</pre>
+<pre class="src src-sh"><code>; nix-shell shell.nix
+; patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" /path/to/executable
+</code></pre>
 </div>
 
 <p>
@@ -102,9 +98,9 @@ Strategies to find out what you might need:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">; ldd /path/to/executable
+<pre class="src src-sh"><code>; ldd /path/to/executable
 ; strace /path/to/executable
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -112,11 +108,11 @@ Update the <code>shell.nix</code> file with the dependencies/linked libraries yo
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">; nix-shell ./shell.nix
-; <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself</span>
-; <span style="color: #c6007f;">new_rpath</span>=$(<span style="color: #c6007f;">echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n'</span>)
-; patchelf --set-rpath <span style="color: #007c00;">"$new_rpath"</span> /path/to/executable
-</pre>
+<pre class="src src-sh"><code>; nix-shell ./shell.nix
+; # you may want to peek at new_rpath here or mangle NIX_LDFLAGS yourself
+; new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')
+; patchelf --set-rpath "$new_rpath" /path/to/executable
+</code></pre>
 </div>
 
 <p>
@@ -130,42 +126,42 @@ That&rsquo;s all well and good for <i>right now</i>, but what if we lose the nix
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><span style="color: #c6007f;">babashka</span> = stdenv.mkDerivation <span style="color: #0065c8;">rec</span> {
-    <span style="color: #c6007f;">name</span> = <span style="color: #007c00;">"babashka"</span>;
-    <span style="color: #6a6d6e;"># this is the way to coerce a string into a path</span>
-    <span style="color: #6a6d6e;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";</span>
+<pre class="src src-nix"><code>babashka = stdenv.mkDerivation rec {
+    name = "babashka";
+    # this is the way to coerce a string into a path
+    # src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/bb";
 
-    <span style="color: #6a6d6e;"># showing a few different ways:</span>
-    <span style="color: #6a6d6e;"># src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";</span>
-    <span style="color: #c6007f;">src</span> = (fetchurl {
-        <span style="color: #c6007f;">url</span> = <span style="color: #007c00;">"https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip"</span>;
-        <span style="color: #c6007f;">sha256</span> = <span style="color: #007c00;">"0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq"</span>;
+    # showing a few different ways:
+    # src = /. + "/home/neeasade/temps/2020-04-20_07:21:05/babashka-0.0.88-linux-amd64.zip";
+    src = (fetchurl {
+        url = "https://github.com/borkdude/babashka/releases/download/v0.1.3/babashka-0.1.3-linux-amd64.zip";
+        sha256 = "0nldq063a1sfk0qnkd37dpw8jq43p4divn4j4qiif6dy1qz9xdcq";
     });
 
-    <span style="color: #c6007f;">unpackPhase</span> = <span style="color: #007c00;">"unzip $src"</span>;
-    <span style="color: #6a6d6e;"># if src is a path to the executable:</span>
-    <span style="color: #6a6d6e;"># unpackPhase = "cp $src bb";</span>
+    unpackPhase = "unzip $src";
+    # if src is a path to the executable:
+    # unpackPhase = "cp $src bb";
 
-    <span style="color: #6a6d6e;"># note: the chmod is only needed when using direct path to local executable</span>
-    <span style="color: #c6007f;">patchPhase</span> = <span style="color: #007c00;">''</span>
-<span style="color: #007c00;">        chmod u+w ./bb</span>
-<span style="color: #007c00;">        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb</span>
-<span style="color: #007c00;">        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')</span>
-<span style="color: #007c00;">        patchelf --set-rpath "$new_rpath" ./bb</span>
-<span style="color: #007c00;">    ''</span>;
+    # note: the chmod is only needed when using direct path to local executable
+    patchPhase = ''
+        chmod u+w ./bb
+        patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" ./bb
+        new_rpath=$(echo "$NIX_LDFLAGS" | tr ' ' $'\n' | grep "^-L" | sed -E 's/^-L/:/' | tr -d $'\n')
+        patchelf --set-rpath "$new_rpath" ./bb
+    '';
 
-    <span style="color: #c6007f;">dontBuild</span> = <span style="color: #0065c8;">true</span>;
+    dontBuild = true;
 
-    <span style="color: #c6007f;">installPhase</span> = <span style="color: #007c00;">''</span>
-<span style="color: #007c00;">        mkdir -p $out/bin</span>
-<span style="color: #007c00;">        cp bb $out/bin</span>
-<span style="color: #007c00;">    ''</span>;
+    installPhase = ''
+        mkdir -p $out/bin
+        cp bb $out/bin
+    '';
 
-    <span style="color: #c6007f;">nativeBuildInputs</span> = (<span style="color: #0065c8;">with</span> pkgs; [
+    nativeBuildInputs = (with pkgs; [
         gcc-unwrapped.lib zlib unzip
     ]);
 };
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -173,17 +169,18 @@ And bam! now we can integrate our sins into our package definitions.
 </p>
 
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-08-07&gt;</span></span> There is also the very cool looking <a href="https://github.com/svanderburg/nix-patchtools">autopatchelf</a>, which appears to try and do our first attempt automatically.
+<span class="timestamp-wrapper"><time class="timestamp" datetime="2020-08-07">[2020-08-07]</time></span> There is also the very cool looking <a href="https://github.com/svanderburg/nix-patchtools">autopatchelf</a>, which appears to try and do our first attempt automatically.
 </p>
 
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-11-25&gt;</span></span> Another solution has come up: <a href="https://fzakaria.com/2020/11/17/on-demand-linked-libraries-for-nix.html">on demand linked libraries for nix</a>
+<span class="timestamp-wrapper"><time class="timestamp" datetime="2020-11-25">[2020-11-25]</time></span> Another solution has come up: <a href="https://fzakaria.com/2020/11/17/on-demand-linked-libraries-for-nix.html">on demand linked libraries for nix</a>
 </p>
 
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2021-01-01&gt;</span></span> This popped up on my feed today and is also a cool solution to this problem: <a href="https://github.com/Lassulus/nix-autobahn">nix-autobahn</a>
+<span class="timestamp-wrapper"><time class="timestamp" datetime="2021-01-01">[2021-01-01]</time></span> This popped up on my feed today and is also a cool solution to this problem: <a href="https://github.com/Lassulus/nix-autobahn">nix-autobahn</a>
 </p>
 
+<hr>
 <footer>
     <div style="float: left">
          <a href='xeros-irc-ref.html'>newer: xero's irc ref</a> 
@@ -192,7 +189,7 @@ And bam! now we can integrate our sins into our package definitions.
          <a href='rice-links.html'>older: rice links</a> 
     </div>
 </footer>
-<hr>
+<div class=flair> </div>
 </main>
 </body>
 </html>
