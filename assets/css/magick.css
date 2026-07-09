@@ -84,12 +84,12 @@ main {
     position: relative; /* 3 */
 }
 
-@media (max-width: 600px) {
-    article,
-    main {
-        padding: 0 0.2rem; /* 2 */
-    }
-}
+/* @media (max-width: 600px) { */
+/*     article, */
+/*     main { */
+/*         padding: 0 0.2rem; /\* 2 *\/ */
+/*     } */
+/* } */
 
 /* ========================================================================================================================= */
 /*  Structure & Layout ===================================================================================================== */
@@ -100,7 +100,7 @@ header,
 section,
 footer {
     margin: 0rem;
-    padding: 0.7rem;
+    /* padding: 0.7rem; */
 }
 
 /* On mobile devices, a smaller margin looks more fitting due to the smaller view. */
@@ -123,7 +123,7 @@ footer>*:last-child {
 /* Add large margins to the header to visually separate it from the main content. */
 header {
     /* margin-top: 12rem; */
-    /* margin-bottom: 8rem; */
+    margin-bottom: 1rem;
 }
 
 /* On mobile devices, reduce the margin around the header to save space. */
@@ -140,7 +140,7 @@ header {
 */
 footer {
     text-align: center; /* 1 */
-    margin-top: 5rem; /* 2 */
+    /* margin-top: 5rem; /\* 2 *\/ */
 }
 
 /* ========================================================================================================================= */
@@ -211,17 +211,18 @@ h3 {
 /* h4 headings 0are the same size as h3 headings, but italic and without the decorative element. */
 h4 {
     /* todo: should figure out h4 differentiator */
+    /* <2026-07-09 Thu 06:04> to future me: italic is just fine, in practice you don't hit h4 often */
     font-style: italic;
     font-size: 2.025rem;
 }
 
 /* A uniquely styled h1 for the header */
 header h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: var(--fg);
     text-align: center;
     /* padding: 4rem 0 1.2rem 0; */
-    padding: 4rem 0 0rem 0;
+    padding: 3rem 0 0rem 0;
     /* margin-bottom: 1rem; */
 }
 
@@ -647,10 +648,10 @@ pre.src {
 /* Set a custom monospace font */
 code {
     border-radius: var(--radius);
-    font-family: "Courier Prime", monospace;
+    font-family: "Go Mono", "Courier Prime", monospace; /* 3 */
     font-size: 1.6rem;
     background: var(--background_subtle);
-    border: 1px solid var(--background_weak); /* 4 */
+    border: 0px solid var(--background_weak); /* 4 */
 }
  
 /*
