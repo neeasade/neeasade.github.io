@@ -132,7 +132,11 @@ h1 + div.org-center > p {
 /* h3:before {content: "⮱ ";} */
 /* h4:before {content: "○ ";} */
 
-h3:before {content: "⮱ ";}
+h3:before {
+    content: "⮱ ";
+    font-family: 'Noto Char';
+}
+
 /* h4:before {content: "//";} */
 
 h2:hover > a[href^='#'],
