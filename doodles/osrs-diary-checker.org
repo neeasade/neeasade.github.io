@@ -1,0 +1,33 @@
+#+title: osrs diary checker
+#+title_extra: you're gonna be here awhile
+#+hidden: t
+#+pubdate: <2026-03-29>
+
+#+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.js" type="application/javascript"></script>
+#+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
+#+html_head: <script crossorigin src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+#+html_head: <script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+#+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.reagent.js" type="application/javascript"></script>
+
+# #+html_head: <script src="./assets/cljs/bundle.js" type="application/javascript"></script>
+# #+html_head: <script src="https://cdn.jsdelivr.net/npm/scittle@0.7.23/dist/scittle.cljs-ajax.js" type="application/javascript"></script>
+
+#+html_head: <script src="./assets/cljs/osrs-diary-data.cljc" type="application/x-scittle"></script>
+#+html_head: <script src="./assets/cljs/util.cljs" type="application/x-scittle"></script>
+#+html_head: <script src="./assets/cljs/osrs-diary-checker.cljs" type="application/x-scittle"></script>
+
+osrs = [[https://oldschool.runescape.com/][old school runescape]]. Requires installation of the [[https://oldschool.runescape.wiki/w/RuneScape:WikiSync][WikiSync]] plugin.
+
+The progress sections are clickable!
+
+The information here comes from the [[https://oldschool.runescape.wiki/w/Achievement_Diary#List_of_diaries][osrs wiki]] and is licensed under the [[https://creativecommons.org/licenses/by-nc-sa/3.0/][Creative Commons BY-NC-SA 3.0]] license.
+
+#+BEGIN_EXPORT html
+<style>
+.progress-bar { display: flex; height: 20px; }
+.progress-segment { position: relative; }
+.task-item { border-bottom: 1px solid #333; padding: 8px 0; }
+</style>
+
+<div id="app"></div>
+#+END_EXPORT
