@@ -1,4 +1,4 @@
-#+title: {{{blog-title}}}
+#+title: bubble
 #+title_extra: {{{index-navbar(Bubble)}}}
 
 #+begin_export html
