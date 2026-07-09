@@ -1,6 +1,6 @@
 #+title: I'm using wayland because of windows
 #+title_extra:
-#+pubdate: <2026-07-06>
+#+pubdate: <2026-07-09>
 #+filetags:
 #+rss_title:
 
@@ -19,4 +19,4 @@ so! I started using a terminal from windows (alacritty), with ~emacs -nw~. I sta
 
 You see, osc52 is a way to read and write the clipboard with a terminal escape code. When should one read the system clipboard? I'm doing so on frame focus. And it turns out that sxhkd causes the current X window to lose focus when a bound keybinding is hit. But now focus and clipboard sync are timed, so my yank gets overridden when window switching! nooooooooooooooooooooooooooooo
 
-That's okay I've been curious about [[https://github.com/niri-wm/niri][niri]] for awhile anyway. It seems hitting bound keys there doesn't snag focus (I suppose compositor has more control than in X-lang), so I've been testing the waters there for a few months now. Foot is very comfy over there, and has a sane osc52 limit (gigabytes), and I've been enjoying terminal font options for smooshing go mono into a narrower size.
+That's okay I've been curious about [[https://github.com/niri-wm/niri][niri]] for awhile anyway. It seems hitting bound keys there doesn't snag focus (I suppose compositor has more control than in X-land), so I've been testing the waters there for a few months now. Foot is very comfy over there, and has a sane osc52 limit (gigabytes), and I've been enjoying terminal font options for smooshing go mono into a narrower size.
