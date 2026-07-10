@@ -1,24 +1,32 @@
 #+title: tag links
 #+title_extra: {{{index-navbar(Tags)}}}
 
+
+Links to tag pages
+
 #+begin_export html
 <style>
 #content {
     text-align: center;
 }
-a {
+main > a {
     margin: 5px 3px 0px 0px;
     display: inline-block;
+    background: none !important;
 }
 </style>
 #+end_export
 
-Links to tag pages
+#+begin_src elisp :results html :exports results
 
-#+BEGIN_SRC elisp :results raw :exports results
 (->> (ns/blog-get-tags)
-     (--sort (> (cdr it) (cdr other)))
+     (-shuffle)
+     ;; (--sort (> (cdr it) (cdr other)))
      (-map (-lambda ((tag . count))
-               (format "[[./tag-%s.org][%s (%s)]]" tag tag count)))
+               ;; (format "[[./tag-%s.org][%s (%s)]]" tag tag count)
+               (format "<a href='./tag-%s.html' style='font-size: %srem'>%s</a>" tag (* 1.2 (+ 1 (log count))) tag)
+             ))
      (s-join "\n"))
+
 #+end_src
+
