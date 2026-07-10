@@ -339,23 +339,24 @@ dt { font-weight: bold; }
 
 
 .flair {
-    /* height: 11rem; width: 7rem; */
+    /* height: 5rem; width: 50%; */
     width: 7rem; height: 11rem;
-    border-width: 3px;
+    /* border-width: 10px; */
     margin: auto;
     /* margin-top: em; */
-    border-radius: 50%;
+    /* border-radius: 30%; */
 
     background-image: url("../img/backgrounds/leaves.jpg");
+    /* background-image: url("../img/backgrounds/pattern_125.gif"); */
     /* background-color: var(--background_plus); */
     /* border-color: var(--alt) var(--primary) var(--alt) var(--assumed) ; */
     /* border-color: var(--assumed); */
     /* border-style: ridge double ridge double ; */
     /* border-style:ridge double double ridge ; */
-    border-style: double;
+    /* border-style: double; */
     /* border-style:double ridge ridge double ; */
     /* border-color: var(--assumed) var(--alt) var(--primary) var(--string); */
     /* top right bottom left */
-    border-color: var(--primary) var(--alt) var(--assumed) var(--strings);
+    /* border-color: var(--primary) var(--alt) var(--assumed) var(--strings); */
     /* border-color: var(--alt) var(--strings) var(--assumed) var(--primary); */
 }
