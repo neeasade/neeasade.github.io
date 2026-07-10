@@ -12,23 +12,17 @@
 Are you doing what you want to be doing right now?
 
 #+BEGIN_SRC elisp :results raw :exports results
-(defun ns/blog-404-char (_)
-  (llet [chars
-	 "🜀🜁🜂🜃🜄🜅🜆🜇🜈🜉🜊🜋🜌🜍🜎🜏🜐🜑🜒🜓🜔🜕🜖🜗🜘🜙🜚🜛🜜🜝🜞🜟🜠🜡🜢🜣🜤🜥🜦🜧🜨🜩🜪🜫🜬🜭🜮🜯🜰🜱🜲🜳🜴🜵🜶🜷🜸🜹🜺🜻🜼🜽🜾🜿🝀🝁🝂🝃🝄🝅🝆🝇🝈🝉🝊🝋🝌🝍🝎🝏🝐🝑🝒🝓🝔🝕🝖🝗🝘🝙🝚🝛🝜🝝🝞🝟🝠🝡🝢🝣🝤🝥🝦🝧🝨🝩🝪🝫🝬🝭🝮🝯🝰🝱🝲🝳"
-	 from (random (length chars))]
-	(substring chars from (1+ from))))
 
-(llet [char "."
-	    l 40]
+(setq ns/alchemical "🜀🜁🜂🜃🜄🜅🜆🜇🜈🜉🜊🜋🜌🜍🜎🜏🜐🜑🜒🜓🜔🜕🜖🜗🜘🜙🜚🜛🜜🜝🜞🜟🜠🜡🜢🜣🜤🜥🜦🜧🜨🜩🜪🜫🜬🜭🜮🜯🜰🜱🜲🜳🜴🜵🜶🜷🜸🜹🜺🜻🜼🜽🜾🜿🝀🝁🝂🝃🝄🝅🝆🝇🝈🝉🝊🝋🝌🝍🝎🝏🝐🝑🝒🝓🝔🝕🝖🝗🝘🝙🝚🝛🝜🝝🝞🝟🝠🝡🝢🝣🝤🝥🝦🝧🝨🝩🝪🝫🝬🝭🝮🝯🝰🝱🝲🝳")
+
+(llet [l 40]
       (s-join "\n"
 	      (--map
 	       (apply 'ns/str
-		      (-map 'ns/blog-404-char (range it))
-		      ;; (-repeat (1+ it) char)
-		      )
-	       (-concat
-		(range l)
-		(range l -1 -1)))))
+		      (-map (lambda (_)
+			      (ns/random-list (seq-map 'char-to-string ns/alchemical)))
+			    (range (1+ it))))
+	       (-concat (range l) (range l -1 -1)))))
 #+end_SRC
 
 #+END_CENTER
