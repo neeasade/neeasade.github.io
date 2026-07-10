@@ -340,8 +340,8 @@ dt { font-weight: bold; }
 
 .flair {
     /* height: 11rem; width: 7rem; */
-    height: 7rem; width: 11rem;
-    border-width: 1px;
+    width: 7rem; height: 11rem;
+    border-width: 3px;
     margin: auto;
     /* margin-top: em; */
     border-radius: 50%;
