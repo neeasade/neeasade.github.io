@@ -1,26 +1,278 @@
-#+title: Now
+#+title: life rn
 
 This is a [[https://sive.rs/nowff][now page]].
 
-# collapsible heading?
-#+INFOJS_OPT: view:overview toc:nil
+#+begin_export html
+<style>
+h3 {
+    text-align: center;
+}
+</style>
+#+end_export
 
-# put all past in foldstart/foldend?
+<2026-07-20 Mon 05:14>
 
-** July 2026
+- *love*: preparing for our wedding ceremony in October!
+- *work*: accidentally working an embedded cpp job in an ag field
+- *fit*: deficit and trying not to lose all muscle
+- *play*: runescape. so much runescape
+- *emacs*: switched to tui after many years of gui. driven by windows (ew)
+- *money*: conquering debt. on track to be free by 2027, which I'm anticipating will be a very good year.
 
-Start a now page. I've not done so thus far because "now" seems out of date right away, but when checking up on [[https://www.evalapply.org/][a peer]] I realized I can simply date the entries, and it is nice.
+Inspired to start this page after checking on [[https://evalapply.org][a peer]].
 
-- love: preparing for our wedding ceremony in October!
-- work: accidentally working an embedded cpp job in an ag field
-- fit: deficit and trying not to lose all muscle
-- play: runescape. so much runescape
-- emacs: switched to tui after many years of gui. driven by windows (ew)
-- money: conquering debt. on track to be free by 2027, which I'm anticipating will be a very good year.
 
-{{foldstart(ᴛʜᴇ ᴘᴀꜱᴛ)}}}
 
-** Pre-2026
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#+begin_export html
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+#+end_export
+
+{{{foldstart(ᴛʜᴇ ᴘᴀꜱᴛ)}}}
+
+#+begin_export html
+<h3> Pre-2026 </h3>
+#+end_export
 
 12 years in 21 sentences:
 
@@ -33,4 +285,4 @@ Start a now page. I've not done so thus far because "now" seems out of date righ
 - 2024: Unemployment. Naively optimistic.
 - 2025: Runescape. Optimism->Realism. Found love. Worked an outage.
 
-{{foldend}}}
+{{{foldend}}}
