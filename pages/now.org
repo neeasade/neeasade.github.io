@@ -1,0 +1,19 @@
+#+title: Now
+
+This is a [[https://sive.rs/nowff][now page]].
+
+# collapsible heading?
+#+INFOJS_OPT: view:overview toc:nil
+
+# put all past in foldstart/foldend?
+
+** July 2026
+
+Start a now page. I've not done so thus far because "now" seems out of date right away, but when checking up on [[https://www.evalapply.org/][a peer]] I realized I can simply date the entries, and it is nice.
+
+- love: Preparing for our wedding ceremony in October!
+- work: Accidentally working an embedded cpp job in an ag field
+- fit: cutting and trying not to lose all muscle
+- play: runescape. so much runescape
+- emacs: switched to tui after many years of gui. driven by windows (ew)
+- money: conquering debt. on track to be free by 2027, which I'm anticipating will be a very good year.
