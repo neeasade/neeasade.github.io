@@ -27,8 +27,8 @@ Start a now page. I've not done so thus far because "now" seems out of date righ
 - 2023: Intense yoga interest. Completed 200-hour YTT Ashtanga.
 - 2022: Social era. Met many wonderful people.
 - 2021: Paid to clojure (the dream). Got a kobo. Broke off a long term relationship.
-- 2020: Recurse center, clojure-oriented sabbatical. Lots of walks
-- 2019: Florida. Palm trees, alcohol, contract work
+- 2020: Recurse center, clojure-oriented sabbatical. Lots of walks.
+- 2019: Florida. Palm trees, alcohol, contract work.
 - 2013-2018: College. Work. Relationships. Everything you imagine and more.
 
 {{foldend}}}
