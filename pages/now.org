@@ -11,8 +11,8 @@ This is a [[https://sive.rs/nowff][now page]].
 
 Start a now page. I've not done so thus far because "now" seems out of date right away, but when checking up on [[https://www.evalapply.org/][a peer]] I realized I can simply date the entries, and it is nice.
 
-- love: Preparing for our wedding ceremony in October!
-- work: Accidentally working an embedded cpp job in an ag field
+- love: preparing for our wedding ceremony in October!
+- work: accidentally working an embedded cpp job in an ag field
 - fit: cutting and trying not to lose all muscle
 - play: runescape. so much runescape
 - emacs: switched to tui after many years of gui. driven by windows (ew)
