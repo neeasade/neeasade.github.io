@@ -1,16 +1,16 @@
 #+title: life rn
+#+title_extra: July 2026
 
 This is a [[https://sive.rs/nowff][now page]].
 
 #+begin_export html
 <style>
-h3 {
-    text-align: center;
+details {
+  position: fixed;
+  bottom: 0;
 }
 </style>
 #+end_export
-
-<2026-07-20 Mon 05:14>
 
 - *love*: preparing for our wedding ceremony in October!
 - *work*: accidentally working an embedded cpp job in an ag field
@@ -156,117 +156,6 @@ Inspired to start this page after checking on [[https://evalapply.org][a peer]].
 
 
 
-
-#+begin_export html
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-#+end_export
 
 {{{foldstart(ᴛʜᴇ ᴘᴀꜱᴛ)}}}
 
