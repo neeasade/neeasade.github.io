@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     My Mobile Setup
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -83,7 +83,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="org5d4bdec">
+<figure id="org65c46e0">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -95,7 +95,7 @@ turns into:
 </div>
 
 
-<figure id="orgc9fc887">
+<figure id="org7f8a8fb">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
@@ -109,19 +109,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>  # 200mb
-  size_limit=200000
-  sync_music_dir="$HOME/sync/orgzly/music"
-  music_dir="$HOME/Music"
+<pre class="src src-sh"><code>  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">200mb
+</span>  <span style="color: #c6007f;">size_limit</span>=200000
+  <span style="color: #c6007f;">sync_music_dir</span>=<span style="color: #007c00;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #c6007f;">music_dir</span>=<span style="color: #007c00;">"$HOME/Music"</span>
 
-  IFS=$'\n'
-  while read -r f; do
-      collection_size=$(du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//')
-      if [ $collection_size -lt $size_limit ]; then
-	  echo cp "${music_dir}/$f" "$sync_music_dir"
-	  cp "${music_dir}/$f" "$sync_music_dir"
-      fi
-  done &lt; &lt;(mpc playlist -f '%file%' | shuf)
+  <span style="color: #c6007f;">IFS</span>=$<span style="color: #007c00;">'\n'</span>
+  <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r f; <span style="color: #0065c8;">do</span>
+      <span style="color: #c6007f;">collection_size</span>=$(<span style="color: #c6007f;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
+      <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">collection_size</span> -lt $<span style="color: #c6007f;">size_limit</span> ]; <span style="color: #0065c8;">then</span>
+          <span style="color: #0065c8;">echo</span> cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+          cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
+      <span style="color: #0065c8;">fi</span>
+  <span style="color: #0065c8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007c00;">'%file%'</span> | shuf)
 </code></pre>
 </div>
 </div>
@@ -161,7 +161,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="org163ff79">
+<figure id="org10f7ccc">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -171,7 +171,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="org0aaa637">
+<figure id="orgea93c5b">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>

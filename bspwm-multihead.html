@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     i3-like multihead in bspwm
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -125,7 +125,7 @@ is empty:
 </p>
 
 
-<figure id="org46a932d">
+<figure id="org2c6b722">
 <img src="http://i.imgur.com/5VBlIjn.png" alt="5VBlIjn.png">
 
 </figure>
@@ -145,13 +145,13 @@ middle of the right monitor as well as focus on that monitor.
 
 <div class="org-src-container">
 <pre class="src src-bash"><code>super + {h,j,k,l}
-    dir={west,south,north,east}; \
-    bspc config pointer_follows_monitor true; \
-    bspc config pointer_follows_focus true; \
-    if ! bspc node -f $dir; then \
-        bspc monitor -f $dir; \
-    fi; \
-    bspc config pointer_follows_monitor false; \
+    <span style="color: #c6007f;">dir</span>={west,south,north,east}; <span style="color: #007c00;">\</span>
+    bspc config pointer_follows_monitor true; <span style="color: #007c00;">\</span>
+    bspc config pointer_follows_focus true; <span style="color: #007c00;">\</span>
+    <span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> bspc node -f $<span style="color: #c6007f;">dir</span>; <span style="color: #0065c8;">then</span> <span style="color: #007c00;">\</span>
+        bspc monitor -f $<span style="color: #c6007f;">dir</span>; <span style="color: #007c00;">\</span>
+    <span style="color: #0065c8;">fi</span>; <span style="color: #007c00;">\</span>
+    bspc config pointer_follows_monitor false; <span style="color: #007c00;">\</span>
     bspc config pointer_follows_focus false
 </code></pre>
 </div>
@@ -222,22 +222,22 @@ Here is an implementation:
 
 <div class="org-src-container">
 <pre class="src src-bash"><code>super + shift + {h,j,k,l}
-    dir={west,south,north,east}; \
-    wid=$(bspc query -N -n); \
-    mon=$(bspc query -M -m); \
-    bspc config pointer_follows_focus true; \
-    if ! bspc node -f $dir; then \
-        bspc node -m $dir; \
-        bspc monitor -f $dir; \
-    else \
-        new_mon=$(bspc query -M -m); \
-        if [ $new_mon -eq $mon ]; then \
-            bspc node -s $wid; \
-        else \
-            bspc node $wid -m $new_mon; \
-        fi; \
-        bspc node -f $wid; \
-    fi; \
+    <span style="color: #c6007f;">dir</span>={west,south,north,east}; <span style="color: #007c00;">\</span>
+    <span style="color: #c6007f;">wid</span>=$(<span style="color: #c6007f;">bspc query -N -n</span>); <span style="color: #007c00;">\</span>
+    <span style="color: #c6007f;">mon</span>=$(<span style="color: #c6007f;">bspc query -M -m</span>); <span style="color: #007c00;">\</span>
+    bspc config pointer_follows_focus true; <span style="color: #007c00;">\</span>
+    <span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> bspc node -f $<span style="color: #c6007f;">dir</span>; <span style="color: #0065c8;">then</span> <span style="color: #007c00;">\</span>
+        bspc node -m $<span style="color: #c6007f;">dir</span>; <span style="color: #007c00;">\</span>
+        bspc monitor -f $<span style="color: #c6007f;">dir</span>; <span style="color: #007c00;">\</span>
+    <span style="color: #0065c8;">else</span> <span style="color: #007c00;">\</span>
+        <span style="color: #c6007f;">new_mon</span>=$(<span style="color: #c6007f;">bspc query -M -m</span>); <span style="color: #007c00;">\</span>
+        <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">new_mon</span> -eq $<span style="color: #c6007f;">mon</span> ]; <span style="color: #0065c8;">then</span> <span style="color: #007c00;">\</span>
+            bspc node -s $<span style="color: #c6007f;">wid</span>; <span style="color: #007c00;">\</span>
+        <span style="color: #0065c8;">else</span> <span style="color: #007c00;">\</span>
+            bspc node $<span style="color: #c6007f;">wid</span> -m $<span style="color: #c6007f;">new_mon</span>; <span style="color: #007c00;">\</span>
+        <span style="color: #0065c8;">fi</span>; <span style="color: #007c00;">\</span>
+        bspc node -f $<span style="color: #c6007f;">wid</span>; <span style="color: #007c00;">\</span>
+    <span style="color: #0065c8;">fi</span>; <span style="color: #007c00;">\</span>
     bspc config pointer_follows_focus false
 </code></pre>
 </div>

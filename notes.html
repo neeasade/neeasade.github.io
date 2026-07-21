@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="(untitled) - 🜁↝🜃 ">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/ca8e4629e309e031e8784ccfbd00a144a30e0119ce71f03bcd564aa423fc7d0b.png">
+<meta property="og:url" content="https://notes.neeasade.net/notes">
+<meta property="description" content="">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+</head>
+<body>
+<main id="content" class="content">
+<header>
+<div style="float: left">
+    <a href='./index.html'>../🜁↝🜃 </a>
+</div>
+
+<div style="float: right">
+    
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/css/notes.css">source</a>
+</div>
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+    </svg>
+    (untitled)
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+    </svg>
+</h1>
+
+</header>
+<hr>
+
+<p>
+@font-face {
+    font-family: &rsquo;Go Mono&rsquo;;
+    src: url(&rsquo;/assets/fonts/GoMonoRegular.ttf&rsquo;) format(&rsquo;truetype&rsquo;);
+    font-weight: normal;
+    font-style: normal;
+}
+</p>
+
+<p>
+@font-face {
+    font-family: &rsquo;Noto Char&rsquo;;
+    src: url(&rsquo;/assets/fonts/NotoChar.woff2&rsquo;) format(&rsquo;woff2&rsquo;);
+    font-weight: normal;
+    font-style: normal;
+}
+</p>
+
+<p>
+body {
+    background-attachment: fixed !important ;
+    background-repeat: repeat; <i>* makes the image tile *</i>
+    background-position: absolute; <i>* centers the background *</i>
+    image-rendering: pixelated;
+    <i>* height: 100%; *</i>
+</p>
+
+<p>
+<i>* background: var(&ndash;background); *</i>
+</p>
+
+<p>
+<i>* background: var(&ndash;background_plus); *</i>
+</p>
+
+<p>
+    <i>* keep bg size in sync for pixel perf rendering *</i>
+    <i>* background: url(&ldquo;../img/backgrounds/room.png&rdquo;) repeat; *</i>
+    <i>* background-size: auto 195px !important; *</i>
+}
+</p>
+
+<p>
+details {
+  background-color: var(&ndash;background_subtle);
+}
+</p>
+
+<p>
+summary {
+  background-color: var(&ndash;background);
+}
+</p>
+
+<p>
+tr:nth-child(even) {
+  <i>* background-color: var(&ndash;background_subtle); *</i>
+  background-color: var(&ndash;background_weak);
+  color: var(&ndash;foreground_weak);
+}
+</p>
+
+<p>
+img {
+    max-height: 30rem;
+}
+</p>
+
+
+<p>
+p:empty {
+    display: none;
+}
+</p>
+
+<p>
+.detail::before {
+    content: &ldquo;↑&rdquo;;
+}
+</p>
+
+<p>
+.detail {
+    text-align: center;
+    padding-top: -10px;
+    <i>* font-size: 0.9rem; *</i>
+    display: block;
+}
+</p>
+
+<p>
+a:has(img) {
+    border: none !important;
+    background: none !important;
+}
+</p>
+
+<p>
+.meta-container {
+    display: flex;
+    justify-content: space-between; <i>* Pushes pubinfo to left, posttags to right *</i>
+    flex-wrap: wrap;               <i>* Forces wrapping on small screens instead of breaking layout *</i>
+    gap: 1rem;                     <i>* Keeps them from smacking into each other if they meet *</i>
+    width: 100%;
+}
+</p>
+
+<p>
+.posttags {
+    float: right;
+}
+</p>
+
+<p>
+.posttags a {
+    background: none !important;
+    color: var(&ndash;faded) !important;
+    padding-right: .5rem;
+    border: none !important;
+}
+</p>
+
+<p>
+main {
+    <i>* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40); *</i>
+    <i>* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.60); *</i>
+    background: var(&ndash;bg);
+    image-rendering: auto;
+</p>
+
+<p>
+    min-height: 100vh;
+    <i>* transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1); *</i>
+}
+</p>
+
+<p>
+.separator {
+    text-align: center;
+    vertical-align: center;
+    line-height: 1.0;
+    margin: 0;
+    font-size: 3rem;
+}
+</p>
+
+<p>
+table {
+    margin-left: 1rem;
+}
+</p>
+
+<p>
+h1 {
+    margin-top: 0px;
+    <i>* margin-bottom: 0.5rem; *</i>
+}
+</p>
+
+<p>
+h1 + div.org-center &gt; p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1.5rem !important;
+    margin-bottom: 2.0rem !important;
+    text-align: center;
+}
+</p>
+
+<p>
+<i>* &rsquo;(;; Original ones nicked from org-bullets *</i>
+<i>*   ? *</i>
+<i>*   ?○ *</i>
+<i>*   ?✸ *</i>
+<i>*   ?✿) ;; My default: ?◉ ?🞛 ?○ ?▷ *</i>
+</p>
+
+
+<p>
+<i>* h2:before {content: &ldquo;🞛 &rdquo;;} *</i>
+<i>* h3:before {content: &ldquo;⮱ &rdquo;;} *</i>
+<i>* h4:before {content: &ldquo;○ &rdquo;;} *</i>
+</p>
+
+<p>
+h3:before {
+    content: &ldquo;⮱ &rdquo;;
+    font-family: &rsquo;Noto Char&rsquo;;
+}
+</p>
+
+<p>
+<i>* h4:before {content: "/</i>";} */
+</p>
+
+<p>
+h2:hover &gt; a[href^=&rsquo;#&rsquo;],
+h3:hover &gt; a[href^=&rsquo;#&rsquo;],
+h4:hover &gt; a[href^=&rsquo;#&rsquo;]
+{
+    opacity: 1;
+}
+</p>
+
+<p>
+h2 &gt; a[href^=&rsquo;#&rsquo;],
+h3 &gt; a[href^=&rsquo;#&rsquo;],
+h4 &gt; a[href^=&rsquo;#&rsquo;]
+{
+    opacity: 0;
+    font-size: 1.5rem;
+    color: var(&ndash;faded);
+    background: none !important;
+    vertical-align: bottom;
+    margin-left: .2rem;
+}
+</p>
+
+<p>
+footer {
+    padding-top: 1rem;
+}
+</p>
+
+<p>
+h2,
+h3 {
+	<i>* border-bottom: 1px solid var(&ndash;background__); *</i>
+}
+</p>
+
+
+<p>
+blockquote {
+	color: var(&ndash;foreground);
+	<i>* background: var(&ndash;background_weak); *</i>
+	background: var(&ndash;background_subtle);
+	border-left: 4px solid var(&ndash;background_weak);
+}
+</p>
+
+<p>
+cite {
+    margin-top: 1rem;
+    display: block;
+    float: right;
+}
+</p>
+
+<p>
+cite:before {
+    content: &ldquo;—&rdquo;;
+}
+</p>
+
+<p>
+a {
+	padding: 0px 2px;
+</p>
+
+<p>
+min-width: fit-content;
+text-decoration: none;
+</p>
+
+<p>
+background: var(&ndash;background_weak);
+<i>* color: var(&ndash;foreground_weak); *</i>
+color: var(&ndash;alt);
+</p>
+
+<p>
+	border-style: solid;
+	border-color: #a0a3a4;
+	border-width: 0px;
+	margin: -1px;
+}
+</p>
+
+<p>
+a:visited {
+	border-color: #a0a3a4;
+	text-decoration: none;
+	color: var(&ndash;faded);
+}
+</p>
+
+<p>
+a:hover,
+.button:focus,
+button:enabled:hover
+{
+	color: var(&ndash;foreground_plus);
+	background: var(&ndash;background_plus);
+	border-color: var(&ndash;foreground_plus);
+}
+</p>
+
+<p>
+a[href^=&ldquo;<a href="https://notes.neeasade.net">https://notes.neeasade.net</a>&rdquo;],
+a[href^=&ldquo;<i>&ldquo;],
+a[href^=&rdquo;.</i>&rdquo;],
+a[href^=&ldquo;#&rdquo;] {
+    background: var(&ndash;background_strong);
+    color: var(&ndash;foreground_strong);
+}
+</p>
+
+<p>
+a[href^=&ldquo;<a href="https://notes.neeasade.net">https://notes.neeasade.net</a>&rdquo;]:hover,
+a[href^=&ldquo;<i>&ldquo;]:hover,
+a[href^=&rdquo;.</i>&rdquo;]:hover,
+a[href^=&ldquo;#&rdquo;]:hover {
+    background: var(&ndash;background_plus);
+    color: var(&ndash;foreground_plus);
+}
+</p>
+
+<p>
+.section-number-1,
+.section-number-2,
+.section-number-3,
+.section-number-4,
+.section-number-5 {
+    color: var(&ndash;foreground_);
+    float: right;
+}
+</p>
+
+<p>
+.colorblock {
+    min-width: fit-content;
+</p>
+
+<p>
+text-align: center;
+min-height: 50px;
+</p>
+
+<p>
+    display: block;
+    font-family: var(&ndash;nc-font-mono);
+    <i>* font-size: 0.9rem; *</i>
+}
+</p>
+
+<p>
+.colorpadding {
+    padding: 5px;
+    margin: 5px;
+}
+</p>
+
+<p>
+.colorcenter {
+    line-height: 50px;
+}
+</p>
+
+
+<p>
+pre {
+    position: relative;
+    overflow: visible;
+}
+</p>
+
+<p>
+pre:hover button {
+    display: block;
+}
+</p>
+
+<p>
+pre button {
+    display: none;
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+}
+</p>
+
+<p>
+.title &gt; svg {
+    height: 2rem;
+    width: 2rem;
+}
+</p>
+
+<p>
+::selection {
+	<i>* Set background color for selected text *</i>
+	background: var(&ndash;background_plus);
+	color: var(&ndash;foreground_plus);
+}
+</p>
+
+<p>
+.timestamp {
+    <i>* border: 1px solid var(&ndash;background_weak); *</i>
+    background: var(&ndash;background_subtle);
+</p>
+
+<p>
+    color: var(&ndash;accent1_);
+    display: inline-block;
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+</p>
+
+<p>
+input type {
+    background: var(&ndash;background_subtle);
+}
+</p>
+
+<p>
+<i>* exported from org.css *</i>
+.org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.org-center { margin-left: auto; margin-right: auto; text-align: center; }
+.underline { text-decoration: underline; }
+table { border-collapse:collapse; }
+caption.t-above { caption-side: top; }
+caption.t-bottom { caption-side: bottom; }
+td, th { vertical-align:top;  }
+th.org-right  { text-align: center;  }
+th.org-left   { text-align: center;   }
+th.org-center { text-align: center; }
+td.org-right  { text-align: right;  }
+td.org-left   { text-align: left;   }
+td.org-center { text-align: center; }
+dt { font-weight: bold; }
+.footpara { display: inline; }
+.footdef  { margin-bottom: 1em; }
+.figure { padding: 1em; }
+.figure p { text-align: center; }
+.equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+}
+.equation {
+    vertical-align: middle;
+}
+.equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+}
+</p>
+
+
+<p>
+.flair {
+    <i>* height: 5rem; width: 50%; *</i>
+    width: 7rem; height: 11rem;
+    <i>* border-width: 10px; *</i>
+    margin: auto;
+    <i>* margin-top: em; *</i>
+    <i>* border-radius: 30%; *</i>
+</p>
+
+<p>
+    background-image: url(&ldquo;../img/backgrounds/leaves.jpg&rdquo;);
+    <i>* background-image: url(&ldquo;../img/backgrounds/pattern_125.gif&rdquo;); *</i>
+    <i>* background-color: var(&ndash;background_plus); *</i>
+    <i>* border-color: var(&ndash;alt) var(&ndash;primary) var(&ndash;alt) var(&ndash;assumed) ; *</i>
+    <i>* border-color: var(&ndash;assumed); *</i>
+    <i>* border-style: ridge double ridge double ; *</i>
+    <i>* border-style:ridge double double ridge ; *</i>
+    <i>* border-style: double; *</i>
+    <i>* border-style:double ridge ridge double ; *</i>
+    <i>* border-color: var(&ndash;assumed) var(&ndash;alt) var(&ndash;primary) var(&ndash;string); *</i>
+    <i>* top right bottom left *</i>
+    <i>* border-color: var(&ndash;primary) var(&ndash;alt) var(&ndash;assumed) var(&ndash;strings); *</i>
+    <i>* border-color: var(&ndash;alt) var(&ndash;strings) var(&ndash;assumed) var(&ndash;primary); *</i>
+}
+</p>
+
+<p>
+.spoiler {
+    background-color: var(&ndash;background_weak);
+    color: var(&ndash;background_weak);
+}
+</p>
+
+<p>
+.spoiler:hover {
+    color: var(&ndash;foreground);
+}
+</p>
+
+<hr>
+</main>
+</body>
+</html>

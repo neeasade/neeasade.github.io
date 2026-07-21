@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     checking for toots
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -64,7 +64,7 @@ The mastodon cli client <code>toot</code> is pretty nice for tootin&rsquo;. If I
 </p>
 
 
-<figure id="org9361d64">
+<figure id="org1bc8546">
 <a href="./assets/posts/toot.png"><img src="./assets/posts/toot.png" alt="toot.png"></a>
 
 </figure>
@@ -111,7 +111,7 @@ Alright, I need 2 things &ndash; a way to mark the current set of notifications 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><code>toot notifications | awk 'BEGIN { RS="\n─+\n" }; {print $0}'
+<pre class="src src-bash"><code>toot notifications | awk <span style="color: #007c00;">'BEGIN { RS="\n&#9472;+\n" }; {print $0}'</span>
 </code></pre>
 </div>
 
@@ -120,17 +120,17 @@ And with diff, I can check if anything has changed (provided I save the seen not
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><code>#!/usr/bin/env bash
-# to save the 'seen' state (will mapped to a click on the panel):
-# toot notifications &gt;/tmp/toot-notifications.txt
+<pre class="src src-bash"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
+</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to save the 'seen' state (will mapped to a click on the panel):
+</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">toot notifications &gt;/tmp/toot-notifications.txt
+</span>
+<span style="color: #c6007f;">count</span>=0
+<span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> <span style="color: #c6007f;">diff</span>=$(<span style="color: #c6007f;">diff &lt;(toot notifications</span>) &lt;(cat /tmp/toot-notifications)); <span style="color: #0065c8;">then</span>
+    <span style="color: #c6007f;">new_content</span>=$(<span style="color: #c6007f;">echo "$diff" | grep '^&lt;' | sed 's/&lt; //'</span>)
+    <span style="color: #c6007f;">count</span>=$(<span style="color: #c6007f;">echo "$new_content" | awk 'BEGIN { RS="\n&#9472;+\n" }; /mentioned you/{print "mentioned"}' | wc -l</span>)
+<span style="color: #0065c8;">fi</span>
 
-count=0
-if ! diff=$(diff &lt;(toot notifications) &lt;(cat /tmp/toot-notifications)); then
-    new_content=$(echo "$diff" | grep '^&lt;' | sed 's/&lt; //')
-    count=$(echo "$new_content" | awk 'BEGIN { RS="\n─+\n" }; /mentioned you/{print "mentioned"}' | wc -l)
-fi
-
-echo "toot mentions: $count"
+<span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"toot mentions: $count"</span>
 </code></pre>
 </div>
 
@@ -139,7 +139,7 @@ From there it&rsquo;s a short trip to have a panel button, you just call the scr
 </p>
 
 
-<figure id="org8d1a233">
+<figure id="orge83a4b3">
 <a href="./assets/posts/toot_panel.png"><img src="./assets/posts/toot_panel.png" alt="toot_panel.png"></a>
 
 </figure>

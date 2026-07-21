@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     reverse ssh tunnels
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -90,14 +90,14 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><code># to access home after ssh'ing into vps:
-ssh localhost -p 22222
+<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home after ssh'ing into vps:
+</span>ssh localhost -p 22222
 
-# to access home in one go from laptop:
-ssh -t vps 'ssh localhost -p 22222'
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home in one go from laptop:
+</span>ssh -t vps <span style="color: #007c00;">'ssh localhost -p 22222'</span>
 
-# to Jump from the laptop (-J is the jumpbox target):
-ssh -J username@vps:22 localhost -p 22222
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to Jump from the laptop (-J is the jumpbox target):
+</span>ssh -J username@vps:22 localhost -p 22222
 </code></pre>
 </div>
 </div>
@@ -119,9 +119,9 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(let* ((tramp-connection-path "/ssh:username@vps|ssh:username@localhost#22222:")
-        (default-directory (concat tramp-connection-path "/home/username"))
-        (process-environment (cons (format "TRAMP_INFO=%s" tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp"><code>(<span style="color: #0065c8;">let*</span> ((tramp-connection-path <span style="color: #007c00;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #007c00;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #007c00;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </code></pre>
 </div>

@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     window tags
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -232,12 +232,12 @@ Showing how I get the info to make those decisions:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>bspc subscribe node_add | while read -r event m d i wid; do
-    current_class=$(xprop WM_CLASS -id $wid)
-    current_name=$(xprop WM_NAME -id $wid)
-    last_class=$(xprop WM_CLASS -id $(bspc query -N last -n))
-    # ...
-done
+<pre class="src src-sh"><code>bspc subscribe node_add | <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r event m d i wid; <span style="color: #0065c8;">do</span>
+    <span style="color: #c6007f;">current_class</span>=$(<span style="color: #c6007f;">xprop WM_CLASS -id $wid</span>)
+    <span style="color: #c6007f;">current_name</span>=$(<span style="color: #c6007f;">xprop WM_NAME -id $wid</span>)
+    <span style="color: #c6007f;">last_class</span>=$(<span style="color: #c6007f;">xprop WM_CLASS -id $(bspc query -N last -n</span>))
+    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">...
+</span><span style="color: #0065c8;">done</span>
 </code></pre>
 </div>
 </div>
@@ -250,7 +250,7 @@ Using distinct colors, I can tell assigned tags at a glance (drawn with <a href=
 </p>
 
 
-<figure id="org27f38f2">
+<figure id="org677cacb">
 <a href="./assets/posts/btags.png"><img src="./assets/posts/btags.png" alt="btags.png"></a>
 
 </figure>
@@ -262,13 +262,13 @@ From the top left clockwise: net, code, code, hole
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code># tag, visible, border color, wids
-$ btags state-plain
-code	true	e9a4d1	0x01ACB110 0x01AD21ED
-net	true	7bcc7b	0x01E00013
-chat	false	98bde1
-hole	true	b9b9b9	0x01AE254F
-none	true	000000	0x0340003B
+<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">tag, visible, border color, wids
+</span>$ btags state-plain
+code    true    e9a4d1  0x01ACB110 0x01AD21ED
+net     true    7bcc7b  0x01E00013
+chat    false   98bde1
+hole    true    b9b9b9  0x01AE254F
+none    true    000000  0x0340003B
 </code></pre>
 </div>
 </div>
@@ -317,11 +317,11 @@ ultimately ended up implementing a more plain status reporter and using it in my
 
 <div class="org-src-container">
 <pre class="src src-text"><code>$ btags state-plain
-a	true	e9a4d1
-b	true	7bcc7b	0x01A25F85 0x01E00013 0x01E00013 0x01A219FF
-c	true	98bde1
-hole	false	b9b9b9	0x0340003B 0x01A042CE
-none	true	000000
+a       true    e9a4d1
+b       true    7bcc7b  0x01A25F85 0x01E00013 0x01E00013 0x01A219FF
+c       true    98bde1
+hole    false   b9b9b9  0x0340003B 0x01A042CE
+none    true    000000
 </code></pre>
 </div>
 </div>

@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 <style> detail {margin-top: -0.9rem;} </style>
 </head>
 <body>
@@ -41,13 +41,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     reasoning about colors
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -56,7 +56,7 @@
     Published 2020-11-24,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2020-08-13-color-spaces.org">2022-07-10</a>
 </span>
-<span class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-lisp.html'>#lisp</a><a href='./tag-design.html'>#design</a> </span>
+<span class="posttags"> <a href='./tag-color.html'>#color</a><a href='./tag-emacs.html'>#emacs</a><a href='./tag-lisp.html'>#lisp</a><a href='./tag-design.html'>#design</a> </span>
 </div>
 </header>
 <hr>
@@ -281,7 +281,7 @@ Saturation in HSL is a controlled version of chromacity (&ldquo;distance from gr
 </p>
 
 
-<figure id="org0a06530">
+<figure id="org8944a2d">
 <a href="./assets/posts/color_cylinder.png"><img src="./assets/posts/color_cylinder.png" alt="color_cylinder.png"></a>
 
 </figure>
@@ -1132,11 +1132,11 @@ Emacs ships with a fair amount of <a href="https://github.com/emacs-mirror/emacs
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(ct-edit-hsl "#c930e8"
- (lambda (H S L)
+<pre class="src src-emacs-lisp"><code>(ct-edit-hsl <span style="color: #007c00;">"#c930e8"</span>
+ (<span style="color: #0065c8;">lambda</span> (H S L)
    (list H S (* 1.5 L))))
 
-;; =&gt; "#eb16af59f708"
+<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; "#eb16af59f708"</span>
 </code></pre>
 </div>
 
@@ -1155,10 +1155,10 @@ I also implemented a function for comparing contrast, referencing Peter Occil&rs
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>;; order does not matter:
-(ct-contrast-ratio "#ffffff" "#445544")
+<pre class="src src-emacs-lisp"><code><span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">order does not matter:
+</span>(ct-contrast-ratio <span style="color: #007c00;">"#ffffff"</span> <span style="color: #007c00;">"#445544"</span>)
 
-;; =&gt; 3.0000000000000004
+<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; 3.0000000000000004</span>
 </code></pre>
 </div>
 
@@ -1166,7 +1166,7 @@ I also implemented a function for comparing contrast, referencing Peter Occil&rs
 Is a color light? just check the lightness value in LAB space (note: that 65 value is ~opinions~):
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(defun ct-is-light-p (name)
+<pre class="src src-emacs-lisp"><code>(<span style="color: #0065c8;">defun</span> <span style="color: #c6007f;">ct-is-light-p</span> (name)
   (&gt; (first (ct-name-to-lab name))
      65))
 </code></pre>
@@ -1192,23 +1192,23 @@ These pieces (transformers and comparison functions) can be combined to do thing
 
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><code>(ct-iterate
- "#eeeeee"
+ <span style="color: #007c00;">"#eeeeee"</span>
 
- ;; Darken the color a little at a time in LAB space:
- (lambda (c)
+ <span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">Darken the color a little at a time in LAB space:
+</span> (<span style="color: #0065c8;">lambda</span> (c)
    (ct-edit-lab c
-    (lambda (L A B)
+    (<span style="color: #0065c8;">lambda</span> (L A B)
       (list (- L 0.1)
-	    A B))))
+            A B))))
 
- ;; check that we've reached some desired contrast ratio
- ;; 4.5, Here against a background #f7f7f7
- (lambda (c)
-   (&gt; (ct-contrast-ratio "#f7f7f7" c)
+ <span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">check that we've reached some desired contrast ratio
+</span> <span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">4.5, Here against a background #f7f7f7
+</span> (<span style="color: #0065c8;">lambda</span> (c)
+   (&gt; (ct-contrast-ratio <span style="color: #007c00;">"#f7f7f7"</span> c)
       4.5)))
 
-;; =&gt; "#2d662ca72d1b"
-;; (converted: #2d2c2c)
+<span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">=&gt; "#2d662ca72d1b"
+</span><span style="color: #6a6d6e;">;; </span><span style="color: #6a6d6e;">(converted: #2d2c2c)</span>
 </code></pre>
 </div>
 </div>
@@ -1358,7 +1358,7 @@ Which in action looks like (click to see full size):
 </p>
 
 
-<figure id="org0eb9066">
+<figure id="orgaa4e567">
 <a href="./assets/posts/colors.png"><img src="./assets/posts/colors.png" alt="colors.png"></a>
 
 </figure>

@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     plato on the kobo libra 2
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 <div class="org-center">
@@ -91,10 +91,10 @@ directly, everything is just owned by root:
 <pre class="src src-sh"><code>$ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda      8:48   0 232.9G  0 disk
-├─sda1   8:49   0   550M  0 part /boot
-├─sda2   8:50   0   225G  0 part /nix/store
-│                                /
-└─sdd3   8:51   0     4G  0 part [SWAP]
+&#9500;&#9472;sda1   8:49   0   550M  0 part /boot
+&#9500;&#9472;sda2   8:50   0   225G  0 part /nix/store
+&#9474;                                /
+&#9492;&#9472;sdd3   8:51   0     4G  0 part [SWAP]
 sdb      8:144  1  28.5G  0 disk
 
 $ sudo mount /dev/sdj ~/kobo
@@ -107,7 +107,7 @@ To bypass the kobo account setup, you can exit the database on the device:
 
 <div class="org-src-container">
 <pre class="src src-sh"><code>$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
-sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES('1','');
+sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES(<span style="color: #007c00;">'1'</span>,<span style="color: #007c00;">''</span>);
 sqlite&gt; .quit
 </code></pre>
 </div>
@@ -138,17 +138,17 @@ just looks &ldquo;right&rdquo; to me for reading):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><code>[reader]
-south-strip = "next-page"
-font-path = "/mnt/onboard/.adds/plato/fonts"
-font-family = "Georgia"
-margin-width = 10
-max-margin-width = 20
-line-height = 1.1
-ignore-document-css = true
+<pre class="src src-toml"><code>[<span style="color: #006e96;">reader</span>]
+<span style="color: #c6007f;">south-strip</span> = <span style="color: #007c00;">"next-page"</span>
+<span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
+<span style="color: #c6007f;">font-family</span> = <span style="color: #007c00;">"Georgia"</span>
+<span style="color: #c6007f;">margin-width</span> = 10
+<span style="color: #c6007f;">max-margin-width</span> = 20
+<span style="color: #c6007f;">line-height</span> = 1.1
+<span style="color: #c6007f;">ignore-document-css</span> = <span style="color: #0065c8;">true</span>
 
-[reader.paragraph-breaker]
-stretch-tolerance = 1.5
+[<span style="color: #006e96;">reader.paragraph-breaker</span>]
+<span style="color: #c6007f;">stretch-tolerance</span> = 1.5
 </code></pre>
 </div>
 
@@ -181,7 +181,7 @@ accessible with this option in <code>Settings.toml</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><code>font-path = "/mnt/onboard/.adds/plato/fonts"
+<pre class="src src-toml"><code><span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
 </code></pre>
 </div>
 </div>
@@ -194,18 +194,18 @@ Create <code>~/kobo/.adds/plato/css/epub-user.css</code>, and add:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css"><code>p {
-    text-align: justify;
-    margin: 1em 0 0 0 !important;
+<pre class="src src-css"><code><span style="color: #c6007f;">p</span> {
+    <span style="color: #0065c8;">text-align</span>: justify;
+    <span style="color: #0065c8;">margin</span>: 1em 0 0 0 <span style="color: #0065c8;">!important</span>;
 }
 
-p + p {
-    text-indent: 1em;
-    margin: 0 !important;
+<span style="color: #c6007f;">p + p</span> {
+    <span style="color: #0065c8;">text-indent</span>: 1em;
+    <span style="color: #0065c8;">margin</span>: 0 <span style="color: #0065c8;">!important</span>;
 }
 
-img { /* for centering */
-    margin: auto;
+<span style="color: #c6007f;">img</span> { <span style="color: #6a6d6e;">/* </span><span style="color: #6a6d6e;">for centering</span><span style="color: #6a6d6e;"> */</span>
+    <span style="color: #0065c8;">margin</span>: auto;
 }
 </code></pre>
 </div>
@@ -219,9 +219,9 @@ For a db located in  <code>~/kobo/library</code>, set path like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><code>[[libraries]]
-path = "/mnt/onboard/library"
-# ...
+<pre class="src src-toml"><code>[[<span style="color: #006e96;">libraries</span>]]
+<span style="color: #c6007f;">path</span> = <span style="color: #007c00;">"/mnt/onboard/library"</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">...</span>
 </code></pre>
 </div>
 </div>

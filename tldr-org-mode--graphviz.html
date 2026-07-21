@@ -24,7 +24,7 @@
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +40,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     TLDR org mode + graphviz
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#444748" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -72,11 +72,11 @@ mode source block like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><code>#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
-digraph {
+<pre class="src src-org"><code><span style="color: #444748; background-color: #e8ebec;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
+</span><span style="color: #0065c8; background-color: #dfe2e3;">digraph</span><span style="color: #444748; background-color: #dfe2e3;"> {
     a -&gt; b
 }
-#+END_SRC
+</span><span style="color: #444748; background-color: #e8ebec;">#+END_SRC</span>
 </code></pre>
 </div>
 
@@ -90,7 +90,7 @@ These blocks also export! Just like in <a href="https://github.com/neeasade/neea
 </p>
 
 
-<figure id="org02dec7d">
+<figure id="orga95eece">
 <img src="./assets/posts/dot-example.png" alt="dot-example.png">
 
 </figure>
@@ -128,38 +128,38 @@ Here is an example that shows how attributes are set and some defaults I like:
 
 
 <div class="org-src-container">
-<pre class="src src-org"><code>#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
-digraph {
-    // config:
-    // TBLR, top bottom left right, the direction of the graph.
-    graph [rankdir=TB];
-    // you can have multiple attrs per statement
-    graph [dpi=150 splines=ortho];
-    edge[decorate=true];
-    node [shape=box];
+<pre class="src src-org"><code><span style="color: #444748; background-color: #e8ebec;">#+BEGIN_SRC dot :file ./dot-example.png  :cmdline -Kdot -Tpng
+</span><span style="color: #0065c8; background-color: #dfe2e3;">digraph</span><span style="color: #444748; background-color: #dfe2e3;"> {
+    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">config:
+</span><span style="color: #444748; background-color: #dfe2e3;">    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">TBLR, top bottom left right, the direction of the graph.
+</span><span style="color: #444748; background-color: #dfe2e3;">    </span><span style="color: #0065c8; background-color: #dfe2e3;">graph</span><span style="color: #444748; background-color: #dfe2e3;"> [</span><span style="color: #c6007f; background-color: #dfe2e3;">rankdir=</span><span style="color: #444748; background-color: #dfe2e3;">TB];
+    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">you can have multiple attrs per statement
+</span><span style="color: #444748; background-color: #dfe2e3;">    </span><span style="color: #0065c8; background-color: #dfe2e3;">graph</span><span style="color: #444748; background-color: #dfe2e3;"> [dpi=150 </span><span style="color: #c6007f; background-color: #dfe2e3;">splines=</span><span style="color: #444748; background-color: #dfe2e3;">ortho];
+    </span><span style="color: #0065c8; background-color: #dfe2e3;">edge</span><span style="color: #444748; background-color: #dfe2e3;">[</span><span style="color: #c6007f; background-color: #dfe2e3;">decorate=</span><span style="color: #444748; background-color: #dfe2e3;">true</span><span style="color: #444748; background-color: #dfe2e3;">];
+    </span><span style="color: #0065c8; background-color: #dfe2e3;">node</span><span style="color: #444748; background-color: #dfe2e3;"> [</span><span style="color: #c6007f; background-color: #dfe2e3;">shape=</span><span style="color: #444748; background-color: #dfe2e3;">box</span><span style="color: #444748; background-color: #dfe2e3;">];
 
-    // definitions:
-    // nb: setting definitions on their own is useful in larger graphs
-    computer [label=computer];
-    // quotes are optional, I'm using them when there are spaces
-    phone [label="android phone"];
-    router [label=router];
+    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">definitions:
+</span><span style="color: #444748; background-color: #dfe2e3;">    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">nb: setting definitions on their own is useful in larger graphs
+</span><span style="color: #444748; background-color: #dfe2e3;">    computer [</span><span style="color: #c6007f; background-color: #dfe2e3;">label=</span><span style="color: #444748; background-color: #dfe2e3;">computer];
+    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">quotes are optional, I'm using them when there are spaces
+</span><span style="color: #444748; background-color: #dfe2e3;">    phone [</span><span style="color: #c6007f; background-color: #dfe2e3;">label=</span><span style="color: #007c00; background-color: #dfe2e3;">"android phone"</span><span style="color: #444748; background-color: #dfe2e3;">];
+    router [</span><span style="color: #c6007f; background-color: #dfe2e3;">label=</span><span style="color: #444748; background-color: #dfe2e3;">router];
 
-    // record syntax: | for horizontal, {|} for vert
-    internet [shape=record label="{internet|cat pictures}"]
+    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">record syntax: | for horizontal, {|} for vert
+</span><span style="color: #444748; background-color: #dfe2e3;">    internet [</span><span style="color: #c6007f; background-color: #dfe2e3;">shape=</span><span style="color: #444748; background-color: #dfe2e3;">record</span><span style="color: #444748; background-color: #dfe2e3;"> </span><span style="color: #c6007f; background-color: #dfe2e3;">label=</span><span style="color: #007c00; background-color: #dfe2e3;">"{internet|cat pictures}"</span><span style="color: #444748; background-color: #dfe2e3;">]
 
-    // relations:
-    computer -&gt; router;
-    phone -&gt; router [label="wifi"];
-    router -&gt; internet [dir=both];
+    </span><span style="color: #6a6d6e; background-color: #dfe2e3;">// </span><span style="color: #6a6d6e; background-color: #dfe2e3;">relations:
+</span><span style="color: #444748; background-color: #dfe2e3;">    computer -&gt; router;
+    phone -&gt; router [</span><span style="color: #c6007f; background-color: #dfe2e3;">label=</span><span style="color: #007c00; background-color: #dfe2e3;">"wifi"</span><span style="color: #444748; background-color: #dfe2e3;">];
+    router -&gt; internet [</span><span style="color: #c6007f; background-color: #dfe2e3;">dir=</span><span style="color: #444748; background-color: #dfe2e3;">both</span><span style="color: #444748; background-color: #dfe2e3;">];
 }
-#+END_SRC
+</span><span style="color: #444748; background-color: #e8ebec;">#+END_SRC</span>
 </code></pre>
 </div>
 
 
 
-<figure id="org5486af4">
+<figure id="orgec6d277">
 <img src="./assets/posts/dot-internet.png" alt="dot-internet.png">
 
 </figure>
