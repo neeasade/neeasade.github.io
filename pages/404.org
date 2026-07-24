@@ -5,24 +5,55 @@
 #+BEGIN_CENTER
 
 
-
-
-
-
 Are you doing what you want to be doing right now?
 
-#+BEGIN_SRC elisp :results raw :exports results
+#+BEGIN_SRC elisp :results html :exports results
 
 (setq ns/alchemical "🜀🜁🜂🜃🜄🜅🜆🜇🜈🜉🜊🜋🜌🜍🜎🜏🜐🜑🜒🜓🜔🜕🜖🜗🜘🜙🜚🜛🜜🜝🜞🜟🜠🜡🜢🜣🜤🜥🜦🜧🜨🜩🜪🜫🜬🜭🜮🜯🜰🜱🜲🜳🜴🜵🜶🜷🜸🜹🜺🜻🜼🜽🜾🜿🝀🝁🝂🝃🝄🝅🝆🝇🝈🝉🝊🝋🝌🝍🝎🝏🝐🝑🝒🝓🝔🝕🝖🝗🝘🝙🝚🝛🝜🝝🝞🝟🝠🝡🝢🝣🝤🝥🝦🝧🝨🝩🝪🝫🝬🝭🝮🝯🝰🝱🝲🝳")
 
+(defun ns/blog-404-part (row col c)
+  (llet [size (ns/random-list '(1 1 1 1 1))
+	      line? (= 0 (mod (+ 6 col) 10))
+	      line-index (cond
+			  ((> col 25) 3)
+			  ((> col 15) 2)
+			  ((> col 05) 1)
+			  (t 0))
+
+	      color (if-not line?
+			    ;; (myron-get :faded)
+			    (myron-get :background :strong)
+			    (condp = line-index
+				   0 (myron-get :alt)
+				   1 (myron-get :primary)
+				   2 (myron-get :assumed)
+				   3 (myron-get :foreground)))]
+	(format "<span style='font-size: %sem; color: %s'>%s</span>"
+		size
+
+		(if line?
+		    (nth row (ct-gradient 80 color (myron-get :background) nil 'lab))
+		  ;; (ct-edit-lab-l color (* 2 row))
+		  (nth row (ct-gradient 80 color (myron-get :background :focused) t 'lab))
+		  ;; color
+		  )
+		c c)))
+
+
 (llet [l 40]
-      (s-join "\n"
-	      (--map
-	       (apply 'ns/str
-		      (-map (lambda (_)
-			      (ns/random-list (seq-map 'char-to-string ns/alchemical)))
-			    (range (1+ it))))
-	       (-concat (range l) (range l -1 -1)))))
+      (->> (-concat (range l) (range l -1 -1))
+	   (-map-indexed
+	    (lambda (row it)
+	      (apply 'ns/str
+		     "<br/ >"
+		     (-map (lambda (col)
+			     (ns/blog-404-part row col
+					       (ns/random-list (seq-map 'char-to-string ns/alchemical))
+					       ))
+			   (range (1+ it))))))
+	   (-drop-last 1)
+	   (s-join "\n")))
+
 #+end_SRC
 
 #+END_CENTER
