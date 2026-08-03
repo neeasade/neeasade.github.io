@@ -1,0 +1,131 @@
+#+title: FUNCy
+#+title_extra: et tu, =$@=?
+#+pubdate: <2026-08-03>
+#+filetags:
+#+rss_title:
+#+hidden: t
+
+I find myself using the same pattern for shell scripts repeatedly. Today I've decided to call it /funcy/. Basically all actions are functions instead of flags. Subcommands might get flags, but the point of /funcy/ is to be flexible in a way that serves future you. As you need things and extend your entrypoints, they stay composable in a way that I like.
+
+Template:
+
+#+begin_src sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+# if you want relative:
+SCRIPT=$(readlink -f "${BASH_SOURCE[0]}")
+cd "$(dirname $([ -L $0 ] && readlink -f $0 || echo $0))"
+SCRIPT_DIR=$(pwd)
+
+# example state:
+export CCACHE_NOHASHDIR=${CCACHE_NOHASHDIR:-1}
+
+build() { # build the thing
+  local jobs=$(($(nproc) - 2))
+  ninja -j"${jobs}" -t myTarget
+}
+
+run() { # run the thing
+  ./build/bin/some-app -Xdebug=1
+}
+
+compose() { # compose comands together, stopping if any fail
+  for x in "$@"; do
+    if ! "$0" "$x"; then
+      break
+    fi
+  done
+}
+
+usage() {
+  echo "usage:"
+  awk -F'\\(\\)\\s*\\{\\s*#' '$2{print $1"#"$2}' "$0" | sort | column -ts# -o:
+  exit 1
+}
+
+test -z "$*" && usage
+
+# aliases
+case "$1" in
+--help | -h) usage ;;
+make | b) shift && set -- build "$@" ;;
+comp | c) shift && set -- compose "$@" ;;
+cmake | cm) shift && set -- build-cmake "$@" ;;
+run | r) shift && set -- app "$@" ;;
+esac
+
+# echo ":: $*" >&2
+"$@"
+# echo ":: $*... done" >&2
+#+end_src
+
+considerations:
+
+pros:
+- easy to add visible entrypoints
+- stores "configure once look never" options
+- functions compose and can use each other's state
+- simple structure to give yourself a fix/hack RIGHT NOW for local dev
+
+cons:
+- easy to shoot yourself in the foot
+- doesn't scale super well - if you hit 1000 loc you are TOO FAR GONE
+- nested getopts and exports for passing /dynamic/ options is inflexible. This is more for your hot paths in local dev + tools.
+
+Not everything has to be so formal. Here's a funcy-style script I made called ~sm~
+
+#+begin_src sh
+#!/usr/bin/env bash
+# "stream manipulation"
+
+seen() {
+    stdbuf -oL awk '!seen[$'${1:-0}']++'
+}
+
+noblanks() {
+    # removes blank lines and lines with spaces/tabs
+    sed '/^[[:space:]]*$/d'
+}
+
+norepeat() {
+    stdbuf -oL awk '$0!=prev; {prev=$0}'
+}
+
+norepeat() {
+  # repeat based on field index changing:
+  key_field=${1:-0}
+
+  stdbuf -oL awk -v k="$key_field" '
+    {
+      key = $k
+      if (!(key in last) || last[key] != $0) {
+        print
+        last[key] = $0
+      }
+    }
+  '
+}
+
+strip-ts () {
+    stdbuf -oL sed -E 's/\(.*\)//'
+}
+
+if test -z "$*"; then
+   echo "sm options: norepeat|seen"
+   exit 1
+fi
+
+if [[ "$(type -t "$1")" = "function" ]]; then
+    "$@"
+else
+    echo "sm: unknown function $1" >&2
+    exit 1
+fi
+#+end_src
+
+I dug ~sm~ out my ~~/bin~ for this post. You can see I've inlined the usage message and as a result it has drifted from reality. You can also see an older version of ~norepeat~, so within the script itself I can re-fetch older behavior by commenting out one for preferred behavior. Funcy-style scripts are MEANT to be touched by you, the developer, to get your preferred outcome. When they rot, it's easier to see what past you was intending IMO.
+
+{{{foldstart(Trivia)}}}
+The dynamic usage trick is inspired by [[https://github.com/p8952/bocker/blob/master/bocker#L111-L113][bocker]].
+{{{foldend}}}
