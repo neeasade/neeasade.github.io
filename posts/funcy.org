@@ -7,6 +7,22 @@
 
 I find myself using the same pattern for shell scripts repeatedly. Today I've decided to call it /funcy/. Basically all actions are functions instead of flags. Subcommands might get flags, but the point of /funcy/ is to be flexible in a way that serves future you. As you need things and extend your entrypoints, they stay composable in a way that I like.
 
+high level example:
+
+#+begin_src console
+$ ./funcy
+usage:
+build  : build the thing
+hello  : say hello world
+run    : run the thing
+compose: compose comands together, stopping if any fail
+
+$ ./funcy hello
+hello world
+
+$
+#+end_src
+
 Template:
 
 #+begin_src sh
@@ -30,6 +46,10 @@ run() { # run the thing
   ./build/bin/some-app -Xdebug=1
 }
 
+hello() { # say hello world
+  echo "hello world"
+}
+
 compose() { # compose comands together, stopping if any fail
   for x in "$@"; do
     if ! "$0" "$x"; then
@@ -40,7 +60,7 @@ compose() { # compose comands together, stopping if any fail
 
 usage() {
   echo "usage:"
-  awk -F'\\(\\)\\s*\\{\\s*#' '$2{print $1"#"$2}' "$0" | sort | column -ts# -o:
+  awk -F'\\(\\)\\s*\\{\\s*#' '$2{print $1"#"$2}' "$0" | sort | column -ts# -o: >&2
   exit 1
 }
 
@@ -65,7 +85,7 @@ considerations:
 pros:
 - easy to add visible entrypoints
 - stores "configure once look never" options
-- functions compose and can use each other's state
+- can assume context such as ~$PWD~ and command prefixes
 - simple structure to give yourself a fix/hack RIGHT NOW for local dev
 
 cons:
