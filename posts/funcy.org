@@ -17,10 +17,18 @@ hello  : say hello world
 run    : run the thing
 compose: compose comands together, stopping if any fail
 
-$ ./funcy hello
+$ ./funcy
 hello world
 
-$
+$ ./funcy c build hello
+:: compose build hello
+:: build
+<insert build logs here>
+:: build... done
+:: hello
+hello world
+:: hello... done
+:: compose build echo... done
 #+end_src
 
 Template:
