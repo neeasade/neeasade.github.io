@@ -53,7 +53,7 @@ from an admin cmd.exe:
 
 ** THE CURSOR IS GONE
 
-From windows:
+Restart weston. From windows:
 
 : wsl --system -d Debian pkill weston
 
