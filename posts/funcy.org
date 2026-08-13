@@ -80,7 +80,7 @@ case "$1" in
 make | b) shift && set -- build "$@" ;;
 comp | c) shift && set -- compose "$@" ;;
 cmake | cm) shift && set -- build-cmake "$@" ;;
-run | r) shift && set -- app "$@" ;;
+app | r ) shift && set -- run "$@" ;;
 esac
 
 # echo ":: $*" >&2
