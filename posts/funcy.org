@@ -3,11 +3,10 @@
 #+pubdate: <2026-08-03>
 #+filetags:
 #+rss_title:
-#+hidden: t
 
 I find myself using the same pattern for shell scripts repeatedly. Today I've decided to call it /funcy/. Basically all actions are functions instead of flags. Subcommands might get flags, but the point of /funcy/ is to be flexible in a way that serves future you. As you need things and extend your entrypoints, they stay composable in a way that I like.
 
-high level example:
+high level usage example:
 
 #+begin_src console
 $ ./funcy
@@ -76,11 +75,13 @@ test -z "$*" && usage
 
 # aliases
 case "$1" in
---help | -h) usage ;;
-make | b) shift && set -- build "$@" ;;
-comp | c) shift && set -- compose "$@" ;;
-cmake | cm) shift && set -- build-cmake "$@" ;;
-app | r ) shift && set -- run "$@" ;;
+    --help | -h) usage ;;
+    make | b) shift && set -- build "$@" ;;
+    comp | c) shift && set -- compose "$@" ;;
+    cmake | cm) shift && set -- build-cmake "$@" ;;
+    app | r ) shift && set -- run "$@" ;;
+    # okay maybe this is a bit much
+    -*) set -- compose $(echo "${1:1}" | grep -o . | tr $'\n' ' ') ;;
 esac
 
 # echo ":: $*" >&2
