@@ -3,7 +3,6 @@
 #+pubdate: <2026-08-05>
 #+filetags:
 #+rss_title:
-#+hidden: t
 
 #+caption: windows alacritty + wsl emacs
 {{{image(windows_emacs.png)}}}
