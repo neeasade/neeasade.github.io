@@ -1,6 +1,6 @@
 #+title: FUNCy
 #+title_extra: et tu, =$@=?
-#+pubdate: <2026-08-03>
+#+pubdate: <2026-08-31>
 #+filetags:
 #+rss_title:
 
