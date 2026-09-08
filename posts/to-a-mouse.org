@@ -1,0 +1,123 @@
+#+title: To a Mouse
+#+title_extra:
+#+pubdate: <2026-09-08>
+#+filetags:
+#+rss_title:
+
+#+begin_verse
+Little, sleek, cowering, timorous beast,
+Oh, what a panic is in your breast!
+You need not start away so hasty
+With bickering prattle!
+I would be loath to run and chase you,
+With murdering ploughstaff!
+
+I'm truly sorry man's dominion
+Has broken Nature's social union,
+And justifies that ill opinion
+Which makes you startle
+At me, your poor, earth-born companion
+And fellow mortal!
+
+I doubt not, sometimes, that you may thieve;
+What then? Poor beast, you must live!
+An odd ear in twenty-four sheaves
+Is a small request;
+I will get a blessing with what is left,
+And never miss it.
+
+Your small house, too, in ruin!
+Its feeble walls the winds are scattering!
+And nothing now, to build a new one,
+Of coarse green foliage!
+And bleak December's winds ensuing,
+Both bitter and piercing!
+
+You saw the fields laid bare and empty,
+And weary winter coming fast,
+And cozy here, beneath the blast,
+You thought to dwell,
+Till crash! The cruel coulter passed
+Out through your cell.
+
+That small heap of leaves and stubble,
+Has cost you many a weary nibble!
+Now you are turned out, for all your trouble,
+Without house or holding,
+To endure the winter's sleety dribble,
+And hoar-frost cold!
+
+But Mouse, you are not alone,
+In proving foresight may be vain:
+The best-laid schemes of mice and men
+Go oft awry,
+And leave us nothing but grief and pain,
+For promised joy!
+
+Still you are blessed, compared with me!
+The present only touches you:
+But oh! I backward cast my eye,
+On prospects dreary!
+And forward, though I cannot see,
+I guess and fear!
+
+{{{cite(Robert Burns (English Translation), 1785)}}}
+#+end_verse
+
+{{{foldstart(Original Scots)}}}
+Wee, sleekit, cow'rin, tim'rous beastie,
+O, what a panic's in thy breastie!
+Thou need na start awa sae hasty,
+Wi' bickering brattle!
+I wad be laith to rin an' chase thee,
+Wi' murd'ring pattle!
+
+I'm truly sorry man's dominion,
+Has broken nature's social union,
+An' justifies that ill opinion,
+Which makes thee startle
+At me, thy poor, earth-born companion,
+An' fellow-mortal!
+
+I doubt na, whiles, but thou may thieve;
+What then? poor beastie, thou maun live!
+A daimen icker in a thrave
+'S a sma' request;
+I'll get a blessin wi' the lave,
+An' never miss't!
+
+Thy wee bit housie, too, in ruin!
+It's silly wa's the win's are strewin!
+An' naething, now, to big a new ane,
+O' foggage green!
+An' bleak December's winds ensuin,
+Baith snell an' keen!
+
+Thou saw the fields laid bare an' waste,
+An' weary winter comin fast,
+An' cozie here, beneath the blast,
+Thou thought to dwell—
+Till crash! the cruel coulter past
+Out thro' thy cell.
+
+That wee bit heap o' leaves an' stibble,
+Has cost thee mony a weary nibble!
+Now thou's turn'd out, for a' thy trouble,
+But house or hald,
+To thole the winter's sleety dribble,
+An' cranreuch cauld!
+
+But, Mousie, thou art no thy lane,
+In proving foresight may be vain;
+The best-laid schemes o' mice an' men
+Gang aft agley,
+An' lea'e us nought but grief an' pain,
+For promis'd joy!
+
+Still thou art blest, compar'd wi' me
+The present only toucheth thee:
+But, Och! I backward cast my e'e.
+On prospects drear!
+An' forward, tho' I canna see,
+I guess an' fear!
+{{{foldend}}}
