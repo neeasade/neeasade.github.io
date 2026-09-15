@@ -1,6 +1,6 @@
 #+title: FUNCy
 #+title_extra: et tu, =$@=?
-#+pubdate: <2026-08-31>
+#+pubdate: <2026-09-15>
 #+filetags:
 #+rss_title:
 
@@ -67,7 +67,7 @@ compose() { # compose comands together, stopping if any fail
 
 usage() {
   echo "usage:"
-  awk -F'\\(\\)\\s*\\{\\s*#' '$2{print $1"#"$2}' "$0" | sort | column -ts# -o: >&2
+  awk -F'\\(\\)\\s*\\{\\s*#' '$2{print $1"#"$2}' "${SCRIPT:-0}" | sort | column -ts# -o: >&2
   exit 1
 }
 

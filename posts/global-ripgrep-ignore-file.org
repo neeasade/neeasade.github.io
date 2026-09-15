@@ -1,0 +1,50 @@
+#+title: global ripgrep ignore file
+#+title_extra:
+#+pubdate: <2026-09-15>
+#+filetags:
+#+rss_title:
+
+I've been using this hack to have a global ripgrep ignore file for a bit:
+
+in ~~/bin/rg~
+
+#+begin_src sh
+#!/usr/bin/env bash
+
+/path/to/real/rg --ignore-file "${HOME}/.config/rgignore" "$@"
+#+end_src
+
+in ~~/.config/rgignore~:
+
+#+begin_src conf
+.agent-shell*
+.aider*
+*.svg
+.svn
+
+janet.c
+janet.h
+
+# magit:
+COMMIT_EDITMSG
+
+*.vtl
+#+end_src
+
+-----
+
+{{{foldstart(bonus)}}}
+
+related: this ~og~ script I have:
+
+#+begin_src sh
+#!/bin/sh
+# call the original version of some thing in $PATH
+og=$1
+shift
+"$(type -a "$og" | tail -n 1 | sed -E "s/${og}//;s/ is //;")" "$@"
+#+end_src
+
+Which lets the ~~/bin/rg~ invocation become ~og rg~ instead of a full path.
+
+{{{foldend}}}
