@@ -11,7 +11,7 @@ in ~~/bin/rg~
 #+begin_src sh
 #!/usr/bin/env bash
 
-/path/to/real/rg --ignore-file "${HOME}/.config/rgignore" "$@"
+/bin/rg --ignore-file "${HOME}/.config/rgignore" "$@"
 #+end_src
 
 in ~~/.config/rgignore~:
