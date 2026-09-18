@@ -1,0 +1,44 @@
+#+title: royal kludge r65
+#+title_extra:
+#+pubdate: <2026-09-16>
+#+filetags:
+#+rss_title:
+#+hidden: t
+
+Like many a programmer before me, I'm in the habit of fetishizing the tools I use every day, and hardware is no exception.
+
+# {{{pok3r.png}}}
+
+This is my vortex pok3r keyboard. A comment I saw compared these to the honda civic of the mechanical keyboard community ~10 years ago, everyone was driving a poker or a ducky. It's sporting miami dolch dsa keycaps from a massdrop group buy, and it has been across the country for use in home and work. I've carried this thing into propietary aviation labs, NYC collaboration workspaces, and to hackathons with friends.
+
+And now my fingers tell me this thing is clunky! That feels /wrong/.
+
+-----
+
+Here's the new shiny:
+
+{{{}}}
+
+This is a (/inhales/):
+
+- wired royal kludge 65% keyboard with a KNOB
+- with keychron silk pom banana switches
+- rocking nuphy nsa profile black-on-white low-profile keycaps
+
+too much info: I got the nuphy air60v2 because it was on sale, but then I couldn't get over the shift keys. But I liked the nsa keycaps! And also at the same time I'd been curious about Mx ergo clears for a long time and now Cherry was selling them directly so I scooped up a batch of those. So then I got this royal kludge with intent to slam the clear switches inside of it, and then learned about the silk banana switches releasing towards the start of this year and thought they might give me what I was looking for in the ergo-clears (lighter). And in the meantime I found myself liking the nsa keycaps because they are akin to dsa keycaps, even though I worry about the miss rate - I'm hoping I can erase any sins on that front with practice. Along the way I convinced myself that wireless boards are a no-no, because you carry a risk of a spicy pillow battery situation. On my time horizon I wanted none of that.
+
+Anyway I ended up rolling the switches and caps into this thing and it does feel nice so far. Also I'm able to program it with viaweb, but I only learned after getting the board that royal kludge is actually on the naughty qmk vendor list, which is unfortunate. I definitely was filtering for boards that had qmk support.
+
+Here's a list of things I was considering in a new board because it had been so long:
+
+- qmk support
+- low typing angle tilt (<5°)
+- knob (curious)
+- 60-65%
+- wireless support
+- hot swappable switches
+- aluminium chassis
+
+Had to compromise on some of these, I'm getting the low angle by sticking some rubber bumpers on the back right now.
+
+The switches are probably the most drastic change to this setup, and why I'm making a post - since they came out at the start of this year, there's nto a lot of information about them currently.
