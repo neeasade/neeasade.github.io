@@ -324,6 +324,14 @@ input type {
     background: var(--background_subtle);
 }
 
+.figure-number {
+    display: none;
+}
+
+figcaption {
+    margin-top: 0px;
+}
+
 /* exported from org.css */
 .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
 .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
