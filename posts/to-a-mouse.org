@@ -65,6 +65,7 @@ I guess and fear!
 #+end_verse
 
 {{{foldstart(Original Scots)}}}
+#+begin_verse
 Wee, sleekit, cow'rin, tim'rous beastie,
 O, what a panic's in thy breastie!
 Thou need na start awa sae hasty,
@@ -120,4 +121,5 @@ But, Och! I backward cast my e'e.
 On prospects drear!
 An' forward, tho' I canna see,
 I guess an' fear!
+#+end_verse
 {{{foldend}}}
