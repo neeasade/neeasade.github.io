@@ -1,0 +1,11 @@
+#+title: {fun,}call-interactively
+#+title_extra:
+#+pubdate: <2026-09-22>
+#+filetags:
+#+rss_title:
+
+emacs corner of the day
+
+~funcall-interactively~: invoke an interactive function with specific arguments
+
+~call-interactively~: invoke an interactive function interactively
