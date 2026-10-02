@@ -79,7 +79,7 @@ article,
 main {
     margin: auto; /* 1 */
     max-width: 76rem; /* 2 */
-    padding: 0 1rem; /* 2 */
+    padding: 0 2rem; /* 2 */
     width: 100%; /* 2 */
     position: relative; /* 3 */
 }

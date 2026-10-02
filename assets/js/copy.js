@@ -1,4 +1,5 @@
-const copyButtonLabel = "📋";
+// const copyButtonLabel = "📋";
+const copyButtonLabel = "🗐";
 
 // use a class selector if available
 let blocks = document.querySelectorAll("pre");
