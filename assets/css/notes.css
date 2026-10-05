@@ -46,6 +46,27 @@ img {
     max-height: 30rem;
 }
 
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.image-row > a {
+    display: flex;
+    flex: 1 1 12rem;
+    min-width: 0;
+    justify-content: center;
+}
+
+.image-row img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 
 p:empty {
     display: none;
