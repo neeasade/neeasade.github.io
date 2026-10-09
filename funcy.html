@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FUNCy</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="FUNCy - 🜁↝🜃 ">
+<meta property="og:description" content="et tu, =$@=?">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/33db270ce25f1849ee3f01d2867b5a83dcad9a56d0f6b0bdaabc3f6ebd512458.png">
+<meta property="og:url" content="https://notes.neeasade.net/funcy">
+<meta property="description" content="et tu, =$@=?">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<style> :root { --post-bg-url: url("../posts/ca_dump3/33db270ce25f1849ee3f01d2867b5a83dcad9a56d0f6b0bdaabc3f6ebd512458.png"); } </style>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=3d0e36bc5e03e62446ae16c16994ca70'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c3760c36815f59d61e446548513fe7bf'>
+</head>
+<body>
+<main id="content" class="content">
+<style>
+p {
+    text-align: justify;
+}
+</style>
+
+<header>
+<div style="float: left">
+    <a href='./index.html'>../🜁↝🜃 </a>
+</div>
+
+<div style="float: right">
+    
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/funcy.org">source</a>
+</div>
+<br />
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
+    </svg>
+    FUNCy
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
+    </svg>
+</h1>
+<div class="org-center">
+<p>
+et tu, <code>$@</code>?
+</p>
+</div>
+
+<div class="meta-container">
+<span class=pubinfo>
+    Revealed 2026-09-15
+</span>
+<span class="posttags">  </span>
+</div>
+</header>
+<hr>
+
+<p>
+I find myself using the same pattern for shell scripts repeatedly. Today I&rsquo;ve decided to call it <i>funcy</i>. Basically all actions are functions instead of flags. Subcommands might get flags, but the point of <i>funcy</i> is to be flexible in a way that serves future you. As you need things and extend your entrypoints, they stay composable in a way that I like.
+</p>
+
+<p>
+high level usage example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-console"><code>$ ./funcy
+usage:
+build  : build the thing
+hello  : say hello world
+run    : run the thing
+compose: compose comands together, stopping if any fail
+
+$ ./funcy
+hello world
+
+$ ./funcy c build hello
+:: compose build hello
+:: build
+&lt;insert build logs here&gt;
+:: build... done
+:: hello
+hello world
+:: hello... done
+:: compose build echo... done
+</code></pre>
+</div>
+
+<p>
+Template:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
+</span><span style="color: #0065c8;">set</span> -euo pipefail
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">if you want relative:
+</span><span style="color: #c6007f;">SCRIPT</span>=$(<span style="color: #c6007f;">readlink -f "${BASH_SOURCE[0]}"</span>)
+<span style="color: #0065c8;">cd</span> <span style="color: #007c00;">"$(</span><span style="color: #c6007f;">dirname $([ -L $0 ] &amp;&amp; readlink -f $0 || echo $0</span><span style="color: #007c00;">))"</span>
+<span style="color: #c6007f;">SCRIPT_DIR</span>=$(<span style="color: #c6007f;">pwd</span>)
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">example state:
+</span><span style="color: #0065c8;">export</span> <span style="color: #c6007f;">CCACHE_NOHASHDIR</span>=${<span style="color: #c6007f;">CCACHE_NOHASHDIR</span>:-1}
+
+<span style="color: #c6007f;">build</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">build the thing
+</span>  <span style="color: #0065c8;">local</span> <span style="color: #c6007f;">jobs</span>=$(<span style="color: #c6007f;">($(nproc</span>) - 2))
+  ninja -j<span style="color: #007c00;">"${jobs}"</span> -t myTarget
+}
+
+<span style="color: #c6007f;">run</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">run the thing
+</span>  ./build/bin/some-app -Xdebug=1
+}
+
+<span style="color: #c6007f;">hello</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">say hello world
+</span>  <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"hello world"</span>
+}
+
+<span style="color: #c6007f;">compose</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">compose comands together, stopping if any fail
+</span>  <span style="color: #0065c8;">for</span> x<span style="color: #0065c8;"> in</span> <span style="color: #007c00;">"$@"</span>; <span style="color: #0065c8;">do</span>
+    <span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> <span style="color: #007c00;">"$0"</span> <span style="color: #007c00;">"$x"</span>; <span style="color: #0065c8;">then</span>
+      <span style="color: #0065c8;">break</span>
+    <span style="color: #0065c8;">fi</span>
+  <span style="color: #0065c8;">done</span>
+}
+
+<span style="color: #c6007f;">usage</span>() {
+  <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"usage:"</span>
+  awk -F<span style="color: #007c00;">'\\(\\)\\s*\\{\\s*#'</span> <span style="color: #007c00;">'$2{print $1"#"$2}'</span> <span style="color: #007c00;">"${SCRIPT:-0}"</span> | sort | column -ts# -o: &gt;&amp;2
+  <span style="color: #0065c8;">exit</span> 1
+}
+
+<span style="color: #0065c8;">test</span> -z <span style="color: #007c00;">"$*"</span> &amp;&amp; usage
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">aliases
+</span><span style="color: #0065c8;">case</span> <span style="color: #007c00;">"$1"</span><span style="color: #0065c8;"> in</span>
+    --help | -h) usage ;;
+    make | b) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- build <span style="color: #007c00;">"$@"</span> ;;
+    comp | c) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- compose <span style="color: #007c00;">"$@"</span> ;;
+    cmake | cm) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- build-cmake <span style="color: #007c00;">"$@"</span> ;;
+    app | r ) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- run <span style="color: #007c00;">"$@"</span> ;;
+    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">okay maybe this is a bit much
+</span>    -*) <span style="color: #0065c8;">set</span> -- compose $(<span style="color: #c6007f;">echo "${1:1}" | grep -o . | tr $'\n' ' '</span>) ;;
+<span style="color: #0065c8;">esac</span>
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">echo ":: $*" &gt;&amp;2
+</span><span style="color: #007c00;">"$@"</span>
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">echo ":: $*... done" &gt;&amp;2</span>
+</code></pre>
+</div>
+
+<p>
+considerations:
+</p>
+
+<p>
+pros:
+</p>
+<ul class="org-ul">
+<li>easy to add visible entrypoints</li>
+<li>stores &ldquo;configure once look never&rdquo; options</li>
+<li>can assume context such as <code>$PWD</code> and command prefixes</li>
+<li>simple structure to give yourself a fix/hack RIGHT NOW for local dev</li>
+</ul>
+
+<p>
+cons:
+</p>
+<ul class="org-ul">
+<li>easy to shoot yourself in the foot</li>
+<li>doesn&rsquo;t scale super well - if you hit 1000 loc you are TOO FAR GONE</li>
+<li>nested getopts and exports for passing <i>dynamic</i> options is inflexible. This is more for your hot paths in local dev + tools.</li>
+</ul>
+
+<p>
+Not everything has to be so formal. Here&rsquo;s a funcy-style script I made called <code>sm</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
+</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">"stream manipulation"
+</span>
+<span style="color: #c6007f;">seen</span>() {
+    stdbuf -oL awk <span style="color: #007c00;">'!seen[$'</span>${<span style="color: #c6007f;">1</span>:-0}<span style="color: #007c00;">']++'</span>
+}
+
+<span style="color: #c6007f;">noblanks</span>() {
+    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">removes blank lines and lines with spaces/tabs
+</span>    sed <span style="color: #007c00;">'/^[[:space:]]*$/d'</span>
+}
+
+<span style="color: #c6007f;">norepeat</span>() {
+    stdbuf -oL awk <span style="color: #007c00;">'$0!=prev; {prev=$0}'</span>
+}
+
+<span style="color: #c6007f;">norepeat</span>() {
+  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">repeat based on field index changing:
+</span>  <span style="color: #c6007f;">key_field</span>=${<span style="color: #c6007f;">1</span>:-0}
+
+  stdbuf -oL awk -v <span style="color: #c6007f;">k</span>=<span style="color: #007c00;">"$key_field"</span> <span style="color: #007c00;">'
+    {
+      key = $k
+      if (!(key in last) || last[key] != $0) {
+        print
+        last[key] = $0
+      }
+    }
+  '</span>
+}
+
+<span style="color: #c6007f;">strip-ts</span> () {
+    stdbuf -oL sed -E <span style="color: #007c00;">'s/\(.*\)//'</span>
+}
+
+<span style="color: #0065c8;">if </span><span style="color: #0065c8;">test</span> -z <span style="color: #007c00;">"$*"</span>; <span style="color: #0065c8;">then</span>
+   <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"sm options: norepeat|seen"</span>
+   <span style="color: #0065c8;">exit</span> 1
+<span style="color: #0065c8;">fi</span>
+
+<span style="color: #0065c8;">if</span> [[ <span style="color: #007c00;">"$(</span><span style="color: #c6007f;">type -t "$1"</span><span style="color: #007c00;">)"</span> = <span style="color: #007c00;">"function"</span> ]]; <span style="color: #0065c8;">then</span>
+    <span style="color: #007c00;">"$@"</span>
+<span style="color: #0065c8;">else</span>
+    <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"sm: unknown function $1"</span> &gt;&amp;2
+    <span style="color: #0065c8;">exit</span> 1
+<span style="color: #0065c8;">fi</span>
+</code></pre>
+</div>
+
+<p>
+I dug <code>sm</code> out my <code>~/bin</code> for this post. You can see I&rsquo;ve inlined the usage message and as a result it has drifted from reality. You can also see an older version of <code>norepeat</code>, so within the script itself I can re-fetch older behavior by commenting out one for preferred behavior. Funcy-style scripts are MEANT to be touched by you, the developer, to get your preferred outcome. When they rot, it&rsquo;s easier to see what past you was intending IMO.
+</p>
+
+<p>
+<details><summary>Trivia</summary>
+The dynamic usage trick is inspired by <a href="https://github.com/p8952/bocker/blob/master/bocker#L111-L113">bocker</a>.
+</details>
+</p>
+
+<hr>
+<footer>
+    <div style="float: left">
+         <a href='funcall-interactively.html'>newer: {fun,}call-interactively</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='global-ripgrep-ignore-file.html'>older: global ripgrep ignore file</a> 
+    </div>
+</footer>
+<div class=flair> </div>
+</main>
+</body>
+</html>

@@ -18,13 +18,14 @@
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
+<style> :root { --post-bg-url: url("../posts/ca_dump3/ca8e4629e309e031e8784ccfbd00a144a30e0119ce71f03bcd564aa423fc7d0b.png"); } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
 <link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=e3230a20f6c19f5740c0f5f6ee8b722d'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=3bbc211e541cb403f58205936d27b803'>
 </head>
 <body>
 <main id="content" class="content">
@@ -40,13 +41,13 @@
 </div>
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
     </svg>
     (untitled)
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="15" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
-        <rect x="14" y="6" width="20" height="20" fill="none" stroke="#524d4a" stroke-width="2"/>
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
     </svg>
 </h1>
 
@@ -471,6 +472,18 @@ input type {
 </p>
 
 <p>
+.figure-number {
+    display: none;
+}
+</p>
+
+<p>
+figcaption {
+    margin-top: 0px;
+}
+</p>
+
+<p>
 <i>* exported from org.css *</i>
 .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
 .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
@@ -499,6 +512,9 @@ dt { font-weight: bold; }
 .equation {
     vertical-align: middle;
 }
+</p>
+
+<p>
 .equation-label {
     display: table-cell;
     text-align: right;
@@ -506,20 +522,56 @@ dt { font-weight: bold; }
 }
 </p>
 
-
 <p>
-.flair {
+.flair2 {
     <i>* height: 5rem; width: 50%; *</i>
-    width: 7rem; height: 11rem;
-    <i>* border-width: 10px; *</i>
-    margin: auto;
-    <i>* margin-top: em; *</i>
-    <i>* border-radius: 30%; *</i>
+    float:center;
+    height: 7rem; width: 4rem;
 </p>
 
 <p>
-    background-image: url(&ldquo;../img/backgrounds/leaves.jpg&rdquo;);
-    <i>* background-image: url(&ldquo;../img/backgrounds/pattern_125.gif&rdquo;); *</i>
+<i>* width: 7rem; height: 11rem; *</i>
+<i>* border-width: 10px; *</i>
+margin: auto;
+<i>* margin-top: 1rem; *</i>
+<i>* margin-bottom: 1rem; *</i>
+transform: rotate(-45deg);
+border-radius: 50%;
+</p>
+
+<p>
+<i>* background-image: url(&ldquo;../img/backgrounds/leaves.jpg&rdquo;); *</i>
+</p>
+
+<p>
+background-image: url(&ldquo;../img/backgrounds/pattern_125.gif&rdquo;);
+</p>
+
+
+<p>
+}
+.flair {
+    <i>* height: 5rem; width: 50%; *</i>
+    float:center;
+    height: 7rem; width: 4rem;
+</p>
+
+<p>
+<i>* width: 7rem; height: 11rem; *</i>
+<i>* border-width: 10px; *</i>
+margin: auto;
+<i>* margin-top: 1rem; *</i>
+<i>* margin-bottom: 1rem; *</i>
+transform: rotate(45deg);
+border-radius: 50%;
+</p>
+
+<p>
+<i>* background-image: url(&ldquo;../img/backgrounds/leaves.jpg&rdquo;); *</i>
+</p>
+
+<p>
+    background-image: url(&ldquo;../img/backgrounds/pattern_125.gif&rdquo;);
     <i>* background-color: var(&ndash;background_plus); *</i>
     <i>* border-color: var(&ndash;alt) var(&ndash;primary) var(&ndash;alt) var(&ndash;assumed) ; *</i>
     <i>* border-color: var(&ndash;assumed); *</i>
@@ -544,6 +596,54 @@ dt { font-weight: bold; }
 <p>
 .spoiler:hover {
     color: var(&ndash;foreground);
+}
+</p>
+
+<p>
+.logo-char {
+    z-index: 100;
+  &ndash;tile-size: 50px;
+  &ndash;logo-leading: 0.8;
+</p>
+
+<p>
+display: block;
+margin: 0;
+line-height: var(&ndash;logo-leading);
+font-size: 15rem;
+text-align: center;
+</p>
+
+<p>
+background: var(&ndash;post-bg-url) repeat;
+background-size: var(&ndash;tile-size) var(&ndash;tile-size);
+background-clip: text;
+-webkit-background-clip: text;
+</p>
+
+<p>
+color: transparent;
+-webkit-text-fill-color: transparent;
+</p>
+
+<p>
+  animation: slide-tile 8s linear infinite;
+}
+</p>
+
+<p>
+footer::after {
+  content: &ldquo;&rdquo;;
+  display: block;
+  clear: both;
+}
+</p>
+
+<p>
+@keyframes slide-tile {
+  to {
+    background-position: calc(-1 * var(&ndash;tile-size)) calc(-1 * var(&ndash;tile-size));
+  }
 }
 </p>
 

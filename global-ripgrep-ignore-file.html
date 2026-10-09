@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>global ripgrep ignore file</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="global ripgrep ignore file - 🜁↝🜃 ">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/1dd7081e091236193d165329d3e93d1305f518dd342507399b20563141779931.png">
+<meta property="og:url" content="https://notes.neeasade.net/global-ripgrep-ignore-file">
+<meta property="description" content="">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<style> :root { --post-bg-url: url("../posts/ca_dump3/1dd7081e091236193d165329d3e93d1305f518dd342507399b20563141779931.png"); } </style>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=3d0e36bc5e03e62446ae16c16994ca70'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c3760c36815f59d61e446548513fe7bf'>
+</head>
+<body>
+<main id="content" class="content">
+<style>
+p {
+    text-align: justify;
+}
+</style>
+
+<header>
+<div style="float: left">
+    <a href='./index.html'>../🜁↝🜃 </a>
+</div>
+
+<div style="float: right">
+    
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/global-ripgrep-ignore-file.org">source</a>
+</div>
+<br />
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
+    </svg>
+    global ripgrep ignore file
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
+    </svg>
+</h1>
+
+<div class="meta-container">
+<span class=pubinfo>
+    Revealed 2026-09-15,
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/global-ripgrep-ignore-file.org">2026-09-16</a>
+</span>
+<span class="posttags">  </span>
+</div>
+</header>
+<hr>
+
+<p>
+I&rsquo;ve been using this hack to have a global ripgrep ignore file for a bit:
+</p>
+
+<p>
+in <code>~/bin/rg</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
+</span>
+/bin/rg --ignore-file <span style="color: #007c00;">"${HOME}/.config/rgignore"</span> <span style="color: #007c00;">"$@"</span>
+</code></pre>
+</div>
+
+<p>
+in <code>~/.config/rgignore</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf"><code>.agent-shell*
+.aider*
+*.svg
+.svn
+
+janet.c
+janet.h
+
+<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">magit:
+</span>COMMIT_EDITMSG
+
+*.vtl
+</code></pre>
+</div>
+
+<div class=separator> ―― 🙥 ―― </div>
+
+<p>
+<details><summary>bonus</summary>
+</p>
+
+<p>
+related: this <code>og</code> script I have:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/bin/</span><span style="color: #0065c8;">sh</span><span style="color: #6a6d6e;">
+</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">call the original version of some thing in $PATH
+</span><span style="color: #c6007f;">og</span>=$<span style="color: #c6007f;">1</span>
+<span style="color: #0065c8;">shift</span>
+<span style="color: #007c00;">"$(</span><span style="color: #c6007f;">type -a "$og" | tail -n 1 | sed -E "s/${og}//;s/ is //;"</span><span style="color: #007c00;">)"</span> <span style="color: #007c00;">"$@"</span>
+</code></pre>
+</div>
+
+<p>
+Which lets the <code>~/bin/rg</code> invocation become <code>og rg</code> instead of a full path.
+</p>
+
+<p>
+</details>
+</p>
+
+<hr>
+<footer>
+    <div style="float: left">
+         <a href='funcy.html'>newer: FUNCy</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='to-a-mouse.html'>older: To a Mouse</a> 
+    </div>
+</footer>
+<div class=flair> </div>
+</main>
+</body>
+</html>

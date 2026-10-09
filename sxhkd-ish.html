@@ -13,21 +13,28 @@
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <meta property="og:title" content="sxhkd-ish - 🜁↝🜃 ">
 <meta property="og:description" content="another place the shell lives forever">
-<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/4a0d16acdfc8214e0ba77477d1faf9e8e18045050d1a41a8abc711529fc99cd7.png">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/433c994dddce10a1d02a85405084d13d02f0f2875c73e3e67c895b7f1f04d8a1.png">
 <meta property="og:url" content="https://notes.neeasade.net/sxhkd-ish">
 <meta property="description" content="another place the shell lives forever">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
+<style> :root { --post-bg-url: url("../posts/ca_dump3/433c994dddce10a1d02a85405084d13d02f0f2875c73e3e67c895b7f1f04d8a1.png"); } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=3d0e36bc5e03e62446ae16c16994ca70'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c3760c36815f59d61e446548513fe7bf'>
 </head>
 <body>
 <main id="content" class="content">
+<style>
+p {
+    text-align: justify;
+}
+</style>
+
 <header>
 <div style="float: left">
     <a href='./index.html'>../🜁↝🜃 </a>
@@ -38,6 +45,7 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/sxhkd-ish.org">source</a>
 </div>
+<br />
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
@@ -57,7 +65,7 @@ another place the shell lives forever
 
 <div class="meta-container">
 <span class=pubinfo>
-    Published 2021-01-26,
+    Revealed 2021-01-26,
     last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/sxhkd-ish.org">2022-07-20</a>
 </span>
 <span class="posttags"> <a href='./tag-bspwm.html'>#bspwm</a><a href='./tag-wayland.html'>#wayland</a><a href='./tag-config.html'>#config</a><a href='./tag-shell.html'>#shell</a> </span>
@@ -122,7 +130,7 @@ super + ctrl + l
 WEW that&rsquo;s a lot. Thanks Baskerbae.
 </p>
 
-<div class=separator> ∗ ∗ ∗ </div>
+<div class=separator> ―― 🙣 ―― </div>
 
 <p>
 Many of the newer wayland window managers have you assign keys individually via a client, mostly in a shape that sort of hails from the i3 config format. I&rsquo;ll cherrypick <a href="https://github.com/swaywm/sway/blob/4d43f1dd996e61e38d89adf0ad1435dac32e38a5/config.in#L90">sway</a>&rsquo;s, but you can see comparable formats in example configs for <a href="https://gitlab.com/cardboardwm/cardboard/-/blob/f2ef2ff076ddbbd23994553b8eff131f9bd0207f/README.md">cardboard</a>, <a href="https://github.com/ifreund/river/blob/afe1f197aa8f80f5fb0069aeaf851240189f9dcc/example/init">river</a>, and <a href="https://github.com/ifreund/river/blob/afe1f197aa8f80f5fb0069aeaf851240189f9dcc/example/init">wayfire</a> as well:

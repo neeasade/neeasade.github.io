@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>windoze tips</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<meta property="og:title" content="windoze tips - 🜁↝🜃 ">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/433c994dddce10a1d02a85405084d13d02f0f2875c73e3e67c895b7f1f04d8a1.png">
+<meta property="og:url" content="https://notes.neeasade.net/windoze-tips">
+<meta property="description" content="">
+<meta name="twitter:card" content="summary">
+<script src="./assets/js/linktext.js" defer></script>
+<style> :root { --post-bg-url: url("../posts/ca_dump3/433c994dddce10a1d02a85405084d13d02f0f2875c73e3e67c895b7f1f04d8a1.png"); } </style>
+<script src=".//assets/js/copy.js" defer></script>
+<script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+<link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
+<link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=3d0e36bc5e03e62446ae16c16994ca70'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c3760c36815f59d61e446548513fe7bf'>
+</head>
+<body>
+<main id="content" class="content">
+<style>
+p {
+    text-align: justify;
+}
+</style>
+
+<header>
+<div style="float: left">
+    <a href='./index.html'>../🜁↝🜃 </a>
+</div>
+
+<div style="float: right">
+    
+    
+    <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/windoze-tips.org">source</a>
+</div>
+<br />
+<h1 class=title>
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
+        <rect x="14" y="6" width="20" height="20" fill="#86c2d7" stroke="#86c2d7" stroke-width="4"/>
+    </svg>
+    windoze tips
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="6" width="20" height="20" fill="#7bcc7b" stroke="#7bcc7b" stroke-width="4"/>
+        <rect x="5" y="15" width="20" height="20" fill="#98bde1" stroke="#98bde1" stroke-width="4"/>
+    </svg>
+</h1>
+
+<div class="meta-container">
+<span class=pubinfo>
+    Revealed 2026-08-05,
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/windoze-tips.org">2026-10-09</a>
+</span>
+<span class="posttags">  </span>
+</div>
+</header>
+<hr>
+
+
+<figure id="orga98bd17">
+<a href="./assets/posts/windows_emacs.png"><img src="./assets/posts/windows_emacs.png" alt="windows_emacs.png"></a>
+
+<figcaption><span class="figure-number">Figure 1: </span>windows alacritty + wsl emacs</figcaption>
+</figure>
+
+<p>
+Windows is truly terrible, here&rsquo;s some snippets of how I&rsquo;m coping. It&rsquo;s been 6 months so just trying to recall things:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://scoop.sh/">https://scoop.sh/</a></li>
+<li>WSL2 with <a href="http://github.com/microsoft/WSL2-Linux-Kernel">kernel</a> built with options for vcan + native docker (IE <i>not</i> the host docker integration thing)</li>
+<li>tui emacs + alacritty
+<ul class="org-ul">
+<li>specifically NOT gui emacs, the wayland weston bridge thing is kinda buggy</li>
+<li>sanity: make sure alacritty is using your GPU drivers and not EG intel fallback ones</li>
+</ul></li>
+<li>start menu -&gt; performance -&gt; &ldquo;adjust the appearance and performance options&rdquo;
+<ul class="org-ul">
+<li>uncheck everything except &ldquo;smooth edges of screen fonts&rdquo;</li>
+</ul></li>
+</ul>
+
+<p>
+<details><summary>.wslconfig</summary>
+</p>
+<div class="org-src-container">
+<pre class="src src-text"><code>[wsl2]
+
+# don't auto shutdown
+vmIdleTimeout=-1
+
+memory=22GB
+
+# was attempting to get udp forwarding with mirrored, didn't appear to work
+# networkingMode=mirrored
+
+debugConsole=true
+
+# networkingMode = bridged
+
+vmSwitch = Default Switch
+
+# build file from kernel:
+kernel=C:\\Users\\user\\vmlinux2
+</code></pre>
+</div>
+<p>
+</details>
+</p>
+<div id="outline-container-How-can-I-fwd-usb-hardware?" class="outline-2">
+<h2 id="How-can-I-fwd-usb-hardware?">How can I fwd usb hardware?<a href="#How-can-I-fwd-usb-hardware?">#</a></h2>
+<div class="outline-text-2" id="text-How-can-I-fwd-usb-hardware?">
+<p>
+<a href="https://github.com/dorssel/usbipd-win/releases">https://github.com/dorssel/usbipd-win/releases</a>
+</p>
+
+<p>
+from an admin cmd.exe:
+</p>
+
+<pre class="example">
+usbipd list
+usbipd attach --wsl --hardware-id 0c72:000c
+usbipd attach --wsl --busid 2-11
+</pre>
+</div>
+</div>
+<div id="outline-container-THE-CURSOR-IS-GONE" class="outline-2">
+<h2 id="THE-CURSOR-IS-GONE">THE CURSOR IS GONE<a href="#THE-CURSOR-IS-GONE">#</a></h2>
+<div class="outline-text-2" id="text-THE-CURSOR-IS-GONE">
+<p>
+Restart weston. From windows:
+</p>
+
+<pre class="example">
+wsl --system -d Debian pkill weston
+</pre>
+</div>
+</div>
+<div id="outline-container-path-compatibility" class="outline-2">
+<h2 id="path-compatibility">path compatibility<a href="#path-compatibility">#</a></h2>
+<div class="outline-text-2" id="text-path-compatibility">
+<div class="org-src-container">
+<pre class="src src-bash"><code><span style="color: #c6007f;">lpath</span>() {
+    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">'C:\Users\user\OneDrive - Corp\Documents'
+</span>    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">-&gt; /mnt/c/Users/user/OneDrive - Corp/Documents
+</span>    <span style="color: #c6007f;">result</span>=$(<span style="color: #c6007f;">sed -e 's#C:\\#/mnt/c/#' -e 's#\\#/#g' &lt;&lt;&lt; "$*"</span>)
+    <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"$result"</span>
+}
+
+<span style="color: #c6007f;">wpath</span>() {
+    <span style="color: #c6007f;">p</span>=$(<span style="color: #c6007f;">realpath "$*" | sed 's#/#\\#g'</span>)
+    <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"\\\\wsl.localhost\\Debian$p"</span>
+}
+</code></pre>
+</div>
+
+<hr>
+<footer>
+    <div style="float: left">
+         <a href='to-a-mouse.html'>newer: To a Mouse</a> 
+    </div>
+    <div style="text-align: right">
+         <a href='im-using-wayland-because-of-windows.html'>older: I'm using wayland because of windows</a> 
+    </div>
+</footer>
+<div class=flair> </div>
+</div>
+</div>
+</main>
+</body>
+</html>

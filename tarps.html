@@ -13,21 +13,28 @@
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <meta property="og:title" content="myron-themes previews - 🜁↝🜃 ">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/d2e7224306d4af67cb7a27c3ca6ff0a3924bdabeb0d2fec6bf7b429c525b6fce.png">
+<meta property="og:image" content="https://notes.neeasade.net/assets/posts/ca_dump3/5242e4ef96a13af0964a1cd6967351479180ddde9c1b991d736b316d92611079.png">
 <meta property="og:url" content="https://notes.neeasade.net/tarps">
 <meta property="description" content="">
 <meta name="twitter:card" content="summary">
 <script src="./assets/js/linktext.js" defer></script>
+<style> :root { --post-bg-url: url("../posts/ca_dump3/5242e4ef96a13af0964a1cd6967351479180ddde9c1b991d736b316d92611079.png"); } </style>
 <script src=".//assets/js/copy.js" defer></script>
 <script data-goatcounter="https://neeasade.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 <link rel='stylesheet' href='./assets/css/colors.css?sum=cbc7f86dcba5597749ac3221baabf396'>
 <link rel='stylesheet' href='./assets/css/normalize.css?sum=112272e51c80ffe5bd01becd2ce7d656'>
-<link rel='stylesheet' href='./assets/css/magick.css?sum=a6b11c7faa48760b45ef9ee12484ff69'>
-<link rel='stylesheet' href='./assets/css/notes.css?sum=535bc784f0a7c71b6fbf9ab3b9422a46'>
+<link rel='stylesheet' href='./assets/css/magick.css?sum=3d0e36bc5e03e62446ae16c16994ca70'>
+<link rel='stylesheet' href='./assets/css/notes.css?sum=c3760c36815f59d61e446548513fe7bf'>
 </head>
 <body>
 <main id="content" class="content">
+<style>
+p {
+    text-align: justify;
+}
+</style>
+
 <header>
 <div style="float: left">
     <a href='./index.html'>../🜁↝🜃 </a>
@@ -38,6 +45,7 @@
     
     <a href="https://raw.githubusercontent.com/neeasade/neeasade.github.io/source/posts/2021-01-19-tarps.org">source</a>
 </div>
+<br />
 <h1 class=title>
     <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="15" width="20" height="20" fill="#e9a4d1" stroke="#e9a4d1" stroke-width="4"/>
@@ -52,8 +60,8 @@
 
 <div class="meta-container">
 <span class=pubinfo>
-    Published 2021-01-19,
-    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2021-01-19-tarps.org">2025-07-26</a>
+    Revealed 2021-01-19,
+    last edit <a href="https://github.com/neeasade/neeasade.github.io/commits/source/posts/2021-01-19-tarps.org">2026-10-09</a>
 </span>
 <span class="posttags"> <a href='./tag-emacs.html'>#emacs</a><a href='./tag-lisp.html'>#lisp</a><a href='./tag-code.html'>#code</a> </span>
 </div>
@@ -64,9 +72,82 @@
 This page shows previews of the <a href="https://github.com/neeasade/myron-themes">myron-themes</a> colorschemes for emacs. The readme
 there has more details.
 </p>
-<div id="outline-container-org2dc7c5b" class="outline-2">
-<h2 id="org2dc7c5b">myron-dogman</h2>
-<div class="outline-text-2" id="text-org2dc7c5b">
+
+<style>
+.theme-tabs {
+  border: 0;
+  margin: 1rem 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.theme-tabs legend {
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.theme-tabs input {
+  block-size: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.theme-tabs label {
+  border: 1px solid var(--background_weak);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 .25rem .5rem 0;
+  padding: .4rem .7rem;
+}
+
+.theme-tabs input:checked + label {
+  background: var(--background_strong);
+  border-color: var(--foreground_strong);
+  color: var(--foreground_strong);
+}
+
+.theme-tabs input:focus-visible + label {
+  outline: 2px solid var(--alt);
+  outline-offset: 2px;
+}
+
+.theme-tab-panel {
+  display: none;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+</style>
+
+<style>
+
+#theme-tab-0:checked ~ #theme-panel-0 { display: block; }
+#theme-tab-1:checked ~ #theme-panel-1 { display: block; }
+#theme-tab-2:checked ~ #theme-panel-2 { display: block; }
+#theme-tab-3:checked ~ #theme-panel-3 { display: block; }
+#theme-tab-4:checked ~ #theme-panel-4 { display: block; }
+#theme-tab-5:checked ~ #theme-panel-5 { display: block; }
+#theme-tab-6:checked ~ #theme-panel-6 { display: block; }
+</style>
+<fieldset class="theme-tabs">
+<legend>Theme previews</legend>
+<input checked id="theme-tab-0" name="theme-preview" type="radio"><label for="theme-tab-0">myron-dogman</label>
+<input  id="theme-tab-1" name="theme-preview" type="radio"><label for="theme-tab-1">myron-grayscale</label>
+<input  id="theme-tab-2" name="theme-preview" type="radio"><label for="theme-tab-2">myron-kobo</label>
+<input  id="theme-tab-3" name="theme-preview" type="radio"><label for="theme-tab-3">myron-mcfay</label>
+<input  id="theme-tab-4" name="theme-preview" type="radio"><label for="theme-tab-4">myron-room</label>
+<input  id="theme-tab-5" name="theme-preview" type="radio"><label for="theme-tab-5">myron-storm</label>
+<input  id="theme-tab-6" name="theme-preview" type="radio"><label for="theme-tab-6">myron-struan</label>
+
+<section class="theme-tab-panel" id="theme-panel-0">
+<div id="outline-container-org9d491bc" class="outline-2">
+<h2 id="org9d491bc">myron-dogman</h2>
+<div class="outline-text-2" id="text-org9d491bc">
 <details> <summary>Colors</summary>
 <table>
 
@@ -170,11 +251,16 @@ there has more details.
     <span style="color: #f256c9;">return</span> 0;
 }
 </pre>
+
+</section>
+
+
+<section class="theme-tab-panel" id="theme-panel-1">
 </div>
 </div>
-<div id="outline-container-org7c0d549" class="outline-2">
-<h2 id="org7c0d549">myron-grayscale</h2>
-<div class="outline-text-2" id="text-org7c0d549">
+<div id="outline-container-org0b733bd" class="outline-2">
+<h2 id="org0b733bd">myron-grayscale</h2>
+<div class="outline-text-2" id="text-org0b733bd">
 <details> <summary>Colors</summary>
 <table>
 
@@ -278,11 +364,16 @@ there has more details.
     <span style="color: #686868;">return</span> 0;
 }
 </pre>
+
+</section>
+
+
+<section class="theme-tab-panel" id="theme-panel-2">
 </div>
 </div>
-<div id="outline-container-orgce369c2" class="outline-2">
-<h2 id="orgce369c2">myron-kobo</h2>
-<div class="outline-text-2" id="text-orgce369c2">
+<div id="outline-container-org96081ce" class="outline-2">
+<h2 id="org96081ce">myron-kobo</h2>
+<div class="outline-text-2" id="text-org96081ce">
 <details> <summary>Colors</summary>
 <table>
 
@@ -386,11 +477,16 @@ there has more details.
     <span style="color: #524d4a;">return</span> 0;
 }
 </pre>
+
+</section>
+
+
+<section class="theme-tab-panel" id="theme-panel-3">
 </div>
 </div>
-<div id="outline-container-orga1f4ec3" class="outline-2">
-<h2 id="orga1f4ec3">myron-mcfay</h2>
-<div class="outline-text-2" id="text-orga1f4ec3">
+<div id="outline-container-orgafaa1ce" class="outline-2">
+<h2 id="orgafaa1ce">myron-mcfay</h2>
+<div class="outline-text-2" id="text-orgafaa1ce">
 <details> <summary>Colors</summary>
 <table>
 
@@ -494,11 +590,16 @@ there has more details.
     <span style="color: #0065c8;">return</span> 0;
 }
 </pre>
+
+</section>
+
+
+<section class="theme-tab-panel" id="theme-panel-4">
 </div>
 </div>
-<div id="outline-container-orga9924fa" class="outline-2">
-<h2 id="orga9924fa">myron-room</h2>
-<div class="outline-text-2" id="text-orga9924fa">
+<div id="outline-container-orgcec1d48" class="outline-2">
+<h2 id="orgcec1d48">myron-room</h2>
+<div class="outline-text-2" id="text-orgcec1d48">
 <details> <summary>Colors</summary>
 <table>
 
@@ -602,11 +703,16 @@ there has more details.
     <span style="color: #5a5a5a;">return</span> 0;
 }
 </pre>
+
+</section>
+
+
+<section class="theme-tab-panel" id="theme-panel-5">
 </div>
 </div>
-<div id="outline-container-orgf11ac68" class="outline-2">
-<h2 id="orgf11ac68">myron-storm</h2>
-<div class="outline-text-2" id="text-orgf11ac68">
+<div id="outline-container-org3534f1a" class="outline-2">
+<h2 id="org3534f1a">myron-storm</h2>
+<div class="outline-text-2" id="text-org3534f1a">
 <details> <summary>Colors</summary>
 <table>
 
@@ -710,11 +816,16 @@ there has more details.
     <span style="color: #108082;">return</span> 0;
 }
 </pre>
+
+</section>
+
+
+<section class="theme-tab-panel" id="theme-panel-6">
 </div>
 </div>
-<div id="outline-container-org6fe89cc" class="outline-2">
-<h2 id="org6fe89cc">myron-struan</h2>
-<div class="outline-text-2" id="text-org6fe89cc">
+<div id="outline-container-orgac1ea9d" class="outline-2">
+<h2 id="orgac1ea9d">myron-struan</h2>
+<div class="outline-text-2" id="text-orgac1ea9d">
 <details> <summary>Colors</summary>
 <table>
 
@@ -818,6 +929,10 @@ there has more details.
     <span style="color: #2a7783;">return</span> 0;
 }
 </pre>
+
+</section>
+
+</fieldset>
 
 <hr>
 <footer>
