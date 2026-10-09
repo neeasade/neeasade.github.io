@@ -6,6 +6,42 @@
 }
 
 @font-face {
+font-family: equity_b;
+font-style: normal;
+font-weight: normal;
+font-stretch: normal;
+font-display: auto;
+src: url('https://muffin.app.neeasade.net/fonts/equity_b_regular.woff2') format('woff2');
+}
+
+@font-face {
+font-family: equity_b;
+font-style: italic;
+font-weight: normal;
+font-stretch: normal;
+font-display: auto;
+src: url('https://muffin.app.neeasade.net/fonts/equity_b_italic.woff2') format('woff2');
+}
+
+@font-face {
+font-family: equity_b;
+font-style: normal;
+font-weight: bold;
+font-stretch: normal;
+font-display: auto;
+src: url('https://muffin.app.neeasade.net/fonts/equity_b_bold.woff2') format('woff2');
+}
+
+@font-face {
+font-family: equity_b;
+font-style: italic;
+font-weight: bold;
+font-stretch: normal;
+font-display: auto;
+src: url('https://muffin.app.neeasade.net/fonts/equity_b_bold_italic.woff2') format('woff2');
+}
+
+@font-face {
     font-family: 'Noto Char';
     src: url('/assets/fonts/NotoChar.woff2') format('woff2');
     font-weight: normal;
@@ -16,16 +52,20 @@ body {
     background-attachment: fixed !important ;
     background-repeat: repeat; /* makes the image tile */
     background-position: absolute; /* centers the background */
-    image-rendering: pixelated;
     /* height: 100%; */
 
     /* background: var(--background); */
 
-    background: var(--background_plus);
+    /* background: var(--background_plus); */
+    /* background: var(--background_strong); */
 
     /* keep bg size in sync for pixel perf rendering */
-    /* background: url("../img/backgrounds/room.png") repeat; */
-    /* background-size: auto 195px !important; */
+    /* background: url("../img/backgrounds/pattern_125.gif") repeat; */
+    /* background: url("../posts/ca_dump3/3a52f115d5fa150b593a9ac25364fffbda318937027eb1267fb731714550ca18.png") repeat; */
+    /* image-rendering: pixelated; */
+    /* background-size: auto 106px !important; */
+
+
 }
 
 details {
@@ -110,14 +150,12 @@ a:has(img) {
     padding-right: .5rem;
     border: none !important;
 }
-
 main {
     /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40); */
-    box-shadow: 1px 0px 5px 1px rgba(0,0,0,0.60);
-	/* border-left: 2px solid var(--faded); */
-	/* border-right: 2px solid var(--alt); */
+    /* box-shadow: 1px 0px 5px 1px rgba(0,0,0,0.60); */
     background: var(--bg);
     image-rendering: auto;
+    line-height: 1.2em;
 
     min-height: 100vh;
     /* transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1); */
@@ -127,8 +165,8 @@ main {
     text-align: center;
     vertical-align: center;
     line-height: 1.0;
-    margin: 0;
-    font-size: 3rem;
+    margin: 1.5em auto;
+    font-size: 1.5em;
 }
 
 table {
@@ -137,6 +175,7 @@ table {
 
 h1 {
     margin-top: 0px;
+    /* padding-top: 4rem; */
     /* margin-bottom: 0.5rem; */
     /* text-shadow: 1px 1px 2px rgba(0,0,0,0.20); */
 }
@@ -397,22 +436,26 @@ dt { font-weight: bold; }
 
 
 }
+
 .flair {
     /* height: 5rem; width: 50%; */
     float:center;
-    height: 7rem; width: 4rem;
+    height: 10rem;
+    width: 10rem;
 
     /* width: 7rem; height: 11rem; */
     /* border-width: 10px; */
     margin: auto;
-    /* margin-top: 1rem; */
+    margin-top: 20vh;
     /* margin-bottom: 1rem; */
-    transform: rotate(45deg);
+    /* transform: rotate(45deg); */
     border-radius: 50%;
 
-    /* background-image: url("../img/backgrounds/leaves.jpg"); */
+    background-image: url("../img/backgrounds/leaves.jpg");
+    /* background-image: url("../img/backgrounds/pattern_125.gif"); */
 
-    background-image: url("../img/backgrounds/pattern_125.gif");
+    box-shadow:         inset 0px 0px 1rem rgba(0,0,0,0.8);
+
     /* background-color: var(--background_plus); */
     /* border-color: var(--alt) var(--primary) var(--alt) var(--assumed) ; */
     /* border-color: var(--assumed); */
