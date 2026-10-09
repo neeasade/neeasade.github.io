@@ -5,6 +5,59 @@
 This page shows previews of the [[https://github.com/neeasade/myron-themes][myron-themes]] colorschemes for emacs. The readme
 there has more details.
 
+#+begin_export html
+<style>
+.theme-tabs {
+  border: 0;
+  margin: 1rem 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.theme-tabs legend {
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.theme-tabs input {
+  block-size: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.theme-tabs label {
+  border: 1px solid var(--background_weak);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 .25rem .5rem 0;
+  padding: .4rem .7rem;
+}
+
+.theme-tabs input:checked + label {
+  background: var(--background_strong);
+  border-color: var(--foreground_strong);
+  color: var(--foreground_strong);
+}
+
+.theme-tabs input:focus-visible + label {
+  outline: 2px solid var(--alt);
+  outline-offset: 2px;
+}
+
+.theme-tab-panel {
+  display: none;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+</style>
+#+end_export
+
 #+BEGIN_SRC elisp :results raw :exports results
 
 ;; this is write-once code
@@ -16,38 +69,68 @@ there has more details.
 	(or (ht-get* theme (or emphasis :normal) label)
 	    (when (not emphasis) (ht-get* theme :meta label)))))
 
-(s-join "\n"
-	(llet [themes (ns/plist-keys myron-themes-cache)]
-	      (-map
-	       (lambda (theme)
-		 (format "
+(llet [themes (ns/plist-keys myron-themes-cache)]
+      (s-join
+       "\n"
+       `("#+begin_export html
+<style>
+"
+		 ,@(-map-indexed
+		    (lambda (index _theme)
+		      (format "#theme-tab-%d:checked ~ #theme-panel-%d { display: block; }"
+			      index
+			      index))
+		    themes)
+		 "</style>
+<fieldset class=\"theme-tabs\">
+<legend>Theme previews</legend>"
+		 ,@(-map-indexed
+		    (lambda (index theme)
+		      (format "<input %s id=\"theme-tab-%d\" name=\"theme-preview\" type=\"radio\"><label for=\"theme-tab-%d\">%s</label>"
+			      (if (= index 0) "checked" "")
+			      index
+			      index
+			      theme))
+		    themes)
+		 "#+end_export"
+		 ,@(-map-indexed
+		    (lambda (index theme)
+		      (format "
+,#+begin_export html
+<section class=\"theme-tab-panel\" id=\"theme-panel-%d\">
+#+end_export
+
 ,** %s
 
 ,#+begin_export html
 <details> <summary>Colors</summary>
-,#+end_export
+#+end_export
 %s
 ,#+begin_export html
 </details>
 %s
-,#+end_export
+</section>
+#+end_export
 "
+			      index
+			      theme
 
-			 theme
-
-			 (s-join "\n"
-				 `("| _           | :normal              | :weak                | :strong              | :focused             |"
-				   ,@(-map (lambda (fg-type)
-					     (format "| %s | %s |" fg-type
-						     (s-join " | "
-							     (-map
-							      (lambda (bg-type)
-								(ns/blog-make-color-preview (myron-cache-get theme fg-type bg-type)))
-							      '(:normal :weak :strong :focused)))))
-					   '(:background :foreground :faded :primary :assumed :alt :strings))))
-			 (ns/mustache (slurp (ns/blog-path "extra/fizzbuzz.html"))
-				      (ht-merge
-				       (ht-get (plist-get myron-themes-cache theme) :normal)
-				       (-ht :focused (ht-get* (plist-get myron-themes-cache theme) :focused :background))))
-			 )) themes)))
+			      (s-join "\n"
+				      `("| _           | :normal              | :weak                | :strong              | :focused             |"
+					,@(-map (lambda (fg-type)
+						  (format "| %s | %s |" fg-type
+							  (s-join " | "
+								  (-map
+								   (lambda (bg-type)
+								     (ns/blog-make-color-preview (myron-cache-get theme fg-type bg-type)))
+								   '(:normal :weak :strong :focused)))))
+						'(:background :foreground :faded :primary :assumed :alt :strings))))
+			      (ns/mustache (slurp (ns/blog-path "extra/fizzbuzz.html"))
+					   (ht-merge
+					    (ht-get (plist-get myron-themes-cache theme) :normal)
+					    (-ht :focused (ht-get* (plist-get myron-themes-cache theme) :focused :background))))))
+		    themes)
+		 "#+begin_export html
+</fieldset>
+#+end_export")))
 #+end_src
