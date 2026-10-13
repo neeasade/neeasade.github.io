@@ -17,7 +17,7 @@ And now my fingers tell me this thing is clunky! That feels /wrong/.
 
 Here's the new shiny:
 
-{{{}}}
+# {{placeholder.png}}
 
 This is a (/inhales/):
 
@@ -41,4 +41,13 @@ Here's a list of things I was considering in a new board because it had been so 
 
 Had to compromise on some of these, I'm getting the low angle by sticking some rubber bumpers on the back right now.
 
-The switches are probably the most drastic change to this setup, and why I'm making a post - since they came out at the start of this year, there's nto a lot of information about them currently.
+The switches are probably the most drastic change to this setup, and why I'm making a post - since they came out at the start of this year, there's not a lot of information about them currently. It doesn't help that keychron has something like five different switches all named /banana/.
+
+Let's look at some stats - for ref the pok3r has cherry mx clears, I've been curious about the ergo clears for some time, and ended up going with the banana. These are all tactile switches.
+
+| .               | cherry mx clear | cherry mx ergo clear | silk pom  banana |
+| actuation force | 65g             | 55g                  | 57±8             |
+| pre travel      | 2.0mm           | 2.0mm                | 2.0±0.4          |
+| total travel    | 4.0mm           | 4.0mm                | 3.4mm            |
+
+# todo: ^ this isn't quite right, pom banana has like no pretravel feel? says an llm. investigate

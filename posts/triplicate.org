@@ -1,0 +1,12 @@
+#+title: SMOOSH
+#+title_extra: kerning be damned
+#+pubdate: <2026-10-05>
+#+filetags:
+#+rss_title:
+#+hidden: t
+
+Go Mono has been my favorite font for years. I drove Triplicate as well for a little bit, and was depressed to find it wasn't for me. I even tried to go away from go mono from time to time, but the market for monospace serif'd fonts is small, and it turns out I love fat fucking slabs on my characters.
+
+Anyway basically a decade ago I was a big fan of browsing [[https://practicaltypography.com/][Practical Typography]] and navel gazing on opinions concerning ligatures, spacing, and things
+
+~8 years ago I purchased 2 fonts from

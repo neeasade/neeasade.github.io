@@ -1,0 +1,24 @@
+#+title: color emoji on alacritty on linux
+#+title_extra:
+#+pubdate: <2026-10-05>
+#+filetags:
+#+rss_title:
+#+hidden: t
+
+# todo:
+# {{{images(alacritty_no_emoji.png|alacritty_emoji.png)}}}
+
+# set a font alias in ~/.
+
+~$XDG_CONFIG_HOME/fontconfig/fonts.conf~:
+
+#+begin_src xml
+
+#+end_src
+
+and then in your alacritty.conf:
+
+#+begin_src conf-toml
+[font]
+normal.family = "alacrittyfont"
+#+end_src
