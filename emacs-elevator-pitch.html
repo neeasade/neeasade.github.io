@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -144,9 +148,9 @@ had to do was tell whisper to submit the message after recording:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(<span style="color: #0065c8;">defun</span> <span style="color: #c6007f;">ns/send-whisper-message</span> ()
-  (<span style="color: #0065c8;">interactive</span>)
-  (<span style="color: #0065c8;">when</span> (eq major-mode 'chatgpt-shell-mode)
+<pre class="src src-emacs-lisp"><code>(<span style="color: #007081;">defun</span> <span style="color: #d93a00;">ns/send-whisper-message</span> ()
+  (<span style="color: #007081;">interactive</span>)
+  (<span style="color: #007081;">when</span> (eq major-mode 'chatgpt-shell-mode)
     (shell-maker-submit)))
 
 (add-hook 'whisper-after-insert-hook #'ns/send-whisper-message)

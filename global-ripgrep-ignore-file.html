@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -77,9 +81,9 @@ in <code>~/bin/rg</code>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
+<pre class="src src-sh"><code><span style="color: #8e7e49;">#</span><span style="color: #8e7e49;">!/usr/bin/</span><span style="color: #007081;">env</span><span style="color: #8e7e49;"> bash
 </span>
-/bin/rg --ignore-file <span style="color: #007c00;">"${HOME}/.config/rgignore"</span> <span style="color: #007c00;">"$@"</span>
+/bin/rg --ignore-file <span style="color: #5770c6;">"${HOME}/.config/rgignore"</span> <span style="color: #5770c6;">"$@"</span>
 </code></pre>
 </div>
 
@@ -96,7 +100,7 @@ in <code>~/.config/rgignore</code>:
 janet.c
 janet.h
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">magit:
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">magit:
 </span>COMMIT_EDITMSG
 
 *.vtl
@@ -114,11 +118,11 @@ related: this <code>og</code> script I have:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/bin/</span><span style="color: #0065c8;">sh</span><span style="color: #6a6d6e;">
-</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">call the original version of some thing in $PATH
-</span><span style="color: #c6007f;">og</span>=$<span style="color: #c6007f;">1</span>
-<span style="color: #0065c8;">shift</span>
-<span style="color: #007c00;">"$(</span><span style="color: #c6007f;">type -a "$og" | tail -n 1 | sed -E "s/${og}//;s/ is //;"</span><span style="color: #007c00;">)"</span> <span style="color: #007c00;">"$@"</span>
+<pre class="src src-sh"><code><span style="color: #8e7e49;">#</span><span style="color: #8e7e49;">!/bin/</span><span style="color: #007081;">sh</span><span style="color: #8e7e49;">
+</span><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">call the original version of some thing in $PATH
+</span><span style="color: #d93a00;">og</span>=$<span style="color: #d93a00;">1</span>
+<span style="color: #007081;">shift</span>
+<span style="color: #5770c6;">"$(</span><span style="color: #d93a00;">type -a "$og" | tail -n 1 | sed -E "s/${og}//;s/ is //;"</span><span style="color: #5770c6;">)"</span> <span style="color: #5770c6;">"$@"</span>
 </code></pre>
 </div>
 

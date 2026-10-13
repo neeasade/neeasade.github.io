@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -84,11 +88,11 @@ I&rsquo;ve never gotten xsane to work. <code>scanimage</code> did me good though
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nb: might need sudo on scanimage
-</span>$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list devices:
+<pre class="src src-sh"><code>$ <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nb: might need sudo on scanimage
+</span>$ <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">list devices:
 </span>$ scanimage -L
-$ scanimage -d <span style="color: #007c00;">'&lt;device&gt;'</span> &gt; result.pnm
-$ <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">create a PDF with graphicsmagic
+$ scanimage -d <span style="color: #5770c6;">'&lt;device&gt;'</span> &gt; result.pnm
+$ <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">create a PDF with graphicsmagic
 </span>$ gm convert result.pnm result.pdf
 </code></pre>
 </div>

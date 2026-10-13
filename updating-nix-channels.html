@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -80,20 +84,20 @@ outside of your config. To change the default nix-channel reference:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nix-channel --list
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nix-channel --list
 </span>nixos https://nixos.org/channels/nixos-19.09
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nix-channel --remove nixos
-</span>uninstalling <span style="color: #007c00;">'nixos-19.09.1861.eb65d1dae62'</span>
-building <span style="color: #007c00;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
-created 0 symlinks<span style="color: #0065c8;"> in</span> user environment
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nix-channel --remove nixos
+</span>uninstalling <span style="color: #5770c6;">'nixos-19.09.1861.eb65d1dae62'</span>
+building <span style="color: #5770c6;">'/nix/store/xsk9wjy0dpp7w7d3r3bkzxzaklqdzq6q-user-environment.drv'</span>...
+created 0 symlinks<span style="color: #007081;"> in</span> user environment
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nix-channel --add 'https://nixos.org/channels/nixos-19.09' nixos
 </span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nix-channel --list
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nix-channel --list
 </span>nixos https://nixos.org/channels/nixos-19.09
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nix-channel --update
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nix-channel --update
 </span>nixos https://nixos.org/channels/nixos-19.09
 </code></pre>
 </div>
@@ -103,7 +107,7 @@ And then updating the nix-channels can be done with:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">nix-channel --update</span>
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">nix-channel --update</span>
 </code></pre>
 </div>
 

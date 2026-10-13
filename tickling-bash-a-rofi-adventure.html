@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -78,7 +82,7 @@ where the &rsquo;perfect menu&rsquo; means you can start typing right away
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>sh -c <span style="color: #007c00;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #0065c8;">read</span> pid; <span style="color: #0065c8;">read</span> line; <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"$line"</span>; <span style="color: #0065c8;">kill</span> $<span style="color: #c6007f;">pid</span>)
+<pre class="src src-sh"><code>sh -c <span style="color: #5770c6;">'echo $$; echo a; sleep 100; echo b'</span> | (<span style="color: #007081;">read</span> pid; <span style="color: #007081;">read</span> line; <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"$line"</span>; <span style="color: #007081;">kill</span> $<span style="color: #d93a00;">pid</span>)
 </code></pre>
 </div>
 
@@ -130,7 +134,7 @@ a script in my path also named dmenu pointing at <a href="https://github.com/nee
 Such is the state of things for a few months.
 </p>
 
-<div class=separator> ―― 🙤 ―― </div>
+<div class=separator> ―― 🙠 ―― </div>
 
 <p>
 In the past few weeks, I&rsquo;ve been practicing my touch typing. As you get a little faster, latency starts to matter. If emacs is lagging it&rsquo;s like I&rsquo;m typing through the mud (tangent: emacs was lagging and I <a href="https://github.com/syl20bnr/evil-escape/pull/91#issuecomment-622970007">found out why</a>). You start noticing things. Things like the fact that dmenu (and my <code>emacs_dmenu</code> wrapper) BLOCK UNTIL STDIN IS READ. After performing some tweaks I was down to ~100ms for gathering all the jump candidates. emacs takes about another 100ms to create a frame on my machine. A 200ms bump is quite noticable in the &ldquo;flow&rdquo; of things (you have an action in mind, you mash the keybind and start typing then OOPS I just sent gibberish to my text editor).
@@ -157,7 +161,7 @@ So, I&rsquo;m using rofi in dmenu mode, because I&rsquo;m using it as a dmenu re
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>(<span style="color: #0065c8;">echo</span> a; sleep 10; <span style="color: #0065c8;">echo</span> b) | rofi -dmenu -async-pre-read 0
+<pre class="src src-sh"><code>(<span style="color: #007081;">echo</span> a; sleep 10; <span style="color: #007081;">echo</span> b) | rofi -dmenu -async-pre-read 0
 </code></pre>
 </div>
 

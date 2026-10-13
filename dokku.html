@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -81,20 +85,20 @@ vultr) - named the &ldquo;app&rdquo; muffin, after my cat:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><code><span style="color: #c6007f;">domain</span>=app.neeasade.net
-<span style="color: #c6007f;">app_name</span>=muffin
+<pre class="src src-bash"><code><span style="color: #d93a00;">domain</span>=app.neeasade.net
+<span style="color: #d93a00;">app_name</span>=muffin
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">on server
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">on server
 </span>wget -NP . https://dokku.com/install/v0.35.7/bootstrap.sh
-sudo <span style="color: #c6007f;">DOKKU_TAG</span>=v0.35.7 bash bootstrap.sh
-dokku domains:set-global <span style="color: #007c00;">"$domain"</span>
+sudo <span style="color: #d93a00;">DOKKU_TAG</span>=v0.35.7 bash bootstrap.sh
+dokku domains:set-global <span style="color: #5770c6;">"$domain"</span>
 cat ~/.ssh/authorized_keys | dokku ssh-keys:add admin
-dokku apps:create <span style="color: #007c00;">'$app_name'</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">don't forget to open ports: 80, 443
+dokku apps:create <span style="color: #5770c6;">'$app_name'</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">don't forget to open ports: 80, 443
 </span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">on your computer/from repo
-</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">... add Procfile, then:
-</span>git remote add dokku <span style="color: #007c00;">"dokku@$domain:$app_name"</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">on your computer/from repo
+</span><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">... add Procfile, then:
+</span>git remote add dokku <span style="color: #5770c6;">"dokku@$domain:$app_name"</span>
 git push dokku main
 </code></pre>
 </div>
@@ -120,8 +124,8 @@ on server:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">self signed cert option:
-</span>dokku certs:generate <span style="color: #007c00;">"$app_name"</span> key
+<pre class="src src-bash"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">self signed cert option:
+</span>dokku certs:generate <span style="color: #5770c6;">"$app_name"</span> key
 </code></pre>
 </div>
 
@@ -131,14 +135,14 @@ or, <a href="https://github.com/dokku/dokku-letsencrypt">Let&rsquo;s Encrypt</a>
 
 <div class="org-src-container">
 <pre class="src src-bash"><code>dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
-dokku letsencrypt:cron-job --add <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">&lt;- To enable auto-renew
+dokku letsencrypt:cron-job --add <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">&lt;- To enable auto-renew
 </span>
-dokku letsencrypt:set <span style="color: #007c00;">"$app_name"</span> email your@email.tld
-dokku letsencrypt:enable <span style="color: #007c00;">"$app_name"</span>
+dokku letsencrypt:set <span style="color: #5770c6;">"$app_name"</span> email your@email.tld
+dokku letsencrypt:enable <span style="color: #5770c6;">"$app_name"</span>
 </code></pre>
 </div>
 
-<div class=separator> ―― 🙦 ―― </div>
+<div class=separator> ―― 🙢 ―― </div>
 
 <p>
 usecase:
@@ -155,31 +159,31 @@ The entire source is below:
 </p>
 <div class="org-src-container">
 <pre class="src src-clojure"><code>
-(<span style="color: #0065c8;">ns</span> <span style="color: #006e96;">muffin.handler</span>
-  (<span style="color: #0065c8;">:require</span> [compojure.core <span style="color: #0065c8;">:refer</span> <span style="color: #0065c8;">:all</span>]
-            [compojure.route <span style="color: #0065c8;">:as</span> route]
-            [ring.util.response <span style="color: #0065c8;">:as</span> resp]
-            [ring.middleware.defaults <span style="color: #0065c8;">:refer</span> [wrap-defaults site-defaults]]))
+(<span style="color: #007081;">ns</span> <span style="color: #796c44;">muffin.handler</span>
+  (<span style="color: #007081;">:require</span> [compojure.core <span style="color: #007081;">:refer</span> <span style="color: #007081;">:all</span>]
+            [compojure.route <span style="color: #007081;">:as</span> route]
+            [ring.util.response <span style="color: #007081;">:as</span> resp]
+            [ring.middleware.defaults <span style="color: #007081;">:refer</span> [wrap-defaults site-defaults]]))
 
-(<span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">svg-response</span> [svg-content]
-  (<span style="color: #0065c8;">-&gt;</span> (<span style="color: #006e96;">resp</span>/response svg-content)
-      (<span style="color: #006e96;">resp</span>/content-type <span style="color: #007c00;">"image/svg+xml"</span>)
-      (<span style="color: #006e96;">resp</span>/header <span style="color: #007c00;">"Cache-Control"</span> <span style="color: #007c00;">"public, max-age=31536000, immutable"</span>)))
+(<span style="color: #007081;">defn</span> <span style="color: #d93a00;">svg-response</span> [svg-content]
+  (<span style="color: #007081;">-&gt;</span> (<span style="color: #796c44;">resp</span>/response svg-content)
+      (<span style="color: #796c44;">resp</span>/content-type <span style="color: #5770c6;">"image/svg+xml"</span>)
+      (<span style="color: #796c44;">resp</span>/header <span style="color: #5770c6;">"Cache-Control"</span> <span style="color: #5770c6;">"public, max-age=31536000, immutable"</span>)))
 
-(<span style="color: #0065c8;">defn</span> <span style="color: #c6007f;">color-block</span>
+(<span style="color: #007081;">defn</span> <span style="color: #d93a00;">color-block</span>
   ([color] (color-block color 16))
   ([color width]
-   (<span style="color: #0065c8;">when</span> (re-matches #<span style="color: #007c00;">"[a-f0-9]{6}"</span> color)
-     (format <span style="color: #007c00;">"&lt;svg xmlns='http://www.w3.org/2000/svg' width='%s' height='%s'&gt;
+   (<span style="color: #007081;">when</span> (re-matches #<span style="color: #5770c6;">"[a-f0-9]{6}"</span> color)
+     (format <span style="color: #5770c6;">"&lt;svg xmlns='http://www.w3.org/2000/svg' width='%s' height='%s'&gt;
   &lt;rect width='%s' height='%s' fill='#%s'/&gt;
 &lt;/svg&gt;"</span> width width width width color))))
 
 (defroutes app-routes
-  (GET <span style="color: #007c00;">"/"</span> [] <span style="color: #007c00;">"But why? -_-"</span>)
-  (GET <span style="color: #007c00;">"/colorsquare/:color.svg"</span> [color] (svg-response (color-block color)))
-  (<span style="color: #006e96;">route</span>/not-found <span style="color: #007c00;">"Not Found"</span>))
+  (GET <span style="color: #5770c6;">"/"</span> [] <span style="color: #5770c6;">"But why? -_-"</span>)
+  (GET <span style="color: #5770c6;">"/colorsquare/:color.svg"</span> [color] (svg-response (color-block color)))
+  (<span style="color: #796c44;">route</span>/not-found <span style="color: #5770c6;">"Not Found"</span>))
 
-(<span style="color: #0065c8;">def</span> <span style="color: #c6007f;">app</span> (wrap-defaults app-routes site-defaults))
+(<span style="color: #007081;">def</span> <span style="color: #d93a00;">app</span> (wrap-defaults app-routes site-defaults))
 </code></pre>
 </div>
 
@@ -187,15 +191,15 @@ The entire source is below:
 <code>./project.clj</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-clojure"><code>(<span style="color: #0065c8;">defproject</span> muffin <span style="color: #007c00;">"0.1.0-SNAPSHOT"</span>
-  <span style="color: #0065c8;">:min-lein-version</span> <span style="color: #007c00;">"2.0.0"</span>
-  <span style="color: #0065c8;">:dependencies</span> [[<span style="color: #006e96;">org.clojure</span>/clojure <span style="color: #007c00;">"1.10.0"</span>]
-                 [compojure <span style="color: #007c00;">"1.6.1"</span>]
-                 [<span style="color: #006e96;">ring</span>/ring-defaults <span style="color: #007c00;">"0.3.2"</span>]]
-  <span style="color: #0065c8;">:plugins</span> [[lein-ring <span style="color: #007c00;">"0.12.5"</span>]]
-  <span style="color: #0065c8;">:ring</span> {<span style="color: #0065c8;">:handler</span> <span style="color: #006e96;">muffin.handler</span>/app}
-  <span style="color: #0065c8;">:profiles</span> {<span style="color: #0065c8;">:dev</span> {<span style="color: #0065c8;">:dependencies</span> [[<span style="color: #006e96;">javax.servlet</span>/servlet-api <span style="color: #007c00;">"2.5"</span>]
-                                  [<span style="color: #006e96;">ring</span>/ring-mock <span style="color: #007c00;">"0.3.2"</span>]]}})
+<pre class="src src-clojure"><code>(<span style="color: #007081;">defproject</span> muffin <span style="color: #5770c6;">"0.1.0-SNAPSHOT"</span>
+  <span style="color: #007081;">:min-lein-version</span> <span style="color: #5770c6;">"2.0.0"</span>
+  <span style="color: #007081;">:dependencies</span> [[<span style="color: #796c44;">org.clojure</span>/clojure <span style="color: #5770c6;">"1.10.0"</span>]
+                 [compojure <span style="color: #5770c6;">"1.6.1"</span>]
+                 [<span style="color: #796c44;">ring</span>/ring-defaults <span style="color: #5770c6;">"0.3.2"</span>]]
+  <span style="color: #007081;">:plugins</span> [[lein-ring <span style="color: #5770c6;">"0.12.5"</span>]]
+  <span style="color: #007081;">:ring</span> {<span style="color: #007081;">:handler</span> <span style="color: #796c44;">muffin.handler</span>/app}
+  <span style="color: #007081;">:profiles</span> {<span style="color: #007081;">:dev</span> {<span style="color: #007081;">:dependencies</span> [[<span style="color: #796c44;">javax.servlet</span>/servlet-api <span style="color: #5770c6;">"2.5"</span>]
+                                  [<span style="color: #796c44;">ring</span>/ring-mock <span style="color: #5770c6;">"0.3.2"</span>]]}})
 </code></pre>
 </div>
 

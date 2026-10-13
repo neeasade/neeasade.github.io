@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -69,19 +73,19 @@ p {
 <hr>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">the ':' in front means the flag takes an arg
-</span><span style="color: #0065c8;">while </span><span style="color: #0065c8;">getopts</span> w:reh flag; <span style="color: #0065c8;">do</span>
-    <span style="color: #0065c8;">case</span> $<span style="color: #c6007f;">flag</span><span style="color: #0065c8;"> in</span>
-        w) <span style="color: #c6007f;">wid</span>=$<span style="color: #c6007f;">OPTARG</span>;;
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">the ':' in front means the flag takes an arg
+</span><span style="color: #007081;">while </span><span style="color: #007081;">getopts</span> w:reh flag; <span style="color: #007081;">do</span>
+    <span style="color: #007081;">case</span> $<span style="color: #d93a00;">flag</span><span style="color: #007081;"> in</span>
+        w) <span style="color: #d93a00;">wid</span>=$<span style="color: #d93a00;">OPTARG</span>;;
         r) some_thing;;
         e) print_env;;
         h) usage;;
         *) usage;;
-    <span style="color: #0065c8;">esac</span>
-<span style="color: #0065c8;">done</span>
+    <span style="color: #007081;">esac</span>
+<span style="color: #007081;">done</span>
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">this shift at the end is to reset the args to the env of getopts parsing
-</span><span style="color: #0065c8;">shift</span> $(<span style="color: #c6007f;">(OPTIND-1</span>))
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">this shift at the end is to reset the args to the env of getopts parsing
+</span><span style="color: #007081;">shift</span> $(<span style="color: #d93a00;">(OPTIND-1</span>))
 </code></pre>
 </div>
 

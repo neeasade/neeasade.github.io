@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -98,13 +102,13 @@ This will set a shim on <code>vps:22222</code> -&gt; <code>home:22</code> throug
 <h2 id="h-56d8bbe1-5940-4d97-b817-a71979240c19">From <code>laptop</code><a href="#h-56d8bbe1-5940-4d97-b817-a71979240c19">#</a></h2>
 <div class="outline-text-2" id="text-h-56d8bbe1-5940-4d97-b817-a71979240c19">
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home after ssh'ing into vps:
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">to access home after ssh'ing into vps:
 </span>ssh localhost -p 22222
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to access home in one go from laptop:
-</span>ssh -t vps <span style="color: #007c00;">'ssh localhost -p 22222'</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">to access home in one go from laptop:
+</span>ssh -t vps <span style="color: #5770c6;">'ssh localhost -p 22222'</span>
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">to Jump from the laptop (-J is the jumpbox target):
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">to Jump from the laptop (-J is the jumpbox target):
 </span>ssh -J username@vps:22 localhost -p 22222
 </code></pre>
 </div>
@@ -127,9 +131,9 @@ and then here&rsquo;s a cool trick for providing the connection info to a remote
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(<span style="color: #0065c8;">let*</span> ((tramp-connection-path <span style="color: #007c00;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
-        (default-directory (concat tramp-connection-path <span style="color: #007c00;">"/home/username"</span>))
-        (process-environment (cons (format <span style="color: #007c00;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
+<pre class="src src-emacs-lisp"><code>(<span style="color: #007081;">let*</span> ((tramp-connection-path <span style="color: #5770c6;">"/ssh:username@vps|ssh:username@localhost#22222:"</span>)
+        (default-directory (concat tramp-connection-path <span style="color: #5770c6;">"/home/username"</span>))
+        (process-environment (cons (format <span style="color: #5770c6;">"TRAMP_INFO=%s"</span> tramp-connection-path) process-environment)))
   (shell))
 </code></pre>
 </div>

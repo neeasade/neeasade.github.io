@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -115,7 +119,7 @@ To bypass the kobo account setup, you can exit the database on the device:
 
 <div class="org-src-container">
 <pre class="src src-sh"><code>$ sudo sqlite3 ~/kobo/.kobo/KoboReader.sqlite
-sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES(<span style="color: #007c00;">'1'</span>,<span style="color: #007c00;">''</span>);
+sqlite&gt; INSERT INTO user(UserID,UserKey) VALUES(<span style="color: #5770c6;">'1'</span>,<span style="color: #5770c6;">''</span>);
 sqlite&gt; .quit
 </code></pre>
 </div>
@@ -146,17 +150,17 @@ just looks &ldquo;right&rdquo; to me for reading):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><code>[<span style="color: #006e96;">reader</span>]
-<span style="color: #c6007f;">south-strip</span> = <span style="color: #007c00;">"next-page"</span>
-<span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
-<span style="color: #c6007f;">font-family</span> = <span style="color: #007c00;">"Georgia"</span>
-<span style="color: #c6007f;">margin-width</span> = 10
-<span style="color: #c6007f;">max-margin-width</span> = 20
-<span style="color: #c6007f;">line-height</span> = 1.1
-<span style="color: #c6007f;">ignore-document-css</span> = <span style="color: #0065c8;">true</span>
+<pre class="src src-toml"><code>[<span style="color: #796c44;">reader</span>]
+<span style="color: #d93a00;">south-strip</span> = <span style="color: #5770c6;">"next-page"</span>
+<span style="color: #d93a00;">font-path</span> = <span style="color: #5770c6;">"/mnt/onboard/.adds/plato/fonts"</span>
+<span style="color: #d93a00;">font-family</span> = <span style="color: #5770c6;">"Georgia"</span>
+<span style="color: #d93a00;">margin-width</span> = 10
+<span style="color: #d93a00;">max-margin-width</span> = 20
+<span style="color: #d93a00;">line-height</span> = 1.1
+<span style="color: #d93a00;">ignore-document-css</span> = <span style="color: #007081;">true</span>
 
-[<span style="color: #006e96;">reader.paragraph-breaker</span>]
-<span style="color: #c6007f;">stretch-tolerance</span> = 1.5
+[<span style="color: #796c44;">reader.paragraph-breaker</span>]
+<span style="color: #d93a00;">stretch-tolerance</span> = 1.5
 </code></pre>
 </div>
 
@@ -189,7 +193,7 @@ accessible with this option in <code>Settings.toml</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><code><span style="color: #c6007f;">font-path</span> = <span style="color: #007c00;">"/mnt/onboard/.adds/plato/fonts"</span>
+<pre class="src src-toml"><code><span style="color: #d93a00;">font-path</span> = <span style="color: #5770c6;">"/mnt/onboard/.adds/plato/fonts"</span>
 </code></pre>
 </div>
 </div>
@@ -202,18 +206,18 @@ Create <code>~/kobo/.adds/plato/css/epub-user.css</code>, and add:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css"><code><span style="color: #c6007f;">p</span> {
-    <span style="color: #0065c8;">text-align</span>: justify;
-    <span style="color: #0065c8;">margin</span>: 1em 0 0 0 <span style="color: #0065c8;">!important</span>;
+<pre class="src src-css"><code><span style="color: #d93a00;">p</span> {
+    <span style="color: #007081;">text-align</span>: justify;
+    <span style="color: #007081;">margin</span>: 1em 0 0 0 <span style="color: #007081;">!important</span>;
 }
 
-<span style="color: #c6007f;">p + p</span> {
-    <span style="color: #0065c8;">text-indent</span>: 1em;
-    <span style="color: #0065c8;">margin</span>: 0 <span style="color: #0065c8;">!important</span>;
+<span style="color: #d93a00;">p + p</span> {
+    <span style="color: #007081;">text-indent</span>: 1em;
+    <span style="color: #007081;">margin</span>: 0 <span style="color: #007081;">!important</span>;
 }
 
-<span style="color: #c6007f;">img</span> { <span style="color: #6a6d6e;">/* </span><span style="color: #6a6d6e;">for centering</span><span style="color: #6a6d6e;"> */</span>
-    <span style="color: #0065c8;">margin</span>: auto;
+<span style="color: #d93a00;">img</span> { <span style="color: #8e7e49;">/* </span><span style="color: #8e7e49;">for centering</span><span style="color: #8e7e49;"> */</span>
+    <span style="color: #007081;">margin</span>: auto;
 }
 </code></pre>
 </div>
@@ -227,9 +231,9 @@ For a db located in  <code>~/kobo/library</code>, set path like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-toml"><code>[[<span style="color: #006e96;">libraries</span>]]
-<span style="color: #c6007f;">path</span> = <span style="color: #007c00;">"/mnt/onboard/library"</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">...</span>
+<pre class="src src-toml"><code>[[<span style="color: #796c44;">libraries</span>]]
+<span style="color: #d93a00;">path</span> = <span style="color: #5770c6;">"/mnt/onboard/library"</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">...</span>
 </code></pre>
 </div>
 </div>

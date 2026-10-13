@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -79,21 +83,21 @@ We can create a model derived from an existing one with a <a href="https://githu
 </p>
 
 <div class="org-src-container">
-<pre class="src src-dockerfile"><code><span style="color: #0065c8;">FROM</span> <span style="color: #006e96; font-weight: bold;">gemma4:26b</span>
+<pre class="src src-dockerfile"><code><span style="color: #007081;">FROM</span> <span style="color: #796c44; font-weight: bold;">gemma4:26b</span>
 
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">setting a seed makes it deterministic
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">setting a seed makes it deterministic
 </span>PARAMETER seed 1337
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">set temperature [higher is more creative, lower is more coherent]
-</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">PARAMETER temperature 0.1
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">set temperature [higher is more creative, lower is more coherent]
+</span><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">PARAMETER temperature 0.1
 </span>PARAMETER temperature 1
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">allow looking back further, at the cost of more memory
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">allow looking back further, at the cost of more memory
 </span>PARAMETER num_ctx 20000
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">PARAMETER num_ctx 4096
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">PARAMETER num_ctx 4096
 </span>
-SYSTEM <span style="color: #007c00;">"""You are a content tagger for text. Your will take in an article and return a terse set of tags.
+SYSTEM <span style="color: #5770c6;">"""You are a content tagger for text. Your will take in an article and return a terse set of tags.
 
 A tag is a single word.
 Tags should not be plural.
@@ -105,8 +109,8 @@ emacs,bspwm,colors,music,hallucination
 RETURN ONLY 1-5 TAGS. There may not be 5 relevant tags.
 """</span>
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">give it an example of expected conversation:
-</span>MESSAGE user tag this text: Cake is nice. I love cats and lately I<span style="color: #007c00;">'ve been thinking about the rain
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">give it an example of expected conversation:
+</span>MESSAGE user tag this text: Cake is nice. I love cats and lately I<span style="color: #5770c6;">'ve been thinking about the rain
 MESSAGE assistant cake,cats,rain</span>
 </code></pre>
 </div>
@@ -125,7 +129,7 @@ And we&rsquo;re off!:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>$ cat On-Emacs.org | ollama run ns/tagger <span style="color: #007c00;">"tag this text: \n"</span>
+<pre class="src src-sh"><code>$ cat On-Emacs.org | ollama run ns/tagger <span style="color: #5770c6;">"tag this text: \n"</span>
 emacs,programming,text-editor,lisp,customization
 </code></pre>
 </div>
@@ -135,7 +139,7 @@ I&rsquo;m not much of a prompt engineer, but it&rsquo;s been fun (and infuriatin
 how little shifts in the system prompt affect the quality of the tagging.
 </p>
 
-<div class=separator> ―― 🙦 ―― </div>
+<div class=separator> ―― 🙤 ―― </div>
 
 <p>
 Much more interesting has been HOWTO display the tags around the site. Showing

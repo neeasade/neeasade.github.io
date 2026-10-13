@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -170,7 +174,7 @@ An <code>elisp</code> script that obfuscates the details of connecting to the ru
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>$ elisp <span style="color: #007c00;">'(message "hello from the shell")'</span>
+<pre class="src src-sh"><code>$ elisp <span style="color: #5770c6;">'(message "hello from the shell")'</span>
 </code></pre>
 </div>
 
@@ -232,7 +236,7 @@ I have a lisp eval function that will have different targets in different situat
 </p>
 
 
-<figure id="org0d51d22">
+<figure id="orgd077528">
 <a href="./assets/posts/eros.png"><img src="./assets/posts/eros.png" alt="eros.png"></a>
 
 </figure>
@@ -246,7 +250,7 @@ I created a derived text mode for irc highlights that allows me to jump to menti
 </p>
 
 
-<figure id="org1ae18dc">
+<figure id="org3d629c5">
 <a href="./assets/posts/circe.png"><img src="./assets/posts/circe.png" alt="circe.png"></a>
 
 </figure>

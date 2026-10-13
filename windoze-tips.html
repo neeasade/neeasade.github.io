@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -69,7 +73,7 @@ p {
 <hr>
 
 
-<figure id="orga98bd17">
+<figure id="org019e20d">
 <a href="./assets/posts/windows_emacs.png"><img src="./assets/posts/windows_emacs.png" alt="windows_emacs.png"></a>
 
 <figcaption><span class="figure-number">Figure 1: </span>windows alacritty + wsl emacs</figcaption>
@@ -154,16 +158,16 @@ wsl --system -d Debian pkill weston
 <h2 id="path-compatibility">path compatibility<a href="#path-compatibility">#</a></h2>
 <div class="outline-text-2" id="text-path-compatibility">
 <div class="org-src-container">
-<pre class="src src-bash"><code><span style="color: #c6007f;">lpath</span>() {
-    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">'C:\Users\user\OneDrive - Corp\Documents'
-</span>    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">-&gt; /mnt/c/Users/user/OneDrive - Corp/Documents
-</span>    <span style="color: #c6007f;">result</span>=$(<span style="color: #c6007f;">sed -e 's#C:\\#/mnt/c/#' -e 's#\\#/#g' &lt;&lt;&lt; "$*"</span>)
-    <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"$result"</span>
+<pre class="src src-bash"><code><span style="color: #d93a00;">lpath</span>() {
+    <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">'C:\Users\user\OneDrive - Corp\Documents'
+</span>    <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">-&gt; /mnt/c/Users/user/OneDrive - Corp/Documents
+</span>    <span style="color: #d93a00;">result</span>=$(<span style="color: #d93a00;">sed -e 's#C:\\#/mnt/c/#' -e 's#\\#/#g' &lt;&lt;&lt; "$*"</span>)
+    <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"$result"</span>
 }
 
-<span style="color: #c6007f;">wpath</span>() {
-    <span style="color: #c6007f;">p</span>=$(<span style="color: #c6007f;">realpath "$*" | sed 's#/#\\#g'</span>)
-    <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"\\\\wsl.localhost\\Debian$p"</span>
+<span style="color: #d93a00;">wpath</span>() {
+    <span style="color: #d93a00;">p</span>=$(<span style="color: #d93a00;">realpath "$*" | sed 's#/#\\#g'</span>)
+    <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"\\\\wsl.localhost\\Debian$p"</span>
 }
 </code></pre>
 </div>

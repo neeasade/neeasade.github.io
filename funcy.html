@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -108,60 +112,60 @@ Template:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
-</span><span style="color: #0065c8;">set</span> -euo pipefail
+<pre class="src src-sh"><code><span style="color: #8e7e49;">#</span><span style="color: #8e7e49;">!/usr/bin/</span><span style="color: #007081;">env</span><span style="color: #8e7e49;"> bash
+</span><span style="color: #007081;">set</span> -euo pipefail
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">if you want relative:
-</span><span style="color: #c6007f;">SCRIPT</span>=$(<span style="color: #c6007f;">readlink -f "${BASH_SOURCE[0]}"</span>)
-<span style="color: #0065c8;">cd</span> <span style="color: #007c00;">"$(</span><span style="color: #c6007f;">dirname $([ -L $0 ] &amp;&amp; readlink -f $0 || echo $0</span><span style="color: #007c00;">))"</span>
-<span style="color: #c6007f;">SCRIPT_DIR</span>=$(<span style="color: #c6007f;">pwd</span>)
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">if you want relative:
+</span><span style="color: #d93a00;">SCRIPT</span>=$(<span style="color: #d93a00;">readlink -f "${BASH_SOURCE[0]}"</span>)
+<span style="color: #007081;">cd</span> <span style="color: #5770c6;">"$(</span><span style="color: #d93a00;">dirname $([ -L $0 ] &amp;&amp; readlink -f $0 || echo $0</span><span style="color: #5770c6;">))"</span>
+<span style="color: #d93a00;">SCRIPT_DIR</span>=$(<span style="color: #d93a00;">pwd</span>)
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">example state:
-</span><span style="color: #0065c8;">export</span> <span style="color: #c6007f;">CCACHE_NOHASHDIR</span>=${<span style="color: #c6007f;">CCACHE_NOHASHDIR</span>:-1}
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">example state:
+</span><span style="color: #007081;">export</span> <span style="color: #d93a00;">CCACHE_NOHASHDIR</span>=${<span style="color: #d93a00;">CCACHE_NOHASHDIR</span>:-1}
 
-<span style="color: #c6007f;">build</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">build the thing
-</span>  <span style="color: #0065c8;">local</span> <span style="color: #c6007f;">jobs</span>=$(<span style="color: #c6007f;">($(nproc</span>) - 2))
-  ninja -j<span style="color: #007c00;">"${jobs}"</span> -t myTarget
+<span style="color: #d93a00;">build</span>() { <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">build the thing
+</span>  <span style="color: #007081;">local</span> <span style="color: #d93a00;">jobs</span>=$(<span style="color: #d93a00;">($(nproc</span>) - 2))
+  ninja -j<span style="color: #5770c6;">"${jobs}"</span> -t myTarget
 }
 
-<span style="color: #c6007f;">run</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">run the thing
+<span style="color: #d93a00;">run</span>() { <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">run the thing
 </span>  ./build/bin/some-app -Xdebug=1
 }
 
-<span style="color: #c6007f;">hello</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">say hello world
-</span>  <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"hello world"</span>
+<span style="color: #d93a00;">hello</span>() { <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">say hello world
+</span>  <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"hello world"</span>
 }
 
-<span style="color: #c6007f;">compose</span>() { <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">compose comands together, stopping if any fail
-</span>  <span style="color: #0065c8;">for</span> x<span style="color: #0065c8;"> in</span> <span style="color: #007c00;">"$@"</span>; <span style="color: #0065c8;">do</span>
-    <span style="color: #0065c8;">if</span> <span style="color: #007c00;">!</span> <span style="color: #007c00;">"$0"</span> <span style="color: #007c00;">"$x"</span>; <span style="color: #0065c8;">then</span>
-      <span style="color: #0065c8;">break</span>
-    <span style="color: #0065c8;">fi</span>
-  <span style="color: #0065c8;">done</span>
+<span style="color: #d93a00;">compose</span>() { <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">compose comands together, stopping if any fail
+</span>  <span style="color: #007081;">for</span> x<span style="color: #007081;"> in</span> <span style="color: #5770c6;">"$@"</span>; <span style="color: #007081;">do</span>
+    <span style="color: #007081;">if</span> <span style="color: #5770c6;">!</span> <span style="color: #5770c6;">"$0"</span> <span style="color: #5770c6;">"$x"</span>; <span style="color: #007081;">then</span>
+      <span style="color: #007081;">break</span>
+    <span style="color: #007081;">fi</span>
+  <span style="color: #007081;">done</span>
 }
 
-<span style="color: #c6007f;">usage</span>() {
-  <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"usage:"</span>
-  awk -F<span style="color: #007c00;">'\\(\\)\\s*\\{\\s*#'</span> <span style="color: #007c00;">'$2{print $1"#"$2}'</span> <span style="color: #007c00;">"${SCRIPT:-0}"</span> | sort | column -ts# -o: &gt;&amp;2
-  <span style="color: #0065c8;">exit</span> 1
+<span style="color: #d93a00;">usage</span>() {
+  <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"usage:"</span>
+  awk -F<span style="color: #5770c6;">'\\(\\)\\s*\\{\\s*#'</span> <span style="color: #5770c6;">'$2{print $1"#"$2}'</span> <span style="color: #5770c6;">"${SCRIPT:-0}"</span> | sort | column -ts# -o: &gt;&amp;2
+  <span style="color: #007081;">exit</span> 1
 }
 
-<span style="color: #0065c8;">test</span> -z <span style="color: #007c00;">"$*"</span> &amp;&amp; usage
+<span style="color: #007081;">test</span> -z <span style="color: #5770c6;">"$*"</span> &amp;&amp; usage
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">aliases
-</span><span style="color: #0065c8;">case</span> <span style="color: #007c00;">"$1"</span><span style="color: #0065c8;"> in</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">aliases
+</span><span style="color: #007081;">case</span> <span style="color: #5770c6;">"$1"</span><span style="color: #007081;"> in</span>
     --help | -h) usage ;;
-    make | b) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- build <span style="color: #007c00;">"$@"</span> ;;
-    comp | c) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- compose <span style="color: #007c00;">"$@"</span> ;;
-    cmake | cm) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- build-cmake <span style="color: #007c00;">"$@"</span> ;;
-    app | r ) <span style="color: #0065c8;">shift</span> &amp;&amp; <span style="color: #0065c8;">set</span> -- run <span style="color: #007c00;">"$@"</span> ;;
-    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">okay maybe this is a bit much
-</span>    -*) <span style="color: #0065c8;">set</span> -- compose $(<span style="color: #c6007f;">echo "${1:1}" | grep -o . | tr $'\n' ' '</span>) ;;
-<span style="color: #0065c8;">esac</span>
+    make | b) <span style="color: #007081;">shift</span> &amp;&amp; <span style="color: #007081;">set</span> -- build <span style="color: #5770c6;">"$@"</span> ;;
+    comp | c) <span style="color: #007081;">shift</span> &amp;&amp; <span style="color: #007081;">set</span> -- compose <span style="color: #5770c6;">"$@"</span> ;;
+    cmake | cm) <span style="color: #007081;">shift</span> &amp;&amp; <span style="color: #007081;">set</span> -- build-cmake <span style="color: #5770c6;">"$@"</span> ;;
+    app | r ) <span style="color: #007081;">shift</span> &amp;&amp; <span style="color: #007081;">set</span> -- run <span style="color: #5770c6;">"$@"</span> ;;
+    <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">okay maybe this is a bit much
+</span>    -*) <span style="color: #007081;">set</span> -- compose $(<span style="color: #d93a00;">echo "${1:1}" | grep -o . | tr $'\n' ' '</span>) ;;
+<span style="color: #007081;">esac</span>
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">echo ":: $*" &gt;&amp;2
-</span><span style="color: #007c00;">"$@"</span>
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">echo ":: $*... done" &gt;&amp;2</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">echo ":: $*" &gt;&amp;2
+</span><span style="color: #5770c6;">"$@"</span>
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">echo ":: $*... done" &gt;&amp;2</span>
 </code></pre>
 </div>
 
@@ -193,27 +197,27 @@ Not everything has to be so formal. Here&rsquo;s a funcy-style script I made cal
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;">#</span><span style="color: #6a6d6e;">!/usr/bin/</span><span style="color: #0065c8;">env</span><span style="color: #6a6d6e;"> bash
-</span><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">"stream manipulation"
+<pre class="src src-sh"><code><span style="color: #8e7e49;">#</span><span style="color: #8e7e49;">!/usr/bin/</span><span style="color: #007081;">env</span><span style="color: #8e7e49;"> bash
+</span><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">"stream manipulation"
 </span>
-<span style="color: #c6007f;">seen</span>() {
-    stdbuf -oL awk <span style="color: #007c00;">'!seen[$'</span>${<span style="color: #c6007f;">1</span>:-0}<span style="color: #007c00;">']++'</span>
+<span style="color: #d93a00;">seen</span>() {
+    stdbuf -oL awk <span style="color: #5770c6;">'!seen[$'</span>${<span style="color: #d93a00;">1</span>:-0}<span style="color: #5770c6;">']++'</span>
 }
 
-<span style="color: #c6007f;">noblanks</span>() {
-    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">removes blank lines and lines with spaces/tabs
-</span>    sed <span style="color: #007c00;">'/^[[:space:]]*$/d'</span>
+<span style="color: #d93a00;">noblanks</span>() {
+    <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">removes blank lines and lines with spaces/tabs
+</span>    sed <span style="color: #5770c6;">'/^[[:space:]]*$/d'</span>
 }
 
-<span style="color: #c6007f;">norepeat</span>() {
-    stdbuf -oL awk <span style="color: #007c00;">'$0!=prev; {prev=$0}'</span>
+<span style="color: #d93a00;">norepeat</span>() {
+    stdbuf -oL awk <span style="color: #5770c6;">'$0!=prev; {prev=$0}'</span>
 }
 
-<span style="color: #c6007f;">norepeat</span>() {
-  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">repeat based on field index changing:
-</span>  <span style="color: #c6007f;">key_field</span>=${<span style="color: #c6007f;">1</span>:-0}
+<span style="color: #d93a00;">norepeat</span>() {
+  <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">repeat based on field index changing:
+</span>  <span style="color: #d93a00;">key_field</span>=${<span style="color: #d93a00;">1</span>:-0}
 
-  stdbuf -oL awk -v <span style="color: #c6007f;">k</span>=<span style="color: #007c00;">"$key_field"</span> <span style="color: #007c00;">'
+  stdbuf -oL awk -v <span style="color: #d93a00;">k</span>=<span style="color: #5770c6;">"$key_field"</span> <span style="color: #5770c6;">'
     {
       key = $k
       if (!(key in last) || last[key] != $0) {
@@ -224,21 +228,21 @@ Not everything has to be so formal. Here&rsquo;s a funcy-style script I made cal
   '</span>
 }
 
-<span style="color: #c6007f;">strip-ts</span> () {
-    stdbuf -oL sed -E <span style="color: #007c00;">'s/\(.*\)//'</span>
+<span style="color: #d93a00;">strip-ts</span> () {
+    stdbuf -oL sed -E <span style="color: #5770c6;">'s/\(.*\)//'</span>
 }
 
-<span style="color: #0065c8;">if </span><span style="color: #0065c8;">test</span> -z <span style="color: #007c00;">"$*"</span>; <span style="color: #0065c8;">then</span>
-   <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"sm options: norepeat|seen"</span>
-   <span style="color: #0065c8;">exit</span> 1
-<span style="color: #0065c8;">fi</span>
+<span style="color: #007081;">if </span><span style="color: #007081;">test</span> -z <span style="color: #5770c6;">"$*"</span>; <span style="color: #007081;">then</span>
+   <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"sm options: norepeat|seen"</span>
+   <span style="color: #007081;">exit</span> 1
+<span style="color: #007081;">fi</span>
 
-<span style="color: #0065c8;">if</span> [[ <span style="color: #007c00;">"$(</span><span style="color: #c6007f;">type -t "$1"</span><span style="color: #007c00;">)"</span> = <span style="color: #007c00;">"function"</span> ]]; <span style="color: #0065c8;">then</span>
-    <span style="color: #007c00;">"$@"</span>
-<span style="color: #0065c8;">else</span>
-    <span style="color: #0065c8;">echo</span> <span style="color: #007c00;">"sm: unknown function $1"</span> &gt;&amp;2
-    <span style="color: #0065c8;">exit</span> 1
-<span style="color: #0065c8;">fi</span>
+<span style="color: #007081;">if</span> [[ <span style="color: #5770c6;">"$(</span><span style="color: #d93a00;">type -t "$1"</span><span style="color: #5770c6;">)"</span> = <span style="color: #5770c6;">"function"</span> ]]; <span style="color: #007081;">then</span>
+    <span style="color: #5770c6;">"$@"</span>
+<span style="color: #007081;">else</span>
+    <span style="color: #007081;">echo</span> <span style="color: #5770c6;">"sm: unknown function $1"</span> &gt;&amp;2
+    <span style="color: #007081;">exit</span> 1
+<span style="color: #007081;">fi</span>
 </code></pre>
 </div>
 

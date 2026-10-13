@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -148,17 +152,17 @@ arrow keys):
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ahk"><code>  <span style="color: #c6007f;">#SingleInstance</span> force
+<pre class="src src-ahk"><code>  <span style="color: #d93a00;">#SingleInstance</span> force
 
-<span style="color: #444748;">  Capslock</span>::<span style="color: #444748;">Ctrl</span>
+<span style="color: #6b5c59;">  Capslock</span>::<span style="color: #6b5c59;">Ctrl</span>
 
-<span style="color: #444748;">  </span>::<span style="color: #444748;">Backspace</span> <span style="color: #444748;">Backspace</span>::\\
+<span style="color: #6b5c59;">  </span>::<span style="color: #6b5c59;">Backspace</span> <span style="color: #6b5c59;">Backspace</span>::\\
 
-<span style="color: #444748;">  +BS</span>:: <span style="color: #0065c8;">KeyWait</span><span style="color: #0065c8;">,</span> <span style="color: #444748;">Shift</span> <span style="color: #0065c8;">Send</span><span style="color: #0065c8;">,</span> {<span style="color: #0065c8;">|</span>} <span style="color: #006e96;">Return</span>
+<span style="color: #6b5c59;">  +BS</span>:: <span style="color: #007081;">KeyWait</span><span style="color: #007081;">,</span> <span style="color: #6b5c59;">Shift</span> <span style="color: #007081;">Send</span><span style="color: #007081;">,</span> {<span style="color: #007081;">|</span>} <span style="color: #796c44;">Return</span>
 
-<span style="color: #444748;">  LWin</span>::<span style="color: #444748;">LAlt</span> <span style="color: #444748;">LAlt</span>::<span style="color: #444748;">LWin</span>
+<span style="color: #6b5c59;">  LWin</span>::<span style="color: #6b5c59;">LAlt</span> <span style="color: #6b5c59;">LAlt</span>::<span style="color: #6b5c59;">LWin</span>
 
-<span style="color: #444748;">  RWin</span>::<span style="color: #444748;">RAlt</span> <span style="color: #444748;">RAlt</span>::<span style="color: #444748;">RWin</span>
+<span style="color: #6b5c59;">  RWin</span>::<span style="color: #6b5c59;">RAlt</span> <span style="color: #6b5c59;">RAlt</span>::<span style="color: #6b5c59;">RWin</span>
 </code></pre>
 </div>
 

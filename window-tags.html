@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -138,7 +142,7 @@ did come back to tweak the flow once or twice in the 5 years since.
 So.. What worked? What didn&rsquo;t?
 </p>
 
-<div class=separator> ―― 🙤 ―― </div>
+<div class=separator> ―― 🙦 ―― </div>
 <div id="outline-container-Overview:" class="outline-2">
 <h2 id="Overview:">Overview:<a href="#Overview:">#</a></h2>
 <div class="outline-text-2" id="text-Overview:">
@@ -240,12 +244,12 @@ Showing how I get the info to make those decisions:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>bspc subscribe node_add | <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r event m d i wid; <span style="color: #0065c8;">do</span>
-    <span style="color: #c6007f;">current_class</span>=$(<span style="color: #c6007f;">xprop WM_CLASS -id $wid</span>)
-    <span style="color: #c6007f;">current_name</span>=$(<span style="color: #c6007f;">xprop WM_NAME -id $wid</span>)
-    <span style="color: #c6007f;">last_class</span>=$(<span style="color: #c6007f;">xprop WM_CLASS -id $(bspc query -N last -n</span>))
-    <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">...
-</span><span style="color: #0065c8;">done</span>
+<pre class="src src-sh"><code>bspc subscribe node_add | <span style="color: #007081;">while </span><span style="color: #007081;">read</span> -r event m d i wid; <span style="color: #007081;">do</span>
+    <span style="color: #d93a00;">current_class</span>=$(<span style="color: #d93a00;">xprop WM_CLASS -id $wid</span>)
+    <span style="color: #d93a00;">current_name</span>=$(<span style="color: #d93a00;">xprop WM_NAME -id $wid</span>)
+    <span style="color: #d93a00;">last_class</span>=$(<span style="color: #d93a00;">xprop WM_CLASS -id $(bspc query -N last -n</span>))
+    <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">...
+</span><span style="color: #007081;">done</span>
 </code></pre>
 </div>
 </div>
@@ -258,7 +262,7 @@ Using distinct colors, I can tell assigned tags at a glance (drawn with <a href=
 </p>
 
 
-<figure id="orgd21acf3">
+<figure id="org0314724">
 <a href="./assets/posts/btags.png"><img src="./assets/posts/btags.png" alt="btags.png"></a>
 
 </figure>
@@ -270,7 +274,7 @@ From the top left clockwise: net, code, code, hole
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">tag, visible, border color, wids
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">tag, visible, border color, wids
 </span>$ btags state-plain
 code    true    e9a4d1  0x01ACB110 0x01AD21ED
 net     true    7bcc7b  0x01E00013

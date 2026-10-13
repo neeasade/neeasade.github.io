@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -91,7 +95,7 @@ Ironically in this time of quarantine I find myself tinkering with my mobile set
 </p>
 
 
-<figure id="orgaf468d7">
+<figure id="orgb5173dd">
 <a href="./assets/posts/Screenshot_20200407-165136.png"><img src="./assets/posts/Screenshot_20200407-165136.png" alt="Screenshot_20200407-165136.png"></a>
 
 </figure>
@@ -103,7 +107,7 @@ turns into:
 </div>
 
 
-<figure id="orgd4006f5">
+<figure id="org92898ba">
 <a href="./assets/posts/post_org.png"><img src="./assets/posts/post_org.png" alt="post_org.png"></a>
 
 </figure>
@@ -117,19 +121,19 @@ I use the BlackPlayer music player, which lets you choose what folders to search
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>  <span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">200mb
-</span>  <span style="color: #c6007f;">size_limit</span>=200000
-  <span style="color: #c6007f;">sync_music_dir</span>=<span style="color: #007c00;">"$HOME/sync/orgzly/music"</span>
-  <span style="color: #c6007f;">music_dir</span>=<span style="color: #007c00;">"$HOME/Music"</span>
+<pre class="src src-sh"><code>  <span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">200mb
+</span>  <span style="color: #d93a00;">size_limit</span>=200000
+  <span style="color: #d93a00;">sync_music_dir</span>=<span style="color: #5770c6;">"$HOME/sync/orgzly/music"</span>
+  <span style="color: #d93a00;">music_dir</span>=<span style="color: #5770c6;">"$HOME/Music"</span>
 
-  <span style="color: #c6007f;">IFS</span>=$<span style="color: #007c00;">'\n'</span>
-  <span style="color: #0065c8;">while </span><span style="color: #0065c8;">read</span> -r f; <span style="color: #0065c8;">do</span>
-      <span style="color: #c6007f;">collection_size</span>=$(<span style="color: #c6007f;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
-      <span style="color: #0065c8;">if</span> [ $<span style="color: #c6007f;">collection_size</span> -lt $<span style="color: #c6007f;">size_limit</span> ]; <span style="color: #0065c8;">then</span>
-          <span style="color: #0065c8;">echo</span> cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
-          cp <span style="color: #007c00;">"${music_dir}/$f"</span> <span style="color: #007c00;">"$sync_music_dir"</span>
-      <span style="color: #0065c8;">fi</span>
-  <span style="color: #0065c8;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #007c00;">'%file%'</span> | shuf)
+  <span style="color: #d93a00;">IFS</span>=$<span style="color: #5770c6;">'\n'</span>
+  <span style="color: #007081;">while </span><span style="color: #007081;">read</span> -r f; <span style="color: #007081;">do</span>
+      <span style="color: #d93a00;">collection_size</span>=$(<span style="color: #d93a00;">du "$sync_music_dir" | tail -n 1 | sed 's/\t.*//'</span>)
+      <span style="color: #007081;">if</span> [ $<span style="color: #d93a00;">collection_size</span> -lt $<span style="color: #d93a00;">size_limit</span> ]; <span style="color: #007081;">then</span>
+          <span style="color: #007081;">echo</span> cp <span style="color: #5770c6;">"${music_dir}/$f"</span> <span style="color: #5770c6;">"$sync_music_dir"</span>
+          cp <span style="color: #5770c6;">"${music_dir}/$f"</span> <span style="color: #5770c6;">"$sync_music_dir"</span>
+      <span style="color: #007081;">fi</span>
+  <span style="color: #007081;">done</span> &lt; &lt;(mpc playlist -f <span style="color: #5770c6;">'%file%'</span> | shuf)
 </code></pre>
 </div>
 </div>
@@ -169,7 +173,7 @@ Here&rsquo;s a UX example showing url capture for <a href="https://github.com/rx
 </p>
 
 
-<figure id="org98033fb">
+<figure id="org30e9eb4">
 <a href="./assets/posts/Screenshot_20200407-162542.png"><img src="./assets/posts/Screenshot_20200407-162542.png" alt="Screenshot_20200407-162542.png"></a>
 
 </figure>
@@ -179,7 +183,7 @@ See that termux icon at the top right? After tapping it, a note becomes availabl
 </p>
 
 
-<figure id="orgf3d2d44">
+<figure id="orgc482399">
 <a href="./assets/posts/fe_note.png"><img src="./assets/posts/fe_note.png" alt="fe_note.png"></a>
 
 </figure>

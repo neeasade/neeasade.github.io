@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -132,7 +136,7 @@ To enable magit-svn on a per-repo basis:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><code><span style="color: #0065c8;">cd</span> /path/to/repository git config --add
+<pre class="src src-bash"><code><span style="color: #007081;">cd</span> /path/to/repository git config --add
 magit.extension svn
 </code></pre>
 </div>

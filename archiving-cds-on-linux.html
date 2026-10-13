@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -105,7 +109,7 @@ With cdparanoia:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #0065c8;">cd</span> /place/to/store/tracks
+<pre class="src src-sh"><code><span style="color: #007081;">cd</span> /place/to/store/tracks
 cdparanoia -d &lt;dev&gt; -B
 </code></pre>
 </div>
@@ -115,7 +119,7 @@ cdparanoia -d &lt;dev&gt; -B
 <h2 id="h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">Backing up to an ISO<a href="#h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">#</a></h2>
 <div class="outline-text-2" id="text-h-6eda3e8a-be0b-4f3c-a160-6b8f01a3f9bf">
 <div class="org-src-container">
-<pre class="src src-sh"><code>dd <span style="color: #c6007f;">if</span>=&lt;dev&gt; <span style="color: #c6007f;">of</span>=/path/to/label.iso <span style="color: #c6007f;">bs</span>=128k
+<pre class="src src-sh"><code>dd <span style="color: #d93a00;">if</span>=&lt;dev&gt; <span style="color: #d93a00;">of</span>=/path/to/label.iso <span style="color: #d93a00;">bs</span>=128k
 </code></pre>
 </div>
 </div>

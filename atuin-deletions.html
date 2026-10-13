@@ -64,7 +64,7 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>atuin search --exit 127 <span style="color: #007c00;">""</span> --delete
+<pre class="src src-sh"><code>atuin search --exit 127 <span style="color: #5770c6;">""</span> --delete
 </code></pre>
 </div>
 
@@ -73,10 +73,10 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">list
 </span>atuin search --search-mode fulltext corn
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">delete
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">delete
 </span>atuin search --search-mode fulltext corn --delete
 </code></pre>
 </div>
@@ -94,10 +94,10 @@ specific command, and then <code>ctrl-d</code> to delete it
 <b>delete keyvalue stores by substring in the key</b>
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">list:
+<pre class="src src-sh"><code><span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">list:
 </span>atuin kv list -n dirs | grep blag
 
-<span style="color: #6a6d6e;"># </span><span style="color: #6a6d6e;">delete:
+<span style="color: #8e7e49;"># </span><span style="color: #8e7e49;">delete:
 </span>atuin kv list -n dirs | grep blag  | xargs -n1 atuin kv delete -n dirs
 </code></pre>
 </div>

@@ -31,7 +31,11 @@
 <main id="content" class="content">
 <style>
 p {
-    text-align: justify;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  text-wrap: pretty;
 }
 </style>
 
@@ -88,7 +92,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code>magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #007c00;">'1  1  45'</span> out.png
+<pre class="src src-sh"><code>magick in.png -matte -virtual-pixel tile +distort ScaleRotateTranslate <span style="color: #5770c6;">'1  1  45'</span> out.png
 </code></pre>
 </div>
 </div>
@@ -106,7 +110,7 @@ Better results with square images, of course. The <code>45</code> is the degree 
 <h2 id="Create-a-solid-color-image">Create a solid color image<a href="#Create-a-solid-color-image">#</a></h2>
 <div class="outline-text-2" id="text-Create-a-solid-color-image">
 <div class="org-src-container">
-<pre class="src src-sh"><code>magick -size 100x100 <span style="color: #007c00;">"xc:#cccccc"</span> out.png
+<pre class="src src-sh"><code>magick -size 100x100 <span style="color: #5770c6;">"xc:#cccccc"</span> out.png
 </code></pre>
 </div>
 </div>
@@ -119,16 +123,16 @@ see also: <a href="https://github.com/neeasade/dotfiles/blob/master/bin/bin/tile
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><code><span style="color: #c6007f;">tile</span>=<span style="color: #007c00;">"some_file.png"</span>
-<span style="color: #c6007f;">angle</span>=$(<span style="color: #c6007f;">(RANDOM % 360</span>))
-<span style="color: #c6007f;">w</span>=1920
-<span style="color: #c6007f;">h</span>=1080
+<pre class="src src-sh"><code><span style="color: #d93a00;">tile</span>=<span style="color: #5770c6;">"some_file.png"</span>
+<span style="color: #d93a00;">angle</span>=$(<span style="color: #d93a00;">(RANDOM % 360</span>))
+<span style="color: #d93a00;">w</span>=1920
+<span style="color: #d93a00;">h</span>=1080
 
-magick <span style="color: #007c00;">"$tile"</span> -set option:distort:viewport <span style="color: #007c00;">"${w}x${h}"</span> <span style="color: #007c00;">\</span>
-    -virtual-pixel tile -filter point <span style="color: #007c00;">\</span>
-    -distort SRT <span style="color: #007c00;">"$angle"</span> <span style="color: #007c00;">\</span>
-    -gravity center -crop <span style="color: #007c00;">"${w}x${h}+0+0"</span> +repage <span style="color: #007c00;">\</span>
-    <span style="color: #007c00;">"result.png"</span>
+magick <span style="color: #5770c6;">"$tile"</span> -set option:distort:viewport <span style="color: #5770c6;">"${w}x${h}"</span> <span style="color: #5770c6;">\</span>
+    -virtual-pixel tile -filter point <span style="color: #5770c6;">\</span>
+    -distort SRT <span style="color: #5770c6;">"$angle"</span> <span style="color: #5770c6;">\</span>
+    -gravity center -crop <span style="color: #5770c6;">"${w}x${h}+0+0"</span> +repage <span style="color: #5770c6;">\</span>
+    <span style="color: #5770c6;">"result.png"</span>
 </code></pre>
 </div>
 
