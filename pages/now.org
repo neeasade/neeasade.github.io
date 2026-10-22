@@ -1,7 +1,145 @@
 #+title: life rn
-#+title_extra: July 2026
+#+title_extra: Oct 2026
+
+# NB: archive entries below (GG)
 
 This is a [[https://sive.rs/nowff][now page]].
+
+- *reading*: Malazan, after a detour binge of "The Will of the Many" series
+- *fit*: reconnecting with my yoga routine
+- *tech*: seeking synthesis of the little man in my machine and the little man in my head
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #+begin_export html
 <style>
@@ -11,6 +149,16 @@ details {
 }
 </style>
 #+end_export
+
+
+
+{{{foldstart(ᴛʜᴇ ᴘᴀꜱᴛ)}}}
+
+#+begin_export html
+<h3>July 2026</h3>
+#+end_export
+
+This is a [[https://sive.rs/nowff][now page]].
 
 - *love*: preparing for our wedding ceremony in October!
 - *work*: accidentally working an embedded cpp job in an ag field
@@ -23,145 +171,11 @@ Inspired to start this page after checking on [[https://evalapply.org][a peer]].
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{{foldstart(ᴛʜᴇ ᴘᴀꜱᴛ)}}}
-
 #+begin_export html
 <h3> Pre-2026 </h3>
 #+end_export
+
+{{{htag(h3, test)}}}
 
 12 years in 21 sentences:
 
