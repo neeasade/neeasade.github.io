@@ -21,6 +21,11 @@ scoop the litter, trim nails, or go on a bike ride. I do not compromise the
 pomodoro habit by using it to catch up on my org tasks (I did for a time, and
 found it compromised the integrity of the box)
 
+{{{foldstart("catch up")}}}
+<2026-10-22 Thu 15:26>
+my relationship to "catch up" pomodoros is complicated - the above text about compromising the box is true, but also upon a return to employment+obligations+life, allowing catch up pomos makes it easier to steer back on track of things. TBD
+{{{foldend}}}
+
 I do not always complete all 4 habits of course. When I do, I give myself a
 little smiley face in the planner day - and then I can track my effort over time
 and that gives me an external reference for validation (something that can
