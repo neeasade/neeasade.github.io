@@ -22,3 +22,9 @@ I still use org mode for recurring tasks and things that don't merit a physical 
 I use the habit section at the front to track streaks, and the yearly overview page to track yoga practice. I cut out some unused sections as well so it's not as thicc.
 
 Sometimes I find myself daydreaming that I am a mage or necromancer, and the more I put into this book, the more I'll get out of it.. then I get back to the mundane tasks I noted there for myself and such fantasies quickly fade.
+
+
+{{{foldstart(🕑)}}}
+<2026-10-22 Thu 15:35>
+Another wonderful and terrible thing about the planner is takes time and make it a physical thing. I can turn the page for a week, I can turn 52 pages for a year. It shows how little and how much room there is for things and allows me to gauge if I'm being realistic about my spoons, space, goals.
+{{{foldend}}}
