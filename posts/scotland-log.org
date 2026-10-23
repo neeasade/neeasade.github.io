@@ -3,10 +3,9 @@
 #+post_type: post
 #+filetags:
 #+rss_title:
-#+draft: t
 #+pubdate: <2024-06-21>
 
-# nb: draft status until I add pics here
+{{{image(scotland_path.jpg)}}}
 
 I traveled with a group of 5 to Scotland March 22nd - 30th 2024. We made a triangle across
 the top half of the island, going from Edinburgh -> Oban -> Inverness -> Edinburgh.
@@ -64,7 +63,7 @@ Adam (LAD, 27) - Chill dude. Prone to dropping verses, does not use syntax highl
 
 ** Friday, March 22nd (Edinburgh)
 
-ARRIVAL
+*ARRIVAL*
 
 - Anna arrives ahead of the group by about 6 hours, walks around, has seen all
   EdinBRUH has to offer
@@ -77,7 +76,7 @@ ARRIVAL
 
 ** Saturday, March 23nd (Edinburgh)
 
-WALKIES DAY NUMBER ONE
+*WALKIES DAY NUMBER ONE*
 
 - Discover the hostel has a nice food menu, and that coffee isn't really a thing
   here (only espresso)
@@ -88,7 +87,9 @@ WALKIES DAY NUMBER ONE
     - Most of the gang ate their sandwiches on the way up
     - A very steep climb with a very pretty view
     - Extremely windy at the top
-      todo here: pics
+
+{{{images(scotland/1.png,scotland/0.png)}}}
+
 - Got semi-lost on the way back and got spooked by rain potential, I almost took
   the bus but in the end we all swaggered onward
 - Ate dinner somewhere
@@ -98,7 +99,7 @@ WALKIES DAY NUMBER ONE
 
 ** Sunday, March 24nd (Oban)
 
-LOOK MA, THERE'S WATER HERE
+*LOOK MA, THERE'S WATER HERE*
 
 /nb: Oban is pronounced "oh-bin"/
 
@@ -108,17 +109,19 @@ LOOK MA, THERE'S WATER HERE
 - Get settled in airbnb (start laundry)
 - Checkout the local gift shop, get some trinkets
 - Walk up to tower in center of town, meet 2 cats, take lots of pics
-  todo: pics
+
 - Stumble over to a high end seafood place and sweatily crash for dinner
     - The group all has the same scotch, even though 2 members of the group
       knowingly aren't fans of scotch
 - Stop for stellas at Aulay's
-  todo: pic
+
+{{{images(scotland/2.png,scotland/3.png)}}}
+
 - Play pico park (lots of yelling) in the airbnb until it's time to crash
 
 ** Monday, March 25nd (Oban + Kerrara)
 
-/wherein we harass the sheep/.
+*wherein we harass the sheep*
 
 - The plan: walk about Kerrara and then attend our (reserved) distillery tour
 - Walk 45 min to the Kerrara ferry so we can cross and walk over there
@@ -126,9 +129,13 @@ LOOK MA, THERE'S WATER HERE
     - Immediately buy return tickets upon landing, paying no heed
 - See a sign that says "castle this way" and immediately pursue
 - It's a wonderful scenic route with many sheep and goats to befriend
-    - todo: insert pics
+
+{{{images(scotland/4.png)}}}
+
 - Reach the castle, do parkcore
-    - todo: pics
+
+{{{images(scotland/5.png,scotland/6.png)}}}
+
 - Realize we should head back to the ferry to have a shot at making our 1:30pm tour
 - Do quick walk back to the launch point, see the ferry carry peeps, looks pretty active
 - Ferry captain notes as he walks by: "The next ferry is at 2pm"
@@ -183,13 +190,16 @@ tonight is the night to go ham in Inverness
 - It's hungover hump day. I need pancakes
 - The clock ticks by and somehow pancakes transmogrifies into a full scottish breakfast
     - Peters + Thomas did this the other day, I had some catchup to do 😤
-    - todo: insert pic here
+
+{{{images(scotland/7.png)}}}
+
 - Adam installs emacs. Will he fall down the lisp rabbithole?
     - His distro ships with emacs 27, obv we want 28, welp time to compile emacs
     - emacs 28+ is hard to install on opensuse for gccemacs (libgccjit)
     - ultimately defeated because libgccjit is not packaged for Adam's distro
     - motive for 28 lost, he installs 27 and his beard becomes a little grayer.
-    - todo: insert adam pic here
+
+{{{images(scotland/8.png)}}}
 
 Some how I've completely forgotten what we did this day. Maybe I'll get an
 assist from the gang. What I do remember:
@@ -211,6 +221,8 @@ assist from the gang. What I do remember:
   (shoutout Peters)
 
 ** Thursday (Edinburgh)
+
+{{{images(scotland/9.png)}}}
 
 - Get a bunch of coffee and pastries to start the day
 - Train to edinburgh, gang splits up
@@ -245,6 +257,8 @@ assist from the gang. What I do remember:
 - We all leave for the airport in the morning
 
 * Group References
+
+{{{images(scotland/10.png)}}}
 
 - any word ending in -"er", followed by HEYOOOOO
 - Adammmm
