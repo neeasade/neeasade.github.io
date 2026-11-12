@@ -17,7 +17,6 @@ main > a {
 #+end_export
 
 #+begin_src elisp :results html :exports results
-
 (->> (ns/blog-get-tags)
      (-shuffle)
      ;; (--sort (> (cdr it) (cdr other)))
@@ -26,7 +25,6 @@ main > a {
                (format "<a href='./tag-%s.html' style='font-size: %srem'>%s</a>" tag (* 1.2 (+ 1 (log count))) tag)
              ))
      (s-join "\n"))
-
 #+end_src
 
 #+begin_export html

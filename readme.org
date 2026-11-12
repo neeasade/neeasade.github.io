@@ -3,9 +3,9 @@ Org mode blog. See the generation [[https://github.com/neeasade/emacs.d/blob/mas
 setup:
 
 #+begin_src sh
-git worktree add published origin/master
+git worktree add published origin/published
 cd published
-git checkout master
+git checkout published
 ggpull
 #+end_src
 

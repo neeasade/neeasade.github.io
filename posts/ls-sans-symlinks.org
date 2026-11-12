@@ -1,0 +1,11 @@
+#+title: ls sans symlinks
+#+title_extra:
+#+pubdate: <2026-11-12>
+#+filetags:
+#+rss_title:
+
+IT'S NOT A THING! so you must:
+
+#+begin_src
+find . -type f
+#+end_src
