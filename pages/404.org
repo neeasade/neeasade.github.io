@@ -2,42 +2,92 @@
 
 #+OPTIONS: \n:t
 
+#+begin_export html
+<style>
+#content {
+    # line-height: 0.4em !important;
+    line-height: 0.9em !important;
+}
+.four {
+  rotate: -25deg;
+}
+
+</style>
+#+end_export
+
+
+
 #+BEGIN_CENTER
 
 
 Are you doing what you want to be doing right now?
 
+#+begin_export html
+<div class=four>
+#+end_export
+
+
 #+BEGIN_SRC elisp :results html :exports results
 
 (setq ns/alchemical "🜀🜁🜂🜃🜄🜅🜆🜇🜈🜉🜊🜋🜌🜍🜎🜏🜐🜑🜒🜓🜔🜕🜖🜗🜘🜙🜚🜛🜜🜝🜞🜟🜠🜡🜢🜣🜤🜥🜦🜧🜨🜩🜪🜫🜬🜭🜮🜯🜰🜱🜲🜳🜴🜵🜶🜷🜸🜹🜺🜻🜼🜽🜾🜿🝀🝁🝂🝃🝄🝅🝆🝇🝈🝉🝊🝋🝌🝍🝎🝏🝐🝑🝒🝓🝔🝕🝖🝗🝘🝙🝚🝛🝜🝝🝞🝟🝠🝡🝢🝣🝤🝥🝦🝧🝨🝩🝪🝫🝬🝭🝮🝯🝰🝱🝲🝳")
 
-(defun ns/blog-404-part (row col c)
-  (llet [size (ns/random-list '(1 1 1 1 1))
-	      line? (= 0 (mod (+ 6 col) 10))
-	      line-index (cond
-			  ((> col 25) 3)
-			  ((> col 15) 2)
-			  ((> col 05) 1)
-			  (t 0))
 
-	      color (if-not line?
-			    ;; (myron-get :faded)
-			    (myron-get :background :strong)
-			    (condp = line-index
-				   0 (myron-get :alt)
-				   1 (myron-get :primary)
-				   2 (myron-get :assumed)
-				   3 (myron-get :foreground)))]
-	(format "<span style='font-size: %sem; color: %s'>%s</span>"
-		size
+(defun ns/blog-404-part (row col c length)
+  (llet [
+	 ;; size (ns/random-list '(1 1.1 1.3 1.5 1 1 1 1))
+	 ;; size (ns/random-list '(1 1 1 1 1 1 1 1.5))
+	 ;; size
 
-		(if line?
-		    (nth row (ct-gradient 80 color (myron-get :background) nil 'lab))
-		  ;; (ct-edit-lab-l color (* 2 row))
-		  (nth row (ct-gradient 80 color (myron-get :background :focused) t 'lab))
-		  ;; color
-		  )
-		c c)))
+	 ;; (+ 1 (- (/ (log 81) 10.0) (/ (log row) 10.0)))
+	 ;; (- (/ (1+ row) 10.0) 0)
+
+	 line?
+
+	 (= 0 (mod (+ 6 col) 10))
+
+	 line-index (cond
+		      ((>= col 25) 3)
+		      ((>= col 15) 2)
+		      ((>= col 05) 1)
+		      (t 0))
+
+	 color (if-not line?
+		       (myron-get :background :strong)
+		       ;; (myron-get :foreground)
+		       ;; (if (<= 15 col 16)
+		       ;; 	(myron-get :primary)
+		       ;;   (myron-get :background :strong))
+
+		       (condp = line-index
+			      0 (myron-get :alt)
+			      1 (myron-get :primary)
+			      2 (myron-get :assumed)
+			      3 (myron-get :foreground)))]
+
+
+	;; (prn "foobar")
+	(llet [l
+	       (+ length (round (* length (/ (1+ (- 4 line-index)) 4.0))))
+	       ;; _ (prn l)
+	       ]
+	      (format "<span style='font-size: %sem; color: %s'>%s</span>"
+		      (if line? 1.1 1)
+		      ;; size
+
+		      (if line?
+			  (nth row (ct-gradient l color
+						(myron-get :background)
+						;; "#ffffff"
+						nil 'rgb))
+			;; (ct-edit-lab-l color (* 2 row))
+			(nth row (ct-gradient 81 color
+					      ;; (myron-get :background)
+					      (myron-get :background :focused)
+					      ;; (myron-get :subtle :meta)
+					      t 'rgb))
+			;; color
+			)
+		      c c))))
 
 
 (llet [l 40]
@@ -48,13 +98,23 @@ Are you doing what you want to be doing right now?
 		     "<br/ >"
 		     (-map (lambda (col)
 			     (ns/blog-404-part row col
-					       (ns/random-list (seq-map 'char-to-string ns/alchemical))
+					       (condp = row
+						      0 "🜁"
+						      (* 2 l) "🜃"
+						      (ns/random-list (seq-map 'char-to-string ns/alchemical)))
+					       l
 					       ))
 			   (range (1+ it))))))
-	   (-drop-last 1)
+	   ;; (-drop-last 1)
 	   (s-join "\n")))
 
 #+end_SRC
+
+
+#+begin_export html
+</div>
+#+end_export
+
 
 #+END_CENTER
 
